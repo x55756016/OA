@@ -1,0 +1,159 @@
+﻿<smtLocal:BaseForm 
+    x:Class="SMT.HRM.UI.Form.Attendance.AttendanceDeductDetailForm"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"                 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    >
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Row 0:Title-->
+            <TextBlock x:Name="tbAttendAbnormalNameTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDABNORMALNAME}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAttendAbnormalName" Grid.Row="0" Grid.Column="2" Width="Auto" Height="24" Margin="5,0,0,0" Text="{Binding T_HR_ATTENDANCEDEDUCTMASTER.ATTENDABNORMALNAME, Mode=TwoWay}" IsEnabled="False"/>
+
+            <!--Row 1:AttendanceType & FineType-->
+            <TextBlock x:Name="tbAttTypeTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDABNORMALTYPE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkAttType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ATTENDABNORMALTYPE" SelectedValue="{Binding T_HR_ATTENDANCEDEDUCTMASTER.ATTENDABNORMALTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" IsEnabled="False" SelectionChanged="cbxkAttType_SelectionChanged" />
+
+            <TextBlock x:Name="tbFineTypeTitle" Grid.Row="1" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FINETYPE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkFineType" Grid.Row="1" Grid.Column="6" IsShowNull="False" HorizontalAlignment="Stretch" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" IsEnabled="False"/>
+
+            <!--Row 2:IsAccumulating & IsPerfectAttendanceFactor-->
+            <TextBlock x:Name="tbIsAccumulatingTitle" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISACCUMULATING}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <CheckBox x:Name="cbxIsAccumulating" Style="{StaticResource CheckBoxStyle}" Grid.Row="2" Grid.Column="2" IsChecked="false" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" IsEnabled="False"></CheckBox>
+
+            <TextBlock x:Name="tbIsPerfectAttendanceFactorTitle" Grid.Row="2" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISPERFECTATTENDANCEFACTOR}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <CheckBox x:Name="cbxIsPerfectAttendanceFactor" Style="{StaticResource CheckBoxStyle}" Grid.Row="2" Grid.Column="6" IsChecked="false" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" IsEnabled="False"></CheckBox>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Row 0:Title-->
+            <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+
+            <!--Row 1:Detail Form-->
+            <StackPanel x:Name="spFinetype1" Grid.Row="1" Grid.ColumnSpan="8" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="tbFineSumTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEDUCTFINESUM}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    <inputToolkit:NumericUpDown x:Name="nudFineSum" Style="{StaticResource NumericUpDownStyle}" Grid.Row="0" Grid.Column="2" Width="Auto" Height="24" Margin="5,0,0,0" Maximum="100000"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel x:Name="spFinetype2" Grid.Row="1" Grid.ColumnSpan="8" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="tbParameterValueTitle" Grid.Row="0" Width="Auto" Height="24" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEDUCTPARAMETERVALUE}" Style="{StaticResource FrameGridTextBlock1}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    <inputToolkit:NumericUpDown x:Name="nudParameterValue" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="2" Width="Auto" Height="24" Margin="5,0,0,0" Maximum="100000"></inputToolkit:NumericUpDown>
+                </Grid>
+            </StackPanel>
+            <StackPanel x:Name="spFinetype3" Grid.Row="1" Grid.ColumnSpan="8" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="tbLimitTimes3Title" Grid.Row="0" Width="Auto" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LIMITTIMES}" Style="{StaticResource FrameGridTextBlock1}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    <Grid Grid.Row="0" Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="75"/>
+                        </Grid.ColumnDefinitions>
+                        <inputToolkit:NumericUpDown x:Name="nudLimitTimes31" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Left" Grid.Row="0" Width="70"  Height="24" Margin="5,0,0,0" Maximum="100" VerticalAlignment="Center"></inputToolkit:NumericUpDown>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Width="Auto" Text="&lt;" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="tbAttTypeTimesTitle" Grid.Row="0" Grid.Column="2" Width="Auto" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LATETIMES}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="0" Grid.Column="3" Width="Auto" Text="&lt;=" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <inputToolkit:NumericUpDown x:Name="nudLimitTimes32" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="4" Width="70"  Height="24" Margin="5,0,0,0" Maximum="100" VerticalAlignment="Center"></inputToolkit:NumericUpDown>
+                    </Grid>
+
+                    <TextBlock x:Name="tbFineSum3Title" Grid.Row="0" Grid.Column="4" Width="Auto" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEDUCTFINESUM}" Style="{StaticResource FrameGridTextBlock1}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    <inputToolkit:NumericUpDown x:Name="nudFineSum3" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="6" Width="Auto"  Height="24" Margin="5,0,0,0" Maximum="100000"></inputToolkit:NumericUpDown>
+                </Grid>
+            </StackPanel>
+            <StackPanel x:Name="spFinetype4" Grid.Row="1" Grid.ColumnSpan="8" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="tbFineRatioTitle" Grid.Row="0" Width="Auto" Height="24" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FINERATIO}" Style="{StaticResource FrameGridTextBlock1}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    <inputToolkit:NumericUpDown x:Name="nudFineRatio" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="2" Width="Auto" Height="24" Margin="5,0,0,0" Maximum="100" DecimalPlaces="1" Increment="0.1"/>
+                </Grid>
+            </StackPanel>
+            <!--Row 2:Remark-->
+            <TextBlock x:Name="tbDetailRemarkTitle" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="tbDetailRemark" TextWrapping="Wrap" Grid.Row="2" Grid.Column="2" MaxLength="500" Height="Auto" Width="Auto" Margin="5,0,0,0" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.ColumnSpan="5" />
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

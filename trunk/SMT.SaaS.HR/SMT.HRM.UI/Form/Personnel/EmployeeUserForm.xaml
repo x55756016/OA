@@ -1,0 +1,48 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Personnel.EmployeeUserForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    Width="400" Height="150">
+    <Grid  x:Name="LayoutRoot" Margin="50 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <!--Row 0-->
+        <!--员工名称-->
+        <TextBlock  Grid.Column="0" Grid.Row="0" 
+			Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEECNAME}" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="sName" Grid.Row="0" Grid.Column="1" MaxLength="50">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="EMPLOYEECNAME" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+
+        <!--身份证号码-->
+        <TextBlock  Grid.Row="1" Grid.Column="0" 
+			Text="{Binding Converter={StaticResource ResourceConveter}, Source=IDCARDNUMBER}" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="sNumberID" Grid.Row="1" Grid.Column="1" MaxLength="50" >
+            <!--<validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="IDNUMBER" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>-->
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEIDCARDNUMBER" ErrorMessageParameter="IDNUMBER" Expression="^\d{14}(\d{1}|\d{4}|(\d{3}[xX]))$" ></validator:RegexValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+
+    </Grid>
+</smtLocal:BaseForm>

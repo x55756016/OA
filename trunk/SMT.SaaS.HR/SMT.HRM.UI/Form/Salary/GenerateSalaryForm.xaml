@@ -1,0 +1,73 @@
+﻿<smtLocal:BaseForm
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           x:Class="SMT.HRM.UI.Form.Salary.GenerateSalaryForm"
+          
+            mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        <!--Row 0-->
+        <!--SALARYPERIOD-->
+        <TextBlock   Grid.Column="0" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYPERIOD}"  VerticalAlignment="Center"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+
+            <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" x:Name="numYear" Maximum="1000000" Width="71"  Margin="5,0,0,0"/>
+            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center"/>
+
+            <inputToolkit:NumericUpDown x:Name="numMonth" Maximum="12" Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="61" />
+            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" VerticalAlignment="Center"/>
+
+        </StackPanel>
+        <ComboBox x:Name="cbxPayType" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" SelectionChanged="cbxPayType_SelectionChanged" Loaded="cbxPayType_Loaded" Height="24">
+            <ComboBoxItem  Content="发薪机构"></ComboBoxItem>
+            <ComboBoxItem  Content="组织架构"></ComboBoxItem>
+            <ComboBoxItem  Content="离职薪资"></ComboBoxItem>
+            <ComboBoxItem  Content="指定结算岗位"></ComboBoxItem>
+        </ComboBox>
+        <!--Row 1-->
+        <TextBlock   Grid.Column="0" Grid.Row="1"  x:Name="tbSalaryCompany"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=发薪机构}" VerticalAlignment="Center"/>
+
+        <smt:LookUp  Grid.Row="1" Grid.Column="1"   Width="auto" DisplayMemberPath="CNAME"
+            					FindClick="lkSalaryCompany_FindClick"  x:Name="lkSalaryCompany"  VerticalAlignment="Center"  />
+        <!--RANGE-->
+        <TextBlock   Grid.Column="0" Grid.Row="1" x:Name="tbselectObj"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=RANGE}" VerticalAlignment="Center"/>
+
+        <smt:LookUp  Grid.Row="1" Grid.Column="1"   Width="auto"
+            					FindClick="lkSelectObj_FindClick"  x:Name="lkSelectObj"  VerticalAlignment="Center"  />
+
+        <TextBlock   Grid.Column="0" Grid.Row="1"  x:Name="tbEmployee"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" VerticalAlignment="Center"/>
+
+        <smt:LookUp  Grid.Row="1" Grid.Column="1"   Width="auto"
+            					FindClick="lkEmployee_FindClick"  x:Name="lkEmployee"  VerticalAlignment="Center" DisplayMemberPath="EMPLOYEECNAME" />
+        <!--Row 3-->
+        <TextBox   Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5"  x:Name="txtResult" MinWidth="500" MinHeight="450" TextWrapping="Wrap"
+            					Text="" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"/>
+        <!--<TextBlock   Grid.Column="0" Grid.Row="1" 
+            					Text="生成进度" VerticalAlignment="Center" Visibility="Collapsed"/>
+        <ProgressBar x:Name="progressGenerate" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center" Height="26" Margin="5,0,0,0"  Visibility="Collapsed" />-->
+
+    </Grid>
+</smtLocal:BaseForm>

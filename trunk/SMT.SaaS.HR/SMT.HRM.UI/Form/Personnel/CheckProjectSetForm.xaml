@@ -1,0 +1,58 @@
+﻿<smtLocal:BaseForm xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  x:Class="SMT.HRM.UI.Form.Personnel.CheckProjectSetForm"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+              xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+     xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+         >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+            <!--Row0-->
+            <!--项目名称-->
+            <TextBlock  Grid.Column="0" Grid.Row="0"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKPROJECT}" />
+            <TextBox Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="0" Text="{Binding CHECKPROJECT,Mode=TwoWay}" HorizontalAlignment="Stretch" TextWrapping="NoWrap" MaxLength="50" Height="24" Width="Auto" Margin="5 0 0 0">
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+                <validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CHECKPROJECT" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>
+            </TextBox>
+            <!--Row1-->
+            <!--项目分数-->
+            <TextBlock  Grid.Column="0" Grid.Row="1"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKPROJECTSCORE}" />
+            <!--<inputToolkit:NumericUpDown Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Stretch" Value="{Binding CHECKPROJECTSCORE,Mode=TwoWay}" Style="{StaticResource NumericUpDownStyle}" Maximum="100" Minimum="0" Height="24" Width="auto" Margin="5 0 0 0"></inputToolkit:NumericUpDown>-->
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtScore"  HorizontalAlignment="Stretch" Width="Auto" Margin="5 0 0 0"
+            					Text="{Binding CHECKPROJECTSCORE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="1" Grid.Column="1" Height="24" >
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+                <validator:ValidatorService.Validator>
+                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTNUMBER" ErrorMessageParameter="CHECKPROJECTSCORE" Expression="^[0-9]+(\.\d+)?$"></validator:RegexValidator>
+                </validator:ValidatorService.Validator>
+
+            </TextBox>
+            <!--Row2-->
+            <!--原因-->
+            <TextBlock  Grid.Column="0" Grid.Row="2"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+            <TextBox Style="{StaticResource TextBoxStyle}"   Grid.Row="2" Grid.Column="1" Text="{Binding REMARK,Mode=TwoWay}" TextWrapping="Wrap" Width="auto" MaxLength="2000" Height="68" Margin="5,0,0,0" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Visible" />
+        </Grid>
+      </Grid>
+</smtLocal:BaseForm>

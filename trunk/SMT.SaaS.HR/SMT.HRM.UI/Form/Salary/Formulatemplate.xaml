@@ -1,0 +1,38 @@
+﻿<smtLocal:BaseForm xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="SMT.HRM.UI.Form.Salary.Formulatemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+       xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    >
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="White">
+            <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" SelectionChanged="DtGrid_SelectionChanged"
+                             Grid.Column="1"  LoadingRow="DtGrid_LoadingRow"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="False"
+                        Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="SALARYITEMNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYITEMNAME}">
+                    </data:DataGridTextColumn>
+                    <data:DataGridTextColumn Header="CALCULATETYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CALCULATORTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=CALCULATETYPES}">
+                    </data:DataGridTextColumn>
+                    <data:DataGridTextColumn Header="SALARYITEMTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYITEMTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=SALARYITEMTYPE}"/>
+                    <data:DataGridTextColumn Header="GUERDONSUM" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding GUERDONSUM}"/>
+                    <data:DataGridTextColumn Header="CALCULATEFORMULA" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CALCULATEFORMULA}"/>
+                    <data:DataGridTextColumn Header="ENTITYNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ENTITYNAME}"/>
+                    <data:DataGridTextColumn Header="ENTITYCODE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ENTITYCODE}"/>
+                    <data:DataGridTextColumn Header="ENTITYCOLUMNNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ENTITYCOLUMNNAME}"/>
+                    <data:DataGridTextColumn Header="ENTITYCOLUMNCODE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ENTITYCOLUMNCODE}"/>
+                    <data:DataGridTextColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REMARK}"/>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

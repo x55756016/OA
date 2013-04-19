@@ -1,0 +1,112 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.PostHistoryForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid x:Name="LayoutRoot"  Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="52"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="0.35*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="0.35*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Row 0-->
+        <!--岗位字典-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSITION}" 
+                   Grid.Row="0" Grid.Column="0" ></TextBlock>
+        <ComboBox x:Name="cbxPosition" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Stretch" Style="{StaticResource ComboBoxStyle}"></ComboBox>
+
+        <!--岗位编号-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTCODE}" 
+                   Grid.Row="0" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPosCode"  
+                 Grid.Row="0" Grid.Column="4"  HorizontalAlignment="Stretch" Width="Auto"/>
+
+        <!--Row 1-->
+        <!--公司名称-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENTNAME}" 
+                   Grid.Row="1" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCpyName"  
+                 Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" IsEnabled="False"/>
+        <!--部门名称-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENTNAME}" 
+                   Grid.Row="1" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDepartName"  
+                 Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto" IsEnabled="False"/>
+        
+        <!--Row 2-->
+        <!--岗位职责-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTFUNCTION}" 
+                   Grid.Row="2" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPostFunction" Height="48"
+                 Text="{Binding POSTFUNCTION,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" TextWrapping="Wrap" HorizontalAlignment="Stretch" Width="Auto"/>
+        
+        <!--Row 3-->
+        <!--人员编制-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNUMBER}" 
+                   Grid.Row="3" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPostNumber"  
+                 Text="{Binding POSTNUMBER,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Stretch" Width="Auto"/>
+
+        <!--岗位目标-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTGOAL}" 
+                   Grid.Row="3" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPostGoal"  
+                 Text="{Binding POSTGOAL,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto"/>
+
+        <!--Row 4-->
+        <!--直接上级-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FATHERPOSTID}" 
+                   Grid.Row="4" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDirectSuperior"  
+                 Text="{Binding FATHERPOSTID,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto"/>
+
+        <!--管辖人数-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=UNDERNUMBER}" 
+                   Grid.Row="4" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtManageNmber"  
+                 Text="{Binding UNDERNUMBER,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto"/>
+
+        <!--Row 5-->
+        <!--晋升方向-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROMOTEDIRECTION}" 
+                   Grid.Row="5" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPromote"  
+                 Text="{Binding PROMOTEDIRECTION,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto"/>
+
+        <!--轮换岗位-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHANGEPOST}" 
+                   Grid.Row="5" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtChangePost"  
+                 Text="{Binding CHANGEPOST,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto"/>
+
+        <!--Row 6-->
+        <!--审核人-->
+        <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKUSER}" 
+                   Grid.Row="6" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAuditingUser"  
+                 Text="{Binding CHECKUSER,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"  TextWrapping="Wrap" IsEnabled="False"/>-->
+
+        <!--审核状态-->
+        <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKSTATE}" 
+                   Grid.Row="6" Grid.Column="3" ></TextBlock>
+        <ComboBox x:Name="cbxCheckState" Grid.Row="6" Grid.Column="4" IsEnabled="False"></ComboBox>-->
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="WelfareStandardService_GetWelfareStandardInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardInfo" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareStandardInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareById_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareById" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareById_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareStandardById_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardById" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareStandardById_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_IsExistWelfareStandard_InputMessage">
+    <wsdl:part name="parameters" element="IsExistWelfareStandard" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_IsExistWelfareStandard_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistWelfareStandardResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_UpdateWelfareStandard_InputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfareStandard" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_UpdateWelfareStandard_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfareStandardResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_DeleteWelfareStandard_InputMessage">
+    <wsdl:part name="parameters" element="DeleteWelfareStandard" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_DeleteWelfareStandard_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteWelfareStandardResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_WelfareStandardAdd_InputMessage">
+    <wsdl:part name="parameters" element="WelfareStandardAdd" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_WelfareStandardAdd_OutputMessage">
+    <wsdl:part name="parameters" element="WelfareStandardAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareStandardRoomInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardRoomInfos" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareStandardRoomInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardRoomInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareStandardRoomInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardRoomInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareStandardRoomInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardRoomInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_IsWelfareCanBrowser_InputMessage">
+    <wsdl:part name="parameters" element="IsWelfareCanBrowser" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_IsWelfareCanBrowser_OutputMessage">
+    <wsdl:part name="parameters" element="IsWelfareCanBrowserResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_SubmitFlow_InputMessage">
+    <wsdl:part name="parameters" element="SubmitFlow" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_SubmitFlow_OutputMessage">
+    <wsdl:part name="parameters" element="SubmitFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_SubmitComment_InputMessage">
+    <wsdl:part name="parameters" element="SubmitComment" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_SubmitComment_OutputMessage">
+    <wsdl:part name="parameters" element="SubmitCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareInformation_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareInformation" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareInformation_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfarePostId_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfarePostId" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfarePostId_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfarePostIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_WelfarePaymentDetailsAdd_InputMessage">
+    <wsdl:part name="parameters" element="WelfarePaymentDetailsAdd" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_WelfarePaymentDetailsAdd_OutputMessage">
+    <wsdl:part name="parameters" element="WelfarePaymentDetailsAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_UpdateWelfarePaymentDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfarePaymentDetails" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_UpdateWelfarePaymentDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfarePaymentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfarePaymentDetailsInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfarePaymentDetailsInfos" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfarePaymentDetailsInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfarePaymentDetailsInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareByWelfareproID_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareByWelfareproID" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareByWelfareproID_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareByWelfareproIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionInfo" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetProvisionById_InputMessage">
+    <wsdl:part name="parameters" element="GetProvisionById" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetProvisionById_OutputMessage">
+    <wsdl:part name="parameters" element="GetProvisionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionById_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionById" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionById_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_IsExistWelfareProvision_InputMessage">
+    <wsdl:part name="parameters" element="IsExistWelfareProvision" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_IsExistWelfareProvision_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistWelfareProvisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_UpdateWelfareProvision_InputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfareProvision" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_UpdateWelfareProvision_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfareProvisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_DeleteWelfareProvision_InputMessage">
+    <wsdl:part name="parameters" element="DeleteWelfareProvision" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_DeleteWelfareProvision_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteWelfareProvisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_WelfareProvisionAdd_InputMessage">
+    <wsdl:part name="parameters" element="WelfareProvisionAdd" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_WelfareProvisionAdd_OutputMessage">
+    <wsdl:part name="parameters" element="WelfareProvisionAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionRoomInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionRoomInfos" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionRoomInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionRoomInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionRoomInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionRoomInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionRoomInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionRoomInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_IsWelfareProvisionBrowser_InputMessage">
+    <wsdl:part name="parameters" element="IsWelfareProvisionBrowser" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_IsWelfareProvisionBrowser_OutputMessage">
+    <wsdl:part name="parameters" element="IsWelfareProvisionBrowserResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_SubmitFlowProvision_InputMessage">
+    <wsdl:part name="parameters" element="SubmitFlowProvision" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_SubmitFlowProvision_OutputMessage">
+    <wsdl:part name="parameters" element="SubmitFlowProvisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="WelfareStandardService_GetWelfareProvisionListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WelfareStandardService">
+    <wsdl:operation name="GetWelfareStandardInfo">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareStandardInfo" message="WelfareStandardService_GetWelfareStandardInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareStandardInfoResponse" message="WelfareStandardService_GetWelfareStandardInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareById">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareById" message="WelfareStandardService_GetWelfareById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareByIdResponse" message="WelfareStandardService_GetWelfareById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareStandardById">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareStandardById" message="WelfareStandardService_GetWelfareStandardById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareStandardByIdResponse" message="WelfareStandardService_GetWelfareStandardById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistWelfareStandard">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/IsExistWelfareStandard" message="WelfareStandardService_IsExistWelfareStandard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/IsExistWelfareStandardResponse" message="WelfareStandardService_IsExistWelfareStandard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWelfareStandard">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/UpdateWelfareStandard" message="WelfareStandardService_UpdateWelfareStandard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/UpdateWelfareStandardResponse" message="WelfareStandardService_UpdateWelfareStandard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWelfareStandard">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/DeleteWelfareStandard" message="WelfareStandardService_DeleteWelfareStandard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/DeleteWelfareStandardResponse" message="WelfareStandardService_DeleteWelfareStandard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WelfareStandardAdd">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/WelfareStandardAdd" message="WelfareStandardService_WelfareStandardAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/WelfareStandardAddResponse" message="WelfareStandardService_WelfareStandardAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareStandardRoomInfos">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareStandardRoomInfos" message="WelfareStandardService_GetWelfareStandardRoomInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareStandardRoomInfosResponse" message="WelfareStandardService_GetWelfareStandardRoomInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareStandardRoomInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareStandardRoomInfosListBySearch" message="WelfareStandardService_GetWelfareStandardRoomInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareStandardRoomInfosListBySearchResponse" message="WelfareStandardService_GetWelfareStandardRoomInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsWelfareCanBrowser">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/IsWelfareCanBrowser" message="WelfareStandardService_IsWelfareCanBrowser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/IsWelfareCanBrowserResponse" message="WelfareStandardService_IsWelfareCanBrowser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFlow">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/SubmitFlow" message="WelfareStandardService_SubmitFlow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/SubmitFlowResponse" message="WelfareStandardService_SubmitFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitComment">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/SubmitComment" message="WelfareStandardService_SubmitComment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/SubmitCommentResponse" message="WelfareStandardService_SubmitComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareListByUserId">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareListByUserId" message="WelfareStandardService_GetWelfareListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareListByUserIdResponse" message="WelfareStandardService_GetWelfareListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareInformation">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareInformation" message="WelfareStandardService_GetWelfareInformation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareInformationResponse" message="WelfareStandardService_GetWelfareInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfarePostId">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfarePostId" message="WelfareStandardService_GetWelfarePostId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfarePostIdResponse" message="WelfareStandardService_GetWelfarePostId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WelfarePaymentDetailsAdd">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/WelfarePaymentDetailsAdd" message="WelfareStandardService_WelfarePaymentDetailsAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/WelfarePaymentDetailsAddResponse" message="WelfareStandardService_WelfarePaymentDetailsAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWelfarePaymentDetails">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/UpdateWelfarePaymentDetails" message="WelfareStandardService_UpdateWelfarePaymentDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/UpdateWelfarePaymentDetailsResponse" message="WelfareStandardService_UpdateWelfarePaymentDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfarePaymentDetailsInfos">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfarePaymentDetailsInfos" message="WelfareStandardService_GetWelfarePaymentDetailsInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfarePaymentDetailsInfosResponse" message="WelfareStandardService_GetWelfarePaymentDetailsInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareByWelfareproID">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareByWelfareproID" message="WelfareStandardService_GetWelfareByWelfareproID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareByWelfareproIDResponse" message="WelfareStandardService_GetWelfareByWelfareproID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareProvisionInfo">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionInfo" message="WelfareStandardService_GetWelfareProvisionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionInfoResponse" message="WelfareStandardService_GetWelfareProvisionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvisionById">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetProvisionById" message="WelfareStandardService_GetProvisionById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetProvisionByIdResponse" message="WelfareStandardService_GetProvisionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareProvisionById">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionById" message="WelfareStandardService_GetWelfareProvisionById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionByIdResponse" message="WelfareStandardService_GetWelfareProvisionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistWelfareProvision">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/IsExistWelfareProvision" message="WelfareStandardService_IsExistWelfareProvision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/IsExistWelfareProvisionResponse" message="WelfareStandardService_IsExistWelfareProvision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWelfareProvision">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/UpdateWelfareProvision" message="WelfareStandardService_UpdateWelfareProvision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/UpdateWelfareProvisionResponse" message="WelfareStandardService_UpdateWelfareProvision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWelfareProvision">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/DeleteWelfareProvision" message="WelfareStandardService_DeleteWelfareProvision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/DeleteWelfareProvisionResponse" message="WelfareStandardService_DeleteWelfareProvision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WelfareProvisionAdd">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/WelfareProvisionAdd" message="WelfareStandardService_WelfareProvisionAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/WelfareProvisionAddResponse" message="WelfareStandardService_WelfareProvisionAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareProvisionRoomInfos">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionRoomInfos" message="WelfareStandardService_GetWelfareProvisionRoomInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionRoomInfosResponse" message="WelfareStandardService_GetWelfareProvisionRoomInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareProvisionRoomInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionRoomInfosListBySearch" message="WelfareStandardService_GetWelfareProvisionRoomInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionRoomInfosListBySearchResponse" message="WelfareStandardService_GetWelfareProvisionRoomInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsWelfareProvisionBrowser">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/IsWelfareProvisionBrowser" message="WelfareStandardService_IsWelfareProvisionBrowser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/IsWelfareProvisionBrowserResponse" message="WelfareStandardService_IsWelfareProvisionBrowser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFlowProvision">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/SubmitFlowProvision" message="WelfareStandardService_SubmitFlowProvision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/SubmitFlowProvisionResponse" message="WelfareStandardService_SubmitFlowProvision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareProvisionListByUserId">
+      <wsdl:input wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionListByUserId" message="WelfareStandardService_GetWelfareProvisionListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WelfareStandardService/GetWelfareProvisionListByUserIdResponse" message="WelfareStandardService_GetWelfareProvisionListByUserId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,251 @@
+﻿<smtLocal:BaseForm xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  x:Class="SMT.HRM.UI.Form.PostForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
+    <Grid x:Name="LayoutRoot"  Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <!--Row 0-->
+        <!--公司名称-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYNAME}" 
+                   Grid.Row="0" Grid.Column="0" Visibility="Collapsed" ></TextBlock>
+        <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtOrgName" Text="{Binding T_HR_DEPARTMENT.T_HR_COMPANY.CNAME}"   Width="Auto"
+                 Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" IsReadOnly="True"/>-->
+        <smt:LookUp DataContext="{Binding Path=T_HR_COMPANY,Mode=TwoWay}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0" Width="Auto" Height="25" IsEnabled="False"
+                    FindClick="LookCompany_FindClick" Name="lkCompany" Visibility="Collapsed" DisplayMemberPath="CNAME">
+            <!--<interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>-->
+        </smt:LookUp>
+        <!--部门名称-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENTNAME}" 
+                   Grid.Row="0" Grid.Column="0"  ></TextBlock>
+        <smt:LookUp DataContext="{Binding Path=T_HR_DEPARTMENT,Mode=TwoWay}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0" Width="Auto" Height="25" Grid.ColumnSpan="4"
+                    FindClick="lkDepart_FindClick" Name="lkDepart" >
+        </smt:LookUp>
+        <!--<ComboBox x:Name="cbxDepartment" Grid.Row="0" Grid.Column="4" Style="{StaticResource ComboBoxStyle}"
+                   SelectionChanged="cbxDepartment_SelectionChanged" Width="auto" HorizontalAlignment="Stretch">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </ComboBox>-->
+        <!--Row 1-->
+        <!--岗位字典-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNAME}" 
+                   Grid.Row="1" Grid.Column="0"  ></TextBlock>
+        <ComboBox x:Name="cbxPosition" Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStyle}"
+                   SelectionChanged="cbxPosition_SelectionChanged" Width="auto" HorizontalAlignment="Stretch">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </ComboBox>
+
+        <!--岗位编号-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTCODE}" 
+                   Grid.Row="1" Grid.Column="3"  ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPosCode" Height="24" MaxLength="50"
+                 Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+
+        <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDepartName"   
+                 Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left"  TextWrapping="Wrap" IsEnabled="False"/>-->
+        <!--<dataInput:DescriptionViewer Grid.Row="1" Grid.Column="5" Margin="4" Target="{Binding ElementName=txtSuperiorORGID}" />-->
+
+        <!--Row 2-->
+        <!--岗位系数-->
+        <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTCOEFFICIENT}" 
+                   Grid.Row="2" Grid.Column="0"  ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"   Text="{Binding POSTCOEFFICIENT,Mode=TwoWay}" MaxLength="50"
+                 Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Height="24">
+            <validator:ValidatorService.Validator>
+                <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTNUMBER" ErrorMessageParameter="POSTCOEFFICIENT" Expression="^[0-9]+(\.\d+)?$"></validator:RegexValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>-->
+        <!--薪资等级-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTLEVEL}" 
+                   Grid.Row="2" Grid.Column="0" Visibility="Collapsed" ></TextBlock>
+        <appCtr:DictionaryComboBox x:Name="cbPostlevel"  IsShowNull="False"  Category="POSTLEVEL"  SelectedValue="{Binding POSTLEVEL, Mode=TwoWay}" 
+                 HorizontalAlignment="Stretch" Width="Auto" Grid.Row="2" Grid.Column="1" Visibility="Collapsed">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </appCtr:DictionaryComboBox>
+
+        <!--Row 4-->
+        <!--直接上级-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FATHERPOSTID}" 
+                   Grid.Row="2" Grid.Column="0"  ></TextBlock>
+        <smt:LookUp DataContext="{Binding Path=T_HR_POST,Mode=TwoWay}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Width="Auto" Height="24" 
+                    FindClick="LookUp_FindClick_1" Name="lkPost" DisplayMemberPath="T_HR_POSTDICTIONARY.POSTNAME">
+        </smt:LookUp>
+        <!--Row 3-->
+        <!--人员编制-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNUMBER}" 
+                   Grid.Row="2" Grid.Column="3" Margin="0,0,15,0" VerticalAlignment="Center"></TextBlock>
+        <inputToolkit:NumericUpDown x:Name="nuPostNumber" Value="{Binding POSTNUMBER,Mode=TwoWay}"  Margin="5,0,0,0" Style="{StaticResource NumericUpDownStyle}" Minimum="1" Maximum="1000000" Grid.Row="2" Grid.Column="4" Width="Auto" HorizontalAlignment="Stretch"></inputToolkit:NumericUpDown>
+
+        <!--岗位目标-->
+        <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTGOAL}" 
+                   Grid.Row="3" Grid.Column="3"  ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPostGoal" Height="24" MaxLength="500"
+                 Text="{Binding POSTGOAL,Mode=TwoWay}" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch"/>-->
+        <!--晋升方向-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROMOTEDIRECTION}" 
+                   Grid.Row="3" Grid.Column="0"  ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPromote" Height="24" MaxLength="50"
+                 Text="{Binding PROMOTEDIRECTION,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" />
+
+
+        <!--管辖人数-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=UNDERNUMBER}" 
+                   Grid.Row="3" Grid.Column="3"  ></TextBlock>
+        <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtManageNmber"   Width="Auto" MaxLength="10"
+                 Text="{Binding UNDERNUMBER,Mode=TwoWay}" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" />-->
+        <inputToolkit:NumericUpDown x:Name="txtManageNmber" Value="{Binding UNDERNUMBER,Mode=TwoWay}" Style="{StaticResource NumericUpDownStyle}"
+                       Minimum="0" Maximum="1000000" Grid.Row="3" Grid.Column="4"  Margin="5,0,0,0" Width="Auto" HorizontalAlignment="Stretch"></inputToolkit:NumericUpDown>
+        <!--Row 5-->
+
+
+        <!--轮换岗位-->
+        <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHANGEPOST}" 
+                   Grid.Row="5" Grid.Column="3" Margin="0,0,15,0" VerticalAlignment="Center"></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtChangePost"  Height="24" MaxLength="50"
+                 Text="{Binding CHANGEPOST,Mode=TwoWay}" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch"/>-->
+
+        <!--Row 6-->
+        <!--审核状态-->
+        <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKSTATE}" 
+                   Grid.Row="4" Grid.Column="0"  ></TextBlock>
+        <appCtr:DictionaryComboBox  x:Name="cbxCheckState" IsShowNull="False"  Category="CHECKSTATE" SelectedValue="{Binding CHECKSTATE, Mode=TwoWay}"  Margin="5,0,0,0"
+         IsEnabled="False" Grid.Row="4" Grid.Column="1" Width="Auto" HorizontalAlignment="Stretch" Height="22" />-->
+        <!--岗位描述-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTBRIEF}" 
+                   Grid.Row="4" Grid.Column="0"  ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPostBrief"  
+                 Text="{Binding POSTBRIEF,Mode=TwoWay}" Width="Auto" MaxLength="200" AcceptsReturn="True" 
+                 Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap">
+        </TextBox>
+        <!--Row 7-->
+        <!--岗位职责-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTFUNCTION}" 
+                   Grid.Row="7" Grid.Column="0"  ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPostFunction"  
+                 Text="{Binding POSTFUNCTION,Mode=TwoWay}" Width="Auto" MaxLength="2000" AcceptsReturn="True" 
+                 Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="POSTFUNCTION" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" 
+                   Grid.Row="8" Grid.Column="0"  ></TextBlock>
+
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" 
+                 Text="{Binding REMARK,Mode=TwoWay}" Grid.Row="8" Grid.Column="1" MaxLength="1000" 
+				 Grid.ColumnSpan="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap" AcceptsReturn="True"
+				 />
+        <TextBlock Text="是否前台" 
+                   Grid.Row="9" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
+
+        <RadioButton x:Name="rbtYes"
+                        Click="rbtYes_Click"
+                        HorizontalAlignment="Left"
+                        Margin="5,8,0,2"
+                        Width="46"
+                        Content="是"
+                        Grid.Column="1"
+                        Grid.Row="9" GroupName="rbtYN"
+                        Style="{StaticResource RadioButtonStyle}" />
+        <RadioButton x:Name="RbtNo"
+                        Click="RbtNo_Click"
+                        Margin="65,8,0,2"
+                        Content="否"
+                        Grid.Column="1"
+                        Grid.Row="9"
+                        HorizontalAlignment="Left"
+                        Width="52"
+                        IsChecked="True" GroupName="rbtYN"
+                        Style="{StaticResource RadioButtonStyle}" />
+        <!--<validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="POSTFUNCTION" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>-->
+        <!--Row 8-->
+        <!--审核-->
+        <!--<ScrollViewer x:Name="scvAudit" Grid.Row="8"  Grid.ColumnSpan="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <audit:AuditControl Visibility="Visible" x:Name="audit" >
+            </audit:AuditControl>
+        </ScrollViewer>-->
+        <TextBlock Text="是否核心" Grid.Row="10" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
+        <RadioButton   Grid.Row="10" 
+                       Grid.Column="1" 
+                       Margin="5 8 0 2" 
+                       Content="是" 
+                       Click="rbtYesCore_Click" 
+                       HorizontalAlignment="Left" 
+                       Name="rbtYesCore" 
+                       GroupName="rbtYNCore" 
+                       Style="{StaticResource RadioButtonStyle}"/>
+        <RadioButton  Grid.Row="10" 
+                      Grid.Column="1"
+                      Margin="65 8 0 0"
+                      Content="否"  
+                      Click="rbtNoCore_Click"  
+                      HorizontalAlignment="Left" 
+                      Name="rbtNoCore" 
+                      IsChecked="True" 
+                      GroupName="rbtYNCore"  
+                      Style="{StaticResource RadioButtonStyle}"/>
+        <!--row11是否为撤销操作-->
+        <TextBlock Text="是否撤销岗位" Grid.Row="11" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
+        <RadioButton   Grid.Row="11" 
+                       Grid.Column="1" 
+                       Margin="5 8 0 2" 
+                       Content="是" 
+                       HorizontalAlignment="Left" 
+                       Name="rbtYesCancel" 
+                       GroupName="rbtYNCancel" 
+                       IsEnabled="False"
+                       Style="{StaticResource RadioButtonStyle}"/>
+        <RadioButton  Grid.Row="11" 
+                      Grid.Column="1"
+                      Margin="65 8 0 0"
+                      Content="否"  
+                      HorizontalAlignment="Left" 
+                      Name="rbtNoCancel" 
+                      IsEnabled="False"
+                      IsChecked="True" 
+                      GroupName="rbtYNCancel"  
+                      Style="{StaticResource RadioButtonStyle}"/>
+
+    </Grid>
+</smtLocal:BaseForm>

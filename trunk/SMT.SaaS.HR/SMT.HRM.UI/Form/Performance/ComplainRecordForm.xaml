@@ -1,0 +1,92 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Performance.ComplainRecordForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+           xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+          xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+          xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+          xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+          xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+          xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+             
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <Grid    Background="Transparent">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="30"/>
+
+                <RowDefinition Height="2"/>
+
+                <RowDefinition Height="30"/>
+
+                <RowDefinition Height="2"/>
+
+                <RowDefinition Height="auto"/>
+
+                <!--<RowDefinition Height="Auto"/>-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="0.4*"/>
+
+                <!--<ColumnDefinition Width="0.1*"/Width="410" Height="300">-->
+            </Grid.ColumnDefinitions>
+            <!--Row0-->
+            <!--申诉人-->
+            <dataInput:Label  Content="{Binding Converter={StaticResource ResourceConveter}, Source=申诉人}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Height="26" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtComplainName"  Grid.Row="0" Grid.Column="1"  TextWrapping="NoWrap" Height="26" Width="Auto"  VerticalAlignment="Stretch"   MaxLength="45">
+                <!--<validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CUSTOMSALARYNAME" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>-->
+            </TextBox>
+
+            <!--Row1-->
+            <!--流程名-->
+            <dataInput:Label  Content="{Binding Converter={StaticResource ResourceConveter}, Source=流程名}" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Height="26" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtflowid"  Grid.Row="0" Grid.Column="4"  TextWrapping="NoWrap" Height="26" Width="Auto"  VerticalAlignment="Stretch"   MaxLength="45">
+                <!--<validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CUSTOMSALARYNAME" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>-->
+            </TextBox>
+
+            <!--Row2-->
+            <!--原始得分-->
+            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=原始得分}" Grid.Row="2" Grid.Column="0" Height="26"   Margin="5,0,0,0"  />
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtInitScroe"  Text="{Binding INITIALSCORE,Mode=TwoWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" TextWrapping="NoWrap"  Grid.Row="2" Grid.Column="1"  Height="26" Width="Auto" HorizontalAlignment="Stretch" MaxLength="7" >
+                <validator:ValidatorService.Validator>
+                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEPOSITIVE" ErrorMessageParameter="GUERDONSUM" Expression="^[0-9]+(\.\d+)?$"></validator:RegexValidator>
+                </validator:ValidatorService.Validator>
+            </TextBox>
+
+
+            <!--Row3-->
+            <!--申诉得分-->
+            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=APPRAISALSCORE}" Grid.Row="2" Grid.Column="3" Height="26"   Margin="5,0,0,0"  />
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtScroe"  Text="{Binding T_HR_KPIRECORDCOMPLAIN.REVIEWSCORE,Mode=TwoWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" TextWrapping="NoWrap"  Grid.Row="2" Grid.Column="4"  Height="26" Width="Auto" HorizontalAlignment="Stretch" MaxLength="7" >
+                <validator:ValidatorService.Validator>
+                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEPOSITIVE" ErrorMessageParameter="GUERDONSUM" Expression="^[0-9]+(\.\d+)?$"></validator:RegexValidator>
+                </validator:ValidatorService.Validator>
+            </TextBox>
+
+            <!--Row4-->
+            <!--申诉内容-->
+            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=申诉内容}" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top"  Margin="5,0,0,0" />
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtMark"  Grid.Column="1" Text="{Binding T_HR_KPIRECORDCOMPLAIN.COMPLAINREMARK,Mode=TwoWay}" AcceptsReturn="True" MaxLength="2000" VerticalScrollBarVisibility="Auto"  TextWrapping="Wrap"  Grid.Row="4" Grid.ColumnSpan="6"  Width="Auto" Height="auto" VerticalAlignment="Top"/>
+        </Grid>
+
+    </Grid>
+</smtLocal:BaseForm>

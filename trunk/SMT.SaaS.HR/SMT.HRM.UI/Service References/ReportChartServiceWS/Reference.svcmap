@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b396089-9725-418d-adc3-c283b73371e6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12168/Report/ReportChartService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ReportChartService.wsdl" MetadataType="Wsdl" ID="a75aa3b0-7384-42d4-9ba0-3bfd41267747" SourceId="1" SourceUrl="http://localhost:12168/Report/ReportChartService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ReportChartService.disco" MetadataType="Disco" ID="3b9860c7-5a79-4cf4-8f15-1c637c47e843" SourceId="1" SourceUrl="http://localhost:12168/Report/ReportChartService.svc?disco" />
+    <MetadataFile FileName="ReportChartService3.xsd" MetadataType="Schema" ID="5985bed6-9460-4249-8732-76582bc4c997" SourceId="1" SourceUrl="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ReportChartService.xsd" MetadataType="Schema" ID="9c4ed48d-cdc6-4fad-8673-c52fadfdca1f" SourceId="1" SourceUrl="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ReportChartService1.xsd" MetadataType="Schema" ID="7a34892c-844c-47ac-aaf7-20890cb22de3" SourceId="1" SourceUrl="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ReportChartService2.xsd" MetadataType="Schema" ID="dbc6fb3e-e0a7-4b14-afe0-54a23d43a856" SourceId="1" SourceUrl="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ReportChartService1.wsdl" MetadataType="Wsdl" ID="591260e6-d745-41ff-8692-59f5c612a5ee" SourceId="1" SourceUrl="http://localhost:12168/Report/ReportChartService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

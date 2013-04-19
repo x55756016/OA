@@ -1,0 +1,34 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Setting.SystemParamSetForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smtuc="clr-namespace:SMT.HRM.UI.Form.Setting;assembly=SMT.HRM.UI"            
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    xmlns:panelcontrols="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"   
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI">
+    <Grid x:Name="LayoutRoot" Margin="10,5,1,0" >
+        <panelcontrols:TabControl SelectionChanged="TabControl_SelectionChanged" x:Name="tabcall" Style="{StaticResource TabControlStyle}" >
+            <panelcontrols:TabItem Header="全局参数" Style="{StaticResource TabItemStyle}">
+                <smtuc:SsytemParamSetModel x:Name="spsmAll" GETMODELTYPE="0" ></smtuc:SsytemParamSetModel>
+            </panelcontrols:TabItem>
+            <panelcontrols:TabItem Header="组织架构参数" Style="{StaticResource TabItemStyle}">
+                <smtuc:SsytemParamSetModel x:Name="spsmOrg" GETMODELTYPE="1" ></smtuc:SsytemParamSetModel>
+            </panelcontrols:TabItem>
+            <panelcontrols:TabItem Header="人事管理参数" Style="{StaticResource TabItemStyle}">
+                <smtuc:SsytemParamSetModel x:Name="spsmPersonnel" GETMODELTYPE="2" ></smtuc:SsytemParamSetModel>
+            </panelcontrols:TabItem>
+            <panelcontrols:TabItem Header="考勤管理参数" Style="{StaticResource TabItemStyle}">
+                <smtuc:SsytemParamSetModel x:Name="spsmAttendance" GETMODELTYPE="3" ></smtuc:SsytemParamSetModel>
+            </panelcontrols:TabItem>
+            <panelcontrols:TabItem Header="薪资管理参数" Style="{StaticResource TabItemStyle}">
+                <smtuc:SsytemParamSetModel x:Name="spsmSalary" GETMODELTYPE="4" ></smtuc:SsytemParamSetModel>
+            </panelcontrols:TabItem>
+            <panelcontrols:TabItem Header="绩效管理参数" Style="{StaticResource TabItemStyle}">
+                <smtuc:SsytemParamSetModel x:Name="spsmPerformance" GETMODELTYPE="5" ></smtuc:SsytemParamSetModel>
+            </panelcontrols:TabItem>
+        </panelcontrols:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

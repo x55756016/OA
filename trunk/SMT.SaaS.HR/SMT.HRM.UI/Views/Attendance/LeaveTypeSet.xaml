@@ -1,0 +1,150 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Attendance.LeaveTypeSet"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI" 
+           xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"           
+           xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+		   xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"           
+           Title="LeaveTypeSet Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smtx:ViewTitle>
+            <Grid Background="Transparent" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>                
+                <TextBlock x:Name="tbLeaveTypeValueSTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVETYPEVALUE}" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <appCtr:DictionaryComboBox x:Name="cbxkLeaveTypeValue" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Category="LEAVETYPEVALUE" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Column="2" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="Center" Height="24" Click="btnSearch_Click" Margin="5,0,0,0" Width="70" HorizontalAlignment="Left" />
+            </Grid>
+
+            <smtx:FormToolBar x:Name="toolbarLT" Grid.Row="2" Width="auto"></smtx:FormToolBar>
+            <Grid Grid.Row="3" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <data:DataGrid x:Name="dgLTList" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" LoadingRow="dgLTList_LoadingRow"
+                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" 
+                       RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" SelectionChanged="dgLTList_SelectionChanged" >
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding LEAVETYPESETID}"></Image>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn Header="VACATIONNAME" Binding="{Binding LEAVETYPENAME}"/>
+                            <data:DataGridTextColumn Header="FINETYPE" Binding="{Binding FINETYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=LEAVEFINETYPE}" />
+                            
+                        </data:DataGrid.Columns>
+                        
+                    </data:DataGrid>
+                    <smtx:GridPager Name="dpLTList" PageSize="20" Click="dpLTList_Click" Grid.Row="1"></smtx:GridPager>
+                </Grid>
+                <Grid Grid.Column="1" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="0.39*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="0.39*"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <!--Row 0:Name & LeaveTypeValue-->
+                        <TextBlock x:Name="tbLeaveTypeNameTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=VACATIONNAME}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center" Height="22"/>
+                        <TextBox x:Name="tbLeaveTypeName" Grid.Row="0" Grid.Column="2" Width="Auto" Margin="5,0,0,0" Text="{Binding LEAVETYPENAME, Mode=TwoWay}" VerticalAlignment="Center" Height="22" IsEnabled="False" />
+
+                        <TextBlock x:Name="tbLeaveTypeValueTitle" Grid.Row="0" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVETYPEVALUE}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center" Height="22"/>
+                        <TextBox x:Name="tbLeaveTypeValue" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Stretch" Text="{Binding LEAVETYPEVALUE, Converter={StaticResource DictionaryConverter},ConverterParameter=LEAVETYPEVALUE}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Height="22" IsEnabled="False"/>
+
+                        <!--Row 1:FineType & MaxDays-->
+                        <TextBlock x:Name="tbFineTypeTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FINETYPE}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Height="22" />
+                        <TextBox x:Name="tbFineType" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" Text="{Binding FINETYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=LEAVEFINETYPE}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center" Height="22" IsEnabled="False"/>
+
+                        <TextBlock x:Name="tbMaxDaysTitle" Grid.Row="1" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVEMAXDAYS}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Height="22" />
+                        <TextBox x:Name="tbMaxDays" Grid.Row="1" Grid.Column="6" Margin="5,0,0,0" Width="Auto" VerticalAlignment="Center" Text="{Binding MAXDAYS, Mode=TwoWay}" Height="22" IsEnabled="False"/>
+
+                        <!--Row 2:PostLevelRestrict & SexRestrict-->
+                        <TextBlock x:Name="tbPostLevelRestrictTitle" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTLEVELRESTRICT}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Height="22" />
+                        <TextBox x:Name="tbPostLevelRestrict" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" Text="{Binding POSTLEVELRESTRICT, Converter={StaticResource DictionaryConverter},ConverterParameter=POSTLEVEL}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center" Height="22" IsEnabled="False"/>
+
+                        <TextBlock x:Name="tbSexRestrictTitle" Grid.Row="2" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SEXRESTRICT}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Height="22" />
+                        <TextBox x:Name="tbSexRestrict" Grid.Row="2" Grid.Column="6" Margin="5,0,0,0" VerticalAlignment="Center" Height="22" IsEnabled="False" />
+
+                        <!--Row 3:IsFreeLeaveDay & EntryRestrict-->
+                        <TextBlock x:Name="tbIsFreeLeaveDayTitle" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISFREELEAVEDAY}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Height="22" />
+                        <TextBox x:Name="tbIsFreeLeaveDay" Grid.Row="3" Grid.Column="2" Margin="5,0,0,0" Text="{Binding ISFREELEAVEDAY, Converter={StaticResource DictionaryConverter},ConverterParameter=ISCHECKED}" VerticalAlignment="Center" Height="22" IsEnabled="False" />
+
+                        <TextBlock x:Name="tbEntryRestrictTitle" Grid.Row="3" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENTRYRESTRICT}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Height="22" />
+                        <TextBox x:Name="tbEntryRestrict" Grid.Row="3" Grid.Column="6" Margin="5,0,0,0" Width="Auto" VerticalAlignment="Center" Text="{Binding ENTRYRESTRICT, Converter={StaticResource DictionaryConverter},ConverterParameter=ISCHECKED}" Height="22" IsEnabled="False"/>
+                        
+                        <!--Row 4:Remark-->
+                        <TextBlock x:Name="tbRemarkTitle" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Width="Auto" Margin="5,0,0,0"/>
+                        <TextBox x:Name="tbRemark" TextWrapping="Wrap" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="5" Height="Auto" Width="Auto"  Margin="5,0,0,0" Text="{Binding REMARK, Mode=TwoWay}" RenderTransformOrigin="1,1" IsEnabled="False"/>
+                    </Grid>
+                    <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="1" BorderThickness="1" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="5,0,0,5"  />                    
+                    <data:DataGrid x:Name="dgFreeLeaveDaySetList" Grid.Row="2" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" LoadingRow="dgFreeLeaveDaySetList_LoadingRow" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding FREELEAVEDAYSETID}"></Image>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn Header="VACATIONNAME" Binding="{Binding T_HR_LEAVETYPESET.LEAVETYPENAME}" />
+                            <data:DataGridTextColumn Header="FREELEAVEDAYSET_MINIMONTH" Binding="{Binding MINIMONTH}" />
+                            <data:DataGridTextColumn Header="FREELEAVEDAYSET_MAXMONTH" Binding="{Binding MAXMONTH}" />
+                            <data:DataGridTextColumn Header="FREELEAVEDAYSET_LEAVEDAYS" Binding="{Binding LEAVEDAYS}" />
+                            <data:DataGridTextColumn Header="ISPERFECTATTENDANCEFACTOR" Binding="{Binding ISPERFECTATTENDANCEFACTOR, Converter={StaticResource DictionaryConverter},ConverterParameter=ISCHECKED}" />
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                    <smtx:GridPager Name="dpFreeLeaveDaySet" PageSize="20" Click="dpFreeLeaveDaySet_Click" Grid.Row="3"></smtx:GridPager>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

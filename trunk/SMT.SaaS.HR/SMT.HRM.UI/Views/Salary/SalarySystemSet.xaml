@@ -1,0 +1,188 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Salary.SalarySystemSet" 
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+                     xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"  
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="SALARYSYSTEM Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot"  Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <!--<controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"  x:Name="expander" Grid.Row="1"
+              VerticalAlignment="top" Background="Transparent">
+            <controlsToolkit:Expander.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Width="100"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYSOLUTIONNAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}" Margin="0,6,0,0"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtName" Grid.Row="0" Grid.Column="1" Width="220" />
+                            <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="4" Margin="40,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnFind_Click" Width="70" Height="24"/>
+                            <TextBox x:Name="txtCity" Width="80" Height="22" Style="{StaticResource TextBoxStyle}"  Margin="5,0,0,0"  ></TextBox>
+                            <TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROVINCE}" Height="22" ></TextBlock>
+                            <appCtr:DictionaryComboBox x:Name="cbProvince" Category="PROVINCE" SelectedValue="{Binding DICTIONARYNAME, Mode=TwoWay}"  SelectionChanged="cbProvince_SelectionChanged"
+                              Width="80" Height="22"  Margin="5,0,0,0"/>
+                            <TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=CITY}" Height="22" ></TextBlock>
+                            <ComboBox x:Name="cbCity"  DisplayMemberPath="DICTIONARYNAME" Width="80" Height="22"  Margin="5,0,0,0"></ComboBox>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </controlsToolkit:Expander.HeaderTemplate>
+
+        </controlsToolkit:Expander>-->
+
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+
+            <Grid  Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <!--<ColumnDefinition Width="0.5*"/>-->
+                </Grid.ColumnDefinitions>
+
+                <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" LoadingRow="DtGrid_LoadingRow" SelectionChanged="DtGrid_SelectionChanged"
+                           Style="{StaticResource DataGridPageStyle}"  
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="White" >
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="SALARYSYSTEMNAME" Binding="{Binding SALARYSYSTEMNAME}"  IsReadOnly="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="CHECKSTATE" IsReadOnly="True"  HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE }"/>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="3" Grid.Column="0"></smt:GridPager>
+                <Grid Grid.Row="0" Grid.Column="1">
+           
+                    <Grid x:Name="gSalarySystem">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="24"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock   Grid.Column="0" Grid.Row="0"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYSYSTEMNAME}" Height="22" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSalarySystemName" IsReadOnly="True" HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding SALARYSYSTEMNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="0" Grid.Column="1" Height="24" >
+                        </TextBox>
+                        <!--REMARK-->
+                        <TextBlock  Grid.Row="1" Grid.Column="0" Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" IsReadOnly="True"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Height="auto" TextWrapping="Wrap" >
+                        </TextBox>
+                        
+                        
+                        
+                        <TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTSALARYLEVEL}"  Margin="5,0,0,0" Height="22" Grid.Column="0" Grid.Row="2" ></TextBlock>
+                        <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSalaryLevelA"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding SALARYSTANDARDNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  Height="24"
+            					 Grid.Column="1" >
+                        </TextBox>-->
+                        <appCtr:DictionaryComboBox Grid.Row="2"  Grid.Column="1" Height="22" x:Name="cbSalaryLevelA"  Width="Auto"  HorizontalAlignment="Stretch"
+                Category="SALARYLEVEL"  SelectedValue="{Binding STARTSALARYLEVEL, Mode=TwoWay}"></appCtr:DictionaryComboBox>
+                        <TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDSALARYLEVEL}" Height="22" Grid.Column="3" Grid.Row="2" ></TextBlock>
+                        <appCtr:DictionaryComboBox  Grid.Column="4"  Grid.Row="2" Height="22" x:Name="cbSalaryLevelB"  Width="Auto"  HorizontalAlignment="Stretch"
+                Category="SALARYLEVEL"  SelectedValue="{Binding ENDSALARYLEVEL, Mode=TwoWay}"></appCtr:DictionaryComboBox>
+                        <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSalaryLevelB"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding SALARYSTANDARDNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  Height="24"
+            					 Grid.Row="0" Grid.Column="4" >
+                        </TextBox>-->
+                        <!--<Button Height="26" Margin="5,0,0,0"  Width="50" Padding="0" x:Name="btnCreatPostLevel" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}"  Click="btnCreatPostLevel_Click"   Grid.Row="0" Grid.Column="5">
+                            <StackPanel  Orientation="Horizontal">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_addView.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=NEW}" Margin="0" Width="16" Height="16"/>
+                                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CREATE}" Height="20" Margin="1,3,0,0" ></TextBlock>
+                            </StackPanel>
+                        </Button>-->
+                        <!--<Button Height="26"   Width="50"  x:Name="btnCreatSalarySystem" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Click="btnCreatSalarySystem_Click"  Grid.Row="2" Grid.Column="6">
+                            <StackPanel  Orientation="Horizontal">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_addView.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=NEW}" Margin="0" Width="16" Height="16"/>
+                                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CREATE}" Height="20" Margin="1,3,0,0" ></TextBlock>
+                            </StackPanel>
+                        </Button>-->
+                      
+                    </Grid>
+                   
+                        
+                  
+
+                </Grid>
+
+                <data:DataGrid x:Name="DtGridPostDis" AutoGenerateColumns="False"  IsReadOnly="True"
+                            Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Style="{StaticResource DataGridStyle}" 
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}" IsReadOnly="True">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="POSTLEVEL" IsReadOnly="True" 
+                                         HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" 
+                                         Binding="{Binding POSTLEVEL, Converter={StaticResource DictionaryConverter},ConverterParameter=POSTLEVEL}" >
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="BASICSALARY" Binding="{Binding BASICSALARY, Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="LEVELBALANCE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding LEVELBALANCE, Mode=TwoWay}"/>
+                        <data:DataGridTextColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REMARK, Mode=TwoWay}"/>
+
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

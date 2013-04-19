@@ -1,0 +1,27 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="SMT.SaaS.FrameworkUI.ToolBar"
+   >
+   <Grid>
+        <Border BorderThickness="0,0,0,1"  x:Name="BorderStyle" Height="30" VerticalAlignment="Top" Style="{StaticResource BorderStyle}">
+        <Grid x:Name="ToolBarGrid" Height="30" Background="Transparent">
+            <StackPanel x:Name="tbPanel" Height="30" Orientation="Vertical" Margin="70,0,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" x:Name="buttonContainer" VerticalAlignment="Top">
+				
+                </StackPanel>
+                <Button  HorizontalAlignment="Right" Height="26" Width="56" x:Name="ButtonHelp" Margin="0,-36,5,0" Style="{StaticResource ButtonToolBarStyle}">
+                    <StackPanel  Orientation="Horizontal">
+                        <Image Height="16" Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/icn_help16.png" Stretch="Fill" Width="16" Margin="2,0,3,0" ToolTipService.ToolTip="帮助"/>
+                        <TextBlock Text="帮助" Height="20" Margin="1,3,0,0" x:Name="TBHelp"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+    </Grid>
+	</Border>
+	 <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_business_closures.png" x:Name="imageTitle" Height="40" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40"  Margin="10,2,24,-2"></Image>
+  
+	 </Grid>
+</UserControl>

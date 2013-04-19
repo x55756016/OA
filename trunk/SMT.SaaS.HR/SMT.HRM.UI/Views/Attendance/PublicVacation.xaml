@@ -1,0 +1,68 @@
+﻿<smtLocal:BasePage 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+		   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+		   xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+		   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+		   x:Class="SMT.HRM.UI.Views.Attendance.PublicVacation"           
+           Title="PublicVacation Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smtx:ViewTitle>
+            <Grid Background="Transparent" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbVacNameTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=VACATIONNAME}"  VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtVacName" Grid.Row="0" Grid.Column="1" Width="Auto" Height="24" VerticalAlignment="Center" Margin="2,0,5,0"/>
+                <TextBlock x:Name="tbVacYearTitle" Grid.Row="0" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=VACATIONYEAR}"  VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtVacYear" Grid.Row="0" Grid.Column="3" Width="Auto" Height="24" VerticalAlignment="Center" Margin="2,0,5,0"/>
+                <TextBlock x:Name="txtVacCountyTypeTitle" Grid.Row="0" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=COUNTYTYPEORAREA}"  VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <appCtr:DictionaryComboBox x:Name="cbxkPubVacArea" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" Category="COUNTYTYPE" SelectedValue="{Binding COUNTYTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" Margin="2,0,5,0"/>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Row="0" Grid.Column="6" Width="70" Height="24" HorizontalAlignment="Left" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"   Click="btnSearch_Click" Margin="5,0,0,0" />
+            </Grid>
+
+            <smtx:FormToolBar x:Name="toolbar1" Width="auto" Grid.Row="2"></smtx:FormToolBar>
+            <data:DataGrid x:Name="dgVacList" Grid.Row="3" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" LoadingRow="dgVacList_LoadingRow" 
+                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding VACATIONID}"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="VACATIONNAME" Binding="{Binding VACATIONNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="ASSIGNEDOBJECTTYPE" Binding="{Binding ASSIGNEDOBJECTTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=ASSIGNEDOBJECTTYPE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="COUNTYTYPEORAREA" Binding="{Binding COUNTYTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=COUNTYTYPE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <data:DataGridTextColumn Header="VACATIONYEAR" Binding="{Binding VACATIONYEAR}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

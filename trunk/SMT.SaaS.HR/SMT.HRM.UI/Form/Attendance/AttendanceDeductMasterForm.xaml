@@ -1,0 +1,98 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Attendance.AttendanceDeductMasterForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"  
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    >
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+            <!--Row 0:Title-->
+            <TextBlock x:Name="tbAttendAbnormalNameTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDABNORMALNAME}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAttendAbnormalName" Grid.Row="0" Grid.Column="2" Width="Auto" Height="24" Margin="5,0,0,0" MaxLength="50" Text="{Binding ATTENDABNORMALNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}">
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+                <validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ATTENDABNORMALNAME" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>
+            </TextBox>
+
+            <!--Row 1:AttendanceType & FineType-->
+            <TextBlock x:Name="tbAttTypeTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDABNORMALTYPE}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkAttType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ATTENDABNORMALTYPE" SelectedValue="{Binding ATTENDABNORMALTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" SelectionChanged="cbxkAttType_SelectionChanged"/>
+
+            <TextBlock x:Name="tbFineTypeTitle" Grid.Row="1" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FINETYPE}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkFineType" Grid.Row="1" Grid.Column="6" IsShowNull="False" HorizontalAlignment="Stretch" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center"/>
+
+            <!--Row 2:IsAccumulating & IsPerfectAttendanceFactor-->
+            <TextBlock x:Name="tbIsAccumulatingTitle" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISACCUMULATING}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <CheckBox x:Name="cbxIsAccumulating" Grid.Row="2" Style="{StaticResource CheckBoxStyle}" Grid.Column="2" IsChecked="false" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"></CheckBox>
+
+            <TextBlock x:Name="tbIsPerfectAttendanceFactorTitle" Grid.Row="2" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISPERFECTATTENDANCEFACTOR}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <CheckBox x:Name="cbxIsPerfectAttendanceFactor" Style="{StaticResource CheckBoxStyle}" Grid.Row="2" Grid.Column="6" IsChecked="false" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"></CheckBox>
+
+            <!--Row 3:Remark-->
+            <TextBlock x:Name="tbRemarkTitle" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Width="Auto" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,0,0,0" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+        </Grid>
+        <Grid x:Name="gdDetail" Background="Transparent" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" HorizontalAlignment="Stretch" Width="Auto"  />
+            <smtx:FormToolBar x:Name="toolbar1" Grid.Row="1" IsEnabled="False" Height="Auto"></smtx:FormToolBar>
+            <data:DataGrid x:Name="dgDeductDetailList" Grid.Row="2" AutoGenerateColumns="False" HorizontalAlignment="Stretch" 
+                           VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                           RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" VerticalScrollBarVisibility="Auto"
+                           HorizontalScrollBarVisibility="Auto" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="entityID" Text="{Binding DEDUCTDETAILID}" Visibility="Collapsed"></TextBlock>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="DEDUCTPARAMETERVALUE" Binding="{Binding PARAMETERVALUE}"  />
+                    <data:DataGridTextColumn Header="DEDUCTFINERATIO" Binding="{Binding FINERATIO}"  />
+                    <data:DataGridTextColumn Header="DEDUCTLOWESTTIMES" Binding="{Binding LOWESTTIMES}"  />
+                    <data:DataGridTextColumn Header="DEDUCTHIGHESTTIMES" Binding="{Binding HIGHESTTIMES}"  />
+                    <data:DataGridTextColumn Header="DEDUCTFINESUM" Binding="{Binding FINESUM}"  />
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="3" Height="Auto"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

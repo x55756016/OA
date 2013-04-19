@@ -1,0 +1,24 @@
+﻿<basics:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	x:Class="SMT.HRM.UI.Rein"
+	Title="登录"
+	Width="386" Height="auto" FontSize="14.667">
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Canvas x:Name="Canvas_C" Grid.Row="0" Height="219" VerticalAlignment="Top" Margin="0,0,368,0">
+		<TextBlock Height="25" Width="92" Canvas.Left="50" Canvas.Top="51" Text="用户名：" TextWrapping="Wrap"/>
+		<TextBlock Height="25" Width="92" Canvas.Left="50" Canvas.Top="89" Text="密码：" TextWrapping="Wrap"/>
+		<Button Content="确定" Width=" 90" Height="30" Canvas.Left="233" Canvas.Top="160" Click="OK_buton" RenderTransformOrigin="0.467,-0.833"/>
+		<Button Content="取消" Width=" 90" Height="30" Canvas.Left="52" Canvas.Top="160" Click="Cen_B"/>
+		<TextBox Style="{StaticResource TextBoxStyle}" x:Name="nam" Height="26" Width="177" Canvas.Left="146" Canvas.Top="51" Text="admin" TextWrapping="Wrap"/>
+		<PasswordBox x:Name="paw" Password="admin_123" Height="26" Width="177" Canvas.Left="146" Canvas.Top="86"/>
+		<TextBlock Height="25" Width="92" Canvas.Left="50" Canvas.Top="123" Text="语言:" TextWrapping="Wrap"/>
+		<RadioButton Canvas.Left="233" Canvas.Top="123" Content="{Binding Converter={StaticResource ResourceConveter},Source=ENGLISH}" GroupName="Language" Tag="en-GB" Checked="RadioButton_Checked"></RadioButton>
+		<RadioButton Canvas.Left="146" Canvas.Top="123" Content="{Binding Converter={StaticResource ResourceConveter},Source=CHINESE}" GroupName="Language" Tag="zh-CN" IsChecked="True"  Checked="RadioButton_Checked"></RadioButton>
+		</Canvas>
+	</Grid>
+</basics:ChildWindow>

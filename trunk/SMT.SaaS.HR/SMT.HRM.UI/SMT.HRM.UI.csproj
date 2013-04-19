@@ -1,0 +1,2461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55F7A86F-8F9D-45EA-B717-B4DB332B71EE}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.HRM.UI</RootNamespace>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>zh-Hans</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>SMT.HRM.UI.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>SMT.HRM.UI.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ExpressionBlendVersion>3.0.1938.0</ExpressionBlendVersion>
+    <SignAssembly>false</SignAssembly>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\Microsoft.Expression.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="SLVisifire.Charts">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SLVisifire.Charts.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.FileUpLoad">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.FileUpLoad.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.AnimationEngine">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.AnimationEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Behaviors">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientServices">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientUtility">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Controls.Toolkit">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Extensions">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Globalization">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.LocalData">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContext">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.MoblieXml">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.MoblieXml.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Themes">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Saas.Tools">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Window">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Theming.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Active\IContainer.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppControl\DictionaryComboBox.cs" />
+    <Compile Include="AppControl\SelectValueComboBox.cs" />
+    <Compile Include="AppControl\TravelDictionaryComboBox.cs" />
+    <Compile Include="CommForm\EntityAuditForm.xaml.cs">
+      <DependentUpon>EntityAuditForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommForm\LookupForm.xaml.cs">
+      <DependentUpon>LookupForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommForm\OrganizationLookupForm.xaml.cs">
+      <DependentUpon>OrganizationLookupForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\AppConfig.cs" />
+    <Compile Include="Common\CheckBoxModel.cs" />
+    <Compile Include="Common\CheckConverter.cs" />
+    <Compile Include="Common\CustomDateConverter.cs" />
+    <Compile Include="Common\CustomerDataObject.cs" />
+    <Compile Include="Common\DictionaryConverter.cs" />
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\DynamicDataBuilder.cs" />
+    <Compile Include="Common\GridHelper.cs" />
+    <Compile Include="Common\HanziZhuanPingYin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\IsEnabledConverter.cs" />
+    <Compile Include="Common\Isolated.cs" />
+    <Compile Include="Common\LoginUser.cs" />
+    <Compile Include="Common\ReportsType.cs" />
+    <Compile Include="Common\TreeHelper.cs" />
+    <Compile Include="Common\UIDictionary.cs" />
+    <Compile Include="Common\UIDictionary_AKH.cs" />
+    <Compile Include="Common\UIDictionary_WD.cs" />
+    <Compile Include="Common\UIDictionary_WRY.cs" />
+    <Compile Include="Common\UIDictionary_YDS.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="Common\ValidationHelper.cs" />
+    <Compile Include="Common\WorkflowHelper.cs" />
+    <Compile Include="EntitysXML\EntityManager.cs" />
+    <Compile Include="EntitysXML\SalaryItemXmlOperator.cs" />
+    <Compile Include="Form\Attendance\AdjustLeaveForm.xaml.cs">
+      <DependentUpon>AdjustLeaveForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttendanceDeductDetailForm.xaml.cs">
+      <DependentUpon>AttendanceDeductDetailForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttendanceDeductMasterForm.xaml.cs">
+      <DependentUpon>AttendanceDeductMasterForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttendanceMachineSetForm.xaml.cs">
+      <DependentUpon>AttendanceMachineSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttendanceSolutionAsignForm.xaml.cs">
+      <DependentUpon>AttendanceSolutionAsignForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttendMonthlyBalanceAudit.xaml.cs">
+      <DependentUpon>AttendMonthlyBalanceAudit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttendMonthlyBalanceForm.xaml.cs">
+      <DependentUpon>AttendMonthlyBalanceForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttSolDefSet.xaml.cs">
+      <DependentUpon>AttSolDefSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttSolRdBasicSet.xaml.cs">
+      <DependentUpon>AttSolRdBasicSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttSolRdDeductSet.xaml.cs">
+      <DependentUpon>AttSolRdDeductSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttSolRdForm.xaml.cs">
+      <DependentUpon>AttSolRdForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttSolRdLeaveSet.xaml.cs">
+      <DependentUpon>AttSolRdLeaveSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\AttSolRdOTSet.xaml.cs">
+      <DependentUpon>AttSolRdOTSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\CalculateEmployeeAttendanceMonthlyForm.xaml.cs">
+      <DependentUpon>CalculateEmployeeAttendanceMonthlyForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\EmployeeLeaveRecordForm.xaml.cs">
+      <DependentUpon>EmployeeLeaveRecordForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\EvectionForm.xaml.cs">
+      <DependentUpon>EvectionForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\FreeLeaveDaySetForm.xaml.cs">
+      <DependentUpon>FreeLeaveDaySetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\ImportAttendbalanceForm.xaml.cs">
+      <DependentUpon>ImportAttendbalanceForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\ImportEmpClockInRdForm.xaml.cs">
+      <DependentUpon>ImportEmpClockInRdForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\LeaveTypeSetForm.xaml.cs">
+      <DependentUpon>LeaveTypeSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\OverTimeForm.xaml.cs">
+      <DependentUpon>OverTimeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\OvertimeRewardSetForm.xaml.cs">
+      <DependentUpon>OvertimeRewardSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\PublicVacationForm.xaml.cs">
+      <DependentUpon>PublicVacationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\SchedulingTemplateDetailSet.xaml.cs">
+      <DependentUpon>SchedulingTemplateDetailSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\SchedulingTemplateForm.xaml.cs">
+      <DependentUpon>SchedulingTemplateForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\SchedulingTemplateMasterSet.xaml.cs">
+      <DependentUpon>SchedulingTemplateMasterSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\ShiftDefineForm.xaml.cs">
+      <DependentUpon>ShiftDefineForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\SignInRdForm.xaml.cs">
+      <DependentUpon>SignInRdForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\CalculateEmployeeAttendanceYearlyForm.xaml.cs">
+      <DependentUpon>CalculateEmployeeAttendanceYearlyForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\TerminateLeaveForm.xaml.cs">
+      <DependentUpon>TerminateLeaveForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\BaseFloatable.cs" />
+    <Compile Include="Form\Organization\DepartmentDictionaryForms.xaml.cs">
+      <DependentUpon>DepartmentDictionaryForms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\DepartmentHistoryForm.xaml.cs">
+      <DependentUpon>DepartmentHistoryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\CompanyHistoryForm.xaml.cs">
+      <DependentUpon>CompanyHistoryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\PostDictionaryForms.xaml.cs">
+      <DependentUpon>PostDictionaryForms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\PostForm.xaml.cs">
+      <DependentUpon>PostForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\DepartmentForm.xaml.cs">
+      <DependentUpon>DepartmentForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\PostHistoryForm.xaml.cs">
+      <DependentUpon>PostHistoryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\MergeCompanyForm.xaml.cs">
+      <DependentUpon>MergeCompanyForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\CompanyForm.xaml.cs">
+      <DependentUpon>CompanyForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Organization\RelationPostForm.xaml.cs">
+      <DependentUpon>RelationPostForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\ComplainProcess.xaml.cs">
+      <DependentUpon>ComplainProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\ComplainRecordForm.xaml.cs">
+      <DependentUpon>ComplainRecordForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\EditGroupPerson.xaml.cs">
+      <DependentUpon>EditGroupPerson.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\EditPerformance.xaml.cs">
+      <DependentUpon>EditPerformance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\GroupInfo.xaml.cs">
+      <DependentUpon>GroupInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\KPIPointInfo.xaml.cs">
+      <DependentUpon>KPIPointInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\KPITypeInfo.xaml.cs">
+      <DependentUpon>KPITypeInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\PerformanceComplain.xaml.cs">
+      <DependentUpon>PerformanceComplain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Performance\Scoring.xaml.cs">
+      <DependentUpon>Scoring.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\BaseinfoForm.xaml.cs">
+      <DependentUpon>BaseinfoForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\BlackListForm.xaml.cs">
+      <DependentUpon>BlackListForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\BlackListForm2.xaml.cs">
+      <DependentUpon>BlackListForm2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\CheckGrade.xaml.cs">
+      <DependentUpon>CheckGrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\CheckItem.xaml.cs">
+      <DependentUpon>CheckItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\CheckItemPoint.xaml.cs">
+      <DependentUpon>CheckItemPoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\CheckPointSetForm.xaml.cs">
+      <DependentUpon>CheckPointSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\CheckProjectSetForm.xaml.cs">
+      <DependentUpon>CheckProjectSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EducateHistoryForm.xaml.cs">
+      <DependentUpon>EducateHistoryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeChangeReports.xaml.cs">
+      <DependentUpon>EmployeeChangeReports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeCheckForm.xaml.cs">
+      <DependentUpon>EmployeeCheckForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeContractForm.xaml.cs">
+      <DependentUpon>EmployeeContractForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeEntryForm.xaml.cs">
+      <DependentUpon>EmployeeEntryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeForm.xaml.cs">
+      <DependentUpon>EmployeeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeInfoForm.xaml.cs">
+      <DependentUpon>EmployeeInfoForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeInfoRealTime.xaml.cs">
+      <DependentUpon>EmployeeInfoRealTime.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeInsuranceForm.xaml.cs">
+      <DependentUpon>EmployeeInsuranceForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeLeftOfficeReports.xaml.cs">
+      <DependentUpon>EmployeeLeftOfficeReports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeePostChangeForm.xaml.cs">
+      <DependentUpon>EmployeePostChangeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeReports.xaml.cs">
+      <DependentUpon>EmployeeReports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EmployeeUserForm.xaml.cs">
+      <DependentUpon>EmployeeUserForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\EntityPageForm.xaml.cs">
+      <DependentUpon>EntityPageForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\ExperienceForm.xaml.cs">
+      <DependentUpon>ExperienceForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\ImportSetMasterForm.xaml.cs">
+      <DependentUpon>ImportSetMasterForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\LeftOfficeConfirmForm.xaml.cs">
+      <DependentUpon>LeftOfficeConfirmForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\LeftOfficeForm.xaml.cs">
+      <DependentUpon>LeftOfficeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\PensionAlarmSetForm.xaml.cs">
+      <DependentUpon>PensionAlarmSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\PensionDetailForm.xaml.cs">
+      <DependentUpon>PensionDetailForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\PensionMasterForm.xaml.cs">
+      <DependentUpon>PensionMasterForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\PensionSalaryTotal.xaml.cs">
+      <DependentUpon>PensionSalaryTotal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\PersonalLandDetails.xaml.cs">
+      <DependentUpon>PersonalLandDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\ResumeForm.xaml.cs">
+      <DependentUpon>ResumeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommForm\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommForm\LogoutWindow.xaml.cs">
+      <DependentUpon>LogoutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommForm\LookupTreeForm.xaml.cs">
+      <DependentUpon>LookupTreeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomDataForm.cs" />
+    <Compile Include="Form\BaseForm.cs" />
+    <Compile Include="Form\Personnel\EmployeeEntryAddForm.xaml.cs">
+      <DependentUpon>EmployeeEntryAddForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ChartAgeReportFrom.xaml.cs">
+      <DependentUpon>ChartAgeReportFrom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ChartEducationReportFrom.xaml.cs">
+      <DependentUpon>ChartEducationReportFrom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ChartIndustrialalPieFrom.xaml.cs">
+      <DependentUpon>ChartIndustrialalPieFrom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ChartPieLengthServiceFrom.xaml.cs">
+      <DependentUpon>ChartPieLengthServiceFrom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ChartPieReportFrom.xaml.cs">
+      <DependentUpon>ChartPieReportFrom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ChartReportForm.xaml.cs">
+      <DependentUpon>ChartReportForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ChartToolkitPieReportFrom.xaml.cs">
+      <DependentUpon>ChartToolkitPieReportFrom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ChartToolkitPieSexReportFrom.xaml.cs">
+      <DependentUpon>ChartToolkitPieSexReportFrom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\EmployeeReports.xaml.cs">
+      <DependentUpon>EmployeeReports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\ReportInfos.xaml.cs">
+      <DependentUpon>ReportInfos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\AreaAllowanceForm.xaml.cs">
+      <DependentUpon>AreaAllowanceForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\AreaForm.xaml.cs">
+      <DependentUpon>AreaForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\AreaSortCityForm.xaml.cs">
+      <DependentUpon>AreaSortCityForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\AreaSortForm.xaml.cs">
+      <DependentUpon>AreaSortForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\CalculateFormula.xaml.cs">
+      <DependentUpon>CalculateFormula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\CalculateItemForm.xaml.cs">
+      <DependentUpon>CalculateItemForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\CityForm.xaml.cs">
+      <DependentUpon>CityForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\CustomGuerdonForm.xaml.cs">
+      <DependentUpon>CustomGuerdonForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\CustomSalaryAddForm.xaml.cs">
+      <DependentUpon>CustomSalaryAddForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\CustomSalaryForm.xaml.cs">
+      <DependentUpon>CustomSalaryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\EmployeeAddSumForm.xaml.cs">
+      <DependentUpon>EmployeeAddSumForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\EmployeeAddSumMassAudit.xaml.cs">
+      <DependentUpon>EmployeeAddSumMassAudit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\EmployeeDeductionMoney.xaml.cs">
+      <DependentUpon>EmployeeDeductionMoney.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\EmployeeSalarySummary.xaml.cs">
+      <DependentUpon>EmployeeSalarySummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\Formulatemplate.xaml.cs">
+      <DependentUpon>Formulatemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\GenerateSalaryForm.xaml.cs">
+      <DependentUpon>GenerateSalaryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\MonthDeductionTax.xaml.cs">
+      <DependentUpon>MonthDeductionTax.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\PaymentForm.xaml.cs">
+      <DependentUpon>PaymentForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\PerformanceRewardForm.xaml.cs">
+      <DependentUpon>PerformanceRewardForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\PerformanceRewardRecordForm.xaml.cs">
+      <DependentUpon>PerformanceRewardRecordForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\PerformanceRewardSetForm.xaml.cs">
+      <DependentUpon>PerformanceRewardSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\PostSalaryForm.xaml.cs">
+      <DependentUpon>PostSalaryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\ResignForm.xaml.cs">
+      <DependentUpon>ResignForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryArchiveItemForm.xaml.cs">
+      <DependentUpon>SalaryArchiveItemForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryContrast.xaml.cs">
+      <DependentUpon>SalaryContrast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryContrastForm.xaml.cs">
+      <DependentUpon>SalaryContrastForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryLevelForm.xaml.cs">
+      <DependentUpon>SalaryLevelForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryLoginForm.xaml.cs">
+      <DependentUpon>SalaryLoginForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryRecordMassAudit.xaml.cs">
+      <DependentUpon>SalaryRecordMassAudit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalarySolutionForm.xaml.cs">
+      <DependentUpon>SalarySolutionForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalarySolutionItemsForm.xaml.cs">
+      <DependentUpon>SalarySolutionItemsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryStandardForm.xaml.cs">
+      <DependentUpon>SalaryStandardForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalarySolutionAssignForm.xaml.cs">
+      <DependentUpon>SalarySolutionAssignForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryArchiveForm.xaml.cs">
+      <DependentUpon>SalaryArchiveForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\EmployeeSalaryRecordForm.xaml.cs">
+      <DependentUpon>EmployeeSalaryRecordForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalarySystemForm.xaml.cs">
+      <DependentUpon>SalarySystemForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalarySystemNameForm.xaml.cs">
+      <DependentUpon>SalarySystemNameForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SalaryTaxesForm.xaml.cs">
+      <DependentUpon>SalaryTaxesForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\SolutionItemForm.xaml.cs">
+      <DependentUpon>SolutionItemForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\StandardItemForm.xaml.cs">
+      <DependentUpon>StandardItemForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\StandardPerformanceRewardForm.xaml.cs">
+      <DependentUpon>StandardPerformanceRewardForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\TemporaryPayrollEditForm.xaml.cs">
+      <DependentUpon>TemporaryPayrollEditForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Salary\TemporaryPayrollForm.xaml.cs">
+      <DependentUpon>TemporaryPayrollForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Setting\OperatorParamSet.xaml.cs">
+      <DependentUpon>OperatorParamSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Setting\SetPageColor.xaml.cs">
+      <DependentUpon>SetPageColor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Setting\SsytemParamSetModel.xaml.cs">
+      <DependentUpon>SsytemParamSetModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Setting\SystemParamSetForm.xaml.cs">
+      <DependentUpon>SystemParamSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ValidationClass.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceWrapper.cs" />
+    <Compile Include="Service References\ReportChartServiceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WelfareStandardWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\AdjustLeave.xaml.cs">
+      <DependentUpon>AdjustLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\AttendanceMachineSet.xaml.cs">
+      <DependentUpon>AttendanceMachineSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\AttendanceSummary.xaml.cs">
+      <DependentUpon>AttendanceSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\AttendMonthlyBalance.xaml.cs">
+      <DependentUpon>AttendMonthlyBalance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\AttendYearlyBalance.xaml.cs">
+      <DependentUpon>AttendYearlyBalance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\EmployeeLeaveDays.xaml.cs">
+      <DependentUpon>EmployeeLeaveDays.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\EmployeeLeaveRecord.xaml.cs">
+      <DependentUpon>EmployeeLeaveRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\AttendanceDeductMaster.xaml.cs">
+      <DependentUpon>AttendanceDeductMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\AttendanceSolutionAsign.xaml.cs">
+      <DependentUpon>AttendanceSolutionAsign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\AttSolRd.xaml.cs">
+      <DependentUpon>AttSolRd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\ClockInRd.xaml.cs">
+      <DependentUpon>ClockInRd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\Evection.xaml.cs">
+      <DependentUpon>Evection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\EvectionReport.xaml.cs">
+      <DependentUpon>EvectionReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\ExceptionAttRd.xaml.cs">
+      <DependentUpon>ExceptionAttRd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\FreeLeaveDaySet.xaml.cs">
+      <DependentUpon>FreeLeaveDaySet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\LeaveTypeSet.xaml.cs">
+      <DependentUpon>LeaveTypeSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\OverTime.xaml.cs">
+      <DependentUpon>OverTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\OvertimeRewardSet.xaml.cs">
+      <DependentUpon>OvertimeRewardSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\SchedulingTemplate.xaml.cs">
+      <DependentUpon>SchedulingTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\ShiftDefine.xaml.cs">
+      <DependentUpon>ShiftDefine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\PublicVacation.xaml.cs">
+      <DependentUpon>PublicVacation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\SignInRd.xaml.cs">
+      <DependentUpon>SignInRd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\TerminateLeave.xaml.cs">
+      <DependentUpon>TerminateLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BasePage.cs" />
+    <Compile Include="Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IncompetnciaPage.xaml.cs">
+      <DependentUpon>IncompetnciaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginStatus.xaml.cs">
+      <DependentUpon>LoginStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\Rein.xaml.cs">
+      <DependentUpon>Rein.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\Company.xaml.cs">
+      <DependentUpon>Company.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\Department.xaml.cs">
+      <DependentUpon>Department.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\DepartmentDictionary.xaml.cs">
+      <DependentUpon>DepartmentDictionary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\CompanyTree.xaml.cs">
+      <DependentUpon>CompanyTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\CompanyTreeHistory.xaml.cs">
+      <DependentUpon>CompanyTreeHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\Post.xaml.cs">
+      <DependentUpon>Post.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\PostDictionary.xaml.cs">
+      <DependentUpon>PostDictionary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\RelationPost.xaml.cs">
+      <DependentUpon>RelationPost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Active\CompareCondition.cs" />
+    <Compile Include="Active\FlowSelect.xaml.cs">
+      <DependentUpon>FlowSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Active\RuleActiveSet.xaml.cs">
+      <DependentUpon>RuleActiveSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Active\RuleConditions.cs" />
+    <Compile Include="Active\RuleLine.xaml.cs">
+      <DependentUpon>RuleLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Active\StateActive.xaml.cs">
+      <DependentUpon>StateActive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Active\StateActiveSet.xaml.cs">
+      <DependentUpon>StateActiveSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Active\StateType.cs" />
+    <Compile Include="Active\SystemBOSet.xaml.cs">
+      <DependentUpon>SystemBOSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Active\WfUtils.cs" />
+    <Compile Include="Views\Performance\ComplainFlow.xaml.cs">
+      <DependentUpon>ComplainFlow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\GroupPersonList.xaml.cs">
+      <DependentUpon>GroupPersonList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\KPIDetails.xaml.cs">
+      <DependentUpon>KPIDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\KPIPointSet.xaml.cs">
+      <DependentUpon>KPIPointSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\KPITypeList.xaml.cs">
+      <DependentUpon>KPITypeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\PerformanceList.xaml.cs">
+      <DependentUpon>PerformanceList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\PersonPerformanceList.xaml.cs">
+      <DependentUpon>PersonPerformanceList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\RandomGroup.xaml.cs">
+      <DependentUpon>RandomGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\RandomInspectorGroup.xaml.cs">
+      <DependentUpon>RandomInspectorGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Performance\ReviewComplain.xaml.cs">
+      <DependentUpon>ReviewComplain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\AssessmentFormMaster.xaml.cs">
+      <DependentUpon>AssessmentFormMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\BlackList.xaml.cs">
+      <DependentUpon>BlackList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\CheckPointSet.xaml.cs">
+      <DependentUpon>CheckPointSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\Customers.cs" />
+    <Compile Include="Views\Personnel\Employee.xaml.cs">
+      <DependentUpon>Employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\EmployeeCheck.xaml.cs">
+      <DependentUpon>EmployeeCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\EmployeeContract.xaml.cs">
+      <DependentUpon>EmployeeContract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\EmployeeEntry.xaml.cs">
+      <DependentUpon>EmployeeEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\EmployeeInsurance.xaml.cs">
+      <DependentUpon>EmployeeInsurance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\EmployeePostChange.xaml.cs">
+      <DependentUpon>EmployeePostChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\ImportSetMaster.xaml.cs">
+      <DependentUpon>ImportSetMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\LeftOffice.xaml.cs">
+      <DependentUpon>LeftOffice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\LeftOfficeConfirm.xaml.cs">
+      <DependentUpon>LeftOfficeConfirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\PensionAlarmSet.xaml.cs">
+      <DependentUpon>PensionAlarmSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\PensionDetail.xaml.cs">
+      <DependentUpon>PensionDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\PensionMaster.xaml.cs">
+      <DependentUpon>PensionMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\PersonalLandStatistics.xaml.cs">
+      <DependentUpon>PersonalLandStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personnel\Resume.xaml.cs">
+      <DependentUpon>Resume.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Blank.xaml.cs">
+      <DependentUpon>Blank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Personnel\WelfarePaymentDetails.xaml.cs">
+      <DependentUpon>WelfarePaymentDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ReporstMainPage.xaml.cs">
+      <DependentUpon>ReporstMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\AreaAllowance.xaml.cs">
+      <DependentUpon>AreaAllowance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\AreaSort.xaml.cs">
+      <DependentUpon>AreaSort.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\CalculateItem.xaml.cs">
+      <DependentUpon>CalculateItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\CustomSalary.xaml.cs">
+      <DependentUpon>CustomSalary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\EmployeeAddSum.xaml.cs">
+      <DependentUpon>EmployeeAddSum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\Payment.xaml.cs">
+      <DependentUpon>Payment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\PaySalaryHistory.xaml.cs">
+      <DependentUpon>PaySalaryHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\PerformanceRewardRecord.xaml.cs">
+      <DependentUpon>PerformanceRewardRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\PerformanceRewardSet.xaml.cs">
+      <DependentUpon>PerformanceRewardSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\PostLevelDistinction.xaml.cs">
+      <DependentUpon>PostLevelDistinction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalaryArchiveHIS.xaml.cs">
+      <DependentUpon>SalaryArchiveHIS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalaryPaidConfirm.xaml.cs">
+      <DependentUpon>SalaryPaidConfirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalaryPasswordSet.xaml.cs">
+      <DependentUpon>SalaryPasswordSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalaryPayImport.xaml.cs">
+      <DependentUpon>SalaryPayImport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalarySolution.xaml.cs">
+      <DependentUpon>SalarySolution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalaryStandard.xaml.cs">
+      <DependentUpon>SalaryStandard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalaryLevel.xaml.cs">
+      <DependentUpon>SalaryLevel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalarySolutionAssign.xaml.cs">
+      <DependentUpon>SalarySolutionAssign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalaryArchive.xaml.cs">
+      <DependentUpon>SalaryArchive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\EmployeeSalaryRecord.xaml.cs">
+      <DependentUpon>EmployeeSalaryRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\SalarySystemSet.xaml.cs">
+      <DependentUpon>SalarySystemSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\StandardPerformanceReward.xaml.cs">
+      <DependentUpon>StandardPerformanceReward.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salary\TemporaryPayroll.xaml.cs">
+      <DependentUpon>TemporaryPayroll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Setting\FunctionSetting.xaml.cs">
+      <DependentUpon>FunctionSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsedControl.xaml.cs">
+      <DependentUpon>UsedControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="CommForm\EntityAuditForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommForm\LookupForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommForm\OrganizationLookupForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AdjustLeaveForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttendanceDeductDetailForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttendanceDeductMasterForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttendanceMachineSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttendanceSolutionAsignForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttendMonthlyBalanceAudit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttendMonthlyBalanceForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttSolDefSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttSolRdBasicSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttSolRdDeductSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttSolRdForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttSolRdLeaveSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\AttSolRdOTSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\CalculateEmployeeAttendanceMonthlyForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\EmployeeLeaveRecordForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\EvectionForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\FreeLeaveDaySetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\ImportAttendbalanceForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Attendance\ImportEmpClockInRdForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\LeaveTypeSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\OverTimeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\OvertimeRewardSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\PublicVacationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\SchedulingTemplateDetailSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\SchedulingTemplateForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\SchedulingTemplateMasterSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\ShiftDefineForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\SignInRdForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\CalculateEmployeeAttendanceYearlyForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\TerminateLeaveForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\DepartmentDictionaryForms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\DepartmentHistoryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\CompanyHistoryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\PostDictionaryForms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\PostForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\DepartmentForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\PostHistoryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\MergeCompanyForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\CompanyForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Organization\RelationPostForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Performance\ComplainProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Performance\ComplainRecordForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Performance\EditGroupPerson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Performance\EditPerformance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Performance\GroupInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Performance\KPIPointInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Performance\KPITypeInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Performance\PerformanceComplain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Performance\Scoring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Personnel\BaseinfoForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\BlackListForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\BlackListForm2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\CheckGrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\CheckItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\CheckItemPoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\CheckPointSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\CheckProjectSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EducateHistoryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeChangeReports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeCheckForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeContractForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeEntryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeInfoForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeInfoRealTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeInsuranceForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeLeftOfficeReports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Personnel\EmployeePostChangeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeReports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeUserForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EntityPageForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\ExperienceForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\ImportSetMasterForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\LeftOfficeConfirmForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\LeftOfficeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\PensionAlarmSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\PensionDetailForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\PensionMasterForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\PensionSalaryTotal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Personnel\PersonalLandDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Personnel\ResumeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\EmployeeEntryAddForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Report\ChartAgeReportFrom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Report\ChartEducationReportFrom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Report\ChartIndustrialalPieFrom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Report\ChartPieLengthServiceFrom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Report\ChartPieReportFrom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Report\ChartReportForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Report\ChartToolkitPieReportFrom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Report\ChartToolkitPieSexReportFrom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Report\EmployeeReports.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Report\ReportInfos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\AreaAllowanceForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\AreaForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\AreaSortCityForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Salary\AreaSortForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Salary\CalculateFormula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\CalculateItemForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\CityForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\CustomGuerdonForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\CustomSalaryAddForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\CustomSalaryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\EmployeeAddSumForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\EmployeeAddSumMassAudit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Salary\EmployeeDeductionMoney.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\EmployeeSalarySummary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\Formulatemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\GenerateSalaryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\MonthDeductionTax.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\PaymentForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\PerformanceRewardForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\PerformanceRewardRecordForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\PerformanceRewardSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\PostSalaryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\ResignForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Salary\SalaryArchiveItemForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalaryContrast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalaryContrastForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Salary\SalaryLevelForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalaryLoginForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Salary\SalaryRecordMassAudit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Salary\SalarySolutionForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalarySolutionItemsForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalaryStandardForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalarySolutionAssignForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalaryArchiveForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\EmployeeSalaryRecordForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommForm\ErrorWindow.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommForm\LogoutWindow.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommForm\LookupTreeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalarySystemForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalarySystemNameForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SalaryTaxesForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\SolutionItemForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\StandardItemForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\StandardPerformanceRewardForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\TemporaryPayrollEditForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\TemporaryPayrollForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Setting\OperatorParamSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Setting\SetPageColor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Setting\SsytemParamSetModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Setting\SystemParamSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\AdjustLeave.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\AttendanceMachineSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\AttendanceSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Attendance\AttendMonthlyBalance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\AttendYearlyBalance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\EmployeeLeaveDays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\EmployeeLeaveRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\AttendanceDeductMaster.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\AttendanceSolutionAsign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\AttSolRd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\ClockInRd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\Evection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\EvectionReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\ExceptionAttRd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\FreeLeaveDaySet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\LeaveTypeSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\OverTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\OvertimeRewardSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\SchedulingTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\ShiftDefine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\PublicVacation.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\SignInRd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Attendance\TerminateLeave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\IncompetnciaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\LoginStatus.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\Rein.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\Company.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\Department.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\DepartmentDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\CompanyTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\CompanyTreeHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\Post.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\PostDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\RelationPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Active\FlowSelect.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Active\RuleActiveSet.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Active\RuleLine.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Active\StateActive.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Active\StateActiveSet.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Active\SystemBOSet.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\ComplainFlow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Performance\GroupPersonList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\KPIDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\KPIPointSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\KPITypeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\PerformanceList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\PersonPerformanceList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\RandomGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\RandomInspectorGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Performance\ReviewComplain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\AssessmentFormMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\BlackList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\CheckPointSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\EmployeeCheck.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\EmployeeContract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\EmployeeEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\EmployeeInsurance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\EmployeePostChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\ImportSetMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\LeftOffice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\LeftOfficeConfirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\PensionAlarmSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\PensionDetail.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\PensionMaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\PersonalLandStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personnel\Resume.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Blank.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personnel\WelfarePaymentDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ReporstMainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\AreaAllowance.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\AreaSort.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\CalculateItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\CustomSalary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\EmployeeAddSum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\Payment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\PaySalaryHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\PerformanceRewardRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\PerformanceRewardSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\PostLevelDistinction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\SalaryArchiveHIS.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\SalaryPaidConfirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Salary\SalaryPasswordSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Salary\SalaryPayImport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\SalarySolution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\SalaryStandard.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\SalaryLevel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\SalarySolutionAssign.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\SalaryArchive.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\EmployeeSalaryRecord.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\SalarySystemSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\StandardPerformanceReward.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Salary\TemporaryPayroll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Setting\FunctionSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsedControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+    <None Include="Service References\ReportChartServiceWS\ReportChartService.wsdl" />
+    <None Include="Service References\ReportChartServiceWS\ReportChartService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportChartServiceWS\ReportChartService1.wsdl" />
+    <None Include="Service References\ReportChartServiceWS\ReportChartService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportChartServiceWS\ReportChartService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportChartServiceWS\ReportChartService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportChartServiceWS\SMT.HRM.UI.ReportChartServiceWS.EmployeeMarriage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportChartServiceWS\SMT.HRM.UI.ReportChartServiceWS.PieEmployeece.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WelfareStandardWS\configuration91.svcinfo" />
+    <None Include="Service References\WelfareStandardWS\configuration.svcinfo" />
+    <None Include="Service References\WelfareStandardWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ReportChartServiceWS\ReportChartService.disco" />
+    <None Include="Service References\ReportChartServiceWS\configuration91.svcinfo" />
+    <None Include="Service References\ReportChartServiceWS\configuration.svcinfo" />
+    <None Include="Service References\ReportChartServiceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="EntitysXML\SalaryItemXML.xml" />
+    <Content Include="EntitysXML\SMT_HRM_EFModel.xml" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ReportChartServiceWS\" />
+    <WCFMetadataStorage Include="Service References\WelfareStandardWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Properties\DataSources\SMT.SaaS.FrameworkUI.AuditService.Flow_FlowRecord_T.datasource" />
+    <None Include="Properties\DataSources\System.Uri.datasource" />
+    <None Include="Service References\WelfareStandardWS\Arrays.xsd" />
+    <None Include="Service References\WelfareStandardWS\service.wsdl" />
+    <None Include="Service References\WelfareStandardWS\service.xsd" />
+    <None Include="Service References\WelfareStandardWS\service1.wsdl" />
+    <None Include="Service References\WelfareStandardWS\service1.xsd" />
+    <None Include="Service References\WelfareStandardWS\SMT.EntityFlowSys.xsd" />
+    <None Include="Service References\WelfareStandardWS\SMT.HRM.UI.WelfareStandardWS.T_OA_WELFARE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WelfareStandardWS\SMT.HRM.UI.WelfareStandardWS.T_OA_WELFAREDISTRIBUTEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WelfareStandardWS\SMT.HRM.UI.WelfareStandardWS.T_OA_WELFAREDISTRIBUTEMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WelfareStandardWS\SMT.HRM.UI.WelfareStandardWS.V_WelfareProvision.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WelfareStandardWS\SMT.HRM.UI.WelfareStandardWS.V_WelfareStandard.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WelfareStandardWS\SMT.SaaS.OA.DAL.Views1.xsd" />
+    <None Include="Service References\WelfareStandardWS\SMT.SaaS.OA.Services1.xsd" />
+    <None Include="Service References\WelfareStandardWS\SMT_OA_EFModel.xsd" />
+    <None Include="Service References\WelfareStandardWS\System.Data.Objects.DataClasses.xsd" />
+    <None Include="Service References\WelfareStandardWS\System.Data.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
+      <Project>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</Project>
+      <Name>SMT.SAAS.FrameworkUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

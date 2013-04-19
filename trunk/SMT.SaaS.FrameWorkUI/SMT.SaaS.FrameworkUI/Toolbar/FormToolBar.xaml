@@ -1,0 +1,167 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.FormToolBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI" 
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" >
+    <Border  Margin="0" Height="30" Style="{StaticResource ButtonToolBarBorder}" >
+        <Grid  x:Name="FormToolGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="0">
+                <StackPanel x:Name="FormToolContainer1" Orientation="Horizontal" Height="28">
+                    <!--新增-->
+                    <StackPanel x:Name="custom" Orientation="Horizontal">
+
+                    </StackPanel>
+                    <Button Height="26" Margin="5,0,0,0" x:Name="ButtonNew" 
+                                Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}"
+                                Width="auto">
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_addView.png" 
+                                       ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=NEW}" 
+                                       Stretch="Fill" Width="16" Height="16"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=NEW}" 
+                                            Margin="2,0,0,0" x:Name="TBNEW" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Rectangle x:Name="RectangleNew" Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="1,4,0,3"/>
+                    <!--修改-->
+                    <Button Height="26" Margin="0,0,0,0" x:Name="ButtonEdit" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto">
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Width="16" x:Name="FormToolEdit" Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/edit.png" Stretch="Fill" Height="16" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=EDIT}"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EDIT}" Margin="2,0,0,0" x:Name="TBEDIT" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Rectangle x:Name="RectangleEdit" Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="0,4,0,3"/>
+                    <!--删除-->
+                    <Button Height="26" Margin="2,0,0,0" x:Name="ButtonDelete" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Width="16" x:Name="FormToolDelete" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png" Stretch="Fill" Height="16" Margin="0,0,0,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}" Margin="2,0,0,0" x:Name="TBDelete" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Rectangle x:Name="RectangleDelete" Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="0,4,0,3"/>
+                    <!--刷新-->
+                    <Button Height="26" Margin="2,0,0,0" x:Name="ButtonRefresh" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/16_L_refresh.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=REFRESH}" Margin="0" Width="16" Height="16" Stretch="Fill"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REFRESH}" Margin="2,0,0,0" x:Name="TBReFresh" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Rectangle x:Name="RectangleRefresh" Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="3,4,0,3"/>
+
+                    <!--查看-->
+                    <Button Height="26" Margin="2,0,0,0" x:Name="ButtonSelect" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto">
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1071_d.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=VIEW}" Margin="0" Width="16" Height="16" Stretch="Fill"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=VIEW}" Margin="2,0,0,0" x:Name="TBSelect" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Rectangle x:Name="RectangleRead" Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="3,4,0,3"/>
+                    <!--打印-->
+                    <Button Height="26" Margin="2,0,0,0" x:Name="ButtonPrint" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Height="16" x:Name="FormToolPrint" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/16_print.png" Stretch="Fill" Width="16" Margin="0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=PRINT}"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PRINT}" Margin="2,0,0,0" x:Name="TBPRINT" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+
+                    </Button>
+                    <!--导出Excel-->
+                    <Button Height="26" Margin="2,0,0,0" x:Name="ButtonOutExcel" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                      <StackPanel  Orientation="Horizontal">
+                        <Image Width="16" x:Name="FormToolOutExcel" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/16_excel.png" Stretch="Fill" Height="16" Margin="3,0,3,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=EXPORTEXCEL}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EXPORTEXCEL}" Margin="2,0,0,0" x:Name="TBEXCEL" VerticalAlignment="Center"></TextBlock>
+                      </StackPanel>
+                    </Button>
+                    <!--导出PDF-->
+                    <Button Height="26" Margin="2,0,4,0" x:Name="ButtonOutPDF" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                        <Image Width="16" x:Name="FormToolOutPDF" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/16_pdf.png" Stretch="Fill" Height="16" Margin="3,0,3,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=EXPORTPDF}"/>
+                    </Button>
+
+                    <Rectangle x:Name="RectanglePDF" Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="0,4,0,3" Visibility="Collapsed"/>
+                    <!--提交审核-->
+                    <Button Height="26" Margin="1,0,0,0" Padding="0" x:Name="ButtonSumbitAudit" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_audit.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=SUBMITAUDIT}" Margin="0" Width="16" Height="16"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUBMITAUDIT}" Margin="2,0,0,0" x:Name="TBsubmitaudit" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!--审核-->
+                    <Button Height="26" Margin="1,0,0,0" x:Name="ButtonAudit" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto">
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_audit.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Margin="0" Width="16" Height="16" Stretch="Fill"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=AUDIT}" Margin="2,0,0,0" x:Name="TBaudit" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!--审核不通过-->
+                    <Button Height="26" Margin="1,0,0,0" x:Name="ButtonAuditNoTPass" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_4424.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITNOTPASS}" Margin="0" Width="16" Height="16" Stretch="Fill"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITNOTPASS}" Margin="2,0,0,0" x:Name="TBauditNoPass" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!--重新提交-->
+                    <Button Height="26" Margin="1,0,0,0" x:Name="ButtonReSubmit" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/mnu_actions.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=ReSubmit}" Margin="0" Width="16" Height="16" Stretch="Fill"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ReSubmit}" Margin="2,0,0,0" x:Name="TBReSubmit" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Rectangle x:Name="RectangleAudit" Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="3,4,0,3"/>
+                    <!--导入-->
+                    <Button Height="26" Margin="1,0,0,0" x:Name="Buttonimport" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto">
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Width="16" x:Name="FormToolimport" Source="/SMT.SaaS.FrameworkUI;Component/Images/area/18_import.png" Stretch="Fill" Height="16" Margin="0" />
+                            <TextBlock Margin="2,0,0,0" x:Name="TBImport" Text="{Binding Converter={StaticResource ResourceConveter}, Source=IMPORT}" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Rectangle x:Name="RectangleImport" Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="3,4,0,3"/>
+                    <!--报表-->
+                    <Button Height="26" Margin="1,0,0,0" x:Name="ButtonReports" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto">
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Width="16" x:Name="FormToolReports" Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/18_reports.png" Stretch="Fill" Height="16" Margin="0" />
+                            <TextBlock Margin="2,0,0,0" x:Name="TBReports" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REPORTS}" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!--默认待定按钮-->
+                    <Button Height="26" Margin="1,0,0,0" x:Name="ButtonOtherAction" Visibility="Collapsed" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" >
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Width="16" x:Name="OtherActionImg" Stretch="Fill" Height="16" Margin="0"/>
+                            <TextBlock Margin="2,0,0,0" x:Name="TBOtherAction" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!--其他动作-->
+                    <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Left" Width="auto" x:Name="StackPanelOtherAction">
+                        <TextBlock x:Name="txtOtherAction" Text="其他视图" Margin="6,4,0,0" Height="20" Visibility="Collapsed"></TextBlock>
+                        <ComboBox Style="{StaticResource ComboBoxStyle}"  Height="24" Margin="3,1,0,1" Width="90" x:Name="FormToolCBOtherWork" Visibility="Collapsed">
+                        </ComboBox>
+                    </StackPanel >
+                </StackPanel>
+            </Border>
+            <Border BorderThickness="0" Grid.Column="1" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                    <!--审核状态-->
+                    <StackPanel x:Name="ftbCheckState" Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock x:Name="txtCheckState" Text="审核状态" Margin="6,4,0,0" Height="20"></TextBlock>
+                        <ComboBox Style="{StaticResource ComboBoxStyle}"  Height="24" Margin="3,1,5,1" Width="120" x:Name="FormToolCBCheckState" Cursor="Hand">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel x:Name="ftbView" Orientation="Horizontal" HorizontalAlignment="Left" Visibility="Collapsed" >
+                        <TextBlock Text="视图" Margin="6,4,0,0" Height="20"></TextBlock>
+                        <ComboBox Style="{StaticResource ComboBoxStyle}"  Height="22" Margin="3,3,0,0" Width="120" x:Name="FormToolCBView" >
+                        </ComboBox>
+                    </StackPanel >
+                    <StackPanel x:Name="OtherRSp" Orientation="Horizontal" HorizontalAlignment="Right" Visibility="Collapsed" Margin="4,4,6,0" >
+                        
+                    </StackPanel >
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

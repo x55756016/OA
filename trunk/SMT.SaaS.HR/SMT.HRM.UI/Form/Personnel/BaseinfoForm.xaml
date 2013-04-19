@@ -1,0 +1,258 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Personnel.BaseinfoForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="4,2,2,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+            <ColumnDefinition Width="0.24*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+            <ColumnDefinition Width="0.24*"></ColumnDefinition>
+            <ColumnDefinition Width="15"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="52"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="52"></RowDefinition>
+            <RowDefinition Height="52"></RowDefinition>
+            <RowDefinition Height="52"></RowDefinition>
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <!--Row0-->
+        <!--姓名-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=NAME}" 
+                   Grid.Row="0" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtName" Text="{Binding NAME,Mode=TwoWay}" Width="auto" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" MaxLength="50">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="NAME" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <!--性别-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SEX}" 
+                   Grid.Row="0" Grid.Column="3" ></TextBlock>
+        <appCtr:DictionaryComboBox Grid.Row="0" Grid.Column="4" IsShowNull="False" Category="SEX"  Width="auto" HorizontalAlignment="Stretch" SelectedValue="{Binding SEX, Mode=TwoWay}" Margin="5 0 0 0"></appCtr:DictionaryComboBox>
+        
+        <!--相片-->
+        <smt:ImageSelect Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="5" Width="110" ButtonToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=UPLOADPHOTO}"
+                         HorizontalAlignment="Left" ImageField="{Binding PHOTO,Mode=TwoWay}">
+
+        </smt:ImageSelect>
+        <!--Row1-->
+        <!--民族-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=NATION}" 
+                   Grid.Row="1" Grid.Column="0" ></TextBlock>
+        <appCtr:DictionaryComboBox Grid.Row="1" Grid.Column="1" IsShowNull="False" Category="NATION" SelectedValue="{Binding NATION, Mode=TwoWay}"  Width="auto" HorizontalAlignment="Stretch" Margin="5 0 0 0"></appCtr:DictionaryComboBox>
+        <!--身高-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=HEIGHT}" 
+                   Grid.Row="1" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtHeight"   MaxLength="5"  Width="auto" HorizontalAlignment="Stretch"
+                 Text="{Binding HEIGHT,Mode=TwoWay}" 
+                 Grid.Row="1" Grid.Column="4" />
+        <!--Row2-->
+        <!--身份证号码-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=IDCARDNUMBER}" 
+                   Grid.Row="2" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtIdCardNumber" Text="{Binding IDCARDNUMBER,Mode=TwoWay}"  Width="auto" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" MaxLength="50">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="IDCARDNUMBER" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+
+        <!--婚姻状况-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MARRIAGE}" 
+                   Grid.Row="2" Grid.Column="3" ></TextBlock>
+        <appCtr:DictionaryComboBox x:Name="cbxMarriage" Grid.Row="2" Grid.Column="4" IsShowNull="False" Category="MARRIAGE" SelectedValue="{Binding MARRIAGE, Mode=TwoWay}" Height="22"  Width="auto" HorizontalAlignment="Stretch" Margin="5 0 0 0"></appCtr:DictionaryComboBox>
+               
+        <!--Row3-->
+        <!--籍贯-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROVINCE}" 
+                   Grid.Row="3" Grid.Column="0" ></TextBlock>
+        <appCtr:DictionaryComboBox x:Name="cbxProvince" Grid.Row="3" Grid.Column="1" IsShowNull="False"  Category="PROVINCE" SelectedValue="{Binding PROVINCE, Mode=TwoWay}" Height="22"  Width="auto" HorizontalAlignment="Stretch" Margin="5 0 0 0"></appCtr:DictionaryComboBox>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtProvince"  
+                 Text="{Binding PROVINCE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="3" Grid.Column="1"  />
+        <!--政治面貌-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POLITICS}" 
+                   Grid.Row="3" Grid.Column="3" ></TextBlock>
+        <appCtr:DictionaryComboBox x:Name="cbxPolitics" Grid.Row="3" Grid.Column="4" IsShowNull="False"  Category="POLITICS" SelectedValue="{Binding POLITICS, Mode=TwoWay}"  Width="auto" HorizontalAlignment="Stretch" Margin="5 0 0 0"></appCtr:DictionaryComboBox>
+        
+        <!--Row4-->
+        <!--电子邮件-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMAIL}" 
+                   Grid.Row="4" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmail" Text="{Binding EMAIL,Mode=TwoWay}" Grid.Row="4" Grid.Column="1"  Width="auto" HorizontalAlignment="Stretch"  MaxLength="50">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="EMAIL" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+
+        <!--期望薪资-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EXPECTATIONSALARY}" 
+                   Grid.Row="4" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" MaxLength="50"  Width="auto" HorizontalAlignment="Stretch"
+                 Text="{Binding EXPECTATIONSALARY,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="4" Grid.Column="4" />
+        <!--Row5-->
+        <!--意向公司-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=WISHCOMPANY}" 
+                   Grid.Row="5" Grid.Column="0" ></TextBlock>
+        <smt:LookUp DataContext="{Binding Path=T_HR_COMPANY}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="5" Width="Auto" 
+                    FindClick="lkCompany_FindClick" Name="lkCompany" DisplayMemberPath="CNAME">
+        </smt:LookUp>
+        <!--手机号码-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MOBILE}" 
+                   Grid.Row="5" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  MaxLength="50"  Width="auto" HorizontalAlignment="Stretch"
+                 Text="{Binding MOBILE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="5" Grid.Column="4" />
+        <!--Row6-->
+        <!--意向岗位-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=WISHPOST}" 
+                   Grid.Row="6" Grid.Column="0" ></TextBlock>
+        <smt:LookUp DataContext="{Binding Path=T_HR_POSTDICTIONARY.POSTNAME}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="6" Width="Auto"
+                    FindClick="lkPost_FindClick" Name="lkPost" DisplayMemberPath="T_HR_POSTDICTIONARY.POSTNAME">
+        </smt:LookUp>
+        <!--户口所在地-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REGRESIDENCE}" 
+                   Grid.Row="6" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto" MaxLength="200"
+                 Text="{Binding REGRESIDENCE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
+        <!--Row7-->
+        <!--意向地区-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=WISHAREA}" 
+                   Grid.Row="7" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtWishArea"  MaxLength="100"  Width="auto" HorizontalAlignment="Stretch"
+                 Text="{Binding WISHAREA,Mode=TwoWay}" Grid.Row="7" Grid.Column="1" />
+        <!--目前居住地-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CURRENTADRESS}" 
+                   Grid.Row="7" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto"
+                 Text="{Binding CURRENTADRESS,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}"  MaxLength="100"
+                 Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
+        <!--Row8-->
+        <!--紧密联系人-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=URGENCYPERSON}" 
+                   Grid.Row="8" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtUrgencyPerson"  MaxLength="50"  Width="auto" HorizontalAlignment="Stretch"
+                 Text="{Binding URGENCYPERSON,Mode=TwoWay}" 
+                 Grid.Row="8" Grid.Column="1" />
+        <!--紧密联系方式-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=URGENCYCONTACT}" 
+                   Grid.Row="8" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto" MaxLength="50"
+                 Text="{Binding URGENCYCONTACT,Mode=TwoWay}" 
+                 Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
+        <!--Row9-->
+        <!--家庭邮政编码-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FAMILYZIPCODE}" 
+                   Grid.Row="9" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtFamilyZipcode"  MaxLength="50"  Width="auto" HorizontalAlignment="Stretch"
+                 Text="{Binding FAMILYZIPCODE,Mode=TwoWay}" 
+                 Grid.Row="9" Grid.Column="1" />
+        <!--家庭详细地址-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FAMILYADDRESS}" 
+                   Grid.Row="9" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto" MaxLength="100"
+                 Text="{Binding FAMILYADDRESS,Mode=TwoWay}" 
+                 Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
+        <!--Row10-->
+        <!--是否有亲属-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=HAVECOMRELATION}" 
+                   Grid.Row="10" Grid.Column="0" ></TextBlock>
+        <RadioButton Grid.Row="10" Grid.Column="1" x:Name="rdoHaveComrelation" IsChecked="True" Margin="5 4 0 0" 
+                     Content="是" GroupName="rdoComrelation" Style="{StaticResource RadioButtonStyle}"></RadioButton>
+        <RadioButton x:Name="rdoHaveComrelation1" Grid.Row="10" Grid.Column="1" Margin="50 4 0 0"
+                     Content="否" GroupName="rdoComrelation" Style="{StaticResource RadioButtonStyle}"></RadioButton>
+        <!--亲属公司地址-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMRELATIONINFO}" 
+                   Grid.Row="10" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto"
+                 Text="{Binding COMRELATIONINFO,Mode=TwoWay}"  MaxLength="100"
+                 Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
+        <!--Row11-->
+        <!--最高学历-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TIPTOPEDUCATION}" 
+                   Grid.Row="11" Grid.Column="0" ></TextBlock>
+        <appCtr:DictionaryComboBox x:Name="TiptopEducation" Grid.Row="11" Grid.Column="1"  IsShowNull="False" 
+                Category="TOPEDUCATION" SelectedValue="{Binding TIPTOPEDUCATION, Mode=TwoWay}"  Width="auto" HorizontalAlignment="Stretch" Margin="5 0 0 0"></appCtr:DictionaryComboBox>
+        
+        <!--毕业学校-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=GRADUATESCHOOL}" 
+                   Grid.Row="11" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto" MaxLength="100"
+                 Text="{Binding GRADUATESCHOOL,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
+        <!--Row12-->
+        <!--所学专业-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SPECIALTY}" 
+                   Grid.Row="12" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSpecialty"  Width="Auto" Height="48" AcceptsReturn="True"
+                 Text="{Binding SPECIALTY,Mode=TwoWay}" MaxLength="100"
+                 Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="6" HorizontalAlignment="Stretch"  TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <!--Row13-->
+        <!--英语水平-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENGLISHLEVEL}" 
+                   Grid.Row="13" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEnglistLevel"  MaxLength="20"  Width="auto" HorizontalAlignment="Stretch"
+                 Text="{Binding ENGLISHLEVEL,Mode=TwoWay}" Grid.Row="13" Grid.Column="1" />
+        <!--主修课程-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MAJORS}" 
+                   Grid.Row="13" Grid.Column="3" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto" MaxLength="100"
+                 Text="{Binding MAJORS,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
+        <!--Row14-->
+        <!--校内奖励-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SCHOOLENCOURAGE}" 
+                   Grid.Row="14" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto" Height="48" AcceptsReturn="True" MaxLength="200"
+                 Text="{Binding SCHOOLENCOURAGE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="6" HorizontalAlignment="Stretch"  TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <!--Row15-->
+        <!--校外奖励--> 
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=OUTENCOURAGE}" 
+                   Grid.Row="15" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto" Height="48" AcceptsReturn="True" MaxLength="200"
+                 Text="{Binding OUTENCOURAGE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                 Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="6" HorizontalAlignment="Stretch"  TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <!--Row16-->
+        <!--自我评价-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SELFAPPRAISE}" 
+                   Grid.Row="16" Grid.Column="0" ></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto" Height="48" AcceptsReturn="True" MaxLength="200"
+                 Text="{Binding SELFAPPRAISE,Mode=TwoWay}" 
+                 Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="6" HorizontalAlignment="Stretch"  TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+
+    </Grid>
+</smtLocal:BaseForm>

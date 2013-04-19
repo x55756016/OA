@@ -1,0 +1,66 @@
+﻿<smtLocal:BaseForm
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 	
+	mc:Ignorable="d" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+	xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	x:Class="SMT.HRM.UI.Form.Attendance.AttSolDefSet" 
+    >
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <!--Row 0:Title-->
+
+        <!--Row 1:TemplateName & Add New Templete-->
+        <TextBlock x:Name="tbSchedulingTemplateMasterTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SCHEDULINGTEMPLATEMASTER}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Height="24" />
+        <smtx:LookUp Name="lkSchedulingTemplateMaster" Grid.Row="0" Grid.Column="2" DataContext="{Binding Path=T_HR_SCHEDULINGTEMPLATEMASTER, Mode=TwoWay}" HorizontalAlignment="Stretch" FindClick="lkSchedulingTemplateMaster_FindClick" Margin="0" DisplayMemberPath="TEMPLATENAME" />
+
+        <TextBlock x:Name="tbSchedulingCircleType" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SCHEDULINGCIRCLETYPE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="4" />
+        <appCtr:DictionaryComboBox x:Name="cbxkSchedulingCircleType" Grid.Row="0" Grid.Column="6" IsShowNull="False" HorizontalAlignment="Stretch" Category="SCHEDULINGCIRCLETYPE" SelectedValue="{Binding SCHEDULINGCIRCLETYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center"/>
+
+        <!--Row 2:Remark-->
+        <TextBlock x:Name="tbRemarkTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" TextWrapping="Wrap" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,0,0,0" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+
+        <!--Row 3:Title-->
+        <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="2" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+
+        <!--Row 4:ShiftDefine DataGrid-->
+        <data:DataGrid x:Name="dgSEList" Grid.Row="3" Grid.ColumnSpan="8" AutoGenerateColumns="false" IsReadOnly="True" HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" Height="180">
+            <data:DataGrid.Columns>
+                <data:DataGridTextColumn Header="SCHEDULINGDATE" Binding="{Binding SCHEDULINGDATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="SHIFTNAME" Binding="{Binding T_HR_SHIFTDEFINE.SHIFTNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="WORKTIME" Binding="{Binding T_HR_SHIFTDEFINE.WORKTIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="FIRSTCARDSTARTTIME" Binding="{Binding T_HR_SHIFTDEFINE.FIRSTCARDSTARTTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="FIRSTCARDENDTIME" Binding="{Binding T_HR_SHIFTDEFINE.FIRSTCARDENDTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="SECONDCARDSTARTTIME" Binding="{Binding T_HR_SHIFTDEFINE.SECONDCARDSTARTTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="SECONDCARDENDTIME" Binding="{Binding T_HR_SHIFTDEFINE.SECONDCARDENDTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="THIRDCARDSTARTTIME" Binding="{Binding T_HR_SHIFTDEFINE.THIRDCARDSTARTTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="THIRDCARDENDTIME" Binding="{Binding T_HR_SHIFTDEFINE.THIRDCARDENDTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="FOURTHCARDSTARTTIME" Binding="{Binding T_HR_SHIFTDEFINE.FOURTHCARDSTARTTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="FOURTHCARDENDTIME" Binding="{Binding T_HR_SHIFTDEFINE.FOURTHCARDENDTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+    </Grid>
+</smtLocal:BaseForm>

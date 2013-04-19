@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.HRM.BLL</RootNamespace>
+    <AssemblyName>SMT.HRM.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="SMT.Foundation.Core">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Log">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.BLLCommonServices">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Globalization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313418dd5b9fe6fe, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.SmtOlineEn">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.SmtOlineEn.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT_HRM_EFModel">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT_HRM_EFModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbnormRecordBLL.cs" />
+    <Compile Include="AdjustLeaveBLL.cs" />
+    <Compile Include="AreaAllowanceBLL.cs" />
+    <Compile Include="AreaCategoryBLL.cs" />
+    <Compile Include="AssessmentFormDetailBLL.cs" />
+    <Compile Include="AssessmentFormMasterBLL.cs" />
+    <Compile Include="AttendanceDeductDetailBLL.cs" />
+    <Compile Include="AttendanceDeductMasterBLL.cs" />
+    <Compile Include="AttendanceRecordBLL.cs" />
+    <Compile Include="AttendanceSolutionAsignBLL.cs" />
+    <Compile Include="AttendanceSolutionBLL.cs" />
+    <Compile Include="AttendanceSolutionDeductBLL.cs" />
+    <Compile Include="AttendFreeLeaveBLL.cs" />
+    <Compile Include="AttendMachineSetBLL.cs" />
+    <Compile Include="AttendMonthlyBalanceBLL.cs" />
+    <Compile Include="AttendMonthlyBatchBalanceBLL.cs" />
+    <Compile Include="AttendYearlyBalanceBLL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseBll.cs" />
+    <Compile Include="BlackListBLL.cs" />
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="CheckPointLevelSetBLL.cs" />
+    <Compile Include="CheckPointSetBLL.cs" />
+    <Compile Include="CheckProjectSetBLL.cs" />
+    <Compile Include="ClockInRecordBLL.cs" />
+    <Compile Include="ClockInRecordBLLTe.cs" />
+    <Compile Include="Common\Class1.cs" />
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="CurrentContext\AppConfig.cs" />
+    <Compile Include="CurrentContext\CommonUserInfo.cs" />
+    <Compile Include="CurrentContext\LoginUser.cs" />
+    <Compile Include="CurrentContext\LoginUserInfo.cs" />
+    <Compile Include="CustomGuerdonArchiveBLL.cs" />
+    <Compile Include="CustomGuerdonArchiveHISBLL.cs" />
+    <Compile Include="CustomGuerdonBLL.cs" />
+    <Compile Include="CustomGuerdonRecordBLL.cs" />
+    <Compile Include="CustomGuerdonSetBLL.cs" />
+    <Compile Include="DepartmentHistoryBLL.cs" />
+    <Compile Include="CompanyHistoryBLL.cs" />
+    <Compile Include="EmployeeAddSumBatchBLL.cs" />
+    <Compile Include="EmployeeAddSumBLL.cs" />
+    <Compile Include="EmployeeCancelLeaveBLL.cs" />
+    <Compile Include="EmployeeCheckBLL.cs" />
+    <Compile Include="EmployeeContractBLL.cs" />
+    <Compile Include="EmployeeEntryBLL.cs" />
+    <Compile Include="EmployeeEvectionRecordBLL.cs" />
+    <Compile Include="EmployeeEvectionReportBLL.cs" />
+    <Compile Include="EmployeeLeaveRecordBLL.cs" />
+    <Compile Include="EmployeeLevelDayCountBLL.cs" />
+    <Compile Include="EmployeePostChangeBLL.cs" />
+    <Compile Include="EmployeeInsuranceBLL.cs" />
+    <Compile Include="EmployeeSalaryRecordItemBLL.cs" />
+    <Compile Include="EmployeeSignInDetailBLL.cs" />
+    <Compile Include="EmployeeSignInRecordBLL.cs" />
+    <Compile Include="EncryptionBLL.cs" />
+    <Compile Include="FreeLeaveDaySetBLL.cs" />
+    <Compile Include="ImportExcel.cs" />
+    <Compile Include="ImportSetDetailBLL.cs" />
+    <Compile Include="ImportSetMasterBLL.cs" />
+    <Compile Include="InstantMessagingDataBLL.cs" />
+    <Compile Include="IOperate.cs" />
+    <Compile Include="KPIPointBll.cs" />
+    <Compile Include="KPIRecordBll.cs" />
+    <Compile Include="KPIRecordComplainBll.cs" />
+    <Compile Include="KPITypeBll.cs" />
+    <Compile Include="LeaveTypeSetBLL.cs" />
+    <Compile Include="LeftOfficeBLL.cs" />
+    <Compile Include="LeftOfficeConfirmBLL.cs" />
+    <Compile Include="OutPlanDaysBLL.cs" />
+    <Compile Include="OverTimeRecordBLL.cs" />
+    <Compile Include="OvertimeRewardBLL.cs" />
+    <Compile Include="PaymentBLL.cs" />
+    <Compile Include="PensionAlarmSetBLL.cs" />
+    <Compile Include="PensionDetailBLL.cs" />
+    <Compile Include="PensionMasterBLL.cs" />
+    <Compile Include="PerformanceRecordBll.cs" />
+    <Compile Include="PerformanceRewardRecordBLL.cs" />
+    <Compile Include="PerformanceRewardSetBLL.cs" />
+    <Compile Include="PersonalLandDetailBLL.cs" />
+    <Compile Include="PersonalLandStatisticBLL.cs" />
+    <Compile Include="PostHistoryBLL.cs" />
+    <Compile Include="EducateHistoryBLL.cs" />
+    <Compile Include="ExperienceBLL.cs" />
+    <Compile Include="EmployeeBLL.cs" />
+    <Compile Include="EntityNames.cs" />
+    <Compile Include="CustomResult.cs" />
+    <Compile Include="PostLevelDistinctionBLL.cs" />
+    <Compile Include="RandomGroupBll.cs" />
+    <Compile Include="RelationPostBLL.cs" />
+    <Compile Include="Report\AddEmployeechangehistoryMethod.cs" />
+    <Compile Include="Report\ChartReportsBll.cs" />
+    <Compile Include="Report\ReportsBLL.cs" />
+    <Compile Include="ResumeBLL.cs" />
+    <Compile Include="SalaryArchiveHisBLL.cs" />
+    <Compile Include="SalaryArchiveHisItemBLL.cs" />
+    <Compile Include="SalaryArchiveItemBLL.cs" />
+    <Compile Include="SalaryItemSetBLL.cs" />
+    <Compile Include="SalaryLoginBLL.cs" />
+    <Compile Include="SalaryRecordBatchBLL.cs" />
+    <Compile Include="SalarySolutionBLL.cs" />
+    <Compile Include="SalarySolutionItemBLL.cs" />
+    <Compile Include="SalarySolutionStandardBLL.cs" />
+    <Compile Include="SalaryStandardItemBLL.cs" />
+    <Compile Include="SalarySystemBLL.cs" />
+    <Compile Include="SalaryTaxesBLL.cs" />
+    <Compile Include="SchedulingTemplateDetailBLL.cs" />
+    <Compile Include="SchedulingTemplateMasterBLL.cs" />
+    <Compile Include="ShiftDefineBLL.cs" />
+    <Compile Include="AbnormRecordBllTe.cs" />
+    <Compile Include="SumPerformanceBll.cs" />
+    <Compile Include="SumPerformanceRecordBll.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="DepartmentDictionaryBLL.cs" />
+    <Compile Include="ILookupEntity.cs" />
+    <Compile Include="EmployeePostBLL.cs" />
+    <Compile Include="CompanyBLL.cs" />
+    <Compile Include="DepartmentBLL.cs" />
+    <Compile Include="PostDictionaryBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PostBLL.cs" />
+    <Compile Include="VacationSetBLL.cs" />
+    <Compile Include="WorkflowUtility.cs" />
+    <Compile Include="SalaryStandardBLL.cs" />
+    <Compile Include="SalaryLevelBLL.cs" />
+    <Compile Include="SalarySolutionAssignBLL.cs" />
+    <Compile Include="SalaryArchiveBLL.cs" />
+    <Compile Include="EmployeeSalaryRecordBLL.cs" />
+    <Compile Include="缓存 CompanyBLL.cs" />
+    <Compile Include="缓存 DepartmentBLL.cs" />
+    <Compile Include="缓存 PostBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
+      <Project>{0E45B937-670F-49E1-8EF1-A4BD312B94DA}</Project>
+      <Name>SMT.HRM.CustomModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.HRM.DAL\SMT.HRM.DAL.csproj">
+      <Project>{D7D1B61B-CD35-46EA-8575-3CF42D8F4F9D}</Project>
+      <Name>SMT.HRM.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.HRM.IMServices\SMT.HRM.IMServices.csproj">
+      <Project>{113E2BE3-0473-4BE2-A065-293A73391331}</Project>
+      <Name>SMT.HRM.IMServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sqlscript\SalaryItem.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,24 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Personnel.CheckItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:uc="clr-namespace:SMT.HRM.UI.Form.Personnel">
+    <ListBox x:Name="lbxCheckPoint" Width="585" ItemsSource="{Binding Mode=OneWay}" BorderBrush="Black" BorderThickness="1">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.10*"/>
+                <ColumnDefinition Width="0.20*"/>
+                <ColumnDefinition Width="0.06*"/>
+                <ColumnDefinition Width="0.10*"/>
+                <ColumnDefinition Width="0.08*"/>
+                <ColumnDefinition Width="0.08*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="细分" Grid.Column="0" HorizontalAlignment="center"  Foreground="#FFF80808" />
+            <TextBlock Text="考  核  要  点" Grid.Column="1" HorizontalAlignment="center" />
+            <TextBlock Text="权重" Grid.Column="2" HorizontalAlignment="center" />
+            <TextBlock Text="评分档次" Grid.Column="3" HorizontalAlignment="center" />
+            <TextBlock Text="一次" Grid.Column="4" HorizontalAlignment="center" />
+            <TextBox Text="二次" Grid.Column="5" HorizontalAlignment="center" />
+        </Grid>
+    </ListBox>
+</smtLocal:BaseForm>

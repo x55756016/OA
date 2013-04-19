@@ -1,0 +1,492 @@
+﻿<smtLocal:BaseForm
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+        xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+        xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"    
+        xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+        xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+        xmlns:uc="clr-namespace:SMT.HRM.UI.Form.Personnel"
+        xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+        xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="SMT.HRM.UI.Form.Personnel.EmployeeInfoForm"
+    Canvas.Top="0"
+     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel>
+        
+    <Grid x:Name="LayoutRoot" Margin="5">
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <ctr:TabControl x:Name="tbcContainer" Margin="2" SelectionChanged="tbcContainer_SelectionChanged" Style="{StaticResource TabControlStyle}">
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}"  Style="{StaticResource TabItemStyle}">
+                        <ScrollViewer  VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                            <StackPanel MinHeight="520" Orientation="Vertical"   ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="50"/>
+
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Row 0-->
+                            <!--EMPLOYEECODE-->
+                            <TextBlock   Grid.Column="0" Grid.Row="0"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEECODE}" />
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmployeeCode"   HorizontalAlignment="Stretch" Width="Auto" MaxLength="50" IsReadOnly="True"
+            					Text="{Binding EMPLOYEECODE, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Height="22" Margin="5,0,0,0">
+                                <!--<validator:ValidatorService.Validator>
+                                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="EMPLOYEECODE" ></validator:RequiredValidator>
+                                </validator:ValidatorService.Validator>-->
+                            </TextBox>
+                            <!--<dataInput:DescriptionViewer  Target="{Binding ElementName=txtEmployeeCode}"  
+            					Style="{StaticResource DescriptionViewerTooltipStyle}"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"/>-->
+
+                            <!--Row 1-->
+                            <TextBlock   Grid.Row="1" Grid.Column="0" Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEECNAME}" />
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmployeeName"   Text="{Binding EMPLOYEECNAME, Mode=TwoWay}"   MaxLength="50" Margin="5,0,0,0"
+                                     Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Height="22" Width="Auto" IsReadOnly="True">
+                            </TextBox>
+                            <!--<dataInput:DescriptionViewer  Target="{Binding ElementName=txtEmployeeName}" 
+            					Style="{StaticResource DescriptionViewerTooltipStyle}"  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>-->
+
+                            <!--Row 2-->
+                            <TextBlock   Grid.Row="2" Grid.Column="0"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEEENAME}" />
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmployeeEName" HorizontalAlignment="Stretch" Width="Auto" MaxLength="50" Margin="5,0,0,0"
+                                       Text="{Binding EMPLOYEEENAME, Mode=TwoWay}" Height="22" Grid.Row="2" Grid.Column="1">
+                                <interaction:Interaction.Behaviors>
+                                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                                </interaction:Interaction.Behaviors>
+                                <validator:ValidatorService.Validator>
+                                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="EMPLOYEEENAME" ></validator:RequiredValidator>
+                                </validator:ValidatorService.Validator>
+                            </TextBox>
+                            <!--Row 3-->
+                            <!--EMPLOYEESEX-->
+                            <TextBlock   Grid.Row="3" Grid.Column="0" Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEESEX}" />
+                            <!--<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" Margin="5,5,0,0">   
+            				    <RadioButton GroupName="rdbSex" Content="?  />
+            				    <RadioButton GroupName="rdbSex" Content="? />
+                             </StackPanel>-->
+                            <appCtr:DictionaryComboBox  x:Name="cbxEmployeeSex" IsShowNull="False" Category="SEX" SelectedValue="{Binding SEX, Mode=TwoWay}"  HorizontalAlignment="Stretch" Margin="5,0,0,0"
+                             Grid.Row="3" Grid.Column="1" Width="Auto" Height="22">
+                                <interaction:Interaction.Behaviors>
+                                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                                </interaction:Interaction.Behaviors>
+                            </appCtr:DictionaryComboBox>
+
+
+                            <!--PHOTO-->
+                            <TextBlock  
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PHOTO}" Margin="5,0,0,0"
+                                     Grid.Row="0"    Grid.Column="3" />
+
+                            <smt:ImageSelect  ButtonToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=UPLOADPHOTO}"
+            					ImageField="{Binding PHOTO, Mode=TwoWay}" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2" Grid.Column="4" HorizontalAlignment="Left" Margin="5,0,0,0" Width="110"/>
+
+
+                            <!--Row 4-->
+                            <!--NATION-->
+                            <TextBlock   Grid.Row="4" Grid.Column="0"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=NATION}" />
+
+                            <appCtr:DictionaryComboBox x:Name="cbxNation"  IsShowNull="False" Category="NATION" SelectedValue="{Binding NATION, Mode=TwoWay}"    
+                                      Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Height="22" Width="Auto" Margin="5,0,0,0" />
+
+                            <!--BIRTHDAY-->
+                            <TextBlock   Grid.Row="4" Grid.Column="3"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=BIRTHDAY}" />
+
+                            <ctr:DatePicker x:Name="dateBirthday" Margin="5,0,0,0" Width="auto" HorizontalAlignment="Stretch"
+            					 Text="{Binding BIRTHDAY,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" Grid.Row="4" Grid.Column="4" Height="24" Style="{StaticResource DatePickerStyle}"/>
+
+                            <!--Row 5-->
+                            <!--BLOODTYPE-->
+                            <TextBlock   
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=BLOODTYPE}" Margin="5,0,0,0"
+                                      Grid.Row="5"  Grid.Column="0"  />
+
+                            <appCtr:DictionaryComboBox x:Name="cbxBloodType" IsShowNull="False" Category="BLOODTYPE"
+                                    SelectedValue="{Binding BLOODTYPE, Mode=TwoWay}"    
+                                      Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" Height="22" Width="Auto" Margin="5,0,0,0" />
+
+                            <!--HEIGHT-->
+                            <TextBlock   
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=HEIGHT}"  Margin="5,0,0,0"
+                                        Grid.Row="5" Grid.Column="3" />
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtHeight" Height="22"  Text="{Binding HEIGHT, Mode=TwoWay}"  MaxLength="5" Margin="5,0,0,0"
+            					 Grid.Row="5" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto"/>
+                            <dataInput:DescriptionViewer  Target="{Binding ElementName=txtHeight}" 
+            					Style="{StaticResource DescriptionViewerTooltipStyle}" Grid.Row="7" Grid.Column="5"/>
+                            
+                            <TextBlock   
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=FINGERPRINTID}" Margin="5,0,0,0"
+                                       Grid.Row="6" Grid.Column="0"/>
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtFingerPrintId"   Text="{Binding FINGERPRINTID, Mode=TwoWay}" MaxLength="50" Margin="5,0,0,0"  LostFocus="txtFingerPrintId_LostFocus"
+                                      Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" Height="22" >
+
+                            </TextBox>
+
+
+                            <!--IDTYPE-->
+                            <TextBlock   
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=IDTYPE}"  Margin="5,0,0,0"
+                                       Grid.Row="7" Grid.Column="0"/>
+
+                            <appCtr:DictionaryComboBox x:Name="cbxIDType" IsShowNull="False" Category="IDTYPE"  Height="22" SelectionChanged="cbxIDType_SelectionChanged"
+                                    SelectedValue="{Binding IDTYPE, Mode=TwoWay}"
+                                                    Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" Margin="5,0,0,0" />
+
+                            <!--Row 6-->
+                            <!--IDNUMBER-->
+                            <TextBlock   
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=IDNUMBER}" Margin="5,0,0,0"
+                                       Grid.Row="7" Grid.Column="3"/>
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtIDNumber"   Text="{Binding IDNUMBER, Mode=TwoWay}" MaxLength="50"
+                                      Grid.Row="7" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto" Margin="5,0,0,0" Height="22" IsReadOnly="True"/>
+                            <!--开户行-->
+                            <TextBlock  
+                    			Text="{Binding Converter={StaticResource ResourceConveter},Source=BANKID}"  Margin="5,0,0,0"
+                                        Grid.Row="8" Grid.Column="0"/>
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBankID"   Grid.Row="8" Grid.Column="1"  MaxLength="50" Height="22"
+                                     HorizontalAlignment="Stretch" Width="Auto" Margin="5,0,0,0"
+                                     Text="{Binding BANKID, Mode=TwoWay}" />
+
+                            <!--BANKCARDNUMBER-->
+                            <TextBlock   Grid.Row="8" Grid.Column="3"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=BANKCARDNUMBER}" Margin="5,0,0,0" />
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBankCardNumber"  MaxLength="50" Text="{Binding BANKCARDNUMBER,Mode=TwoWay}" Height="22" Margin="5,0,0,0"
+                                       Grid.Row="8" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto"/>
+                            <TextBlock   Grid.Row="9" Grid.Column="0"  Margin="5,0,0,0"
+			Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDID}" />
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCardID"  Text="{Binding CARDID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" MaxLength="50" Margin="5,0,0,0"
+			Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto">
+                            </TextBox>
+
+                            <!--Row 2-->
+                            <!--社保电脑号-->
+                            <TextBlock   Grid.Row="9" Grid.Column="3" Margin="5,0,0,0"
+			Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPUTERNO}" />
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtComputerNO" Text="{Binding COMPUTERNO, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" MaxLength="50"  Margin="5,0,0,0"
+			Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto">
+                            </TextBox>
+                          
+
+
+                        </Grid>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="50"/>
+
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <!--Row 0-->
+                            <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Center"  />
+
+                            <!--Row 1-->
+                            <!--SECONLANGUAGE-->
+                            <TextBlock   Grid.Row="1" Grid.Column="0" Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SECONLANGUAGE}"  />
+                            <appCtr:DictionaryComboBox x:Name="cbxSecondLanguage" IsShowNull="False" Category="SECONDLANGUAGE" HorizontalAlignment="Stretch"
+                                SelectedValue="{Binding SECONDLANGUAGE, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Height="22" Width="Auto" Margin="5,0,0,0"/>
+
+                            <!--SECONLANGUAGEDEGREE-->
+                            <TextBlock   
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SECONLANGUAGEDEGREE}" 
+                                        Grid.Row="1" Grid.Column="3" />
+                            <appCtr:DictionaryComboBox x:Name="cbxSecondLanguageDegree" IsShowNull="False" Category="SECONDLANGUAGEDEGREE" HorizontalAlignment="Stretch"
+                                    SelectedValue="{Binding SECONDLANGUAGEDEGREE, Mode=TwoWay}"
+                                                   Grid.Row="1" Grid.Column="4" Height="22" Width="Auto" Margin="5,0,0,0"/>
+
+
+
+
+                            <!--POSTNAME-->
+                            <!--<TextBlock   Grid.Row="2" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNAME}"/>
+
+                                <smt:LookUp DataContext="{Binding POSTNAME}" Grid.Row="2" Grid.Column="1"
+            					FindClick="lkPost_FindClick"  x:Name="lkPost"  DisplayMemberPath="T_HR_POSTDICTIONARY.POSTNAME" Margin="1,0,0,0" />-->
+
+                            <!--Row 4-->
+                            <!--EMPLOYEESTATE-->
+                            <TextBlock   Grid.Row="2" Grid.Column="0" Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEESTATE}" />
+
+                            <appCtr:DictionaryComboBox  x:Name="cbxEmployeeState" IsShowNull="False" Category="EMPLOYEESTATE" HorizontalAlignment="Stretch"
+SelectedValue="{Binding EMPLOYEESTATE, Mode=TwoWay}"
+                             Grid.Row="2" Grid.Column="1" Width="Auto" Height="22" Margin="5,0,0,0"/>
+
+                            <!--PROFESSIONALTITLE-->
+                            <TextBlock   Grid.Row="2" Grid.Column="3" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROFESSIONALTITLE}" />
+                            <appCtr:DictionaryComboBox  x:Name="cbxProfessionalTitle" IsShowNull="False" Category="PROFESSIONALTITLE"
+                                    SelectedValue="{Binding PROFESSIONALTITLE, Mode=TwoWay}"  HorizontalAlignment="Stretch"
+                                     Grid.Row="2" Grid.Column="4" Width="Auto" Height="22"  Margin="5,0,0,0"/>
+
+                            <!--Row 5-->
+                            <!--TIPTOPEDUCATION-->
+                            <TextBlock    Grid.Row="3" Grid.Column="0"  Margin="5,0,0,0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=TIPTOPEDUCATION}" />
+
+                            <appCtr:DictionaryComboBox  x:Name="cbxTopEducation" IsShowNull="False" Category="TOPEDUCATION" HorizontalAlignment="Stretch"
+SelectedValue="{Binding TOPEDUCATION, Mode=TwoWay}" 
+                             Grid.Row="3" Grid.Column="1" Width="Auto" Height="22"  Margin="5,0,0,0"/>
+
+                            <!--POLITICS-->
+                            <TextBlock   Grid.Row="3" Grid.Column="3" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=POLITICS}" />
+
+                            <appCtr:DictionaryComboBox IsShowNull="False" x:Name="cbxPolitics" Category="POLITICS" HorizontalAlignment="Stretch"
+SelectedValue="{Binding POLITICS, Mode=TwoWay}"
+                                                   Grid.Row="3" Grid.Column="4" Height="22" Width="Auto" Margin="5,0,0,0"/>
+
+                        </Grid>
+
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="50"/>
+
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <!--Row 0-->
+                            <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Center"  />
+
+                            <!---Row 1-->
+                            <!--WORKINGAGE-->
+                            <TextBlock   Grid.Row="1" Grid.Column="0" Margin="5,0,0,0"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKINGAGE}" />
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtWorkingAge"  IsEnabled="False"  Text="{Binding WORKINGAGE, Mode=TwoWay}" 
+                    			 Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,0,0,0" Height="22" Width="Auto"/>
+
+                            <!--MARRIAGE-->
+                            <TextBlock    Grid.Row="1" Grid.Column="3"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=MARRIAGE}"/>
+
+                            <appCtr:DictionaryComboBox x:Name="cbxMarriage" IsShowNull="False" Category="MARRIAGE" Height="22" Margin="5,0,0,0" Width="auto"
+                                    SelectedValue="{Binding MARRIAGE, Mode=TwoWay}" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch"/>
+
+                            <!---Row 2-->
+                            <!--HASCHILDREN-->
+                            <TextBlock   Grid.Row="2" Grid.Column="0" Margin="5,0,0,0"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=HASCHILDREN}" />
+                            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                                <CheckBox x:Name="chkHas" Margin="5,5,0,0" Style="{StaticResource CheckBoxStyle}"/>
+                            </StackPanel>
+
+                            <!--Row 3-->
+                            <!--PROVINCE-->
+                            <TextBlock   Grid.Row="3" Grid.Column="0" Margin="5,0,0,0"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROVINCE}" />
+                            <appCtr:DictionaryComboBox x:Name="cbxProvince"  IsShowNull="False"  IsDropDownOpen="False" Category="PROVINCE"
+                                SelectedValue="{Binding PROVINCE, Mode=TwoWay}"
+                              Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" Height="22" Margin="5,0,0,0" />
+
+                            <!--REGRESIDENCE-->
+                            <TextBlock    Grid.Row="3" Grid.Column="3"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=REGRESIDENCE}"/>
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRegresidence"   Text="{Binding REGRESIDENCE, Mode=TwoWay}" MaxLength="200"
+                    			Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" Margin="5,0,0,0" Height="22" Width="Auto"/>
+
+
+                            <!--Row 1-->
+                            <!--RESIDENCETYPE-->
+                            <TextBlock   Grid.Row="4" Grid.Column="0" Margin="5,0,0,0"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=RESIDENCETYPE}" />
+
+                            <appCtr:DictionaryComboBox x:Name="cbxResidenceType" IsShowNull="False"  Category="RESIDENCETYPE"
+SelectedValue="{Binding RESIDENCETYPE, Mode=TwoWay}"
+                              Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" Height="24" Margin="5,0,0,0" />
+
+
+                            <!--REGRESIDENCETYPE-->
+                            <TextBlock   Grid.Row="4" Grid.Column="3"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=REGRESIDENCETYPE}" />
+
+                            <appCtr:DictionaryComboBox x:Name="cbxRegresidenceType" IsShowNull="False" Category="REGRESIDENCETYPE" Grid.Row="4" Grid.Column="4"
+SelectedValue="{Binding REGRESIDENCETYPE, Mode=TwoWay}"
+                                                  Margin="5,0,0,0"  Width="Auto" HorizontalAlignment="Stretch" Height="24"  />
+
+                            <!--Row 5-->
+                            <!--REMARK-->
+                            <TextBlock   Grid.Row="5" Grid.Column="0" Margin="5,0,0,0"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"   Grid.Row="7" Grid.Column="1" Width="Auto" Height="40" HorizontalAlignment="Stretch" TextWrapping="Wrap" MaxLength="2000" Margin="5,0,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"
+                                     Grid.ColumnSpan="4" Text="{Binding REMARK, Mode=TwoWay}" />
+
+                        </Grid>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </ctr:TabItem>
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=CONTACTWAY}" Style="{StaticResource TabItemStyle}">
+                <StackPanel  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                    <Grid  Height="180">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="50"/>
+
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+
+                        </Grid.RowDefinitions>
+
+
+                        <!--Row 2-->
+                        <!--URGENCYCONTACT-->
+                        <TextBlock   Grid.Row="0" Grid.Column="0"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=URGENCYCONTACT}" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtUrgencyContact"   Grid.Row="0" Grid.Column="1" MaxLength="50"
+                    			Text="{Binding URGENCYCONTACT, Mode=TwoWay}" 
+                                     HorizontalAlignment="Stretch" Width="Auto"/>
+
+
+                        <!--URGENCYPERSON-->
+                        <TextBlock    Grid.Row="0" Grid.Column="3"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=URGENCYPERSON}" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtUrgencyPerson"   Text="{Binding URGENCYPERSON, Mode=TwoWay}" MaxLength="50"
+                                      Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto" />
+
+                        <!--Row 2-->
+                        <!--OFFICEPHONE-->
+                        <TextBlock   Grid.Row="1" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=OFFICEPHONE}" HorizontalAlignment="Left" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtOfficePhone"   Text="{Binding OFFICEPHONE, Mode=TwoWay}"  MaxLength="50"
+                                    Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" />
+
+                        <!--EMAIL-->
+                        <TextBlock   Grid.Row="2" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKEMAIL}" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmail"  Grid.ColumnSpan="4"  Text="{Binding EMAIL, Mode=TwoWay}" MaxLength="50"
+            					 Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto"/>
+                        <dataInput:DescriptionViewer  Target="{Binding ElementName=txtEmail}" 
+            					Style="{StaticResource DescriptionViewerTooltipStyle}" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="5"/>
+                        <!--RTX-->
+                        <TextBlock   Grid.Row="3" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=RTX}" HorizontalAlignment="Left" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtOtherCommunicate"   Text="{Binding OTHERCOMMUNICATE, Mode=TwoWay}"  MaxLength="50" 
+                                    Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" />
+                        <!--Row 2-->
+                        <!--MOBILE-->
+                        <TextBlock   Grid.Row="1" Grid.Column="3" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=MOBILE}" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtMobile"   Text="{Binding MOBILE, Mode=TwoWay}" MaxLength="50"
+            					  Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto"/>
+                        <dataInput:DescriptionViewer  Target="{Binding ElementName=txtMobile}"  
+            					Style="{StaticResource DescriptionViewerTooltipStyle}" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right"/>
+
+                        <!--Row 3-->
+                        <!--FAMILYADDRESS-->
+                        <TextBlock   Grid.Row="4" Grid.Column="0"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=FAMILYADDRESS}" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtFamilyAddress" Grid.Row="4" Grid.Column="1"  Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Width="Auto" MaxLength="100"
+                                       Text="{Binding FAMILYADDRESS, Mode=TwoWay}"/>
+
+                        <!--Row 4-->
+                        <!--CURRENTADRESS-->
+                        <TextBlock   Grid.Row="5" Grid.Column="0"
+                    			Text="{Binding Converter={StaticResource ResourceConveter}, Source=CURRENTADRESS}" />
+
+                        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCurrentAddress" Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Width="Auto" MaxLength="100"
+                                       Text="{Binding CURRENTADDRESS, Mode=TwoWay}" />
+
+
+
+                    </Grid>
+                </StackPanel>
+            </ctr:TabItem>
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=EXPERIENCE}" Style="{StaticResource TabItemStyle}" >
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden"  VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                    <uc:ExperienceForm x:Name="experience"></uc:ExperienceForm>
+                </ScrollViewer>
+            </ctr:TabItem>
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=EDUCATEHISTORY}" Style="{StaticResource TabItemStyle}" >
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden"  VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                    <uc:EducateHistoryForm x:Name="educateHistory"></uc:EducateHistoryForm>
+                </ScrollViewer>
+            </ctr:TabItem>
+        </ctr:TabControl>
+    </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</smtLocal:BaseForm>

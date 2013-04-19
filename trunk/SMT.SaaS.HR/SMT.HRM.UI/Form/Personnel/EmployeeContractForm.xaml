@@ -1,0 +1,129 @@
+﻿<smtLocal:BaseForm 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    x:Class="SMT.HRM.UI.Form.Personnel.EmployeeContractForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:aa="clr-namespace:SMT.SaaS.FrameworkUI.FileUpload;assembly=SMT.SaaS.FrameworkUI" 
+    xmlns:my="clr-namespace:SMT.FileUpLoad;assembly=SMT.FileUpLoad"
+    >
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="10 5 0 0" Loaded="LayoutRoot_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <!--Row0-->
+        <!--员工名称-->
+        <TextBlock  Grid.Column="0" Grid.Row="0" Margin="5 0 0 0" VerticalAlignment="Center"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" />
+        <smt:LookUp DataContext="{Binding Path=T_HR_EMPLOYEE,Mode=TwoWay}" Grid.Row="0" Grid.Column="1" 
+                    FindClick="LookUp_FindClick" Name="lkEmployeeName"  DisplayMemberPath="EMPLOYEECNAME">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </smt:LookUp>
+        <!--合同编号-->
+        <TextBlock  Grid.Column="3" Grid.Row="0" Margin="5 0 0 0" VerticalAlignment="Center"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTACTCODE}" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCode" Width="Auto" MaxLength="50" Height="22" 
+                 Text="{Binding CONTACTCODE,Mode=TwoWay}" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CONTACTCODE" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </TextBox>
+
+
+        <!--Row1 RadioButton 是否为永久合同选择-->
+        <TextBlock Name="tbIsSet"  Grid.Row="1" Margin="5 0 0 0" Text="永久合同:" VerticalAlignment="Center"/>
+        <RadioButton   Grid.Row="1" Grid.Column="1" Margin="10 0 0 0" Content="是"  Click="true_Click" VerticalAlignment="Center" Name="trueRabtn"/>
+        <RadioButton  Grid.Row="1" Grid.Column="1" Margin="50 0 0 0" Content="否"  Click="false_Click"  VerticalAlignment="Center" Name="falseRabtn"/>
+        
+        <!--Row2-->
+        <!--合同生效日期-->
+        <TextBlock  Grid.Column="0" Grid.Row="2" Margin="5 0 0 0" VerticalAlignment="Center"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EFFECTDATE}" />
+        <controls:DatePicker Grid.Column="1" x:Name="dpFromDate" Style="{StaticResource DatePickerStyle}" Grid.Row="2"  Height="22"  Width="auto" HorizontalAlignment="Stretch" Text="{Binding FROMDATE,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </controls:DatePicker>
+        <!--合同到期日期-->
+        <TextBlock  Grid.Column="3" Grid.Row="2"  VerticalAlignment="Center" Name="txtbk"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDDATE}" Margin="5 0 0 0" />
+
+        <controls:DatePicker Grid.Column="4" x:Name="dpEndDate" Style="{StaticResource DatePickerStyle}" Grid.Row="2"   Height="22" Width="auto" HorizontalAlignment="Stretch" Text="{Binding TODATE,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </controls:DatePicker>
+        <!--Row3-->
+        <!--合同期限-->
+        <!--<TextBlock  Grid.Column="0" Grid.Row="3" 
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTACTPERIOD}" />
+        <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch"  x:Name="nudPeriod" Grid.Column="1" Grid.Row="3" Height="22" Maximum="1000000" Margin="5 0 0 0" Value="{Binding FROMDATE,Mode=TwoWay}"></inputToolkit:NumericUpDown>-->
+        <!--终止日期-->
+        <TextBlock  Grid.Column="0" Grid.Row="3" Margin="5 0 0 0" VerticalAlignment="Center" 
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATEDATE}" />
+
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="3"  IsEnabled="False" Height="22" x:Name="txtEndDate"
+                 HorizontalAlignment="Stretch" Width="auto" Margin="5,0,0,0" Text="{Binding ENDDATE,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+
+        <!--Row4-->
+        <!--终止原因-->
+        <TextBlock  Grid.Column="0" Grid.Row="4" Margin="5 0 0 0"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDREASON}" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPeason" Width="Auto"  MaxLength="50" Margin="5,0,0,0" AcceptsReturn="True" 
+                 Text="{Binding REASON,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Stretch"/>
+        <!--Row5-->
+        <!--到期前提前天数-->
+        <TextBlock  Grid.Column="0" Grid.Row="5" Margin="5 0 0 0" VerticalAlignment="Center"
+					Text="提前" />
+        <inputToolkit:NumericUpDown x:Name="nudDay" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="5" Maximum="1000" Margin="5,0,0,0" Value="{Binding ALARMDAY,Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}"></inputToolkit:NumericUpDown>
+        <TextBlock  Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="5" Margin="5 0 0 0" VerticalAlignment="Center"
+					Text="天提醒" />
+
+        <!--Row6Row7-->
+        <!--上传合同扫描件-->
+        <TextBlock  Grid.Column="0" Grid.Row="6"  Margin="5 0 0 0" x:Name="tbAtt"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTACHMENT}" />
+        <!--<StackPanel Grid.Row="6" Grid.Column="1" Width="Auto" HorizontalAlignment="Stretch"  Height="Auto" Orientation="Horizontal" >
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="UpFile" Width="150"  HorizontalAlignment="Left"/>
+            <aa:CtrlFileUploadM x:Name="ctrFile" Margin="5,0,0,0" SystemName="HR" ModelName="EmployeeContract" Event_AllFilesFinished="Event_AllFilesFinished" HorizontalAlignment="Left" ></aa:CtrlFileUploadM>
+        </StackPanel>
+        <Button Content="上传" Height="20" Grid.Row="6" Grid.Column="3" Click="Button_Click" HorizontalAlignment="Left"></Button>-->
+        <!--<aa:CtrlFileUploadM x:Name="ctrFile" Margin="5,0,0,0" SystemName="HR" ModelName="EmployeeContract" Event_AllFilesFinished="Event_AllFilesFinished"  Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" ></aa:CtrlFileUploadM>-->
+        <ScrollViewer Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" MaxHeight="200" BorderThickness="0" VerticalScrollBarVisibility="Auto"  VerticalAlignment="Top" HorizontalAlignment="Stretch" >
+            <my:FileControl x:Name="uploadFile"/>
+        </ScrollViewer>
+        <!--Row8-->
+        <!--备注-->
+        <TextBlock  Grid.Column="0" Grid.Row="8" Margin="5 5 0 0" VerticalAlignment="Top"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+        <TextBox Style="{StaticResource TextBoxStyle}" Width="Auto" MaxLength="2000" Margin="5,5,0,0" AcceptsReturn="True"  x:Name="txtRemark"
+                 Text="{Binding REMARK,Mode=TwoWay}" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="5"  HorizontalAlignment="Stretch"/>
+
+    </Grid>
+</smtLocal:BaseForm>

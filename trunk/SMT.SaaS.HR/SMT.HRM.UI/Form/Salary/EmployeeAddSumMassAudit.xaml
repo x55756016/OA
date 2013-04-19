@@ -1,0 +1,95 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.EmployeeAddSumMassAudit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+             
+             xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+                 xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+>
+
+    <Grid x:Name="LayoutRoot" Margin="4"  Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="0.39*"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="0.39*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"/>
+
+        <!--Row 0 年月-->
+        <TextBlock x:Name="tbBalanceUnitTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYYEAR}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtBalanceYear" Grid.Row="0" Grid.Column="2" validator:TextBoxFilterService.Filter="Integer" Height="22" Margin="5,0,0,0" IsEnabled="False" ></TextBox>
+
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYMONTH}" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" Margin="5,0,0,0"  ></TextBlock>
+        <inputToolkit:NumericUpDown x:Name="nudBalanceMonth" Grid.Row="0" Grid.Column="6" Height="22" Margin="5,0,0,0" IsEnabled="False"></inputToolkit:NumericUpDown>
+
+        <!--Row 1 类型-->
+        <TextBlock x:Name="tbAssignedObjectType" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYOBJECTTYPE}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="1" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" />
+        <appCtr:TravelDictionaryComboBox x:Name="cbxkAssignedObjectType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ASSIGNEDOBJECTTYPE" IsEnabled="False" SelectedValue="{Binding ASSIGNEDOBJECTTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" Margin="5,0,0,0" />
+
+        <TextBlock x:Name="tbAssignedObjectID" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYOBJECT}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Grid.Column="4" Margin="5,0,0,0"/>
+        <smtx:LookUp Grid.Row="1" Grid.Column="6" FindClick="lkAssignObject_FindClick"  x:Name="lkAssignObject" Height="24" IsEnabled="False"/>
+
+        <!--Row 2-->
+        <Border  Grid.Row="2" Height="0" BorderBrush="#FF6D8193" BorderThickness="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch"  Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+
+        <!--Row 3 DataGrid-->
+        <data:DataGrid x:Name="dgMassAuditList" Grid.Row="3" Grid.ColumnSpan="7" Height="300" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" LoadingRow="dgMassAuditList_LoadingRow"
+                       Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                             <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding MONTHLYBALANCEID}"></Image>
+                         
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTemplateColumn Header="序号" IsReadOnly="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="30">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="tbOrder" >
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="PROJECTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTNAME}"/>
+                <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}"/>
+
+                <data:DataGridTextColumn Header="HANDLETYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SYSTEMTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=PROTECTTYPE }"/>
+                <data:DataGridTextColumn Header="PROJECTMONEY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTMONEY}"/>
+
+                <data:DataGridTextColumn Header="DEALYEAR" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEALYEAR}"/>
+                <data:DataGridTextColumn Header="DEALMONTH" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEALMONTH}"/>
+                <data:DataGridTextColumn Header="CHECKSTATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE }"/>
+                <data:DataGridTextColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REMARK}"/>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+
+        <!--Row 4 GridPager-->
+        <smtx:GridPager Name="dataPager" Grid.Row="4" Grid.ColumnSpan="7" PageSize="20000" Click="GridPager_Click" Visibility="Collapsed"></smtx:GridPager>
+
+    </Grid>
+</smtLocal:BaseForm>

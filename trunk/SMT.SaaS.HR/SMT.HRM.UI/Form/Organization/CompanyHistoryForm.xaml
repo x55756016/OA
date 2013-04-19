@@ -1,0 +1,142 @@
+﻿<smtLocal:BaseForm
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="SMT.HRM.UI.Form.CompanyHistoryForm"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot"  Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+        <!--Row 0-->
+        <!--公司编号-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANRYCODE}" 
+                   Grid.Row="0" Grid.Column="0" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCompanyCode" HorizontalAlignment="Stretch" Width="Auto"       
+                 Text="{Binding COMPANRYCODE,Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+        <!--上级公司-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUPERIORORG}" 
+                   Grid.Row="0" Grid.Column="3" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSuperiororg" HorizontalAlignment="Stretch" Width="Auto"   
+                 Text="{Binding T_HR_COMPANY2.CNAME, Mode=TwoWay}" Grid.Row="0" Grid.Column="4"/>
+        
+        <!--Row 1-->
+        <!--公司中文名-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CNAME}" 
+                   Grid.Row="1" Grid.Column="0" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCName" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding CNAME, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+        <!--公司英文名-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENAME}" 
+                   Grid.Row="1" Grid.Column="3" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEName" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding ENAME, Mode=TwoWay}" Grid.Row="1" Grid.Column="4"/>
+
+        <!--Row 2-->
+        <!--公司类型-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYCATEGORY}" 
+                   Grid.Row="2" Grid.Column="0" Height="22" />
+        <appCtr:DictionaryComboBox  x:Name="cbxCompanyCategory" IsShowNull="False" Category="COMPANYTYPE" SelectedValue="{Binding COMPANYCATEGORY, Mode=TwoWay}" 
+                Grid.Row="2" Grid.Column="1"  Margin="5,0,0,0" HorizontalAlignment="Stretch" Width="auto"/>
+        <!--公司级别-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYLEVEL}" 
+                   Grid.Row="2" Grid.Column="3" Height="22" />
+        <appCtr:DictionaryComboBox  x:Name="cbxCompanyLevel" IsShowNull="False" Category="COMPANYLEVEL" SelectedValue="{Binding COMPANYLEVEL, Mode=TwoWay}"
+            Grid.Row="2" Grid.Column="4" Margin="5,0,0,0" HorizontalAlignment="Stretch" Width="auto"/>
+     
+        <!--Row 3-->
+        <!--联系人-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LINKMAN}" 
+                   Grid.Row="3" Grid.Column="0" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtLinkMan" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding LINKMAN, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" />
+        
+        <!--联系电话-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TELNUMBER}" 
+                   Grid.Row="3" Grid.Column="3" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtTelNumber" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding TELNUMBER, Mode=TwoWay}" Grid.Row="3" Grid.Column="4"/>
+
+        <!--Row 4-->
+        <!--电子邮件-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMAIL}" 
+                   Grid.Row="4" Grid.Column="0" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmail" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding EMAIL, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" />
+        
+        <!--传真-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FAXNUMBER}" 
+                   Grid.Row="4" Grid.Column="3" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtFaxNumber" HorizontalAlignment="Stretch" Width="Auto"    
+                 Text="{Binding FAXNUMBER, Mode=TwoWay}" Grid.Row="4" Grid.Column="4"/>
+
+        <!--Row 5-->
+        <!--邮政编码-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ZIPCODE}" 
+                   Grid.Row="5" Grid.Column="0" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtZipCode" HorizontalAlignment="Stretch" Width="Auto"    
+                 Text="{Binding ZIPCODE, Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+        <!--营业执照号-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUSSINESSLICENCENO}" 
+                   Grid.Row="5" Grid.Column="3" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBussinessLicenceNO" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding BUSSINESSLICENCENO, Mode=TwoWay}" Grid.Row="5" Grid.Column="4"/>
+
+        <!--Row 6-->
+        <!--法人代表-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEGALPERSON}" 
+                   Grid.Row="6" Grid.Column="0" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtLegalPerson" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding LEGALPERSON, Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+        <!--法人身份证-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEGALPERSONID}" 
+                   Grid.Row="6" Grid.Column="3" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtLeagalPersonID" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding LEGALPERSONID, Mode=TwoWay}" Grid.Row="6" Grid.Column="4"/>
+
+        <!--Row 7-->
+        <!--银行帐号-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ACCOUNTCODE}" 
+                   Grid.Row="7" Grid.Column="0" Height="22" Margin="0,4,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAccountCode" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding ACCOUNTCODE, Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+        <!--开户银行代码-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BANKID}" 
+                   Grid.Row="7" Grid.Column="3" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBankID" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding BANKID, Mode=TwoWay}" Grid.Row="7" Grid.Column="4"/>
+
+        <!--Row 8-->
+        <!--公司地址-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ADDRESS}" 
+                   Grid.Row="8" Grid.Column="0" Height="22" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAddress" HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding ADDRESS, Mode=TwoWay}" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4"/>
+        <!--Row 9-->
+        <!--经营范围-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUSSINESSAREA}" 
+                   Grid.Row="9" Grid.Column="0" Height="22" VerticalAlignment="Top" Margin="0,4,0,0" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBussinessArea"  HorizontalAlignment="Stretch" Width="Auto"  
+                 Text="{Binding BUSSINESSAREA, Mode=TwoWay}" Grid.Row="9" Height="auto" Grid.Column="1" Grid.ColumnSpan="4" TextWrapping="Wrap"/>
+
+    </Grid>
+</smtLocal:BaseForm>

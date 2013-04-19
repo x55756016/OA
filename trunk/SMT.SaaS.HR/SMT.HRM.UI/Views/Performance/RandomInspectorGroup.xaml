@@ -1,0 +1,83 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Performance.RandomInspectorGroup" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+    
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+    
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="RandomInspectorGroup Page">
+
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"  x:Name="expander" Grid.Row="1" VerticalAlignment="top" Background="Transparent" >
+                <controlsToolkit:Expander.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RandomGroupName}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}" Margin="10,6,0,0" Width="Auto"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRandomGroupName" Grid.Row="0" Grid.Column="1" Width="120" />
+                            <Button x:Name="btnFind" Grid.Row="0" Grid.Column="4" Margin="20,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="btnFind_Click" Width="50" Style="{StaticResource CommonButtonStyle}"/>
+                        </Grid>
+                    </DataTemplate>
+                </controlsToolkit:Expander.HeaderTemplate>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <Grid  Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" Grid.Row="0" Grid.Column="0" LoadingRow="DtGrid_LoadingRow"
+    			  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
+    			  CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                  RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnWidth="Auto">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image x:Name="entityLogo" Width="16" Height="16"/>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="RandomGroupName" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="100"/>
+                        <data:DataGridTextColumn Header="PersonNumber" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="70"/>
+                        <data:DataGridTextColumn Header="LastModifyPerson" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="100"/>
+                        <data:DataGridTextColumn Header="LastModifyDate" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"  Width="100"/>
+                        <data:DataGridTextColumn Header="RandomGroupDesc" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+
+                <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="1" Grid.Column="0"></smt:GridPager>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

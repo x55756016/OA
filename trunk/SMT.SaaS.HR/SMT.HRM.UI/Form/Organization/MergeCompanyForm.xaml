@@ -1,0 +1,36 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Organization.MergeCompanyForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    >
+    <Grid x:Name="LayoutRoot"  Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="440"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Row 0-->
+        <!--待合并的公司名称-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORGANIZATIONDEF}" 
+                   Grid.Row="0" Grid.Column="0" Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+        <ComboBox x:Name="cbxCompanyDictionary" Grid.Row="0" Grid.Column="1" Style="{StaticResource ComboBoxStyle}"></ComboBox>
+
+        <!--合并后的公司名称-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANRYCODE}" 
+                   Grid.Row="1" Grid.Column="0" Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCompanyName"                  
+                 Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  TextWrapping="Wrap" IsEnabled="False"/> 
+        
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="btnSave" Content="确认"  Width="75" Height="23" HorizontalAlignment="Right" Margin="10"></Button>
+            <Button x:Name="btnCancel" Content="取消"  Width="75" Height="23" HorizontalAlignment="Right" Margin="10"></Button>
+        </StackPanel>
+
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.HeaderMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:xmt="clr-namespace:SMT.SaaS.FrameworkUI"
+    Height="100">
+    <Grid x:Name="NavigationGrid" Height="100" VerticalAlignment="Top">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.014*"/>
+    		<ColumnDefinition Width="0.986*"/>
+    	</Grid.ColumnDefinitions>
+        <Grid VerticalAlignment="Top" Height="70" Width="auto" x:Name="HeaderTopGrid" Grid.ColumnSpan="2" Style="{StaticResource GridHeaderBg1}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+               <StackPanel Height="44" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent">
+			   		<TextBlock x:Name="TextUserDepartment" Height="22"  HorizontalAlignment="Right" Margin="0,15,6,0" Style="{StaticResource TextBCommonBlue12}"></TextBlock>
+                </StackPanel>
+            <Border x:Name="BrandingBorder" Margin="4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0" Width="219" Grid.ColumnSpan="2">          
+                 <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/logo/logo56.png" Stretch="Fill" Margin="0"/>
+            </Border>
+
+        </Grid>
+        <Border x:Name="MidMenu" CornerRadius="3" BorderThickness="0,0,0,1" Height="30" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+            <Grid  Height="30" Margin="0" x:Name="HeaderBottomGrid" Style="{StaticResource HeaderBottonStyle1}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"></ColumnDefinition>
+                    <ColumnDefinition Width="24"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="250"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonPrevious" Grid.Column="0"  Padding="0" Width="20" Height="20" Margin="0" Style="{StaticResource ButtonToolBarStyle}"  >
+                    <Image Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="16" Source="/SMT.SaaS.FrameworkUI;Component/Images/area/16_back.png" Stretch="Fill" ToolTipService.ToolTip="返回"></Image>
+                </Button>
+                <Button x:Name="ButtonNext" Grid.Column="1"   Width="20" Height="20" Margin="0" Padding="0" Style="{StaticResource ButtonToolBarStyle}" >
+                    <Image Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="16" Source="/SMT.SaaS.FrameworkUI;Component/Images/area/16_forward.png" Stretch="Fill" ToolTipService.ToolTip="前进" ></Image>
+                </Button>
+
+                <Rectangle Height="18" Width="1" Fill="#FF9A9A99" Grid.Column="1" HorizontalAlignment="Right" Margin="0,6"/>
+                
+				 <Grid Grid.Column="4" HorizontalAlignment="Right" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="NH1" Grid.Column="0" FontSize="14" Height="25" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}"  Width="auto">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="首页" Margin="2,0,0,0" x:Name="TBHome" FontSize="12"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="NH3"  Grid.Column="1" FontSize="14" Height="25" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}"  Width="auto">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="全屏" Margin="2,0,0,0" x:Name="TBFullScreen" FontSize="12"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="NH4" Grid.Column="2" FontSize="14" Height="25" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}"  Width="auto">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="帮助" Margin="2,0,0,0" x:Name="TBHelp" FontSize="12"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="LoginOut" Grid.Column="3"  Width="auto" Margin="0,0,5,0" HorizontalAlignment="Right" Height="25" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="注销" Margin="2,0,0,0" x:Name="TBLogoff" FontSize="12"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+               
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

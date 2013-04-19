@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d30ce607-4ea8-4812-965e-29e33814cd4a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="FloatableWindow" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="SMT.SaaS.Globalization" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.ComponentModel.DataAnnotations" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Net" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.Windows" />
+      <ReferencedAssembly AssemblyName="System.Windows.Browser" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.DataForm.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Layout.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Navigation" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Theming.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Data" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Serialization" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3bd765e3-9365-4d1d-bc1f-24b4d0fdf4a3" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="2c29ba75-1bbf-4cca-9149-9507d7e43ae8" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d02d176f-97cc-4985-9b5f-5c602609b1ad" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="67c27854-aa4b-43e8-9477-bbea8a0e49e7" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="SMT_OA_EFModel.xsd" MetadataType="Schema" ID="1dfd5fa2-fd54-4576-8d2d-507a71bace8b" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="System.Data.Objects.DataClasses.xsd" MetadataType="Schema" ID="d24b9651-ef89-4721-949b-92fa117a5952" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="System.Data.xsd" MetadataType="Schema" ID="098babe6-f742-4763-844b-ba62f3506842" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="8f10d762-c028-493c-a393-7fdcb129abe4" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="SMT.SaaS.OA.DAL.Views1.xsd" MetadataType="Schema" ID="8f0b5969-df40-4667-b7f9-e78c448c9eb4" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="SMT.EntityFlowSys.xsd" MetadataType="Schema" ID="d8360706-6779-4678-a590-7012a548fb52" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+    <MetadataFile FileName="SMT.SaaS.OA.Services1.xsd" MetadataType="Schema" ID="276e8dfe-cdb0-4e73-bc8f-041ddce79544" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/OA/WelfareStandardService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

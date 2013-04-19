@@ -1,0 +1,64 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Attendance.FreeLeaveDaySetForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI">
+    <StackPanel>
+        <Grid x:Name="LayoutRoot" Margin="4"  Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" MinHeight="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+                <!--Row 0:AttendanceSolutionID & LeaveTypeSetID-->
+                <TextBlock x:Name="tbLeaveTypeNameTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVETYPESET}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <smtx:LookUp Grid.Row="0" Grid.Column="2" DataContext="{Binding Path=T_HR_LEAVETYPESET, Mode=TwoWay}" HorizontalAlignment="Stretch" FindClick="lkLeaveTypeName_FindClick" Name="lkLeaveTypeName" Margin="0,0,0,0" DisplayMemberPath="LEAVETYPENAME" />
+
+                <!--Row 1:OffestType & IsPerfectAttendanceFactor-->
+                <TextBlock x:Name="tbOffestTypeTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=OFFESTTYPE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <appCtr:DictionaryComboBox x:Name="cbxkOffestType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="OFFESTTYPE" SelectedValue="{Binding OFFESTTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center"/>
+
+                <TextBlock x:Name="tbIsPerfectAttendanceFactorTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISPERFECTATTENDANCEFACTOR}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="4"/>
+                <CheckBox x:Name="cbxIsPerfectAttendanceFactor" Style="{StaticResource CheckBoxStyle}" Grid.Row="1" Grid.Column="6" IsChecked="false" VerticalAlignment="Center" Margin="5,0,0,0" ></CheckBox>
+
+                <!--Row 2:MiniMonth & MaxMonth-->
+                <TextBlock x:Name="tbMiniMonthTitle" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FREELEAVEDAYSET_MINIMONTH}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" x:Name="nudMiniMonth" Grid.Row="2" Grid.Column="2" Margin="5,0,0,0" Width="Auto" VerticalAlignment="Stretch" Height="24" Value="{Binding MINIMONTH, Mode=TwoWay}" Maximum="10000"></inputToolkit:NumericUpDown>
+                
+                <TextBlock x:Name="tbMaxMonthTitle" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FREELEAVEDAYSET_MAXMONTH}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="4"/>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" x:Name="nudMaxMonth" Grid.Row="2" Grid.Column="6" Margin="5,0,0,0" Width="Auto" VerticalAlignment="Stretch" Height="24" Value="{Binding MAXMONTH, Mode=TwoWay}" Maximum="10000"></inputToolkit:NumericUpDown>
+                
+                <!--Row 3:LeaveDays-->
+                <TextBlock x:Name="tbLeaveDaysTitle" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FREELEAVEDAYSET_LEAVEDAYS}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <inputToolkit:NumericUpDown x:Name="nudLeaveDays" Grid.Row="3" Style="{StaticResource NumericUpDownStyle}" Grid.Column="2" Margin="5,0,0,0" Width="Auto" VerticalAlignment="Stretch" Height="24" Value="{Binding LEAVEDAYS, Mode=TwoWay}" Maximum="300"></inputToolkit:NumericUpDown>
+                
+                <!--Row 4:Remark-->
+                <TextBlock x:Name="tbRemarkTitle" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Width="Auto" Margin="5,0,0,0"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" TextWrapping="Wrap" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,2,0,2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+            </Grid>
+        </Grid>
+    </StackPanel>
+</smtLocal:BaseForm>

@@ -1,0 +1,18 @@
+﻿<swc:Window  x:Class="SMT.HRM.UI.CommForm.EntityAuditForm"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+            xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+           Width="400" Height="300"  TitleContent="EntityAuditForm">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <audit:AuditControl Visibility="Visible" x:Name="audit" Grid.Row="0"  MinHeight="300" MinWidth="100">
+        </audit:AuditControl>
+        <Button x:Name="CancelButton" Style="{StaticResource CommonButtonStyle}" Content="Cancel" Click="CancelButton_Click"  HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="2" />
+        <Button x:Name="OKButton" Style="{StaticResource CommonButtonStyle}" Content="OK" Click="OKButton_Click"  HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="2" />
+    </Grid>
+</swc:Window >

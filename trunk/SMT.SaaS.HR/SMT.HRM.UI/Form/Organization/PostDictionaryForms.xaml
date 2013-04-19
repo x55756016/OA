@@ -1,0 +1,119 @@
+﻿<smtLocal:BaseForm xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="SMT.HRM.UI.Form.Organization.PostDictionaryForms"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+ xmlns:custom="clr-namespace:SMT.SaaS.FrameworkUI.AutoCompleteComboBox;assembly=SMT.SaaS.FrameworkUI"
+    
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot" Margin="10 10 0 0" Background="Transparent" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+            	<RowDefinition Height="26"/>
+            	<RowDefinition Height="28"/>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="28"/>
+            	<RowDefinition Height="0"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+            <!--部门名称-->
+            <TextBlock  Grid.Column="0" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENTNAME}" Height="22" Margin="0,0,15,0"/>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Height="25" Margin="5,0,5,0" Orientation="Horizontal">
+            <!--<my:AutoCompleteBox  Width="180" Height="24" x:Name="acbDepName" Margin="0,0,5,0" SelectionChanged="acbDepName_SelectionChanged" Grid.Column="1" HorizontalAlignment="Left" Sel>
+
+                <my:AutoCompleteBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=DEPARTMENTNAME}">
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </my:AutoCompleteBox.ItemTemplate>
+            </my:AutoCompleteBox>-->
+            <!--<custom:AutoCompleteComboBox x:Name="acbDepName" Width="180" Height="24" Margin="0,0,5,0"  Grid.Column="1" HorizontalAlignment="Left" >
+                <custom:AutoCompleteComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=DEPARTMENTNAME}">
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </custom:AutoCompleteComboBox.ItemTemplate>
+            </custom:AutoCompleteComboBox>-->
+            <custom:AutoCompleteComboBox  x:Name="acbDepName"  Width="180" Height="26" Margin="0,0,5,0"  Grid.Column="1" HorizontalAlignment="Left">
+                <custom:AutoCompleteComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=DEPARTMENTNAME}">
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </custom:AutoCompleteComboBox.ItemTemplate>
+            </custom:AutoCompleteComboBox>
+            <!--<ComboBox  x:Name="cbxDepName"  Style="{StaticResource ComboBoxStyle}" Margin="5,0,0,0" Grid.Column="1" HorizontalAlignment="Left" SelectionChanged="cbxDepName_SelectionChanged">
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+            </ComboBox>-->
+
+        </StackPanel>
+        <!--岗位编号-->
+            <TextBlock   Grid.Column="0" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTCODE}" Height="22"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPosCode"  Text="{Binding POSTCODE, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" MaxLength="50" Height="24"  >
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="POSTCODE" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>
+            </TextBox>
+            
+            <!--岗位名称-->
+            <TextBlock  Grid.Column="0" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNAME}" Height="22"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPosName"  Text="{Binding POSTNAME, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Width="Auto" MaxLength="50"  Height="24" >
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="POSTNAME" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>
+            </TextBox>
+            
+            <!--岗位级别-->
+            <!--<TextBlock  Grid.Column="0" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTLEVEL}" Height="22"/>
+        <appCtr:DictionaryComboBox  x:Name="cbxPostLevel" IsShowNull="False" Category="POSTLEVEL"  Margin="5,0,15,0" SelectedValue="{Binding POSTLEVEL, Mode=TwoWay}" 
+                Grid.Row="3" Grid.Column="1"/>-->
+            <!--薪资等级-->
+            <!--<TextBlock  Grid.Column="0" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYLEVEL}" Visibility="Collapsed" Height="22" />
+            <appCtr:DictionaryComboBox  x:Name="cbxSalaryLevel" Category="SALARYLEVEL" SelectedValue="{Binding SALARYLEVEL, Mode=TwoWay}"  Visibility="Collapsed"
+                Grid.Row="4" Grid.Column="1"/>-->
+            
+            <!--晋升方向-->
+            <TextBlock  Grid.Column="0" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROMOTEDIRECTION}" Height="22"/>
+        <TextBox x:Name="txtPrompteDirection" Style="{StaticResource TextBoxStyle}"  Text="{Binding PROMOTEDIRECTION, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" Height="24"  MaxLength="50"/>
+            <!--轮换岗位-->
+            <!--<TextBlock  Grid.Column="0" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHANGEPOST}" Height="22"/>
+        <TextBox Style="{StaticResource TextBoxStyle}"  Text="{Binding CHANGEPOST, Mode=TwoWay}" Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Stretch"  MaxLength="50" Height="24"  />-->
+            <!--部门职责-->
+            <TextBlock  Grid.Column="0" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTFUNCTION}" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPostFunction" Style="{StaticResource TextBoxStyle}" Text="{Binding POSTFUNCTION, Mode=TwoWay}" Grid.Column="1" Grid.Row="5"  TextWrapping="Wrap"  HorizontalAlignment="Stretch"  AcceptsReturn="True" Height="auto"  MaxLength="2000"  />
+
+        
+    </Grid>
+</smtLocal:BaseForm>

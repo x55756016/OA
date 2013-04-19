@@ -1,0 +1,153 @@
+﻿<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_AttendanceService" receiveTimeout="00:20:00"
+          sendTimeout="00:20:00" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_SalaryService" closeTimeout="00:00:20"
+          openTimeout="00:50:05" receiveTimeout="00:50:00" sendTimeout="00:50:20"
+          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_PersonnelService" closeTimeout="00:50:20"
+          openTimeout="00:50:05" receiveTimeout="00:50:00" sendTimeout="00:50:20"
+          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FileUploadManager" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IEngineWcfGlobalFunction" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPersonalRecordService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FBService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_ChartReportService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_ReportChartService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+      <customBinding>
+        <binding name="CustomBinding_WelfareStandardService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IService">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ContractManagementServiceFrom">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PermissionService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_HrCommonService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_OrganizationService" receiveTimeout="00:20:00"
+          sendTimeout="00:20:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PerformanceService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_Service">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <!--FBA-->
+        <binding name="CustomBinding_DailyManagementServices" sendTimeout="10:10:00" receiveTimeout="10:10:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <!--FBAEnd-->
+      </customBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://localhost:12168/PersonnelService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+        contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+      <endpoint address="http://localhost:12168/SalaryService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
+        contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
+      <endpoint address="http://localhost:8008/SMT.FlowWFService.Service.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
+        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+      <endpoint address="http://172.16.1.57/New/Services/System/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://172.16.1.57/New/Services/OA/ContractManagementServiceFrom.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ContractManagementServiceFrom"
+        contract="ContractAppWS.ContractManagementServiceFrom" name="CustomBinding_ContractManagementServiceFrom" />
+      <endpoint address="http://172.16.1.57/New/Services/OA/WelfareStandardService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_WelfareStandardService"
+        contract="WelfareStandardWS.WelfareStandardService" name="CustomBinding_WelfareStandardService" />
+      <endpoint address="http://172.16.1.57/New/Services/HR/HrCommonService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
+        contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
+      <endpoint address="http://localhost:12168/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+      <endpoint address="http://172.16.1.57/New/Services/HR/PerformanceService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
+        contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
+      <endpoint address="http://172.16.1.57/New/Services/System/FileUploadManager.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
+        contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
+      <endpoint address="http://172.16.1.57/New/Services/SMTFlowDesigner/Service.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_Service"
+        contract="FlowDesignerWS.Service" name="CustomBinding_Service" />
+      <endpoint address="http://localhost:12168/AttendanceService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
+        contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
+      <endpoint address="http://172.16.1.57/New/Services/FB/FBService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
+        contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
+      <endpoint address="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEngineWcfGlobalFunction"
+        contract="EngineWS.IEngineWcfGlobalFunction" name="BasicHttpBinding_IEngineWcfGlobalFunction" />
+      <endpoint address="http://172.16.1.57/New/Services/SMTEngine/PersonalRecordService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
+        contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
+      <endpoint address="http://172.16.1.57/New/Services/PublicInterface/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+      <endpoint address="http://172.16.1.57/New/Services/HR/Report/ChartReportService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ChartReportService"
+        contract="ChartReportsServiceWS.ChartReportService" name="BasicHttpBinding_ChartReportService" />
+      <endpoint address="http://172.16.1.57/New/Services/HR/Report/ReportChartService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ReportChartService"
+        contract="ReportChartServiceWS.ReportChartService" name="BasicHttpBinding_ReportChartService" />
+      <!--FBA-->
+      <endpoint address="http://localhost:1734/DailyManagementServices.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_DailyManagementServices"
+          contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
+      <!--FBAEnd-->
+    </client>
+<!--http://172.30.50.83:5102/New/Services/PublicInterface/PublicService.svc-->
+  </system.serviceModel>
+</configuration>

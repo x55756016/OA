@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.ImageSelect"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border  Grid.Row="0" Grid.Column="0" BorderThickness="1" BorderBrush="#FFAAC4F1" 
+                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>                    
+                </Grid.RowDefinitions>
+                <Image x:Name="imgPhoto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                </Image>
+               
+            </Grid>
+
+        </Border>
+        <Button Grid.Row="0" Grid.Column="1" x:Name="imgSelect" Click="imgSelect_Click" 
+                        HorizontalAlignment="Right" Opacity="5" ToolTipService.ToolTip="上传图片"
+                    VerticalAlignment="Bottom" Width="18" Height="18">
+            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(01,17).png" Opacity="5"></Image>
+        </Button>
+
+    </Grid>
+</UserControl>

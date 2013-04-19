@@ -1,0 +1,126 @@
+﻿<smtLocal:BasePage xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  x:Class="SMT.HRM.UI.Views.Personnel.PensionDetail" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+           d:DesignWidth="640" d:DesignHeight="480"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           Title="PensionDetail Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*" ></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"  x:Name="expander" Grid.Row="1" VerticalAlignment="top" Background="Transparent" >
+                <controlsToolkit:Expander.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmpName" Grid.Row="0" Grid.Column="1" Width="120" />
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDID}" Grid.Row="0" Grid.Column="2" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCardID" Grid.Row="0" Grid.Column="3"  Width="120"/>
+                            <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="5000"  Grid.Column="4" Grid.Row="0" x:Name="Nuyear" Loaded="Nuyear_Loaded"></inputToolkit:NumericUpDown>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center" Width="auto" Grid.Column="5" Grid.Row="0"></TextBlock>
+                            <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12" Grid.Column="6" Grid.Row="0" x:Name="NuStartmounth" Loaded="NuStartmounth_Loaded"></inputToolkit:NumericUpDown>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="auto"  VerticalAlignment="Center" Grid.Column="7" Grid.Row="0"></TextBlock>
+                            <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="8" Margin="20,0,0,0" Width="50" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="GridPager_Click" />
+                        </Grid>
+                    </DataTemplate>
+                </controlsToolkit:Expander.HeaderTemplate>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  LoadingRow="DtGrid_LoadingRow" FrozenColumnCount="4"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Grid.Row="3" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn  Header="序号" IsReadOnly="True">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="tbNo" Width="16" Height="16"></TextBlock>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="PENSIONYEAR" Binding="{Binding PENSIONYEAR}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PENSIONMOTH" Binding="{Binding PENSIONMOTH}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="IDNUMBER" Binding="{Binding IDNUMBER}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="CARDID" Binding="{Binding CARDID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <!--<data:DataGridTextColumn Header="PENSIONDATE" Binding="{Binding PENSIONDATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->
+                    <data:DataGridTextColumn Header="COMPUTERNO" Binding="{Binding COMPUTERNO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PAYBASE" Binding="{Binding PAYBASE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="TOTALCOST" Binding="{Binding TOTALCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="LASTDATE"  Binding="{Binding LASTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="TOTALPERSONCOST" Binding="{Binding TOTALPERSONCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="TOTALCOMPANYCOST" Binding="{Binding TOTALCOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PENSIONPERSONCOST" Binding="{Binding PENSIONPERSONCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PENSIONCOMPANYCOST" Binding="{Binding PENSIONCOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="HOUSINGFUNDCOMPANYCOST" Binding="{Binding HOUSINGFUNDCOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="MEDICAREPERSONCOST" Binding="{Binding MEDICAREPERSONCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="MEDICARECOMPANYCOST" Binding="{Binding MEDICARECOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INJURYINSURANCECOMPANYCOST" Binding="{Binding INJURYINSURANCECOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="UNEMPLOYEDINSURANCECOMPANYCOST" Binding="{Binding UNEMPLOYEDINSURANCECOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="BIRTHINSURANCECOMPANYCOST" Binding="{Binding BIRTHINSURANCECOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+
+
+                    <data:DataGridTextColumn Header="PENSIONPERSONRATIO" Binding="{Binding PENSIONPERSONRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PENSIONCOMPANYRATIO" Binding="{Binding PENSIONCOMPANYRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="HOUSINGFUNDCOMPANYRATIO" Binding="{Binding HOUSINGFUNDCOMPANYRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="HOUSINGFUNDPERSONCOST" Binding="{Binding HOUSINGFUNDPERSONCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="HOUSINGFUNDPERSONRATIO" Binding="{Binding HOUSINGFUNDPERSONRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="MEDICAREPERSONRATIO" Binding="{Binding MEDICAREPERSONRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="MEDICARECOMPANYRATIO" Binding="{Binding MEDICARECOMPANYRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INJURYINSURANCECOMPANYRATIO" Binding="{Binding INJURYINSURANCECOMPANYRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INJURYINSURANCEPERSONCOST" Binding="{Binding INJURYINSURANCEPERSONCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INJURYINSURANCEPERSONRATIO" Binding="{Binding INJURYINSURANCEPERSONRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="UNEMPLOYEDCOMPANYRATIO" Binding="{Binding UNEMPLOYEDCOMPANYRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="UNEMPLOYEDPERSON" Binding="{Binding UNEMPLOYEDPERSON}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="UNEMPLOYEDPERSONRATIO" Binding="{Binding UNEMPLOYEDPERSONRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="BIRTHCOMPANYRATIO" Binding="{Binding BIRTHCOMPANYRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="BIRTHPERSONCOST" Binding="{Binding BIRTHPERSONCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="BIRTHPERSONRATIO" Binding="{Binding BIRTHPERSONRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PENSIONBASE" Binding="{Binding PENSIONBASE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INJURYBASE" Binding="{Binding INJURYBASE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="MEDICAREBASE" Binding="{Binding MEDICAREBASE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="BIRTHBASE" Binding="{Binding BIRTHBASE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="UNEMPLOYEDBASE" Binding="{Binding UNEMPLOYEDBASE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="HOUSINGFUNDBASE" Binding="{Binding HOUSINGFUNDBASE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="CADRECOMPANYCOST" Binding="{Binding CADRECOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="CADRECOMPANYRATIO" Binding="{Binding CADRECOMPANYRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="SUBSIDYCOMPANYCOST" Binding="{Binding SUBSIDYCOMPANYCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="SUBSIDYCOMPANYRATIO" Binding="{Binding SUBSIDYCOMPANYRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="SUBSIDYPERSONCOST" Binding="{Binding SUBSIDYPERSONCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="SUBSIDYPERSONRATIO" Binding="{Binding SUBSIDYPERSONRATIO}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="ISLOCAL" Binding="{Binding ISLOCAL}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PAYDATE"  Binding="{Binding PAYDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="COMPANYID" Binding="{Binding COMPANYID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

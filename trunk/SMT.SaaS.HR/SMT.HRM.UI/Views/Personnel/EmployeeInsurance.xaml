@@ -1,0 +1,75 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Personnel.EmployeeInsurance" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="EmployeeInsurance Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*" ></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"  x:Name="expander" Grid.Row="1" VerticalAlignment="top" Background="Transparent" >
+                <controlsToolkit:Expander.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmpName" Grid.Row="0" Grid.Column="1" Width="120" Margin="10,0,0,0"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=INSURANCENAME}" Grid.Row="0" Grid.Column="2" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtInsuranceName" Grid.Row="0" Grid.Column="3"  Width="120" Margin="10,0,0,0"/>
+                            <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="4" Margin="20,0,0,0" Width="50" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="GridPager_Click" />
+                        </Grid>
+                    </DataTemplate>
+                </controlsToolkit:Expander.HeaderTemplate>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  LoadingRow="DtGrid_LoadingRow"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Grid.Row="3" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="EMPLOYEECODE" Binding="{Binding T_HR_EMPLOYEE.EMPLOYEECODE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="EMPLOYEECNAME" Binding="{Binding T_HR_EMPLOYEE.EMPLOYEECNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INSURANCECATEGORY" Binding="{Binding INSURANCECATEGORY, Converter={StaticResource DictionaryConverter},ConverterParameter=INSURANCECATEGORY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INSURANCENAME" Binding="{Binding INSURANCENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INSURANCECOMPANY" Binding="{Binding INSURANCECOMPANY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INSURANCECOST" Binding="{Binding INSURANCECOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="CONTRACTCODE" Binding="{Binding CONTRACTCODE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PERIOD" Binding="{Binding PERIOD}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="ALARMDAY" Binding="{Binding ALARMDAY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="INSURANCEPAY" Binding="{Binding INSURANCEPAY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

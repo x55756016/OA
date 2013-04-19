@@ -1,0 +1,191 @@
+﻿<smtLocal:BaseForm xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+             xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+			 xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+             x:Class="SMT.HRM.UI.Form.Salary.CalculateFormula"
+    mc:Ignorable="d" >
+    <smtLocal:BaseForm.Resources>
+        <Style x:Key="ListStyle" TargetType="ListBox">
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+        <ItemsPanelTemplate x:Key="HorizontalItemPanel">
+            <StackPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+        <DataTemplate x:Key="DataTemplate">
+            <TextBlock Text="{Binding Index}" Padding="0" Margin="2"/>
+        </DataTemplate>
+    </smtLocal:BaseForm.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"/>
+        <Grid  Background="Transparent"  ShowGridLines="False"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Row0-->
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="txtOperType" Text="{Binding Converter={StaticResource ResourceConveter}, Source=INSERTFILTER}" VerticalAlignment="Center" Width="70"/>
+
+                    <CheckBox x:Name="cbkInsertFilter" HorizontalAlignment="Center"  Margin="50,5"  Checked="cbkInsertFilter_Checked"/>
+                </StackPanel>
+            </Border>
+            <!--项标题-->
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="0" Grid.Column="2">
+                <TextBlock Text=""  TextAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 1 1" Grid.Row="0" Grid.Column="2">
+                <TextBlock Text="   " x:Name="tbItemName"  VerticalAlignment="Center"/>
+            </Border>
+            <!--Row1-->
+            <!--计算内容-->
+            <controls:TreeView  Grid.Row="1" Grid.Column="0" x:Name="itemType" SelectedItemChanged="itemType_SelectedItemChanged"/>
+            <Border BorderBrush="Black" BorderThickness="1 0 1 0" Grid.Row="2" Grid.Column="0">
+                <ListBox Width="auto"  x:Name="lbsign" HorizontalAlignment="Left"   FontSize="15" Style="{StaticResource ListStyle}" ItemsPanel="{StaticResource HorizontalItemPanel}"  VerticalAlignment="Center">
+                    <ListBoxItem Content="+" />
+                    <ListBoxItem Content="-" />
+                    <ListBoxItem Content="*" />
+                    <ListBoxItem Content="/" />
+                    <ListBoxItem Content="(" />
+                    <ListBoxItem Content=")" />
+                </ListBox>
+            </Border>
+            <!--插入计算符 -->
+            <Border BorderBrush="Black" BorderThickness="0 1 1 1" Grid.Row="2" Grid.Column="1">
+                <StackPanel   Orientation="Horizontal">
+                    <Button x:Name="btInsertSymbol" Click="btInsertSymbol_Click"  Width="50" Height="30" Content="=&gt;"  HorizontalAlignment="Left"/>
+                </StackPanel>
+            </Border>
+            <!--Row2-->
+            <!--插入  插入计算项-->
+            <Border BorderBrush="Black" BorderThickness="0 1 1 0" Grid.Row="1" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" >
+                    <Button x:Name="btInsertItem" Click="btInsertItem_Click"  Width="50" Height="30" Content="=&gt;"  VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+
+            <!-- 系数-->
+			
+            <Border BorderBrush="Black" BorderThickness="1 1 0 1" Grid.Row="5" Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="系数:" VerticalAlignment="Center" Width="70" />
+                    <inputToolkit:NumericUpDown x:Name="txtCoefficient2" Increment="0.5" Visibility="Collapsed"/>
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCoefficient" Visibility="Visible" Width="120"  Height="26" HorizontalAlignment="Stretch" MaxLength="10" Margin="5,0">
+                        <validator:ValidatorService.Validator>
+                            <validator:RegexValidator ManagerName="Group1" ErrorMessage="REQUIREDNUMERICAL" ErrorMessageParameter="COEFFICIENT" Expression="^[0-9]+(\.\d+)?$"/>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                </StackPanel>
+            </Border>
+            <!--插入系数-->
+            <Border BorderBrush="Black" BorderThickness="1 1 1 1" Grid.Row="5" Grid.Column="1" >
+                <Button x:Name="btInsertCoe" Content="=&gt;" Height="30"   Width="50" Click="btInsertCoe_Click"/>
+            </Border>
+
+            <TextBlock x:Name="txtItemcode" Visibility="Collapsed"/>
+            <!--Row3-->
+            <!-- 插入Oracel函数运算符号 -->
+            <Border Grid.Row="4" Grid.Column="0" BorderThickness="1 0 1 0" BorderBrush="Black" Width="auto" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="txtLogicOperTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LOGICALOPERATOR}" VerticalAlignment="Center" Width="70"/>
+                    <appCtr:DictionaryComboBox x:Name="cbxkLogicOper" HorizontalAlignment="Stretch" Category="LOGICALOPERATOR" Width="120" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" Margin="5,0"/>
+                </StackPanel>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="0 0 1 0" Grid.Row="4" Grid.Column="1" >
+                <Button x:Name="btInsertLogicOper" Content="=&gt;" Height="30"   Width="50" Click="btInsertLogicOper_Click"/>
+            </Border>
+            <!--Row4-->
+            <!--薪资项计算公式-->
+            <Border Grid.Row="1" Grid.Column="2" Grid.RowSpan="6" BorderThickness="0 0 1 0" BorderBrush="Black" Width="auto" >
+                <StackPanel Orientation="Vertical">
+                    <TextBox x:Name="txtContent" Background="White"  IsReadOnly="True" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Width="Auto" MinHeight="305"  HorizontalAlignment="Stretch"  TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                    <!--<TextBlock Text="  " />-->
+                </StackPanel>
+            </Border>
+
+            <StackPanel Visibility="Collapsed">
+            <Border BorderBrush="Black" BorderThickness="0 1 0 1" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+                <TextBlock Text="带条件的公式定义"  TextAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
+            </Border>
+            <!--薪资项目条件定义-->
+            <Border Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" BorderThickness="0 0 1 0" BorderBrush="Black" Width="auto" >
+                <StackPanel>
+                    <TextBox x:Name="txtContent1" Background="White"  IsReadOnly="True" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Width="Auto" Height="145" HorizontalAlignment="Stretch"  TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                    <TextBlock Text="  " />
+                </StackPanel>
+            </Border>
+            </StackPanel>
+            
+            <!--选择对应的实体字段-->
+            <Border Grid.Row="3" Grid.Column="0" BorderThickness="1 1 1 1" BorderBrush="Black" Width="auto" >
+                <StackPanel Orientation="Vertical"  HorizontalAlignment="Left" >
+                    <Border BorderThickness="0 0 0 1" BorderBrush="Black" Width="auto" >
+                        <StackPanel Orientation="Horizontal">
+                            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=SELECTENTITY}"  VerticalAlignment="Center"  Margin="0,5,0,0" Width="70" />
+                            <appCtr:DictionaryComboBox x:Name="listEntityName" DisplayMemberPath="MENUNAME" Height="25" Width="120" HorizontalAlignment="Stretch"  Margin="5 5 0 0" SelectionChanged="listEntityName_SelectionChanged">
+                            </appCtr:DictionaryComboBox>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderThickness="0 0 0 0" BorderBrush="Black" Width="auto" >
+                        <StackPanel Orientation="Horizontal">
+                            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=ENTITYITEM}"  VerticalAlignment="Center"  Margin="0,5,0,0" Width="70"/>
+                            <appCtr:DictionaryComboBox x:Name="listEntityProperty" DisplayMemberPath="ProPertyName" Height="25" Width="120" HorizontalAlignment="Stretch"  Margin="5 5 0 0" >
+                            </appCtr:DictionaryComboBox>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <!--插入实体及字段按钮-->
+            <Border BorderBrush="Black" BorderThickness="0 0 1 1" Grid.Row="3" Grid.Column="1" >
+               <StackPanel Orientation="Vertical"  HorizontalAlignment="Left" >
+                <Border BorderBrush="Black" BorderThickness="0 0 1 1">
+                    <Button x:Name="btInsertEntityTable" Content="=&gt;" Height="30"   Width="50" Click="btInsertEntityTable_Click"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="0 0 1 1" >
+                    <Button x:Name="btInsertEntityProperty" Content="=&gt;" Height="30"   Width="50" Click="btInsertEntityProperty_Click"/>
+                </Border>
+               </StackPanel>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 0 0 1" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+            </Border>
+            <!-- 最后一行 -->
+            <Border Grid.Row="6" Grid.Column="2" BorderThickness="0 1 1 1" BorderBrush="Black" Width="auto" >
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" MinWidth="400" >
+                    <TextBlock Text="  " />
+                    <Button x:Name="btCheck" Click="btCheck_Click" Content="检查" Width="60" Height="30" Style="{StaticResource CommonButtonStyle}"/>
+                    <TextBlock Text="        " />
+                    <Button x:Name="btClear" Click="btClear_Click" Content="清空"  Width="60"  Height="30" Style="{StaticResource CommonButtonStyle}" />
+                    <TextBlock Text="        "  />
+                    <Button x:Name="btSave" Click="btSave_Click" Content="确定" Width="60" Height="30" Style="{StaticResource CommonButtonStyle}"/>
+                    <TextBox x:Name="txtContentCode" VerticalAlignment="Stretch" Visibility="Collapsed"/>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

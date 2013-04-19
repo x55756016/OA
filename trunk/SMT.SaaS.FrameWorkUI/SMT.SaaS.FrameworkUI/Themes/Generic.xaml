@@ -1,0 +1,165 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:SMT.SaaS.FrameworkUI.AutoCompleteComboBox">
+
+
+    <Style TargetType="local:AutoCompleteComboBox">
+        <Setter Property="IsTextCompletionEnabled" Value="False" />
+
+        <!-- The minimum prefix length should be 0 for combo box scenarios -->
+        <Setter Property="MinimumPrefixLength" Value="1" />
+
+        <!-- Regular template values -->
+        <Setter Property="Background" Value="#FF1F3B53"/>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:AutoCompleteComboBox">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <TextBox IsTabStop="True" x:Name="Text" Style="{TemplateBinding TextBoxStyle}" Margin="0,0,0,2" />
+                        <ToggleButton x:Name="ToggleButton"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource ComboToggleButton}"
+                                Margin="0" BorderBrush="Black" BorderThickness="1,0,0,0"
+                                HorizontalContentAlignment="Center" 
+                                Background="LightGray" 
+                                Height="20" Width="16">
+                            <ToggleButton.Content>
+                                <Path x:Name="BtnArrow" Height="4" Width="8" Stretch="Uniform" 
+                                      Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z " 
+                                          Margin="0,0,6,0" HorizontalAlignment="Right">
+                                    <Path.Fill>
+                                        <SolidColorBrush x:Name="BtnArrowColor" Color="#FF333333"/>
+                                    </Path.Fill>
+                                    <Path.RenderTransform>
+                                        <ScaleTransform x:Name="ToggleButtonScale" />
+                                    </Path.RenderTransform>
+                                </Path>
+                            </ToggleButton.Content>
+                        </ToggleButton>
+                        <Popup x:Name="Popup">
+                            <Border x:Name="PopupBorder" HorizontalAlignment="Stretch" Opacity="1.0" BorderThickness="0">
+                                <Border.RenderTransform>
+                                    <TranslateTransform X="2" Y="-2" />
+                                </Border.RenderTransform>
+                                <Border.Background>
+                                    <SolidColorBrush Color="#11000000" />
+                                </Border.Background>
+                                <ListBox x:Name="Selector" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                                                 ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                                 ItemTemplate="{TemplateBinding ItemTemplate}" />
+                            </Border>
+                        </Popup>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.2" To="ToggleButtonOver" />
+                                    <VisualTransition GeneratedDuration="0:0:0.2" To="ToggleButtonOut" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="ToggleButtonOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ToggleButtonScale" Storyboard.TargetProperty="ScaleX" To="1.3" />
+                                        <DoubleAnimation Storyboard.TargetName="ToggleButtonScale" Storyboard.TargetProperty="ScaleY" To="1.3" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="ToggleButtonOut">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ToggleButtonScale" Storyboard.TargetProperty="ScaleX" To="1" />
+                                        <DoubleAnimation Storyboard.TargetName="ToggleButtonScale" Storyboard.TargetProperty="ScaleY" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="PopupStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.4" To="PopupOpened" />
+                                    <VisualTransition GeneratedDuration="0:0:0.2" To="PopupClosed" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="PopupOpened">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="1.0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="PopupClosed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="0.0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ValidationStates">
+                                <VisualState x:Name="Valid" />
+                                <VisualState x:Name="InvalidUnfocused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ValidationErrorElement" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="InvalidFocused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ValidationErrorElement" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="validationTooltip" Storyboard.TargetProperty="IsOpen">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <system:Boolean>True</system:Boolean>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Custom toggle button template -->
+    <Style x:Name="ComboToggleButton" TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="#FF333333"/>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Background" Value="#FF1F3B53"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Grid>
+                        <Rectangle Fill="Transparent" />
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

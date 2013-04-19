@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.GridToolBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="auto" Height="auto">
+    <Grid x:Name="LayoutRoot" Background="Transparent">        
+        <Border x:Name="borderName"> 
+			<StackPanel x:Name="btnContainer" Orientation="Horizontal">
+				<Button x:Name="btnAdd"  Content="增 加"/>
+                <Button x:Name="btnAlt"  Content="修 改" />
+                <Button x:Name="btnDel"  Content="删 除"/>
+			</StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

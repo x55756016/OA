@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7D1B61B-CD35-46EA-8575-3CF42D8F4F9D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.HRM.DAL</RootNamespace>
+    <AssemblyName>SMT.HRM.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMT.Foundation.Core">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.BLLCommonServices">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT_HRM_EFModel">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT_HRM_EFModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbnormRecordDAL.cs" />
+    <Compile Include="AttendanceDeductDetailDAL.cs" />
+    <Compile Include="AttendanceDeductMasterDAL.cs" />
+    <Compile Include="AttendanceRecordDAL.cs" />
+    <Compile Include="AttendanceSolutionAsignDAL.cs" />
+    <Compile Include="AttendanceSolutionDAL.cs" />
+    <Compile Include="AttendanceSolutionDeductDAL.cs" />
+    <Compile Include="AttendFreeLeaveDAL.cs" />
+    <Compile Include="AttendMonthlyBalanceDAL.cs" />
+    <Compile Include="AttendMonthlyBatchBalanceDAL.cs" />
+    <Compile Include="AttendYearlyBalanceDAL.cs" />
+    <Compile Include="ClockInRecordDAL.cs" />
+    <Compile Include="CommDal.cs" />
+    <Compile Include="EmployeeLevelDayCountDAL.cs" />
+    <Compile Include="EmployeeSignInDetailDAL.cs" />
+    <Compile Include="EmployeeSigninRecordDAL.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="FreeLeaveDaySetDAL.cs" />
+    <Compile Include="LeaveTypeSetDAL.cs" />
+    <Compile Include="OutPlanDaysDAL.cs" />
+    <Compile Include="OverTimeRecordDAL.cs" />
+    <Compile Include="OvertimeRewardDAL.cs" />
+    <Compile Include="PersonalLandDetailDAL.cs" />
+    <Compile Include="PersonalLandStatisticDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ReportsDAL.cs" />
+    <Compile Include="SchedulingTemplateDetailDAL.cs" />
+    <Compile Include="SchedulingTemplateMasterDAL.cs" />
+    <Compile Include="ShiftDefineDAL.cs" />
+    <Compile Include="TestUsersDAL.cs" />
+    <Compile Include="VacationSetDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
+      <Project>{0E45B937-670F-49E1-8EF1-A4BD312B94DA}</Project>
+      <Name>SMT.HRM.CustomModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

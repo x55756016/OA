@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataSyncService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.16.1.23/services/DataSyncService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.16.1.23/services/DataSyncService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.16.1.23/services/DataSyncService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMTIM.Application.DataObjects" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataSyncService_AddOrUpdateCompanyDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateCompanyDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_AddOrUpdateCompanyDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateCompanyDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DeleteCompanyDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCompanyDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DeleteCompanyDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCompanyDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_EmployeeEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeeEntry" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_EmployeeEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeeEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_EmployeeLeave_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeeLeave" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_EmployeeLeave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeeLeaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_EmployeeMove_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeeMove" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_EmployeeMove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeeMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_EmployeePartTimeEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeePartTimeEntry" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_EmployeePartTimeEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeePartTimeEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_UpdateEmployeeBaseInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeBaseInfo" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_UpdateEmployeeBaseInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeBaseInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_SendMsg_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMsg" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_SendMsg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_Send_InputMessage">
+    <wsdl:part name="parameters" element="tns:Send" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_Send_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_Receive_InputMessage">
+    <wsdl:part name="parameters" element="tns:Receive" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_Receive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_GetImMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_GetImMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_IsUserOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserOnline" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_IsUserOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_UpdateSort_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSort" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_UpdateSort_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSortResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_SelectedOrgToIM_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectedOrgToIM" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_SelectedOrgToIM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectedOrgToIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_RegisterOrgID_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterOrgID" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_RegisterOrgID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterOrgIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_SetUserDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserDept" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_SetUserDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserDeptResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataSyncService">
+    <wsdl:operation name="AddOrUpdateCompanyDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/AddOrUpdateCompanyDepartment" message="tns:IDataSyncService_AddOrUpdateCompanyDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/AddOrUpdateCompanyDepartmentResponse" message="tns:IDataSyncService_AddOrUpdateCompanyDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompanyDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/DeleteCompanyDepartment" message="tns:IDataSyncService_DeleteCompanyDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/DeleteCompanyDepartmentResponse" message="tns:IDataSyncService_DeleteCompanyDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/EmployeeEntry" message="tns:IDataSyncService_EmployeeEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/EmployeeEntryResponse" message="tns:IDataSyncService_EmployeeEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/EmployeeLeave" message="tns:IDataSyncService_EmployeeLeave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/EmployeeLeaveResponse" message="tns:IDataSyncService_EmployeeLeave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeMove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/EmployeeMove" message="tns:IDataSyncService_EmployeeMove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/EmployeeMoveResponse" message="tns:IDataSyncService_EmployeeMove_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePartTimeEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/EmployeePartTimeEntry" message="tns:IDataSyncService_EmployeePartTimeEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/EmployeePartTimeEntryResponse" message="tns:IDataSyncService_EmployeePartTimeEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeBaseInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/UpdateEmployeeBaseInfo" message="tns:IDataSyncService_UpdateEmployeeBaseInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/UpdateEmployeeBaseInfoResponse" message="tns:IDataSyncService_UpdateEmployeeBaseInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/SendMsg" message="tns:IDataSyncService_SendMsg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/SendMsgResponse" message="tns:IDataSyncService_SendMsg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/Send" message="tns:IDataSyncService_Send_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/SendResponse" message="tns:IDataSyncService_Send_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Receive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/Receive" message="tns:IDataSyncService_Receive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/ReceiveResponse" message="tns:IDataSyncService_Receive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/GetImMessage" message="tns:IDataSyncService_GetImMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/GetImMessageResponse" message="tns:IDataSyncService_GetImMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/IsUserOnline" message="tns:IDataSyncService_IsUserOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/IsUserOnlineResponse" message="tns:IDataSyncService_IsUserOnline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSort">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/UpdateSort" message="tns:IDataSyncService_UpdateSort_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/UpdateSortResponse" message="tns:IDataSyncService_UpdateSort_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectedOrgToIM">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/SelectedOrgToIM" message="tns:IDataSyncService_SelectedOrgToIM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/SelectedOrgToIMResponse" message="tns:IDataSyncService_SelectedOrgToIM_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterOrgID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/RegisterOrgID" message="tns:IDataSyncService_RegisterOrgID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/RegisterOrgIDResponse" message="tns:IDataSyncService_RegisterOrgID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/SetUserDept" message="tns:IDataSyncService_SetUserDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/SetUserDeptResponse" message="tns:IDataSyncService_SetUserDept_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataSyncService" type="tns:IDataSyncService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddOrUpdateCompanyDepartment">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/AddOrUpdateCompanyDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompanyDepartment">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/DeleteCompanyDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEntry">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/EmployeeEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeave">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/EmployeeLeave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeMove">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/EmployeeMove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePartTimeEntry">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/EmployeePartTimeEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeBaseInfo">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/UpdateEmployeeBaseInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/SendMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/Send" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Receive">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/Receive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImMessage">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/GetImMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserOnline">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/IsUserOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSort">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/UpdateSort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectedOrgToIM">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/SelectedOrgToIM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterOrgID">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/RegisterOrgID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserDept">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/SetUserDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataSyncService">
+    <wsdl:port name="BasicHttpBinding_IDataSyncService" binding="tns:BasicHttpBinding_IDataSyncService">
+      <soap:address location="http://172.16.1.23/services/DataSyncService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

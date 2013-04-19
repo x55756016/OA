@@ -1,0 +1,7 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.FormTitle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <Grid x:Name="CanvasStyle"  Height="30" Background="{StaticResource BGImageBrush11}">
+        <TextBlock x:Name="titlename" FontSize="14" FontWeight="Bold" Margin="17,1,1,0" Height="24" Style="{StaticResource TextBCommonBlue1}"></TextBlock>
+    </Grid>
+</UserControl>

@@ -1,0 +1,130 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Performance.Scoring"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+             xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <!--1s-->
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <!--1e-->
+            <!--1s 冉龙军-->
+            <!--<RowDefinition Height="30"/>-->
+            <RowDefinition Height="0"/>
+            <!--1e-->
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Row 0-->
+        <!--标题-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIPOINTSCORESTATUS}" 
+			Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+        <!--1s-->
+        <!--Row 1-->
+        <!--到达时间、处理时间-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIRECEIVEDATE}" 
+			Grid.Row="1" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBlock x:Name="lblLastStepDate" Text="{Binding Converter={StaticResource ResourceConveter},Source=LASTSTEPDATE}"
+            Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIFINISHDATE}" 
+			Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBlock x:Name="lblStepDate" Text="{Binding Converter={StaticResource ResourceConveter},Source=STEPDATE}"
+            Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+        <!--隔线-->
+        <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="1" BorderThickness="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+        <!--Row 2-->
+        <!--KPI点名称、初始天数-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIPOINNAME}" 
+			Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBlock Name="lblKPIPointName" Text="{Binding Converter={StaticResource ResourceConveter},Source=KPIPOINTNAME}"
+            Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STANDARDDAYS}" 
+			Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" d:LayoutOverrides="Height" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        <TextBlock x:Name="lblStandDays" Text="{Binding Converter={StaticResource ResourceConveter},Source=INITIALPOINT}"
+            Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+        <!--Row 3-->
+        <!--初始计分、计算单位天数-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STANDARDSCORE}" 
+			Grid.Row="3" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBlock x:Name="lblStandScore" Text="{Binding Converter={StaticResource ResourceConveter},Source=INITIALSCORE}"
+            Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SCOREUNIT}" 
+			Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBlock x:Name="lblScoreUnit" Text="{Binding Converter={StaticResource ResourceConveter},Source=COUNTUNIT}"
+            Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+
+        <!--Row 4-->
+        <!--提前单位天数加分、分数上限-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ADDFORFORWARD}" 
+			Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBlock x:Name="lblAddForForward" Text="{Binding Converter={StaticResource ResourceConveter},Source=ADDSCORE}"
+            Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MAXSYSTEMSCORE}" 
+			Grid.Row="4" Grid.Column="2" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="lblMaxSystemScore" Text="{Binding Converter={StaticResource ResourceConveter},Source=MAXSCORE}"
+            Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+
+        <!--Row 5-->
+        <!--延后单位天数减分、分数下限-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REDUCEFORDELAY}" 
+			Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBlock x:Name="lblReduceForDelay" Text="{Binding Converter={StaticResource ResourceConveter},Source=REDUCESCORE}"
+            Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MINSYSTEMSCORE}" 
+			Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBlock x:Name="lblMinSystemScore" Text="{Binding Converter={StaticResource ResourceConveter},Source=MINSCORE}"
+            Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+        <!--1e-->
+        <!--Row 6-->
+        <!--被考核人，完成时间-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=AppraiseeName}"
+            Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock Name="lblLastAppraisee" Text="{Binding Converter={StaticResource ResourceConveter},Source=AppraiseeName}"
+            Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=FinishDate}"
+            Grid.Row="6" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock Name="lblLastFinishDate" Text="{Binding Converter={StaticResource ResourceConveter},Source=FinishDate}"
+            Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0"/>
+
+        <!--Row 7-->
+        <!--打分，查看审核过程-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=SCOREREMARK}"
+            Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSCORE"  AcceptsReturn="True" 
+			Grid.Row="7" Grid.Column="1" Width="60" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Text="100" Margin="4,0,0,0"/>
+        <!--1s-->
+        <Button x:Name="btnReviewProcess" Grid.Row="6" Grid.Column="2" Click="btnReviewProcess_Click" Content="查看审核过程" 
+            Style="{StaticResource CommonButtonStyle}" Height="26" VerticalAlignment="Center" Margin="4,0,4,0" HorizontalAlignment="Center" Width="130" Grid.ColumnSpan="2"/>
+        <!--1e-->
+        <!--Row 8-->
+        <!--评语-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=REMARK}"
+            Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  AcceptsReturn="True" Grid.ColumnSpan="3" 
+			Grid.Row="8" Grid.Column="1" Width="292" Height="auto"  TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" d:LayoutOverrides="GridBox" Margin="4,0,0,0"/>
+
+    </Grid>
+</smtLocal:BaseForm>

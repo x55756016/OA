@@ -1,0 +1,65 @@
+﻿<smtLocal:BaseForm xmlns:toolcontrols="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    x:Class="SMT.HRM.UI.Form.Attendance.OverTimeForm"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"           
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot" Margin="5" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+            <!--Row 0:EmployeeName & PostName-->
+            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource SysTextBlockStyle}" VerticalAlignment="Center" Margin="5,0,0,0" Height="22"/>
+            <TextBlock x:Name="tbEmpName" Grid.Column="1" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="22" Width="Auto" Margin="5,4,0,4" Grid.ColumnSpan="4"/>            
+            <TextBlock x:Name="tbOrgName" Grid.Row="0" Grid.Column="4" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="22" Margin="5,4,0,4" Visibility="Collapsed" />
+            <TextBlock x:Name="tbEmpLevel" Grid.Row="0" Grid.Column="4" Visibility="Collapsed"/>
+            <TextBlock x:Name="tbWorkTimePerDay" Grid.Row="0" Grid.Column="4" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="30" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <!--Row0-->
+            <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+            <!--Row1-->            
+            <TextBlock Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATETIME}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <smt:DateTimePicker x:Name="dpStartDate" Grid.Row="1" Grid.Column="1" Value="{Binding STARTDATE, Mode=TwoWay}" Height="22" Margin="5,4,0,4" />        
+            <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDDATETIME}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+            <smt:DateTimePicker x:Name="dpEndDate" Grid.Row="1" Grid.Column="4" Value="{Binding ENDDATE, Mode=TwoWay}" Height="22" Margin="5,4,0,4" />
+            <!--Row2-->            
+            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Grid.Row="2" Margin="5,0,0,0" HorizontalAlignment="Left"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Text="{Binding REMARK,Mode=TwoWay}" HorizontalAlignment="Stretch" Width="Auto" TextWrapping="Wrap" Margin="5,2,0,2" MaxLength="200" AcceptsReturn="True" />
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

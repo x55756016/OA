@@ -1,0 +1,54 @@
+﻿<smtLocal:BaseFloatable  x:Class="SMT.HRM.UI.Form.Organization.RelationPostForm"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+           Width="400" Height="300" >
+           <!--TitleContent="{Binding Converter={StaticResource ResourceConveter}, Source=RELATIONPOST}">-->
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+            <!--Row 0-->
+            <!--岗位ID-->
+            <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="0" 
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTCODE}" />
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPostCode"  HorizontalAlignment="Stretch" Width="Auto"
+					Text="{Binding POSTCODE}" Grid.Row="0" Grid.Column="1" IsReadOnly="True" />            
+
+            <!--Row 1-->
+            <!--岗位名称-->
+            <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Row="1" Grid.Column="0" 
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNAME}" />
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPostName"  HorizontalAlignment="Stretch" Width="Auto"
+					Text="{Binding POSTNAME}" Grid.Row="1" Grid.Column="1" IsReadOnly="True" />
+
+            <!--Row 2-->
+            <!--关联岗位-->
+            <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Row="2" Grid.Column="0" 
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=RELATIONPOSTNAME}" />
+            <smt:LookUp DataContext="{Binding Path=T_HR_POST,Mode=TwoWay}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Width="Auto" Height="25" 
+                    FindClick="LookUp_FindClick" Name="lkPost" Margin="5,0,0,0" DisplayMemberPath="T_HR_POSTDICTIONARY.POSTNAME">
+            </smt:LookUp>
+
+        </Grid>
+        <Button x:Name="CancelButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCEL}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SAVE}" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</smtLocal:BaseFloatable >

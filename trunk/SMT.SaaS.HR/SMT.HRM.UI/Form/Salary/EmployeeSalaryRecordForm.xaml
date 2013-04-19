@@ -1,0 +1,76 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.EmployeeSalaryRecordForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+    xmlns:panelcontrols="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtuc="clr-namespace:SMT.HRM.UI.Form.Salary;assembly=SMT.HRM.UI"
+   Margin="5">
+    <Grid x:Name="LayoutRoot"   Background="Transparent">
+      <panelcontrols:TabControl SelectionChanged="TabControl_SelectionChanged" x:Name="tabcall" Style="{StaticResource TabControlStyle}">
+        <panelcontrols:TabItem Header="薪资记录" Style="{StaticResource TabItemStyle}">
+           <Grid x:Name="TabStandardRecord">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="20"/>
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+
+             </Grid.RowDefinitions>
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+            <!--Row 0-->
+            <!--SALARYPERIOD-->
+            <TextBlock   Grid.Column="0" Grid.Row="0"  
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYPERIOD}" />
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+
+                <inputToolkit:NumericUpDown Name="numYear" Style="{StaticResource NumericUpDownStyle}" Maximum="1000000" Width="71" IsEnabled="False" Value="{Binding SALARYYEAR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="5,0,0,0"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center" ></TextBlock>
+
+                <inputToolkit:NumericUpDown Name="numMonth" Style="{StaticResource NumericUpDownStyle}" Width="61" IsEnabled="False" Value="{Binding SALARYMONTH, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+
+            <!--EMPLOYEE-->
+            <TextBlock   Grid.Column="3" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEECNAME}" />
+
+            <TextBox x:Name="txtemployeename" Grid.Row="0" Grid.Column="4" Height="22" Width="Auto" Text="{Binding EMPLOYEENAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Stretch"></TextBox>
+            <smt:LookUp  Grid.Row="0" Grid.Column="4"
+            					FindClick="lkEmployee_FindClick"  x:Name="lkEmployee"  DisplayMemberPath="EMPLOYEECNAME"  Visibility="Collapsed" />
+
+            <!--Row 1-->
+            <!--REMARK-->
+            <TextBlock  Grid.Row="1" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Height="60" AcceptsReturn="True" MaxLength="2000" VerticalScrollBarVisibility="Auto"  TextWrapping="Wrap" >
+            </TextBox>
+
+
+            <!--Row 2-->
+            <!-- SALARYITEM Style="{StaticResource ListItemStyle}"-->
+            <smtuc:StandardItemForm x:Name="StandardItemWinForm" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5" ></smtuc:StandardItemForm>
+        </Grid>
+        </panelcontrols:TabItem>
+        <panelcontrols:TabItem Header="自定义薪资项" Visibility="Collapsed" >
+           <smtuc:CustomGuerdonForm x:Name="CustomGuerdonWinForm"></smtuc:CustomGuerdonForm>
+        </panelcontrols:TabItem>
+      </panelcontrols:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

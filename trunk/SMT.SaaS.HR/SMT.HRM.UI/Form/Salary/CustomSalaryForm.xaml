@@ -1,0 +1,103 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.CustomSalaryForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+               xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+          xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+          xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+          xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+          xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+          xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+          >
+    <Grid x:Name="LayoutRoot" >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <Grid    Background="Transparent">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="30"/>
+
+                <RowDefinition Height="2"/>
+
+                <RowDefinition Height="30"/>
+                
+                <RowDefinition Height="2"/>
+                
+                <RowDefinition Height="90"/>
+                
+                <!--<RowDefinition Height="Auto"/>-->
+            </Grid.RowDefinitions> 
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="60"/> 
+                <ColumnDefinition Width="0.4*"/>
+              
+                <!--<ColumnDefinition Width="0.1*"/Width="410" Height="300">-->
+            </Grid.ColumnDefinitions>  
+            <!--Row0-->
+            <!--薪资项名称-->
+            <dataInput:Label  Content="{Binding Converter={StaticResource ResourceConveter}, Source=CUSTOMSALARYNAME}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Height="26" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSalaryName"  Grid.Row="0" Grid.Column="1" Text="{Binding GUERDONNAME,Mode=TwoWay}" TextWrapping="NoWrap" Height="26" Width="Auto"  VerticalAlignment="Stretch"  LostFocus="txtSalaryName_LostFocus" MaxLength="45">
+                <!--<validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CUSTOMSALARYNAME" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>-->
+            </TextBox>
+
+            <!--Row1-->
+            <!--薪资项属性-->
+            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=GUERDONCATEGORY}" Grid.Row="0"  Grid.Column="3"  Grid.ColumnSpan="1" Grid.RowSpan="2"  Height="26"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="4"  VerticalAlignment="Center" Margin="5 0 0 0">
+            <RadioButton Content="{Binding Converter={StaticResource ResourceConveter}, Source=PLUS}" Style="{StaticResource RadioButtonStyle}" x:Name="rbadd" GroupName="GUERDONCATEGORY"  Checked="HandleCheck" IsChecked="true"></RadioButton>
+            <RadioButton Content="{Binding Converter={StaticResource ResourceConveter}, Source=SUBTRACT}" Style="{StaticResource RadioButtonStyle}"  x:Name="rbsubtract" GroupName="GUERDONCATEGORY" Checked="HandleCheck"></RadioButton>
+            </StackPanel>
+            <appCtr:DictionaryComboBox Grid.Row="0" Margin="5 0 0 0" Grid.Column="4"  Height="22" x:Name="combproperty"  Width="Auto"
+                Category="GUERDONCATEGORY"  SelectedValue="{Binding GUERDONCATEGORY, Mode=TwoWay}"  Visibility="Collapsed"></appCtr:DictionaryComboBox>
+
+            <!--Row2-->
+            <!--计算方法-->
+            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=CALCULATETYPE}" Grid.Row="2" Grid.Column="3"  Grid.ColumnSpan="1" Height="26" />
+            <!--<ComboBox x:Name="combp2"  Height="26" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Width="Auto"/>-->
+            <appCtr:DictionaryComboBox Grid.Row="2" Margin="5 0 0 0" Grid.Column="4"  Height="22" x:Name="combcal" Grid.ColumnSpan="2" IsShowNull="False" Width="Auto"
+                Category="CALCULATORTYPE"  SelectedValue="{Binding CALCULATORTYPE, Mode=TwoWay}" HorizontalAlignment="Stretch"></appCtr:DictionaryComboBox>
+            <!--<controls:DatePicker x:Name="dpcBeginDate" Grid.Column="1"  Text="{Binding BEGINDATE,Mode=TwoWay}" Grid.Row="2" Height="22"  Margin="0,4">-->
+                <!--<validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="BEGINDATE" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>-->
+            <!--</controls:DatePicker>-->
+ 
+            <!--Row3-->
+            <!--金额-->
+            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=GUERDONSUM}" Grid.Row="2" Grid.Column="0" Height="26"   Margin="5,0,0,0"  />
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtMoney"  Text="{Binding GUERDONSUM,Mode=TwoWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" TextWrapping="NoWrap"  Grid.Row="2" Grid.Column="1"  Height="26" Width="Auto" HorizontalAlignment="Stretch" MaxLength="7" >
+                <validator:ValidatorService.Validator>
+                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEPOSITIVE" ErrorMessageParameter="GUERDONSUM" Expression="^[0-9]+(\.\d+)?$"></validator:RegexValidator>
+                </validator:ValidatorService.Validator>
+            </TextBox>
+
+            <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPerformanceCapital"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding PERFORMANCECAPITAL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="0" Grid.Column="4" Height="24" >-->
+                    <!--<validator:ValidatorService.Validator>
+                        <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEPOSITIVE" ErrorMessageParameter="PERFORMANCECAPITAL" Expression="^[0-9]+(\.\d+)?$" ></validator:RegexValidator>
+                    </validator:ValidatorService.Validator>
+                </TextBox>-->
+                
+                <!--<validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="GUERDONSUM" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>-->
+
+            <!--Row4-->
+            <!--备注-->
+            <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top"  Margin="5,0,0,0" />
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtMark"  Grid.Column="1" Text="{Binding REMARK,Mode=TwoWay}" AcceptsReturn="True" MaxLength="2000" VerticalScrollBarVisibility="Auto"  TextWrapping="Wrap"  Grid.Row="4" Grid.ColumnSpan="6"  Width="Auto" Height="80" VerticalAlignment="Top"/>
+        </Grid>
+
+    </Grid>
+</smtLocal:BaseForm>

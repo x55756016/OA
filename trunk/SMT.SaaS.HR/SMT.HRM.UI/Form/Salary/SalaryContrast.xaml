@@ -1,0 +1,131 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.SalaryContrast"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"              
+              xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"  
+          xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+          xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+          xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+          xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+          xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+              xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" >
+    <Grid x:Name="LayoutRoot" Background="White" Margin="0 5 0 0" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <!--Row 0-->
+
+        <TextBlock x:Name="txtbtitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=NOSALARYLAST}" FontSize="14" Foreground="Red" Grid.Row="0"  FontWeight="Bold"/>
+
+        <!--Row 1-1FontSize="14"-->
+        <data:DataGrid x:Name="DGSalary" Width="auto" Loaded="DGSalary_Loaded" AutoGenerateColumns="False" HorizontalAlignment="Stretch"
+                        Grid.Row="1" Visibility="Visible"    HorizontalScrollBarVisibility="Hidden"
+                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" 
+                       RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                       VerticalAlignment="Stretch" IsReadOnly="True"  >
+
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="entityLogo" Width="16" Height="16"></Image>
+                            <!--<CheckBox x:Name="checkbox" Tag="123" Margin="5,5,0,0"></CheckBox>-->
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+
+                <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}"/>
+
+                <data:DataGridTextColumn Header="SALARYYEAR" Binding="{Binding SALARYYEAR}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                </data:DataGridTextColumn>
+
+                <data:DataGridTextColumn Header="SALARYMONTH" Binding="{Binding SALARYMONTH}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                </data:DataGridTextColumn>
+
+                <data:DataGridTextColumn Header="ACTUALLYPAY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ACTUALLYPAY}"/>
+                <data:DataGridTextColumn Header="BASICSALARYS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding BASICSALARY}"/>
+                <data:DataGridTextColumn Header="POSTSALARY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding POSTSALARY}"/>
+                <data:DataGridTextColumn Header="WORKINGSALARY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding WORKINGSALARY}"/>
+
+                <data:DataGridTextColumn Header="ATTENDANCEUNUSUALDEDUCT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ATTENDANCEUNUSUALDEDUCT}"/>
+
+                <data:DataGridTextColumn Header="SUBTOTAL" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUBTOTAL}"/>
+                <data:DataGridTextColumn Header="DEDUCTTOTAL" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEDUCTTOTAL}"/>
+                <data:DataGridTextColumn Header="PERFORMANCESUM" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PERFORMANCESUM}"/>
+                <data:DataGridTextColumn Header="CUSTOMERSUM" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CUSTOMERSUM}"/>
+                <data:DataGridTextColumn Header="SECURITYALLOWANCE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SECURITYALLOWANCE}"/>
+                <data:DataGridTextColumn Header="HOUSINGALLOWANCE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding HOUSINGALLOWANCE}"/>
+
+                <data:DataGridTextColumn Header="AREADIFALLOWANCE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding AREADIFALLOWANCE}"/>
+                <!--<data:DataGridTextColumn Header="SALARYPRECISION" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYPRECISION}"/>-->
+                <data:DataGridTextColumn Header="FOODALLOWANCE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding FOODALLOWANCE}"/>
+                <data:DataGridTextColumn Header="PAYTYPE" Binding="{Binding PAIDTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=PAYTYPE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                <data:DataGridTextColumn Header="OTHERADDDEDUCT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding OTHERADDDEDUCT}"/>
+                <data:DataGridTextColumn Header="OTHERADDDEDUCTDESC" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding OTHERADDDEDUCTDESC}"/>
+                <data:DataGridTextColumn Header="HOUSINGALLOWANCEDEDUCT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding HOUSINGALLOWANCEDEDUCT}"/>
+
+                <data:DataGridTextColumn Header="PERSONALSIRATIO" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PERSONALSIRATIO}"/>
+                <data:DataGridTextColumn Header="PERSONALINCOMERATIO" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PERSONALINCOMERATIO}"/>
+                <data:DataGridTextColumn Header="OTHERSUBJOIN" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding OTHERSUBJOIN}"/>
+
+
+                <data:DataGridTextColumn Header="CHECKSTATE"  Binding="{Binding CHECKSTATE,Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="OTHERSUBJOINDESC" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding OTHERSUBJOINDESC}"/>
+
+
+            </data:DataGrid.Columns>
+
+        </data:DataGrid>
+
+        <!--Row 1-2-->
+        <data:DataGrid x:Name="DGSalary2" AutoGenerateColumns="False" LoadingRow="DtGrid_LoadingRow"
+                           Grid.Row="1"  
+                 Visibility="Collapsed"    HorizontalScrollBarVisibility="Hidden"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" >
+
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="entityLogo" Width="16" Height="16"></Image>
+                            <!--<CheckBox x:Name="checkbox" Tag="123" Margin="5,5,0,0"></CheckBox>-->
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+
+                <data:DataGridTextColumn Header="CUSTOMGUERDONRECORDID" Binding="{Binding CUSTOMGUERDONRECORDID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Visibility="Collapsed">
+                </data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="EMPLOYEEID" Binding="{Binding EMPLOYEEID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Visibility="Collapsed">
+                </data:DataGridTextColumn>
+
+                <data:DataGridTextColumn Header="EMPLOYEECODE" Binding="{Binding EMPLOYEECODE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Visibility="Collapsed">
+                </data:DataGridTextColumn>
+
+                <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}"/>
+
+                <data:DataGridTextColumn Header="GUERDONNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding GUERDONNAME}"/>
+                <data:DataGridTextColumn Header="CUSTOMERGUERDONID" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CUSTOMERGUERDONID}" Visibility="Collapsed"/>
+                <data:DataGridTextColumn Header="SALARYSUM" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYSUM}"/>
+
+                <data:DataGridTextColumn Header="SALARYYEAR" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYYEAR}"/>
+                <data:DataGridTextColumn Header="SALARYMONTH" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYMONTH}"/>
+
+                <data:DataGridTextColumn Header="CREATEDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CREATEDATE,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                <data:DataGridTextColumn Header="UPDATEDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding UPDATEDATE,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                <data:DataGridTextColumn Header="CHECKSTATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CHECKSTATE,Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}"/>
+
+                <data:DataGridTextColumn Header="UPDATEUSERID" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding UPDATEUSERID}"/>
+                <data:DataGridTextColumn Header="CALCULATETYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding GENERATETYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=CALCULATORTYPE}"/>
+
+                <data:DataGridTextColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REMARK}"/>
+
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+
+    </Grid>
+</smtLocal:BaseForm>

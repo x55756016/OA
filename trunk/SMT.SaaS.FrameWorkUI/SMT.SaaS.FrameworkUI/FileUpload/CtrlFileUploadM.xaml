@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.FileUpload.CtrlFileUploadM"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+ xmlns:local="clr-namespace:SMT.SaaS.FrameworkUI.FileUpload" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnOpen" Content="选择文件" Click="btnOpen_Click" Margin="5"  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"></Button>
+        <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnUpload" Content="上传文件" Click="btnUpload_Click" Margin="5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"></Button>
+        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="PnlFiles" Loaded="PnlFiles_Loaded" Visibility="Collapsed" HorizontalScrollBarVisibility="Auto" 
+                      VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent" MinHeight="20" MaxHeight="118" VerticalAlignment="Top" Style="{StaticResource ScrollViewerStyle}" >
+            <ItemsControl x:Name="FileList" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:FileRowControl x:Name="fileRow"></local:FileRowControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

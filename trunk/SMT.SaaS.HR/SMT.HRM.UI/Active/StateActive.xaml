@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="SMT.HRM.UI.Active.StateActive"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    MouseLeftButtonDown="UserControl_MouseLeftButtonDown"  
+    MouseMove="UserControl_MouseMove" MouseLeftButtonUp="UserControl_MouseLeftButtonUp" >
+    <StackPanel x:Name="LayoutRoot">
+	<Border CornerRadius="10" MinWidth="60"
+            MinHeight="60" Background="#dcdcdc" Name="bdrName2" >
+		<Border.Effect>
+			<DropShadowEffect/>
+		</Border.Effect>
+       	<Border  BorderBrush="Gray" Name="bdrName"  CornerRadius="10" BorderThickness="1"  Background="#DDEAFF" >
+              <TextBlock Name="StateName" Text="" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="4"/>
+         </Border>
+	</Border>
+	
+   </StackPanel>
+</UserControl>

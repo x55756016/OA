@@ -1,0 +1,174 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Performance.EditPerformance"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"     
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI">
+    <!--<ScrollViewer HorizontalScrollBarVisibility="Hidden"  VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">-->
+        <Grid x:Name="LayoutRoot"  Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+            <Grid x:Name="Standard" Grid.Row="0" Background="Transparent" Margin="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="0"></RowDefinition>
+                    <RowDefinition Height="0"></RowDefinition>
+                    <RowDefinition Height="0"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+
+                </Grid.ColumnDefinitions>
+
+                <!--Row 0-->
+                <!--汇总名称，汇总人-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUMNAME}" Grid.Row="0" Grid.Column="0" 
+								    Style="{StaticResource FrameGridTextBlock1}" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSumName" Text="{Binding SUMNAME, Mode=TwoWay}" Grid.Column="1" Margin="4,0" 
+                         d:LayoutOverrides="Height" HorizontalAlignment="Stretch"  Width="auto" VerticalAlignment="Center" MaxLength="50"/>
+
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUMTYPE}" 
+								    Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" d:LayoutOverrides="Height"  VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <ComboBox x:Name="cboSumType" Margin="4,0" Grid.Column="4" HorizontalAlignment="Stretch" Width="auto" VerticalAlignment="Center" Grid.Row="0">
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=FLOW}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=MESSION}"/>
+                </ComboBox>
+                <!--Row 1-->
+                <!--汇总开始时间、汇总结束时间-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}" 
+								    Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,5,0"/>
+                <controls:DatePicker x:Name="dpSumStart" Text="{Binding SUMSTART,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" 
+                                     Margin="4,0" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="Height" HorizontalAlignment="Stretch" Width="auto" VerticalAlignment="Center"/>
+
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}" 
+            	    Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <controls:DatePicker x:Name="dpSumEnd" Text="{Binding SUMEND, Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" 
+                                     Margin="4,0" Grid.Column="4" Grid.Row="1" d:LayoutOverrides="Height" HorizontalAlignment="Stretch" Width="auto" VerticalAlignment="Center"/>
+
+                <!--Row 3-->
+                <!--奖金类别、奖金金额-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BASEMONEYTYPE}" 
+								    Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,5,0"/>
+                <ComboBox x:Name="cboBaseMoneyType" Margin="4,0" Width="auto"
+            	    Grid.Column="1" Grid.Row="2" d:LayoutOverrides="Height" HorizontalAlignment="Stretch" VerticalAlignment="Center" SelectionChanged="cboBaseMoneyType_SelectionChanged">
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIXEDMONEY}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=MONTHLYPAY}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=YEARLYPAY}"/>
+                </ComboBox>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BASEMONEY}" 
+								    Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" d:LayoutOverrides="Height" Margin="0,7,5,7"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBaseMoney" Text="{Binding BASEMONEY, Mode=TwoWay}" 
+								    Grid.Row="2" Grid.Column="4" Margin="4,0" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxLength="20" TextChanged="txtBaseMoney_TextChanged" />
+
+                <!--Row 4-->
+                <!--汇总说明-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUMREMARK}" Grid.Row="3" Grid.Column="0" 
+            	    Style="{StaticResource FrameGridTextBlock1}" Width="Auto" HorizontalAlignment="Right" Margin="0,0,5,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSumRemark" Text="{Binding SUMREMARK, Mode=TwoWay}" Margin="4,0,4,0" Grid.Row="3" 
+                         d:LayoutOverrides="Height" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="3" MaxLength="50"/>
+                <!--Row 4-->
+                <!--汇总人数，平均分数-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUMCOUNT}" 
+								    Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBlock x:Name="lblSumCount" Text="{Binding SUMCOUNT, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Stretch" Margin="4,7,0,7" Grid.Row="4" d:LayoutOverrides="Height"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUMSCORE}" 
+								    Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBlock x:Name="lblSumScore" Text="{Binding SUMSCORE, Mode=TwoWay}" Grid.Column="4" HorizontalAlignment="Left" Margin="4,7,0,7" Grid.Row="4" d:LayoutOverrides="Height"/>
+                <!--Row 5-->
+                <!--审批状态、审批人-->
+                <StackPanel Visibility="Collapsed">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REVIEWSTATUS}" 
+            	    Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,5,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cboReviewStatus" Margin="4,0" 
+            	    Grid.Column="1" Grid.Row="5" d:LayoutOverrides="Height" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=NOSUBMIT}" IsSelected="True"/>
+                        <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=APPROVING}"/>
+                        <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=APPROVED}"/>
+                        <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=UNAPPROVED}"/>
+                    </ComboBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REVIEWPERSON}" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,5,0" d:LayoutOverrides="Height" Grid.Row="5" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="lblReviewPerson" Text="{Binding REVIEWID, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Margin="4,0,0,0" Grid.Row="5" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center"/>
+
+                    <!--Row 6-->
+                    <!--审批说明-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REVIEWREMARK}" 
+            	    Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,5,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtReviewRemark" Text="{Binding REVIEWREMARK, Mode=TwoWay}" Margin="4,0,30,0" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" d:LayoutOverrides="Height" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                </StackPanel>
+                <!--Row 7-->
+                <!--汇总部门、汇总开始时间、汇总时间，汇总人-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUMPERSON}" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" Margin="0,7,5,7" d:LayoutOverrides="Height"/>
+                <TextBlock x:Name="lblSumPerson"  Text="{Binding SUMPERSONID, Mode=TwoWay}" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" Margin="4,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUMDEPT}" HorizontalAlignment="Right" Margin="0,7,5,7" d:LayoutOverrides="Height" Grid.Row="7" Grid.Column="1"/>
+                <TextBlock x:Name="lblSumDept" Text="{Binding SUMDEPTID, Mode=TwoWay}" HorizontalAlignment="Left" Margin="4,0" d:LayoutOverrides="Height" Grid.Row="7" Grid.Column="1"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUMDATE}" 
+								    Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBlock x:Name="lblSumDate" Text="{Binding SUMDATE, Mode=TwoWay}" Grid.Column="2" HorizontalAlignment="Left" Margin="4,0,0,0" Grid.Row="7" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <!--隔线-->
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+                <controls:TreeView x:Name="treeOrganization" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0"
+                SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}">
+                </controls:TreeView>
+                <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="1"
+                            LoadingRow="DtGrid_LoadingRow"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}" 
+                    CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox Name="chkMyChkBox" Content="" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="EMPLOYEECODE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEECODE}"/>
+                        <data:DataGridTextColumn Header="EMPLOYEECNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEECNAME}"/>
+                        <data:DataGridTextColumn Header="EMPLOYEESEX" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEESEX}"/>
+                        <data:DataGridTextColumn Header="MOBILE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding MOBILE}"/>
+                        <data:DataGridTextColumn Header="EMAIL" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMAIL}"/>
+                        <data:DataGridTextColumn Header="IDCARDNUMBER" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding IDCARDNUMBER}"/>
+
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+
+                <smt:GridPager Name="dataPager" PageSize="12" Click="GridPager_Click" Grid.Row="2" Grid.Column="1"></smt:GridPager>
+            </Grid>
+
+        </Grid>
+    <!--</ScrollViewer>-->
+</smtLocal:BaseForm>

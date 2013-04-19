@@ -1,0 +1,161 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Personnel.PersonalLandStatistics" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"        
+           xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"           
+           xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+		   xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smtv="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationTreeView;assembly=SMT.SaaS.FrameworkUI" 
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           Title="PersonalLandStatistics Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smtx:ViewTitle>
+            <Grid Background="Transparent" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="170"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbCompanyNameTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYNAME}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Margin="5,0,0,0" />
+                <smtx:LookUp Name="lkCompanyName" DataContext="{Binding T_HR_COMPANY}"  Grid.Row="0" Grid.Column="1" DisplayMemberPath="CNAME" FindClick="lkCompanyName_FindClick" Margin="5,0,0,0" Height="24" Width="160" HorizontalAlignment="Left" />
+                <TextBlock x:Name="txtBalanceYearTitle" Grid.Row="0" Grid.Column="2" Text="年份" Style="{StaticResource FrameGridTextBlock1}" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBalanceYear" Grid.Row="0" Grid.Column="3" Height="22" Width="110" HorizontalAlignment="Left" />
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Column="4" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="Center" Click="btnSearch_Click" HorizontalAlignment="Left" Margin="10,0,0,0" />
+            </Grid>
+            <smtx:FormToolBar x:Name="toolbar1" Grid.Row="2" Width="auto"></smtx:FormToolBar>
+            <data:DataGrid x:Name="dgLandStatisticsList" FrozenColumnCount="1" Grid.Row="3" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"
+                       Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
+                <data:DataGrid.Columns>
+                    <data:DataGridTextColumn Header="机构" Binding="{Binding OrganizationName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTemplateColumn Width="auto" Header="1月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbJanTimes" Tag="-1" Content="{Binding JanTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="2月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbFebTimes" Tag="-2" Content="{Binding FebTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="3月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbMarTimes" Tag="-3" Content="{Binding MarTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="4月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbAprTimes" Tag="-4" Content="{Binding AprTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="5月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbMayTimes" Tag="-5" Content="{Binding MayTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="6月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbJunTimes" Tag="-6" Content="{Binding JunTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="7月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbJulTimes" Tag="-7" Content="{Binding JulTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="8月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbAugTimes" Tag="-8" Content="{Binding AugTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="9月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbSepTimes" Tag="-9" Content="{Binding SepTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="10月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbOctTimes" Tag="-10" Content="{Binding OctTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="11月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbNovTimes" Tag="-11" Content="{Binding NovTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Width="auto" Header="12月">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <HyperlinkButton x:Name="hbDecTimes" Tag="-12" Content="{Binding DecTimes}" Width="75" HorizontalContentAlignment="Right" VerticalAlignment="Center" Click="hbLandTimes_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="小计" Width="75" Binding="{Binding Subtotal}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

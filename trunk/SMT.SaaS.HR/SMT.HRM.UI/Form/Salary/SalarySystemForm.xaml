@@ -1,0 +1,30 @@
+﻿<swc:Window x:Class="SMT.HRM.UI.Form.Salary.SalarySystemForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+    xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    >
+
+    <Grid x:Name="PARENT" Width="AUTO" Height="AUTO" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid x:Name="LayoutRoot" Width="AUTO" Height="AUTO" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
+            <ScrollViewer  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                <StackPanel Loaded="StackPanel_Loaded" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
+                    <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  
+                       ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5" 
+                       LoadingRow="DtGrid_LoadingRow"  Loaded="DtGrid_Loaded"  CanUserReorderColumns="False"
+                       Grid.Column="1"       
+                       Style="{StaticResource DataGridStyle}"
+                       CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Header="SALARYLEVEL" IsReadOnly="True" CanUserReorder="False"  CanUserSort="False"
+                                          HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                         Binding="{Binding DICTIONARYVALUE}">
+                            </data:DataGridTextColumn>
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</swc:Window>

@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.MasterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+    xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI" 
+    Width="auto" Height="auto">
+    
+    <UserControl.Resources>
+        <Storyboard  x:Name="beforSpinnerShowShowBorder"
+                 Completed="beforSpinnerShowShowBorder_Completed"
+                 Duration="0:0:0.5"/>
+
+        <Storyboard  x:Name="spinnerBackShowBorder" >
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="waitSpinnerBack" Storyboard.TargetProperty="(UIElement.Opacity)" >
+                <SplineDoubleKeyFrame KeyTime="00:00:0.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard  x:Name="spinnerShowBorder" >
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="waitSpinner" Storyboard.TargetProperty="(UIElement.Opacity)" >
+                <SplineDoubleKeyFrame KeyTime="00:00:0.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="ShowMyShow1">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorder" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetZ)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="-200"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="0" KeySpline="1,0,1,1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.9000000" Value="-30"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="1" KeySpline="1,0,1,1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    
+    
+    <Grid x:Name="LayoutRoot" Background="White">        
+		<Border x:Name="TopTitleBarBorder" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" >
+           
+        </Border>		
+		<Border  Margin="5,80,0,30" HorizontalAlignment="Left" Width="150" CornerRadius="5" >
+            <smtx:LeftMenu x:Name="leftMenu"></smtx:LeftMenu>
+        </Border>	
+       
+        <Canvas Opacity="0.8"  Visibility="visible"  Margin="165,80,6,30"
+                x:Name="waitSpinnerBack" />
+        
+		<Border x:Name="ContentBorder" Margin="165,80,6,30" BorderThickness="1" CornerRadius="5" RenderTransformOrigin="0.5,0.5">
+			<Border.BorderBrush>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF97C2F2" Offset="1"/>
+					<GradientStop Color="#FFA5CCF8"/>
+				</LinearGradientBrush>
+			</Border.BorderBrush>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <navigation:Frame x:Name="ContentFrame"  Source="/Blank" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" BorderThickness="0" CacheSize="10" >
+                    <navigation:Frame.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </navigation:Frame.RenderTransform>
+                    <navigation:Frame.UriMapper>
+                        <uriMapper:UriMapper>
+                            <uriMapper:UriMapping Uri="" MappedUri="/Views/home.xaml"/>
+                            <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                        </uriMapper:UriMapper>
+                    </navigation:Frame.UriMapper>
+                </navigation:Frame>                
+            </ScrollViewer>
+        </Border>	
+        
+		<Border x:Name="BottomFooter" Height="30" VerticalAlignment="Bottom" >
+            <smtx:BottomFooter></smtx:BottomFooter>
+        </Border>
+        
+        <!--<Grid x:Name="contenxtPanle" Margin="165,100,6,30"  Opacity="0.5"
+             Width="auto"  Height="auto"  >            
+        </Grid>-->
+
+        <Canvas Width="0" Height="0" x:Name="waitSpinnerHolder">
+            <smtx:SMTProgressBar  Opacity="0" Visibility="Visible" x:Name="waitSpinner" Cancel="ProgressBar_Cancel" />
+        </Canvas>
+
+    </Grid>
+</UserControl>

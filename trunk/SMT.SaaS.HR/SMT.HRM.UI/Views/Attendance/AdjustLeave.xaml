@@ -1,0 +1,74 @@
+﻿<smtLocal:BasePage 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+	x:Class="SMT.HRM.UI.Views.Attendance.AdjustLeave"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	Title="AdjustLeave Page">
+    <Grid x:Name="LayoutRoot">
+        <Border Margin="0,0,0,25">
+            <StackPanel>
+                <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"  x:Name="expander" Header="搜 索"  VerticalAlignment="top" >
+                    <Grid Style="{StaticResource FrameGridPagerStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.109*"/>
+                            <ColumnDefinition Width="0.39*"/>
+                            <ColumnDefinition Width="0.109*"/>
+                            <ColumnDefinition Width="0.39*"/>
+                            <ColumnDefinition Width="0.39*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="tbEmpNameTitle" Grid.Row="0" Grid.Column="0" Text="员工姓名" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Bottom" Margin="0,0,0,7"/>
+                        <TextBox x:Name="txtEmpName" Grid.Row="0" Grid.Column="1" Style="{StaticResource FrameGridTextBox1}" />
+                        <TextBlock x:Name="tbDepListTitle" Grid.Row="1" Grid.Column="0" Text="所属部门" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center"  />
+                        <ComboBox x:Name="cbDepList" Grid.Column="1" Grid.Row="1" Style="{StaticResource ComboBoxStyle}"/>
+                        <TextBlock x:Name="tbAskOffCatTitle" Grid.Row="1" Grid.Column="2" Text="调休类型" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center" />
+                        <ComboBox x:Name="cbAskOffCatList" Grid.Row="1" Grid.Column="3" Style="{StaticResource ComboBoxStyle}"/>
+                        <TextBlock x:Name="tbAskOffStartDate" Grid.Row="2" Grid.Column="0" Text="起始日期" Style="{StaticResource FrameGridTextBlock1}" />
+                        <controls:DatePicker x:Name="dpAskOffStartDate" Grid.Row="2" Grid.Column="1" Style="{StaticResource DatePickerStyle}"/>
+                        <TextBlock x:Name="tbAskOffEndDate" Grid.Row="2" Grid.Column="2" Text="终止日期" Style="{StaticResource FrameGridTextBlock1}" />
+                        <controls:DatePicker x:Name="dpAskOffEndDate" Grid.Row="2" Grid.Column="3" Style="{StaticResource DatePickerStyle}"/>
+                        <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Row="2" Grid.Column="4" Content=" 查 询 " />
+                    </Grid>
+                </controlsToolkit:Expander>
+                <StackPanel x:Name="GridStick">
+                    <smtx:GridToolBar x:Name="gridToolBar"/>
+
+                    <data:DataGrid x:Name="dgAskOffList" AutoGenerateColumns="false" IsReadOnly="True" 
+                                  Style="{StaticResource DataGridStyle}" LoadingRow="dgAskOffList_LoadingRow"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Header="员工编号" Binding="{Binding EMPLOYEECODE}" />
+                            <data:DataGridTextColumn Header="员工姓名" Binding="{Binding EMPLOYEENAME}" />
+                            <data:DataGridTextColumn Header="所属部门" Binding="{Binding DEPARTMENTNAME}" />
+                            <data:DataGridTextColumn Header="调休类型" Binding="{Binding LEAVECATEGORYNAME}" />
+                            <data:DataGridTextColumn Header="调休时长" Binding="{Binding ADJUSTLEAVELENGTH}" />
+                            <data:DataGridTextColumn Header="起始时间" Binding="{Binding STARTDATETIME}" />
+                            <data:DataGridTextColumn Header="终止时间" Binding="{Binding ENDDATETIME}" />
+                            <data:DataGridTextColumn Header="时间限制" Binding="{Binding ADJUSTLEAVELIMIT}" />
+                            <data:DataGridTextColumn Header="审批状态" Binding="{Binding ASKOFFSTATUS}" />
+                            <data:DataGridTextColumn Header="审批人" Binding="{Binding UPDATEUSERNAME}" />
+                            <data:DataGridTextColumn Header="备注" Binding="{Binding REMARK}" />
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border  BorderBrush="Black"  Height="40" VerticalAlignment="Bottom" Margin="0 0 0 0">
+            <StackPanel  VerticalAlignment="bottom">
+                <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="3"></smtx:GridPager>
+            </StackPanel>
+        </Border>
+    </Grid>
+</smtLocal:BasePage>

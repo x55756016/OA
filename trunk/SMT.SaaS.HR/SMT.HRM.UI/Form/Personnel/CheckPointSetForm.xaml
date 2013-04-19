@@ -1,0 +1,122 @@
+﻿<smtLocal:BaseFloatable xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"  
+                        xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+                        xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  
+                        x:Class="SMT.HRM.UI.Form.Personnel.CheckPointSetForm"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI" 
+           xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+           xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+           >
+    <Grid x:Name="LayoutRoot" Margin="2"  Width="560" Height="400" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <Grid HorizontalAlignment="Left" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKPOINT}"></dataInput:Label>
+                    <!--<dataInput:Label Grid.Column="1" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKPROJECTSET}"></dataInput:Label>
+                    <ComboBox x:Name="cbxCheckProject" Width="120"></ComboBox>-->
+                </Grid>
+                <!--<Line></Line>-->
+            </StackPanel>
+            <Grid HorizontalAlignment="Left" Grid.Row="1" Margin="50 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="52"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="140"/>
+                </Grid.ColumnDefinitions>
+                <!--Row0-->
+                <!--项目考核点-->
+                <dataInput:Label  Content="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKPOINT}" />
+                <TextBox Style="{StaticResource TextBoxStyle}" Grid.Column="1" Text="{Binding CHECKPOINT,Mode=TwoWay}"  MaxLength="50" TextWrapping="NoWrap"  Margin="5 0 0 0" Height="23"/>
+                <!--考核员工类型-->
+                <dataInput:Label Grid.Column="3"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKEMPLOYEETYPE}" />
+                <appCtr:DictionaryComboBox x:Name="cbxEmployeeType" IsShowNull="False" SelectionChanged="cbxEmployeeType_SelectionChanged" Category="CHECKEMPLOYEETYPE" SelectedValue="{Binding CHECKEMPLOYEETYPE, Mode=TwoWay}" Grid.Column="4" Width="Auto" Height="24" Margin="5,0,0,0"/>
+                
+                <!--Row1-->
+                <!--考核权重-->
+                <dataInput:Label Grid.Row="1" Grid.Column="0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKPOINTSCORE}" />
+                <inputToolkit:NumericUpDown x:Name="NudScore" Minimum="0" Grid.Row="1" Grid.Column="1" Value="{Binding CHECKPOINTSCORE,Mode=TwoWay}" Margin="5 0 0 0" Style="{StaticResource NumericUpDownStyle}"></inputToolkit:NumericUpDown>
+                
+                <!--Row2-->
+                <!--项目点描述-->
+                <dataInput:Label Grid.Row="2" Grid.Column="0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKPOINTDES}" />
+                <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" MaxLength="50" Text="{Binding CHECKPOINTDES,Mode=TwoWay}" HorizontalAlignment="Stretch"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Margin="5 0 0 0" Height="48"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKPOINTLEVEL}"></dataInput:Label>
+                <!--<Line></Line>-->
+            </StackPanel>
+            <data:DataGrid x:Name="DtGrid" Grid.Row="3" Margin="50 0 0 0" Style="{StaticResource DataGridStyle1}" RowStyle="{StaticResource DataGridRowStyle1}" BorderBrush="Gray"
+                           Grid.Column="0" BorderThickness="1" Background="White" 
+                           AutoGenerateColumns="False" RowDetailsVisibilityMode="Visible" GridLinesVisibility="None"  HeadersVisibility="None" RowHeight="0">
+                <data:DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition Width="140"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+                            <!--Row0-->
+                            <!--项目等级-->
+                            <dataInput:Label  Content="{Binding Converter={StaticResource ResourceConveter}, Source=POINTLEVEL}" />
+                            <TextBox Style="{StaticResource TextBoxStyle}" Grid.Column="1" Text="{Binding POINTLEVEL,Mode=TwoWay}" IsReadOnly="True"  TextWrapping="NoWrap" Height="23"/>
+                            <!--等级分数-->
+                            <dataInput:Label Grid.Column="3"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=POINTSCORE}" />
+                            <inputToolkit:NumericUpDown x:Name="pointLevelScore" ValueChanged="pointLevelScore_ValueChanged" Style="{StaticResource NumericUpDownStyle}" Minimum="0" Grid.Column="4" Value="{Binding POINTSCORE,Mode=TwoWay}"></inputToolkit:NumericUpDown>
+                        </Grid>
+                    </DataTemplate>
+                </data:DataGrid.RowDetailsTemplate>
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn  x:Name="CheckColunm" Width="Auto" >
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn  Width="430" >
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+        </Grid>
+        <Button x:Name="CancelButton" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCEL}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SAVE}" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</smtLocal:BaseFloatable>

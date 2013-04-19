@@ -1,0 +1,15 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Setting.SetPageColor"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+   >
+    <Grid x:Name="LayoutRoot" Margin="10,5,1,0">
+        <TextBlock Text="设置系统所用的样式首选项"></TextBlock>
+        <StackPanel Margin="20,40,0,0">
+            <RadioButton Content="蓝 色" x:Name="radioBlue" Tag="1" GroupName="0" Height="30" Checked="RadioButton_Checked"/>
+            <RadioButton Content="黄 色" x:Name="radioYellow" GroupName="0" Tag="0"  Height="30" Checked="RadioButton_Checked_1"/>
+            <RadioButton Content="其 他" x:Name="radioOther" GroupName="0" Tag="2" Height="30" Checked="RadioButton_Checked_2"/>
+
+        </StackPanel>
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,106 @@
+﻿<smtLocal:BaseForm xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  x:Class="SMT.HRM.UI.Form.Attendance.EvectionForm"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+	xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
+    <StackPanel>
+        <Grid x:Name="LayoutRoot" Margin="4"  Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                <!--Row0-->
+                <TextBlock x:Name="tbFirstRowTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEE}" Style="{StaticResource HeaderTextStyle}" Grid.ColumnSpan="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,4,0,5"/>
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+                <!--Row1-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEECODE}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="1" VerticalAlignment="Center"/>
+                <TextBlock x:Name="tbEmpCode" Style="{StaticResource SysTextBlockStyle}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="24"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
+                <TextBlock x:Name="tbEmpName" Style="{StaticResource SysTextBlockStyle}" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="24" Width="Auto"/>
+                <!--Row2-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNAME}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="tbPostName" Style="{StaticResource SysTextBlockStyle}" Grid.Row="2" Grid.Column="1" Height="24" VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENTNAME}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center"/>
+                <TextBlock x:Name="tbDepName" Style="{StaticResource SysTextBlockStyle}" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="24" Width="Auto"/>
+                <!--Row3-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYNAME}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="3" VerticalAlignment="Center"/>
+                <TextBlock x:Name="tbCPYName" Style="{StaticResource SysTextBlockStyle}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="24"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKSTATE}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center"/>
+                <TextBlock Style="{StaticResource SysTextBlockStyle}" Grid.Row="3" Grid.Column="4" Height="24" Text="{Binding CHECKSTATE,Converter={StaticResource DictionaryConverter}, ConverterParameter=CHECKSTATE}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <!--Row0-->
+                <TextBlock x:Name="tbThirdRowTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=INVOICEINFO}" Style="{StaticResource HeaderTextStyle}" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,4"/>
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+                <!--Row1-->
+                <TextBlock Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATETITLE}" Style="{StaticResource SysTextBlockStyle}"/>
+                <controls:DatePicker x:Name="dpStartDate" Style="{StaticResource DatePickerStyle}"  Grid.Row="1" Grid.Column="1" Margin="5 0 0 0" Text="{Binding STARTDATE,Mode=TwoWay}" Height="22" SelectedDateChanged="dpStartDate_SelectedDateChanged"/>
+                <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}" Style="{StaticResource SysTextBlockStyle}"/>
+                <ComboBox x:Name="cbxStartTime" Grid.Row="1" Grid.Column="4" SelectionChanged="cbxEndTime_SelectionChanged" Style="{StaticResource ComboBoxStyle}"></ComboBox>
+                <!--Row2-->
+                <TextBlock x:Name="tbEndDate" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDDATE1}" Style="{StaticResource SysTextBlockStyle}"/>
+                <controls:DatePicker x:Name="dpEndDate" Style="{StaticResource DatePickerStyle}" Grid.Row="2" Grid.Column="1" Margin="5 0 0 0" Text="{Binding ENDDATE,Mode=TwoWay}" Height="22" SelectedDateChanged="dpEndDate_SelectedDateChanged_1"/>
+                <TextBlock x:Name="tbEndDateTimeTitle" Grid.Row="2" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}" Style="{StaticResource SysTextBlockStyle}"/>
+                <ComboBox x:Name="cbxEndTime" Grid.Row="2" Grid.Column="4" SelectionChanged="cbxEndTime_SelectionChanged" Style="{StaticResource ComboBoxStyle}"></ComboBox>
+                <!--Row3-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALDAYS}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="3"/>
+                <inputToolkit:NumericUpDown  Style="{StaticResource NumericUpDownStyle}"  Width="150" HorizontalAlignment="Left" x:Name="nudToTaldays" Grid.Row="3" Grid.Column="1" Minimum="0" Maximum="10000" Increment="0.1" DecimalPlaces="1" Value="{Binding TOTALDAYS,Mode=TwoWay}" Height="22"></inputToolkit:NumericUpDown>
+                <TextBlock  Grid.Row="3" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REPLACEPEOPLE}" Style="{StaticResource SysTextBlockStyle}"/>
+                <smt:LookUp DataContext="{Binding Path=T_HR_EMPLOYEE}" Grid.Row="3" Grid.Column="4" 
+                            FindClick="LookUp_FindClick" Name="lkEmployeeName" DisplayMemberPath="EMPLOYEECNAME"/>
+                <!--Row4-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUBSIDYTYPE}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="4"/>
+                <appCtr:DictionaryComboBox Grid.Row="4" Grid.Column="1" IsShowNull="False" Category="SUBSIDYTYPE" SelectedValue="{Binding SUBSIDYTYPE, Mode=TwoWay}" Height="22" Margin="5,0,0,0"/>
+                <TextBlock  Grid.Row="4" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SUBSIDYVALUE}" Style="{StaticResource SysTextBlockStyle}"/>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="150" Grid.Row="4" Grid.Column="4" Minimum="0" Maximum="100000" Height="22" Value="{Binding SUBSIDYVALUE,Mode=TwoWay}"  HorizontalAlignment="Left"></inputToolkit:NumericUpDown>
+                <!--Row5-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DESTINATION}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="5"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"  Text="{Binding DESTINATION,Mode=TwoWay}" HorizontalAlignment="Stretch" Width="Auto" />
+                <!--Row6-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EVECTIONREASON}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="6"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" MinHeight="48"  Text="{Binding EVECTIONREASON,Mode=TwoWay}" HorizontalAlignment="Stretch" Width="Auto" TextWrapping="Wrap" />
+                <!--Row7-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="7"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4" MinHeight="48"  Text="{Binding REMARK,Mode=TwoWay}" HorizontalAlignment="Stretch" Width="Auto" TextWrapping="Wrap" />
+            </Grid>
+        </Grid>
+    </StackPanel>
+</smtLocal:BaseForm>

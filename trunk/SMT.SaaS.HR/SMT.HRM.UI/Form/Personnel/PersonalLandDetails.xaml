@@ -1,0 +1,83 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Personnel.PersonalLandDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtv="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationTreeView;assembly=SMT.SaaS.FrameworkUI"                
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    Height="625" Width="836"
+    >
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Background="Transparent" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="85"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="85"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbEmpNameTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <TextBox Name="txtEmpName" Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" Height="22" Width="110" HorizontalAlignment="Stretch"/>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="5000"  Grid.Row="0" Grid.Column="2" x:Name="nuYear"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center" Width="auto" Grid.Row="0" Grid.Column="3"></TextBlock>
+                <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12" Grid.Row="0" Grid.Column="4" x:Name="nuMonth"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="auto"  VerticalAlignment="Center" Grid.Row="0" Grid.Column="5"></TextBlock>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Column="6" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="Center" Click="btnSearch_Click" HorizontalAlignment="Left" />
+            </Grid>
+            <smtx:FormToolBar x:Name="toolbar1" Grid.Row="1" Width="auto"></smtx:FormToolBar>
+            <TextBlock Height="22" Grid.Row="2" Grid.Column="0" Text="注意：登录次数是指定范围及时间段内员工登录次数的总和，登录人数是以月为单位，统计登录系统的人数总和" Margin="5,0,0,0" Foreground="Red" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+                <TextBlock x:Name="tbLoginTimesTitle" Text="登录次数" Margin="5,0,0,0" Height="22" Style="{StaticResource FrameGridTextBlock1}" />
+                <TextBox Name="txtLoginTimes" Margin="5,0,0,0" Height="22" Width="110" IsReadOnly="True" />
+                <TextBlock x:Name="tbLoginPersonCountTitle" Grid.Row="0" Grid.Column="2" Text="登录人数" Style="{StaticResource FrameGridTextBlock1}" Height="22" Width="Auto" Margin="5,0,0,0"  />
+                <TextBox Name="txtLoginPersonCount" Margin="5,0,0,0" Height="22" Width="110" IsReadOnly="True" />
+            </StackPanel>
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="Gray" BorderThickness="1" Grid.RowSpan="2" Grid.Row="0" Grid.Column="0">
+                    <smtv:OrganizationTreeView x:Name="treeOrganization"></smtv:OrganizationTreeView>
+                </Border>
+                <data:DataGrid x:Name="dgLandDetailList" Grid.Row="0" Grid.Column="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"
+                       Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
+                    <data:DataGrid.Columns>
+                        <data:DataGridTextColumn Header="所属公司" Binding="{Binding OwnerCompanyName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="所属部门" Binding="{Binding OwnerDepartmentName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="所属岗位" Binding="{Binding OwnerPostName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="员工姓名" Binding="{Binding OwnerName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="登录时间" Binding="{Binding LoginDate, Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIMES}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="登录IP" Binding="{Binding LOGINIP}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="1" Grid.Column="1"></smtx:GridPager>
+            </Grid>
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,78 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.PerformanceRewardSetForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+                xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+    <Grid x:Name="LayoutRoot"  Loaded="LayoutRoot_Loaded"  Background="Transparent" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+
+
+        <!--Row 0-->
+        <!--PERFORMANCECATEGORY-->
+
+        <TextBlock   Grid.Column="0" Grid.Row="0"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PERFORMANCECATEGORY}" Height="22" Width="Auto" />
+
+        <appCtr:DictionaryComboBox Grid.Row="0" Margin="5 0 0 0" Grid.Column="1" Height="22" x:Name="cbPerformanceCategory"  Width="Auto"  HorizontalAlignment="Stretch"
+                Category="PERFORMANCECATEGORY"  SelectedValue="{Binding PERFORMANCECATEGORY, Mode=TwoWay}"></appCtr:DictionaryComboBox>
+        <!--PERFORMANCECAPITAL-->
+
+        <TextBlock   Grid.Column="3" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PERFORMANCECAPITAL}"  Width="Auto" Height="22" />
+
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPerformanceCapital"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding PERFORMANCECAPITAL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="0" Grid.Column="4" Height="24" >
+            <validator:ValidatorService.Validator>
+                <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEPOSITIVE" ErrorMessageParameter="PERFORMANCECAPITAL" Expression="^[0-9]+(\.\d+)?$" ></validator:RegexValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+
+
+
+
+
+        <!--Row 1-->
+        <!--CALCULATETYPE-->
+        <TextBlock   Grid.Column="0" Grid.Row="1" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=CALCULATETYPE}"  Width="Auto" Height="22" />
+
+        <appCtr:DictionaryComboBox Grid.Row="1" Margin="5 0 0 0" Grid.Column="1"  Height="22" x:Name="cbCalculateType"   HorizontalAlignment="Stretch" Width="Auto"  
+                Category="CALCULATETYPE"  SelectedValue="{Binding CALCULATETYPE, Mode=TwoWay}"></appCtr:DictionaryComboBox>
+
+
+
+
+
+        <!--REMARK-->
+        <TextBlock  Grid.Row="3" Grid.Column="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Height="22" VerticalAlignment="Top" />
+
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  HorizontalAlignment="Stretch" Width="Auto"  Margin="5 0 0 0" 
+            					Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4" Height="60" AcceptsReturn="True" MaxLength="2000" VerticalScrollBarVisibility="Auto"  TextWrapping="Wrap" >
+        </TextBox>
+
+    </Grid>
+</smtLocal:BaseForm>

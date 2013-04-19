@@ -1,0 +1,98 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.SalarySolutionItemsForm"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                 xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+                 
+                 xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+                 xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+                 xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    >
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--<smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0" Visibility="Collapsed"></smt:ViewTitle>-->
+        <!--<controlsToolkit:Expander x:Name="expander" Grid.Row="1"  Visibility="Collapsed"
+              VerticalAlignment="top" Background="Transparent">
+            <controlsToolkit:Expander.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Width="80"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=CUSTOMSALARYNAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}" Margin="0,6,0,0"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtName" Grid.Row="0" Grid.Column="1" Width="220" />
+                            <Button x:Name="btnFind" Grid.Row="0" Grid.Column="4" Margin="40,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnFind_Click" />
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </controlsToolkit:Expander.HeaderTemplate>
+
+        </controlsToolkit:Expander>-->
+        <smt:FormToolBar x:Name="ToolBar" Width="auto" HorizontalAlignment="Stretch" Grid.Row="0" />
+        <!--<StackPanel x:Name="btnContainer" Orientation="Horizontal" Grid.Row="0" Visibility="Collapsed">
+            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=GUERDONNAME}" Width="Auto" Height="22" />
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSalaryStandardName" Width="120" Visibility="Collapsed"></TextBox>
+            <smt:LookUp DataContext="{Binding T_HR_CUSTOMGUERDONSET, Mode=TwoWay}"  Grid.ColumnSpan="2"
+            					FindClick="lkCustomSalary_FindClick"  x:Name="lkCustomSalary"  DisplayMemberPath="GUERDONNAME" Margin="5,0,0,0"
+                                 Width="130" Height="26"
+                        />
+            <Button  Content="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}" x:Name="btDelete" Width="70" Click="btDelete_Click" Height="24"></Button>
+        </StackPanel>-->
+        <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" SelectionChanged="DtGrid_SelectionChanged"
+                            Grid.Row="1"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                       >
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}"> 
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <!--<CheckBox x:Name="checkbox" Tag="{Binding CUSTOMGUERDONSETID}" Margin="5,5,0,0" Unchecked="checkbox_Unchecked" Checked="checkbox_Checked"></CheckBox>-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <!--<data:DataGridTextColumn Header="STANDRECORDITEMID" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding STANDRECORDITEMID}" Visibility="Collapsed">
+                </data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="SALARYSTANDARDNID" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYSTANDARDID}" Visibility="Collapsed">
+                </data:DataGridTextColumn>-->
+                <data:DataGridTextColumn Header="SALARYITEMNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYITEMNAME}">
+                </data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="ORDERNUMBER" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ORDERNUMBER}"/>
+                <!--<data:DataGridTextColumn Header="GUERDONSUM" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUM}"/>
+                <data:DataGridTextColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REMARK}"/>-->
+                <!--<data:DataGridTextColumn Header="GUERDONCATEGORY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding GUERDONCATEGORY,Converter={StaticResource DictionaryConverter},ConverterParameter=GUERDONCATEGORY}"/>
+                <data:DataGridTextColumn Header="CALCULATORTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CALCULATORTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=CALCULATORTYPE}"/>-->
+                <!--<data:DataGridTextColumn Header="CREATEDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CREATEDATE,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                <data:DataGridTextColumn Header="UPDATEDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding UPDATEDATE,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>-->
+
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+        <Grid Grid.Row="2">
+            <ListBox  Width="350" Margin="0,5,0,10" BorderBrush="Black"  BorderThickness="1" Visibility="Collapsed">
+                <ListBoxItem Content="1"></ListBoxItem>
+                <ListBoxItem Content="2"></ListBoxItem>
+
+            </ListBox>
+        </Grid>
+
+        <smt:GridPager Name="dataPager" PageSize="500" Click="GridPager_Click" Grid.Row="4" Visibility="Collapsed" ></smt:GridPager>
+    </Grid>
+</smtLocal:BaseForm>

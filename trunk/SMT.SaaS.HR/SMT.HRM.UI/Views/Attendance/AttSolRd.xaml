@@ -1,0 +1,68 @@
+﻿<smtLocal:BasePage 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+		   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           x:Class="SMT.HRM.UI.Views.Attendance.AttSolRd"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="AttSolRd Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="ViewTitles" Grid.Row="0" Width="auto" VerticalAlignment="Top"></smtx:ViewTitle>
+            <Grid Background="Transparent" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbAttSolNameTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDANCESOLUTIONNAME}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto" Margin="5,0,0,0" />
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAttSolName" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"  Margin="0" Width="110" Height="24"/>
+                <TextBlock x:Name="tbAttTypeTitle" Grid.Row="0" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDANCETYPE}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"  />
+                <appCtr:DictionaryComboBox x:Name="cbxkAttendanceType" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Category="ATTENDANCETYPE" SelectedValue="{Binding ATTENDANCETYPE}" Width="110" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center"/>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" Width="70" Height="24" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Click="btnSearch_Click" />
+            </Grid>
+            <smtx:FormToolBar x:Name="toolbar1" Grid.Row="2" Width="auto"/>
+            <data:DataGrid x:Name="dgAttSolList" Grid.Row="3" AutoGenerateColumns="false" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LoadingRow="dgAttSolList_LoadingRow" 
+Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding ATTENDANCESOLUTIONID}"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="ATTENDANCESOLUTIONNAME" Binding="{Binding ATTENDANCESOLUTIONNAME}" />
+                    <data:DataGridTextColumn Header="ATTENDANCETYPE" Binding="{Binding ATTENDANCETYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=ATTENDANCETYPE}" />
+                    <data:DataGridTextColumn Header="CARDTYPE" Binding="{Binding CARDTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=CARDTYPE}" />
+                    <data:DataGridTextColumn Header="WORKDAYTYPE" Binding="{Binding WORKDAYTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=WORKDAYTYPE}" />
+                    <data:DataGridTextColumn Header="WORKMODE" Binding="{Binding WORKMODE}" />
+                    <data:DataGridTextColumn Header="WORKTIMEPERDAY" Binding="{Binding WORKTIMEPERDAY}" />
+                    <data:DataGridTextColumn Header="SETTLEMENTDATE" Binding="{Binding SETTLEMENTDATE}" />
+                    <data:DataGridTextColumn Header="ANNUALLEAVESET" Binding="{Binding ANNUALLEAVESET, Converter={StaticResource DictionaryConverter},ConverterParameter=OFFESTTYPE}" />
+                    <data:DataGridTextColumn Header="EDITSTATE" Binding="{Binding EDITSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=EDITSTATE}"/>
+                    <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" />
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

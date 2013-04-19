@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" />
+  <xs:import schemaLocation="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="DoWork">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewGetAllEmployeeentryInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCompanyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewGetAllEmployeeentryInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="NewGetAllEmployeeentryInfoResult" nillable="true" type="q1:ArrayOfEmployeeMarriage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPieEmployeeceInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Companyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Style" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q2:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPieEmployeeceInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetPieEmployeeceInfoResult" nillable="true" type="q3:ArrayOfPieEmployeece" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSexPieEmployeeceInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Companyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="style" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q4:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSexPieEmployeeceInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetSexPieEmployeeceInfoResult" nillable="true" type="q5:ArrayOfPieEmployeece" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEducationPieEmployeeceInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Companyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="style" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q6:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEducationPieEmployeeceInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetEducationPieEmployeeceInfoResult" nillable="true" type="q7:ArrayOfPieEmployeece" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgePieEmployeeceInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Companyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Style" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q8:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgePieEmployeeceInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetAgePieEmployeeceInfoResult" nillable="true" type="q9:ArrayOfPieEmployeece" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLengthServicePie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Companyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Style" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q10:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLengthServicePieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetLengthServicePieResult" nillable="true" type="q11:ArrayOfPieEmployeece" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCompanyInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Companyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Style" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q12:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCompanyInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetAllCompanyInfoResult" nillable="true" type="q13:ArrayOfPieEmployeece" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

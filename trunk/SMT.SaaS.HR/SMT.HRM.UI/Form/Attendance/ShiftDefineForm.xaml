@@ -1,0 +1,220 @@
+﻿<smtLocal:BaseForm xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"            
+    mc:Ignorable="d" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    x:Class="SMT.HRM.UI.Form.Attendance.ShiftDefineForm">
+    <StackPanel>
+        <Grid x:Name="LayoutRoot" Margin="4"  Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+					<RowDefinition Height="Auto" MinHeight="30" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="240" />                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="0.39*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="108"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="0.39*"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                
+                <!--Row 0:ShiftName & WorkTime-->
+                <TextBlock x:Name="tbShiftNameTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SHIFTNAME}" 
+                           HorizontalAlignment="Left" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center" Height="24"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtShiftName" Grid.Column="2" Width="Auto"  Height="24" Margin="0" 
+                         Text="{Binding SHIFTNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" MaxLength="50">
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+                <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SHIFTNAME"></validator:RequiredValidator>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+
+                <TextBlock x:Name="tbWorkTimeTitle" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKTIMEPERDAY}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Height="24" />
+                <inputToolkit:NumericUpDown x:Name="nudWorkTime" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Margin="0" Grid.Column="6" Value="{Binding WORKTIME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Maximum="24" DecimalPlaces="1" Increment="0.5" />
+				
+				<!--Row 1:Remark-->
+                <TextBlock x:Name="tbRemarkTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" TextWrapping="Wrap" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="0,2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+				
+                <!--Row 2:Title-->
+                <TextBlock x:Name="tbSecondRowTitle" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKTIMESET}" Style="{StaticResource HeaderTextStyle}" Grid.ColumnSpan="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,4,0,4"/>
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="2" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+
+                <!--Row 3:Start Date & End Date-->
+                <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>						
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="5"/>
+						<ColumnDefinition Width="0.2*"/>
+						<ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="15"/>
+						<ColumnDefinition Width="0.2*"/>
+						<ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+					<!--Row 0-1:WorkFirst Begin-->
+					
+					<!--Row 0 Column 1:WorkFirst Title-->
+					<TextBlock x:Name="tbWorkFirstTimeTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKFIRSTTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>                 
+					
+					<!--Row 0 Column 2 & 4:WorkFirst WorkStartTime-->
+					<TextBlock Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKSTARTTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Width="Auto" d:LayoutOverrides="Width" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFirstStartTime" Grid.Column="4" 
+                         Value="{Binding FIRSTSTARTTIME,Mode=TwoWay}" Margin="0" Height="22" />					
+					
+					<!--Row 0 Column 6:WorkFirst NeedCardStart-->
+					<CheckBox Style="{StaticResource CheckBoxStyle}"  x:Name="cbNeedFirstCard" Margin="0" Grid.Column="6" Click="cbNeedFirstCard_Click" Content="{Binding Converter={StaticResource ResourceConveter}, Source=NEEDCARD}" Height="18"/>
+					
+					<!--Row 0 Column 8-12:WorkFirst CardStartTime & CardEndTime-->
+					<TextBlock Grid.Row="0" Grid.Column="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTIME}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}"  x:Name="nudFirstCardStartTime" Grid.Column="10" Value="{Binding FIRSTCARDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22"/>
+					<TextBlock Grid.Column="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFirstCardEndTime" Grid.Column="12" Value="{Binding FIRSTCARDENDTIME,Mode=TwoWay}" Margin="0" Height="22"/>
+					
+					<!--Row 1 Column 2 & 4:WorkFirst WorkEndTime-->
+					<TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKENDTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>					
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFirstEndTime" Grid.Row="1" Grid.Column="4" Value="{Binding FIRSTENDTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					
+					<!--Row 1 Column 6:WorkFirst NeedCardEnd-->
+					<CheckBox Style="{StaticResource CheckBoxStyle}"  x:Name="cbNeedFirstOffCard" Margin="0" Grid.Row="1" Grid.Column="6"
+                              Click="cbNeedFirstOffCard_Click"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=NEEDCARD}" Height="22"/>
+					
+					<!--Row 1 Column 8-12:WorkFirst CardStartTime & CardEndTime-->
+					<TextBlock Grid.Row="1" Grid.Column="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTIME}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFirstOffCardStartTime" Grid.Row="1" Grid.Column="10" Value="{Binding FIRSTOFFCARDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					<TextBlock Grid.Row="1" Grid.Column="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFirstOffCardEndTime" Grid.Row="1" Grid.Column="12" Value="{Binding FIRSTOFFCARDENDTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					<!--Row 0-1:WorkFirst End-->
+					
+					<!--Row 2-3:WorkSec Begin-->
+					
+					<!--Row 2 Column 1:WorkSec Title-->
+					<TextBlock x:Name="tbWorkSecTimeTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKSECTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22" Grid.Row="2"/>                 
+					
+					<!--Row 2 Column 2 & 4:WorkSec WorkStartTime-->
+					<TextBlock Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKSTARTTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Width="Auto" d:LayoutOverrides="Width" Height="22" Grid.Row="2"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudSecStartTime" Grid.Column="4" Value="{Binding SECONDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="2" />					
+					
+					<!--Row 2 Column 6:WorkSec NeedCardStart-->
+					<CheckBox Style="{StaticResource CheckBoxStyle}" x:Name="cbNeedSecondCard" Margin="0" Grid.Column="6" Click="cbNeedSecondCard_Click" Content="{Binding Converter={StaticResource ResourceConveter}, Source=NEEDCARD}" Height="18" Grid.Row="2"/>
+					
+					<!--Row 2 Column 8-12:WorkSec CardStartTime & CardEndTime-->
+					<TextBlock Grid.Row="2" Grid.Column="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTIME}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudSecCardStartTime" Grid.Column="10" Value="{Binding SECONDCARDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="2"/>
+					<TextBlock Grid.Column="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22" Grid.Row="2"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudSecCardEndTime" Grid.Column="12" Value="{Binding SECONDCARDENDTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="2"/>
+					
+					<!--Row 3 Column 2 & 4:WorkSec WorkEndTime-->
+					<TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKENDTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>					
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudSecEndTime" Grid.Row="3" Grid.Column="4" Value="{Binding SECONDENDTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					
+					<!--Row 3 Column 6:WorkSec NeedCardEnd-->
+					<CheckBox Style="{StaticResource CheckBoxStyle}" x:Name="cbNeedSecondOffCard" Margin="0" Grid.Row="3" Grid.Column="6" Click="cbNeedSecondOffCard_Click"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=NEEDCARD}" Height="18"/>
+					
+					<!--Row 3 Column 8-12:WorkSec CardStartTime & CardEndTime-->
+					<TextBlock Grid.Row="3" Grid.Column="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTIME}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudSecOffCardStartTime" Grid.Row="3" Grid.Column="10" Value="{Binding SECONDOFFCARDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					<TextBlock Grid.Row="3" Grid.Column="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudSecOffCardEndTime" Grid.Row="3" Grid.Column="12" Value="{Binding SECONDOFFCARDENDTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					<!--Row 2-3:WorkSec End-->
+					
+					<!--Row 4-5:WorkThird Begin-->
+					
+					<!--Row 4 Column 1:WorkThird Title-->
+					<TextBlock x:Name="tbWorkThirdTimeTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKTHIRDTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22" Grid.Row="4"/>                 
+					
+					<!--Row 4 Column 2 & 4:WorkThird WorkStartTime-->
+					<TextBlock Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKSTARTTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Width="Auto" d:LayoutOverrides="Width" Height="22" Grid.Row="4"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudThirdStartTime" Grid.Column="4" Value="{Binding THIRDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="4" />					
+					
+					<!--Row 4 Column 6:WorkThird NeedCardStart-->
+					<CheckBox Style="{StaticResource CheckBoxStyle}" x:Name="cbNeedThirdCard" Margin="0" Grid.Column="6" Click="cbNeedThirdCard_Click" Content="{Binding Converter={StaticResource ResourceConveter}, Source=NEEDCARD}" Height="18" Grid.Row="4"/>
+					
+					<!--Row 4 Column 8-12:WorkThird CardStartTime & CardEndTime-->
+					<TextBlock Grid.Row="4" Grid.Column="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTIME}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudThirdCardStartTime" Grid.Column="10" Value="{Binding THIRDCARDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="4"/>
+					<TextBlock Grid.Column="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22" Grid.Row="4"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudThirdCardEndTime" Grid.Column="12" Value="{Binding THIRDCARDENDTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="4"/>
+					
+					<!--Row 5 Column 2 & 4:WorkThird WorkEndTime-->
+					<TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKENDTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>					
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudThirdEndTime" Grid.Row="5" Grid.Column="4" Value="{Binding THIRDENDTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					
+					<!--Row 5 Column 6:WorkThird NeedCardEnd-->
+					<CheckBox Style="{StaticResource CheckBoxStyle}" x:Name="cbNeedThirdOffCard" Margin="0" Grid.Row="5" Grid.Column="6" Click="cbNeedThirdOffCard_Click"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=NEEDCARD}" Height="18"/>
+					
+					<!--Row 5 Column 8-12:WorkThird CardStartTime & CardEndTime-->
+					<TextBlock Grid.Row="5" Grid.Column="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTIME}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudThirdOffCardStartTime" Grid.Row="5" Grid.Column="10" Value="{Binding THIRDOFFCARDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					<TextBlock Grid.Row="5" Grid.Column="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudThirdOffCardEndTime" Grid.Row="5" Grid.Column="12" Value="{Binding THIRDOFFCARDENDTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					<!--Row 4-5:WorkThird End-->
+					
+					<!--Row 6-7:WorkFourth Begin-->
+					
+					<!--Row 6 Column 1:WorkFourth Title-->
+					<TextBlock x:Name="tbWorkFourthTimeTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKFOURTHTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22" Grid.Row="6"/>                 
+					
+					<!--Row 6 Column 2 & 4:WorkFourth WorkStartTime-->
+					<TextBlock Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKSTARTTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Width="Auto" d:LayoutOverrides="Width" Height="22" Grid.Row="6"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFourthStartTime" Grid.Column="4" Value="{Binding FOURTHSTARTTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="6" />					
+					
+					<!--Row 6 Column 6:WorkFourth NeedCardStart-->
+					<CheckBox Style="{StaticResource CheckBoxStyle}" x:Name="cbNeedFourthCard" Margin="0" Grid.Column="6" Click="cbNeedFourthCard_Click" Content="{Binding Converter={StaticResource ResourceConveter}, Source=NEEDCARD}" Height="18" Grid.Row="6"/>
+					
+					<!--Row 6 Column 8-12:WorkFourth CardStartTime & CardEndTime-->
+					<TextBlock Grid.Row="6" Grid.Column="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTIME}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFourthCardStartTime" Grid.Column="10" Value="{Binding FOURTHCARDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="6"/>
+					<TextBlock Grid.Column="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22" Grid.Row="6"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFourthCardEndTime" Grid.Column="12" Value="{Binding FOURTHCARDENDTIME,Mode=TwoWay}" Margin="0" Height="22" Grid.Row="6"/>
+					
+					<!--Row 7 Column 2 & 4:WorkFourth WorkEndTime-->
+					<TextBlock Grid.Row="7" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKENDTIME}" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>					
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFourthEndTime" Grid.Row="7" Grid.Column="4" Value="{Binding FOURTHENDTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					
+					<!--Row 7 Column 6:WorkFourth NeedCardEnd-->
+					<CheckBox Style="{StaticResource CheckBoxStyle}" x:Name="cbNeedFourthOffCard" Margin="0" Grid.Row="7" Grid.Column="6" Click="cbNeedFourthOffCard_Click"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=NEEDCARD}" Height="18"/>
+					
+					<!--Row 7 Column 8-12:WorkFourth CardStartTime & CardEndTime-->
+					<TextBlock Grid.Row="7" Grid.Column="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTIME}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFourthOffCardStartTime" Grid.Row="7" Grid.Column="10" Value="{Binding FOURTHOFFCARDSTARTTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					<TextBlock Grid.Row="7" Grid.Column="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Margin="0" Height="22"/>
+					<inputToolkit:TimePicker TimeUpDownStyle="{StaticResource TimeUpDownStyle}" x:Name="nudFourthOffCardEndTime" Grid.Row="7" Grid.Column="12" Value="{Binding FOURTHOFFCARDENDTIME,Mode=TwoWay}" Margin="0" Height="22"></inputToolkit:TimePicker>
+					<!--Row 6-7:WorkFourth End-->
+                </Grid>			
+				
+            </Grid>
+    </StackPanel>
+</smtLocal:BaseForm>

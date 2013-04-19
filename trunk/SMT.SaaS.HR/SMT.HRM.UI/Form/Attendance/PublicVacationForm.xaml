@@ -1,0 +1,217 @@
+﻿<smtLocal:BaseForm xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"            
+    mc:Ignorable="d" 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+	xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+	xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+	xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	x:Class="SMT.HRM.UI.Form.Attendance.PublicVacationForm"      
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    >
+    <StackPanel>
+        <Grid x:Name="LayoutRoot" Margin="4" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" MinHeight="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="0.39*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="0.39*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1"/>
+
+                <!--Row 0:Year-->
+                <TextBlock x:Name="tbPubVacYearsTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PUBVACYEARS}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <TextBox x:Name="txtPubVacYears" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" Width="Auto" Height="24"  Text="{Binding VACATIONYEAR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" validator:TextBoxFilterService.Filter="Integer" MaxLength="4" Margin="5,0,0,0">
+                    <interaction:Interaction.Behaviors>
+                        <behaviors:ShowRequire></behaviors:ShowRequire>
+                    </interaction:Interaction.Behaviors>
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PUBVACYEARS"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+
+                <!--Row 1: Name & Area-->
+                <TextBlock x:Name="tbPubVacNameTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PUBVACNAME}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center" d:LayoutOverrides="Height"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtPubVacName"  Grid.Row="1" Grid.Column="2" Width="Auto"  Height="24" Margin="5,0,0,0" Text="{Binding VACATIONNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}">
+                    <interaction:Interaction.Behaviors>
+                        <behaviors:ShowRequire></behaviors:ShowRequire>
+                    </interaction:Interaction.Behaviors>
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PUBVACNAME" />
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+
+                <TextBlock x:Name="tbPubVacAreaTitle" Grid.Row="1" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=COUNTYTYPEORAREA}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" />
+                <appCtr:DictionaryComboBox x:Name="cbxkPubVacArea" Grid.Row="1" Grid.Column="6" IsShowNull="False" HorizontalAlignment="Stretch" Category="COUNTYTYPE" SelectedValue="{Binding COUNTYTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource ComboBoxStyle}" Height="24"/>
+
+                <!--Row 2:AssignedObjectType & AssignedObjectID-->
+                <TextBlock x:Name="tbAssignedObjectType" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECTTYPE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" />
+                <appCtr:DictionaryComboBox x:Name="cbxkAssignedObjectType" Grid.Row="2" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ASSIGNEDOBJECTTYPE" SelectedValue="{Binding ASSIGNEDOBJECTTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource ComboBoxStyle}" Height="24" VerticalAlignment="Center" />
+
+                <TextBlock x:Name="tbAssignedObjectID" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECT}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Grid.Column="4" Margin="5,0,0,0"/>
+                <smtx:LookUp Grid.Row="2" Grid.Column="6" FindClick="lkAssignObject_FindClick"  x:Name="lkAssignObject" Height="24" />
+
+                <!--Row 3:Remark-->
+                <TextBlock x:Name="tbRemarkTitle" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0"/>
+                <TextBox x:Name="txtRemark" Style="{StaticResource TextBoxStyle}" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto" Margin="5,2,0,2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+
+                <!--Row 4:Border Line-->
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="4" BorderThickness="1" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2" Grid.ColumnSpan="8"  />
+
+                <!--Row 5:OutPlanDays List-->
+                <controls:TabControl x:Name="tcOutPlanDays" Grid.Row="5" Grid.ColumnSpan="8"  Style="{StaticResource TabControlStyle}">
+                    <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=OUTPLANVACATIONDAY}" Style="{StaticResource TabItemStyle}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <smtx:FormToolBar x:Name="toolbarVacDay" Width="auto" Grid.Row="0"></smtx:FormToolBar>
+                            <data:DataGrid x:Name="dgVacDayList" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"
+                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="216">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding VACATIONID, Mode=TwoWay}"></Image>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="OUTPLANNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox x:Name="txtVacDayName" Text="{Binding OUTPLANNAME, Mode=TwoWay}"></TextBox>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="OUTPLANDAYSTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <appCtr:DictionaryComboBox x:Name="cbxkVacDayType" Category="OUTPLANDAYSTYPE" SelectedValue="{Binding DAYTYPE, Mode=TwoWay}" Width="120" Height="22" Style="{StaticResource ComboBoxStyle}" IsEnabled="False"/>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="STARTDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <sdk:DatePicker x:Name="dpVacdayStartdate" Width="120" Height="22" Margin="5,0,0,0" 
+                                                                Text="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay}" 
+                                                                SelectedDateChanged="dpVacdayStartdate_SelectedDateChanged"  Style="{StaticResource DatePickerStyle}" />
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="ENDDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <sdk:DatePicker x:Name="dpVacdayEnddate" Width="120" Height="22" Margin="5,0,0,0" Text="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay}" SelectedDateChanged="dpVacdayEnddate_SelectedDateChanged"  Style="{StaticResource DatePickerStyle}"/>                                               
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="DAYS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <inputToolkit:NumericUpDown x:Name="nudVacDays" DecimalPlaces="1" Height="22" Margin="5,0,0,0"
+                                                                            Value="{Binding DAYS, Mode=TwoWay}" IsEnabled="False" Style="{StaticResource NumericUpDownStyle}">
+                                                    
+                                                </inputToolkit:NumericUpDown>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="ISADJUSTLEAVE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="cbxIsAdjustLeave" Tag="{Binding ISADJUSTLEAVE, Mode=TwoWay}"
+                                                          IsChecked="{Binding ISADJUSTLEAVE, Converter={StaticResource CheckConverter},ConverterParameter=EN, Mode=TwoWay}" 
+                                                          Height="16" Margin="5,0,0,0" Checked="cbxIsAdjustLeave_Checked" Style="{StaticResource CheckBoxStyle}" />                                                
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </Grid>
+                    </controls:TabItem>
+                    <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=OUTPLANWORKDAY}" Style="{StaticResource TabItemStyle}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <smtx:FormToolBar x:Name="toolbarWorkDay" Width="auto" Grid.Row="0"></smtx:FormToolBar>
+                            <data:DataGrid x:Name="dgWorkDayList" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"
+                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="216" >
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding VACATIONID, Mode=TwoWay}"></Image>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="OUTPLANNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBox x:Name="txtWorkDayName" Text="{Binding OUTPLANNAME, Mode=TwoWay}"></TextBox>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="OUTPLANDAYSTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <appCtr:DictionaryComboBox x:Name="cbxkWorkDayType" Category="OUTPLANDAYSTYPE" SelectedValue="{Binding DAYTYPE, Mode=TwoWay}" Width="120" Height="22" Style="{StaticResource SysComboBoxStyle}" IsEnabled="False"/>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="STARTDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <sdk:DatePicker x:Name="dpWorkdayStartdate" Width="120" Height="22" Margin="5,0,0,0" Text="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay}" SelectedDateChanged="dpWorkdayStartdate_SelectedDateChanged"  />                                                
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="ENDDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <sdk:DatePicker x:Name="dpWorkdayEnddate" Width="120" Height="22" Margin="5,0,0,0" Text="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay}" SelectedDateChanged="dpWorkdayEnddate_SelectedDateChanged"  />                                                
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                    <data:DataGridTemplateColumn Header="DAYS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <inputToolkit:NumericUpDown x:Name="nudWorkDays" DecimalPlaces="1" Height="22" Margin="5,0,0,0" Value="{Binding DAYS, Mode=TwoWay}" IsEnabled="False"></inputToolkit:NumericUpDown>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </Grid>
+                    </controls:TabItem>
+                </controls:TabControl>                
+            </Grid>
+        </Grid>
+    </StackPanel>
+</smtLocal:BaseForm>

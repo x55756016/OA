@@ -1,0 +1,1160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.SaaS.FrameworkUI</RootNamespace>
+    <AssemblyName>SMT.SaaS.FrameworkUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ExpressionBlendVersion>3.0.1938.0</ExpressionBlendVersion>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>Bin\Release\SMT.SaaS.FrameworkUI.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FJ.Core">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\FJ.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.FileUpLoad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SMT.SAAS.AnimationEngine">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.AnimationEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Behaviors">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientServices">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.ClientServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientUtility">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.ClientUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Extensions">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Globalization">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.LocalData">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Assembly\SMT.SaaS.LocalData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContext">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Assembly\SMT.SAAS.Main.CurrentContext.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Window">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.Window.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Toolkit">
+      <HintPath>..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Data.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>..\..\SMT.SaaS.CommonDll\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit">
+      <HintPath>..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit">
+      <HintPath>..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppForm\AppForm.xaml.cs">
+      <DependentUpon>AppForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\IBusinessObject.cs" />
+    <Compile Include="AppForm\IClient.cs" />
+    <Compile Include="AppForm\UIRefreshedEventArgs.cs" />
+    <Compile Include="AppForm\EntityBrowser.xaml.cs">
+      <DependentUpon>EntityBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppForm\IEntityEditor.cs" />
+    <Compile Include="AppForm\IAudit.cs" />
+    <Compile Include="AuditControl\AuditControl.xaml.cs">
+      <DependentUpon>AuditControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCompleteComboBox\AutoCompleteComboBox.cs" />
+    <Compile Include="ChildWidow\ComfirmBox.xaml.cs">
+      <DependentUpon>ComfirmBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWidow\ComfirmWindow.cs" />
+    <Compile Include="CommonHelper\ConvertException.cs" />
+    <Compile Include="CommonHelper\ConvertHelper.cs" />
+    <Compile Include="CommonHelper\DoubleHelper.cs" />
+    <Compile Include="CommonHelper\ObjectHelper.cs" />
+    <Compile Include="CommonHelper\EnumHelper.cs" />
+    <Compile Include="CommonHelper\ExceptionHelper.cs" />
+    <Compile Include="CommonHelper\Flag.cs" />
+    <Compile Include="CommonHelper\FlagAttribute.cs" />
+    <Compile Include="CommonHelper\Int32Helper.cs" />
+    <Compile Include="CommonHelper\Int64Helper.cs" />
+    <Compile Include="CommonHelper\TypeHelper.cs" />
+    <Compile Include="Common\ConvertClass.cs" />
+    <Compile Include="Common\Engine.cs" />
+    <Compile Include="Common\Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\PermissionHelper.cs" />
+    <Compile Include="Common\TreeHelperAudit.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="Common\WCFChannelHelper.cs" />
+    <Compile Include="DateTimePicker\SmtDatePicker.cs" />
+    <Compile Include="DateTimePicker\DateTimePicker.cs" />
+    <Compile Include="FBControls\ChargeApplyControl.xaml.cs">
+      <DependentUpon>ChargeApplyControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBControls\FBDataGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBControls\SelectedDataManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FBControls\SelectedForm.xaml.cs">
+      <DependentUpon>SelectedForm.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileUpload\ByteConverter.cs" />
+    <Compile Include="FileUpload\CtrlFileUploadM.xaml.cs">
+      <DependentUpon>CtrlFileUploadM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileUpload\FileCollection.cs" />
+    <Compile Include="FileUpload\FileRowControl.xaml.cs">
+      <DependentUpon>FileRowControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileUpload\IFileUploader.cs" />
+    <Compile Include="FileUpload\UserFile.cs" />
+    <Compile Include="FileUpload\WcfFileUploader.cs" />
+    <Compile Include="GridPages\FormTitle.xaml.cs">
+      <DependentUpon>FormTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GridPages\GridToolBar.xaml.cs">
+      <DependentUpon>GridToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KPIControl\KPIScoring.xaml.cs">
+      <DependentUpon>KPIScoring.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationControl\OrganizationLookupAll.xaml.cs">
+      <DependentUpon>OrganizationLookupAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationControl\OrganizationTree.xaml.cs">
+      <DependentUpon>OrganizationTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationControl\OrgnizationTreeAll.xaml.cs">
+      <DependentUpon>OrgnizationTreeAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationControl\Power.xaml.cs">
+      <DependentUpon>Power.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonControl\OrganizationTreeView.xaml.cs">
+      <DependentUpon>OrganizationTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonControl\PersonControl.xaml.cs">
+      <DependentUpon>PersonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressBar\SMTLoading.xaml.cs">
+      <DependentUpon>SMTLoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressBar\SMTLoading2.xaml.cs">
+      <DependentUpon>SMTLoading2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressBar\SMTProgressBar.xaml.cs">
+      <DependentUpon>SMTProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectCityControl\AreaSortCity.xaml.cs">
+      <DependentUpon>AreaSortCity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectCityControl\AreaSortCityNew.xaml.cs">
+      <DependentUpon>AreaSortCityNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectCityControl\SearchCity.xaml.cs">
+      <DependentUpon>SearchCity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectCityControl\SearchCityNew.xaml.cs">
+      <DependentUpon>SearchCityNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPostLevel\PostList.xaml.cs">
+      <DependentUpon>PostList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPostLevel\SelectPost.xaml.cs">
+      <DependentUpon>SelectPost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Toolbar\FormToolBar.xaml.cs">
+      <DependentUpon>FormToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GridPages\GridPager.xaml.cs">
+      <DependentUpon>GridPager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Input\ImageButton.xaml.cs">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationControl\ExtOrgObj.cs" />
+    <Compile Include="OrganizationControl\OrganizationLookup.xaml.cs">
+      <DependentUpon>OrganizationLookup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationControl\OrgTreeItemTypes.cs" />
+    <Compile Include="Toolbar\ImageToolBarButton.xaml.cs">
+      <DependentUpon>ImageToolBarButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Toolbar\PagerToolBar.xaml.cs">
+      <DependentUpon>PagerToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Toolbar\ToolBar.xaml.cs">
+      <DependentUpon>ToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GridPages\ViewLeftMenu.xaml.cs">
+      <DependentUpon>ViewLeftMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GridPages\ViewTitle.xaml.cs">
+      <DependentUpon>ViewTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\UIHelper.cs" />
+    <Compile Include="Input\ImageSelect.xaml.cs">
+      <DependentUpon>ImageSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LookUp\GridLookUp.xaml.cs">
+      <DependentUpon>GridLookUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LookUp\LookUp.xaml.cs">
+      <DependentUpon>LookUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\BottomFooter.xaml.cs">
+      <DependentUpon>BottomFooter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\HeaderMenu.xaml.cs">
+      <DependentUpon>HeaderMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\LeftMenu.xaml.cs">
+      <DependentUpon>LeftMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\MasterPage.xaml.cs">
+      <DependentUpon>MasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Navigate\NavigateItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Toolbar\ToolbarItem.cs" />
+    <Compile Include="Toolbar\ToolBarItemGroup.xaml.cs">
+      <DependentUpon>ToolBarItemGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Toolbar\ToolBarItemGroupModel.cs" />
+    <Compile Include="Validator\DateValidator.cs" />
+    <Compile Include="Validator\DefaultIndicator.xaml.cs">
+      <DependentUpon>DefaultIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Validator\IIndicator.cs" />
+    <Compile Include="Validator\LengthValidator.cs" />
+    <Compile Include="Validator\PhoneValidator.cs" />
+    <Compile Include="Validator\RangeValidator.cs" />
+    <Compile Include="Validator\RedStar.xaml.cs">
+      <DependentUpon>RedStar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Validator\RegexValidator.cs" />
+    <Compile Include="Validator\RequiredValidator.cs" />
+    <Compile Include="Validator\SSNValidator.cs" />
+    <Compile Include="Validator\TextBoxFilterService.cs" />
+    <Compile Include="Validator\ValidatorBase.cs" />
+    <Compile Include="Validator\ValidatorManager.cs" />
+    <Compile Include="Validator\ValidatorService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AppForm\AppForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppForm\EntityBrowser.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AuditControl\AuditControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWidow\ComfirmBox.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FBControls\ChargeApplyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FBControls\SelectedForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FileUpload\CtrlFileUploadM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FileUpload\FileRowControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GridPages\FormTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GridPages\GridToolBar.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="KPIControl\KPIScoring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OrganizationControl\OrganizationLookupAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrganizationControl\OrganizationTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrganizationControl\OrgnizationTreeAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrganizationControl\Power.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonControl\OrganizationTreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonControl\PersonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProgressBar\SMTLoading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProgressBar\SMTLoading2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProgressBar\SMTProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SelectCityControl\AreaSortCity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectCityControl\AreaSortCityNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectCityControl\SearchCity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectCityControl\SearchCityNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectPostLevel\PostList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectPostLevel\SelectPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Toolbar\FormToolBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GridPages\GridPager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Input\ImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OrganizationControl\OrganizationLookup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Toolbar\ImageToolBarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Toolbar\PagerToolBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Toolbar\ToolBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GridPages\ViewLeftMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GridPages\ViewTitle.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Input\ImageSelect.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LookUp\GridLookUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LookUp\LookUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MasterPage\BottomFooter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MasterPage\HeaderMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MasterPage\LeftMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MasterPage\MasterPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Toolbar\ToolBarItemGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Validator\DefaultIndicator.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Validator\RedStar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Images\ToolBar\16_excel.png" />
+    <Resource Include="Images\ToolBar\16_L_refresh.png" />
+    <Resource Include="Images\ToolBar\16_print.png" />
+    <Resource Include="Images\ToolBar\16_reports.png" />
+    <Resource Include="Images\ToolBar\18_addTeam.png" />
+    <Resource Include="Images\ToolBar\18_addView.png" />
+    <Resource Include="Images\ToolBar\18_workrules.png" />
+    <Resource Include="Images\ToolBar\16_pdf.png" />
+    <Resource Include="Images\ToolBar\18_editForm.png" />
+    <Resource Include="Images\ToolBar\ico_16_delete.png" />
+    <Resource Include="Images\ToolBar\18_audit.png" />
+    <Resource Include="Images\ToolBar\16_close.png" />
+    <Resource Include="Images\ToolBar\16_send.png" />
+    <Resource Include="Images\ToolBar\mnu_actions.png" />
+    <Resource Include="Images\ToolBar\16_save.png" />
+    <Resource Include="Images\ToolBar\16_saveClose.png" />
+    <Resource Include="Images\ToolBar\ico_16_1001_d.png" />
+    <Resource Include="Images\ToolBar\18_follow.png" />
+    <Resource Include="Images\Tool\ico_business_closures.png" />
+    <Resource Include="Images\ToolBar\16_help.png" />
+    <Resource Include="Images\ToolBar\16_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\%2801,17%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo\mastheader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Tool\ico_16_4406go.png" />
+    <Resource Include="Images\Tool\ico_16_4700Tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Tool\page_white_gearTool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Tool\ico_16_systemEntity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\area\18_import.png" />
+    <Resource Include="Images\area\18_settings.png" />
+    <Resource Include="Images\area\18_workrules.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\area\16_back.png" />
+    <Resource Include="Images\area\16_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\area\18_home.png" />
+    <Resource Include="Images\area\ico_16_1001_d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\area\bar_bottom_ico_Marketing.png" />
+    <Resource Include="Images\area\bar_bottom_ico_reports.png" />
+    <Resource Include="Images\area\bar_bottom_ico_sales.png" />
+    <Resource Include="Images\area\bar_bottom_ico_service.png" />
+    <Resource Include="Images\area\bar_bottom_ico_workPlace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\grid\page_FL0.png" />
+    <Resource Include="Images\grid\page_FL1.png" />
+    <Resource Include="Images\grid\page_FL2.png" />
+    <Resource Include="Images\grid\page_FL3.png" />
+    <Resource Include="Images\grid\page_L0.png" />
+    <Resource Include="Images\grid\page_L1.png" />
+    <Resource Include="Images\grid\page_R0.png" />
+    <Resource Include="Images\grid\page_R1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\appmenu_back.png" />
+    <Resource Include="Images\Tool\statusbar_back.png" />
+    <Resource Include="Images\Tool\icon_48_tool.png" />
+    <Resource Include="Images\Tool\ico_relationship_role_manager.png" />
+    <Resource Include="Images\Tool\ico_subjectManager.png" />
+    <Resource Include="Images\Tool\ico_sysSettings.png" />
+    <Resource Include="Images\Tool\ico_TransactionCurrency.png" />
+    <Resource Include="Images\Tool\ico_user.png" />
+    <Resource Include="Images\area\Button_home0.png" />
+    <Resource Include="Images\area\Button_home.png" />
+    <None Include="公用控件接口文档.doc" />
+    <Resource Include="Images\Tool\16_L_refresh.png" />
+    <Resource Include="Images\Tool\edit.png" />
+    <Resource Include="Images\Tool\group.png" />
+    <Resource Include="Images\Tool\ico_discount.png" />
+    <Resource Include="Images\Tool\salary.png" />
+    <Resource Include="Images\Tool\18_activities.png" />
+    <Resource Include="Images\Tool\18_calendar.png" />
+    <Resource Include="Images\Tool\18_crmemail.png" />
+    <Resource Include="Images\Tool\18_debug.png" />
+    <Resource Include="Images\Tool\18_home.png" />
+    <Resource Include="Images\Tool\18_import.png" />
+    <Resource Include="Images\Tool\18_reports.png" />
+    <Resource Include="Images\Tool\18_sales.png" />
+    <Resource Include="Images\Tool\18_schedulerules.png" />
+    <Resource Include="Images\Tool\18_service.png" />
+    <Resource Include="Images\Tool\18_settings.png" />
+    <Resource Include="Images\Tool\18_subAccounts.png" />
+    <Resource Include="Images\Tool\18_subContacts.png" />
+    <Resource Include="Images\Tool\18_syscust.png" />
+    <Resource Include="Images\Tool\18_workPlace.png" />
+    <Resource Include="Images\Tool\18_workrules.png" />
+    <Resource Include="Images\Tool\CreateInCrm.png" />
+    <Resource Include="Images\Tool\ico_16_1001.png" />
+    <Resource Include="Images\Tool\ico_16_1022.png" />
+    <Resource Include="Images\Tool\ico_16_1026_d.png" />
+    <Resource Include="Images\Tool\ico_16_1036.png" />
+    <Resource Include="Images\Tool\ico_16_1055.png" />
+    <Resource Include="Images\Tool\ico_16_1056.png" />
+    <Resource Include="Images\Tool\ico_16_1056_d.png" />
+    <Resource Include="Images\Tool\ico_16_1071_d.png" />
+    <Resource Include="Images\Tool\ico_16_123_d.png" />
+    <Resource Include="Images\Tool\ico_16_129_p.png" />
+    <Resource Include="Images\Tool\ico_16_134_d.png" />
+    <Resource Include="Images\Tool\ico_16_137.png" />
+    <Resource Include="Images\Tool\ico_16_2_d.png" />
+    <Resource Include="Images\Tool\ico_16_4209.png" />
+    <Resource Include="Images\Tool\ico_16_4211_d.png" />
+    <Resource Include="Images\Tool\ico_16_4405_d.png" />
+    <Resource Include="Images\Tool\ico_16_4503.png" />
+    <Resource Include="Images\Tool\ico_16_4700.png" />
+    <Resource Include="Images\Tool\ico_16_5.png" />
+    <Resource Include="Images\Tool\ico_16_5006.png" />
+    <Resource Include="Images\Tool\ico_16_9104.png" />
+    <Resource Include="Images\Tool\ico_16_9_d.png" />
+    <Resource Include="Images\Tool\ico_16_assign.png" />
+    <Resource Include="Images\Tool\ico_16_editreport.png" />
+    <Resource Include="Images\Tool\ico_16_manyToOneCustomRelationship_d.png" />
+    <Resource Include="Images\Tool\ico_16_oneToManyCustomRelationship_d.png" />
+    <Resource Include="Images\Tool\ico_16_relationshipsN2N.png" />
+    <Resource Include="Images\Tool\ico_16_salesprocess.png" />
+    <Resource Include="Images\Tool\ico_16_salesprocess_action.png" />
+    <Resource Include="Images\Tool\ico_16_securityrole.png" />
+    <Resource Include="Images\Tool\ico_16_template.png" />
+    <Resource Include="Images\Tool\ico_16_workflow.png" />
+    <Resource Include="Images\Tool\ico_18_1036.png" />
+    <Resource Include="Images\Tool\ico_18_1084.png" />
+    <Resource Include="Images\Tool\ico_18_1085.png" />
+    <Resource Include="Images\Tool\ico_18_1088.png" />
+    <Resource Include="Images\Tool\ico_18_1089.png" />
+    <Resource Include="Images\Tool\ico_18_1090.png" />
+    <Resource Include="Images\Tool\ico_18_1091.png" />
+    <Resource Include="Images\Tool\ico_18_126.png" />
+    <Resource Include="Images\Tool\ico_18_129.png" />
+    <Resource Include="Images\Tool\ico_18_4.png" />
+    <Resource Include="Images\Tool\ico_18_4001.png" />
+    <Resource Include="Images\Tool\ico_18_4007.png" />
+    <Resource Include="Images\Tool\ico_18_4207.png" />
+    <Resource Include="Images\Tool\ico_18_4417.png" />
+    <Resource Include="Images\Tool\ico_18_4418.png" />
+    <Resource Include="Images\Tool\ico_18_5.png" />
+    <Resource Include="Images\Tool\ico_18_crm_email.png" />
+    <Resource Include="Images\Tool\ico_18_keep_member_af.png" />
+    <Resource Include="Images\Tool\ico_18_quota.png" />
+    <Resource Include="Images\Tool\ico_18_ref.png" />
+    <Resource Include="Images\Tool\ico_18_service.png" />
+    <Resource Include="Images\Tool\lookup.png" />
+    <Resource Include="Images\Tool\SetRegarding.png" />
+    <Resource Include="Images\Tool\treeOn.png" />
+    <Resource Include="Images\Tool\uploadimportmap.png" />
+    <Resource Include="Images\Tool\ico_16_8.png" />
+    <Resource Include="Images\logo\Logo56.png" />
+    <Resource Include="Images\ToolBar\ico_16_4424.png" />
+    <Resource Include="Images\18_workPlace.png" />
+    <Resource Include="Images\Resources\Error.png" />
+    <Resource Include="Images\Resources\Exclamation.png" />
+    <Resource Include="Images\Resources\Information.png" />
+    <Resource Include="Images\Resources\NESW.png" />
+    <Resource Include="Images\Resources\NWSE.png" />
+    <Resource Include="Images\Resources\Question.png" />
+    <Resource Include="Images\Resources\Information1.png" />
+    <Resource Include="Images\Resources\Exclamation1.png" />
+    <Resource Include="Images\Resources\Error1.png" />
+    <Resource Include="Images\FootBackground.png" />
+    <Resource Include="Images\Resources\Silverlight.png" />
+    <Resource Include="Images\Tool\ico_16_4406in.png" />
+    <Resource Include="Images\18_activities.png" />
+    <Resource Include="Images\company.png" />
+    <Resource Include="Images\department.png" />
+    <Resource Include="Images\entity.png" />
+    <Resource Include="Images\Tool\ico_bizSettings.png" />
+    <Resource Include="Images\Tool\ico_16_1038.png" />
+    <Resource Include="Images\area\old_school_051.png" />
+    <Resource Include="Images\%2809,24%29.png" />
+    <Resource Include="Images\Resources\1.png" />
+    <Resource Include="Images\Resources\0.png" />
+    <Resource Include="Images\ItemTools\calendar.png" />
+    <Resource Include="Images\ItemTools\comment.png" />
+    <Resource Include="Images\ItemTools\config.png" />
+    <Resource Include="Images\ItemTools\mail_search.png" />
+    <Resource Include="Images\ItemTools\refresh.png" />
+    <Resource Include="Images\ItemTools\rss.png" />
+    <Resource Include="Images\ItemTools\users.png" />
+    <Resource Include="Images\icos\head_0.png" />
+    <Resource Include="Images\icos\head_1.png" />
+    <Resource Include="Images\icos\notes.png" />
+    <Resource Include="Images\icos\Processed.png" />
+    <Resource Include="Images\icos\untreated.png" />
+    <Resource Include="Images\ItemTools\attachment.png" />
+    <Resource Include="Images\image\FootBackground.png" />
+    <Resource Include="Images\image\level.png" />
+    <Resource Include="Images\image\star.png" />
+    <Resource Include="Images\image\white.png" />
+    <Resource Include="Images\Tool\icn_help16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image\background.png" />
+    <Resource Include="Images\image\bottom.png" />
+    <Resource Include="Images\image\logo_smt1.png" />
+    <Resource Include="Images\Tool\ico_email_template.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo\Header_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OrgPerControl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icos\043_fullscreen.png" />
+    <Resource Include="Images\icos\045_logoff.png" />
+    <Resource Include="Images\icos\cjrss.png" />
+    <Resource Include="Images\icos\head.png" />
+    <Resource Include="Images\icos\head1.png" />
+    <Resource Include="Images\icos\level_moon.png" />
+    <Resource Include="Images\icos\level_star.png" />
+    <Resource Include="Images\icos\level_sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icos\logoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icos\loading_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icos\RedStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icos\Load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ToolBar\18_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo\smtlm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TreeView\Collapsed.png" />
+    <Resource Include="Images\TreeView\Expend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_COMPANY.png" />
+    <Resource Include="Images\icon\T_HR_DEPARTMENT.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEEENTRY.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEELEAVERECORD.png" />
+    <Resource Include="Images\icon\T_HR_LEFTOFFICE.png" />
+    <Resource Include="Images\icon\T_HR_LEFTOFFICECONFIRM.png" />
+    <Resource Include="Images\icon\H7.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEECHECK.png" />
+    <Resource Include="Images\icon\T_HR_POST.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEECLOCKINRECORD.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEEPOSTCHANGE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\BlackLists.png" />
+    <Resource Include="Images\icon\ContactDetailsView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\H8.png" />
+    <Resource Include="Images\icon\News.png" />
+    <Resource Include="Images\icon\OABUMFDOCTEMPLATE.png" />
+    <Resource Include="Images\icon\OABUMFDOCTYPE.png" />
+    <Resource Include="Images\icon\OAMYCOMPANYDOC.png" />
+    <Resource Include="Images\icon\OAPERSONOFFICE.png" />
+    <Resource Include="Images\icon\PAYSALARYHISTORY.png" />
+    <Resource Include="Images\icon\QueryBudgetAccount.png" />
+    <Resource Include="Images\icon\SYSDICTIONARY.png" />
+    <Resource Include="Images\icon\SYSMENUMANAGEMENT.png" />
+    <Resource Include="Images\icon\SYSPERMISSION.png" />
+    <Resource Include="Images\icon\SYSROLE.png" />
+    <Resource Include="Images\icon\SYSUSERMANAGEMENT.png" />
+    <Resource Include="Images\icon\T_FB_BORROWAPPLYMASTER.png" />
+    <Resource Include="Images\icon\T_FB_BUDGETCHECK.png" />
+    <Resource Include="Images\icon\T_FB_CHARGEAPPLYMASTER.png" />
+    <Resource Include="Images\icon\T_FB_COMPANYBUDGETAPPLYMASTER.png" />
+    <Resource Include="Images\icon\T_FB_COMPANYBUDGETMODMASTER.png" />
+    <Resource Include="Images\icon\T_FB_COMPANYBUDGETSUMMASTER.png" />
+    <Resource Include="Images\icon\T_FB_COMPANYTRANSFERMASTER.png" />
+    <Resource Include="Images\icon\T_FB_DEPTBUDGETADDMASTER.png" />
+    <Resource Include="Images\icon\T_FB_DEPTBUDGETAPPLYMASTER.png" />
+    <Resource Include="Images\icon\T_FB_DEPTBUDGETSUMMASTER.png" />
+    <Resource Include="Images\icon\T_FB_DEPTTRANSFERMASTER.png" />
+    <Resource Include="Images\icon\T_FB_PERSONMONEYASSIGNMASTER.png" />
+    <Resource Include="Images\icon\T_FB_REPAYAPPLYMASTER.png" />
+    <Resource Include="Images\icon\T_FB_SUBJECTCOMPANY.png" />
+    <Resource Include="Images\icon\T_FB_SUBJECTDEPTMENT.png" />
+    <Resource Include="Images\icon\T_FB_SUBJECTTYPE.png" />
+    <Resource Include="Images\icon\T_HR_ATTENDANCEDEDUCTMASTER.png" />
+    <Resource Include="Images\icon\T_HR_ATTENDANCESOLUTION.png" />
+    <Resource Include="Images\icon\T_HR_ATTENDANCESOLUTIONASIGN.png" />
+    <Resource Include="Images\icon\T_HR_ATTENDMONTHLYBALANCE.png" />
+    <Resource Include="Images\icon\T_HR_ATTENDYEARLYBALANCE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_CUSTOMGUERDONSET.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_DEPARTMENTDICTIONARY.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEE.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEEABNORMRECORD.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEEADDSUM.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEECANCELLEAVE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_EMPLOYEECONTRACT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_EMPLOYEEEVECTIONRECORD.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEEINSURANCE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_EMPLOYEELEVELDAYCOUNT.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEEOVERTIMERECORD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_EMPLOYEESALARYRECORD.png" />
+    <Resource Include="Images\icon\T_HR_EMPLOYEESIGNINRECORD.png" />
+    <Resource Include="Images\icon\T_HR_IMPORTSETMASTER.png" />
+    <Resource Include="Images\icon\T_HR_LEAVETYPESET.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_OVERTIMEREWARD.png" />
+    <Resource Include="Images\icon\T_HR_PENSIONALARMSET.png" />
+    <Resource Include="Images\icon\T_HR_PENSIONDETAIL.png" />
+    <Resource Include="Images\icon\T_HR_PENSIONMASTER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_POSTDICTIONARY.png" />
+    <Resource Include="Images\icon\T_HR_RESUME.png" />
+    <Resource Include="Images\icon\T_HR_SALARYARCHIVE.png" />
+    <Resource Include="Images\icon\T_HR_SALARYARCHIVEHIS.png" />
+    <Resource Include="Images\icon\T_HR_SALARYITEM.png" />
+    <Resource Include="Images\icon\T_HR_SALARYSOLUTION.png" />
+    <Resource Include="Images\icon\T_HR_SALARYSOLUTIONASSIGN.png" />
+    <Resource Include="Images\icon\T_HR_SALARYSTANDARD.png" />
+    <Resource Include="Images\icon\T_HR_SALARYSYSTEM.png" />
+    <Resource Include="Images\icon\T_HR_SCHEDULINGTEMPLATEMASTER.png" />
+    <Resource Include="Images\icon\T_HR_SHIFTDEFINE.png" />
+    <Resource Include="Images\icon\T_HR_VACATIONSET.png" />
+    <Resource Include="Images\icon\T_OA_AGENTDATESET.png" />
+    <Resource Include="Images\icon\T_OA_AGENTSET.png" />
+    <Resource Include="Images\icon\T_OA_APPROVALINFO.png" />
+    <Resource Include="Images\icon\T_OA_APPROVALTYPESET.png" />
+    <Resource Include="Images\icon\T_OA_AREAALLOWANCE.png" />
+    <Resource Include="Images\icon\T_OA_BUSINESSREPORT.png" />
+    <Resource Include="Images\icon\T_OA_BUSINESSTRIP.png" />
+    <Resource Include="Images\icon\T_OA_CALENDAR.png" />
+    <Resource Include="Images\icon\T_OA_SENDDOC.png" />
+    <Resource Include="Images\icon\T_OA_TRAVELREIMBURSEMENT.png" />
+    <Resource Include="Images\icon\T_OA_TRAVELSOLUTIONS.png" />
+    <Resource Include="Images\icon\T_OA_WORKRECORD.png" />
+    <Resource Include="Images\icon\USERHISTORYLOGIN.png" />
+    <Resource Include="Images\icon\USERLOGINRECORD.png" />
+    <Resource Include="Images\icon\XZFF.png" />
+    <Resource Include="Images\icon\薪资密码设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Resources\AuditInforState.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Tool\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_AREAALLOWANCE.png" />
+    <Resource Include="Images\icon\T_HR_AREADIFFERENCE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_OA_VEHICLE.png" />
+    <Resource Include="Images\icon\T_OA_VEHICLEDISPATCHRECORD.png" />
+    <Resource Include="Images\icon\T_OA_WELFAREDISTRIBUTEDETAIL.png" />
+    <Resource Include="Images\icon\T_OA_WELFAREDISTRIBUTEUNDO.png" />
+    <Resource Include="Images\icon\T_OA_WELFAREMASERT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_OA_CONSERVATIONRECORD.png" />
+    <Resource Include="Images\icon\T_OA_CONTRACTAPP.png" />
+    <Resource Include="Images\icon\T_OA_CONTRACTPRINT.png" />
+    <Resource Include="Images\icon\T_OA_CONTRACTTEMPLATE.png" />
+    <Resource Include="Images\icon\T_OA_CONTRACTTYPE.png" />
+    <Resource Include="Images\icon\T_OA_CONTRACTVIEW.png" />
+    <Resource Include="Images\icon\T_OA_HIREAPP.png" />
+    <Resource Include="Images\icon\T_OA_HIRERECORD.png" />
+    <Resource Include="Images\icon\T_OA_HOUSEINFO.png" />
+    <Resource Include="Images\icon\T_OA_HOUSEINFOISSUANCE.png" />
+    <Resource Include="Images\icon\T_OA_LENDARCHIVES.png" />
+    <Resource Include="Images\icon\T_OA_MEETINGINFO.png" />
+    <Resource Include="Images\icon\T_OA_MEETINGROOMAPP.png" />
+    <Resource Include="Images\icon\T_OA_ORGANIZATION.png" />
+    <Resource Include="Images\icon\T_OA_REQUIRE.png" />
+    <Resource Include="Images\icon\T_OA_REQUIREDISTRIBUTE.png" />
+    <Resource Include="Images\icon\T_OA_REQUIREMASTER.png" />
+    <Resource Include="Images\icon\T_OA_REQUIRERESULT.png" />
+    <Resource Include="Images\icon\T_OA_SATISFACTIONDISTRIBUTE.png" />
+    <Resource Include="Images\icon\T_OA_SATISFACTIONMASTER.png" />
+    <Resource Include="Images\icon\T_OA_SATISFACTIONREQUIRE.png" />
+    <Resource Include="Images\icon\T_OA_SATISFACTIONRESULT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_OA_AREADIFFERENCE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_LM_REPAIRRELISTMASTER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_PERFORMANCEREWARDRECORD.png" />
+    <Resource Include="Images\icon\T_HR_RANDOMGROUP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\T_HR_KPIPOINT.png" />
+    <Resource Include="Images\icon\T_HR_KPIRECORD.png" />
+    <Resource Include="Images\icon\T_HR_KPITYPE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\SUMPERFORMANCE.png" />
+    <Resource Include="Images\icon\SUMPERFORMANCEDETAIL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\OAVEHICLEACCIDENT.png" />
+    <Resource Include="Images\icon\OAVEHICLEAPP.png" />
+    <Resource Include="Images\icon\OAVEHICLECOST.png" />
+    <Resource Include="Images\icon\OAVEHICLEDISPATCH.png" />
+    <Resource Include="Images\icon\OAVEHICLEMAINTENANCE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\OAMYMEETING.png" />
+    <Resource Include="Images\icon\OAORGANLICEN.png" />
+    <Resource Include="Images\icon\OAORGANLICENUSERIN.png" />
+    <Resource Include="Images\icon\OAORGANLICENUSEROUT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\OACONSERVATION.png" />
+    <Resource Include="Images\icon\OAHOSTMEETING.png" />
+    <Resource Include="Images\icon\OALENDARCHIVES.png" />
+    <Resource Include="Images\icon\OAMEETINGROOM.png" />
+    <Resource Include="Images\icon\OAMEETINGTYPE.png" />
+    <Resource Include="Images\icon\OAMEETINGTYPETEMPLATE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon\MYHIREAPP.png" />
+    <Resource Include="Images\icon\OAARCHIVES.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\jxc\仓库.png" />
+    <Resource Include="Images\jxc\付款冲账.png" />
+    <Resource Include="Images\jxc\供应商信息.png" />
+    <Resource Include="Images\jxc\供应商商品关联.png" />
+    <Resource Include="Images\jxc\供应商应收预收期初.png" />
+    <Resource Include="Images\jxc\供应商投诉.png" />
+    <Resource Include="Images\jxc\供应商账号管理.png" />
+    <Resource Include="Images\jxc\供应商资质管理.png" />
+    <Resource Include="Images\jxc\先款后货 销售合同.png" />
+    <Resource Include="Images\jxc\先款后货 销售订单.png" />
+    <Resource Include="Images\jxc\先款后货销售出库.png" />
+    <Resource Include="Images\jxc\先款后货销售收款.png" />
+    <Resource Include="Images\jxc\先货后款 销售合同.png" />
+    <Resource Include="Images\jxc\先货后款 销售收款.png" />
+    <Resource Include="Images\jxc\先货后款 销售订单.png" />
+    <Resource Include="Images\jxc\先货后款销售出库.png" />
+    <Resource Include="Images\jxc\其它入库.png" />
+    <Resource Include="Images\jxc\其它出库.png" />
+    <Resource Include="Images\jxc\出入库流水帐.png" />
+    <Resource Include="Images\jxc\到货确认.png" />
+    <Resource Include="Images\jxc\发票开具确认.png" />
+    <Resource Include="Images\jxc\存货成本调整.png" />
+    <Resource Include="Images\jxc\存货期初.png" />
+    <Resource Include="Images\jxc\客户信息.png" />
+    <Resource Include="Images\jxc\客户应收预收期初.png" />
+    <Resource Include="Images\jxc\库存台帐.png" />
+    <Resource Include="Images\jxc\应付余额查询.png" />
+    <Resource Include="Images\jxc\应收余额查询.png" />
+    <Resource Include="Images\jxc\批次设定查询.png" />
+    <Resource Include="Images\jxc\拆装.png" />
+    <Resource Include="Images\jxc\收发存汇总表.png" />
+    <Resource Include="Images\jxc\收款冲账.png" />
+    <Resource Include="Images\jxc\正常流程采购付款.png" />
+    <Resource Include="Images\jxc\正常流程采购入库.png" />
+    <Resource Include="Images\jxc\正常流程采购合同.png" />
+    <Resource Include="Images\jxc\正常流程采购订单.png" />
+    <Resource Include="Images\jxc\现存量查询.png" />
+    <Resource Include="Images\jxc\现金银行账号.png" />
+    <Resource Include="Images\jxc\现金银行账号期初余额.png" />
+    <Resource Include="Images\jxc\盘点.png" />
+    <Resource Include="Images\jxc\短缺分析.png" />
+    <Resource Include="Images\jxc\空进空出采购付款.png" />
+    <Resource Include="Images\jxc\空进空出采购入库.png" />
+    <Resource Include="Images\jxc\空进空出采购合同.png" />
+    <Resource Include="Images\jxc\空进空出采购订单.png" />
+    <Resource Include="Images\jxc\调拨.png" />
+    <Resource Include="Images\jxc\货物.png" />
+    <Resource Include="Images\jxc\货物类别.png" />
+    <Resource Include="Images\jxc\超储分析.png" />
+    <Resource Include="Images\jxc\超账期应付款.png" />
+    <Resource Include="Images\jxc\超账期应收款.png" />
+    <Resource Include="Images\jxc\进销存综合分析表.png" />
+    <Resource Include="Images\jxc\采购合同报表.png" />
+    <Resource Include="Images\jxc\采购申请.png" />
+    <Resource Include="Images\jxc\采购结算表.png" />
+    <Resource Include="Images\jxc\采购统计表.png" />
+    <Resource Include="Images\jxc\采购补录流程.png" />
+    <Resource Include="Images\jxc\采购进货表.png" />
+    <Resource Include="Images\jxc\采购退货.png" />
+    <Resource Include="Images\jxc\采购退货收款.png" />
+    <Resource Include="Images\jxc\采购退货表.png" />
+    <Resource Include="Images\jxc\采购预付款.png" />
+    <Resource Include="Images\jxc\销售价格表.png" />
+    <Resource Include="Images\jxc\销售出库明细表.png" />
+    <Resource Include="Images\jxc\销售合同表.png" />
+    <Resource Include="Images\jxc\销售结算.png" />
+    <Resource Include="Images\jxc\销售统计.png" />
+    <Resource Include="Images\jxc\销售退货.png" />
+    <Resource Include="Images\jxc\销售退货付款.png" />
+    <Resource Include="Images\jxc\销售退货明细表.png" />
+    <Resource Include="Images\jxc\销售预收款.png" />
+    <Resource Include="Images\jxc\需方信息.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
+      <Project>{9484C541-B0A2-437A-8C6F-0BFD7E13934E}</Project>
+      <Name>SMT.Saas.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FileUpload\Img\tick.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,74 @@
+﻿<swc:Window x:Class="SMT.HRM.UI.LookupTreeForm" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+        TitleContent="LookupForm" Width="400" Height="500">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <StackPanel x:Name="GridStack">
+                <controls:TreeView x:Name="lookUpTree"   SelectedItemChanged="lookUpTree_SelectedItemChanged"
+                                   Margin="5,5,5,5"  
+                                   HorizontalAlignment="Right" Width="178" >
+                    <controls:TreeViewItem  Height="Auto" Margin="0" Width="135" Header="TreeViewItem1">
+                        <CheckBox Content="选择"></CheckBox>
+                        <ComboBox Style="{StaticResource ComboBoxStyle}">
+                            <ComboBox.Background>
+                                <ImageBrush ImageSource="/SMT.SaaS.FrameworkUI;Component/Images/area/old_school_051.png"></ImageBrush>
+                            </ComboBox.Background>
+                            <ComboBoxItem Content="1"></ComboBoxItem>
+                            <ComboBoxItem Content="2"></ComboBoxItem>
+                        </ComboBox>
+                        <ListBoxItem Content="H1" Height="Auto" Width="Auto"/>
+                        <ListBoxItem Content="H2" Height="Auto" Width="Auto"/>
+                        <ListBoxItem Content="H3" Height="Auto" Width="Auto"/>
+                        <ListBoxItem Content="H4" Height="Auto" Width="Auto"/>
+                    </controls:TreeViewItem>
+                    <controls:TreeViewItem IsExpanded="True" Height="Auto" Margin="0" Width="135" Header="TreeViewItem2">
+                        <controls:TreeViewItem IsExpanded="True"  Header="treeItem1" DataContext="value1" >
+                            <controls:TreeViewItem IsExpanded="True"  Header="treeItem2" DataContext="value2">
+                                <controls:TreeViewItem IsExpanded="True"  Header="treeItem3" DataContext="value3">
+                                    <controls:TreeViewItem IsExpanded="True"  Header="treeItem4" DataContext="value4">
+                                        <controls:TreeViewItem IsExpanded="True"  Header="treeItem5" DataContext="value5"></controls:TreeViewItem>
+                                    </controls:TreeViewItem>
+                                </controls:TreeViewItem>
+                            </controls:TreeViewItem>
+                        </controls:TreeViewItem>
+                        
+                        <controls:TreeViewItem Header="treeItem1" DataContext="value1" >
+                            <controls:TreeViewItem Header="treeItem2" DataContext="value2">
+                                <controls:TreeViewItem Header="treeItem3" DataContext="value3">
+                                    <controls:TreeViewItem Header="treeItem4" DataContext="value4">
+                                        <controls:TreeViewItem Header="treeItem5" DataContext="value5"></controls:TreeViewItem>
+                                    </controls:TreeViewItem>
+                                </controls:TreeViewItem>
+                            </controls:TreeViewItem>
+                        </controls:TreeViewItem>
+                        
+                        <controls:TreeViewItem Header="treeItem1" DataContext="value1" >
+                            <controls:TreeViewItem Header="treeItem2" DataContext="value2">
+                                <controls:TreeViewItem Header="treeItem3" DataContext="value3">
+                                    <controls:TreeViewItem Header="treeItem4" DataContext="value4">
+                                        <controls:TreeViewItem Header="treeItem5" DataContext="value5"></controls:TreeViewItem>
+                                    </controls:TreeViewItem>
+                                </controls:TreeViewItem>
+                            </controls:TreeViewItem>
+                        </controls:TreeViewItem>
+                        </controls:TreeViewItem>
+                </controls:TreeView>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="当前选择的值为："></TextBlock>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtTreeSelect" Width="94"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="CancelButton" Content="取消" Click="CancelButton_Click" Width="75" HorizontalAlignment="Center"  />
+                <Button x:Name="OKButton" Content="确定" Click="OKButton_Click" Width="75" HorizontalAlignment="Right" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</swc:Window>

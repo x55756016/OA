@@ -1,0 +1,87 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Attendance.AttSolRdBasicSet"	 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	mc:Ignorable="d"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+	xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+	xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    >
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="10">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+        		<ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>			
+			<validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+			<!--Row 0:Title-->
+			 <TextBlock x:Name="tbAttSolBasicTitle1" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" 
+			Style="{StaticResource HeaderTextStyle}" HorizontalAlignment="Left" Margin="5,6,0,5" Height="24" d:LayoutOverrides="GridBox" Grid.ColumnSpan="8"/>
+			<Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+
+            <!--Row 1:AttendanceSolutionName-->
+            <TextBlock x:Name="tbAttSolNameTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDANCESOLUTIONNAME}" 
+			Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAttSolName" Grid.Row="1" Grid.Column="2"  Margin="5,0,0,0" Width="Auto" Height="24" Text="{Binding ATTENDANCESOLUTIONNAME, Mode=TwoWay}"/>
+            		
+            <!--Row 2:AttendanceType & CardType-->   
+			<TextBlock x:Name="tbAttendanceTypeTitle" Grid.Row="2" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDANCETYPE}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkAttendanceType" Grid.Row="2" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ATTENDANCETYPE" SelectedValue="{Binding ATTENDANCETYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Margin="5,0,0,0"/>
+			         
+            <TextBlock x:Name="tbCardTypeTitle" Grid.Row="2" Grid.Column="4" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTYPE}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkCardType" Grid.Row="2" Grid.Column="6" IsShowNull="False" HorizontalAlignment="Stretch" Category="CARDTYPE" SelectedValue="{Binding CARDTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
+
+            <!--Row 3:WorkMode & WorkTimePerDay-->
+            <TextBlock x:Name="tbAttSolWorkModeTitle" Grid.Row="3" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKMODE}" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAttSolWorkMode" Grid.Row="3" Grid.Column="2"  Margin="5,0,0,0" Width="Auto" Height="24" Text="{Binding WORKMODE, Mode=TwoWay}" validator:TextBoxFilterService.Filter="Decimal" />
+            <TextBlock Margin="0" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Style="{StaticResource SysTextBlockStyle}" Grid.Row="3" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DAY}"/>
+
+            <TextBlock x:Name="tbWorkTimeTitle" Grid.Row="3" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKTIMEPERDAY}" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtWorkTime" Grid.Row="3" Grid.Column="6"  Margin="5,0,0,0" Width="Auto" Text="{Binding WORKTIMEPERDAY, Mode=TwoWay}" validator:TextBoxFilterService.Filter="Decimal" Height="24" Style="{StaticResource TextBoxStyle}"/>
+            <TextBlock Grid.Row="3" Grid.Column="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOUR}" Margin="0" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Style="{StaticResource SysTextBlockStyle}" />
+            
+			<!--Row 4:WorkDayType & WorkDays-->   
+			<TextBlock x:Name="tbWorkDayTypeTitle" Grid.Row="4" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKDAYTYPE}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkWorkDayType" Grid.Row="4" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="WORKDAYTYPE" SelectedValue="{Binding WORKDAYTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Stretch" SelectionChanged="cbxkWorkDayType_SelectionChanged" Grid.ColumnSpan="1" Margin="5,0,0,0"/>
+			       
+			<TextBlock x:Name="tbWorkDaysTitle" Grid.Row="4" Grid.Column="4" TextWrapping="Wrap" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKDAYS}" Margin="5,0,0,0" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtWorkDays" Grid.Row="4" Grid.Column="6"  Margin="5,0,0,0" Text="{Binding WORKDAYS, Mode=TwoWay}" Width="Auto" Height="24" Visibility="Collapsed"/>
+            <TextBlock x:Name="tbWorkDaysTimeUnit" Margin="0" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Style="{StaticResource SysTextBlockStyle}" Grid.Row="4" Grid.Column="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DAY}" Visibility="Collapsed"/>
+
+            <!--Row 5:SettlementDate & AlarmDate-->
+            <TextBlock x:Name="tbSettlementDateTitle" Grid.Row="5" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SETTLEMENTDATE}" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSettlementDate" Margin="5,0,0,0" VerticalAlignment="Center" Grid.Row="5" TextWrapping="Wrap" Grid.Column="2" Text="{Binding SETTLEMENTDATE, Mode=TwoWay}"/>
+            
+            <TextBlock x:Name="tbAlarmDateTitle" Grid.Row="5" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ALARMDATE}" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+			<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAlarmDate" Margin="5,0,0,0" TextWrapping="Wrap" Grid.Row="5" Grid.Column="6" Text="{Binding ALARMDATE, Mode=TwoWay}" Height="24"/>
+
+            <!--Row 6:IsCurrentMonth-->
+            <TextBlock x:Name="tbIsCurrentMonthTitle" Grid.Row="6" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISCURRENTMONTH}" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkIsCurrentMonth" Grid.Row="6" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ISCHECKED" SelectedValue="{Binding ISCURRENTMONTH, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Margin="5,0,0,0"/>
+            
+            <!--Row 7:Remark-->
+            <TextBlock x:Name="tbRemarkTitle" Grid.Row="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" TextWrapping="Wrap" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,0,0,0" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay}" />
+            		
+		</Grid>
+    
+</smtLocal:BaseForm>

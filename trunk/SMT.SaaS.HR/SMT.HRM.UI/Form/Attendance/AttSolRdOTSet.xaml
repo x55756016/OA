@@ -1,0 +1,84 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Attendance.AttSolRdOTSet" 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    mc:Ignorable="d"
+	xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+	xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+    >
+    <Grid x:Name="LayoutRoot" Background="Transparent"  Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto" MinHeight="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+			
+            <!--Row 0:OverTimeValid & OverTimePayType-->
+			<TextBlock x:Name="tbOTValidTitle" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=OVERTIMEVALID}" Width="Auto" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkOTValid" Grid.Row="0" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="OVERTIMECATE" SelectedValue="{Binding OVERTIMEVALID, Mode=TwoWay}" Width="Auto" Height="24" Style="{StaticResource SysComboBoxStyle}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            <TextBlock x:Name="tbIsExpiredTitle" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=OVERTIMECHECK}" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <CheckBox x:Name="cbOTTimeCheck" Grid.Column="6" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource CheckBoxStyle}"/>
+            
+			<!--Row 1:OverTimeCheck-->
+            <TextBlock x:Name="tbOTTimePayTypeTitle" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=OVERTIMEPAYTYPE}" Width="Auto" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Row="1"/>
+            <appCtr:DictionaryComboBox x:Name="cbxkOTTimePayType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="OVERTIMEPAYTYPE" SelectedValue="{Binding OVERTIMEPAYTYPE, Mode=TwoWay}" Width="Auto" Height="24" Style="{StaticResource SysComboBoxStyle}" VerticalAlignment="Center" Margin="5,0,0,0" SelectionChanged="cbxkOTTimePayType_SelectionChanged"  />           
+			
+			<TextBlock x:Name="tbOneDayOvertimeHoursTitle" Grid.Row="1" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ONEDAYOVERTIMEHOURS}" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <inputToolkit:NumericUpDown x:Name="nudOneDayOvertimeHours"  Style="{StaticResource NumericUpDownStyle}"  Grid.Row="1" Grid.Column="6" Maximum="23" DecimalPlaces="1" Increment="0.5" Value="{Binding ONEDAYOVERTIMEHOURS, Mode=TwoWay}" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+            <TextBlock x:Name="tbOneDayOvertimeHoursUnit" Grid.Row="1" Grid.Column="7" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOUR}" Height="16" Visibility="Collapsed"/>
+            
+			<!--Row 2:Title 2-->
+            <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="2" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+
+            <!--Row 3:OvertimeRewardID-->
+            <TextBlock x:Name="tbOTRewardIDTitle" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=OVERTIMEREWARDNO}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" />
+            <smtx:LookUp Name="lkOTReward" Grid.Row="3" Grid.Column="2" DataContext="{Binding Path=T_HR_OVERTIMEREWARD, Mode=TwoWay}" HorizontalAlignment="Stretch" FindClick="lkOTReward_FindClick" Margin="0" DisplayMemberPath="OVERTIMEREWARDNAME" Height="24" />
+
+            <!--Row 5:UsualOvertimePayRate-->
+            <TextBlock x:Name="tbUsualOverTimePayRateTitle" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=USUALOVERTIMEPAYRATE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtUsualOverTimePayRate" Grid.Row="4" Grid.Column="2"  Margin="5,0,0,0" Width="Auto" VerticalAlignment="Stretch" Height="24" Text="{Binding T_HR_OVERTIMEREWARD.USUALOVERTIMEPAYRATE, Mode=TwoWay}" validator:TextBoxFilterService.Filter="Decimal">
+            </TextBox>
+
+            <TextBlock x:Name="tbWeekendPayRateTitle" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WEEKENDPAYRATE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="4"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtWeekendPayRate" Grid.Row="4" Grid.Column="6"  Margin="5,0,0,0" Width="Auto" VerticalAlignment="Stretch" Height="24" Text="{Binding T_HR_OVERTIMEREWARD.WEEKENDPAYRATE, Mode=TwoWay}" validator:TextBoxFilterService.Filter="Decimal">
+            </TextBox>
+
+            <!--Row 6:VACATIONPAYRATE-->
+            <TextBlock x:Name="tbVacationPayRateTitle" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=VACATIONPAYRATE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtVacationPayRate" Grid.Row="5" Grid.Column="2"  Margin="5,0,0,0" Width="Auto" VerticalAlignment="Stretch" Height="24" Text="{Binding T_HR_OVERTIMEREWARD.VACATIONPAYRATE, Mode=TwoWay}" validator:TextBoxFilterService.Filter="Decimal">
+            </TextBox>
+
+            <!--Row 7:Remark-->
+            <TextBlock x:Name="tbRemarkTitle" Grid.Row="6" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" TextWrapping="Wrap" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,2,0,2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding T_HR_OVERTIMEREWARD.REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

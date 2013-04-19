@@ -1,0 +1,49 @@
+﻿<smtLocal:BasePage xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+           x:Class="SMT.HRM.UI.Views.Organization.CompanyTree" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:uc="clr-namespace:SMT.HRM.UI.Form"
+           d:DesignWidth="640" d:DesignHeight="480"                
+           Title="CompanyTree Page">
+    <Grid x:Name="PARENT" Background="White">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" Grid.ColumnSpan="3" VerticalAlignment="Top"></smt:ViewTitle>
+            <controls:TreeView x:Name="treeOrganization" Grid.Row="1" Grid.Column="0"
+                           SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}">
+            </controls:TreeView>
+            <controls:GridSplitter  x:Name="grsplSplitterColumn" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Width="1"></controls:GridSplitter>
+            <Grid x:Name="Container" Grid.Row="1" Grid.Column="2" Background="Transparent">
+
+            </Grid>
+            <!--<controlsToolkit:DockPanel Grid.Row="0" Grid.Column="1" LastChildFill="true" >
+
+            <StackPanel x:Name="btnContainer" Orientation="Horizontal" controlsToolkit:DockPanel.Dock="Top">
+                <Button x:Name="btnOrgAdd"  Content="增加公司" Click="btnOrgAdd_Click" />
+                <Button x:Name="btnDepAdd"  Content="增加部门" Click="btnDepAdd_Click" />
+                <Button x:Name="btnPosAdd"  Content="增加岗位" Click="btnPosAdd_Click"/>
+                <Button x:Name="btnSubmitAudit"  Content="提交审核" Click="btnSubmitAudit_Click" />
+                <Button x:Name="btnAudit"  Content="审核" Click="btnAudit_Click" />
+                <Button x:Name="btnRemove"  Content="撤消" Click="btnRemove_Click"/>
+                <Button x:Name="btnDelete"  Content="删除" Click="btnDelete_Click"/>
+                <Button x:Name="btnMerge" Content="合并" Click="btnMerge_Click" IsEnabled="False" />
+            </StackPanel>
+        </controlsToolkit:DockPanel>-->
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

@@ -1,0 +1,135 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.EmployeeAddSumForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"     
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+    <Grid x:Name="LayoutRoot"  Loaded="LayoutRoot_Loaded"  Background="Transparent" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+
+
+        <!--Row 0-->
+        <!--EMPLOYEE-->
+
+        <TextBlock   Grid.Column="0" Grid.Row="0"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" />
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+            <smt:LookUp DataContext="{Binding Path=T_HR_EMPLOYEE, Mode=TwoWay}"  Height="24"  Width="200" HorizontalAlignment="Stretch"
+                    FindClick="LookUp_FindClick" Name="lkEmployeeName" Margin="0,0,0,0" DisplayMemberPath="EMPLOYEECNAME" IsEnabled="False">
+            </smt:LookUp>
+            <Button x:Name="btHistory" Content="离职人员" Width="auto" Height="24" Click="btHistory_Click"></Button>
+        </StackPanel>
+
+        <!--SYSTEMTYPE-->
+
+        <TextBlock   Grid.Column="3" Grid.Row="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=HANDLETYPE}" />
+
+        <appCtr:DictionaryComboBox Grid.Row="0" Margin="5 0 0 0" IsShowNull="False" Grid.Column="4"  Height="22" x:Name="combProtectType"  Width="Auto"
+                Category="PROTECTTYPE"  SelectedValue="{Binding SYSTEMTYPE, Mode=TwoWay}" HorizontalAlignment="Stretch" ></appCtr:DictionaryComboBox>
+
+        <!--Row 2-->
+        <!--DEALYEAR-->
+        <TextBlock   Grid.Column="0" Grid.Row="1"  
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEALYEAR}" />
+
+        <inputToolkit:NumericUpDown Name="numYear" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Maximum="1000000"  Grid.Row="1" Grid.Column="1" Value="{Binding DEALYEAR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="True" Margin="5,0,0,0"></inputToolkit:NumericUpDown>
+
+        <!--DEALMONTH-->
+        <TextBlock  Grid.Row="1" Grid.Column="3" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEALMONTH}" />
+
+        <inputToolkit:NumericUpDown Name="numMonth" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch"  Minimum="1" Maximum="12" Grid.Row="1" Grid.Column="4" Value="{Binding DEALMONTH, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="5,0,0,0"></inputToolkit:NumericUpDown>
+        <!--addsumList-->
+        <data:DataGrid x:Name="DtGrid" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" AutoGenerateColumns="False"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Style="{StaticResource DataGridStyle}"
+              LoadingRow="DtGrid_LoadingRow"                         CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"    >
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn Header="序号" IsReadOnly="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="30">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="tbOrder" >
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="COMPANYNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CompanyName}" IsReadOnly="True"/>
+                <data:DataGridTextColumn Header="DEPARTMENTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DepartmentName}" IsReadOnly="True"/>
+                <data:DataGridTextColumn Header="POSTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PostName}" IsReadOnly="True"/>
+                <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}" IsReadOnly="True"/>
+                <data:DataGridTemplateColumn Header="PROJECTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="120">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtName"  HorizontalAlignment="Stretch" Width="120" AcceptsReturn="True"
+            					HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap" Text="{Binding PROJECTNAME, Mode=TwoWay}" MaxLength="50" >
+                                </TextBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTemplateColumn Header="PROJECTMONEY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="90">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtProjectMoney"  HorizontalAlignment="Stretch" Width="90" MaxLength="15"
+            					Text="{Binding PROJECTMONEY, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+                                          LostFocus="txtProjectMoney_LostFocus" >
+                                    <!--<validator:ValidatorService.Validator>
+                                        <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="ACCOMMODATION"
+				                                                      Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                    </validator:ValidatorService.Validator>-->
+                                </TextBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTemplateColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="200" >
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  HorizontalAlignment="Stretch" Width="200" MaxLength="500" AcceptsReturn="True"
+            					HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" >
+                                </TextBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTemplateColumn  HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
+                                <Button x:Name="btnDel" Click="btnDel_Click" Content="删除"></Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+        <TextBox x:Name="txtErrorMsg" TextWrapping="Wrap" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,0,0,0" Visibility="Collapsed"/>
+
+    </Grid>
+</smtLocal:BaseForm>

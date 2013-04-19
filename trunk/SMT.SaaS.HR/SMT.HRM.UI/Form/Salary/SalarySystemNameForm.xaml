@@ -1,0 +1,78 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.SalarySystemNameForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+    <Grid x:Name="LayoutRoot"  Loaded="LayoutRoot_Loaded"  Background="Transparent" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+
+
+        <!--Row 0-->
+
+
+        <TextBlock   Grid.Column="0" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYSYSTEMNAME}" Height="20" />
+
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSalarySystemName"  HorizontalAlignment="Stretch" Width="Auto"  MaxLength="12"
+            					Text="{Binding SALARYSYSTEMNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="0" Grid.Column="1" Height="24" >
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SALARYSYSTEMNAME" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+
+
+        <!--REMARK-->
+        <TextBlock  Grid.Row="1" Grid.Column="0"  VerticalAlignment="Top"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding REMARK, Mode=TwoWay}" AcceptsReturn="True" MaxLength="2000" 
+            					 Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Height="60" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" >
+        </TextBox>
+        <data:DataGrid x:Name="DtGridPostDis" AutoGenerateColumns="False"  
+                            Grid.Row="2" Grid.ColumnSpan="5"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Style="{StaticResource DataGridStyle}" 
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}" IsReadOnly="True">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="entityLogo" Width="16" Height="16"></Image>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="POSTLEVEL" IsReadOnly="True" 
+                                         HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" 
+                                         Binding="{Binding POSTLEVEL, Converter={StaticResource DictionaryConverter},ConverterParameter=POSTLEVEL}" >
+                </data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="BASICSALARY" Binding="{Binding BASICSALARY, Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                </data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="LEVELBALANCE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding LEVELBALANCE, Mode=TwoWay}"/>
+                <data:DataGridTextColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REMARK, Mode=TwoWay}"/>
+
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,116 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Salary.CalculateItem" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                     
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"                  
+                    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+                              xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:smtv="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationTreeView;assembly=SMT.SaaS.FrameworkUI" 
+           xmlns:src="clr-namespace:SMT.HRM.UI.Views.Salary" 
+                          xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"       
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="CalculateItem Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"  x:Name="expander" Grid.Row="1"
+              VerticalAlignment="top" Background="Transparent">
+                <controlsToolkit:Expander.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="24"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Width="80"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYITEMNAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}" Margin="0,6,0,0"/>
+                                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtName" Grid.Row="0" Grid.Column="1" Width="160" MaxLength="20" />
+                                <!--<TextBlock Width="80"  TextAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=IDCARDNUMBER}" Grid.Row="0" Grid.Column="2" Style="{StaticResource FrameGridTextBlock2}" Margin="0,4,0,0"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBlackIdCard" Grid.Row="0" Grid.Column="3" Style="{StaticResource FrameGridTextBox2}"/>-->
+
+                                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="4" Margin="40,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnFind_Click" Width="70" Height="24" />
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </controlsToolkit:Expander.HeaderTemplate>
+
+            </controlsToolkit:Expander>
+            <StackPanel x:Name="btnContainer" Orientation="Horizontal" Grid.Row="2">
+            </StackPanel>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--<controls:TreeView x:Name="treeOrganization" Grid.RowSpan="2" Grid.Column="0"  
+                           SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}">
+            </controls:TreeView>-->
+                <smtv:OrganizationTreeView x:Name="treeOrganization" Grid.RowSpan="2" Grid.Column="0"></smtv:OrganizationTreeView>
+                <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" SelectionChanged="DtGrid_SelectionChanged"
+                             Grid.Column="1"  LoadingRow="DtGrid_LoadingRow"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"
+                        Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="SALARYITEMNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYITEMNAME}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="CALCULATETYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CALCULATORTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=CALCULATETYPES}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="SALARYITEMTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SALARYITEMTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=SALARYITEMTYPE}"/>
+                        <data:DataGridTextColumn Header="GUERDONSUM" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding GUERDONSUM}"/>
+                        <!--<data:DataGridTextColumn Header="CHECKSTATE"  Binding="{Binding CHECKSTATE,Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->
+                        <data:DataGridTextColumn Header="CREATEDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CREATEDATE,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                        <data:DataGridTextColumn Header="UPDATEDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding UPDATEDATE,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                        <data:DataGridTextColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REMARK}"/>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+
+            </Grid>
+            <Grid Grid.Row="4">
+                <!--<Grid.Resources>
+                <src:Customers x:Key="customers"/>
+            </Grid.Resources>-->
+
+                <ListBox  Width="350" Margin="0,5,0,10" BorderBrush="Black"  BorderThickness="1" Visibility="Collapsed">
+                    <ListBoxItem Content="1"></ListBoxItem>
+                    <ListBoxItem Content="2"></ListBoxItem>
+
+                </ListBox>
+            </Grid>
+
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4" ></smt:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

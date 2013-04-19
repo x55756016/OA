@@ -1,0 +1,26 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Form.Salary.SalaryLoginForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    mc:Ignorable="d"  >
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}">
+        <!-- 解密页面 -->
+        <Border x:Name="pwdArea" BorderThickness="1" BorderBrush="SteelBlue"  Margin="0 50 0 0" Padding="1"  Width="auto" Height="80" CornerRadius="0" VerticalAlignment="Top" >
+            <StackPanel x:Name="spPwd" Orientation="Vertical" HorizontalAlignment="Center" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEESALARYINFORMATION}" Width="auto"></TextBlock>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMMENTS}" Foreground="Red" Width="auto"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYPASSWORD}" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center"></TextBlock>
+                    <PasswordBox Height="23" HorizontalAlignment="Left"  Name="pwd" VerticalAlignment="Top" Width="150" />
+                    <Button x:Name="btDecryption" Click="btDecryption_Click" Margin="10 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="70" Height="24" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CONFIRM}" Style="{StaticResource CommonButtonStyle}"></Button>
+                </StackPanel>
+                <TextBlock x:Name="tbmsg" Text=""  Foreground="Red" HorizontalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Border>
+    </Grid>
+</smtLocal:BasePage>

@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:local="SMT.SaaS.FrameworkUI.FBControls"    
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+     
+    >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="dtDelColumn">
+                <Button Height="26" Margin="2,0,0,0" x:Name="ButtonDelete" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Width="auto" Click="ButtonDelete_Click" >
+                    <StackPanel  Orientation="Horizontal">
+                        <Image Width="16" x:Name="FormToolDelete" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png" Stretch="Fill" Height="16" Margin="0,0,0,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}" Margin="2,0,0,0" x:Name="TBDelete" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </DataTemplate>
+        </ResourceDictionary>
+           
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+      
+        <StackPanel x:Name="PayP" Grid.Row="0" Orientation="Vertical" Margin="0,0,0,5" >
+
+            <StackPanel Orientation="Horizontal" x:Name="spApplyType"  Height="25" >
+                <TextBlock Text="申请类型" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Width="75"/>
+                <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtnApplyTypeCharge" Content="费用报销" Click="rbtnApplyTypeCharge_Click"
+                                         GroupName="ApplyType" VerticalAlignment="Center"/>
+                <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtnApplyTypeBorrow" Content="借款" Click="rbtnApplyTypeCharge_Click"
+                                         GroupName="ApplyType" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" x:Name="spChargeApplyType" Height="25" Visibility="Collapsed">
+                <TextBlock Text="付款类型" VerticalAlignment="Center" Width="75"/>
+                <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtnChargePerson" Content="个人费用报销" Click="rbtnChargePerson_Click"
+                                         GroupName="ChargeApplyType" VerticalAlignment="Center" IsChecked="True"  />
+                <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtnChargeBorrow" Content="冲借款" Click="rbtnChargePerson_Click"
+                                         GroupName="ChargeApplyType" VerticalAlignment="Center"  />
+            </StackPanel>
+
+            <Grid x:Name="gridRemark" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="备注" Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox x:Name="tbRemark" Style="{StaticResource TextBoxStyle}" TextWrapping="Wrap"
+                                 Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AcceptsReturn="True"   />
+            </Grid>
+            <Grid  x:Name="PayTypeinfo" Visibility="Collapsed">
+                
+            </Grid>
+           
+        </StackPanel>
+        
+        <StackPanel x:Name="ToolBarP" VerticalAlignment="Top" Grid.Row="1" Visibility="Collapsed">
+            <Border  Style="{StaticResource ButtonToolBarBorder}" Height="26">
+                <StackPanel x:Name="P11" VerticalAlignment="Top" Grid.Row="0" Margin="0,-2,0,0">
+                    <smtx:ToolBar x:Name="deatilGridBar" />
+                </StackPanel >
+            </Border>
+        </StackPanel >
+        <StackPanel x:Name="GridP" Grid.Row="2">
+            
+        </StackPanel>
+        <Grid Grid.Row="3" Margin="0,5,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="120" />
+                
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="小计" Width="75"  HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox x:Name="tbCount" Style="{StaticResource TextBoxStyle}"
+                                 Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"  />
+        </Grid>
+        <Grid Grid.Row="4" x:Name="gridForBorrowInfo" Visibility="Collapsed" Margin="0,5,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="冲借款明细" Margin="0,5,0,5" FontSize="14" FontWeight="Black" />
+            <Grid x:Name="spForBorrowInfo" Grid.Row="1" >
+              
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</UserControl>
+
+    

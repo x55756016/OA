@@ -1,0 +1,164 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.SalarySolutionForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtuc="clr-namespace:SMT.HRM.UI.Form.Salary;assembly=SMT.HRM.UI"
+    xmlns:panelcontrols="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+    <Grid x:Name="LayoutRoot"  >
+        <panelcontrols:TabControl SelectionChanged="TabControl_SelectionChanged" x:Name="tabcall" Style="{StaticResource TabControlStyle}">
+            <panelcontrols:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASICINFO}" Style="{StaticResource TabItemStyle}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="20"/>
+
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="26"></RowDefinition>
+                        <RowDefinition Height="26"></RowDefinition>
+                        <RowDefinition Height="26"></RowDefinition>
+                        <RowDefinition Height="26"></RowDefinition>
+                        <RowDefinition Height="26"></RowDefinition>
+                        <RowDefinition Height="26"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                        
+                        <!--Row 0-->
+                    <!--SALARYSOLUTIONNAME-->
+                    <TextBlock   Grid.Column="0" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYSOLUTIONNAME}" />
+
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSalarySolutionName"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding SALARYSOLUTIONNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="0" Grid.Column="1" >
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SALARYSOLUTIONNAME" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+
+
+
+                    <!--Row 1-->
+                    <!--BANKNAME-->
+                    <TextBlock   Grid.Column="0" Grid.Row="1" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYBANKNAME}" />
+
+                    <appCtr:DictionaryComboBox  x:Name="txtBankName" IsShowNull="False" Category="BANKNAME" Width="Auto" HorizontalAlignment="Stretch"
+SelectedValue="{Binding BANKNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                             Grid.Row="1" Grid.Column="1"  Height="22" Margin="5,0,0,0" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBankName1"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding BANKNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
+                    </TextBox>
+
+
+                    <!--BANKACCOUNTNO-->
+                    <TextBlock   Grid.Column="3" Grid.Row="1" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYBANKACCOUNTNO}" />
+
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBankAccountNo"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding BANKACCOUNTNO, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="1" Grid.Column="4" >
+                    </TextBox>
+
+
+                    <!--Row 2-->
+
+                    <!--PAYDAY-->
+                    <TextBlock   Grid.Column="0" Grid.Row="2" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYDAY}" />
+
+                    <inputToolkit:NumericUpDown x:Name="numPayDay" Maximum="31" Minimum="1"  HorizontalContentAlignment="Left" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Value="{Binding PAYDAY,Mode=TwoWay}"></inputToolkit:NumericUpDown>
+
+                    <!--PayAlertDay-->
+                    <TextBlock  Grid.Row="2" Grid.Column="3"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYALERTDAY}" />
+
+                    <inputToolkit:NumericUpDown x:Name="numPayAlertDay" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="2"  Grid.Column="4" Maximum="30" Minimum="0" Value="{Binding PAYALERTDAY,Mode=TwoWay}"></inputToolkit:NumericUpDown>
+                    <!--Row 3-->
+                    <!--PayType-->
+                    <TextBlock   Grid.Column="0" Grid.Row="3" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYTYPE}" />
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" >
+                        <RadioButton  Content="{Binding Converter={StaticResource ResourceConveter}, Source=BANKPAY}" Style="{StaticResource RadioButtonStyle}"  x:Name="bankpay" GroupName="PAYTYPE"  Checked="HandleCheck" IsChecked="true"></RadioButton>
+                        <RadioButton  Content="{Binding Converter={StaticResource ResourceConveter}, Source=PAY}" Style="{StaticResource RadioButtonStyle}"  x:Name="moneypay" GroupName="PAYTYPE" Checked="HandleCheck"></RadioButton>
+                    </StackPanel>
+
+                    <appCtr:DictionaryComboBox  x:Name="cbxPayType" Category="PAYTYPE"
+SelectedValue="{Binding PAYTYPE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                             Grid.Row="3" Grid.Column="1" Width="Auto" Height="22" Margin="5,0,0,0" Visibility="Collapsed"/>
+                    <!--SalaryPrecision-->
+                    <TextBlock  Grid.Row="3" Grid.Column="3"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYPRECISION}" />
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="4">
+                        <RadioButton Content="{Binding Converter={StaticResource ResourceConveter}, Source=MONETARYUNIT}" Style="{StaticResource RadioButtonStyle}" x:Name="yuan" GroupName="PRECISION"  Checked="HandleCheck" IsChecked="true"></RadioButton>
+                        <RadioButton Content="{Binding Converter={StaticResource ResourceConveter}, Source=ANGLE}" Style="{StaticResource RadioButtonStyle}"  x:Name="angle" GroupName="PRECISION" Checked="HandleCheck"></RadioButton>
+                        <RadioButton Content="{Binding Converter={StaticResource ResourceConveter}, Source=MINUTE}" Style="{StaticResource RadioButtonStyle}"  x:Name="cent" GroupName="PRECISION" Checked="HandleCheck"></RadioButton>
+                    </StackPanel>
+                    <inputToolkit:NumericUpDown x:Name="numSalaryPrecision" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Left" Grid.Row="3" Maximum="3" Grid.Column="4" Value="{Binding SALARYPRECISION,Mode=TwoWay}" Margin="5,0,0,0" Visibility="Collapsed"></inputToolkit:NumericUpDown>
+
+                    <TextBlock   Grid.Column="0" Grid.Row="4"  
+                     Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYSYSTEM}" />
+                    <smt:LookUp DataContext="{Binding Path=SALARYSYSTEMNAME, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Height="24"
+                    FindClick="lkSalarySystem_FindClick" Name="lkSalarySystem" Margin="0,0,0,0" DisplayMemberPath="SALARYSYSTEMNAME">
+                    </smt:LookUp>
+
+                    <TextBlock   Grid.Column="3" Grid.Row="4"  
+                     Text="{Binding Converter={StaticResource ResourceConveter}, Source=AREATYPE}" />
+                    <smt:LookUp DataContext="{Binding Path=AREACATEGORY, Mode=TwoWay}" Grid.Row="4" Grid.Column="4" Height="24"
+                    FindClick="lkArea_FindClick" Name="lkArea" Margin="0,0,0,0" DisplayMemberPath="AREACATEGORY">
+                    </smt:LookUp>
+                    <!--`Row5-->
+                    <TextBlock   Grid.Column="0" Grid.Row="5" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=TAXESBASIC}"  Width="Auto" Height="22" />
+
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtTaxesBasic"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding TAXESBASIC, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="5" Grid.Column="1" Height="24" >
+                        <validator:ValidatorService.Validator>
+                            <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEPOSITIVE" ErrorMessageParameter="TAXESBASIC" Expression="^[0-9]+(\.\d+)?$" ></validator:RegexValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <TextBlock   Grid.Column="3" Grid.Row="5" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=TAXESCOSTRATE}"  Width="Auto" Height="22" />
+
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtTaxesRate"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding TAXESCOSTRATE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="5" Grid.Column="4" Height="24" >
+            <validator:ValidatorService.Validator>
+                <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEPOSITIVE" ErrorMessageParameter="TAXESRATE" Expression="^[0-9]+(\.\d+)?$" ></validator:RegexValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+                    <!--Row 6-->
+                    <!--REMARK-->
+                    <TextBlock  Grid.Row="6" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" AcceptsReturn="True" MaxLength="2000" VerticalScrollBarVisibility="Auto"  TextWrapping="Wrap" >
+                    </TextBox>                
+
+                    <smtuc:SalarySolutionItemsForm x:Name="SolutionItemWinForm" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" ></smtuc:SalarySolutionItemsForm>
+                </Grid>
+            </panelcontrols:TabItem>
+            <panelcontrols:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=TAXESRATE}" Style="{StaticResource TabItemStyle}" >
+                <smtuc:SalaryTaxesForm x:Name="SalaryTaxesWinForm"></smtuc:SalaryTaxesForm>
+            </panelcontrols:TabItem>
+        </panelcontrols:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

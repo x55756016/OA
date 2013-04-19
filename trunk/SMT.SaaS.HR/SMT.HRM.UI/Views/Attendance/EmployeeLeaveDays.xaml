@@ -1,0 +1,114 @@
+﻿<smtLocal:BasePage  x:Class="SMT.HRM.UI.Views.Attendance.EmployeeLeaveDays" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"                    
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+		   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+		   xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+		   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"     
+           xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+           xmlns:smtv="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationTreeView;assembly=SMT.SaaS.FrameworkUI" 
+           xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+           Title="EmployeeLeaveDays Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="ViewTitles" VerticalAlignment="Top"></smtx:ViewTitle>
+
+            <Grid Background="Transparent" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="20"/>                    
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="20"/>
+
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbEmpNameTitle" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Margin="5,0,0,0" />
+                <smtx:LookUp Name="lkEmpName" DataContext="{Binding T_HR_EMPLOYEE}" Grid.Column="1" DisplayMemberPath="EMPLOYEECNAME" FindClick="lkEmpName_FindClick" Margin="5,0,0,0" Height="24" Width="110" HorizontalAlignment="Left" />
+                <TextBlock Text="生效年月:" Grid.Column="2" VerticalAlignment="Center" Margin="0"></TextBlock>
+                <inputToolkit:NumericUpDown Grid.Column="3" Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="3000" x:Name="Nuyear"></inputToolkit:NumericUpDown>
+                <TextBlock Text="年" Grid.Column="4" VerticalAlignment="Center" Width="auto" Margin="0"></TextBlock>
+                <inputToolkit:NumericUpDown Grid.Column="5" Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1" Maximum="12" x:Name="NuStartmounth"></inputToolkit:NumericUpDown>
+                <TextBlock Grid.Column="6" Text="月" Width="auto" VerticalAlignment="Center" Margin="0"></TextBlock>
+                <TextBlock Grid.Column="7" Text="到" VerticalAlignment="Center" Width="auto" Margin="0"></TextBlock>                
+                <inputToolkit:NumericUpDown Grid.Column="8" Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1" Maximum="12" x:Name="NuEndmounth"></inputToolkit:NumericUpDown>
+                <TextBlock Grid.Column="9" Text="月" Width="auto"  VerticalAlignment="Center" Margin="0"></TextBlock>
+
+                <!--假期-->
+                <TextBlock Grid.Column="10" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVETYPESET}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <smtx:LookUp Grid.Column="11" DataContext="{Binding T_HR_LEAVETYPESET}" HorizontalAlignment="Stretch" FindClick="lkLeaveTypeName_FindClick" x:Name="lkLeaveTypeName" Margin="0,4,0,4" DisplayMemberPath="LEAVETYPENAME">
+                    <interaction:Interaction.Behaviors>
+                        <behaviors:ShowRequire></behaviors:ShowRequire>
+                        </interaction:Interaction.Behaviors>
+                </smtx:LookUp>
+                <Button Grid.Column="12" Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" HorizontalAlignment="Left" VerticalAlignment="Center" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Click="btnSearch_Click" Height="24" Width="70" />
+                <TextBlock x:Name="tbEmpSex" Grid.Column="12" Visibility="Collapsed"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--<controls:TreeView x:Name="treeOrganization" Grid.RowSpan="2" Grid.Column="0"
+                           SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}">
+                </controls:TreeView>-->
+                <smtv:OrganizationTreeView x:Name="treeOrganization" Grid.RowSpan="2" Grid.Column="0"></smtv:OrganizationTreeView>
+                <data:DataGrid x:Name="dgEmpLeaveDays" AutoGenerateColumns="False" Grid.Row="0" Grid.Column="1" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                      RowDetailsVisibilityMode="VisibleWhenSelected" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" LoadingRow="dgEmpLeaveDays_LoadingRow" >
+                    <data:DataGrid.Columns>
+                        <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" />
+                        <data:DataGridTextColumn Header="VACATIONTYPE" Binding="{Binding VACATIONTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=LEAVETYPEVALUE}" />
+                        <data:DataGridTextColumn Header="DAYS" Binding="{Binding DAYS}" />
+                        <data:DataGridTextColumn Header="EFFICDATE" Binding="{Binding EFFICDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
+                        <data:DataGridTextColumn Header="TERMINATEDATE" Binding="{Binding TERMINATEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="1" Grid.Column="1"></smtx:GridPager>
+
+                <data:DataGrid x:Name="dgEmpLeaveDays1" AutoGenerateColumns="False" Grid.Row="0" Grid.Column="2" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                      RowDetailsVisibilityMode="VisibleWhenSelected"  CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" LoadingRow="dgEmpLeaveDays_LoadingRow1">
+                    <data:DataGrid.Columns>
+                        <!--<data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" />
+                        <data:DataGridTextColumn Header="EMPLOYEECODE" Binding="{Binding EMPLOYEECODE, Converter={StaticResource DictionaryConverter},ConverterParameter=EMPLOYEECODE}" />-->
+                        <data:DataGridTextColumn Header="LEAVESTARTTIME" Binding="{Binding STARTDATETIME,ConverterParameter=LEAVESTARTTIME}" />
+                        <data:DataGridTextColumn Header="LEAVEENDTIME" Binding="{Binding ENDDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=LEAVEENDTIME}" />
+                        <data:DataGridTextColumn Header="LEAVETIME" Binding="{Binding TOTALHOURS, Converter={StaticResource CustomDateConverter},ConverterParameter=LEAVETIME}" />
+                        <data:DataGridTextColumn Header="LEAVEREMARK" Binding="{Binding REASON, Converter={StaticResource CustomDateConverter},ConverterParameter=LEAVEREMARK}" />
+                        <data:DataGridTextColumn Header="CREATETIME" Binding="{Binding CREATEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=CREATETIME}" />
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <smtx:GridPager Name="dataPager1" PageSize="20" Click="GridPager_Click" Grid.Row="1" Grid.Column="2"></smtx:GridPager>
+            </Grid>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.30.50.83:8300/SmtOnline/Services/IM/DataSyncService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMTIM.Application" />
+  <xs:element name="AddOrUpdateImUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nickname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="birthday" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="job" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="education" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="telephone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mobile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="showemail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="province" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="region" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="street_addr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postalcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrUpdateImUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOrUpdateImUserResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelImUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelImUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelImUserResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateUserDepart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMTIM.Application" minOccurs="0" name="userDeptList" nillable="true" type="q1:ArrayOfUserDept" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateUserDepartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUpdateUserDepartResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelUserDepart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMTIM.Application" minOccurs="0" name="userDeptList" nillable="true" type="q2:ArrayOfUserDept" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelUserDepartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelUserDepartResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrUpdateImDepartment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="departmentId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="parentid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isvalid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrUpdateImDepartmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOrUpdateImDepartmentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelImDepartment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="departmentId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelImDepartmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelImDepartmentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrUpdateDepartmentMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departemntid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrUpdateDepartmentMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOrUpdateDepartmentMemberResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelDeparmentMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelDeparmentMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelDeparmentMemberResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendMsg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" type="xs:int" />
+        <xs:element minOccurs="0" name="target_list" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="target_type" type="xs:int" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="msgurl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dataTime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="msgintro" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendMsgResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sendMsgResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

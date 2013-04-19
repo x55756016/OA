@@ -1,0 +1,129 @@
+﻿<smtLocal:BaseForm
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"         
+        xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+        xmlns:smtuc="clr-namespace:SMT.HRM.UI.Form.Attendance;assembly=SMT.HRM.UI"
+        xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+        xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+	    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+        mc:Ignorable="d" xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+        x:Class="SMT.HRM.UI.Form.Attendance.AttSolRdForm"
+        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot" Margin="2"  Background="Transparent">
+        <StackPanel>
+            <ctr:TabControl x:Name="ctrAttSol" Style="{StaticResource TabControlStyle}">
+                <ctr:TabItem x:Name="ctrAttSolBasic" Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASESET}" Style="{StaticResource TabItemStyle}">
+                    <StackPanel  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    	<Grid Background="Transparent" Margin="10" x:Name="gdBasic">
+                    		<Grid.RowDefinitions>
+                    			<RowDefinition Height="30"/>
+                    			<RowDefinition Height="30"/>
+                    			<RowDefinition Height="30"/>
+                    			<RowDefinition Height="30"/>
+                    			<RowDefinition Height="30"/>
+                    			<RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                    			<RowDefinition Height="Auto" MinHeight="30"/>
+                    		</Grid.RowDefinitions>
+                    		<Grid.ColumnDefinitions>
+                    			<ColumnDefinition Width="100"/>
+                    			<ColumnDefinition Width="10"/>
+                    			<ColumnDefinition Width="*"/>
+                    			<ColumnDefinition Width="20"/>
+                    			<ColumnDefinition Width="110"/>
+                    			<ColumnDefinition Width="10"/>
+                    			<ColumnDefinition Width="*"/>
+                    			<ColumnDefinition Width="5"/>
+                    		</Grid.ColumnDefinitions>
+                    		<validator:ValidatorManager x:Name="Group1"/>                            
+
+                    		<!--Row 0:AttendanceSolutionName-->
+                    		<TextBlock x:Name="tbAttSolNameTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDANCESOLUTIONNAME}" 
+                    			Style="{StaticResource SysTextBlockStyle}" Margin="5,0,0,0"/>
+                    		<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAttSolName" Grid.Column="2"  Margin="5,0,0,0" Width="Auto" Height="22" Text="{Binding ATTENDANCESOLUTIONNAME, Mode=TwoWay}" MaxLength="50"/>
+                            
+                    		<!--Row 1:AttendanceType & CardType-->
+                    		<TextBlock x:Name="tbAttendanceTypeTitle" Grid.Row="1" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDANCETYPE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    		<appCtr:DictionaryComboBox x:Name="cbxkAttendanceType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ATTENDANCETYPE" SelectedValue="{Binding ATTENDANCETYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="22" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Margin="5,0,0,0" SelectionChanged="cbxkAttendanceType_SelectionChanged"/>
+
+                    		<TextBlock x:Name="tbCardTypeTitle" Grid.Row="1" Grid.Column="4" TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDTYPE}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    		<appCtr:DictionaryComboBox x:Name="cbxkCardType" Grid.Row="1" Grid.Column="6" IsShowNull="False" HorizontalAlignment="Stretch" Category="CARDTYPE" SelectedValue="{Binding CARDTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="22" VerticalAlignment="Stretch" Margin="5,0,0,0"/>
+
+                    		<!--Row 2:WorkMode & WorkTimePerDay-->
+                    		<TextBlock x:Name="tbAttSolWorkModeTitle" Grid.Row="2" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKMODE}" Style="{StaticResource SysTextBlockStyle}" Margin="5,0,0,0"/>                    		
+                    		<inputToolkit:NumericUpDown x:Name="nudWorkMode" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="2" Maximum="7" DecimalPlaces="1" Increment="0.5" Value="{Binding WORKMODE, Mode=TwoWay}"/>
+
+                    		<TextBlock x:Name="tbWorkTimeTitle" Grid.Row="2" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKTIMEPERDAY}" Style="{StaticResource SysTextBlockStyle}" Margin="5,0,0,0"/>                    		
+							<inputToolkit:NumericUpDown x:Name="nudWorkTime"  Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="6" Maximum="23" DecimalPlaces="1" Increment="0.5" Value="{Binding WORKTIMEPERDAY, Mode=TwoWay}"/>
+
+                    		<!--Row 3:WorkDayType & WorkDays-->
+                    		<TextBlock x:Name="tbWorkDayTypeTitle" Grid.Row="3" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKDAYTYPE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    		<appCtr:DictionaryComboBox x:Name="cbxkWorkDayType" Grid.Row="3" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="WORKDAYTYPE" SelectedValue="{Binding WORKDAYTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="22" VerticalAlignment="Stretch" SelectionChanged="cbxkWorkDayType_SelectionChanged" Grid.ColumnSpan="1" Margin="5,0,0,0"/>
+                            
+                    		<TextBlock x:Name="tbWorkDaysTitle" Grid.Row="3" Grid.Column="4" TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WORKDAYS}" Margin="5,0,0,0" Visibility="Collapsed" VerticalAlignment="Center"/>
+                            <inputToolkit:NumericUpDown x:Name="nudWorkDays"  Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="6" Maximum="31" DecimalPlaces="2" Increment="0.25" Value="{Binding WORKDAYS, Mode=TwoWay}"/>
+
+                    		<!--Row 4:SettlementDate & AlarmDate-->
+                    		<TextBlock x:Name="tbSettlementDateTitle" Grid.Row="4" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SETTLEMENTDATE}" Style="{StaticResource SysTextBlockStyle}" Margin="5,0,0,0"/>
+                    		<inputToolkit:NumericUpDown x:Name="nudSettlementDate" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2" Maximum="31" Value="{Binding SETTLEMENTDATE, Mode=TwoWay}"/>
+							
+                    		<TextBlock x:Name="tbAlarmDateTitle" Grid.Row="4" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ALARMDATE}" Style="{StaticResource SysTextBlockStyle}" Margin="5,0,0,0"/>
+                    		<inputToolkit:NumericUpDown x:Name="nudAlarmDate" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="6" Maximum="31" Value="{Binding ALARMDATE, Mode=TwoWay}"/>
+							
+                    		<!--Row 4:IsCurrentMonth-->
+                    		<TextBlock x:Name="tbIsCurrentMonth" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISCURRENTMONTH}" Style="{StaticResource SysTextBlockStyle}" Margin="5,0,0,0" VerticalAlignment="Center"/>                            
+                    		<CheckBox x:Name="cbIsCurrentMonth" Style="{StaticResource CheckBoxStyle}" Grid.Row="5" Grid.Column="2" Height="22" Width="40" Margin="5,0,0,0" HorizontalAlignment="Left"/>
+
+                            <!--Row 4:IsCurrentMonth-->
+                            <TextBlock x:Name="tbIsISAUTOIMPORTPUNCH" Grid.Row="6" Text="是否自动导入打卡记录" Style="{StaticResource SysTextBlockStyle}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                            
+                            <Grid Grid.Row="6" Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Width="20"  HorizontalAlignment="Left" Grid.Column="0" Grid.Row="6" x:Name="RadY" GroupName="Rad" IsChecked="True"></RadioButton>
+                                <TextBlock   Text="是" HorizontalAlignment="Center" Width="20" Grid.Column="1" Grid.Row="6"></TextBlock>
+                                <RadioButton Width="20"  HorizontalAlignment="Left" Grid.Column="2" Grid.Row="6" x:Name="RadN" GroupName="Rad"></RadioButton>
+                                <TextBlock Text="否" HorizontalAlignment="Center" Width="20" Grid.Column="3" Grid.Row="6"></TextBlock>
+                            </Grid>
+                            <!--Row 6:Remark-->
+                    		<TextBlock x:Name="tbRemarkTitle" Grid.Row="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0"/>
+                    		<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAttSolRemark" TextWrapping="Wrap" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="8,2,0,2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay}" />
+                        </Grid>
+                    </StackPanel>
+                </ctr:TabItem>
+                <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=SCHEDULINGTEMPLATESET}" Style="{StaticResource TabItemStyle}">
+                    <StackPanel  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <smtuc:AttSolDefSet x:Name="ucDef"/>
+                    </StackPanel>
+                </ctr:TabItem>
+                <ctr:TabItem x:Name="ctrAttSolOT" Header="{Binding Converter={StaticResource ResourceConveter}, Source=OVERTIMESET}" Style="{StaticResource TabItemStyle}">
+                    <StackPanel  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <smtuc:AttSolRdOTSet x:Name="ucOTReward" />
+                    </StackPanel>
+                </ctr:TabItem>
+                <ctr:TabItem x:Name="ctrAttSolDeductSet" Header="{Binding Converter={StaticResource ResourceConveter}, Source=DEDUCTSET}" Style="{StaticResource TabItemStyle}">
+                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <smtuc:AttSolRdDeductSet x:Name="ucDeduct"/>
+                    </StackPanel>
+                </ctr:TabItem>
+                <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVESETFORM}" Style="{StaticResource TabItemStyle}">
+                    <StackPanel  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <smtuc:AttSolRdLeaveSet x:Name="ucLeave"/>
+                    </StackPanel>
+                </ctr:TabItem>                
+            </ctr:TabControl>
+        </StackPanel>
+
+    </Grid>
+</smtLocal:BaseForm>

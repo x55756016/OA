@@ -1,0 +1,91 @@
+﻿<basics:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SMT.SaaS.FrameworkUI.AppForm"
+	Title="AppForm" Height="auto" Width="400">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Entity TiTle-->
+        <StackPanel x:Name="EntityTitleStack" Grid.Row="0" Grid.ColumnSpan="2">
+            <TextBlock x:Name="txtEntityTitle" Text="EntityName"></TextBlock>
+        </StackPanel>
+        <!--Entity Property-->
+        <StackPanel x:Name="EntityProperty" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            
+            <Grid x:Name="EntityGrid" Height="auto" Width="auto" Margin="40,40,40,40" ShowGridLines="True" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <!--<StackPanel x:Name="LeftLabelArea" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="0">
+                   
+                    <TextBlock Text="Name:"></TextBlock>
+					<TextBlock Text="Name2:"></TextBlock>
+                </StackPanel>
+                <StackPanel x:Name="RightDataArea" Grid.Row="0" Grid.Column="1" Margin="10,0,0,0">
+                   
+                    <TextBox Style="{StaticResource TextBoxStyle}" Style="{StaticResource TextBoxStyle}" Text="EntityName"></TextBox>
+					<TextBox Style="{StaticResource TextBoxStyle}" Style="{StaticResource TextBoxStyle}" Text="EntityName2"></TextBox>
+                </StackPanel>-->
+            </Grid>
+        </StackPanel>
+        <!--Opreation Button-->
+        <Grid x:Name="BtnArea" Grid.Row="3" Grid.ColumnSpan="2" Width="auto">
+		<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+			<ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+            <Button Content="增加" HorizontalAlignment="Left"  x:Name="btnAdd" Click="btnAdd_Click"   Width="100" Grid.Column="0" Margin="10,0,0,0"></Button>
+            <Button Content="修改" HorizontalAlignment="Center" x:Name="btnUpdate" Click="btnUpdate_Click"  Width="100"  Grid.Column="1" Margin="10,0,0,0"></Button>
+            <Button Content="退出" HorizontalAlignment="Right" x:Name="btnClose" Click="btnClose_Click"  Width="100"  Grid.Column="2" Margin="10,0,0,0"></Button>
+        </Grid>
+        <!--Alert Message Area-->
+        <StackPanel x:Name="AlertMessage" Grid.Row="4" Grid.ColumnSpan="2" >
+            <TextBlock Text="状态栏"></TextBlock>
+        </StackPanel>
+
+        <!--<Button Margin="118,510,0,0" Content="确 定" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" FontSize="10.667"  Click="OK_Click"/>
+		<Button Height="25" Margin="209,510,0,0" VerticalAlignment="Top" Content="取 消" HorizontalAlignment="Left" Width="50" FontSize="10.667"  Click="Cancle_Click"/>
+		<TextBlock Height="22" HorizontalAlignment="Left" Margin="23,22,0,0" VerticalAlignment="Top" Width="75" Text="ID" TextWrapping="Wrap" FontSize="13.333" Foreground="Black"/>
+		<TextBlock Height="22" HorizontalAlignment="Left" Margin="23,63,0,0" VerticalAlignment="Top" Width="75" Text="TextBlock" TextWrapping="Wrap" Foreground="Black"/>
+		<TextBlock Height="22" HorizontalAlignment="Left" Margin="23,106,0,0" VerticalAlignment="Top" Width="75" Text="TextBlock" TextWrapping="Wrap" Foreground="Black"/>
+		<TextBlock HorizontalAlignment="Left" Margin="23,235,0,0" Width="75" Text="TextBlock" TextWrapping="Wrap" Foreground="Black" Height="16" VerticalAlignment="Top"/>
+		<TextBlock Height="22" HorizontalAlignment="Left" Margin="23,152,0,0" Width="75" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black"/>
+		<TextBlock Height="22" HorizontalAlignment="Left" Margin="23,195,0,0" Width="75" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black"/>
+		<TextBox Style="{StaticResource TextBoxStyle}" Style="{StaticResource TextBoxStyle}" Height="22" HorizontalAlignment="Left" Margin="102,22,0,0" VerticalAlignment="Top" Width="116" TextWrapping="Wrap" />
+		<TextBox Style="{StaticResource TextBoxStyle}" Style="{StaticResource TextBoxStyle}" Height="22" HorizontalAlignment="Left" Margin="102,63,0,0" VerticalAlignment="Top" Width="209" TextWrapping="Wrap" />
+		<TextBox Style="{StaticResource TextBoxStyle}" Style="{StaticResource TextBoxStyle}" Height="22" Margin="102,106,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="209" HorizontalAlignment="Left"  />
+		<RadioButton Height="22" HorizontalAlignment="Left" Margin="102,195,0,0" VerticalAlignment="Top" Width="103" Content="RadioButton" Foreground="Black" />
+		<ComboBox Height="22" HorizontalAlignment="Left" Margin="102,152,0,0" VerticalAlignment="Top" Width="137">
+			<ComboBoxItem Content="ComBoBoxItem1"/>
+			<ComboBoxItem Content="ComBoBoxItem2"/>
+			<ComboBoxItem Content="ComBoBoxItem3"/>
+		</ComboBox>
+		<CheckBox HorizontalAlignment="Left" Margin="102,235,0,0" Width="80" Content="CheckBox" Foreground="Black" Height="17" VerticalAlignment="Top" />
+		<CheckBox Margin="186,235,252,0" Content="CheckBox" Foreground="Black" Height="24" VerticalAlignment="Top" />
+		<CheckBox Margin="280,235,0,0" Content="CheckBox" Foreground="Black" HorizontalAlignment="Left" Width="75" Height="17" VerticalAlignment="Top" />
+		<RadioButton Height="22" HorizontalAlignment="Left" Margin="209,195,0,0" VerticalAlignment="Top" Width="102" Content="RadioButton" Foreground="Black" />
+		<TextBox Style="{StaticResource TextBoxStyle}" Style="{StaticResource TextBoxStyle}" Height="83" Margin="102,279,0,0" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Width="339" />
+		
+		<TextBlock Height="20" HorizontalAlignment="Left" Margin="23,388,0,0" VerticalAlignment="Top" Width="75" Text="TextBlock" TextWrapping="Wrap"/>
+		<basics:Calendar x:Name="Calendar_p" Visibility="Collapsed" Height="Auto" HorizontalAlignment="Left" Margin="280,366,0,0" VerticalAlignment="Top" Width="Auto" SelectedDatesChanged="Calendar_P_Select" LostFocus="Calendar_P_LostF"/>
+		<TextBox Style="{StaticResource TextBoxStyle}" Style="{StaticResource TextBoxStyle}" x:Name="Date_text" Height="20" Margin="102,388,0,0" VerticalAlignment="Top" Text="TextBox" TextWrapping="Wrap" HorizontalAlignment="Left" Width="137" d:LayoutOverrides="HorizontalAlignment" GotFocus="Date_text_GotF" />-->
+
+    </Grid>
+</basics:ChildWindow>

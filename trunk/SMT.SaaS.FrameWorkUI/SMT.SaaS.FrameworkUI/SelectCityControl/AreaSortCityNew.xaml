@@ -1,0 +1,61 @@
+﻿<swc:Window x:Class="SMT.SaaS.FrameworkUI.SelectCityControl.AreaSortCityNew"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+    mc:Ignorable="d"
+    d:DesignHeight="300" >
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Border Background="#f7f7f7" Grid.Row="0" BorderBrush="Gray" BorderThickness="0.8" >
+                    <TextBlock Style="{StaticResource ToolBarTB1}" Height="23" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Text="所属国家" FontSize="15" FontWeight="ExtraBold" Margin="2,5,0,0" />
+                </Border>
+                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" VerticalAlignment="Stretch" Grid.Row="1" MaxHeight="120" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <toolkit:WrapPanel  HorizontalAlignment="Left"  Name="wpcountry"  Margin="5" />
+                </ScrollViewer>
+                <Border Background="#f7f7f7" Grid.Row="2" BorderBrush="Gray" BorderThickness="0.8"  x:Name="brprovince">
+                    <TextBlock Style="{StaticResource ToolBarTB1}" Height="23" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Text="省份及直辖市" FontSize="15" FontWeight="ExtraBold" Margin="2,5,0,0" />
+                </Border>
+                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" x:Name="svprovince" VerticalAlignment="Stretch" Grid.Row="3" MaxHeight="120" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <toolkit:WrapPanel  HorizontalAlignment="Left"  Name="wpProvince"  Margin="5" />
+                </ScrollViewer>
+                <Border Background="#f7f7f7" Grid.Row="4" Margin="0,20,0,0" BorderBrush="Gray" x:Name="brcity" BorderThickness="0.8">
+                    <TextBlock Style="{StaticResource ToolBarTB1}" Height="23" HorizontalAlignment="Left" Name="txtcity" VerticalAlignment="Bottom" Text="所在市" FontSize="15" FontWeight="ExtraBold"  Margin="2,5,0,0"/>
+                </Border>
+                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" x:Name="svcity" VerticalAlignment="Top" Grid.Row="5" MaxHeight="120" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <toolkit:WrapPanel  HorizontalAlignment="Left"  Name="wpCity"  Margin="5"/>
+                </ScrollViewer>
+                <Border Background="#f7f7f7" Grid.Row="6" Margin="0,20,0,0" BorderBrush="Gray" x:Name="brtown" BorderThickness="0.8">
+                    <TextBlock Style="{StaticResource ToolBarTB1}" Height="23" HorizontalAlignment="Left" Name="txttown" VerticalAlignment="Bottom" Text="所在城镇" FontSize="15" FontWeight="ExtraBold"  Margin="2,5,0,0"/>
+                </Border>
+                <ScrollViewer Style="{StaticResource ScrollViewerStyle}" x:Name="svtown" VerticalAlignment="Top" Grid.Row="7" MaxHeight="120" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <toolkit:WrapPanel  HorizontalAlignment="Left"  Name="wptown"  Margin="5"/>
+                </ScrollViewer>
+                <Border Background="#f7f7f7" x:Name="SelectedCities" Grid.Row="8"  BorderBrush="Gray" BorderThickness="0.8" Margin="0,20,0,0">
+                    <TextBlock Style="{StaticResource ToolBarTB1}" Height="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="已选中的城市" FontSize="15" FontWeight="ExtraBold"  Margin="2,5,0,0"/>
+                </Border>
+                <TextBlock Height="auto" HorizontalAlignment="Left"  Name="display" VerticalAlignment="Top" Grid.Row="9" Margin="8" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="40" VerticalAlignment="Bottom" Grid.Row="10">
+                    <Button Content="确定" x:Name="btSave"  Click="btSave_Click" Style="{StaticResource CommonButtonStyle}"/>
+                    <Button Content="取消" x:Name="btCancel" Margin="5,0,0,0" Click="btCancel_Click" Style="{StaticResource CommonButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</swc:Window>

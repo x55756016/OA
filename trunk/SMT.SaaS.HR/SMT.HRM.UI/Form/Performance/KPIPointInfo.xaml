@@ -1,0 +1,383 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Performance.KPIPointInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+        <Grid x:Name="LayoutRoot" Margin="10" Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+            
+            <Grid x:Name="StepInfo" Width="540" Grid.Row="0" HorizontalAlignment="Left" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/><!--Row 0-->
+                    <RowDefinition Height="0"/><!--Row 1-->
+                    <RowDefinition Height="30"/><!--Row 2-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtKPIPointName" Width="auto" Height="22" Visibility="Collapsed"></TextBox>
+                <!--Row 0-->
+                <!--Row 1-->
+                <!--节点名称、是否设置KPI点-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STATUSNAME}" 
+			    Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <TextBlock x:Name="lblStatusName"
+            	    Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0" FontWeight="Bold" Foreground="#FF640809"/>
+
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISSETKPIPOINT}" 
+			    Grid.Row="1" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cboIsSetKPI" Grid.Column="1" Grid.Row="1" Margin="8,6,0,4" SelectionChanged="cboIsSetKPI_SelectionChanged" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="123">
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=SETKPIPOINT}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=NOSETKPIPOINT}"/>
+                </ComboBox>
+                <!--Row 2-->
+                <!--设置KPI点-->
+                <CheckBox x:Name="chkIsSetKPI" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SETKPIPOINT}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Click="chkIsSetKPI_Click" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+            </Grid>
+            <Grid x:Name="TypeInfo"  Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="30"/> <!--Row 1-->
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="112"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="28"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="28"/>
+                    <RowDefinition Height="0"/> <!--Row 11-->
+                    <RowDefinition Height="28"/>
+                    <RowDefinition Height="32"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="135"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIPOINTINFO}" 
+			    Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" d:LayoutOverrides="Width" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+
+                <!--Row 1-->
+                <!--KPI类别名称-->
+                <!--最后修改人、最后修改时间-->
+                <TextBlock x:Name="lblUserName" Text="{Binding UPDATEUSERID, Mode=TwoWay}" 
+        	    Grid.Row="9" Grid.Column="1" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+                <TextBlock x:Name="lblUserDate" Text="{Binding UPDATEDATE, Mode=OneWay}" 
+			    Grid.Row="9" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <!--Row 2-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPITYPE}" 
+        	    Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <ComboBox x:Name="cboKPIType"   Margin="5,0,0,0"
+        	    Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" d:LayoutOverrides="Width" SelectionChanged="cboKPIType_SelectionChanged" VerticalAlignment="Center"/>
+                <!--Row 3-->
+                <!--KPI类别说明-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIPOINTDESC}" 
+		            Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtKPIPointDESC"  AcceptsReturn="True" Text="{Binding KPIPOINTREMARK, Mode=TwoWay}" MaxLength="50"
+		            Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"  TextWrapping="Wrap" VerticalAlignment="Center">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="KPIPOINTREMARK" ></validator:RequiredValidator>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                    <!--隔线-->
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="3" BorderThickness="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="5,0,0,2"  />
+
+                <Grid  Grid.Row="3" Grid.ColumnSpan="4" Margin="5,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+    
+                </Grid>
+                
+                <!--区域分割符-->
+                <Border Grid.Row="4" Margin="5,0,-1,0" Grid.Column="0" Grid.ColumnSpan="4" BorderBrush="Black" BorderThickness="1"  CornerRadius="2"></Border>
+                <Border Grid.Row="6" Margin="5,0,-1,0" Grid.Column="0" Grid.ColumnSpan="4" BorderBrush="Black" BorderThickness="1,0,1,1" ></Border>
+                <Border Grid.Row="11" Margin="5,0,-1,0" Grid.Column="0" Grid.ColumnSpan="4" BorderBrush="Black" BorderThickness="1" CornerRadius="2" Grid.RowSpan="11"></Border>
+                <Border Grid.Row="10" Margin="5,0,-1,0" Grid.Column="0" Grid.ColumnSpan="4" BorderBrush="Black" BorderThickness="1,0,1,0" CornerRadius="2" Grid.RowSpan="11"></Border>
+
+                <!--Row 4-->
+                <!--机打标准-->
+                <CheckBox x:Name="chkIsMachine" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMSCORE}" 
+                          Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" Click="chkIsMachine_Click" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+
+
+                <!--机打权重-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMSCOREWEIGHT}" 
+            	Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <inputToolkit:NumericUpDown Maximum="10000"   Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.SYSTEMWEIGHT, Mode=TwoWay}" 
+                             x:Name="txtMachineWeight"  Grid.Row="6" Grid.Column="3" Height="Auto"
+                             HorizontalAlignment="Left" Width="60" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PERCENT}" 
+            	        Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+               
+                
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="6" BorderThickness="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="5,0,0,2"  />
+                <!--Row 6-->
+                <!--Row 7-->
+                <!--Row 8-->
+                <!--计算单位天数-->
+                <!--提前单位天数加分-->
+                <!--分数上限-->
+                <!--分数下限-->
+                <Grid  Grid.Row="4" Grid.ColumnSpan="4" Margin="5,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Row 5-->
+                    <!--KPI评分标准-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMSCORESTANDARD}" Grid.Row="0" 
+								  FontSize="12" Width="Auto" HorizontalAlignment="Center" d:LayoutOverrides="Height" Grid.ColumnSpan="6"/>
+                    <!--初始计分-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STANDARDSCORE}" 
+								    Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <inputToolkit:NumericUpDown Maximum="10000"  Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.INITIALSCORE, Mode=TwoWay}"
+                                    x:Name="txtInitailScore" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" Width="60" />
+                    <!--初始天数-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STANDARDDAYS}" 
+								    Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" d:LayoutOverrides="Height" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.INITIALPOINT, Mode=TwoWay}"
+                                    x:Name="txtInitailDate" 
+								    Grid.Row="1" Grid.Column="3"  d:LayoutOverrides="Height" VerticalAlignment="Center" Width="60" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOURDISPOSE}" 
+            	        Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FORWARDHOUR}" 
+								    Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DELAYHOUR}" 
+								        Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.COUNTUNIT, Mode=TwoWay}"
+                                        x:Name="txtScoreUnit"  
+								        Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Width="60" HorizontalAlignment="Left"/>
+                    <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.LATERUNIT, Mode=TwoWay}"
+                                        x:Name="txtLaterUnit"  
+								        Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Width="60" HorizontalAlignment="Left" />
+                    <!--提前单位天数加分-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ADDFORFORWARD}" 
+								        Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.ADDSCORE, Mode=TwoWay}"
+                                        x:Name="txtAddForForward" 
+								        Grid.Row="2" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="60"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MINUTE}" HorizontalAlignment="Left"
+            	            Grid.Row="2" Grid.Column="3" Margin="70,0,0,0" VerticalAlignment="Center"/>
+                    <!--延后单位天数减分-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REDUCEFORDELAY}" 
+								        Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.REDUCESCORE, Mode=TwoWay}"
+                                        x:Name="txtReduceForDelay"  
+								        Grid.Row="3" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="60" />
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MINUTE}" 
+            	            Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+                    <!--分数上限-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MAXSYSTEMSCORE}" 
+								        Grid.Row="2" Grid.Column="4" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left"/>
+                    <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.MAXSCORE, Mode=TwoWay}"
+                                        x:Name="txtMaxScore"  
+								        Grid.Row="2" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="60"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MINUTE}" 
+            	            Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+                    <!--分数下限-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MINSYSTEMSCORE}" 
+								        Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.MINSCORE, Mode=TwoWay}"
+                                        x:Name="txtMinScore" 
+								        Grid.Row="3" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="60"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MINUTE}" 
+            	            Grid.Row="3" Grid.Column="5" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+                </Grid>
+                <!--Row 9-->
+                
+                <!--Row 10-->
+                <!--人打标准-->
+                <CheckBox x:Name="chkIsPerson" Content="{Binding Converter={StaticResource ResourceConveter}, Source=MANUALSCORE}"
+            	    Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" Click="chkIsPerson_Click" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                <!--人打权重-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MANUALSCOREWEIGHT}" 
+            	    Grid.Row="10" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.MANUALWEIGHT, Mode=TwoWay}"
+                        x:Name="txtPersonWeight" Width="60" HorizontalAlignment="Left" 
+            	        Grid.Row="10" Grid.Column="3" 
+                        Height="Auto" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PERCENT}" 
+            	        Grid.Row="10" Grid.Column="3" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+                <!--Row 11-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIREMINDTYPE}" 
+            	    Grid.Row="11" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cboRemindType1" Grid.Column="1" Grid.Row="11"  VerticalAlignment="Center">
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=IMMEDIATELYCOMMUNICATION}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=SMTGATE}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=EMAIL}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=PHONEMESSAGE}"/>
+                </ComboBox>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIREMINDTYPE}" 
+            	    Grid.Row="11" HorizontalAlignment="Right" Margin="0,8,8,6" d:LayoutOverrides="Height"/>
+                <ComboBox x:Name="cboRemindType2" Grid.Column="1" Grid.Row="11"  VerticalAlignment="Center">
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=IMMEDIATELYCOMMUNICATION}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=SMTGATE}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=EMAIL}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=PHONEMESSAGE}"/>
+                </ComboBox>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIREMINDTYPE}" 
+            	    Grid.Row="11" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cboRemindType3" Grid.Column="1" Grid.Row="11"  VerticalAlignment="Center">
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=IMMEDIATELYCOMMUNICATION}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=SMTGATE}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=EMAIL}"/>
+                    <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=PHONEMESSAGE}"/>
+                </ComboBox>
+                <!--Row 12-->
+                <!--抽打标准-->
+                <CheckBox x:Name="chkIsRandom" Content="{Binding Converter={StaticResource ResourceConveter}, Source=RANDOMSCORE}" 
+            	    Grid.Row="12" Grid.Column="0" HorizontalAlignment="Left" Click="chkIsRandom_Click" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                <!--抽打权重-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RANDOMSCOREWEIGHT}" 
+            	    Grid.Row="12" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" Value="{Binding T_HR_SCORETYPE.RANDOMWEIGHT, Mode=TwoWay}"
+                    x:Name="txtRandomWeight" Grid.Row="12" Grid.Column="3" 
+                    Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Width="60"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PERCENT}" 
+            	    Grid.Row="12" Grid.Column="3" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+                <!--Row 13-->
+                <!--抽打组-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RANDOMGROUP}" 
+            	    Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <ComboBox x:Name="cboRandomGroup"   Margin="5,0,0,0"
+            	    Grid.Row="13" Grid.Column="1" VerticalAlignment="Center"/>
+                <!--隔线-->
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="13" BorderThickness="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="5,0,5,2"  />
+
+                <!--Row 14-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIREMINDTYPE}" 
+            	        Grid.Row="15" Grid.Column="0" HorizontalAlignment="Left" Margin="30,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIREMINDTYPE}" 
+            	        Grid.Row="17" Grid.Column="0" HorizontalAlignment="Left" Margin="30,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=KPIREMINDTYPE}" 
+            	        Grid.Row="19" Grid.Column="0" HorizontalAlignment="Left" Margin="30,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <!--提醒一-->
+                <CheckBox x:Name="chkIsRemind1" Grid.Row="14" Grid.Column="0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=REMIND1}" HorizontalAlignment="Left" Click="chkIsRemind1_Click" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                <!--1s-->
+                <!--提醒方式-->
+                <StackPanel Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="3" Height="30" Orientation="Horizontal" HorizontalAlignment="Left" x:Name="chkContainer1" VerticalAlignment="Center">
+                    <ItemsControl x:Name="itemContainer1" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"  Height="28"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding CBNAME, Converter={StaticResource ResourceConveter}}" IsChecked="{Binding ISCHECKED, Mode=TwoWay}" Height="16"></CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+                <!--1e-->
+                <!--Row 16-->
+                <!--提醒二-->
+                <CheckBox x:Name="chkIsRemind2" Grid.Row="16" Grid.Column="0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=REMIND2}" HorizontalAlignment="Left" Click="chkIsRemind2_Click" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                <!--1s-->
+                <!--提醒方式-->
+                <StackPanel Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="3" Height="30" Orientation="Horizontal" HorizontalAlignment="Left" x:Name="chkContainer2" VerticalAlignment="Center">
+                    <ItemsControl x:Name="itemContainer2" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"  Height="28"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding CBNAME, Converter={StaticResource ResourceConveter}}" IsChecked="{Binding ISCHECKED, Mode=TwoWay}" Height="16"></CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+                <!--1e-->
+                <!--Row 18-->
+                <!--提醒三-->
+                <CheckBox x:Name="chkIsRemind3" Grid.Row="18" Grid.Column="0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=REMIND3}" HorizontalAlignment="Left" Click="chkIsRemind3_Click" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                <!--1s-->
+                <!--提醒方式-->
+                <StackPanel Grid.Row="19" Grid.Column="1" Grid.ColumnSpan="3" Height="30" Orientation="Horizontal" HorizontalAlignment="Left" x:Name="chkContainer3" VerticalAlignment="Center">
+                    <ItemsControl x:Name="itemContainer3" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"  Height="28"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding CBNAME, Converter={StaticResource ResourceConveter}}" IsChecked="{Binding ISCHECKED, Mode=TwoWay}" Height="16"></CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+                <!--1e-->
+                
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FORWARDHOURS}" 
+            	    Grid.Row="14" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}"
+                         x:Name="txtForwardHours1" HorizontalAlignment="Left" Grid.Row="14" Grid.Column="2" Width="60" 
+                         d:LayoutOverrides="Height" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOURALARM}" 
+            	        Grid.Row="14" Grid.Column="2" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FORWARDHOURS}" 
+            	        Grid.Row="16" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" 
+                        x:Name="txtForwardHours2" HorizontalAlignment="Left" Grid.Row="16" Grid.Column="2" Width="60"  d:LayoutOverrides="Height" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOURALARM}" 
+            	        Grid.Row="16" Grid.Column="2" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FORWARDHOURS}" HorizontalAlignment="Left" 
+            	        Grid.Row="18" Grid.Column="1" Margin="10,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+                <inputToolkit:NumericUpDown Maximum="10000" Style="{StaticResource NumericUpDownStyle}" 
+                        x:Name="txtForwardHours3" Grid.Row="18"
+                         Grid.Column="2" Width="60"  HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOURALARM}" 
+            	        Grid.Row="18" Grid.Column="2" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</smtLocal:BaseForm>

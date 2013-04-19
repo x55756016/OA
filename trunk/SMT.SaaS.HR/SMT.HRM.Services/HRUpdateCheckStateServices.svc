@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SMT.HRM.Services.HRUpdateCheckStateServices" CodeBehind="HRUpdateCheckStateServices.svc.cs" %>

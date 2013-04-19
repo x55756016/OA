@@ -1,0 +1,67 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Attendance.SignInRd" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+           xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+           Title="SignInRd Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"/>
+            <Grid Grid.Row="1" Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto"/>
+                <smt:LookUp Name="lkEmpName" DataContext="{Binding T_HR_EMPLOYEE}"  Grid.Row="0" Grid.Column="1" DisplayMemberPath="EMPLOYEECNAME" FindClick="lkEmpName_FindClick" Margin="5,0,0,0" Height="24" Width="110" HorizontalAlignment="Left" />
+
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SIGNINTIME}" Grid.Row="0" Grid.Column="2" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto"/>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="5000"  Grid.Column="3" Grid.Row="0" x:Name="nuYear"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center" Width="auto" Grid.Column="4" Grid.Row="0"></TextBlock>
+                <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12" Grid.Column="5" Grid.Row="0" x:Name="nuMonth"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="auto"  VerticalAlignment="Center" Grid.Column="6" Grid.Row="0"></TextBlock>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="7" Width="70" Height="22"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnFind_Click" />
+            </Grid>
+            <smt:FormToolBar x:Name="toolbar1" Grid.Row="2"/>
+            <data:DataGrid x:Name="dgSignInList" Grid.Row="3" AutoGenerateColumns="false" IsReadOnly="True"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LoadingRow="dgSignInList_LoadingRow" Style="{StaticResource DataGridStyle}"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding SIGNINID}"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}"/>
+                    <data:DataGridTextColumn Header="SIGNINTIME" Binding="{Binding SIGNINTIME, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                    <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}"/>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

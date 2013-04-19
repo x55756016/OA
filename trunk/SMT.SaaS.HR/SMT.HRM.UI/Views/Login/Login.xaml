@@ -1,0 +1,31 @@
+﻿<controls:ChildWindow x:Class="SMT.HRM.UI.Views.Login.Login" 
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                      xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      Title="登录" x:Name="ChildWindowBlue">    
+    <Grid x:Name="LayoutRoot" Height="259" Width="360" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="Canvas_C" Grid.Row="1" Height="200" VerticalAlignment="Top">
+            <TextBlock Canvas.Left="50" Canvas.Top="20" Height="23" Name="tbMsg" Foreground="Red" />
+            <TextBlock Height="25" Width="70" Canvas.Left="50" Canvas.Top="51" Text="用户名：" TextWrapping="Wrap"/>
+            <TextBlock Height="25" Width="70" Canvas.Left="50" Canvas.Top="89" Text="密  码：" TextWrapping="Wrap"/>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="OK" Content="确定"  Canvas.Left="52" Canvas.Top="160" Click="OK_buton" Width="70" Height="24"/>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="cancel" Content="取消"   Click="Cen_B" Canvas.Left="233" Canvas.Top="160" Width="70" Height="24"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="nam" Height="26" Width="177" Canvas.Left="120" Canvas.Top="51" Text="smtwangl" TextWrapping="Wrap"/>
+            <PasswordBox Style="{StaticResource PasswordBoxStyle}" x:Name="paw" Password="888888" Height="26" Width="177" Canvas.Left="120" Canvas.Top="86"/>
+            <TextBlock Height="25" Width="92" Canvas.Left="50" Canvas.Top="123" Text="语  言：" TextWrapping="Wrap"/>
+            <RadioButton Style="{StaticResource RadioButtonStyle}" Canvas.Left="222" Canvas.Top="123" Content="{Binding Converter={StaticResource ResourceConveter},Source=ENGLISH}" GroupName="Language" Tag="en-GB" Checked="RadioButton_Checked"></RadioButton>
+            <RadioButton Style="{StaticResource RadioButtonStyle}" Canvas.Left="121" Canvas.Top="123" Content="{Binding Converter={StaticResource ResourceConveter},Source=CHINESE}" GroupName="Language" Tag="zh-CN" IsChecked="True"  Checked="RadioButton_Checked"></RadioButton>
+            <TextBlock Canvas.Left="52" Canvas.Top="12" Height="23" Name="tbErrMsg" Text="" Width="245" Foreground="Red" />
+        </Canvas>
+        <Canvas Grid.Row="0" Background="Transparent" Margin="0,-10,0,0">
+            <Image Height="60" Width="229" Source="/SMT.SaaS.FrameworkUI;Component/Images/logo2.png" Stretch="Fill" Canvas.Left="8" Canvas.Top="7"/>
+        </Canvas>
+        <Rectangle Width="380" Height="2" Fill="{StaticResource BlueLogin1}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="0"></Rectangle>
+    </Grid>
+</controls:ChildWindow>

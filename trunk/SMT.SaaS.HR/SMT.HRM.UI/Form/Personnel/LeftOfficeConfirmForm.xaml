@@ -1,0 +1,191 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Personnel.LeftOfficeConfirmForm"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+    <Grid x:Name="LayoutRoot"  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+
+
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+        <!--Row 0-->
+        <!--EMPLOYEECNAME-->
+        <TextBlock  Grid.Column="0" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" VerticalAlignment="Center" />
+        <smt:LookUp DataContext="{Binding Path=T_HR_EMPLOYEE,Mode=TwoWay}" Grid.Row="0" Grid.Column="1" FindClick="lkEmployeeName_FindClick" 
+                     Name="lkEmployeeName" Margin="1,0,0,0" DisplayMemberPath="EMPLOYEECNAME">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </smt:LookUp>
+
+
+        <!--LEFTOFFICECATEGORY-->
+        <TextBlock  Grid.Column="3" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEFTOFFICECATEGORY}" VerticalAlignment="Center" />
+        <appCtr:DictionaryComboBox x:Name="cbxEmployeeType" Grid.Row="0" Grid.Column="4" IsShowNull="False"  Category="LEFTOFFICECATEGORY" 
+                                   SelectedValue="{Binding LEFTOFFICECATEGORY, Mode=TwoWay}" Height="22" Width="Auto" 
+                                   HorizontalAlignment="Stretch" Margin="5,0,0,0">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </appCtr:DictionaryComboBox>
+
+        <!--Row 1-->
+        <!--Company-->
+        <TextBlock  Grid.Column="0" Grid.Row="1" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=OWNERCOMPANYID}" VerticalAlignment="Center" />
+        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Stretch" Width="Auto"  Margin="5,0,0,0" IsEnabled="False" x:Name="txtCompany"
+            	Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Height="22">
+        </TextBox>
+
+        <!--Post-->
+        <TextBlock  Grid.Column="3" Grid.Row="1" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=OWNERPOSTID}" VerticalAlignment="Center" />
+        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Stretch" Width="Auto"  Margin="5,0,0,0" IsEnabled="False" x:Name="txtPost"
+            	Grid.Row="1" Grid.Column="4" TextWrapping="Wrap" Height="22">
+        </TextBox>
+
+        <!--Row 2-->
+        <!--APPLYDATE-->
+        <TextBlock  Grid.Column="0" Grid.Row="2" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=APPLYDATE}" VerticalAlignment="Center" />
+        <controls:DatePicker Grid.Row="2" Grid.Column="1" Text="{Binding APPLYDATE, Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"  Width="auto" HorizontalAlignment="Stretch" x:Name="dpApplyDate"
+                             Margin="5,0,0,0" Height="22" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>
+
+        <!--LEFTOFFICEDATE-->
+        <TextBlock  Grid.Column="3" Grid.Row="2" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEFTOFFICEDATE}" VerticalAlignment="Center" />
+        <controls:DatePicker Grid.Row="2" Grid.Column="4"  Text="{Binding LEFTOFFICEDATE,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"  Width="auto" HorizontalAlignment="Stretch"  x:Name="dpLeftDate"
+                             Margin="5,0,0,0" Height="22" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>
+        <!--STOPPAYMENTDATE-->
+        <!--<TextBlock  Grid.Column="3" Grid.Row="1" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=STOPPAYMENTDATE}" />
+
+        <controls:DatePicker Grid.Row="1" Grid.Column="4" Text="{Binding STOPPAYMENTDATE, Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" 
+                             Margin="5,0,0,0" Height="22" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>-->
+
+
+
+        <!--CONFIRMDATE-->
+        <!--<TextBlock  Grid.Column="3" Grid.Row="2" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONFIRMDATE}" />
+
+        <controls:DatePicker Grid.Row="2" Grid.Column="4" Text="{Binding CONFIRMDATE, Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"
+                             Margin="5,0,0,0" Height="22" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>-->
+
+        <!--Row 3-->
+        <!--LEFTOFFICEREASON-->
+        <TextBlock  Grid.Row="3" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEFTOFFICEREASON}" VerticalAlignment="Top"/>
+
+        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Stretch"  Width="Auto" Text="{Binding LEFTOFFICEREASON, Mode=TwoWay}"  x:Name="txtLeftReason" AcceptsReturn="True" MaxLength="99"
+            	Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"  Margin="5,0,0,0" TextWrapping="Wrap" >
+        </TextBox>
+
+        <!--Row 4-->
+        <!--REMARK-->
+        <TextBlock  Grid.Row="4" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEFTOFFICEREMARK}" VerticalAlignment="Top" />
+
+        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Stretch" Width="Auto" Text="{Binding REMARK, Mode=TwoWay}" Margin="5,0,0,0"  ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="txtLeftRemark" AcceptsReturn="True" MaxLength="500"
+            	Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4"  TextWrapping="Wrap" >
+        </TextBox>
+        <!--STOPPAYMENTDATE-->
+        <TextBlock  Grid.Column="0" Grid.Row="5" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=STOPPAYMENTDATE}" />
+
+        <controls:DatePicker x:Name="dpStopPaymentDate" Grid.Row="5" Grid.Column="1" Text="{Binding STOPPAYMENTDATE, Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" Width="auto" HorizontalAlignment="Stretch"
+                             Margin="5,0,0,0" Height="22" Style="{StaticResource DatePickerStyle}">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </controls:DatePicker>
+        <!-- CONFIRMDATE-->
+        <TextBlock  Grid.Column="3" Grid.Row="5" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONFIRMDATE}" />
+
+        <controls:DatePicker  x:Name="dpConfirmDate" Grid.Row="5" Grid.Column="4" Text="{Binding CONFIRMDATE, Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"  Width="auto" HorizontalAlignment="Stretch"
+                             Margin="5,0,0,0" Height="22" Style="{StaticResource DatePickerStyle}">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </controls:DatePicker>
+
+        <controls:TabControl x:Name="tbcContainer" Grid.Row="6" Grid.ColumnSpan="5" Margin="2"  Style="{StaticResource TabControlStyle}">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BORROWMONEY}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{StaticResource TabItemStyle}">
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden"  VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <data:DataGrid x:Name="DtBorrowMoney" Grid.Row="0"  VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                       Style="{StaticResource DataGridStyle}" IsReadOnly="True" 
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                            <data:DataGrid.Columns>
+                                <data:DataGridTextColumn Header="普通借款" Binding="{Binding SIMPLEBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="备用金借款" Binding="{Binding BACKUPBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="专项借款" Binding="{Binding SPECIALBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                            </data:DataGrid.Columns>
+                        </data:DataGrid>
+                        <smt:GridPager Name="dataPagerMoney" PageSize="20" Click="GridPagerMoney_Click" Grid.Row="1"></smt:GridPager>
+                    </Grid>
+                </ScrollViewer>
+            </controls:TabItem>
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BORROWTHING}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Style="{StaticResource TabItemStyle}">
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden"  VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <data:DataGrid x:Name="DtBorrowThing" Grid.Row="0"  VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                       Style="{StaticResource DataGridStyle}" IsReadOnly="True" 
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                            <data:DataGrid.Columns>
+                                <!--<data:DataGridTextColumn Header="TYPE" Binding="{Binding EMPLOYEEPOSTCHANGE.POSTCHANGCATEGORY, Converter={StaticResource DictionaryConverter},ConverterParameter=POSTCHANGCATEGORY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->
+                                <data:DataGridTextColumn Header="ORDERTYPE" Binding="{Binding TYPE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="BORROWTHING" Binding="{Binding TITLE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <!--<data:DataGridTextColumn Header="FROMDEPARTMENTID" Binding="{Binding FROMDEPARTMENT}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="FROMPOSTID" Binding="{Binding FROMPOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="TOCOMPANYID" Binding="{Binding TOCOMPANY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="TODEPARTMENTID" Binding="{Binding TODEPARTMENT}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="TOPOSTID" Binding="{Binding TOPOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="CHANGEDATE" Binding="{Binding EMPLOYEEPOSTCHANGE.CHANGEDATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                                <data:DataGridTextColumn Header="POSTCHANGREASON" Binding="{Binding EMPLOYEEPOSTCHANGE.POSTCHANGREASON}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->
+                            </data:DataGrid.Columns>
+                        </data:DataGrid>
+                        <smt:GridPager Name="dataPagerThing" PageSize="20" Click="GridPagerThing_Click" Grid.Row="1"></smt:GridPager>
+                    </Grid>
+                </ScrollViewer>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,64 @@
+﻿<navigation:Page 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	xmlns:System_Windows_Controls_Primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls"
+	xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	x:Class="SMT.HRM.UI.UsedControl" 
+	Title="UsedButton Page">
+	
+	<Grid x:Name="LayoutRoot" >
+		<Rectangle Fill="#FF1723E1" Stroke="Black" StrokeThickness="0" RadiusX="4" RadiusY="4" Height="33" HorizontalAlignment="Left" Margin="165,90,0,0" VerticalAlignment="Top" Width="85"/>
+		<Rectangle Stroke="Black" StrokeThickness="0" RadiusX="4" RadiusY="4" Height="33" Width="85" Margin="285,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF0B2A8B" Offset="0"/>
+					<GradientStop Color="#FF101D46" Offset="1"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+		<Rectangle Stroke="Black" StrokeThickness="0" RadiusX="4" RadiusY="4" Height="33" Width="85" Margin="405,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FF63F0F3"/>
+		<Image x:Name="Back" Height="20" HorizontalAlignment="Right" Margin="0,0,25,25" VerticalAlignment="Bottom" Width="20" Source="/SMT.SaaS.UI;Component/Images/misto_089.png" Stretch="Fill" MouseLeftButtonDown="Back_MLBD" ToolTipService.ToolTip="返回" ToolTipService.Placement="Top" MouseEnter="Back_ME" MouseLeave="Back_ML" Cursor="Hand"/>
+		<TextBlock Height="26" HorizontalAlignment="Left" Margin="44,34,0,0" VerticalAlignment="Top" Width="109" Text="常用按钮" TextWrapping="Wrap" FontSize="13.333" Foreground="White"/>
+		<Button Height="33" Width="85" Margin="40,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="透明样式"  Foreground="White"/>
+		<Button Height="33" Width="85" Margin="165,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="蓝色样式"  Foreground="White"/>
+		<Button Height="33" Width="85" Margin="285,90,0,0" Content="黑蓝样式" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" d:LayoutOverrides="Width"/>
+		<Button Height="33" Width="85" Margin="405,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="水蓝样式" d:LayoutOverrides="VerticalAlignment" />
+		<Button Height="33" Width="85" Margin="525,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="普通样式" d:LayoutOverrides="VerticalAlignment"/>
+		<controls:DatePicker Height="23" Margin="40,150,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="178" Style="{StaticResource DatePickerStyle}"/>
+		<CheckBox Height="23" Margin="44,192,0,0" VerticalAlignment="Top" Content="CheckBox" HorizontalAlignment="Left" Width="85" Style="{StaticResource CheckBoxStyle}" d:LayoutOverrides="HorizontalAlignment" Foreground="White"/>
+		<CheckBox Height="23" Margin="44,234,0,0" VerticalAlignment="Top" Content="CheckBox" HorizontalAlignment="Left" Width="85" d:LayoutOverrides="HorizontalAlignment" Foreground="White"/>
+		<RadioButton Height="23" HorizontalAlignment="Left" Margin="181,192,0,0" VerticalAlignment="Top" Width="103" Content="RadioButton" Foreground="White"/>
+		<RadioButton Height="23" HorizontalAlignment="Left" Margin="181,234,0,0" VerticalAlignment="Top" Width="103" Content="RadioButton" Foreground="White"/>
+		<ListBox HorizontalAlignment="Left" Margin="627,150,0,0" Width="144" Height="96" VerticalAlignment="Top">
+			<ListBoxItem Content="00001"/>
+			<ListBoxItem Content="00002"/>
+			<ListBoxItem Content="00003"/>
+			<Button Content="buttonL"/>
+			<CheckBox Content="CheckBox"/>
+			<RadioButton Content="RadioButton"/>
+		</ListBox>
+		<controls:TabControl Margin="314,150,0,0" HorizontalAlignment="Left" Width="237" Height="139" VerticalAlignment="Top">
+			<controls:TabItem Header="Tab_001">
+				<Grid>
+				<controls:DatePicker Height="22" Margin="29,8,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height" Style="{StaticResource DatePickerStyle}" HorizontalAlignment="Left" Width="167"/>
+				<Button Height="25" Width="50" Content="Y" Margin="45,67,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left"/>
+				<Button Height="25" Width="50" Content="N" Margin="134,67,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left"/>
+				</Grid>
+			</controls:TabItem>
+			<controls:TabItem Header="Tab_002">
+				<Grid>
+				<TextBlock Text="TextBlock" Foreground="Black" Width="67" Height="22" HorizontalAlignment="Left" Margin="8,24,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height"/>
+				<TextBox Style="{StaticResource TextBoxStyle}" Text="" Foreground="Black" Height="22" Margin="79,24,43,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
+				<TextBlock Text="TextBlock" Foreground="Black" Width="67" Height="22" HorizontalAlignment="Left" Margin="8,65,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, Height"/>
+				<TextBox Style="{StaticResource TextBoxStyle}" Text="" Foreground="Black" Height="22" Margin="79,0,43,32" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+				</Grid>
+			</controls:TabItem>
+			
+		</controls:TabControl>
+
+	</Grid>
+</navigation:Page>

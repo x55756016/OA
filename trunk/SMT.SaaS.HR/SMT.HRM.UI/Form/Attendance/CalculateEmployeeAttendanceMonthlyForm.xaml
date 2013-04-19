@@ -1,0 +1,50 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Attendance.CalculateEmployeeAttendanceMonthlyForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    >
+    <StackPanel>
+        <Grid x:Name="LayoutRoot" Margin="4"  Background="Transparent">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="0.39*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="0.39*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <validator:ValidatorManager x:Name="Group1"/>
+
+            <!--Row 0:AttendanceSolutionID-->
+            <TextBlock x:Name="tbBalanceUnitTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BALANCEYEAR}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtBalanceYear" Grid.Row="0" Grid.Column="2" validator:TextBoxFilterService.Filter="Integer" Height="22" Margin="5,0,0,0"></TextBox>
+
+            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BALANCEMONTH}" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" Margin="5,0,0,0"  ></TextBlock>
+            <TextBox x:Name="txtBalanceMonth" Grid.Row="0" Grid.Column="6" validator:TextBoxFilterService.Filter="Integer" Height="22" Margin="5,0,0,0"></TextBox>
+
+            <!--Row 2:BalanceUnitType & BalanceUnit-->
+            <TextBlock x:Name="tbAssignedObjectType" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BALANCEUNITTYPE}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="1" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" />
+            <appCtr:DictionaryComboBox x:Name="cbxkAssignedObjectType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ASSIGNEDOBJECTTYPE" SelectedValue="{Binding ASSIGNEDOBJECTTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" Margin="5,0,0,0"/>
+
+            <TextBlock x:Name="tbAssignedObjectID" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BALANCEUNIT}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Grid.Column="4" Margin="5,0,0,0"/>
+            <smtx:LookUp Grid.Row="1" Grid.Column="6" FindClick="lkAssignObject_FindClick"  x:Name="lkAssignObject" Height="24" />
+
+            <!--Row 3:-->
+            <Button x:Name="btnBalanceCalculate" Grid.Row="2" Grid.Column="2" Width="100" Margin="5,0,0,0" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=BALANCECALCULATE}" Click="btnBalanceCalculate_Click" Height="22" HorizontalAlignment="Left" />
+
+        </Grid>
+    </StackPanel>
+</smtLocal:BaseForm>

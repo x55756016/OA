@@ -1,0 +1,350 @@
+﻿<smtLocal:BaseForm xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  x:Class="SMT.HRM.UI.Form.Personnel.CheckGrade"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:uc="clr-namespace:SMT.HRM.UI.Form.Personnel"
+             xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    Width="680" Height="500">
+    <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Left" Style="{StaticResource ScrollViewerStyle}" >
+    <Grid x:Name="LayoutRoot" Background="White">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition/>
+    	</Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="人事考核表" FontSize="18.667" />
+            <TextBlock Text=" ( " Margin="0,8,0,0" />
+            <appCtr:DictionaryComboBox x:Name="cbxLevel" Category="EMPLOYEELEVEL" SelectedValue="{Binding EMPLOYEELEVEL, Mode=TwoWay}"
+                SelectionChanged="DictionaryComboBox_SelectionChanged" Width="Auto" Height="22" Margin="1" IsEnabled="False"/>
+            <TextBlock Text=" ) " Margin="0,8,0,0" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1"  HorizontalAlignment="Center">
+            <Grid Width="430">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="0.324*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--Row0-->
+                <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Column="0">
+                    <TextBlock Text="姓名" HorizontalAlignment="center" VerticalAlignment="Center" />
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Column="1">
+                    <TextBlock Text="{Binding EMPLOYEENAME, Mode=TwoWay}" Margin="5 0 0 0" VerticalAlignment="Center"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Column="2">
+                    <TextBlock Text="部门&#xd;职位" HorizontalAlignment="center"  VerticalAlignment="Center"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Column="3">
+                    <StackPanel>
+                        <TextBlock x:Name="txtDepartment"  Margin="5 0 0 0" />
+                            <TextBlock x:Name="txtPost" Margin="5 0 0 0" />
+                        </StackPanel>                            
+                </Border>
+                <!--Row1-->
+                <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="1" Grid.Column="0">
+                    <TextBlock Text="考核者" HorizontalAlignment="center"  VerticalAlignment="Center"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="1" Grid.Column="1">
+                    <smt:LookUp  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
+                    FindClick="LookUp_FindClick" Name="lkEmployeeName" DisplayMemberPath="EMPLOYEECNAME"/>
+                    </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="1" Grid.Column="2">
+                    <TextBlock Text="考核期" HorizontalAlignment="center"  VerticalAlignment="Center"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Row="1" Grid.Column="3">
+                    <StackPanel Orientation="Horizontal">
+                        <controls:DatePicker Text="{Binding CHECKSTARTDATE, Mode=TwoWay}" Height="22" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>
+                        <TextBlock Text="至" Margin="5,0,5,0"  VerticalAlignment="Center"/>
+                        <controls:DatePicker Text="{Binding CHECKENDDATE, Mode=TwoWay}" Height="22" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>
+                    </StackPanel>
+                </Border>
+                <!--Row2-->
+                <Border BorderBrush="Black" BorderThickness="1 1 0 1"  Grid.Row="2" Grid.Column="0">
+                    <TextBlock Text="考核原因" HorizontalAlignment="center" VerticalAlignment="Center"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1">
+                    <appCtr:DictionaryComboBox Category="CHECKREASON" SelectedValue="{Binding CHECKREASON, Mode=TwoWay}"
+         Width="Auto" Height="22" Margin="1" IsEnabled="False"/>
+                </Border>
+            </Grid>
+            <Border BorderBrush="Black" BorderThickness="1"  Margin="15 0 0 0">
+                <StackPanel Width="198">
+                    <TextBlock Text="考  核  尺  度  定  义"  HorizontalAlignment="Center"/>
+                    <Border BorderBrush="Black" BorderThickness="0 0 0 1"></Border>
+                    <TextBlock Text=" S 很好。考核期绩效高质量"/>
+                    <TextBlock Text=" A 好。达到标准要求"/>
+                    <TextBlock Text=" B 需改进。绩效的某一方面存在缺陷"/>
+                    <TextBlock Text=" C 不令人满意。绩效存在较多缺陷"/>
+                    <TextBlock Text=" D 极差。需降级处理"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <TextBlock Grid.Row="2" Height="2" />
+        <Grid Grid.Row="3" Width="645">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.148*"/>
+                <RowDefinition Height="0.148*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.RowSpan="2">
+                <TextBlock Text="项目" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.RowSpan="2" Grid.Column="1">
+                <TextBlock Text="细分" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.RowSpan="2" Grid.Column="2">
+                <TextBlock Text="考核要点" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.RowSpan="2" Grid.Column="3">
+                <TextBlock Text="权重" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.RowSpan="2" Grid.Column="4">
+                <TextBlock Margin="8 0 8 0" Text="  评分档次   （S A B C D）" TextWrapping="Wrap" TextAlignment="Center" Width="78" LineHeight="22" VerticalAlignment="Center"></TextBlock>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="5">
+                <TextBlock Text="上司评分" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="1" Grid.Column="5">
+                <TextBlock Text="一次" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Row="1" Grid.Column="6">
+                <TextBlock Text="二次" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+                <ListBox x:Name="lbxCheckProject" ItemsSource="{Binding Mode=OneWay}" LostFocus="lbxCheckProject_LostFocus"  Grid.Row="2" Grid.ColumnSpan="7" 
+                         BorderBrush="Black" BorderThickness="1" Style="{StaticResource ListBoxStyle}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35"/>
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                                    <TextBlock Text="{Binding CheckProject}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Width="10"></TextBlock>
+                                    <TextBlock Text="{Binding CheckProjectScore}" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                                </StackPanel>
+                                <!--考核项目点-->
+                                <ListBox ItemsSource="{Binding PointList, Mode=OneWay}"  Grid.Row="0" Grid.Column="1" Style="{StaticResource ListBoxStyle}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="600">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="70"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="40"/>
+                                                    <ColumnDefinition Width="95"/>
+                                                    <ColumnDefinition Width="68"/>
+                                                    <ColumnDefinition Width="68"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding CheckPoint}" Grid.Column="0" HorizontalAlignment="center"  Foreground="#FFF80808" />
+                                                <TextBlock Text="{Binding CheckPointDes}" Grid.Column="1" HorizontalAlignment="center" TextWrapping="Wrap"  />
+                                                <TextBlock Text="{Binding CheckPointScore}" Grid.Column="2" HorizontalAlignment="center" />
+                                                <ListBox Grid.Column="3" ItemsSource="{Binding LeavelList, Mode=OneWay}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ScrollViewer.VerticalScrollBarVisibility="Disabled" DisplayMemberPath="POINTLEVEL" Height="22" Style="{StaticResource ListBoxStyle}" >
+                                                    <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <!--WrapPanel的Height除以CheckBox的Height决定每列的行数-->
+                                                            <!--暂未找到可以设置WrapPanel折行数量的属性-->
+                                                            <!--Orientation设置纵向或横向排列,横向的话需要用Width设置-->
+                                                            <controlsToolkit:WrapPanel Orientation="Vertical" Height="25" />
+                                                        </ItemsPanelTemplate>
+                                                    </ListBox.ItemsPanel>
+                                                </ListBox>
+                                                <appCtr:SelectValueComboBox ItemsSource="{Binding LeavelList, Mode=OneWay}" SelectedValue="{Binding FirstScore, Mode=TwoWay}" Grid.Column="4" Height="22" DisplayMemberPath="POINTLEVEL"/>
+                                                <!--<ComboBox ItemsSource="{Binding LeavelList, Mode=OneWay}"  SelectionChanged="ComboBox_SelectionChanged" Grid.Column="4" DisplayMemberPath="POINTLEVEL"></ComboBox>-->
+                                                <!--<TextBox Text="{Binding FirstNibsGrade,Mode=TwoWay}" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto" />-->
+                                                <appCtr:SelectValueComboBox ItemsSource="{Binding LeavelList, Mode=OneWay}" SelectedValue="{Binding SecondScore, Mode=TwoWay}" Grid.Column="5" Height="22" DisplayMemberPath="POINTLEVEL"/>
+                                                <!--<TextBox Text="{Binding SecondNibsGrade,Mode=TwoWay}" Grid.Column="5" HorizontalAlignment="Stretch" Width="Auto" />-->
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Border BorderBrush="Black" BorderThickness="1 1 0 1" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" >
+                    <TextBlock Text="评分小计" HorizontalAlignment="center"  VerticalAlignment="Center" />
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 0 1"  Grid.Row="3" Grid.Column="3" >
+                    
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 0 1"  Grid.Row="3" Grid.Column="4" >
+
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1 1 0 1"  Grid.Row="3" Grid.Column="5" >
+                    <TextBox x:Name="txtFirst" TextChanged="txtFirst_TextChanged" Text="{Binding FIRSTNIBSGRADESUM, Mode=TwoWay}"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1"  Grid.Row="3" Grid.Column="6" >
+                    <TextBox x:Name="txtSecond" TextChanged="txtFirst_TextChanged" Text="{Binding SECONDNIBSGRADESUM, Mode=TwoWay}" Grid.Column="6" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+                </Border>
+            </Grid>
+        <TextBlock Grid.Row="4" Height="2" />
+        <Grid Grid.Row="5" Width="645">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.148*"/>
+                <ColumnDefinition Width="0.481*"/>
+                <ColumnDefinition Width="0.102*"/>
+                <ColumnDefinition Width="0.319*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Column="0">
+                <TextBlock Text="奖励" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Column="1" >
+                <TextBlock HorizontalAlignment="Center" Text="记大功一次加5分，小功一次加3分，嘉奖一次加2分" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Column="2" >
+                <TextBlock Text="加    分" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Column="3">
+                <inputToolkit:NumericUpDown x:Name="nudAwards" Style="{StaticResource NumericUpDownStyle}" Value="{Binding AWARDSSCORE, Mode=TwoWay}" ValueChanged="_ValueChanged" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ></inputToolkit:NumericUpDown>                
+            </Border>
+			
+			 <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="1" Grid.Column="0">
+                <TextBlock Text="处罚" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="1" Grid.Column="1" >
+                <TextBlock HorizontalAlignment="Center" Text="记大过一次减5分，小过一次减3分，处分一次减2分" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="1" Grid.Column="2" >
+                <TextBlock Text="减    分" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Row="1" Grid.Column="3">
+                <inputToolkit:NumericUpDown x:Name="nudPunishment" Style="{StaticResource NumericUpDownStyle}"  Value="{Binding PUNISHMENTSCORE, Mode=TwoWay}" ValueChanged="_ValueChanged" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ></inputToolkit:NumericUpDown>                
+            </Border>
+			
+			<Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Text="评分合计" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="2" Grid.Column="2" >
+                
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Row="2" Grid.Column="3" >
+                <TextBox x:Name="txtTotal" Text="{Binding TOTALSCORE, Mode=TwoWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsReadOnly="True" />
+            </Border>
+        </Grid>
+		<Grid Grid.Row="6" Width="645">
+			<Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.248*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+			<Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Column="0">
+                <TextBlock Text="一级考核人评语" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+			<Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtFirstCom" Text="{Binding FIRSTCOMMENT, Mode=TwoWay}" Grid.RowSpan="3" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="签字:"/>
+                        <TextBox x:Name="txtFirstName" Text="{Binding FIRSTCOMMENTNAME, Mode=TwoWay}" Height="22" HorizontalAlignment="Stretch" Width="70"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="日期:"/>
+                        <TextBox x:Name="txtFirstDate" Text="{Binding FIRSTCOMMENTDATE, Mode=TwoWay}" Height="22" VerticalAlignment="Stretch" Width="70" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+			
+			<Border BorderBrush="Black" BorderThickness="1 1 0 0" Grid.Row="1" Grid.Column="0">
+                <TextBlock Text="二级考核人评语" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+			<Border BorderBrush="Black" BorderThickness="1 1 1 0" Grid.Row="1" Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtSecondCom" Text="{Binding SECONDCOMMENT, Mode=TwoWay}" Grid.RowSpan="3" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="签字:"/>
+                        <TextBox x:Name="txtSecondName" Text="{Binding SECONDCOMMENTNAME, Mode=TwoWay}" Height="22" HorizontalAlignment="Stretch" Width="70"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="日期:"/>
+                        <TextBox x:Name="txtSecondDate" Text="{Binding SECONDCOMMENTDATE, Mode=TwoWay}" Height="22" VerticalAlignment="Stretch" Width="70" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+			
+			<Border BorderBrush="Black" BorderThickness="1 1 0 1" Grid.Row="2" Grid.Column="0">
+                <TextBlock Text="人事考核" HorizontalAlignment="center" VerticalAlignment="Center"/>
+            </Border>
+			<Border BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtHrCom" Text="{Binding HRDEPARTMENTCOMMENT, Mode=TwoWay}" Grid.RowSpan="3" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="签字:"/>
+                        <TextBox x:Name="txtHrCommentName" Text="{Binding HRCOMMENTNAME, Mode=TwoWay}" Height="22" HorizontalAlignment="Stretch" Width="70"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="日期:"/>
+                        <TextBox x:Name="txtHrCommentDate" Text="{Binding HRCOMMENTDATE, Mode=TwoWay}" Height="22" VerticalAlignment="Stretch" Width="70" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+		</Grid>
+    </Grid>
+   </ScrollViewer>
+</smtLocal:BaseForm>

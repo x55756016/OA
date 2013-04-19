@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+  <xs:element name="GetWelfareStandardInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareStandardInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfareStandardInfoResult" nillable="true" type="q1:ArrayOfT_OA_WELFARE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfareByIdResult" nillable="true" type="q2:ArrayOfT_OA_WELFARE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareStandardById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareStandardID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareStandardByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfareStandardByIdResult" nillable="true" type="q3:T_OA_WELFARE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistWelfareStandard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareStandard" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="WelfareStandardID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistWelfareStandardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistWelfareStandardResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWelfareStandard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="WelfareStandardInfo" nillable="true" type="q4:T_OA_WELFARE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWelfareStandardResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteWelfareStandard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WelfareStandardID" nillable="true" type="q5:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteWelfareStandardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteWelfareStandardResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WelfareStandardAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="WelfareStandard" nillable="true" type="q6:T_OA_WELFARE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WelfareStandardAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareStandardAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareStandardRoomInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareStandardRoomInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfareStandardRoomInfosResult" nillable="true" type="q7:ArrayOfT_OA_WELFARE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareStandardRoomInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareRemark" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareStandardRoomInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetWelfareStandardRoomInfosListBySearchResult" nillable="true" type="q8:ArrayOfV_WelfareStandard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsWelfareCanBrowser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareStandard" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsWelfareCanBrowserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsWelfareCanBrowserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q9:T_OA_WELFARE" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="flowRecordInfo" nillable="true" type="q10:Flow_FlowRecord_T" />
+        <xs:element minOccurs="0" name="toUserId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitFlowResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="flowRecordInfo" nillable="true" type="q11:Flow_FlowRecord_T" />
+        <xs:element minOccurs="0" name="toUserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="empComment" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitCommentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareListByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q12:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q13:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareListByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetWelfareListByUserIdResult" nillable="true" type="q14:ArrayOfV_WelfareStandard" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareInformation">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetWelfareInformationResult" nillable="true" type="q15:ArrayOfV_WelfareStandard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfarePostId">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfarePostIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfarePostIdResult" nillable="true" type="q16:ArrayOfT_OA_WELFARE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WelfarePaymentDetailsAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="WelfarePaymentDetails" nillable="true" type="q17:T_OA_WELFAREDISTRIBUTEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WelfarePaymentDetailsAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfarePaymentDetailsAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWelfarePaymentDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="WelfarePaymentDetailsInfo" nillable="true" type="q18:T_OA_WELFAREDISTRIBUTEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWelfarePaymentDetailsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfarePaymentDetailsInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q19:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfarePaymentDetailsInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfarePaymentDetailsInfosResult" nillable="true" type="q20:ArrayOfT_OA_WELFAREDISTRIBUTEDETAIL" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareByWelfareproID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="welfareproID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareByWelfareproIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfareByWelfareproIDResult" nillable="true" type="q21:T_OA_WELFARE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfareProvisionInfoResult" nillable="true" type="q22:ArrayOfT_OA_WELFAREDISTRIBUTEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProvisionById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProvisionByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetProvisionByIdResult" nillable="true" type="q23:ArrayOfT_OA_WELFAREDISTRIBUTEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareStandardID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfareProvisionByIdResult" nillable="true" type="q24:T_OA_WELFAREDISTRIBUTEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistWelfareProvision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareProvision" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="WelfareStandardID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistWelfareProvisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistWelfareProvisionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWelfareProvision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="WelfareStandardInfo" nillable="true" type="q25:T_OA_WELFAREDISTRIBUTEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWelfareProvisionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteWelfareProvision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WelfareStandardID" nillable="true" type="q26:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteWelfareProvisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteWelfareProvisionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WelfareProvisionAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="WelfareProvision" nillable="true" type="q27:T_OA_WELFAREDISTRIBUTEMASTER" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="WelfareDetails" nillable="true" type="q28:ArrayOfT_OA_WELFAREDISTRIBUTEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WelfareProvisionAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareProvisionAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionRoomInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionRoomInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWelfareProvisionRoomInfosResult" nillable="true" type="q29:ArrayOfT_OA_WELFAREDISTRIBUTEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionRoomInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareRemark" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strContent" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionRoomInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetWelfareProvisionRoomInfosListBySearchResult" nillable="true" type="q30:ArrayOfV_WelfareProvision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsWelfareProvisionBrowser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WelfareProvision" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsWelfareProvisionBrowserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsWelfareProvisionBrowserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitFlowProvision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q31:T_OA_WELFAREDISTRIBUTEMASTER" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="flowRecordInfo" nillable="true" type="q32:Flow_FlowRecord_T" />
+        <xs:element minOccurs="0" name="toUserId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitFlowProvisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitFlowProvisionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionListByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q33:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q34:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWelfareProvisionListByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetWelfareProvisionListByUserIdResult" nillable="true" type="q35:ArrayOfV_WelfareProvision" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

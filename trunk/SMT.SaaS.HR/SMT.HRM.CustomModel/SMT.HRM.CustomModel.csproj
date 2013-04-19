@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E45B937-670F-49E1-8EF1-A4BD312B94DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.HRM.CustomModel</RootNamespace>
+    <AssemblyName>SMT.HRM.CustomModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMT_HRM_EFModel">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT_HRM_EFModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CLOCKINRECORDINFO.cs" />
+    <Compile Include="DataColumnInfo.cs" />
+    <Compile Include="DataSetData.cs" />
+    <Compile Include="DataTableInfo.cs" />
+    <Compile Include="EmployeeContactWays.cs" />
+    <Compile Include="Reports\AbnormalAttendanceeEntity.cs" />
+    <Compile Include="Reports\EmployeeMarriage.cs" />
+    <Compile Include="Reports\PieEmployeece.cs" />
+    <Compile Include="V_ADJUSTLEAVE.cs" />
+    <Compile Include="V_ATTENDANCEDEDUCTMASTER.cs" />
+    <Compile Include="V_AttendSummaryRecord.cs" />
+    <Compile Include="V_COMPANY.cs" />
+    <Compile Include="V_COMPLAINRECORD.cs" />
+    <Compile Include="V_CUSTOMGUERDON.cs" />
+    <Compile Include="V_CUSTOMGUERDONARCHIVE.cs" />
+    <Compile Include="V_CUSTOMGUERDONARCHIVEHIS.cs" />
+    <Compile Include="V_DEPARTMENT.cs" />
+    <Compile Include="V_DEPARTMENTSWITHCOMPANY.cs" />
+    <Compile Include="V_EmpLeaveRdInfo.cs" />
+    <Compile Include="V_EmployeeAddsumView.cs" />
+    <Compile Include="V_EmployeeAttenceReports.cs" />
+    <Compile Include="V_EmployeeBasicInfo.cs" />
+    <Compile Include="V_EmployeeChangeInfos.cs" />
+    <Compile Include="V_EmployeeCollect.cs" />
+    <Compile Include="V_EmployeeDeductionMoney.cs" />
+    <Compile Include="V_EMPLOYEEDETAIL.cs" />
+    <Compile Include="V_EMPLOYEEENTRY.cs" />
+    <Compile Include="V_EMPLOYEEFUNDS.cs" />
+    <Compile Include="V_EMPLOYEELEAVE.cs" />
+    <Compile Include="V_EMPLOYEELEAVERECORD.cs" />
+    <Compile Include="V_EmployeeLeftOfficeInfos.cs" />
+    <Compile Include="V_EmployeePensionReports.cs" />
+    <Compile Include="V_EMPLOYEEPOST.cs" />
+    <Compile Include="V_EMPLOYEEPOSTBRIEF.cs" />
+    <Compile Include="V_EMPLOYEEPOSTCHANGE.cs" />
+    <Compile Include="V_EMPLOYEEPOSTFLOWUSER.cs" />
+    <Compile Include="V_EMPLOYEEPOSTFORFB.cs" />
+    <Compile Include="V_EMPLOYEESALARYRECORD.cs" />
+    <Compile Include="V_EMPLOYEESALARYRECORDITEM.cs" />
+    <Compile Include="V_EMPLOYEESTATICINFO.cs" />
+    <Compile Include="V_EmployeeTructReports.cs" />
+    <Compile Include="V_EMPLOYEEVIEW.cs" />
+    <Compile Include="V_EMPOYEEPOSTLEVEL.cs" />
+    <Compile Include="V_FB_BUDGETACCOUNT.cs" />
+    <Compile Include="V_FlowUserInfo.cs" />
+    <Compile Include="V_HR_EMPLOYEEOVERTIMERECORD.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="V_KPIRECORD.cs" />
+    <Compile Include="V_LandDetail.cs" />
+    <Compile Include="V_LandStatistic.cs" />
+    <Compile Include="V_LEFTOFFICEVIEW.cs" />
+    <Compile Include="V_MOBILEEMPLOYEE.cs" />
+    <Compile Include="V_MonthDeductionTax.cs" />
+    <Compile Include="V_PAYMENT.cs" />
+    <Compile Include="V_PENSIONALARMSET.cs" />
+    <Compile Include="V_PERFORMANCERECORD.cs" />
+    <Compile Include="V_PERFORMANCERECORDDETAIL.cs" />
+    <Compile Include="V_POINTSET.cs" />
+    <Compile Include="V_POST.cs" />
+    <Compile Include="V_PROJECTPOINT.cs" />
+    <Compile Include="V_RELATIONPOST.cs" />
+    <Compile Include="V_RESIGN.cs" />
+    <Compile Include="V_RETURNFBI.cs" />
+    <Compile Include="V_SALARYARCHIVEITEM.cs" />
+    <Compile Include="V_SALARYARCHIVEMASTER.cs" />
+    <Compile Include="V_SALARYARCHIVES.cs" />
+    <Compile Include="V_SALARYITEM.cs" />
+    <Compile Include="V_salaryRecordDetailView.cs" />
+    <Compile Include="V_SALARYSOLUTIONASSIGN.cs" />
+    <Compile Include="V_ATTENDANCERECORD.cs" />
+    <Compile Include="V_SALARYSOLUTIONITEM.cs" />
+    <Compile Include="V_SALARYSTANDARDITEM.cs" />
+    <Compile Include="V_SalarySummary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

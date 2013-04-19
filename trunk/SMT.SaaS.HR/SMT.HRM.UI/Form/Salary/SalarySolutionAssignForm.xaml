@@ -1,0 +1,97 @@
+﻿<smtLocal:BaseForm xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  x:Class="SMT.HRM.UI.Form.Salary.SalarySolutionAssignForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+    <Grid x:Name="LayoutRoot"  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+
+
+            <RowDefinition Height="auto"></RowDefinition>
+
+
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+        <!--Row 0-->
+        <!--SALARYSOLUTIONNAME-->
+        <TextBlock   Grid.Column="0" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYSOLUTIONNAME}" />
+
+        <smt:LookUp DataContext="{Binding T_HR_SALARYSOLUTION, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Height="24"
+            					FindClick="lkSalarySolution_FindClick"  x:Name="lkSalarySolution"  DisplayMemberPath="SALARYSOLUTIONNAME" />
+
+        <!--SALARYSTANDARDNAME-->
+        <!--<TextBlock   Grid.Column="3" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYSTANDARDNAME}" />
+
+        <smt:LookUp DataContext="{Binding T_HR_SALARYSTANDARD, Mode=TwoWay}" Grid.Row="0" Grid.Column="4"
+            					FindClick="lkSalaryStander_FindClick"  x:Name="lkSalaryStander"  DisplayMemberPath="SALARYSTANDARDNAME" />-->
+
+        <!--Row 1-->
+        <!--STARTDATE-->
+        <TextBlock   Grid.Column="0" Grid.Row="1" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATE}" />
+
+        <controls:DatePicker Style="{StaticResource DatePickerStyle}" HorizontalAlignment="Stretch" SelectedDate="{Binding STARTDATE, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" Name="dpStartDate"></controls:DatePicker>
+
+        <!--ENDDATE-->
+        <TextBlock   Grid.Column="3" Grid.Row="1" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDDATE}" />
+
+        <controls:DatePicker SelectedDate="{Binding ENDDATE, Mode=TwoWay}" Style="{StaticResource DatePickerStyle}" HorizontalAlignment="Stretch" Grid.Column="4" Grid.Row="1" Name="dpEndDate"></controls:DatePicker>
+
+
+        <!--Row 2-->
+
+        <!--ASSIGNEDOBJECTTYPE-->
+        <TextBlock   Grid.Column="0" Grid.Row="2" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECTTYPE}" />
+
+        <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cbxObjectType"  HorizontalAlignment="Stretch" Height="22" Width="Auto" Margin="5,0,0,0"
+                  ></ComboBox>
+        <appCtr:DictionaryComboBox x:Name="cbxObjectType1" IsShowNull="True" Category="ASSIGNEDOBJECTTYPE"  HorizontalAlignment="Stretch"
+SelectedValue="{Binding ASSIGNEDOBJECTTYPE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  Loaded="cbxObjectType_Loaded"
+Grid.Row="2" Grid.Column="1" Height="22" Width="Auto" Margin="5,0,0,0" Visibility="Collapsed"/>
+
+
+
+        <!--ASSIGNEDOBJECT-->
+        <TextBlock   Grid.Column="3" Grid.Row="2" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECT}" />
+
+        <smt:LookUp Grid.Row="2" Grid.Column="4" Height="24"
+            					FindClick="lkAssignObject_FindClick"  x:Name="lkAssignObject" />
+
+
+
+
+        <!--Row 3-->
+        <!--REMARK-->
+        <TextBlock  Grid.Row="3" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Height="auto" AcceptsReturn="True" MaxLength="2000"  TextWrapping="Wrap" Margin="5,0,0,0" >
+        </TextBox>
+        
+    </Grid>
+</smtLocal:BaseForm>

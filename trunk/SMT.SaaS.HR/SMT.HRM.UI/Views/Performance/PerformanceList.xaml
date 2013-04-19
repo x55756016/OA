@@ -1,0 +1,108 @@
+﻿<smtLocal:BasePage 
+           x:Class="SMT.HRM.UI.Views.Performance.PerformanceList" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtv="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationTreeView;assembly=SMT.SaaS.FrameworkUI"   
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+    
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="PerformanceList Page">
+    <Grid x:Name="Parent" ShowGridLines="True">
+        <Grid x:Name="LayoutRoot"  Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="0"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles"  Grid.Row="0"></smt:ViewTitle>
+            <smt:FormToolBar x:Name="ToolBar" Grid.Row="2"/>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="340"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnMyPerformance" Grid.Row="0" Grid.Column="0" Click="btnMyKpiDetails_Click"  Visibility="Collapsed"
+                        Style="{StaticResource CommonButtonStyle}" VerticalAlignment="Top" Margin="4,4,4,0" 
+                        Content="我的绩效考核" HorizontalAlignment="Center" Width="170"/>
+                <!--<controls:TreeView x:Name="treeOrganization" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" 
+                           SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}" 
+                           VerticalAlignment="Stretch" Margin="0,0,0,0">
+                </controls:TreeView>-->
+                <smtv:OrganizationTreeView x:Name="treeOrganization" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" VerticalAlignment="Stretch" Margin="0,0,0,0" ></smtv:OrganizationTreeView>
+                <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                              LoadingRow="DtGrid_LoadingRow"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" SelectionChanged="DtGrid_SelectionChanged">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="SUMNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMNAME}"/>
+                        <!--1s 冉龙军-->
+                        <!--<data:DataGridTextColumn Header="SUMDEPT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMDEPTID}"/>-->
+                        <!--1e-->
+                        <data:DataGridTextColumn Header="STARTTIME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMSTART, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                        <data:DataGridTextColumn Header="ENDTIME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMEND, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                        <data:DataGridTextColumn Header="PERFORMANCESCORE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMSCORE}"/>
+                        <data:DataGridTextColumn Header="SUMCOUNT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMCOUNT}"/>
+                        <!--1s 冉龙军-->
+                        <!--<data:DataGridTextColumn Header="SUMPERSON" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMPERSONID}"/>
+                        <data:DataGridTextColumn Header="SUMDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMDATE}"/>
+                        <data:DataGridTextColumn Header="SUMTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMTYPE}"/>-->
+                        <data:DataGridTextColumn Header="SUMTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SUMTYPE}"/>
+                        <!--1e-->
+
+                        <data:DataGridTextColumn Header="BASEMONEY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding BASEMONEY}"/>
+                        <data:DataGridTextColumn Header="SUMREMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SUMREMARK}"/>
+                        <!--1s 冉龙军-->
+                        <!--<data:DataGridTextColumn Header="REVIEWSTATUS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REVIEWSTATUS}"/>
+                        <data:DataGridTextColumn Header="REVIEWPERSON" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REVIEWERID}"/>-->
+                        <data:DataGridTextColumn Header="REVIEWSTATUS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}"/>
+                        <!--1e-->
+                        <data:DataGridTextColumn Header="REVIEWREMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEECODE}"/>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="2" Grid.Column="1"></smt:GridPager>
+
+
+                <data:DataGrid x:Name="dtgPerformance" AutoGenerateColumns="False" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                        RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <!--<data:DataGridTextColumn Header="APPRAISEE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding APPRAISEEID}"/>-->
+                        <data:DataGridTextColumn Header="EMPLOYEECODE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEECODE}"/>
+                        <data:DataGridTextColumn Header="EMPLOYEECNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEECNAME}"/>
+                        <data:DataGridTextColumn Header="AVERAGESCORE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding T_HR_PERFORMANCERECORD.PERFORMANCESCORE}"/>
+                        <data:DataGridTextColumn Header="PERFORMANCEREMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding T_HR_PERFORMANCERECORD.PERFORMANCEREMARK}"/>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <data:DataPager x:Name="dpGrid" DisplayMode="FirstLastPreviousNextNumeric" Source="{Binding ItemsSource,ElementName=dtgPerformance}" 
+                    VerticalAlignment="Bottom" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" 
+                    AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" Grid.Row="2" Grid.Column="2"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

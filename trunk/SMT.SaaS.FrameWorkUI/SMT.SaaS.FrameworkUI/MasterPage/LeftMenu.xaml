@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.LeftMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:layoutToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    xmlns:layoutToolkitPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Layout.Toolkit">
+    <StackPanel x:Name="menuRoot" Background="Transparent">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+            <layoutToolkit:Accordion x:Name="toolkitacc" HorizontalAlignment="Stretch" BorderThickness="0">      
+                <layoutToolkit:AccordionItem x:Name="AItem1" BorderThickness="0" >
+                    <layoutToolkit:AccordionItem.Header>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/area/bar_bottom_ico_Marketing.png" HorizontalAlignment="Left" Width="26" Height="26" Margin="6,0,0,0"/>
+                            <TextBlock Text="系统管理" Margin="5,0,0,0" Width="auto" Height="24"  FontSize="14" Style="{StaticResource TextBCommonBlue1}"></TextBlock>
+                        </StackPanel>
+                    </layoutToolkit:AccordionItem.Header>
+                    <layoutToolkit:TransitioningContentControl>
+                        <StackPanel Margin="0,6,0,0" >
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0" />
+                                <HyperlinkButton x:Name="H1" NavigateUri="/Views/TestUsersView.xaml" Content="管理员设置" Margin="26,0,0,0"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="H2" NavigateUri="/Views/TreeFormPage.xaml" Content="TreeFormPage" Margin="26,0,0,0" />
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="H3" NavigateUri="/Views/GridFormPage.xaml" Content="GridFormPage" Margin="26,0,0,0"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="H4" NavigateUri="/Views/GridPageForm.xaml" Content="GridPageForm" Margin="26,0,0,0"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="H5" NavigateUri="/Views/TreeFormGrid.xaml" Content="TreeFormGrid" Margin="26,0,0,0"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="H6" NavigateUri="/Views/TreeGridForm.xaml" Content="TreeGridForm" Margin="26,0,0,0"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="H7" NavigateUri="/Views/TreeGridMaster.xaml" Content="TreeGridMaster" Margin="26,0,0,0"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="H8" NavigateUri="/Views/MessageBoxPage.xaml" Content="MessageBoxPage" Margin="26,0,0,0"/>
+                            </Canvas>
+                        </StackPanel>
+                    </layoutToolkit:TransitioningContentControl>
+                </layoutToolkit:AccordionItem >
+                <layoutToolkit:AccordionItem x:Name="AItem2" BorderThickness="0" >
+                    <layoutToolkit:AccordionItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/area/bar_bottom_ico_reports.png" HorizontalAlignment="Left" Width="26" Height="26" Margin="6,0,0,0"/>
+                            <TextBlock Text="基础资料" Margin="5,0,0,0" Width="auto" Height="24"  FontSize="14" Style="{StaticResource TextBCommonBlue1}"></TextBlock>
+                        </StackPanel>
+                    </layoutToolkit:AccordionItem.Header>
+                    <layoutToolkit:TransitioningContentControl>
+                        <StackPanel Margin="0,6,0,0" >
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0" />
+                                <HyperlinkButton x:Name="Hh1" NavigateUri="/BasicInfomation/FrmCompanyManage.xaml" Content="公司资料" Margin="26,0,0,0"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="Hh2" NavigateUri="/BasicInfomation/FrmWareHouseMasterManage.xaml" Content="仓库管理" Margin="26,0,0,0" />
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="Hh3" Content="技术部" Margin="26,0,0,0"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="Hh4"  Content="业务部" Margin="26,0,0,0"/>
+                            </Canvas>
+                        </StackPanel>
+                    </layoutToolkit:TransitioningContentControl>
+                </layoutToolkit:AccordionItem>             
+                <layoutToolkit:AccordionItem x:Name="AItem4" BorderThickness="0" >
+                    <layoutToolkit:AccordionItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/area/bar_bottom_ico_service.png" HorizontalAlignment="Left" Width="26" Height="26" Margin="6,0,0,0"/>
+                            <TextBlock Text="会议室管理" Margin="5,0,0,0" Width="auto" Height="24"  FontSize="14" Style="{StaticResource TextBCommonBlue1}"></TextBlock>
+                        </StackPanel>
+                    </layoutToolkit:AccordionItem.Header>
+                    <layoutToolkit:TransitioningContentControl>
+                        <StackPanel Margin="0,6,0,0" >                            
+                            <HyperlinkButton x:Name="Hs5" Content="关于" Margin="26,0,0,0" HorizontalAlignment="Left"/>
+                            <HyperlinkButton x:Name="Pf4" Content="页面参数传递" NavigateUri="/Views/PageParameter.xaml"  Margin="26,0,0,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </layoutToolkit:TransitioningContentControl>
+                </layoutToolkit:AccordionItem>
+                <layoutToolkit:AccordionItem  x:Name="AItem5" BorderThickness="0" >
+                    <layoutToolkit:AccordionItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/area/bar_bottom_ico_workPlace.png" HorizontalAlignment="Left" Width="26" Height="26" Margin="6,0,0,0"/>
+                            <TextBlock Text="系统设置" Margin="5,0,0,0" Width="auto" Height="24" FontSize="14" Style="{StaticResource TextBCommonBlue1}"></TextBlock>
+                        </StackPanel>
+                    </layoutToolkit:AccordionItem.Header>
+                    <layoutToolkit:TransitioningContentControl>
+                        <StackPanel Margin="0,6,0,0" >
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="Pf1" NavigateUri="/Views/TreeFormSetting.xaml" Content="管理" Margin="20,0,0,0" Width="26"/>
+                            </Canvas>
+                            <Canvas Height="24">
+                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_systemEntity.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="6,1,0,0"/>
+                                <HyperlinkButton x:Name="Pf12" NavigateUri="/Book/HTMLPage1.htm" Content="翻书效果" Margin="20,0,0,0" Width="26"/>
+                            </Canvas>
+                        </StackPanel>
+                    </layoutToolkit:TransitioningContentControl>
+                </layoutToolkit:AccordionItem>  
+            </layoutToolkit:Accordion>
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>

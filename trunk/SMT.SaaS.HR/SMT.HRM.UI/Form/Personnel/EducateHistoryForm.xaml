@@ -1,0 +1,128 @@
+﻿<smtLocal:BaseForm xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    x:Class="SMT.HRM.UI.Form.Personnel.EducateHistoryForm"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Width="110">
+            <Button x:Name="btnAdd" Content="添加" Click="btnAdd_Click" Width="70" Height="24" Style="{StaticResource CommonButtonStyle}"></Button>
+        </StackPanel>
+        <data:DataGrid x:Name="DtEduGrid" Style="{StaticResource DataGridStyle}" Grid.Row="1" Grid.Column="0" AutoGenerateColumns="False"  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                       RowDetailsVisibilityMode="Visible" GridLinesVisibility="None"  HeadersVisibility="None" RowHeight="0" RowStyle="{StaticResource DataGridRowStyle}">
+            <data:DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <Grid Background="White" Margin="4 0 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="26"></RowDefinition>
+                            <RowDefinition Height="26"></RowDefinition>
+                            <RowDefinition Height="26"></RowDefinition>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition Height="28"></RowDefinition>
+                        </Grid.RowDefinitions>
+                     
+                        <!--Row0-->
+                        <!--起始日期到结束日期-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTENDDATE}" 
+                           Grid.Row="0" Grid.Column="0" ></TextBlock>
+                        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5 0 0 0">
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.45*"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.45*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="26"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <controls:DatePicker x:Name="dtpStartDate" Text="{Binding STARTDATE,Mode=TwoWay}"  Grid.Column="0" Grid.Row="0" Style="{StaticResource DatePickerStyle}" Width="auto" HorizontalAlignment="Stretch" Margin="0"></controls:DatePicker>
+                                <dataInput:Label Content="到"  Grid.Column="1" Grid.Row="0"></dataInput:Label>
+                                <controls:DatePicker x:Name="dtpEndDate" Text="{Binding ENDDATE,Mode=TwoWay}"  Grid.Column="2" Grid.Row="0" Style="{StaticResource DatePickerStyle}" Width="auto"></controls:DatePicker>
+                            </Grid>
+                        </StackPanel>
+                        <!--专业-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SPECIALTY}" 
+                           Grid.Row="0" Grid.Column="3" ></TextBlock>
+                        <TextBox Style="{StaticResource TextBoxStyle}"   MaxLength="50"
+                         Text="{Binding SPECIALTY,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                         Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Width="auto" >
+                          
+                        </TextBox>
+                        <!--Row1-->
+                        <!--学校名称-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SCHOONAME}" 
+                           Grid.Row="1" Grid.Column="0" ></TextBlock>
+                        <TextBox Style="{StaticResource TextBoxStyle}"  Width="auto" MaxLength="50"
+                         Text="{Binding SCHOONAME,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                         Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"  TextWrapping="Wrap">
+                           
+                        </TextBox>
+
+                        <!--学历-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EDUCATIONHISTORY}" 
+                           Grid.Row="2" Grid.Column="0" ></TextBlock>
+                        <TextBox Style="{StaticResource TextBoxStyle}"   MaxLength="50"
+                         Text="{Binding EDUCATIONHISTORY,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                         Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Width="auto" >
+
+                        </TextBox>
+                        <!--Row1-->
+                        <!--教育性质-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EDUCATIONPROPERTIE}" 
+                           Grid.Row="2" Grid.Column="3" ></TextBlock>
+                        <TextBox Style="{StaticResource TextBoxStyle}"  Width="auto" MaxLength="50"
+                         Text="{Binding EDUCATIONPROPERTIE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                         Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap">
+
+                        </TextBox>
+                        <!--Row2-->
+                        <!--备注-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" 
+                           Grid.Row="3" Grid.Column="0" ></TextBlock>
+                        <TextBox Style="{StaticResource TextBoxStyle}"  Width="auto" Height="48" AcceptsReturn="True" MaxLength="2000"
+                         Text="{Binding REMARK,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" 
+                         Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap" 
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                         <Button x:Name="btnDel"  Width="40" Grid.Row="3" Grid.Column="5" Margin="0 0 10 2" Height="22"  Content="删除" Click="btnDel_Click" Style="{StaticResource CommonButtonStyle}"></Button>
+                     </Grid>
+                </DataTemplate>
+            </data:DataGrid.RowDetailsTemplate>
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn  x:Name="CheckColunm" Width="Auto" >
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTemplateColumn  Width="650" >
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+    </Grid>
+</smtLocal:BaseForm>

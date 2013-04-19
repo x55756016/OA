@@ -1,0 +1,109 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Performance.KPIPointSet" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+    
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+           xmlns:convert="clr-namespace:SMT.HRM.UI"
+    
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="KPIPointSet Page">
+    <navigation:Page.Resources>
+        <convert:CompanyInfoConverter x:Key="CompanyConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles"  Grid.Row="0"></smt:ViewTitle>
+
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"  x:Name="expander" Grid.Row="1" VerticalAlignment="top" Background="Transparent">
+                <controlsToolkit:Expander.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="模块名称：" Grid.Row="0" Grid.Column="0" Width="Auto"  Margin="10,6,0,0"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtMoudleName" Grid.Row="0" Grid.Column="1" Width="160" />
+
+                            <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="2" Margin="20 0 0 0" Width="50" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnFind_Click" />
+                        </Grid>
+                    </DataTemplate>
+                </controlsToolkit:Expander.HeaderTemplate>
+            </controlsToolkit:Expander>
+            
+            
+            <smt:FormToolBar x:Name="ToolBar" Grid.Row="1" Visibility="Collapsed" />
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+				
+				<!--Row 0-->
+                <!--流程列表、流程图例-->
+                <data:DataGrid x:Name="dtgProject" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dtgProject_SelectionChanged"
+                      Grid.Row="0" Grid.Column="0" Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" Margin="0,0,4,0">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTextColumn Width="100"  Header="MODELDESC" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding FLOW_MODELDEFINE_T.DESCRIPTION}"/>
+                        <data:DataGridTextColumn Width="80"  Header="BELONGCOMPANY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding COMPANYID,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"/>
+                        <data:DataGridTextColumn Width="80"  Header="OWNERDEPARTMENT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEPARTMENTID,Converter={StaticResource CompanyConvert},ConverterParameter=Department}"/>
+                        <!--<data:DataGridTextColumn Width="50"  Header="FLOWDESC" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding FLOW_FLOWDEFINE_T.FLOWCODE}" Visibility="Collapsed" />
+                        <data:DataGridTextColumn Header="DESCRIPTION" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding FLOW_FLOWDEFINE_T.DESCRIPTION}"/>-->
+                        <data:DataGridTextColumn Header="ISENABLE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding FLAG, Converter={StaticResource DictionaryConverter},ConverterParameter=Flag}"/>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                
+                <ScrollViewer Name="svContainer"  Background="#dcdcdc" HorizontalContentAlignment="Left" Grid.Row="0" Grid.Column="1"
+                      VerticalAlignment="Stretch" BorderBrush="Beige"  BorderThickness="0" HorizontalAlignment="Stretch"   
+                      HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto" Canvas.ZIndex="0" Style="{StaticResource ScrollViewerStyle}" 
+                      SizeChanged="ScrollViewer_SizeChanged" LayoutUpdated="ScrollViewer_LayoutUpdated" Grid.RowSpan="2">
+                    <ScrollViewer.Content>
+                        <Border VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="1" BorderBrush="White">
+                            <Canvas Name="cnsDesignerContainer" VerticalAlignment="Top" HorizontalAlignment="Left"  
+                                    MinHeight="10000" MinWidth="10000" >
+                                <Canvas.Background>
+                                    <LinearGradientBrush  EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="White" Offset="0"/>
+                                        <GradientStop Color="#dcdcdc" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Canvas.Background>
+                            </Canvas>
+                        </Border>
+                    </ScrollViewer.Content>
+                </ScrollViewer>
+                
+                <!--Row 1-->
+                <!--流程列表page控件-->
+                <!--<data:DataPager x:Name="dpGrid" DisplayMode="FirstLastPreviousNextNumeric"  
+                    Source="{Binding ItemsSource,ElementName=dtgProject}" VerticalAlignment="Bottom" 
+                    NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" 
+                    AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" Grid.Row="1" Grid.Column="0"/>-->
+                <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="1" Grid.Column="0"></smt:GridPager>
+            </Grid>
+                
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

@@ -1,0 +1,110 @@
+﻿<swc:Window x:Class="SMT.HRM.UI.Form.Salary.EmployeeSalarySummary"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    mc:Ignorable="d"
+    >
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot"  Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=机构名}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
+                <smt:LookUp  Grid.Row="0" Grid.Column="1"   Width="auto" FindClick="lkSelectObj_FindClick"  x:Name="lkSelectObj"  VerticalAlignment="Center"  />-->
+                <TextBlock Width="auto"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=日期}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="0"  VerticalAlignment="Center" ></TextBlock>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Minimum="1900"  Maximum="3000" x:Name="years"  Grid.Column="1" Grid.Row="0" Width="80"></inputToolkit:NumericUpDown>
+                <TextBlock Width="auto"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="2"  VerticalAlignment="Center" ></TextBlock>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Minimum="1"  Maximum="12" x:Name="months" Grid.Column="3" Grid.Row="0"  Width="70" ></inputToolkit:NumericUpDown>
+                <TextBlock Width="auto" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" ></TextBlock>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="5" Margin="20,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="btnFind_Click"  Width="50"/>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnExport" Grid.Row="0" Grid.Column="6" Margin="20,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=导出}" Click="btnExport_Click"  Width="50"/>
+            </Grid>
+            <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" LoadingRow="DtGrid_LoadingRow" 
+                   Grid.Row="3"
+        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--<Image Name="entityLogo" Width="16" Height="16"></Image>-->
+                                <TextBlock x:Name="Tnumber" Width="auto" HorizontalAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="银行帐号" Binding="{Binding BankID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="开户行" Binding="{Binding BankName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="发薪机构" Binding="{Binding PayCompany}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="行政单位" Binding="{Binding Organization}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="员工姓名" Binding="{Binding EmployeeName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="职级代码" Binding="{Binding PostCode}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="发放月份" Binding="{Binding SalaryDate}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="实发工资" Binding="{Binding ActuallyPay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="应发小计" Binding="{Binding SubTotal}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="基本工资" Binding="{Binding BasicSalary}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="岗位工资" Binding="{Binding PostSalary}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="保密津贴" Binding="{Binding SecurityAllowance}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="住房补贴" Binding="{Binding HousingAllowance}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="地区差异补贴" Binding="{Binding AreadifAllowance}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="餐费补贴" Binding="{Binding FoodAllowance}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="固定收入合计" Binding="{Binding FixIncomeSum}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="缺勤天数" Binding="{Binding AbsenceDays}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="加班费" Binding="{Binding OvertimeSum}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="值班津贴" Binding="{Binding DutyAllowance}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="出勤工资" Binding="{Binding WorkingSalary}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="住房公积金扣款" Binding="{Binding HousingDeduction}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="个人社保负担" Binding="{Binding PersonalsiCost}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="税前应发合计" Binding="{Binding PretaxSubTotal}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="假期其它扣款" Binding="{Binding VacationDeduct}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="其它加扣款" Binding="{Binding OtherAddDeduction}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="绩效奖金" Binding="{Binding PerformancerewardRecord}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="纳税系数" Binding="{Binding TaxCoefficient}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="计税工资" Binding="{Binding Sum}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="扣税基数" Binding="{Binding TaxesBasic}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="差额" Binding="{Binding Balance}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="税率" Binding="{Binding TaxesRate}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="速算扣除数" Binding="{Binding CalculateDeduct}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="个人所得税	" Binding="{Binding Personalincometax}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="考勤异常扣款" Binding="{Binding AttendanceUnusualDeduct}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="其它代扣款" Binding="{Binding OtherSubjoin}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="尾数扣款" Binding="{Binding MantissaDeduct}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="扣款合计" Binding="{Binding DeductTotal}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="备注" Binding="{Binding DeductRemark }" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <!--<data:DataGridTemplateColumn Header="是否确认">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="ReportBtn" Click="btnCreate_Click"></Button>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>-->
+
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</swc:Window>

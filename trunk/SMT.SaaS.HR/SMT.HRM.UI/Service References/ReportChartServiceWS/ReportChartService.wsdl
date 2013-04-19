@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" />
+      <xsd:import schemaLocation="http://localhost:12168/Report/ReportChartService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ReportChartService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_NewGetAllEmployeeentryInfo_InputMessage">
+    <wsdl:part name="parameters" element="NewGetAllEmployeeentryInfo" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_NewGetAllEmployeeentryInfo_OutputMessage">
+    <wsdl:part name="parameters" element="NewGetAllEmployeeentryInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetPieEmployeeceInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetPieEmployeeceInfo" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetPieEmployeeceInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetPieEmployeeceInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetSexPieEmployeeceInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetSexPieEmployeeceInfo" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetSexPieEmployeeceInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetSexPieEmployeeceInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetEducationPieEmployeeceInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetEducationPieEmployeeceInfo" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetEducationPieEmployeeceInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetEducationPieEmployeeceInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetAgePieEmployeeceInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetAgePieEmployeeceInfo" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetAgePieEmployeeceInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetAgePieEmployeeceInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetLengthServicePie_InputMessage">
+    <wsdl:part name="parameters" element="GetLengthServicePie" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetLengthServicePie_OutputMessage">
+    <wsdl:part name="parameters" element="GetLengthServicePieResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetAllCompanyInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetAllCompanyInfo" />
+  </wsdl:message>
+  <wsdl:message name="ReportChartService_GetAllCompanyInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllCompanyInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportChartService">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:ReportChartService/DoWork" message="ReportChartService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ReportChartService/DoWorkResponse" message="ReportChartService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewGetAllEmployeeentryInfo">
+      <wsdl:input wsaw:Action="urn:ReportChartService/NewGetAllEmployeeentryInfo" message="ReportChartService_NewGetAllEmployeeentryInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ReportChartService/NewGetAllEmployeeentryInfoResponse" message="ReportChartService_NewGetAllEmployeeentryInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPieEmployeeceInfo">
+      <wsdl:input wsaw:Action="urn:ReportChartService/GetPieEmployeeceInfo" message="ReportChartService_GetPieEmployeeceInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ReportChartService/GetPieEmployeeceInfoResponse" message="ReportChartService_GetPieEmployeeceInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSexPieEmployeeceInfo">
+      <wsdl:input wsaw:Action="urn:ReportChartService/GetSexPieEmployeeceInfo" message="ReportChartService_GetSexPieEmployeeceInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ReportChartService/GetSexPieEmployeeceInfoResponse" message="ReportChartService_GetSexPieEmployeeceInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationPieEmployeeceInfo">
+      <wsdl:input wsaw:Action="urn:ReportChartService/GetEducationPieEmployeeceInfo" message="ReportChartService_GetEducationPieEmployeeceInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ReportChartService/GetEducationPieEmployeeceInfoResponse" message="ReportChartService_GetEducationPieEmployeeceInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgePieEmployeeceInfo">
+      <wsdl:input wsaw:Action="urn:ReportChartService/GetAgePieEmployeeceInfo" message="ReportChartService_GetAgePieEmployeeceInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ReportChartService/GetAgePieEmployeeceInfoResponse" message="ReportChartService_GetAgePieEmployeeceInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLengthServicePie">
+      <wsdl:input wsaw:Action="urn:ReportChartService/GetLengthServicePie" message="ReportChartService_GetLengthServicePie_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ReportChartService/GetLengthServicePieResponse" message="ReportChartService_GetLengthServicePie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanyInfo">
+      <wsdl:input wsaw:Action="urn:ReportChartService/GetAllCompanyInfo" message="ReportChartService_GetAllCompanyInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ReportChartService/GetAllCompanyInfoResponse" message="ReportChartService_GetAllCompanyInfo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

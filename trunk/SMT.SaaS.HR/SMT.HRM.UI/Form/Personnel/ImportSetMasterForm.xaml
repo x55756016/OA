@@ -1,0 +1,91 @@
+﻿<smtLocal:BaseForm 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+    x:Class="SMT.HRM.UI.Form.Personnel.ImportSetMasterForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl" >
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="30"/>
+
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+        <TextBlock HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Height="24" Style="{StaticResource HeaderTextStyle}" VerticalAlignment="Center" Grid.ColumnSpan="6" Margin="5,0,0,0"/>
+        <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="0" BorderThickness="1" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+        <!--Row1-->
+        <!--城市-->
+        <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="1" Width="Auto"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=CITY}" />
+        <appCtr:DictionaryComboBox  x:Name="cbxCity" IsShowNull="False" Category="CITY" SelectedValue="{Binding CITY, Mode=TwoWay}" 
+                Grid.Row="1" Grid.Column="1" Width="Auto"  HorizontalAlignment="Stretch" >
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </appCtr:DictionaryComboBox>
+        <!--实体名称-->
+        <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="3" Grid.Row="1" 
+					        Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENTITYNAME}" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEntity"  Width="Auto"  MaxLength="50" Margin="5,0,0,0" Height="24"
+                 Text="{Binding ENTITYNAME,Mode=TwoWay}" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch"/>
+
+        <!--Row2-->
+        <!--开始读取行-->
+        <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="2" 
+					        Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTROW}" />
+        <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Grid.Column="1" Grid.Row="2" Margin="5,0,0,0" Value="{Binding STARTROW, Mode=TwoWay}" HorizontalAlignment="Stretch"></inputToolkit:NumericUpDown>
+        <!--开始读取列-->
+        <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="3" Grid.Row="2" Height="24"
+					        Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTCOLUMN}" />
+        <TextBox Style="{StaticResource TextBoxStyle}" Width="Auto"  MaxLength="50" Margin="5,0,0,0"
+                 Text="{Binding STARTCOLUMN, Mode=TwoWay}" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Stretch"/>
+
+        <!--Row3-->
+        <!--结束读取行-->
+        <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="3" 
+					        Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDROW}" />
+        <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Maximum="5000" Grid.Column="1" Grid.Row="3" Margin="5,0,0,0"  Value="{Binding ENDROW, Mode=TwoWay}" HorizontalAlignment="Stretch"></inputToolkit:NumericUpDown>
+        <!--Row4-->
+        <!--结束读取行-->
+        <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="4" 
+					        Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+        <TextBox Style="{StaticResource TextBoxStyle}"  Width="Auto"  Margin="5,0,0,0"
+                 Text="{Binding REMARK,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" MaxLength="2000"
+				 Grid.ColumnSpan="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap" AcceptsReturn="True" />
+        <!--实体字段-->
+        <TextBlock HorizontalAlignment="Left" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Height="24" Style="{StaticResource HeaderTextStyle}" VerticalAlignment="Center" Grid.ColumnSpan="6" Margin="5,0,0,0"/>
+        <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="5" BorderThickness="1" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
+
+        <data:DataGrid x:Name="DtGrid" Grid.Row="6" Grid.ColumnSpan="5" Height="auto"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,0,0"
+                       Style="{StaticResource DataGridStyle}"  
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+            <data:DataGrid.Columns>
+                <!--<data:DataGridTextColumn Header="ENTITYCOLUMNCODE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ENTITYCOLUMNCODE}" IsReadOnly="True"/>-->
+                <data:DataGridTextColumn Header="ENTITYCOLUMNNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ENTITYCOLUMNNAME}" IsReadOnly="True"/>
+                <!--<data:DataGridTextColumn Header="EXECLLROW" Binding="{Binding EXECELROW,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->
+                <data:DataGridTextColumn Header="EXECLLCOLUMN" Binding="{Binding EXECELCOLUMN}"   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="REMARK" Binding="{Binding REMARK,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <!--Binding="{Binding EXECLLCOLUMN}"-->
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+  <xs:complexType name="ArrayOfV_WelfareStandard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_WelfareStandard" nillable="true" type="tns:V_WelfareStandard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_WelfareStandard" nillable="true" type="tns:ArrayOfV_WelfareStandard" />
+  <xs:complexType name="V_WelfareStandard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareStandard" nillable="true" type="q1:T_OA_WELFARE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_WelfareStandard" nillable="true" type="tns:V_WelfareStandard" />
+  <xs:complexType name="ArrayOfV_WelfareProvision">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_WelfareProvision" nillable="true" type="tns:V_WelfareProvision" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_WelfareProvision" nillable="true" type="tns:ArrayOfV_WelfareProvision" />
+  <xs:complexType name="V_WelfareProvision">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="standard" type="xs:decimal" />
+      <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareProvision" nillable="true" type="q2:T_OA_WELFAREDISTRIBUTEMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_WelfareProvision" nillable="true" type="tns:V_WelfareProvision" />
+</xs:schema>

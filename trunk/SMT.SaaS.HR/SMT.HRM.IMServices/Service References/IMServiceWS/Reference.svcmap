@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="96a80757-c90c-45c2-85a1-e442767cdc26" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="mscorlib" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.23/services/DataSyncService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DataSyncService1.disco" MetadataType="Disco" ID="bc1105a8-3161-4c07-a33b-1e1b8d9aa96d" SourceId="1" SourceUrl="http://172.16.1.23/services/DataSyncService.svc?disco" />
+    <MetadataFile FileName="DataSyncService1.wsdl" MetadataType="Wsdl" ID="018ea92b-e728-4d69-af8b-8ef294040552" SourceId="1" SourceUrl="http://172.16.1.23/services/DataSyncService.svc?wsdl" />
+    <MetadataFile FileName="DataSyncService3.xsd" MetadataType="Schema" ID="f6b1e5a0-a8eb-4d4e-b219-5bc8c003f507" SourceId="1" SourceUrl="http://172.16.1.23/services/DataSyncService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataSyncService4.xsd" MetadataType="Schema" ID="cf7b13e6-ea9e-4bbc-903e-74ec2d95addb" SourceId="1" SourceUrl="http://172.16.1.23/services/DataSyncService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DataSyncService5.xsd" MetadataType="Schema" ID="989f1eda-da67-4847-9d8a-61a819e4c490" SourceId="1" SourceUrl="http://172.16.1.23/services/DataSyncService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

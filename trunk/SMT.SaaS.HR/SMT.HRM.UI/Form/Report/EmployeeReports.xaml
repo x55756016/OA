@@ -1,0 +1,37 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Report.EmployeeReports" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="EmployeeReports Page">
+    <Grid x:Name="PARENT">        
+        <Grid x:Name="LayoutRoot"  Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="BtnEmployeeReports" Grid.Row="0" Grid.Column="0" Margin="20,0,0,0" Content="员工报表" Click="EmployeeReports_Click" Width="auto"/>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="BtnChangeReports" Grid.Row="0" Grid.Column="0" Margin="20,0,0,0" Content="员工异动报表" Click="BtnChangeReports_Click" Width="auto"/>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="BtnLeftOfficeReports" Grid.Row="0" Grid.Column="0" Margin="20,0,0,0" Content="员工离职报表" Click="BtnLeftOfficeReports_Click" Width="auto"/>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="BtnCollectReports" Grid.Row="0" Grid.Column="0" Margin="20,0,0,0" Content="员工统计汇总报表" Click="BtnCollectReports_Click" Width="auto"/>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="BtnPensionReports" Grid.Row="0" Grid.Column="0" Margin="20,0,0,0" Content="薪酬保险明细" Click="BtnPensionReports_Click" Width="auto"/>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="BtnTructReports" Grid.Row="0" Grid.Column="0" Margin="20,0,0,0" Content="员工结构报表" Click="BtnTructReports_Click" Width="auto"/>
+
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

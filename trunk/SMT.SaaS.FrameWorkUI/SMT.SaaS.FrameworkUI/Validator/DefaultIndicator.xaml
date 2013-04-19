@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="SMT.SaaS.FrameworkUI.Validator.DefaultIndicator"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+	HorizontalAlignment="Right" VerticalAlignment="Top" Height="15" Width="15" >
+    <UserControl.Resources>
+        <Storyboard x:Name="ShowIndicatorStory">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="HideIndicatorStory">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Border VerticalAlignment="Center" HorizontalAlignment="Center" Background="Red" CornerRadius="25,25,25,25"
+                Width="25" Height="25" x:Name="_Border">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="#FFFFFF"
+                       FontWeight="Bold" Text="!"></TextBlock>
+        </Border>
+    </Grid>
+</UserControl>

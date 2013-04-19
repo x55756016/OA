@@ -1,0 +1,106 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Performance.ComplainProcess"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+             xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot" Margin="5,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <!--1s 冉龙军-->
+            <!--<RowDefinition Height="30"/>-->
+            <RowDefinition Height="0"/>
+            <!--1e-->
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <!--1s 冉龙军-->
+            <RowDefinition Height="0"/>
+            <!--1e-->
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+			
+        </Grid.ColumnDefinitions>
+
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        
+        <!--Row 0-->
+        <!--KPI点名称-->
+        <TextBlock  Text="{Binding T_HR_KPIRECORD.T_HR_KPIPOINT.KPIPOINTNAME, Mode=OneWay}" x:Name="lblKPIRecordName"  Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        
+        <!--Row 1-->
+        <!--申诉人，申诉时间-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=COMPLAINPERSON}"
+            Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  Text="{Binding COMPLAINANTID, Mode=OneWay}"
+        	Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" d:LayoutOverrides="Height"/>
+
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=COMPLAINDATE}"
+            Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding COMPLAINDATE, Mode=OneWay}"
+            Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <!--Row 2-->
+        <!--原始得分-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=ORIGINALSCORE}"
+            Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding INITIALSCORE, Mode=OneWay}"
+            Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <!--Row 3-->
+        <!--申诉原因-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=COMPLAINREASON}"
+            Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtComplainReason" Text="{Binding COMPLAINREMARK, Mode=TwoWay}"
+			Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="Wrap" Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+			
+        <!--Row 4-->
+        <!--审核人，审核时间-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=APPRAISALPERSON}"
+            Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  Text="{Binding REVIEWERID, Mode=OneWay}"
+            Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=APPRAISALDATE}"
+            Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding REVIEWDATE, Mode=OneWay}"
+            Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <!--Row 5-->
+        <!--审核结果，审核得分-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=APPRAISALRESULT}"
+            Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Height="22" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="cboAppraisalResult" Style="{StaticResource ComboBoxStyle}" Grid.Column="1" Grid.Row="5" Height="24" 
+		VerticalAlignment="Center" SelectionChanged="cboAppraisalResult_SelectionChanged" HorizontalAlignment="Stretch">
+            <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=DISAGREE}"/>
+            <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=AGREE}"/>
+        </ComboBox>
+		<TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=APPRAISALSCORE}"
+            Grid.Row="5" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="22"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAppraisalScore"  Text="{Binding REVIEWSCORE, Mode=TwoWay}" 
+			Grid.Row="5" Grid.Column="3" Height="26" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+
+        <!--Row 6-->
+        <!--评语-->			
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter},Source=APPRAISALREMARK}"
+            Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtAppraisalRemark"  AcceptsReturn="True" Text="{Binding REVIEWREMARK, Mode=TwoWay}" 
+			Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Height="auto" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+
+        <!--Row 7-->
+        <!--上一条记录，下一条记录-->
+        <Button x:Name="btnPreview" Grid.Row="7" Grid.Column="0" Content="{Binding Converter={StaticResource ResourceConveter},Source=PREVIOUSRECORD}" Click="btnPreview_Click"  Style="{StaticResource CommonButtonStyle}" HorizontalAlignment="Left"/>
+        <Button x:Name="btnNext" Grid.Row="7" Grid.Column="3" Content="{Binding Converter={StaticResource ResourceConveter},Source=NEXTRECORD}" Click="btnNext_Click" Style="{StaticResource CommonButtonStyle}" HorizontalAlignment="Right"/>
+        
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,73 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Attendance.ExceptionAttRd" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+           xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+		   xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+		   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Title="ExceptionAttRd Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="ViewTitles" Grid.Row="0" Width="auto" VerticalAlignment="Top"></smtx:ViewTitle>
+            <Grid Background="Transparent" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbEmpNameTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Margin="5,0,0,0" />
+                <smtx:LookUp Name="lkEmpName" DataContext="{Binding T_HR_EMPLOYEE}"  Grid.Row="0" Grid.Column="1" DisplayMemberPath="EMPLOYEECNAME" FindClick="lkEmpName_FindClick" Margin="5,0,0,0" Height="24" Width="110" HorizontalAlignment="Left" />
+                
+                <!--异常日期 -->
+                <TextBlock x:Name="tbCurDateMonthTitle" Grid.Row="0" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ABNORMALDATE}" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center"  />
+                <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCurDateMonth" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left"  Margin="0" Width="110" Height="24"/>-->
+                <!--异常开始时间 -->
+                <controls:DatePicker x:Name="dpClockInRdStartDate" Grid.Row="0" Grid.Column="3" Width="120" Height="24" Margin="5,0,0,0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}" />
+                <!--至 -->
+                <TextBlock x:Name="tbtext" Grid.Row="0" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" />
+                <!--异常结束时间 -->
+                <controls:DatePicker x:Name="dpClockInRdEndDate" Grid.Row="0" Grid.Column="5" Width="120" Height="24" Margin="5,0,0,0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}" />
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Row="0" Grid.Column="6" Width="70"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnSearch_Click" />
+            </Grid>
+            <data:DataGrid x:Name="dgAbnormRecordList" Grid.Row="2" AutoGenerateColumns="false" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" LoadingRow="dgAbnormRecordList_LoadingRow"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding ABNORMRECORDID}"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate> 
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding T_HR_ATTENDANCERECORD.EMPLOYEENAME}"/>
+                    <data:DataGridTextColumn Header="ABNORMALDATE" Binding="{Binding ABNORMALDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
+                    <data:DataGridTextColumn Header="ABNORMCATEGORY" Binding="{Binding ABNORMCATEGORY, Converter={StaticResource DictionaryConverter},ConverterParameter=ABNORMCATEGORY}"/>
+                    <data:DataGridTextColumn Header="ATTENDPERIOD" Binding="{Binding ATTENDPERIOD, Converter={StaticResource DictionaryConverter},ConverterParameter=ATTENDPERIOD}"/>
+                    <data:DataGridTextColumn Header="ABNORMALTIME" Binding="{Binding ABNORMALTIME}"/>
+                    <data:DataGridTextColumn Header="SINGINSTATE" Binding="{Binding SINGINSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=SINGINSTATE}"/>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="3"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

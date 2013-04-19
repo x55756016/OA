@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataSyncService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.30.50.83:8300/SmtOnline/Services/IM/DataSyncService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.30.50.83:8300/SmtOnline/Services/IM/DataSyncService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.30.50.83:8300/SmtOnline/Services/IM/DataSyncService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMTIM.Application" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataSyncService_AddOrUpdateImUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateImUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_AddOrUpdateImUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateImUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DelImUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelImUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DelImUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelImUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_AddUpdateUserDepart_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateUserDepart" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_AddUpdateUserDepart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateUserDepartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DelUserDepart_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelUserDepart" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DelUserDepart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelUserDepartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_AddOrUpdateImDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateImDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_AddOrUpdateImDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateImDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DelImDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelImDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DelImDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelImDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_AddOrUpdateDepartmentMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateDepartmentMember" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_AddOrUpdateDepartmentMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateDepartmentMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DelDeparmentMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelDeparmentMember" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_DelDeparmentMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelDeparmentMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_sendMsg_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendMsg" />
+  </wsdl:message>
+  <wsdl:message name="IDataSyncService_sendMsg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendMsgResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataSyncService">
+    <wsdl:operation name="AddOrUpdateImUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/AddOrUpdateImUser" message="tns:IDataSyncService_AddOrUpdateImUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/AddOrUpdateImUserResponse" message="tns:IDataSyncService_AddOrUpdateImUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelImUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/DelImUser" message="tns:IDataSyncService_DelImUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/DelImUserResponse" message="tns:IDataSyncService_DelImUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateUserDepart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/AddUpdateUserDepart" message="tns:IDataSyncService_AddUpdateUserDepart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/AddUpdateUserDepartResponse" message="tns:IDataSyncService_AddUpdateUserDepart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelUserDepart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/DelUserDepart" message="tns:IDataSyncService_DelUserDepart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/DelUserDepartResponse" message="tns:IDataSyncService_DelUserDepart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateImDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/AddOrUpdateImDepartment" message="tns:IDataSyncService_AddOrUpdateImDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/AddOrUpdateImDepartmentResponse" message="tns:IDataSyncService_AddOrUpdateImDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelImDepartment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/DelImDepartment" message="tns:IDataSyncService_DelImDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/DelImDepartmentResponse" message="tns:IDataSyncService_DelImDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateDepartmentMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/AddOrUpdateDepartmentMember" message="tns:IDataSyncService_AddOrUpdateDepartmentMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/AddOrUpdateDepartmentMemberResponse" message="tns:IDataSyncService_AddOrUpdateDepartmentMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDeparmentMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/DelDeparmentMember" message="tns:IDataSyncService_DelDeparmentMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/DelDeparmentMemberResponse" message="tns:IDataSyncService_DelDeparmentMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMsg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataSyncService/sendMsg" message="tns:IDataSyncService_sendMsg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataSyncService/sendMsgResponse" message="tns:IDataSyncService_sendMsg_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataSyncService" type="tns:IDataSyncService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddOrUpdateImUser">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/AddOrUpdateImUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelImUser">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/DelImUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateUserDepart">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/AddUpdateUserDepart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUserDepart">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/DelUserDepart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateImDepartment">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/AddOrUpdateImDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelImDepartment">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/DelImDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateDepartmentMember">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/AddOrUpdateDepartmentMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDeparmentMember">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/DelDeparmentMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMsg">
+      <soap:operation soapAction="http://tempuri.org/IDataSyncService/sendMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataSyncService">
+    <wsdl:port name="BasicHttpBinding_IDataSyncService" binding="tns:BasicHttpBinding_IDataSyncService">
+      <soap:address location="http://172.30.50.83:8300/SmtOnline/Services/IM/DataSyncService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

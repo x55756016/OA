@@ -1,0 +1,29 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Personnel.ResumeForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+      xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+      xmlns:uc="clr-namespace:SMT.HRM.UI.Form.Personnel"
+      xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    >
+    <Grid x:Name="LayoutRoot">
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <controls:TabControl x:Name="tbcContainer" Margin="5" Grid.Row="0" SelectionChanged="tbcContainer_SelectionChanged" Style="{StaticResource TabControlStyle}">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}" >
+                <ScrollViewer  VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                    <uc:BaseinfoForm x:Name="baseinfo"></uc:BaseinfoForm>
+                </ScrollViewer>
+            </controls:TabItem>
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=EXPERIENCE}" Style="{StaticResource TabItemStyle}" >
+                <ScrollViewer  VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                    <uc:ExperienceForm x:Name="experience"></uc:ExperienceForm>
+                </ScrollViewer>
+            </controls:TabItem>
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=EDUCATEHISTORY}" Style="{StaticResource TabItemStyle}" >
+                <ScrollViewer   VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                    <uc:EducateHistoryForm x:Name="educateHistory"></uc:EducateHistoryForm>
+                </ScrollViewer>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

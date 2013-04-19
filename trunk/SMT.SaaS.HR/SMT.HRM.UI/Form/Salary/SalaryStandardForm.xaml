@@ -1,0 +1,78 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.SalaryStandardForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+     xmlns:panelcontrols="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:smtuc="clr-namespace:SMT.HRM.UI.Form.Salary;assembly=SMT.HRM.UI"
+   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+    <Grid x:Name="LayoutRoot"  Loaded="LayoutRoot_Loaded"  Background="Transparent">
+        <panelcontrols:TabControl SelectionChanged="TabControl_SelectionChanged" x:Name="tabcall" Style="{StaticResource TabControlStyle}" >
+            <panelcontrols:TabItem Header="薪资标准" Style="{StaticResource TabItemStyle}" >
+                 <Grid x:Name="TabStandard">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="20"/>
+
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+                    <!--Row 0-->
+                    <!--SALARYSTANDARDNAME-->
+                    <TextBlock   Grid.Column="0" Grid.Row="0" 
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=SALARYSTANDARDNAME}" />
+
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSalaryStandardName"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding SALARYSTANDARDNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  Height="24"
+            					 Grid.Row="0" Grid.Column="1" >
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SALARYSTANDARDNAME" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+
+                    <TextBlock   Grid.Column="3" Grid.Row="0"   Visibility="Collapsed"
+                     Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTLEVEL}" />
+                    <smt:LookUp DataContext="{Binding Path=SALARYLEVELID, Mode=TwoWay}" Grid.Row="0" Grid.Column="4" Height="24" Visibility="Collapsed"
+                    FindClick="LookUp_FindClick" Name="lkSalaryLevel" Margin="0,0,0,0" DisplayMemberPath="SALARYLEVELID">
+                    </smt:LookUp>
+
+                    <!--Row 8-->
+                    <!--REMARK-->
+                    <TextBlock  Grid.Row="1" Grid.Column="0"
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
+
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  HorizontalAlignment="Stretch" Width="Auto"
+            					Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+            					 Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Height="35" AcceptsReturn="True" MaxLength="2000" VerticalScrollBarVisibility="Auto"  TextWrapping="Wrap" >
+                    </TextBox>
+                    <!--Row 9-->
+                    <!-- SALARYITEM -->
+                        <smtuc:StandardItemForm x:Name="StandardItemWinForm" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" ></smtuc:StandardItemForm>
+
+                        <!--<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Right" Visibility="Collapsed">
+        <TextBlock x:Name="txtbsign"  FontWeight="Bold"   Foreground="Red" Text=">>>" HorizontalAlignment="Right"  VerticalAlignment="Center"></TextBlock>
+        <Button x:Name="bt_AddCustomSalary" Click="bt_AddCustomSalary_Click" Width="Auto" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CUSTOMSALARY}" HorizontalAlignment="Right">
+        </Button>
+        </StackPanel>-->
+      </Grid>
+            </panelcontrols:TabItem>
+            <panelcontrols:TabItem Header="自定义薪资项" Style="{StaticResource TabItemStyle}">
+                   <smtuc:CustomGuerdonForm x:Name="CustomGuerdonWinForm"></smtuc:CustomGuerdonForm>
+            </panelcontrols:TabItem>
+        </panelcontrols:TabControl>
+   </Grid>
+</smtLocal:BaseForm>
