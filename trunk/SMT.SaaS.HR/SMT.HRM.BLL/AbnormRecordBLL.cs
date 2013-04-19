@@ -2102,13 +2102,18 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="EMPLOYEEID">员工id</param>
         /// <param name="datLevestart">开始时间长日期格式2013/2/16 8:30:00</param>
-        /// <param name="dtEnd">结束时间长日期格式2013/2/16 8:30:00</param>
-        public void DealEmployeeAbnormRecord(string EMPLOYEEID, DateTime datLevestart, DateTime dtEnd)
+        /// <param name="dtLeveEnd">结束时间长日期格式2013/2/16 8:30:00</param>
+        public void DealEmployeeAbnormRecord(string EMPLOYEEID, DateTime datLevestart, DateTime dtLeveEnd)
         {
+            DateTime dtStart = new DateTime();
+            DateTime dtEnd = new DateTime();
 
+            DateTime.TryParse(datLevestart.ToString("yyyy-MM-dd"), out dtStart);
+            DateTime.TryParse(dtLeveEnd.ToString("yyyy-MM-dd"), out dtEnd);
+            //T_HR_ATTENDANCERECORD.ATTENDANCEDATE为短日期格式 2013-4-19
             IQueryable<T_HR_ATTENDANCERECORD> entArs = from r in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                                        where r.EMPLOYEEID == EMPLOYEEID
-                                                       && r.ATTENDANCEDATE >= datLevestart
+                                                       && r.ATTENDANCEDATE >= dtStart
                                                        && r.ATTENDANCEDATE <= dtEnd
                                                        select r;
 
@@ -2129,7 +2134,7 @@ namespace SMT.HRM.BLL
                 try
                 {
                     Tracer.Debug(" 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
-                         + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，共检测到异常记录数共：" + i + "条记录");
+                         + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，共检测到异常记录数共：" + i + "条记录");
                     Dictionary<AttendPeriod, AttendanceState> thisDayAttendState = new Dictionary<AttendPeriod, AttendanceState>();//考勤时间段1上午，2中午，3下午 考勤异常状态 1 缺勤 2 请假
                     foreach (T_HR_EMPLOYEEABNORMRECORD AbnormRecorditem in entAbnormRecords.ToList())
                     {
@@ -2165,11 +2170,11 @@ namespace SMT.HRM.BLL
 
                                             //如果请假时间包括了第一段上班时间，那么消除异常
                                             if (datLevestart <= ShiftstartDateAndTime
-                                                && dtEnd >= FirstEndDateAndTime)
+                                                && dtLeveEnd >= FirstEndDateAndTime)
                                             {
                                                 Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡时间被请假时间覆盖，消除异常"
                                                     + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
-                                            + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
+                                            + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             ShiftstartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + FirstEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
                                                 //消除第一段异常生成的签卡
                                                 DeleteSigFromAbnormal(AbnormRecorditem);
@@ -2209,11 +2214,11 @@ namespace SMT.HRM.BLL
                                             DateTime SencondEndDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, SencondEndTime.Hour, SencondEndTime.Minute, SencondEndTime.Second);
 
                                             if (datLevestart <= SecondStartDateAndTime
-                                                && dtEnd >= SecondStartDateAndTime)
+                                                && dtLeveEnd >= SecondStartDateAndTime)
                                             {
                                                 Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡时间被请假时间覆盖，消除异常"
                                                     + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
-                                            + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
+                                            + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             SecondStartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + SencondEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
 
                                                 //消除第二段异常生成的签卡
@@ -2254,11 +2259,11 @@ namespace SMT.HRM.BLL
                                             DateTime SencondEndDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, SencondEndTime.Hour, SencondEndTime.Minute, SencondEndTime.Second);
 
                                             if (datLevestart <= SecondStartDateAndTime
-                                                && dtEnd >= SencondEndDateAndTime)
+                                                && dtLeveEnd >= SencondEndDateAndTime)
                                             {
                                                 Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡时间被请假时间覆盖，消除异常"
                                                      + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
-                                            + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
+                                            + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             SecondStartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + SencondEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
 
                                                 //消除第三段异常生成的签卡

@@ -14,7 +14,7 @@ namespace SMT.HRM.Services
         {
             //测试请假消除异常
             EmployeeLeaveRecordBLL bll = new EmployeeLeaveRecordBLL();
-            bll.UpdateCheckState("T_HR_EMPLOYEELEAVERECORD", "LEAVERECORDID", "431ce265-2425-46b4-85e6-747daf0cf6f8", "2");
+            bll.UpdateCheckState("T_HR_EMPLOYEELEAVERECORD", "LEAVERECORDID", "33af7d7b-b67a-469b-8b3c-edb1a79f856d", "2");
         }
     }
 }

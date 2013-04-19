@@ -923,7 +923,7 @@ namespace SMT.HRM.BLL
                         return "{REQUIREDFIELDS}";
                     }
                     AbnormRecordBLL bll = new AbnormRecordBLL();
-                    bll.DealEmployeeAbnormRecord(ent.EMPLOYEEID, dtStart, dtEnd);                  
+                    bll.DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATETIME.Value, ent.ENDDATETIME.Value);                  
                 }
                 ent.CHECKSTATE = strCheckState;
                 Update(ent);
