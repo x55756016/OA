@@ -427,15 +427,16 @@ namespace SMT.SaaS.OA.BLL
                     SMT.Foundation.Log.Tracer.Debug(StrMessage);
                     return;
                 }
-                SMT.SaaS.OA.BLL.AttendanceWS.AttendanceServiceClient Client = new AttendanceWS.AttendanceServiceClient();
-                List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD> ListRecord = new List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD>();
+
+                List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD> ListRecord 
+                    = new List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD>();
+                
                 var Details = from ent in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>().Include("T_OA_TRAVELREIMBURSEMENT")
                               where ent.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == travel.TRAVELREIMBURSEMENTID                              
                               select ent;
                 if (Details.Count() > 0)
                 {
-                    Details = Details.OrderBy("STARTDATE");
-                    List<T_OA_REIMBURSEMENTDETAIL> ListDetals = Details.ToList();
+                    List<T_OA_REIMBURSEMENTDETAIL> ListDetals = Details.ToList().OrderBy(c => c.STARTDATE).ToList();                   
                     T_OA_REIMBURSEMENTDETAIL item = new T_OA_REIMBURSEMENTDETAIL();
                     item = ListDetals[0];
 
@@ -470,19 +471,19 @@ namespace SMT.SaaS.OA.BLL
                     //如果出差明细大于1
                     if (ListDetals.Count() > 1)
                     {
-                        Record.STARTDATE = ((DateTime)ListDetals[0].STARTDATE).Date;
+                        Record.STARTDATE = ListDetals[0].STARTDATE.Value;
                         Record.STARTTIME = ((DateTime)ListDetals[0].STARTDATE).ToShortTimeString();
-                        Record.ENDDATE = ((DateTime)ListDetals[ListDetals.Count()-1].ENDDATE).Date;
+                        Record.ENDDATE = ListDetals[ListDetals.Count()-1].ENDDATE.Value;
                         Record.ENDTIME = ((DateTime)ListDetals[ListDetals.Count() - 1].ENDDATE).ToShortTimeString();
                         Record.DESTINATION = item.DESTCITY;//出差目的地
                         ListRecord.Add(Record);
                     }
                     else
                     {
-                        Record.STARTDATE = ((DateTime)item.STARTDATE).Date;
+                        Record.STARTDATE = item.STARTDATE.Value;
                         Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
                        
-                        Record.ENDDATE = ((DateTime)item.ENDDATE).Date;
+                        Record.ENDDATE = item.ENDDATE.Value;
                         Record.ENDTIME = ((DateTime)item.ENDDATE).ToShortTimeString();
                         Record.DESTINATION = item.DESTCITY;//出差目的地
                         
@@ -656,20 +657,25 @@ namespace SMT.SaaS.OA.BLL
                 {
                     if (ListRecord.Count() > 0)
                     {
-                        StrMessage = "出差报销开始调用考勤数据" + ListRecord.Count();
-                        SMT.Foundation.Log.Tracer.Debug(StrMessage);
+                        SMT.SaaS.OA.BLL.AttendanceWS.AttendanceServiceClient Client
+                            = new AttendanceWS.AttendanceServiceClient();                       
                         Client.AddEmployeeEvectionRdList(ListRecord.ToArray());
+
+                        StrMessage = "出差报销同步考勤数据成功，出差报销开始时间："
+                            + ListRecord[0].STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                            + " 结束时间:" + ListRecord[0].ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                        SMT.Foundation.Log.Tracer.Debug(StrMessage);
                     }
                 }
                 catch (Exception ex)
                 {
-                    StrMessage = "出差报销开始调用考勤数据出错" + ListRecord.Count()+ex.Message.ToString();
+                    StrMessage = "出差报销同步考勤数据出错:" + ListRecord.Count() + ex.Message.ToString();
                     SMT.Foundation.Log.Tracer.Debug(StrMessage);
                 }
             }
             catch (Exception ex)
             {
-                StrMessage = "出差报销调用考勤数据出错" + ex.ToString();
+                StrMessage = "出差报销生成考勤数据出错" + ex.ToString();
                 SMT.Foundation.Log.Tracer.Debug(StrMessage);
             }
         }

@@ -349,188 +349,256 @@ namespace SMT.SaaS.OA.BLL
                     SMT.Foundation.Log.Tracer.Debug(StrMessage);
                     return;
                 }
-                SMT.SaaS.OA.BLL.AttendanceWS.AttendanceServiceClient Client = new AttendanceWS.AttendanceServiceClient();
-                List<AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT> ListRecord = new List<AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT>();
+
+                List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD> ListRecord
+                    = new List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD>();
+
                 var Details = from ent in dal.GetObjects<T_OA_BUSINESSTRIPDETAIL>().Include("T_OA_BUSINESSTRIP")
                               where ent.T_OA_BUSINESSTRIP.BUSINESSTRIPID == travel.BUSINESSTRIPID
                               select ent;
                 if (Details.Count() > 0)
                 {
-                    Details = Details.OrderBy("STARTDATE");
-                    List<T_OA_BUSINESSTRIPDETAIL> ListDetals = Details.ToList();
+                    List<T_OA_BUSINESSTRIPDETAIL> ListDetals = Details.ToList().OrderBy(c => c.STARTDATE).ToList();
+                    //List<T_OA_BUSINESSTRIPDETAIL> ListDetals = Details.ToList();
+                    T_OA_BUSINESSTRIPDETAIL item = new T_OA_BUSINESSTRIPDETAIL();
+                    item = ListDetals[0];
 
-                    for (int i = 0; i < ListDetals.Count(); i++)
+                    AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD();
+                    Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
+                    Record.CHECKSTATE = "2";
+
+                    Record.DESTINATION = item.DESTCITY;//出差目的地
+                    Record.EMPLOYEECODE = "";
+                    Record.EMPLOYEEID = travel.OWNERID;
+                    Record.EMPLOYEENAME = travel.OWNERNAME;
+
+                    Record.STARTDATE = ((DateTime)item.STARTDATE).Date;
+                    Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
+                    Record.EVECTIONREASON = travel.CONTENT;//出差原因
+                    Record.EVECTIONRECORDCATEGORY = "";//出差类型
+                    Record.OWNERCOMPANYID = travel.OWNERCOMPANYID;
+                    Record.OWNERDEPARTMENTID = travel.OWNERDEPARTMENTID;
+                    Record.OWNERPOSTID = travel.OWNERPOSTID;
+                    Record.OWNERID = travel.OWNERID;
+                    Record.CREATECOMPANYID = travel.OWNERCOMPANYID;
+                    Record.CREATEDATE = System.DateTime.Now;
+                    Record.CREATEDEPARTMENTID = travel.OWNERDEPARTMENTID;
+                    Record.CREATEPOSTID = travel.OWNERPOSTID;
+                    Record.CREATEUSERID = travel.OWNERID;
+                    Record.REMARK = "出差申请自动产生";
+
+                    Record.SUBSIDYTYPE = "1";//出差类型
+                    Record.SUBSIDYVALUE = travel.CHARGEMONEY;//补助金额
+                    Record.TOTALDAYS = string.IsNullOrEmpty(item.BUSINESSDAYS) ? 0 : Convert.ToDecimal(item.BUSINESSDAYS);//
+
+                    Record.UPDATEDATE = DateTime.Now;
+                    Record.UPDATEUSERID = travel.OWNERID;
+                    //StrMessage = "出差申请开始调用考勤数据" + ListRecord.Count();
+                    //如果出差明细大于1
+                    if (ListDetals.Count() > 1)
                     {
-                        T_OA_BUSINESSTRIPDETAIL item = new T_OA_BUSINESSTRIPDETAIL();
-                        item = ListDetals[i];
-                        #region 不是私事的情况
-                        //ListDetals.Count() - 2  为最后一条出差记录的时间计算
-                        if (item.PRIVATEAFFAIR == "0" && i < ListDetals.Count() - 1)
-                        {
-                            SMT.Foundation.Log.Tracer.Debug(i.ToString());
-                            //AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT();
-                            // Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
-                            AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD();
-                            Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
-                            Record.CHECKSTATE = "2";
+                        Record.STARTDATE = ListDetals[0].STARTDATE.Value;//需要长日期格式消除考勤异常
+                        Record.STARTTIME = ((DateTime)ListDetals[0].STARTDATE).ToShortTimeString();
 
-                            Record.DESTINATION = item.DESTCITY;//出差目的地
-                            Record.EMPLOYEECODE = "";
-                            Record.EMPLOYEEID = travel.OWNERID;
-                            Record.EMPLOYEENAME = travel.OWNERNAME;
-                            //正常情况下结束时间为目的地的开始时间
-                            if (i < ListDetals.Count() - 1)
-                            {
-                                Record.ENDDATE = ((DateTime)ListDetals[i + 1].STARTDATE).Date;
-                                Record.ENDTIME = ((DateTime)ListDetals[i + 1].STARTDATE).ToShortTimeString();
-                            }
-                            else
-                            {
-                                //本来是取最后一条的出发时间，现改取到达时间 luojie
-                                Record.ENDDATE = ((DateTime)ListDetals[i].ENDDATE).Date;
-                                Record.ENDTIME = ((DateTime)ListDetals[i].ENDDATE).ToShortTimeString();
-                            }
-                            Record.STARTDATE = ((DateTime)item.STARTDATE).Date;
-                            Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
-                            Record.EVECTIONREASON = travel.CONTENT;//出差原因
-                            Record.EVECTIONRECORDCATEGORY = "";//出差类型
-                            Record.OWNERCOMPANYID = travel.OWNERCOMPANYID;
-                            Record.OWNERDEPARTMENTID = travel.OWNERDEPARTMENTID;
-                            Record.OWNERPOSTID = travel.OWNERPOSTID;
-                            Record.OWNERID = travel.OWNERID;
-                            Record.CREATECOMPANYID = travel.OWNERCOMPANYID;
-                            Record.CREATEDATE = System.DateTime.Now;
-                            Record.CREATEDEPARTMENTID = travel.OWNERDEPARTMENTID;
-                            Record.CREATEPOSTID = travel.OWNERPOSTID;
-                            Record.CREATEUSERID = travel.OWNERID;
-                            Record.REMARK = "出差申请自动产生";
-
-                            Record.SUBSIDYTYPE = "1";//出差类型
-                            Record.SUBSIDYVALUE = travel.CHARGEMONEY;//补助金额
-                            Record.TOTALDAYS = string.IsNullOrEmpty(item.BUSINESSDAYS) ? 0 : Convert.ToDecimal(item.BUSINESSDAYS);//
-
-                            Record.UPDATEDATE = DateTime.Now;
-                            Record.UPDATEUSERID = travel.OWNERID;
-                            StrMessage = "出差申请开始调用考勤数据" + ListRecord.Count();
-                            Records.Add(Record);
-
-                        }
-                        else
-                        {
-                            if (i == ListDetals.Count() - 2)
-                            {
-                                //AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT();
-                                //Record.EVECTIONREPORTID = System.Guid.NewGuid().ToString();
-                                AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD();
-                                Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
-                                Record.CHECKSTATE = "2";
-
-                                Record.DESTINATION = item.DESTCITY;//出差目的地
-                                Record.EMPLOYEECODE = "";
-                                Record.EMPLOYEEID = travel.OWNERID;
-                                Record.EMPLOYEENAME = travel.OWNERNAME;
-                                //正常情况下结束时间为目的地的开始时间
-
-                                Record.ENDDATE = ((DateTime)ListDetals[i].ENDDATE).Date;
-                                Record.ENDTIME = ((DateTime)ListDetals[i].ENDDATE).ToShortTimeString();
-                                //上次出差记录为非私事
-                                if (ListDetals[i - 1].PRIVATEAFFAIR == "0")
-                                {
-                                    Record.STARTDATE = ((DateTime)ListDetals[i - 1].STARTDATE).Date;
-                                    Record.STARTTIME = ((DateTime)ListDetals[i - 1].STARTDATE).ToShortTimeString();
-                                }
-                                else
-                                {
-                                    Record.STARTDATE = ((DateTime)item.STARTDATE).Date;
-                                    Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
-                                }
-                                Record.EVECTIONREASON = travel.CONTENT;//出差原因
-                                Record.EVECTIONRECORDCATEGORY = "";//出差类型
-                                Record.OWNERCOMPANYID = travel.OWNERCOMPANYID;
-                                Record.OWNERDEPARTMENTID = travel.OWNERDEPARTMENTID;
-                                Record.OWNERPOSTID = travel.OWNERPOSTID;
-                                Record.OWNERID = travel.OWNERID;
-                                Record.CREATECOMPANYID = travel.OWNERCOMPANYID;
-                                Record.CREATEDATE = System.DateTime.Now;
-                                Record.CREATEDEPARTMENTID = travel.OWNERDEPARTMENTID;
-                                Record.CREATEPOSTID = travel.OWNERPOSTID;
-                                Record.CREATEUSERID = travel.OWNERID;
-                                Record.REMARK = "出差申请自动产生";
-
-                                Record.SUBSIDYTYPE = "1";//出差类型
-                                Record.SUBSIDYVALUE = travel.CHARGEMONEY;//补助金额
-                                Record.TOTALDAYS = string.IsNullOrEmpty(item.BUSINESSDAYS) ? 0 : Convert.ToDecimal(item.BUSINESSDAYS);//
-
-                                Record.UPDATEDATE = DateTime.Now;
-                                Record.UPDATEUSERID = travel.OWNERID;
-                                StrMessage = "出差申请开始调用考勤数据" + ListRecord.Count();
-                                Records.Add(Record);
-                                //ListRecord.Add(Record);
-                            }
-                            else
-                            {
-                                SMT.Foundation.Log.Tracer.Debug(i.ToString());
-                                AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD();
-                                Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
-                                Record.CHECKSTATE = "2";
-
-                                Record.DESTINATION = item.DESTCITY;//出差目的地
-                                Record.EMPLOYEECODE = "";
-                                Record.EMPLOYEEID = travel.OWNERID;
-                                Record.EMPLOYEENAME = travel.OWNERNAME;
-                                //正常情况下结束时间为目的地的开始时间
-                                if (i < ListDetals.Count() - 1)
-                                {
-                                    Record.ENDDATE = ((DateTime)ListDetals[i + 1].STARTDATE).Date;
-                                    Record.ENDTIME = ((DateTime)ListDetals[i + 1].STARTDATE).ToShortTimeString();
-                                }
-                                else
-                                {
-                                    Record.ENDDATE = ((DateTime)ListDetals[i].ENDDATE).Date;
-                                    Record.ENDTIME = ((DateTime)ListDetals[i].ENDDATE).ToShortTimeString();
-                                }
-                                Record.STARTDATE = ((DateTime)item.STARTDATE).Date;
-                                Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
-                                Record.EVECTIONREASON = travel.CONTENT;//出差原因
-                                Record.EVECTIONRECORDCATEGORY = "";//出差类型
-                                Record.OWNERCOMPANYID = travel.OWNERCOMPANYID;
-                                Record.OWNERDEPARTMENTID = travel.OWNERDEPARTMENTID;
-                                Record.OWNERPOSTID = travel.OWNERPOSTID;
-                                Record.OWNERID = travel.OWNERID;
-                                Record.CREATECOMPANYID = travel.OWNERCOMPANYID;
-                                Record.CREATEDATE = System.DateTime.Now;
-                                Record.CREATEDEPARTMENTID = travel.OWNERDEPARTMENTID;
-                                Record.CREATEPOSTID = travel.OWNERPOSTID;
-                                Record.CREATEUSERID = travel.OWNERID;
-                                Record.REMARK = "出差申请自动产生";
-
-                                Record.SUBSIDYTYPE = "1";//出差类型
-                                Record.SUBSIDYVALUE = travel.CHARGEMONEY;//补助金额
-                                Record.TOTALDAYS = string.IsNullOrEmpty(item.BUSINESSDAYS) ? 0 : Convert.ToDecimal(item.BUSINESSDAYS);//
-
-                                Record.UPDATEDATE = DateTime.Now;
-                                Record.UPDATEUSERID = travel.OWNERID;
-                                StrMessage = "出差申请开始调用考勤数据" + ListRecord.Count();
-                                Records.Add(Record);
-                            }
-                        }
-                        #endregion
-
-
+                        Record.ENDDATE = ListDetals[ListDetals.Count() - 1].ENDDATE.Value;//需要长日期格式消除考勤异常
+                        Record.ENDTIME = ((DateTime)ListDetals[ListDetals.Count() - 1].ENDDATE).ToShortTimeString();
+                        Record.DESTINATION = item.DESTCITY;//出差目的地
+                        ListRecord.Add(Record);
                     }
-                    ///Modified by 罗捷
+                    else
+                    {
+                        Record.STARTDATE = item.STARTDATE.Value;//需要长日期格式消除考勤异常
+                        Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
+
+                        Record.ENDDATE = item.ENDDATE.Value;//需要长日期格式消除考勤异常
+                        Record.ENDTIME = ((DateTime)item.ENDDATE).ToShortTimeString();
+                        Record.DESTINATION = item.DESTCITY;//出差目的地
+
+                        ListRecord.Add(Record);
+                    }
+
+                    #region 旧逻辑
+                    //for (int i = 0; i < ListDetals.Count(); i++)
+                    //{
+                    //    T_OA_BUSINESSTRIPDETAIL item = new T_OA_BUSINESSTRIPDETAIL();
+                    //    item = ListDetals[i];
+                    //    #region 不是私事的情况
+                    //    //ListDetals.Count() - 2  为最后一条出差记录的时间计算
+                    //    if (item.PRIVATEAFFAIR == "0" && i < ListDetals.Count() - 1)
+                    //    {
+                    //        SMT.Foundation.Log.Tracer.Debug(i.ToString());
+                    //        //AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT();
+                    //        // Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
+                    //        AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD();
+                    //        Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
+                    //        Record.CHECKSTATE = "2";
+
+                    //        Record.DESTINATION = item.DESTCITY;//出差目的地
+                    //        Record.EMPLOYEECODE = "";
+                    //        Record.EMPLOYEEID = travel.OWNERID;
+                    //        Record.EMPLOYEENAME = travel.OWNERNAME;
+                    //        //正常情况下结束时间为目的地的开始时间
+                    //        if (i < ListDetals.Count() - 1)
+                    //        {
+                    //            Record.ENDDATE = ListDetals[i + 1].STARTDATE.Value;
+                    //            Record.ENDTIME = ((DateTime)ListDetals[i + 1].STARTDATE).ToShortTimeString();
+                    //        }
+                    //        else
+                    //        {
+                    //            //本来是取最后一条的出发时间，现改取到达时间 luojie
+                    //            Record.ENDDATE = ((DateTime)ListDetals[i].ENDDATE).Date;
+                    //            Record.ENDTIME = ((DateTime)ListDetals[i].ENDDATE).ToShortTimeString();
+                    //        }
+                    //        Record.STARTDATE = ((DateTime)item.STARTDATE).Date;
+                    //        Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
+                    //        Record.EVECTIONREASON = travel.CONTENT;//出差原因
+                    //        Record.EVECTIONRECORDCATEGORY = "";//出差类型
+                    //        Record.OWNERCOMPANYID = travel.OWNERCOMPANYID;
+                    //        Record.OWNERDEPARTMENTID = travel.OWNERDEPARTMENTID;
+                    //        Record.OWNERPOSTID = travel.OWNERPOSTID;
+                    //        Record.OWNERID = travel.OWNERID;
+                    //        Record.CREATECOMPANYID = travel.OWNERCOMPANYID;
+                    //        Record.CREATEDATE = System.DateTime.Now;
+                    //        Record.CREATEDEPARTMENTID = travel.OWNERDEPARTMENTID;
+                    //        Record.CREATEPOSTID = travel.OWNERPOSTID;
+                    //        Record.CREATEUSERID = travel.OWNERID;
+                    //        Record.REMARK = "出差申请自动产生";
+
+                    //        Record.SUBSIDYTYPE = "1";//出差类型
+                    //        Record.SUBSIDYVALUE = travel.CHARGEMONEY;//补助金额
+                    //        Record.TOTALDAYS = string.IsNullOrEmpty(item.BUSINESSDAYS) ? 0 : Convert.ToDecimal(item.BUSINESSDAYS);//
+
+                    //        Record.UPDATEDATE = DateTime.Now;
+                    //        Record.UPDATEUSERID = travel.OWNERID;
+                    //        StrMessage = "出差申请开始调用考勤数据" + ListRecord.Count();
+                    //        Records.Add(Record);
+
+                    //    }
+                    //    else
+                    //    {
+                    //        if (i == ListDetals.Count() - 2)
+                    //        {
+                    //            //AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT();
+                    //            //Record.EVECTIONREPORTID = System.Guid.NewGuid().ToString();
+                    //            AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD();
+                    //            Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
+                    //            Record.CHECKSTATE = "2";
+
+                    //            Record.DESTINATION = item.DESTCITY;//出差目的地
+                    //            Record.EMPLOYEECODE = "";
+                    //            Record.EMPLOYEEID = travel.OWNERID;
+                    //            Record.EMPLOYEENAME = travel.OWNERNAME;
+                    //            //正常情况下结束时间为目的地的开始时间
+
+                    //            Record.ENDDATE = ((DateTime)ListDetals[i].ENDDATE).Date;
+                    //            Record.ENDTIME = ((DateTime)ListDetals[i].ENDDATE).ToShortTimeString();
+                    //            //上次出差记录为非私事
+                    //            if (ListDetals[i - 1].PRIVATEAFFAIR == "0")
+                    //            {
+                    //                Record.STARTDATE = ((DateTime)ListDetals[i - 1].STARTDATE).Date;
+                    //                Record.STARTTIME = ((DateTime)ListDetals[i - 1].STARTDATE).ToShortTimeString();
+                    //            }
+                    //            else
+                    //            {
+                    //                Record.STARTDATE = ((DateTime)item.STARTDATE).Date;
+                    //                Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
+                    //            }
+                    //            Record.EVECTIONREASON = travel.CONTENT;//出差原因
+                    //            Record.EVECTIONRECORDCATEGORY = "";//出差类型
+                    //            Record.OWNERCOMPANYID = travel.OWNERCOMPANYID;
+                    //            Record.OWNERDEPARTMENTID = travel.OWNERDEPARTMENTID;
+                    //            Record.OWNERPOSTID = travel.OWNERPOSTID;
+                    //            Record.OWNERID = travel.OWNERID;
+                    //            Record.CREATECOMPANYID = travel.OWNERCOMPANYID;
+                    //            Record.CREATEDATE = System.DateTime.Now;
+                    //            Record.CREATEDEPARTMENTID = travel.OWNERDEPARTMENTID;
+                    //            Record.CREATEPOSTID = travel.OWNERPOSTID;
+                    //            Record.CREATEUSERID = travel.OWNERID;
+                    //            Record.REMARK = "出差申请自动产生";
+
+                    //            Record.SUBSIDYTYPE = "1";//出差类型
+                    //            Record.SUBSIDYVALUE = travel.CHARGEMONEY;//补助金额
+                    //            Record.TOTALDAYS = string.IsNullOrEmpty(item.BUSINESSDAYS) ? 0 : Convert.ToDecimal(item.BUSINESSDAYS);//
+
+                    //            Record.UPDATEDATE = DateTime.Now;
+                    //            Record.UPDATEUSERID = travel.OWNERID;
+                    //            StrMessage = "出差申请开始调用考勤数据" + ListRecord.Count();
+                    //            Records.Add(Record);
+                    //            //ListRecord.Add(Record);
+                    //        }
+                    //        else
+                    //        {
+                    //            SMT.Foundation.Log.Tracer.Debug(i.ToString());
+                    //            AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD Record = new AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD();
+                    //            Record.EVECTIONRECORDID = System.Guid.NewGuid().ToString();
+                    //            Record.CHECKSTATE = "2";
+
+                    //            Record.DESTINATION = item.DESTCITY;//出差目的地
+                    //            Record.EMPLOYEECODE = "";
+                    //            Record.EMPLOYEEID = travel.OWNERID;
+                    //            Record.EMPLOYEENAME = travel.OWNERNAME;
+                    //            //正常情况下结束时间为目的地的开始时间
+                    //            if (i < ListDetals.Count() - 1)
+                    //            {
+                    //                Record.ENDDATE = ((DateTime)ListDetals[i + 1].STARTDATE).Date;
+                    //                Record.ENDTIME = ((DateTime)ListDetals[i + 1].STARTDATE).ToShortTimeString();
+                    //            }
+                    //            else
+                    //            {
+                    //                Record.ENDDATE = ((DateTime)ListDetals[i].ENDDATE).Date;
+                    //                Record.ENDTIME = ((DateTime)ListDetals[i].ENDDATE).ToShortTimeString();
+                    //            }
+                    //            Record.STARTDATE = ((DateTime)item.STARTDATE).Date;
+                    //            Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
+                    //            Record.EVECTIONREASON = travel.CONTENT;//出差原因
+                    //            Record.EVECTIONRECORDCATEGORY = "";//出差类型
+                    //            Record.OWNERCOMPANYID = travel.OWNERCOMPANYID;
+                    //            Record.OWNERDEPARTMENTID = travel.OWNERDEPARTMENTID;
+                    //            Record.OWNERPOSTID = travel.OWNERPOSTID;
+                    //            Record.OWNERID = travel.OWNERID;
+                    //            Record.CREATECOMPANYID = travel.OWNERCOMPANYID;
+                    //            Record.CREATEDATE = System.DateTime.Now;
+                    //            Record.CREATEDEPARTMENTID = travel.OWNERDEPARTMENTID;
+                    //            Record.CREATEPOSTID = travel.OWNERPOSTID;
+                    //            Record.CREATEUSERID = travel.OWNERID;
+                    //            Record.REMARK = "出差申请自动产生";
+
+                    //            Record.SUBSIDYTYPE = "1";//出差类型
+                    //            Record.SUBSIDYVALUE = travel.CHARGEMONEY;//补助金额
+                    //            Record.TOTALDAYS = string.IsNullOrEmpty(item.BUSINESSDAYS) ? 0 : Convert.ToDecimal(item.BUSINESSDAYS);//
+
+                    //            Record.UPDATEDATE = DateTime.Now;
+                    //            Record.UPDATEUSERID = travel.OWNERID;
+                    //            StrMessage = "出差申请开始调用考勤数据" + ListRecord.Count();
+                    //            Records.Add(Record);
+                    //        }
+                    //    }
+                    //    #endregion
+
+
+                    //}
+                    #endregion
+
                     ///修改接口的使用方式
                     try
                     {
-                        if (Records.Count() > 0)
+                        if (ListRecord.Count() > 0)
                         {
-                            SMT.Foundation.Log.Tracer.Debug("TravelmanagementBll:Line 519,AddEmployeeEvectionRdList()");
-                            Client.AddEmployeeEvectionRdList(Records.ToArray());
+                            SMT.SaaS.OA.BLL.AttendanceWS.AttendanceServiceClient Client
+                                = new AttendanceWS.AttendanceServiceClient();
+
+                            Client.AddEmployeeEvectionRdList(ListRecord.ToArray());
+
+                            StrMessage = "出差申请同步考勤数据成功，出差申请开始时间："
+                                        + ListRecord[0].STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                                        + " 结束时间:" + ListRecord[0].ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss");
+
+                            SMT.Foundation.Log.Tracer.Debug(StrMessage);
                         }
                     }
                     catch (Exception ex)
                     {
-                        SMT.Foundation.Log.Tracer.Debug("错误TravelmanagementBll:Line 519,AddEmployeeEvectionRdList():" + ex.Message.ToString());
+                        SMT.Foundation.Log.Tracer.Debug("出差申请同步考勤数据出错::" + ex.Message.ToString());
                     }
 
                 }
@@ -538,7 +606,7 @@ namespace SMT.SaaS.OA.BLL
             }
             catch (Exception ex)
             {
-                StrMessage = "出差报销调用考勤数据出错" + ex.ToString();
+                StrMessage = "出差申请生成考勤数据出错" + ex.ToString();
                 SMT.Foundation.Log.Tracer.Debug(StrMessage);
             }
         }
