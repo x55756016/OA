@@ -123,40 +123,41 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                IQueryable<T_HR_ATTENDANCERECORD> entArs = from r in dal.GetObjects<T_HR_ATTENDANCERECORD>()
-                                                           where r.EMPLOYEEID == entity.EMPLOYEEID && r.ATTENDANCEDATE >= entity.STARTDATE && r.ATTENDANCEDATE <= entity.ENDDATE
-                                                           select r;
-                if (entArs.Count() > 0)
-                {
-                    AttendanceRecordBLL bllAttendRecord = new AttendanceRecordBLL();
-                    EmployeeSignInRecordBLL bllSignInRd = new EmployeeSignInRecordBLL();
+                //IQueryable<T_HR_ATTENDANCERECORD> entArs = from r in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+                //                                           where r.EMPLOYEEID == entity.EMPLOYEEID && r.ATTENDANCEDATE >= entity.STARTDATE && r.ATTENDANCEDATE <= entity.ENDDATE
+                //                                           select r;
+                //if (entArs.Count() > 0)
+                //{
+                //    AttendanceRecordBLL bllAttendRecord = new AttendanceRecordBLL();
+                //    EmployeeSignInRecordBLL bllSignInRd = new EmployeeSignInRecordBLL();
 
-                    foreach (T_HR_ATTENDANCERECORD item in entArs)
-                    {
-                        item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString();
-                        bllAttendRecord.ModifyAttRd(item);
+                //    foreach (T_HR_ATTENDANCERECORD item in entArs)
+                //    {
+                //        item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString();
+                //        bllAttendRecord.ModifyAttRd(item);
 
-                        string strAbnormCategory = (Convert.ToInt32(Common.AbnormCategory.Absent) + 1).ToString();
-                        IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = from a in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
-                                                                                 where a.T_HR_ATTENDANCERECORD.ATTENDANCERECORDID == item.ATTENDANCERECORDID && a.ABNORMCATEGORY == strAbnormCategory
-                                                                                 select a;
+                //        string strAbnormCategory = (Convert.ToInt32(Common.AbnormCategory.Absent) + 1).ToString();
+                //        IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = from a in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
+                //                                                                 where a.T_HR_ATTENDANCERECORD.ATTENDANCERECORDID == item.ATTENDANCERECORDID && a.ABNORMCATEGORY == strAbnormCategory
+                //                                                                 select a;
 
-                        if (entAbnormRecords.Count() == 0)
-                        {
-                            continue;
-                        }
+                //        if (entAbnormRecords.Count() == 0)
+                //        {
+                //            continue;
+                //        }
 
-                        bllSignInRd.ClearNoSignInRecord("T_HR_EMPLOYEEABNORMRECORD", item.EMPLOYEEID, entAbnormRecords);
+                //        bllSignInRd.ClearNoSignInRecord("T_HR_EMPLOYEEABNORMRECORD", item.EMPLOYEEID, entAbnormRecords);
 
-                        foreach (T_HR_EMPLOYEEABNORMRECORD entAbnormRecord in entAbnormRecords)
-                        {
-                            dal.DeleteFromContext(entAbnormRecord);
-                        }
+                //        foreach (T_HR_EMPLOYEEABNORMRECORD entAbnormRecord in entAbnormRecords)
+                //        {
+                //            dal.DeleteFromContext(entAbnormRecord);
+                //        }
 
-                        dal.SaveContextChanges();
-                    }
-                }
-
+                //        dal.SaveContextChanges();
+                //    }
+                //}
+                AbnormRecordBLL bll = new AbnormRecordBLL();
+                bll.DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value);  
                 dal.Add(entity);            
             }
             catch (Exception ex)

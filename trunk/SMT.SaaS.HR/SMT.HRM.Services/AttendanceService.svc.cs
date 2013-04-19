@@ -2160,7 +2160,7 @@ namespace SMT.HRM.Services
         }
 
         /// <summary>
-        /// 添加出差记录信息
+        /// 添加出差记录信息,出差申请，出差报销终审时调用
         /// </summary>
         /// <param name="entity">出差记录实体</param>
         [OperationContract]

@@ -22,6 +22,8 @@ using System.Data;
 using SMT.HRM.CustomModel;
 using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using SMT.HRM.CustomModel.Reports;
+using SMT.Foundation.Log;
+using SMT.HRM.BLL.Common;
 
 namespace SMT.HRM.BLL
 {
@@ -2092,5 +2094,315 @@ namespace SMT.HRM.BLL
             }
             return null;
         }
+
+
+        #region 检测并清除指定员工指定时间段内考勤异常记录并重置考勤初始化记录状态
+        /// <summary>
+        /// 检测并清除指定员工指定时间段内考勤异常记录并重置考勤初始化记录状态
+        /// </summary>
+        /// <param name="EMPLOYEEID">员工id</param>
+        /// <param name="datLevestart">开始时间长日期格式2013/2/16 8:30:00</param>
+        /// <param name="dtEnd">结束时间长日期格式2013/2/16 8:30:00</param>
+        public void DealEmployeeAbnormRecord(string EMPLOYEEID, DateTime datLevestart, DateTime dtEnd)
+        {
+
+            IQueryable<T_HR_ATTENDANCERECORD> entArs = from r in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+                                                       where r.EMPLOYEEID == EMPLOYEEID
+                                                       && r.ATTENDANCEDATE >= datLevestart
+                                                       && r.ATTENDANCEDATE <= dtEnd
+                                                       select r;
+
+            foreach (T_HR_ATTENDANCERECORD item in entArs)
+            {
+                string strAbnormCategory = (Convert.ToInt32(Common.AbnormCategory.Absent) + 1).ToString();
+                //获取请假当天所有异常考勤(针对补请假的情况，用于删除异常考勤)
+                IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords
+                    = from a in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
+                      where a.T_HR_ATTENDANCERECORD.ATTENDANCERECORDID == item.ATTENDANCERECORDID && a.ABNORMCATEGORY == strAbnormCategory
+                      select a;
+                int i = 0;
+                i = entAbnormRecords.Count();
+                if (i == 0)
+                {
+                    continue;
+                }
+                try
+                {
+                    Tracer.Debug(" 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                         + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，共检测到异常记录数共：" + i + "条记录");
+                    Dictionary<AttendPeriod, AttendanceState> thisDayAttendState = new Dictionary<AttendPeriod, AttendanceState>();//考勤时间段1上午，2中午，3下午 考勤异常状态 1 缺勤 2 请假
+                    foreach (T_HR_EMPLOYEEABNORMRECORD AbnormRecorditem in entAbnormRecords.ToList())
+                    {
+                        //需根据请假时间判断是否要删除掉考勤异常
+                        //DateTime datLevestart = entLeaveRecord.STARTDATETIME.Value;//长日期格式2013/2/16 8:30:00
+                        //DateTime datLeveEnd = entLeaveRecord.ENDDATETIME.Value;//长日期格式2013/2/16 8:30:00
+
+                        DateTime dtDateAbnorm = AbnormRecorditem.ABNORMALDATE.Value;//短日期格式2013/3/8
+                        var q = (from entsf in dal.GetObjects<T_HR_SHIFTDEFINE>()
+                                 join ab in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+                                    on entsf.SHIFTDEFINEID equals ab.T_HR_SHIFTDEFINE.SHIFTDEFINEID
+                                 where ab.ATTENDANCERECORDID == AbnormRecorditem.T_HR_ATTENDANCERECORD.ATTENDANCERECORDID
+                                 select entsf)
+                                 ;
+                        if (q.Count() > 0)
+                        {
+                            T_HR_SHIFTDEFINE defineTime = q.FirstOrDefault();
+                            if (AbnormRecorditem.ATTENDPERIOD.Trim() == "1")//上午上班8:30异常
+                            {
+                                if (!string.IsNullOrEmpty(defineTime.NEEDFIRSTCARD) && defineTime.NEEDFIRSTCARD == "2")//以集团打卡举例，第一段上班打卡8:30
+                                {
+                                    Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡");
+                                    if (!string.IsNullOrEmpty(defineTime.FIRSTSTARTTIME))
+                                    {
+                                        //定义的开始上班时间8:30
+                                        DateTime ShiftFirstStartTime = DateTime.Parse(defineTime.FIRSTSTARTTIME);
+                                        DateTime ShiftstartDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, ShiftFirstStartTime.Hour, ShiftFirstStartTime.Minute, ShiftFirstStartTime.Second);
+                                        //定义的第一段上班结束时间12:00
+                                        if (!string.IsNullOrEmpty(defineTime.FIRSTENDTIME))
+                                        {
+                                            DateTime FirstEndTime = DateTime.Parse(defineTime.FIRSTENDTIME);
+                                            DateTime FirstEndDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, FirstEndTime.Hour, FirstEndTime.Minute, FirstEndTime.Second);
+
+                                            //如果请假时间包括了第一段上班时间，那么消除异常
+                                            if (datLevestart <= ShiftstartDateAndTime
+                                                && dtEnd >= FirstEndDateAndTime)
+                                            {
+                                                Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡时间被请假时间覆盖，消除异常"
+                                                    + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                                            + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
+                                            ShiftstartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + FirstEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
+                                                //消除第一段异常生成的签卡
+                                                DeleteSigFromAbnormal(AbnormRecorditem);
+                                                //消除第一段打卡时间异常考勤
+                                                dal.Delete(AbnormRecorditem);
+                                                //第一段考勤时间标记为请假
+                                                thisDayAttendState.Add(AttendPeriod.Morning, AttendanceState.Leave);
+                                            }
+                                            else
+                                            {   //第一段考勤时间标记为异常
+                                                thisDayAttendState.Add(AttendPeriod.Morning, AttendanceState.Abnormal);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡，但班次定义中的FIRSTSTARTTIME为空");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡，但班次定义中的FIRSTSTARTTIME为空");
+                                    }
+                                }
+                            }
+                            if (AbnormRecorditem.ATTENDPERIOD.Trim() == "2")//中午上班13:30异常
+                            {
+                                if (!string.IsNullOrEmpty(defineTime.NEEDSECONDCARD) && defineTime.NEEDSECONDCARD == "2")//以集团打卡举例，第二段上班打卡13:30
+                                {
+                                    Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡");
+                                    if (!string.IsNullOrEmpty(defineTime.SECONDSTARTTIME))
+                                    {
+                                        DateTime SecondStartTime = DateTime.Parse(defineTime.SECONDSTARTTIME);
+                                        DateTime SecondStartDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, SecondStartTime.Hour, SecondStartTime.Minute, SecondStartTime.Second);
+                                        if (!string.IsNullOrEmpty(defineTime.SECONDENDTIME))
+                                        {
+                                            DateTime SencondEndTime = DateTime.Parse(defineTime.SECONDENDTIME);
+                                            DateTime SencondEndDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, SencondEndTime.Hour, SencondEndTime.Minute, SencondEndTime.Second);
+
+                                            if (datLevestart <= SecondStartDateAndTime
+                                                && dtEnd >= SecondStartDateAndTime)
+                                            {
+                                                Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡时间被请假时间覆盖，消除异常"
+                                                    + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                                            + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
+                                            SecondStartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + SencondEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                                                //消除第二段异常生成的签卡
+                                                DeleteSigFromAbnormal(AbnormRecorditem);
+                                                //消除第二段打卡时间异常考勤
+                                                dal.Delete(AbnormRecorditem);
+                                                thisDayAttendState.Add(AttendPeriod.Midday, AttendanceState.Leave);
+                                            }
+                                            else
+                                            {
+                                                thisDayAttendState.Add(AttendPeriod.Midday, AttendanceState.Abnormal);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡，但班次定义中的SECONDENDTIME为空");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡，但班次定义中的SECONDSTARTTIME为空");
+                                    }
+                                }
+                            }
+                            if (AbnormRecorditem.ATTENDPERIOD.Trim() == "3")//下午17:30下班异常
+                            {
+                                if (!string.IsNullOrEmpty(defineTime.NEEDSECONDOFFCARD) && defineTime.NEEDSECONDOFFCARD == "2")//以集团打卡举例，第二段下班打卡17:30
+                                {
+                                    Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡");
+                                    if (!string.IsNullOrEmpty(defineTime.SECONDSTARTTIME))
+                                    {
+                                        DateTime SecondStartTime = DateTime.Parse(defineTime.SECONDSTARTTIME);
+                                        DateTime SecondStartDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, SecondStartTime.Hour, SecondStartTime.Minute, SecondStartTime.Second);
+
+                                        if (!string.IsNullOrEmpty(defineTime.SECONDENDTIME))
+                                        {
+                                            DateTime SencondEndTime = DateTime.Parse(defineTime.SECONDENDTIME);
+                                            DateTime SencondEndDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, SencondEndTime.Hour, SencondEndTime.Minute, SencondEndTime.Second);
+
+                                            if (datLevestart <= SecondStartDateAndTime
+                                                && dtEnd >= SencondEndDateAndTime)
+                                            {
+                                                Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡时间被请假时间覆盖，消除异常"
+                                                     + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                                            + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
+                                            SecondStartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + SencondEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                                                //消除第三段异常生成的签卡
+                                                DeleteSigFromAbnormal(AbnormRecorditem);
+                                                //消除第三段打卡时间异常考勤
+                                                dal.Delete(AbnormRecorditem);
+                                                thisDayAttendState.Add(AttendPeriod.Evening, AttendanceState.Leave);
+                                            }
+                                            else
+                                            {
+                                                thisDayAttendState.Add(AttendPeriod.Evening, AttendanceState.Abnormal);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡，但班次定义中的SECONDENDTIME为空");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡，但班次定义中的SECONDSTARTTIME为空");
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Tracer.Debug("请假消除异常，通过异常记录获取到考勤初始化记录但通过考勤初始化记录获取的考勤班次定义T_HR_SHIFTDEFINE为空");
+                        }
+                    }
+                    if (thisDayAttendState.Count() > 0)//如果当天存在异常或请假情况
+                    {   //如果当天存在请假，同时也存在异常
+                        if (thisDayAttendState.Values.Contains(AttendanceState.Leave) && thisDayAttendState.Values.Contains(AttendanceState.Abnormal))
+                        {   //标记当天出勤状况为Mix状态
+                            item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Mix) + 1).ToString();
+                            dal.Update(item);
+                        }
+                        else if (thisDayAttendState.Values.Contains(AttendanceState.Leave) && !thisDayAttendState.Values.Contains(AttendanceState.Abnormal))
+                        {
+                            //如果当天异常时间已全部被请假时间涵盖，删除签卡提醒并标记考勤为请假
+                            EmployeeSignInRecordBLL bllSignInRd = new EmployeeSignInRecordBLL();
+                            bllSignInRd.ClearNoSignInRecord("T_HR_EMPLOYEEABNORMRECORD", item.EMPLOYEEID, entAbnormRecords);
+                            item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString();
+                            dal.Update(item);
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Tracer.Debug("DealAbnormRecord 异常：" + ex.ToString());
+                }
+            }//for each T_HR_ATTENDANCERECORD End
+        }
+
+
+        private void DeleteSigFromAbnormal(T_HR_EMPLOYEEABNORMRECORD AbnormRecorditem)
+        {
+            try
+            {
+                int i = 0;
+                var sigs = from sig in dal.GetObjects<T_HR_EMPLOYEESIGNINDETAIL>().Include("T_HR_EMPLOYEESIGNINRECORD")
+                           where sig.T_HR_EMPLOYEEABNORMRECORD.ABNORMRECORDID == AbnormRecorditem.ABNORMRECORDID
+                           select sig;
+                if (sigs.Count() > 0)
+                {
+                    string sigMasterId = string.Empty;
+                    if (sigs.FirstOrDefault().T_HR_EMPLOYEESIGNINRECORD != null)
+                    {
+                        sigMasterId = sigs.FirstOrDefault().T_HR_EMPLOYEESIGNINRECORD.SIGNINID;
+                    }
+
+                    foreach (var sig in sigs.ToList())
+                    {
+                        try
+                        {
+                            i = dal.Delete(sig);
+                            Tracer.Debug("删除签卡明细,员工id：" + sig.OWNERID + " 异常日期：" + sig.ABNORMALDATE + "异常时长"
+                                + sig.ABNORMALTIME + " 异常时段：" + sig.ATTENDPERIOD + "异常类型" + sig.ABNORMCATEGORY);
+                        }
+                        catch (Exception ex)
+                        {
+                            Tracer.Debug("删除签卡明细异常,员工id：" + sig.OWNERID + " 异常日期：" + sig.ABNORMALDATE + "异常时长"
+                               + sig.ABNORMALTIME + " 异常时段：" + sig.ATTENDPERIOD + "异常类型" + sig.ABNORMCATEGORY + " 异常信息：" + ex.ToString());
+                        }
+                    }
+
+
+                    if (!string.IsNullOrEmpty(sigMasterId))
+                    {
+
+                        var sigMaster = from sigM in dal.GetObjects<T_HR_EMPLOYEESIGNINRECORD>().Include("T_HR_EMPLOYEESIGNINDETAIL")
+                                        where sigM.SIGNINID == sigMasterId
+                                        select sigM;
+
+
+                        if (sigMaster.Count() > 0)
+                        {
+                            if (sigMaster.FirstOrDefault().T_HR_EMPLOYEESIGNINDETAIL.Count() < 1)
+                            {
+                                T_HR_EMPLOYEESIGNINRECORD record = sigMaster.FirstOrDefault();
+                                //如果当天异常时间已全部被请假时间涵盖，删除签卡提醒并标记考勤为请假
+                                try
+                                {
+                                    SMT.SaaS.BLLCommonServices.Utility.RemoveMyRecord<T_HR_EMPLOYEESIGNINRECORD>(record);
+                                    Tracer.Debug("关闭签卡我的单据,员工名：" + record.EMPLOYEENAME + " 员工id：" + record.EMPLOYEEID + " 创建日期：" + record.CREATEDATE + " 签卡备注"
+                                                            + record.REMARK + " 签卡时间：" + record.SIGNINTIME);
+
+                                    List<string> list = new List<string>() { record.SIGNINID };
+                                    if (CloseAttendAbnormAlarmMsg(list, "T_HR_EMPLOYEESIGNINRECORD", AbnormRecorditem.OWNERID))
+                                    {
+                                        Tracer.Debug("关闭签卡待办成功,员工名：" + record.EMPLOYEENAME + " 员工id：" + record.EMPLOYEEID + " 创建日期：" + record.CREATEDATE + " 签卡备注"
+                                                                + record.REMARK + " 签卡时间：" + record.SIGNINTIME);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    SMT.Foundation.Log.Tracer.Debug("删除我的单据或关闭待办出现错误" + ex.ToString());
+                                }
+
+                                try
+                                {
+                                    i = dal.Delete(record);
+                                    Tracer.Debug("删除签卡主表,员工名：" + record.EMPLOYEENAME + " 员工id：" + record.EMPLOYEEID + " 创建日期：" + record.CREATEDATE + " 签卡备注"
+                                                                         + record.REMARK + " 签卡时间：" + record.SIGNINTIME);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Tracer.Debug("删除签卡主表异常,员工名：" + record.EMPLOYEENAME + " 员工id：" + record.EMPLOYEEID + " 创建日期：" + record.CREATEDATE + " 签卡备注"
+                                                                             + record.REMARK + " 签卡时间：" + record.SIGNINTIME + " 异常信息：" + ex.ToString());
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("DeleteSigFromAbnormal异常：" + ex.ToString());
+            }
+        }
+
+        #endregion
+
     }
 }
