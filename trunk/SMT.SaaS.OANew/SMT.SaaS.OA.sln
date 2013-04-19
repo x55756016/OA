@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.OA.UI", "SMT.SaaS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonDll", "CommonDll\CommonDll.csproj", "{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.FrameworkUI", "..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj", "{9A42135A-11F2-4210-A41B-3AC06AC0D835}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = SMT.SaaS.OA.vsmdi
@@ -56,6 +58,10 @@ Global
 		{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{30D6706D-A200-4ED0-BBAA-3574E09F54D1} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
 		{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
 	EndGlobalSection
 	GlobalSection(PowerDesigner) = preSolution
 		HasSWS = 1

@@ -1,11 +1,11 @@
-﻿using System;
+﻿//出差报销服务
+using System;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Collections.Generic;
 using System.Text;
-
 using SMT_OA_EFModel;
 using SMT.SaaS.OA.BLL;
 using SMT.SaaS.OA.DAL.Views;
@@ -40,8 +40,8 @@ namespace SMT.SaaS.OA.Services
         {
             using (TravelReimbursementBLL TrBll = new TravelReimbursementBLL())
             {
-                T_OA_TRAVELREIMBURSEMENT TravelReimbursementById = TrBll.GetTravelReimbursementById(TravelReimbursementID);
-                return TravelReimbursementById != null ? TravelReimbursementById : null;
+                T_OA_TRAVELREIMBURSEMENT TravelReimbursement = TrBll.GetTravelReimbursementById(TravelReimbursementID);
+                return TravelReimbursement != null ? TravelReimbursement : null;
             }
         }
         /// <summary>

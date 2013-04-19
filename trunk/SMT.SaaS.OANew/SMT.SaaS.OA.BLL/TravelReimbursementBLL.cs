@@ -38,7 +38,8 @@ namespace SMT.SaaS.OA.BLL
         /// <returns>返回结果</returns>
         public T_OA_TRAVELREIMBURSEMENT GetTravelReimbursementById(string TravelReimbursementID)
         {
-            var ents = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_BUSINESSTRIP")
+            
+            var ents = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_REIMBURSEMENTDETAIL")
                        where a.TRAVELREIMBURSEMENTID == TravelReimbursementID
                        select a;
             return ents.Count() > 0 ? ents.FirstOrDefault() : null;
