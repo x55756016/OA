@@ -84,7 +84,7 @@
                                                          ErrorMessageParameter="AGENTSTATUS"/>
                             </validator:ValidatorService.Validator>
                         </TextBox>
-                        <Button  Grid.Column="1" x:Name="lkLicenseBorrow"  Height="23" Click="lkLicenseBorrow_FindClick" Margin="-42,1,18,6">
+                        <Button  Grid.Column="1" x:Name="lookupTraveEmployee"  Height="23" Click="lookupTraveEmployee_FindClick" Margin="-42,1,18,6">
                         <interaction:Interaction.Behaviors>
                             <behaviors:ShowRequire></behaviors:ShowRequire>
                         </interaction:Interaction.Behaviors>

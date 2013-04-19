@@ -33,7 +33,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         private SmtOACommonOfficeClient OaCommonOfficeClient;
         private T_OA_BUSINESSTRIP businesstripMaster_Golbal;
         private V_EMPLOYEEDETAIL employeepost = new V_EMPLOYEEDETAIL();
-        private FormTypes actions;
+        private FormTypes formType;
         private RefreshedTypes refreshType = RefreshedTypes.CloseAndReloadData;
 
         private T_OA_AGENTDATESET AgentDateSet;
@@ -86,11 +86,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         public TravelRequestForm()
         {
             InitializeComponent();
-            this.actions = FormTypes.New;
+            this.formType = FormTypes.New;
             this.businesstrID = "";
             InitData();
             InitEvent();
-            if (actions != FormTypes.New && actions != FormTypes.Edit && actions != FormTypes.Resubmit)
+            if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
                 ShowAudits.Visibility = Visibility.Collapsed;
                 tbShowAudits.Visibility = Visibility.Visible;
@@ -105,17 +105,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         public TravelRequestForm(FormTypes action, string businesstrID)
         {
             InitializeComponent();
-            this.actions = action;
+            this.formType = action;
             this.businesstrID = businesstrID;
             InitData();
             InitEvent();
-
-            //ctrFile.SystemName = "OA";
-            //ctrFile.ModelName = "TravelRequest";
-            //ctrFile.InitBtn(Visibility.Visible, Visibility.Collapsed);
-            //ctrFile.Event_AllFilesFinished += new EventHandler<SMT.SaaS.FrameworkUI.FileUpload.FileCountEventArgs>(ctrFile_Event_AllFilesFinished);
             IsSubmit = true;
-            if (actions != FormTypes.New && actions != FormTypes.Edit && actions != FormTypes.Resubmit)
+            if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
                 ShowAudits.Visibility = Visibility.Collapsed;
                 tbShowAudits.Visibility = Visibility.Visible;
@@ -126,12 +121,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 tbShowAudits.Visibility = Visibility.Collapsed;
                 
             }
-
-            //if (actions == FormTypes.New )
-            //{                
-            //    ShowAudits.Visibility = Visibility.Visible;
-            //    tbShowAudits.Visibility = Visibility.Collapsed;
-            //}
             this.Loaded += new RoutedEventHandler(TravelapplicationPage_Loaded);
         }
         #endregion      
@@ -149,21 +138,19 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             if (isloaded == true) return;//如果已经加载过，再次切换时就不再加载
             fbCtr.GetPayType.Visibility = Visibility.Visible;
 
-            if (actions == FormTypes.Browse || actions == FormTypes.Audit)
+            if (formType == FormTypes.Browse || formType == FormTypes.Audit)
             {
                 FileLoadedCompleted();
-                //ctrFile.FileState = SMT.SaaS.FrameworkUI.FileUpload.Constants.FileStates.FileBrowse;
-                //ctrFile.InitBtn(Visibility.Collapsed, Visibility.Collapsed);
                 this.txtSubject.Foreground = new SolidColorBrush(Colors.Black);
                 HideControl();
             }
-            if (actions != FormTypes.New)
+            if (formType != FormTypes.New)
             {
                 if (!string.IsNullOrEmpty(businesstrID))
                 {
                     RefreshUI(RefreshedTypes.ShowProgressBar);
                     OaPersonOfficeClient.GetTravelmanagementByIdAsync(businesstrID);
-                    Utility.InitFileLoad("TravelRequest", businesstrID, actions, uploadFile);
+                    Utility.InitFileLoad("TravelRequest", businesstrID, formType, uploadFile);
                 }
             }
             else
@@ -171,7 +158,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 businesstrID = System.Guid.NewGuid().ToString();
                 //将出差申请ID前置了，以前是放在了后面这样会导致审核控件提示ID为空
                 businesstripMaster_Golbal.BUSINESSTRIPID = businesstrID;
-                Utility.InitFileLoad("TravelRequest", businesstrID, actions, uploadFile);
+                Utility.InitFileLoad("TravelRequest", businesstrID, formType, uploadFile);
             }
             FormToolBar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             FormToolBar1.btnEdit.Visibility = Visibility.Collapsed;//修改
@@ -202,7 +189,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             OaPersonOfficeClient = new SmtOAPersonOfficeClient();
             OaCommonOfficeClient = new SmtOACommonOfficeClient();
             HrPersonnelclient = new PersonnelServiceClient();
-            if (actions == FormTypes.New)
+            if (formType == FormTypes.New)
             {
                 HrPersonnelclient.GetEmployeePostBriefByEmployeeIDAsync(Common.CurrentLoginUserInfo.EmployeeID);//获取当期用户信息
             }
@@ -220,7 +207,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         private void InitData()
         {
-            if (actions == FormTypes.New)
+            if (formType == FormTypes.New)
             {
                 //InitFBControl();
                 Master_Golbal = new T_OA_BUSINESSTRIP();
@@ -238,7 +225,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region 屏蔽控件
         private void HideControl()
         {
-            lkLicenseBorrow.IsEnabled = false;
+            lookupTraveEmployee.IsEnabled = false;
             txtSubject.IsReadOnly = true;
             txtTELL.IsReadOnly = true;
             ckEnabled.IsEnabled = false;
@@ -260,13 +247,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 return;
             }
             BtnNewButton = true;
-            //int i = 0;
-            //int k = 0;
+
             T_OA_BUSINESSTRIPDETAIL NewBussnessTripDetail = new T_OA_BUSINESSTRIPDETAIL();
             NewBussnessTripDetail.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
 
-            //if (actions == FormTypes.New)
-            //{
             if (TraveDetailList_Golbal.Count() > 0)
             {
                 //新的赋值方式
@@ -285,72 +269,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     ((DataGridCell)((StackPanel)myCity.Parent).Parent).IsEnabled = false;
                 }
                 //旧的赋值方式
-                //foreach (T_OA_BUSINESSTRIPDETAIL bussNessDetailTripOne in TraveDetailList_Golbal)
-                //{
-                //    NewBussnessTripDetail.STARTDATE = bussNessDetailTripOne.ENDDATE;
-
-
-                //    if (citysEndList_Golbal.Count() == 0)
-                //    {
-                //        return;
-                //    }
-                //    NewBussnessTripDetail.DEPCITY = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(citysEndList_Golbal[i].Replace(",", ""));
-
-                //    i++;
-                //}
             }
-            
-
-            //foreach (Object obje in DaGrs.ItemsSource)
-            //{
-            //    k++;
-            //    if (k > 1)
-            //    {
-            //        SearchCity myCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
-
-            //        if (myCity != null)
-            //        {
-            //            myCity.IsEnabled = false;
-            //            ((DataGridCell)((StackPanel)myCity.Parent).Parent).IsEnabled = false;
-            //        }
-            //    }
-            //}
-            //}
-
-            //if (actions != FormTypes.New)
-            //{
-            //    if (TraveDetailList_Golbal.Count() > 0)
-            //    {
-            //        foreach (T_OA_BUSINESSTRIPDETAIL tailList in TraveDetailList_Golbal)
-            //        {
-            //            NewBussnessTripDetail.STARTDATE = tailList.ENDDATE;
-            //            if (citysEndList_Golbal.Count() == 0)
-            //            {
-            //                return;
-            //            }
-            //            NewBussnessTripDetail.DEPCITY = citysEndList_Golbal[i].Replace(",", "");
-
-            //            i++;
-            //        }
-            //    }
-            //    NewBussnessTripDetail.ENDDATE = DateTime.Now;
-            //    TraveDetailList_Golbal.Add(NewBussnessTripDetail);
-            //    DaGrs.ItemsSource = TraveDetailList_Golbal;
-
-            //    foreach (Object obje in DaGrs.ItemsSource)
-            //    {
-            //        if (DaGrs.Columns[1].GetCellContent(obje) != null)
-            //        {
-            //            SearchCity myCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
-
-            //            if (myCity != null)
-            //            {
-            //                myCity.IsEnabled = false;
-            //                ((DataGridCell)((StackPanel)myCity.Parent).Parent).IsEnabled = false;
-            //            }
-            //        }
-            //    }
-            //}
         }
 
         #region 检查是否选择了目标城市否则不给添加
@@ -546,7 +465,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #endregion
 
         #region 选择出差人LookUP
-        private void lkLicenseBorrow_FindClick(object sender, RoutedEventArgs e)
+        private void lookupTraveEmployee_FindClick(object sender, RoutedEventArgs e)
         {
             SMT.SaaS.FrameworkUI.OrganizationControl.OrganizationLookup lookup = new SMT.SaaS.FrameworkUI.OrganizationControl.OrganizationLookup();
             lookup.SelectedObjType = SMT.SaaS.FrameworkUI.OrgTreeItemTypes.Personnel;
@@ -571,9 +490,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     corpName = corp.CNAME;//公司
 
                     string StrEmployee = userInfo.ObjectName + "[" + post.ObjectName + "-" + dept.ObjectName + "-" + corp.CNAME + "]";
-                    txticenseBorrow.Text = StrEmployee;//出差人
+                    txtTraveEmployee.Text = StrEmployee;//出差人
                     peopletravel = userInfo.ObjectName;
-                    ToolTipService.SetToolTip(txticenseBorrow, StrEmployee);
+                    ToolTipService.SetToolTip(txtTraveEmployee, StrEmployee);
                     businesstripMaster_Golbal.OWNERID = userInfo.ObjectID;//出差人ID
                     HrPersonnelclient.GetEmployeePostBriefByEmployeeIDAsync(businesstripMaster_Golbal.OWNERID, "lookup");
                     businesstripMaster_Golbal.OWNERNAME = userInfo.ObjectName;//出差人
@@ -645,7 +564,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             tempcomLevelForeBrush = ComLevel.Foreground;
 
             ObservableCollection<T_OA_BUSINESSTRIPDETAIL> objs = DaGrs.ItemsSource as ObservableCollection<T_OA_BUSINESSTRIPDETAIL>;
-            if (actions != FormTypes.New)
+            if (formType != FormTypes.New)
             {
                 int j = 0;
                 if (DaGrs.ItemsSource != null && TraveDetailList_Golbal != null)
@@ -824,7 +743,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 citysStartList_Golbal.Add(detail.DEPCITY);
                 citysEndList_Golbal.Add(detail.DESTCITY);
             }
-            if (actions != FormTypes.New && actions != FormTypes.Edit && actions != FormTypes.Resubmit)
+            if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
                 DaGridReadOnly.ItemsSource = TraveDetailList_Golbal;
             }
@@ -1095,17 +1014,17 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         {
                             RefreshUI(RefreshedTypes.All);
                         }
-                        if (actions == FormTypes.Edit)
+                        if (formType == FormTypes.Edit)
                         {
                             if (Master_Golbal.CHECKSTATE == (Convert.ToInt32(CheckStates.Approving)).ToString() || Master_Golbal.CHECKSTATE == (Convert.ToInt32(CheckStates.Approved)).ToString() || Master_Golbal.CHECKSTATE == (Convert.ToInt32(CheckStates.UnApproved)).ToString())
                             {
-                                actions = FormTypes.Audit;
+                                formType = FormTypes.Audit;
                                 ShowAudits.Visibility = Visibility.Collapsed;
                                 tbShowAudits.Visibility = Visibility.Visible;
                                 //Utility.InitFileLoad("TravelRequest", businesstrID, actions, uploadFile);
                             }
                         }
-                        if (actions != FormTypes.New && actions != FormTypes.Edit && actions != FormTypes.Resubmit)
+                        if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
                         {
                             ShowAudits.Visibility = Visibility.Collapsed;
                             tbShowAudits.Visibility = Visibility.Visible;
@@ -1115,8 +1034,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             ShowAudits.Visibility = Visibility.Visible;
                             tbShowAudits.Visibility = Visibility.Collapsed;
                         }
-                        Utility.InitFileLoad("TravelRequest", businesstrID, actions, uploadFile);
-                        if (actions == FormTypes.Resubmit)
+                        Utility.InitFileLoad("TravelRequest", businesstrID, formType, uploadFile);
+                        if (formType == FormTypes.Resubmit)
                         {
                             Master_Golbal.CHECKSTATE = (Convert.ToInt32(CheckStates.UnSubmit)).ToString();
                         }
@@ -1132,38 +1051,61 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         }
                         //InitFBControl();
 
-                        lkLicenseBorrow.DataContext = Master_Golbal;
-                        txticenseBorrow.Text = Master_Golbal.OWNERNAME;//出差人
-
-                        depName = Utility.GetDepartmentName(Master_Golbal.OWNERDEPARTMENTID);//所属部门ID
-
-                        //将出差信息插入HR系统
-                        //GetEmployeeEvectionRdList();
-
+                        lookupTraveEmployee.DataContext = Master_Golbal;
+                        txtTraveEmployee.Text = Master_Golbal.OWNERNAME;//出差人
                         //插入代理
                         if (Master_Golbal == null || TraveDetailList_Golbal == null)
                         {
                             return;
                         }
-
                         int i = TraveDetailList_Golbal.Count() - 1;
-
                         AddAgent(i);
+                        #region
 
-                        //若是可保存的操作 则查找可用岗位，没有则是已离职 
-                        if (actions == FormTypes.Edit || actions == FormTypes.New || actions == FormTypes.Resubmit)
-                            HrPersonnelclient.GetEmployeePostBriefByEmployeeIDAsync(Master_Golbal.OWNERID);
-                        else
-                            HrPersonnelclient.GetAllEmployeePostBriefByEmployeeIDAsync(Master_Golbal.OWNERID);
+                        postLevel = Master_Golbal.POSTLEVEL;
+                        postName = Master_Golbal.OWNERPOSTNAME;
+                        depName = Master_Golbal.OWNERDEPARTMENTNAME;
+                        corpName = Master_Golbal.OWNERCOMPANYNAME;
+                        string StrName = Master_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + corpName;
+                        txtTraveEmployee.Text = StrName;
+                        if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
+                        {
+                            if (formType == FormTypes.New)
+                            {
+                                if (string.IsNullOrEmpty(peopletravel))//如果没有选择出差人的情况
+                                {
+                                    peopletravel = Common.CurrentLoginUserInfo.EmployeeName;
+                                }
+                                txtTELL.Text = employeepost.MOBILE;//手机号码
+                                ToolTipService.SetToolTip(txtTraveEmployee, StrName);
+                            }
+                            else
+                            {
+                                ToolTipService.SetToolTip(txtTraveEmployee, StrName);
+                                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
+                                RefreshUI(RefreshedTypes.AuditInfo);
+                                RefreshUI(RefreshedTypes.All);
+                            }
 
-                        if (actions != FormTypes.New || actions != FormTypes.Edit)
+                            if (!string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYID))//如果是选出差人的情况下(获取所选用户公司)
+                            {
+                                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
+                            }
+                            else //默认是当前用户(当前用户公司)
+                            {
+                                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, null, null);
+                            }
+                        }
+                        #endregion
+
+                        if (formType != FormTypes.New || formType != FormTypes.Edit)
                         {
                             if (Master_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
                             {
                                 HideControl();
                             }
                         }
-                        else if (actions != FormTypes.Resubmit)
+                        else if (formType != FormTypes.Resubmit)
                         {
                             if (Master_Golbal.CHECKSTATE == ((int)CheckStates.Approving).ToString() ||
                                 Master_Golbal.CHECKSTATE == ((int)CheckStates.Approved).ToString() ||
@@ -1214,19 +1156,19 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 {
                     postLevel = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
                 }
-                if (actions == FormTypes.New)
+                if (formType == FormTypes.New)
                 {
                     var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
                     postName = ent != null ? ent.PostName.ToString() : employeepost.EMPLOYEEPOSTS[0].PostName;
                     depName = ent != null ? ent.DepartmentName.ToString() : employeepost.EMPLOYEEPOSTS[0].DepartmentName;
                     corpName = ent != null ? ent.CompanyName.ToString() : employeepost.EMPLOYEEPOSTS[0].CompanyName;
                     StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" + postName + "-" + depName + "-" + corpName;
-                    txticenseBorrow.Text = StrName;
+                    txtTraveEmployee.Text = StrName;
                     if (string.IsNullOrEmpty(peopletravel))//如果没有选择出差人的情况
                     {
                         peopletravel = Common.CurrentLoginUserInfo.EmployeeName;
                     }
-                    ToolTipService.SetToolTip(txticenseBorrow, StrName);
+                    ToolTipService.SetToolTip(txtTraveEmployee, StrName);
                     if (!string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYID))//如果是选出差人的情况下(获取所选用户公司)
                     {
                         OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
@@ -1245,9 +1187,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     depName = employeepost.EMPLOYEEPOSTS.Where(c => c.DepartmentID == Master_Golbal.OWNERDEPARTMENTID).FirstOrDefault().DepartmentName;
                     corpName = employeepost.EMPLOYEEPOSTS.Where(c => c.CompanyID == Master_Golbal.OWNERCOMPANYID).FirstOrDefault().CompanyName;
                     StrName = Master_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + corpName;
-                    txticenseBorrow.Text = StrName;
+                    txtTraveEmployee.Text = StrName;
                     peopletravel = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
-                    ToolTipService.SetToolTip(txticenseBorrow, StrName);
+                    ToolTipService.SetToolTip(txtTraveEmployee, StrName);
                     OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
                 }
                 if (employeepost.MOBILE != null && txtTELL.Text==null)
@@ -1289,19 +1231,19 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 {
                     postLevel = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
                 }
-                if (actions == FormTypes.New && isLoadingAct)
+                if (formType == FormTypes.New && isLoadingAct)
                 {
                     var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
                     postName = ent != null ? ent.PostName.ToString() : employeepost.EMPLOYEEPOSTS[0].PostName;
                     depName = ent != null ? ent.DepartmentName.ToString() : employeepost.EMPLOYEEPOSTS[0].DepartmentName;
                     corpName = ent != null ? ent.CompanyName.ToString() : employeepost.EMPLOYEEPOSTS[0].CompanyName;
                     StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" + postName + "-" + depName + "-" + corpName;
-                    txticenseBorrow.Text = StrName;
+                    txtTraveEmployee.Text = StrName;
                     if (string.IsNullOrEmpty(peopletravel))//如果没有选择出差人的情况
                     {
                         peopletravel = Common.CurrentLoginUserInfo.EmployeeName;
                     }
-                    ToolTipService.SetToolTip(txticenseBorrow, StrName);
+                    ToolTipService.SetToolTip(txtTraveEmployee, StrName);
                     if (!string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYID))//如果是选出差人的情况下(获取所选用户公司)
                     {
                         OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
@@ -1324,9 +1266,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     //depName = (Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>).Where(c => c.DEPARTMENTID == Businesstrip.OWNERDEPARTMENTID).FirstOrDefault().T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
                     //corpName = (Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>).Where(c => c.COMPANYID == Businesstrip.OWNERCOMPANYID).FirstOrDefault().CNAME;
                     StrName = Master_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + corpName;
-                    txticenseBorrow.Text = StrName;
+                    txtTraveEmployee.Text = StrName;
                     peopletravel = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
-                    ToolTipService.SetToolTip(txticenseBorrow, StrName);
+                    ToolTipService.SetToolTip(txtTraveEmployee, StrName);
                     OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
                 }
                 if (employeepost.MOBILE != null && string.IsNullOrEmpty(txtTELL.Text))
@@ -1391,7 +1333,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     transportToolStand = e.StandardObj.ToList();//乘坐交通工具标准设置
                 }
                 //添加动作判断原因：load时直接赋予了出差申请ID
-                if (actions != FormTypes.New)
+                if (formType != FormTypes.New)
                 {
                     if (Master_Golbal.BUSINESSTRIPID != null)
                     {

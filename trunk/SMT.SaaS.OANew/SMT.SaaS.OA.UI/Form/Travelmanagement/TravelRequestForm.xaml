@@ -54,7 +54,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Height="25" x:Name="txticenseBorrow" TextWrapping="NoWrap"
+            <TextBox Grid.Column="0" Height="25" x:Name="txtTraveEmployee" TextWrapping="NoWrap"
 					 IsReadOnly="True" Style="{StaticResource TextBoxStyle}" MaxLength="25" Margin="5,5,43,4">
                 <validator:ValidatorService.Validator>
                     <validator:RequiredValidator ManagerName="Group1"
@@ -62,7 +62,7 @@
                                                              ErrorMessageParameter="PEOPLETRAVEL"/>
                 </validator:ValidatorService.Validator>
             </TextBox>
-            <Button  Grid.Column="1" x:Name="lkLicenseBorrow"  Height="23" Click="lkLicenseBorrow_FindClick" Margin="-42,5,18,6">
+            <Button  Grid.Column="1" x:Name="lookupTraveEmployee"  Height="23" Click="lookupTraveEmployee_FindClick" Margin="-42,5,18,6">
                 <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
             </Button>
         </Grid>

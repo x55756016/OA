@@ -474,7 +474,7 @@ namespace SMT.SaaS.OA.UI.UserControls.AgentManagement
         #endregion
 
         #region 岗位选择
-        private void lkLicenseBorrow_FindClick(object sender, RoutedEventArgs e)
+        private void lookupTraveEmployee_FindClick(object sender, RoutedEventArgs e)
         {
             SMT.SaaS.FrameworkUI.OrganizationControl.OrganizationLookup lookup = new SMT.SaaS.FrameworkUI.OrganizationControl.OrganizationLookup();
             lookup.SelectedObjType = SMT.SaaS.FrameworkUI.OrgTreeItemTypes.Post;

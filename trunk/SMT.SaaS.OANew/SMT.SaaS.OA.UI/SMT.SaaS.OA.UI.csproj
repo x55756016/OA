@@ -320,6 +320,11 @@
     <Compile Include="Form\EmployeeSurveys\SelectSchemeCW.xaml.cs">
       <DependentUpon>SelectSchemeCW.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Audit.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_SaveEdit.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_New.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Common.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Core.cs" />
     <Compile Include="Service References\AgentChannel\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

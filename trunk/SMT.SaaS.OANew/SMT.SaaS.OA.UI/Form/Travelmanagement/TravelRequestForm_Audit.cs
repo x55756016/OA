@@ -30,15 +30,15 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region IEntityEditor 成员
         public string GetTitle()
         {
-            if (actions == FormTypes.New)
+            if (formType == FormTypes.New)
             {
                 return Utility.GetResourceStr("ADDTITLE", "EVECTIONFORM");
             }
-            else if (actions == FormTypes.Edit)
+            else if (formType == FormTypes.Edit)
             {
                 return Utility.GetResourceStr("EDITTITLE", "EVECTIONFORM");
             }
-            else if (actions == FormTypes.Audit)
+            else if (formType == FormTypes.Audit)
             {
                 return Utility.GetResourceStr("AUDIT1", "EVECTIONFORM");
             }
@@ -82,7 +82,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         public List<ToolbarItem> GetToolBarItems()
         {
             List<ToolbarItem> items = new List<ToolbarItem>();
-            if (actions != FormTypes.Browse && actions != FormTypes.Audit)
+            if (formType != FormTypes.Browse && formType != FormTypes.Audit)
             {
                 //ToolbarItem item = new ToolbarItem
                 //{
@@ -302,7 +302,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region IAudit
         public void SetFlowRecordEntity(FrameworkUI.AuditControl.Flow_FlowRecord_T entity)
         {
-            if (actions == FormTypes.Edit || actions == FormTypes.Resubmit)
+            if (formType == FormTypes.Edit || formType == FormTypes.Resubmit)
             {
                 if (Master_Golbal.CHECKSTATE == "0" || Master_Golbal.CHECKSTATE == "3")
                 {
@@ -356,7 +356,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             Utility.InitFileLoad(FormTypes.Audit, uploadFile, Master_Golbal.BUSINESSTRIPID, false);
             UserState = "Audit";
             IsSubmit = true;
-            if (actions == FormTypes.Audit)
+            if (formType == FormTypes.Audit)
             {
                 IsAudit = false;
             }
@@ -372,7 +372,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     break;
                 case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Successful://审核通过
                     state = Utility.GetCheckState(CheckStates.Approved);
-                    actions = FormTypes.Audit;
+                    formType = FormTypes.Audit;
                     if (Master_Golbal.CHARGEMONEY > 0)
                     {
                         fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.Approved); //审核通过
@@ -395,18 +395,18 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 UserState = "Submit";
             }
-            if (actions == FormTypes.Resubmit || actions == FormTypes.New || actions == FormTypes.Edit)
+            if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
             {
                 SetTraveRequestValue();
             }
             Master_Golbal.CHECKSTATE = state;
             RefreshUI(RefreshedTypes.HideProgressBar);
-            if (actions == FormTypes.Edit || actions == FormTypes.Resubmit)
+            if (formType == FormTypes.Edit || formType == FormTypes.Resubmit)
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSSUBMITAUDIT"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             }
-            if (actions == FormTypes.Audit || actions == FormTypes.Browse)
+            if (formType == FormTypes.Audit || formType == FormTypes.Browse)
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
@@ -423,7 +423,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             string state = "-1";
             if (Master_Golbal != null)
                 state = Master_Golbal.CHECKSTATE;
-            if (actions == FormTypes.Browse)
+            if (formType == FormTypes.Browse)
             {
                 state = "-1";
             }

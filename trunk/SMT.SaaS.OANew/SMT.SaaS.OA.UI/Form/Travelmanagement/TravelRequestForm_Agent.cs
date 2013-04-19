@@ -60,7 +60,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             fbCtr.ApplyType = FrameworkUI.FBControls.ChargeApplyControl.ApplyTypes.BorrowApply;
             fbCtr.OrderType = FrameworkUI.FBControls.ChargeApplyControl.OrderTypes.Travel;
-            if (actions == FormTypes.New)
+            if (formType == FormTypes.New)
             {
                 fbCtr.Order.ORDERID = "";
                 fbCtr.strExtOrderModelCode = "CCSQ";
@@ -98,7 +98,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 bding.Path = new PropertyPath("TOTALMONEY");
                 this.txtFee.SetBinding(TextBox.TextProperty, bding);
                 this.txtFee.DataContext = fbCtr.Order;
-                if (actions == FormTypes.Browse || actions == FormTypes.Audit)
+                if (formType == FormTypes.Browse || formType == FormTypes.Audit)
                 {
                     fbCtr.strExtOrderModelCode = "CCSQ";
                     if (fbCtr.ListDetail.Count() <= 0)
@@ -107,7 +107,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     }
                 }
             };
-            if (actions == FormTypes.Audit || actions == FormTypes.Browse)
+            if (formType == FormTypes.Audit || formType == FormTypes.Browse)
             {
                 fbCtr.strExtOrderModelCode = "CCSQ";
                 fbCtr.InitData(false);
@@ -221,7 +221,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             tempcomLevelForeBrush = TxtComLevel.Foreground;
 
             ObservableCollection<T_OA_BUSINESSTRIPDETAIL> objs = DaGridReadOnly.ItemsSource as ObservableCollection<T_OA_BUSINESSTRIPDETAIL>;
-            if (actions != FormTypes.New)
+            if (formType != FormTypes.New)
             {
                 if (DaGridReadOnly.ItemsSource != null && TraveDetailList_Golbal != null)
                 {

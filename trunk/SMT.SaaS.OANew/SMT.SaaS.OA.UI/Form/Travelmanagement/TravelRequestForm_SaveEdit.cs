@@ -205,7 +205,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 businesstripMaster_Golbal.STARTDATE = Convert.ToDateTime(StartTime);
                 businesstripMaster_Golbal.ENDDATE = Convert.ToDateTime(EndTime);
             }
-            if (actions == FormTypes.New)
+            if (formType == FormTypes.New)
             {
                 //businesstrip.BUSINESSTRIPID = System.Guid.NewGuid().ToString();
                 if (string.IsNullOrEmpty(businesstripMaster_Golbal.OWNERID))
@@ -216,7 +216,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     businesstripMaster_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;//员工ID
                     businesstripMaster_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName; //员工姓名
                 }
-                businesstripMaster_Golbal = lkLicenseBorrow.DataContext as T_OA_BUSINESSTRIP;//出差人
+                businesstripMaster_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
                 businesstripMaster_Golbal.CREATEDATE = DateTime.Now;//创建时间
                 businesstripMaster_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
                 businesstripMaster_Golbal.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//创建公司ID
@@ -230,7 +230,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             else
             {
-                businesstripMaster_Golbal = lkLicenseBorrow.DataContext as T_OA_BUSINESSTRIP;//出差人
+                businesstripMaster_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
                 businesstripMaster_Golbal.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//修改人ID
                 businesstripMaster_Golbal.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
                 businesstripMaster_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
@@ -458,9 +458,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         private void SaveApplication()
         {
             RefreshUI(RefreshedTypes.ShowProgressBar);//点击保存后显示进度条
-            SetTraveRequestValue();
 
-            if (actions == FormTypes.New)
+            SetTraveRequestValue();
+            if (formType == FormTypes.New)
             {
                 OaPersonOfficeClient.TravelmanagementAddAsync(businesstripMaster_Golbal, TraveDetailList_Golbal);
             }
@@ -497,7 +497,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     }
                     else
                     {
-                        actions = FormTypes.Edit;
+                        formType = FormTypes.Edit;
                         EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                         entBrowser.FormType = FormTypes.Edit;
                         RefreshUI(RefreshedTypes.AuditInfo);
