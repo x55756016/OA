@@ -1,0 +1,1937 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/AttendanceService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/AttendanceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/AttendanceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/AttendanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/AttendanceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/AttendanceService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/AttendanceService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/AttendanceService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordDelete" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeLeaveRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLeaveRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeLeaveRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLeaveRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditLeaveRecord_InputMessage">
+    <wsdl:part name="parameters" element="AuditLeaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditLeaveRecord_OutputMessage">
+    <wsdl:part name="parameters" element="AuditLeaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveDaysHistory_InputMessage">
+    <wsdl:part name="parameters" element="GetLeaveDaysHistory" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveDaysHistory_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeaveDaysHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSignInRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSignInRecordPaging" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSignInRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSignInRecordPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSignInRecordAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSignInRecordAdd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSignInRecordAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSignInRecordAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSigninRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSigninRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSigninRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSigninRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeSigninRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSigninRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeSigninRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSigninRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSigninRecordDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSigninRecordDelete" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSigninRecordDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSigninRecordDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSigninRecordAudit_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSigninRecordAudit" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSigninRecordAudit_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSigninRecordAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAbnormRecordByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetAbnormRecordByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAbnormRecordByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAbnormRecordByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAbnormRecordRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAbnormRecordRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAbnormRecordRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAbnormRecordRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AbnormRecordCheckAlarm_InputMessage">
+    <wsdl:part name="parameters" element="AbnormRecordCheckAlarm" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AbnormRecordCheckAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="AbnormRecordCheckAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeSignInDetailBySigninID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSignInDetailBySigninID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeSignInDetailBySigninID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSignInDetailBySigninIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddEmployeesignindetail_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeesignindetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddEmployeesignindetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeesignindetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyEmployeesignindetail_InputMessage">
+    <wsdl:part name="parameters" element="ModifyEmployeesignindetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyEmployeesignindetail_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyEmployeesignindetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetCurLevelDaysByEmployeeIDAndLeaveFineType_InputMessage">
+    <wsdl:part name="parameters" element="GetCurLevelDaysByEmployeeIDAndLeaveFineType" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetCurLevelDaysByEmployeeIDAndLeaveFineType_OutputMessage">
+    <wsdl:part name="parameters" element="GetCurLevelDaysByEmployeeIDAndLeaveFineTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLevelDayCountRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLevelDayCountRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearchByTime_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLevelDayCountRdListByMultSearchByTime" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearchByTime_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLevelDayCountRdListByMultSearchByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddEmployeeLevelDayCount_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeLevelDayCount" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddEmployeeLevelDayCount_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeLevelDayCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveDetailPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveDetailPaging" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveDetailPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveDetailPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetCurLevelDayCountByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetCurLevelDayCountByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetCurLevelDayCountByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCurLevelDayCountByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CreateLevelDayCountByAsignAttSol_InputMessage">
+    <wsdl:part name="parameters" element="CreateLevelDayCountByAsignAttSol" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CreateLevelDayCountByAsignAttSol_OutputMessage">
+    <wsdl:part name="parameters" element="CreateLevelDayCountByAsignAttSolResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CreateLevelDayCountWithAll_InputMessage">
+    <wsdl:part name="parameters" element="CreateLevelDayCountWithAll" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CreateLevelDayCountWithAll_OutputMessage">
+    <wsdl:part name="parameters" element="CreateLevelDayCountWithAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBalanceByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBalanceByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBalanceByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBalanceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBalanceRdListForAudit_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBalanceRdListForAudit" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBalanceRdListForAudit_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBalanceRdListForAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBalanceListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBalanceListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBalanceListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBalanceListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceFromCSV_InputMessage">
+    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceFromCSV" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceFromCSV_OutputMessage">
+    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceFromCSVResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendMonthlyBalance_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendMonthlyBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendMonthlyBalance_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendMonthlyBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendMonthlyBalance_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendMonthlyBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendMonthlyBalance_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendMonthlyBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendMonthlyBalance_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendMonthlyBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendMonthlyBalance_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendMonthlyBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthly_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthly" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthly_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByPostID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByPostIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByDepartmentID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByCompanyID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByCompanyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByMonthlyBalanceId_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByMonthlyBalanceId" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByMonthlyBalanceId_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByMonthlyBalanceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendMonthlyBatchBalance_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendMonthlyBatchBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendMonthlyBatchBalance_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendMonthlyBatchBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendMonthlyBatchBalance_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendMonthlyBatchBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendMonthlyBatchBalance_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendMonthlyBatchBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendMonthlyBatchBalance_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendMonthlyBatchBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendMonthlyBatchBalance_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendMonthlyBatchBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditMonthlyBatchBalance_InputMessage">
+    <wsdl:part name="parameters" element="AuditMonthlyBatchBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditMonthlyBatchBalance_OutputMessage">
+    <wsdl:part name="parameters" element="AuditMonthlyBatchBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendYearlyBalanceByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendYearlyBalanceByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendYearlyBalanceByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendYearlyBalanceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendYearlyBalanceListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendYearlyBalanceListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendYearlyBalanceListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendYearlyBalanceListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendYearlyBalance_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendYearlyBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendYearlyBalance_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendYearlyBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendYearlyBalance_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendYearlyBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendYearlyBalance_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendYearlyBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendYearlyBalance_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendYearlyBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendYearlyBalance_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendYearlyBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceYearlyByCompanyID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceYearlyByCompanyID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceYearlyByCompanyID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceYearlyByCompanyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceYearlyByPostID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceYearlyByPostID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceYearlyByPostID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceYearlyByPostIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceYearlyByDepartmentID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceYearlyByDepartmentID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceYearlyByDepartmentID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceYearlyByDepartmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceYearlyByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceYearlyByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceYearlyByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceYearlyByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetRealCancelLeaveDayByEmployeeIdAndDate_InputMessage">
+    <wsdl:part name="parameters" element="GetRealCancelLeaveDayByEmployeeIdAndDate" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetRealCancelLeaveDayByEmployeeIdAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetRealCancelLeaveDayByEmployeeIdAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeCancelLeavePaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCancelLeavePaging" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeCancelLeavePaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCancelLeavePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeCancelLeaveAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCancelLeaveAdd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeCancelLeaveAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCancelLeaveAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeCancelLeaveUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCancelLeaveUpdate" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeCancelLeaveUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCancelLeaveUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeCancelLeaveDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCancelLeaveDelete" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeCancelLeaveDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCancelLeaveDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeCancelLeaveByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeCancelLeaveByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeCancelLeaveByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeCancelLeaveByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMachineSetPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMachineSetPaging" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMachineSetPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMachineSetPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AttendMachineSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="AttendMachineSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AttendMachineSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="AttendMachineSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMachineSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMachineSetByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMachineSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMachineSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AttendMachineSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="AttendMachineSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AttendMachineSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="AttendMachineSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AttendMachineSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="AttendMachineSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AttendMachineSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="AttendMachineSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_SaveFile_InputMessage">
+    <wsdl:part name="parameters" element="SaveFile" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_SaveFile_OutputMessage">
+    <wsdl:part name="parameters" element="SaveFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetPersonalLandStatisticListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetPersonalLandStatisticListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetPersonalLandStatisticListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetPersonalLandStatisticListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetPersonalLandDetailListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetPersonalLandDetailListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetPersonalLandDetailListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetPersonalLandDetailListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_OutFileLandStatisticList_InputMessage">
+    <wsdl:part name="parameters" element="OutFileLandStatisticList" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_OutFileLandStatisticList_OutputMessage">
+    <wsdl:part name="parameters" element="OutFileLandStatisticListResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_OutFilePersonalLandDetailList_InputMessage">
+    <wsdl:part name="parameters" element="OutFilePersonalLandDetailList" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_OutFilePersonalLandDetailList_OutputMessage">
+    <wsdl:part name="parameters" element="OutFilePersonalLandDetailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLatestPunchDateByCompanyId_InputMessage">
+    <wsdl:part name="parameters" element="GetLatestPunchDateByCompanyId" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLatestPunchDateByCompanyId_OutputMessage">
+    <wsdl:part name="parameters" element="GetLatestPunchDateByCompanyIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetClockInRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetClockInRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetClockInRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetClockInRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportClockInRdListByWindowsService_InputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListByWindowsService" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportClockInRdListByWindowsService_OutputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListByWindowsServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportClockInRdListFromFile_InputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListFromFile" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportClockInRdListFromFile_OutputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListFromFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportClockInRdListFromLoginData_InputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListFromLoginData" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportClockInRdListFromLoginData_OutputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListFromLoginDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportClockInRdListFromFileAndLoginData_InputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListFromFileAndLoginData" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportClockInRdListFromFileAndLoginData_OutputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListFromFileAndLoginDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddNewClockInRd_InputMessage">
+    <wsdl:part name="parameters" element="AddNewClockInRd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddNewClockInRd_OutputMessage">
+    <wsdl:part name="parameters" element="AddNewClockInRdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_OutClockInRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="OutClockInRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_OutClockInRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="OutClockInRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionByEmployeeIDAndDate_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionByEmployeeIDAndDate" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionByEmployeeIDAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionByEmployeeIDAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceSolution_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceSolution" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceSolution_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceSolution_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceSolution" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceSolution_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditAttSol_InputMessage">
+    <wsdl:part name="parameters" element="AuditAttSol" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditAttSol_OutputMessage">
+    <wsdl:part name="parameters" element="AuditAttSolResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceSolution_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceSolution" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceSolution_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceSolutionAndCreateRelation_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceSolutionAndCreateRelation" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceSolutionAndCreateRelation_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceSolutionAndCreateRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceSolutionAndChangeRelation_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceSolutionAndChangeRelation" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceSolutionAndChangeRelation_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceSolutionAndChangeRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendFreeLeaveByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendFreeLeaveByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendFreeLeaveByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendFreeLeaveByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAllAttendFreeLeaveListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAllAttendFreeLeaveListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAllAttendFreeLeaveListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllAttendFreeLeaveListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendFreeLeaveListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendFreeLeaveListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendFreeLeaveListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendFreeLeaveListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendFreeLeave_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendFreeLeave" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendFreeLeave_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendFreeLeaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendFreeLeave_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendFreeLeave" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendFreeLeave_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendFreeLeaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendFreeLeave_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendFreeLeave" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendFreeLeave_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendFreeLeaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateMasterByAttSolID_InputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateMasterByAttSolID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateMasterByAttSolID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateMasterByAttSolIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateMasterListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateMasterListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateMasterListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateMasterListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddSchedulingTemplateMaster_InputMessage">
+    <wsdl:part name="parameters" element="AddSchedulingTemplateMaster" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddSchedulingTemplateMaster_OutputMessage">
+    <wsdl:part name="parameters" element="AddSchedulingTemplateMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifySchedulingTemplateMaster_InputMessage">
+    <wsdl:part name="parameters" element="ModifySchedulingTemplateMaster" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifySchedulingTemplateMaster_OutputMessage">
+    <wsdl:part name="parameters" element="ModifySchedulingTemplateMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveSchedulingTemplateMaster_InputMessage">
+    <wsdl:part name="parameters" element="RemoveSchedulingTemplateMaster" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveSchedulingTemplateMaster_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveSchedulingTemplateMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddSchedulingTemplateMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="AddSchedulingTemplateMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddSchedulingTemplateMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddSchedulingTemplateMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifySchedulingTemplateMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="ModifySchedulingTemplateMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifySchedulingTemplateMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="ModifySchedulingTemplateMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateDetailByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateDetailByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateDetailByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateDetailByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAllSchedulingTemplateDetailRdListByMasterId_InputMessage">
+    <wsdl:part name="parameters" element="GetAllSchedulingTemplateDetailRdListByMasterId" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAllSchedulingTemplateDetailRdListByMasterId_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllSchedulingTemplateDetailRdListByMasterIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateDetailListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateDetailListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetSchedulingTemplateDetailListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetSchedulingTemplateDetailListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddTemplateDetail_InputMessage">
+    <wsdl:part name="parameters" element="AddTemplateDetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddTemplateDetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddTemplateDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyTemplateDetail_InputMessage">
+    <wsdl:part name="parameters" element="ModifyTemplateDetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyTemplateDetail_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyTemplateDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveTemplateDetail_InputMessage">
+    <wsdl:part name="parameters" element="RemoveTemplateDetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveTemplateDetail_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveTemplateDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveTemplateDetailByTemplateMasterID_InputMessage">
+    <wsdl:part name="parameters" element="RemoveTemplateDetailByTemplateMasterID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveTemplateDetailByTemplateMasterID_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveTemplateDetailByTemplateMasterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddDetailForTemplateMaster_InputMessage">
+    <wsdl:part name="parameters" element="AddDetailForTemplateMaster" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddDetailForTemplateMaster_OutputMessage">
+    <wsdl:part name="parameters" element="AddDetailForTemplateMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetShiftDefineByID_InputMessage">
+    <wsdl:part name="parameters" element="GetShiftDefineByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetShiftDefineByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetShiftDefineByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetShiftDefineListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetShiftDefineListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetShiftDefineListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetShiftDefineListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddShiftDefine_InputMessage">
+    <wsdl:part name="parameters" element="AddShiftDefine" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddShiftDefine_OutputMessage">
+    <wsdl:part name="parameters" element="AddShiftDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyShiftDefine_InputMessage">
+    <wsdl:part name="parameters" element="ModifyShiftDefine" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyShiftDefine_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyShiftDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveShiftDefine_InputMessage">
+    <wsdl:part name="parameters" element="RemoveShiftDefine" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveShiftDefine_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveShiftDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeOverTimeRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeOverTimeRecordPaging" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeOverTimeRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeOverTimeRecordPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOverTimeRdByID_InputMessage">
+    <wsdl:part name="parameters" element="GetOverTimeRdByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOverTimeRdByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetOverTimeRdByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddOverTimeRd_InputMessage">
+    <wsdl:part name="parameters" element="AddOverTimeRd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddOverTimeRd_OutputMessage">
+    <wsdl:part name="parameters" element="AddOverTimeRdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyOverTimeRd_InputMessage">
+    <wsdl:part name="parameters" element="ModifyOverTimeRd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyOverTimeRd_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyOverTimeRdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveOverTimeRd_InputMessage">
+    <wsdl:part name="parameters" element="RemoveOverTimeRd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveOverTimeRd_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveOverTimeRdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditOverTimeRd_InputMessage">
+    <wsdl:part name="parameters" element="AuditOverTimeRd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditOverTimeRd_OutputMessage">
+    <wsdl:part name="parameters" element="AuditOverTimeRdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionAsignByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionAsignByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionAsignByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionAsignByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CheckAttSolIsExistsAsignRd_InputMessage">
+    <wsdl:part name="parameters" element="CheckAttSolIsExistsAsignRd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CheckAttSolIsExistsAsignRd_OutputMessage">
+    <wsdl:part name="parameters" element="CheckAttSolIsExistsAsignRdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionAsignRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionAsignRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionAsignRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionAsignRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceSolutionAsign_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceSolutionAsign" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceSolutionAsign_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceSolutionAsignResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceSolutionAsign_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceSolutionAsign" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceSolutionAsign_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceSolutionAsignResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceSolutionAsign_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceSolutionAsign" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceSolutionAsign_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceSolutionAsignResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditAttSolAsign_InputMessage">
+    <wsdl:part name="parameters" element="AuditAttSolAsign" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AuditAttSolAsign_OutputMessage">
+    <wsdl:part name="parameters" element="AuditAttSolAsignResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AsignAttendanceSolution_InputMessage">
+    <wsdl:part name="parameters" element="AsignAttendanceSolution" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AsignAttendanceSolution_OutputMessage">
+    <wsdl:part name="parameters" element="AsignAttendanceSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AsignAttendanceSolutionWithAll_InputMessage">
+    <wsdl:part name="parameters" element="AsignAttendanceSolutionWithAll" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AsignAttendanceSolutionWithAll_OutputMessage">
+    <wsdl:part name="parameters" element="AsignAttendanceSolutionWithAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AsignAttendanceSolutionByOrgID_InputMessage">
+    <wsdl:part name="parameters" element="AsignAttendanceSolutionByOrgID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AsignAttendanceSolutionByOrgID_OutputMessage">
+    <wsdl:part name="parameters" element="AsignAttendanceSolutionByOrgIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceDeductMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceDeductMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceDeductMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceDeductMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceDeductMasterRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceDeductMasterRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceDeductMasterRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceDeductMasterRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceDeductMaster_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceDeductMaster" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceDeductMaster_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceDeductMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceDeductMaster_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceDeductMaster" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceDeductMaster_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceDeductMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceDeductMaster_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceDeductMaster" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceDeductMaster_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceDeductMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceDeductDetailByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceDeductDetailByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceDeductDetailByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceDeductDetailByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceDeductDetailRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceDeductDetailRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceDeductDetailRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceDeductDetailRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceDeductDetail_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceDeductDetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceDeductDetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceDeductDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceDeductDetail_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceDeductDetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceDeductDetail_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceDeductDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceDeductDetail_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceDeductDetail" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceDeductDetail_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceDeductDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionDeductByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionDeductByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionDeductByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionDeductByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionDeductRdListByAttSolID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionDeductRdListByAttSolID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceSolutionDeductRdListByAttSolID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceSolutionDeductRdListByAttSolIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceSolutionDeduct_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceSolutionDeduct" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendanceSolutionDeduct_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendanceSolutionDeductResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceSolutionDeduct_InputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceSolutionDeduct" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyAttendanceSolutionDeduct_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyAttendanceSolutionDeductResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceSolutionDeduct_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceSolutionDeduct" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceSolutionDeduct_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceSolutionDeductResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetRdListForAttendanceSolution_InputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetRdListForAttendanceSolution" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetRdListForAttendanceSolution_OutputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetRdListForAttendanceSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddFreeLeaveDaySet_InputMessage">
+    <wsdl:part name="parameters" element="AddFreeLeaveDaySet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddFreeLeaveDaySet_OutputMessage">
+    <wsdl:part name="parameters" element="AddFreeLeaveDaySetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyFreeLeaveDaySet_InputMessage">
+    <wsdl:part name="parameters" element="ModifyFreeLeaveDaySet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyFreeLeaveDaySet_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyFreeLeaveDaySetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveFreeLeaveDaySet_InputMessage">
+    <wsdl:part name="parameters" element="RemoveFreeLeaveDaySet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveFreeLeaveDaySet_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveFreeLeaveDaySetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveTypeSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetLeaveTypeSetByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveTypeSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeaveTypeSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveTypeSetRdListForAttendanceSolution_InputMessage">
+    <wsdl:part name="parameters" element="GetLeaveTypeSetRdListForAttendanceSolution" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveTypeSetRdListForAttendanceSolution_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeaveTypeSetRdListForAttendanceSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveTypeSetAll_InputMessage">
+    <wsdl:part name="parameters" element="GetLeaveTypeSetAll" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveTypeSetAll_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeaveTypeSetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveTypeSetRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetLeaveTypeSetRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveTypeSetRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeaveTypeSetRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddLeaveTypeSet_InputMessage">
+    <wsdl:part name="parameters" element="AddLeaveTypeSet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddLeaveTypeSet_OutputMessage">
+    <wsdl:part name="parameters" element="AddLeaveTypeSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyLeaveTypeSet_InputMessage">
+    <wsdl:part name="parameters" element="ModifyLeaveTypeSet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyLeaveTypeSet_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyLeaveTypeSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveLeaveTypeSet_InputMessage">
+    <wsdl:part name="parameters" element="RemoveLeaveTypeSet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveLeaveTypeSet_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveLeaveTypeSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOvertimeRewardByID_InputMessage">
+    <wsdl:part name="parameters" element="GetOvertimeRewardByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOvertimeRewardByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetOvertimeRewardByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOvertimeRewardRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetOvertimeRewardRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOvertimeRewardRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetOvertimeRewardRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddOvertimeReward_InputMessage">
+    <wsdl:part name="parameters" element="AddOvertimeReward" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddOvertimeReward_OutputMessage">
+    <wsdl:part name="parameters" element="AddOvertimeRewardResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyOvertimeReward_InputMessage">
+    <wsdl:part name="parameters" element="ModifyOvertimeReward" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyOvertimeReward_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyOvertimeRewardResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveOvertimeReward_InputMessage">
+    <wsdl:part name="parameters" element="RemoveOvertimeReward" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveOvertimeReward_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveOvertimeRewardResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetVacationSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetVacationSetByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetVacationSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetVacationSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetVacationSetRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetVacationSetRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetVacationSetRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetVacationSetRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddVacationSet_InputMessage">
+    <wsdl:part name="parameters" element="AddVacationSet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddVacationSet_OutputMessage">
+    <wsdl:part name="parameters" element="AddVacationSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyVacationSet_InputMessage">
+    <wsdl:part name="parameters" element="ModifyVacationSet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyVacationSet_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyVacationSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveVacationSet_InputMessage">
+    <wsdl:part name="parameters" element="RemoveVacationSet" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveVacationSet_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveVacationSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOutPlanDaysByID_InputMessage">
+    <wsdl:part name="parameters" element="GetOutPlanDaysByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOutPlanDaysByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetOutPlanDaysByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAllOutPlanDaysRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAllOutPlanDaysRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAllOutPlanDaysRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllOutPlanDaysRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOutPlanDaysRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetOutPlanDaysRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetOutPlanDaysRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetOutPlanDaysRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddOutPlanDays_InputMessage">
+    <wsdl:part name="parameters" element="AddOutPlanDays" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddOutPlanDays_OutputMessage">
+    <wsdl:part name="parameters" element="AddOutPlanDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyOutPlanDays_InputMessage">
+    <wsdl:part name="parameters" element="ModifyOutPlanDays" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ModifyOutPlanDays_OutputMessage">
+    <wsdl:part name="parameters" element="ModifyOutPlanDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveOutPlanDays_InputMessage">
+    <wsdl:part name="parameters" element="RemoveOutPlanDays" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveOutPlanDays_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveOutPlanDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionReportPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionReportPaging" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionReportPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionReportPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionReportAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionReportAdd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionReportAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionReportAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionRecordPaging" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionRecordPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionRecordAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionRecordAdd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionRecordAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionRecordAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddEmployeeEvectionRdList_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeEvectionRdList" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddEmployeeEvectionRdList_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeEvectionRdListResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionRecordDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionRecordDelete" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeEvectionRecordDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEvectionRecordDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeEvectionRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeEvectionRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeEvectionRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeEvectionRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceRecordByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceRecordByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceRecordByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceRecordByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceRdListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceRdListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendanceRdListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendanceRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceRecord_InputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceRecord" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_RemoveAttendanceRecord_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveAttendanceRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAdjustLeaveDetailListByLeaveRecordID_InputMessage">
+    <wsdl:part name="parameters" element="GetAdjustLeaveDetailListByLeaveRecordID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAdjustLeaveDetailListByLeaveRecordID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAdjustLeaveDetailListByLeaveRecordIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetLeaveRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetLeaveRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeaveRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordPaging" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetRealLeaveDayByEmployeeIdAndDate_InputMessage">
+    <wsdl:part name="parameters" element="GetRealLeaveDayByEmployeeIdAndDate" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetRealLeaveDayByEmployeeIdAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetRealLeaveDayByEmployeeIdAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordAdd" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordAddResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AttendanceService">
+    <wsdl:operation name="EmployeeLeaveRecordUpdate">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordUpdate" message="AttendanceService_EmployeeLeaveRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordUpdateResponse" message="AttendanceService_EmployeeLeaveRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordDelete">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordDelete" message="AttendanceService_EmployeeLeaveRecordDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordDeleteResponse" message="AttendanceService_EmployeeLeaveRecordDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLeaveRecordByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeLeaveRecordByID" message="AttendanceService_GetEmployeeLeaveRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeLeaveRecordByIDResponse" message="AttendanceService_GetEmployeeLeaveRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuditLeaveRecord">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AuditLeaveRecord" message="AttendanceService_AuditLeaveRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AuditLeaveRecordResponse" message="AttendanceService_AuditLeaveRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveDaysHistory">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetLeaveDaysHistory" message="AttendanceService_GetLeaveDaysHistory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetLeaveDaysHistoryResponse" message="AttendanceService_GetLeaveDaysHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSignInRecordPaging">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSignInRecordPaging" message="AttendanceService_EmployeeSignInRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSignInRecordPagingResponse" message="AttendanceService_EmployeeSignInRecordPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSignInRecordAdd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSignInRecordAdd" message="AttendanceService_EmployeeSignInRecordAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSignInRecordAddResponse" message="AttendanceService_EmployeeSignInRecordAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSigninRecordUpdate">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSigninRecordUpdate" message="AttendanceService_EmployeeSigninRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSigninRecordUpdateResponse" message="AttendanceService_EmployeeSigninRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSigninRecordByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeSigninRecordByID" message="AttendanceService_GetEmployeeSigninRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeSigninRecordByIDResponse" message="AttendanceService_GetEmployeeSigninRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSigninRecordDelete">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSigninRecordDelete" message="AttendanceService_EmployeeSigninRecordDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSigninRecordDeleteResponse" message="AttendanceService_EmployeeSigninRecordDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSigninRecordAudit">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSigninRecordAudit" message="AttendanceService_EmployeeSigninRecordAudit_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSigninRecordAuditResponse" message="AttendanceService_EmployeeSigninRecordAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormRecordByEmployeeID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAbnormRecordByEmployeeID" message="AttendanceService_GetAbnormRecordByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAbnormRecordByEmployeeIDResponse" message="AttendanceService_GetAbnormRecordByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormRecordRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAbnormRecordRdListByMultSearch" message="AttendanceService_GetAbnormRecordRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAbnormRecordRdListByMultSearchResponse" message="AttendanceService_GetAbnormRecordRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbnormRecordCheckAlarm">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AbnormRecordCheckAlarm" message="AttendanceService_AbnormRecordCheckAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AbnormRecordCheckAlarmResponse" message="AttendanceService_AbnormRecordCheckAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSignInDetailBySigninID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeSignInDetailBySigninID" message="AttendanceService_GetEmployeeSignInDetailBySigninID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeSignInDetailBySigninIDResponse" message="AttendanceService_GetEmployeeSignInDetailBySigninID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeesignindetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddEmployeesignindetail" message="AttendanceService_AddEmployeesignindetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddEmployeesignindetailResponse" message="AttendanceService_AddEmployeesignindetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyEmployeesignindetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyEmployeesignindetail" message="AttendanceService_ModifyEmployeesignindetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyEmployeesignindetailResponse" message="AttendanceService_ModifyEmployeesignindetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurLevelDaysByEmployeeIDAndLeaveFineType">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetCurLevelDaysByEmployeeIDAndLeaveFineType" message="AttendanceService_GetCurLevelDaysByEmployeeIDAndLeaveFineType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetCurLevelDaysByEmployeeIDAndLeaveFineTypeResponse" message="AttendanceService_GetCurLevelDaysByEmployeeIDAndLeaveFineType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLevelDayCountRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearch" message="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearchResponse" message="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLevelDayCountRdListByMultSearchByTime">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearchByTime" message="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearchByTime_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearchByTimeResponse" message="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearchByTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeLevelDayCount">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddEmployeeLevelDayCount" message="AttendanceService_AddEmployeeLevelDayCount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddEmployeeLevelDayCountResponse" message="AttendanceService_AddEmployeeLevelDayCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveDetailPaging">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeLeaveDetailPaging" message="AttendanceService_EmployeeLeaveDetailPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeLeaveDetailPagingResponse" message="AttendanceService_EmployeeLeaveDetailPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurLevelDayCountByEmployeeID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetCurLevelDayCountByEmployeeID" message="AttendanceService_GetCurLevelDayCountByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetCurLevelDayCountByEmployeeIDResponse" message="AttendanceService_GetCurLevelDayCountByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLevelDayCountByAsignAttSol">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CreateLevelDayCountByAsignAttSol" message="AttendanceService_CreateLevelDayCountByAsignAttSol_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CreateLevelDayCountByAsignAttSolResponse" message="AttendanceService_CreateLevelDayCountByAsignAttSol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLevelDayCountWithAll">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CreateLevelDayCountWithAll" message="AttendanceService_CreateLevelDayCountWithAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CreateLevelDayCountWithAllResponse" message="AttendanceService_CreateLevelDayCountWithAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBalanceByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBalanceByID" message="AttendanceService_GetAttendMonthlyBalanceByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBalanceByIDResponse" message="AttendanceService_GetAttendMonthlyBalanceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBalanceRdListForAudit">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBalanceRdListForAudit" message="AttendanceService_GetAttendMonthlyBalanceRdListForAudit_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBalanceRdListForAuditResponse" message="AttendanceService_GetAttendMonthlyBalanceRdListForAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBalanceListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBalanceListByMultSearch" message="AttendanceService_GetAttendMonthlyBalanceListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBalanceListByMultSearchResponse" message="AttendanceService_GetAttendMonthlyBalanceListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportAttendMonthlyBalanceFromCSV">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSV" message="AttendanceService_ImportAttendMonthlyBalanceFromCSV_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSVResponse" message="AttendanceService_ImportAttendMonthlyBalanceFromCSV_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendMonthlyBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendMonthlyBalance" message="AttendanceService_AddAttendMonthlyBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendMonthlyBalanceResponse" message="AttendanceService_AddAttendMonthlyBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendMonthlyBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendMonthlyBalance" message="AttendanceService_ModifyAttendMonthlyBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendMonthlyBalanceResponse" message="AttendanceService_ModifyAttendMonthlyBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendMonthlyBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendMonthlyBalance" message="AttendanceService_RemoveAttendMonthlyBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendMonthlyBalanceResponse" message="AttendanceService_RemoveAttendMonthlyBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthly">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthly" message="AttendanceService_CalculateEmployeeAttendanceMonthly_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthly_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByEmployeeID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByPostID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByDepartmentID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByCompanyID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByID" message="AttendanceService_GetAttendMonthlyBatchBalanceByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByIDResponse" message="AttendanceService_GetAttendMonthlyBatchBalanceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByMonthlyBalanceId">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMonthlyBalanceId" message="AttendanceService_GetAttendMonthlyBatchBalanceByMonthlyBalanceId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMonthlyBalanceIdResponse" message="AttendanceService_GetAttendMonthlyBatchBalanceByMonthlyBalanceId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMultSearch" message="AttendanceService_GetAttendMonthlyBatchBalanceByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMultSearchResponse" message="AttendanceService_GetAttendMonthlyBatchBalanceByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendMonthlyBatchBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendMonthlyBatchBalance" message="AttendanceService_AddAttendMonthlyBatchBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendMonthlyBatchBalanceResponse" message="AttendanceService_AddAttendMonthlyBatchBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendMonthlyBatchBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendMonthlyBatchBalance" message="AttendanceService_ModifyAttendMonthlyBatchBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendMonthlyBatchBalanceResponse" message="AttendanceService_ModifyAttendMonthlyBatchBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendMonthlyBatchBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendMonthlyBatchBalance" message="AttendanceService_RemoveAttendMonthlyBatchBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendMonthlyBatchBalanceResponse" message="AttendanceService_RemoveAttendMonthlyBatchBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuditMonthlyBatchBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AuditMonthlyBatchBalance" message="AttendanceService_AuditMonthlyBatchBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AuditMonthlyBatchBalanceResponse" message="AttendanceService_AuditMonthlyBatchBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendYearlyBalanceByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendYearlyBalanceByID" message="AttendanceService_GetAttendYearlyBalanceByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendYearlyBalanceByIDResponse" message="AttendanceService_GetAttendYearlyBalanceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendYearlyBalanceListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendYearlyBalanceListByMultSearch" message="AttendanceService_GetAttendYearlyBalanceListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendYearlyBalanceListByMultSearchResponse" message="AttendanceService_GetAttendYearlyBalanceListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendYearlyBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendYearlyBalance" message="AttendanceService_AddAttendYearlyBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendYearlyBalanceResponse" message="AttendanceService_AddAttendYearlyBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendYearlyBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendYearlyBalance" message="AttendanceService_ModifyAttendYearlyBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendYearlyBalanceResponse" message="AttendanceService_ModifyAttendYearlyBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendYearlyBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendYearlyBalance" message="AttendanceService_RemoveAttendYearlyBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendYearlyBalanceResponse" message="AttendanceService_RemoveAttendYearlyBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceYearlyByCompanyID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByCompanyID" message="AttendanceService_CalculateEmployeeAttendanceYearlyByCompanyID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByCompanyIDResponse" message="AttendanceService_CalculateEmployeeAttendanceYearlyByCompanyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceYearlyByPostID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByPostID" message="AttendanceService_CalculateEmployeeAttendanceYearlyByPostID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByPostIDResponse" message="AttendanceService_CalculateEmployeeAttendanceYearlyByPostID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceYearlyByDepartmentID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByDepartmentID" message="AttendanceService_CalculateEmployeeAttendanceYearlyByDepartmentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByDepartmentIDResponse" message="AttendanceService_CalculateEmployeeAttendanceYearlyByDepartmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceYearlyByEmployeeID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByEmployeeID" message="AttendanceService_CalculateEmployeeAttendanceYearlyByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByEmployeeIDResponse" message="AttendanceService_CalculateEmployeeAttendanceYearlyByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRealCancelLeaveDayByEmployeeIdAndDate">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetRealCancelLeaveDayByEmployeeIdAndDate" message="AttendanceService_GetRealCancelLeaveDayByEmployeeIdAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetRealCancelLeaveDayByEmployeeIdAndDateResponse" message="AttendanceService_GetRealCancelLeaveDayByEmployeeIdAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCancelLeavePaging">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeCancelLeavePaging" message="AttendanceService_EmployeeCancelLeavePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeCancelLeavePagingResponse" message="AttendanceService_EmployeeCancelLeavePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCancelLeaveAdd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeCancelLeaveAdd" message="AttendanceService_EmployeeCancelLeaveAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeCancelLeaveAddResponse" message="AttendanceService_EmployeeCancelLeaveAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCancelLeaveUpdate">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeCancelLeaveUpdate" message="AttendanceService_EmployeeCancelLeaveUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeCancelLeaveUpdateResponse" message="AttendanceService_EmployeeCancelLeaveUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCancelLeaveDelete">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeCancelLeaveDelete" message="AttendanceService_EmployeeCancelLeaveDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeCancelLeaveDeleteResponse" message="AttendanceService_EmployeeCancelLeaveDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeCancelLeaveByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeCancelLeaveByID" message="AttendanceService_GetEmployeeCancelLeaveByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeCancelLeaveByIDResponse" message="AttendanceService_GetEmployeeCancelLeaveByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMachineSetPaging">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMachineSetPaging" message="AttendanceService_GetAttendMachineSetPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMachineSetPagingResponse" message="AttendanceService_GetAttendMachineSetPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AttendMachineSetAdd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AttendMachineSetAdd" message="AttendanceService_AttendMachineSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AttendMachineSetAddResponse" message="AttendanceService_AttendMachineSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMachineSetByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMachineSetByID" message="AttendanceService_GetAttendMachineSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMachineSetByIDResponse" message="AttendanceService_GetAttendMachineSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AttendMachineSetUpdate">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AttendMachineSetUpdate" message="AttendanceService_AttendMachineSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AttendMachineSetUpdateResponse" message="AttendanceService_AttendMachineSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AttendMachineSetDelete">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AttendMachineSetDelete" message="AttendanceService_AttendMachineSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AttendMachineSetDeleteResponse" message="AttendanceService_AttendMachineSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:AttendanceService/DoWork" message="AttendanceService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/DoWorkResponse" message="AttendanceService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <wsdl:input wsaw:Action="urn:AttendanceService/SaveFile" message="AttendanceService_SaveFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/SaveFileResponse" message="AttendanceService_SaveFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalLandStatisticListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetPersonalLandStatisticListByMultSearch" message="AttendanceService_GetPersonalLandStatisticListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetPersonalLandStatisticListByMultSearchResponse" message="AttendanceService_GetPersonalLandStatisticListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalLandDetailListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetPersonalLandDetailListByMultSearch" message="AttendanceService_GetPersonalLandDetailListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetPersonalLandDetailListByMultSearchResponse" message="AttendanceService_GetPersonalLandDetailListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OutFileLandStatisticList">
+      <wsdl:input wsaw:Action="urn:AttendanceService/OutFileLandStatisticList" message="AttendanceService_OutFileLandStatisticList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/OutFileLandStatisticListResponse" message="AttendanceService_OutFileLandStatisticList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OutFilePersonalLandDetailList">
+      <wsdl:input wsaw:Action="urn:AttendanceService/OutFilePersonalLandDetailList" message="AttendanceService_OutFilePersonalLandDetailList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/OutFilePersonalLandDetailListResponse" message="AttendanceService_OutFilePersonalLandDetailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPunchDateByCompanyId">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetLatestPunchDateByCompanyId" message="AttendanceService_GetLatestPunchDateByCompanyId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetLatestPunchDateByCompanyIdResponse" message="AttendanceService_GetLatestPunchDateByCompanyId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClockInRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetClockInRdListByMultSearch" message="AttendanceService_GetClockInRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetClockInRdListByMultSearchResponse" message="AttendanceService_GetClockInRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListByWindowsService">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ImportClockInRdListByWindowsService" message="AttendanceService_ImportClockInRdListByWindowsService_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ImportClockInRdListByWindowsServiceResponse" message="AttendanceService_ImportClockInRdListByWindowsService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListFromFile">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ImportClockInRdListFromFile" message="AttendanceService_ImportClockInRdListFromFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ImportClockInRdListFromFileResponse" message="AttendanceService_ImportClockInRdListFromFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListFromLoginData">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ImportClockInRdListFromLoginData" message="AttendanceService_ImportClockInRdListFromLoginData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ImportClockInRdListFromLoginDataResponse" message="AttendanceService_ImportClockInRdListFromLoginData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListFromFileAndLoginData">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ImportClockInRdListFromFileAndLoginData" message="AttendanceService_ImportClockInRdListFromFileAndLoginData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ImportClockInRdListFromFileAndLoginDataResponse" message="AttendanceService_ImportClockInRdListFromFileAndLoginData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewClockInRd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddNewClockInRd" message="AttendanceService_AddNewClockInRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddNewClockInRdResponse" message="AttendanceService_AddNewClockInRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OutClockInRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/OutClockInRdListByMultSearch" message="AttendanceService_OutClockInRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/OutClockInRdListByMultSearchResponse" message="AttendanceService_OutClockInRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionByID" message="AttendanceService_GetAttendanceSolutionByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionByIDResponse" message="AttendanceService_GetAttendanceSolutionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionByEmployeeID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionByEmployeeID" message="AttendanceService_GetAttendanceSolutionByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionByEmployeeIDResponse" message="AttendanceService_GetAttendanceSolutionByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionByEmployeeIDAndDate">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionByEmployeeIDAndDate" message="AttendanceService_GetAttendanceSolutionByEmployeeIDAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionByEmployeeIDAndDateResponse" message="AttendanceService_GetAttendanceSolutionByEmployeeIDAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionListByMultSearch" message="AttendanceService_GetAttendanceSolutionListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionListByMultSearchResponse" message="AttendanceService_GetAttendanceSolutionListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceSolution">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendanceSolution" message="AttendanceService_AddAttendanceSolution_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendanceSolutionResponse" message="AttendanceService_AddAttendanceSolution_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceSolution">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendanceSolution" message="AttendanceService_ModifyAttendanceSolution_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendanceSolutionResponse" message="AttendanceService_ModifyAttendanceSolution_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuditAttSol">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AuditAttSol" message="AttendanceService_AuditAttSol_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AuditAttSolResponse" message="AttendanceService_AuditAttSol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceSolution">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendanceSolution" message="AttendanceService_RemoveAttendanceSolution_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendanceSolutionResponse" message="AttendanceService_RemoveAttendanceSolution_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceSolutionAndCreateRelation">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendanceSolutionAndCreateRelation" message="AttendanceService_AddAttendanceSolutionAndCreateRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendanceSolutionAndCreateRelationResponse" message="AttendanceService_AddAttendanceSolutionAndCreateRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceSolutionAndChangeRelation">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendanceSolutionAndChangeRelation" message="AttendanceService_ModifyAttendanceSolutionAndChangeRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendanceSolutionAndChangeRelationResponse" message="AttendanceService_ModifyAttendanceSolutionAndChangeRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendFreeLeaveByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendFreeLeaveByID" message="AttendanceService_GetAttendFreeLeaveByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendFreeLeaveByIDResponse" message="AttendanceService_GetAttendFreeLeaveByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAttendFreeLeaveListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAllAttendFreeLeaveListByMultSearch" message="AttendanceService_GetAllAttendFreeLeaveListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAllAttendFreeLeaveListByMultSearchResponse" message="AttendanceService_GetAllAttendFreeLeaveListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendFreeLeaveListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendFreeLeaveListByMultSearch" message="AttendanceService_GetAttendFreeLeaveListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendFreeLeaveListByMultSearchResponse" message="AttendanceService_GetAttendFreeLeaveListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendFreeLeave">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendFreeLeave" message="AttendanceService_AddAttendFreeLeave_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendFreeLeaveResponse" message="AttendanceService_AddAttendFreeLeave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendFreeLeave">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendFreeLeave" message="AttendanceService_ModifyAttendFreeLeave_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendFreeLeaveResponse" message="AttendanceService_ModifyAttendFreeLeave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendFreeLeave">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendFreeLeave" message="AttendanceService_RemoveAttendFreeLeave_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendFreeLeaveResponse" message="AttendanceService_RemoveAttendFreeLeave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateMasterByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetSchedulingTemplateMasterByID" message="AttendanceService_GetSchedulingTemplateMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetSchedulingTemplateMasterByIDResponse" message="AttendanceService_GetSchedulingTemplateMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateMasterByAttSolID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetSchedulingTemplateMasterByAttSolID" message="AttendanceService_GetSchedulingTemplateMasterByAttSolID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetSchedulingTemplateMasterByAttSolIDResponse" message="AttendanceService_GetSchedulingTemplateMasterByAttSolID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateMasterListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetSchedulingTemplateMasterListByMultSearch" message="AttendanceService_GetSchedulingTemplateMasterListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetSchedulingTemplateMasterListByMultSearchResponse" message="AttendanceService_GetSchedulingTemplateMasterListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedulingTemplateMaster">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddSchedulingTemplateMaster" message="AttendanceService_AddSchedulingTemplateMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddSchedulingTemplateMasterResponse" message="AttendanceService_AddSchedulingTemplateMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifySchedulingTemplateMaster">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifySchedulingTemplateMaster" message="AttendanceService_ModifySchedulingTemplateMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifySchedulingTemplateMasterResponse" message="AttendanceService_ModifySchedulingTemplateMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSchedulingTemplateMaster">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveSchedulingTemplateMaster" message="AttendanceService_RemoveSchedulingTemplateMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveSchedulingTemplateMasterResponse" message="AttendanceService_RemoveSchedulingTemplateMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedulingTemplateMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddSchedulingTemplateMasterAndDetail" message="AttendanceService_AddSchedulingTemplateMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddSchedulingTemplateMasterAndDetailResponse" message="AttendanceService_AddSchedulingTemplateMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifySchedulingTemplateMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifySchedulingTemplateMasterAndDetail" message="AttendanceService_ModifySchedulingTemplateMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifySchedulingTemplateMasterAndDetailResponse" message="AttendanceService_ModifySchedulingTemplateMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateDetailByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetSchedulingTemplateDetailByID" message="AttendanceService_GetSchedulingTemplateDetailByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetSchedulingTemplateDetailByIDResponse" message="AttendanceService_GetSchedulingTemplateDetailByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSchedulingTemplateDetailRdListByMasterId">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAllSchedulingTemplateDetailRdListByMasterId" message="AttendanceService_GetAllSchedulingTemplateDetailRdListByMasterId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAllSchedulingTemplateDetailRdListByMasterIdResponse" message="AttendanceService_GetAllSchedulingTemplateDetailRdListByMasterId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateDetailListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetSchedulingTemplateDetailListByMultSearch" message="AttendanceService_GetSchedulingTemplateDetailListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetSchedulingTemplateDetailListByMultSearchResponse" message="AttendanceService_GetSchedulingTemplateDetailListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTemplateDetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddTemplateDetail" message="AttendanceService_AddTemplateDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddTemplateDetailResponse" message="AttendanceService_AddTemplateDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyTemplateDetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyTemplateDetail" message="AttendanceService_ModifyTemplateDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyTemplateDetailResponse" message="AttendanceService_ModifyTemplateDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTemplateDetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveTemplateDetail" message="AttendanceService_RemoveTemplateDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveTemplateDetailResponse" message="AttendanceService_RemoveTemplateDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTemplateDetailByTemplateMasterID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveTemplateDetailByTemplateMasterID" message="AttendanceService_RemoveTemplateDetailByTemplateMasterID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveTemplateDetailByTemplateMasterIDResponse" message="AttendanceService_RemoveTemplateDetailByTemplateMasterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDetailForTemplateMaster">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddDetailForTemplateMaster" message="AttendanceService_AddDetailForTemplateMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddDetailForTemplateMasterResponse" message="AttendanceService_AddDetailForTemplateMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftDefineByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetShiftDefineByID" message="AttendanceService_GetShiftDefineByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetShiftDefineByIDResponse" message="AttendanceService_GetShiftDefineByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftDefineListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetShiftDefineListByMultSearch" message="AttendanceService_GetShiftDefineListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetShiftDefineListByMultSearchResponse" message="AttendanceService_GetShiftDefineListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShiftDefine">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddShiftDefine" message="AttendanceService_AddShiftDefine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddShiftDefineResponse" message="AttendanceService_AddShiftDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyShiftDefine">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyShiftDefine" message="AttendanceService_ModifyShiftDefine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyShiftDefineResponse" message="AttendanceService_ModifyShiftDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveShiftDefine">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveShiftDefine" message="AttendanceService_RemoveShiftDefine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveShiftDefineResponse" message="AttendanceService_RemoveShiftDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeOverTimeRecordPaging">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeOverTimeRecordPaging" message="AttendanceService_EmployeeOverTimeRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeOverTimeRecordPagingResponse" message="AttendanceService_EmployeeOverTimeRecordPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOverTimeRdByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetOverTimeRdByID" message="AttendanceService_GetOverTimeRdByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetOverTimeRdByIDResponse" message="AttendanceService_GetOverTimeRdByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOverTimeRd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddOverTimeRd" message="AttendanceService_AddOverTimeRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddOverTimeRdResponse" message="AttendanceService_AddOverTimeRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOverTimeRd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyOverTimeRd" message="AttendanceService_ModifyOverTimeRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyOverTimeRdResponse" message="AttendanceService_ModifyOverTimeRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOverTimeRd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveOverTimeRd" message="AttendanceService_RemoveOverTimeRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveOverTimeRdResponse" message="AttendanceService_RemoveOverTimeRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuditOverTimeRd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AuditOverTimeRd" message="AttendanceService_AuditOverTimeRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AuditOverTimeRdResponse" message="AttendanceService_AuditOverTimeRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionAsignByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionAsignByID" message="AttendanceService_GetAttendanceSolutionAsignByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionAsignByIDResponse" message="AttendanceService_GetAttendanceSolutionAsignByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAttSolIsExistsAsignRd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CheckAttSolIsExistsAsignRd" message="AttendanceService_CheckAttSolIsExistsAsignRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CheckAttSolIsExistsAsignRdResponse" message="AttendanceService_CheckAttSolIsExistsAsignRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionAsignRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionAsignRdListByMultSearch" message="AttendanceService_GetAttendanceSolutionAsignRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionAsignRdListByMultSearchResponse" message="AttendanceService_GetAttendanceSolutionAsignRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceSolutionAsign">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendanceSolutionAsign" message="AttendanceService_AddAttendanceSolutionAsign_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendanceSolutionAsignResponse" message="AttendanceService_AddAttendanceSolutionAsign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceSolutionAsign">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendanceSolutionAsign" message="AttendanceService_ModifyAttendanceSolutionAsign_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendanceSolutionAsignResponse" message="AttendanceService_ModifyAttendanceSolutionAsign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceSolutionAsign">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendanceSolutionAsign" message="AttendanceService_RemoveAttendanceSolutionAsign_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendanceSolutionAsignResponse" message="AttendanceService_RemoveAttendanceSolutionAsign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuditAttSolAsign">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AuditAttSolAsign" message="AttendanceService_AuditAttSolAsign_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AuditAttSolAsignResponse" message="AttendanceService_AuditAttSolAsign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignAttendanceSolution">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AsignAttendanceSolution" message="AttendanceService_AsignAttendanceSolution_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AsignAttendanceSolutionResponse" message="AttendanceService_AsignAttendanceSolution_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignAttendanceSolutionWithAll">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AsignAttendanceSolutionWithAll" message="AttendanceService_AsignAttendanceSolutionWithAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AsignAttendanceSolutionWithAllResponse" message="AttendanceService_AsignAttendanceSolutionWithAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignAttendanceSolutionByOrgID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AsignAttendanceSolutionByOrgID" message="AttendanceService_AsignAttendanceSolutionByOrgID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AsignAttendanceSolutionByOrgIDResponse" message="AttendanceService_AsignAttendanceSolutionByOrgID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceDeductMasterByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceDeductMasterByID" message="AttendanceService_GetAttendanceDeductMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceDeductMasterByIDResponse" message="AttendanceService_GetAttendanceDeductMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceDeductMasterRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceDeductMasterRdListByMultSearch" message="AttendanceService_GetAttendanceDeductMasterRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceDeductMasterRdListByMultSearchResponse" message="AttendanceService_GetAttendanceDeductMasterRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceDeductMaster">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendanceDeductMaster" message="AttendanceService_AddAttendanceDeductMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendanceDeductMasterResponse" message="AttendanceService_AddAttendanceDeductMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceDeductMaster">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendanceDeductMaster" message="AttendanceService_ModifyAttendanceDeductMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendanceDeductMasterResponse" message="AttendanceService_ModifyAttendanceDeductMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceDeductMaster">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendanceDeductMaster" message="AttendanceService_RemoveAttendanceDeductMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendanceDeductMasterResponse" message="AttendanceService_RemoveAttendanceDeductMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceDeductDetailByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceDeductDetailByID" message="AttendanceService_GetAttendanceDeductDetailByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceDeductDetailByIDResponse" message="AttendanceService_GetAttendanceDeductDetailByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceDeductDetailRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceDeductDetailRdListByMultSearch" message="AttendanceService_GetAttendanceDeductDetailRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceDeductDetailRdListByMultSearchResponse" message="AttendanceService_GetAttendanceDeductDetailRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceDeductDetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendanceDeductDetail" message="AttendanceService_AddAttendanceDeductDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendanceDeductDetailResponse" message="AttendanceService_AddAttendanceDeductDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceDeductDetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendanceDeductDetail" message="AttendanceService_ModifyAttendanceDeductDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendanceDeductDetailResponse" message="AttendanceService_ModifyAttendanceDeductDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceDeductDetail">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendanceDeductDetail" message="AttendanceService_RemoveAttendanceDeductDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendanceDeductDetailResponse" message="AttendanceService_RemoveAttendanceDeductDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionDeductByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionDeductByID" message="AttendanceService_GetAttendanceSolutionDeductByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionDeductByIDResponse" message="AttendanceService_GetAttendanceSolutionDeductByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionDeductRdListByAttSolID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionDeductRdListByAttSolID" message="AttendanceService_GetAttendanceSolutionDeductRdListByAttSolID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionDeductRdListByAttSolIDResponse" message="AttendanceService_GetAttendanceSolutionDeductRdListByAttSolID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceSolutionDeduct">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendanceSolutionDeduct" message="AttendanceService_AddAttendanceSolutionDeduct_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendanceSolutionDeductResponse" message="AttendanceService_AddAttendanceSolutionDeduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceSolutionDeduct">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendanceSolutionDeduct" message="AttendanceService_ModifyAttendanceSolutionDeduct_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendanceSolutionDeductResponse" message="AttendanceService_ModifyAttendanceSolutionDeduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceSolutionDeduct">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendanceSolutionDeduct" message="AttendanceService_RemoveAttendanceSolutionDeduct_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendanceSolutionDeductResponse" message="AttendanceService_RemoveAttendanceSolutionDeduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetByID" message="AttendanceService_GetFreeLeaveDaySetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetByIDResponse" message="AttendanceService_GetFreeLeaveDaySetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetRdListForAttendanceSolution">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetRdListForAttendanceSolution" message="AttendanceService_GetFreeLeaveDaySetRdListForAttendanceSolution_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetRdListForAttendanceSolutionResponse" message="AttendanceService_GetFreeLeaveDaySetRdListForAttendanceSolution_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetRdListByMultSearch" message="AttendanceService_GetFreeLeaveDaySetRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetRdListByMultSearchResponse" message="AttendanceService_GetFreeLeaveDaySetRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFreeLeaveDaySet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddFreeLeaveDaySet" message="AttendanceService_AddFreeLeaveDaySet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddFreeLeaveDaySetResponse" message="AttendanceService_AddFreeLeaveDaySet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyFreeLeaveDaySet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyFreeLeaveDaySet" message="AttendanceService_ModifyFreeLeaveDaySet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyFreeLeaveDaySetResponse" message="AttendanceService_ModifyFreeLeaveDaySet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFreeLeaveDaySet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveFreeLeaveDaySet" message="AttendanceService_RemoveFreeLeaveDaySet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveFreeLeaveDaySetResponse" message="AttendanceService_RemoveFreeLeaveDaySet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetByEmployeeID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetByEmployeeID" message="AttendanceService_GetFreeLeaveDaySetByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetByEmployeeIDResponse" message="AttendanceService_GetFreeLeaveDaySetByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveTypeSetByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetLeaveTypeSetByID" message="AttendanceService_GetLeaveTypeSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetLeaveTypeSetByIDResponse" message="AttendanceService_GetLeaveTypeSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveTypeSetRdListForAttendanceSolution">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetLeaveTypeSetRdListForAttendanceSolution" message="AttendanceService_GetLeaveTypeSetRdListForAttendanceSolution_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetLeaveTypeSetRdListForAttendanceSolutionResponse" message="AttendanceService_GetLeaveTypeSetRdListForAttendanceSolution_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveTypeSetAll">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetLeaveTypeSetAll" message="AttendanceService_GetLeaveTypeSetAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetLeaveTypeSetAllResponse" message="AttendanceService_GetLeaveTypeSetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveTypeSetRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetLeaveTypeSetRdListByMultSearch" message="AttendanceService_GetLeaveTypeSetRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetLeaveTypeSetRdListByMultSearchResponse" message="AttendanceService_GetLeaveTypeSetRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLeaveTypeSet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddLeaveTypeSet" message="AttendanceService_AddLeaveTypeSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddLeaveTypeSetResponse" message="AttendanceService_AddLeaveTypeSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLeaveTypeSet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyLeaveTypeSet" message="AttendanceService_ModifyLeaveTypeSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyLeaveTypeSetResponse" message="AttendanceService_ModifyLeaveTypeSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLeaveTypeSet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveLeaveTypeSet" message="AttendanceService_RemoveLeaveTypeSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveLeaveTypeSetResponse" message="AttendanceService_RemoveLeaveTypeSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOvertimeRewardByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetOvertimeRewardByID" message="AttendanceService_GetOvertimeRewardByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetOvertimeRewardByIDResponse" message="AttendanceService_GetOvertimeRewardByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOvertimeRewardRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetOvertimeRewardRdListByMultSearch" message="AttendanceService_GetOvertimeRewardRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetOvertimeRewardRdListByMultSearchResponse" message="AttendanceService_GetOvertimeRewardRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOvertimeReward">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddOvertimeReward" message="AttendanceService_AddOvertimeReward_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddOvertimeRewardResponse" message="AttendanceService_AddOvertimeReward_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOvertimeReward">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyOvertimeReward" message="AttendanceService_ModifyOvertimeReward_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyOvertimeRewardResponse" message="AttendanceService_ModifyOvertimeReward_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOvertimeReward">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveOvertimeReward" message="AttendanceService_RemoveOvertimeReward_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveOvertimeRewardResponse" message="AttendanceService_RemoveOvertimeReward_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVacationSetByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetVacationSetByID" message="AttendanceService_GetVacationSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetVacationSetByIDResponse" message="AttendanceService_GetVacationSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVacationSetRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetVacationSetRdListByMultSearch" message="AttendanceService_GetVacationSetRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetVacationSetRdListByMultSearchResponse" message="AttendanceService_GetVacationSetRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVacationSet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddVacationSet" message="AttendanceService_AddVacationSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddVacationSetResponse" message="AttendanceService_AddVacationSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyVacationSet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyVacationSet" message="AttendanceService_ModifyVacationSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyVacationSetResponse" message="AttendanceService_ModifyVacationSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVacationSet">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveVacationSet" message="AttendanceService_RemoveVacationSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveVacationSetResponse" message="AttendanceService_RemoveVacationSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutPlanDaysByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetOutPlanDaysByID" message="AttendanceService_GetOutPlanDaysByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetOutPlanDaysByIDResponse" message="AttendanceService_GetOutPlanDaysByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOutPlanDaysRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAllOutPlanDaysRdListByMultSearch" message="AttendanceService_GetAllOutPlanDaysRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAllOutPlanDaysRdListByMultSearchResponse" message="AttendanceService_GetAllOutPlanDaysRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutPlanDaysRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetOutPlanDaysRdListByMultSearch" message="AttendanceService_GetOutPlanDaysRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetOutPlanDaysRdListByMultSearchResponse" message="AttendanceService_GetOutPlanDaysRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOutPlanDays">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddOutPlanDays" message="AttendanceService_AddOutPlanDays_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddOutPlanDaysResponse" message="AttendanceService_AddOutPlanDays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOutPlanDays">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ModifyOutPlanDays" message="AttendanceService_ModifyOutPlanDays_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ModifyOutPlanDaysResponse" message="AttendanceService_ModifyOutPlanDays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOutPlanDays">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveOutPlanDays" message="AttendanceService_RemoveOutPlanDays_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveOutPlanDaysResponse" message="AttendanceService_RemoveOutPlanDays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionReportPaging">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeEvectionReportPaging" message="AttendanceService_EmployeeEvectionReportPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeEvectionReportPagingResponse" message="AttendanceService_EmployeeEvectionReportPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionReportAdd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeEvectionReportAdd" message="AttendanceService_EmployeeEvectionReportAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeEvectionReportAddResponse" message="AttendanceService_EmployeeEvectionReportAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionRecordPaging">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeEvectionRecordPaging" message="AttendanceService_EmployeeEvectionRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeEvectionRecordPagingResponse" message="AttendanceService_EmployeeEvectionRecordPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionRecordAdd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeEvectionRecordAdd" message="AttendanceService_EmployeeEvectionRecordAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeEvectionRecordAddResponse" message="AttendanceService_EmployeeEvectionRecordAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeEvectionRdList">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddEmployeeEvectionRdList" message="AttendanceService_AddEmployeeEvectionRdList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddEmployeeEvectionRdListResponse" message="AttendanceService_AddEmployeeEvectionRdList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionRecordUpdate">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeEvectionRecordUpdate" message="AttendanceService_EmployeeEvectionRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeEvectionRecordUpdateResponse" message="AttendanceService_EmployeeEvectionRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionRecordDelete">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeEvectionRecordDelete" message="AttendanceService_EmployeeEvectionRecordDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeEvectionRecordDeleteResponse" message="AttendanceService_EmployeeEvectionRecordDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeEvectionRecordByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeEvectionRecordByID" message="AttendanceService_GetEmployeeEvectionRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeEvectionRecordByIDResponse" message="AttendanceService_GetEmployeeEvectionRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceRecordByEmployeeID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceRecordByEmployeeID" message="AttendanceService_GetAttendanceRecordByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceRecordByEmployeeIDResponse" message="AttendanceService_GetAttendanceRecordByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceRdListByMultSearch">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceRdListByMultSearch" message="AttendanceService_GetAttendanceRdListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceRdListByMultSearchResponse" message="AttendanceService_GetAttendanceRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceRecord">
+      <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendanceRecord" message="AttendanceService_RemoveAttendanceRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendanceRecordResponse" message="AttendanceService_RemoveAttendanceRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustLeaveDetailListByLeaveRecordID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAdjustLeaveDetailListByLeaveRecordID" message="AttendanceService_GetAdjustLeaveDetailListByLeaveRecordID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAdjustLeaveDetailListByLeaveRecordIDResponse" message="AttendanceService_GetAdjustLeaveDetailListByLeaveRecordID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveRecordByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetLeaveRecordByID" message="AttendanceService_GetLeaveRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetLeaveRecordByIDResponse" message="AttendanceService_GetLeaveRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordPaging">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordPaging" message="AttendanceService_EmployeeLeaveRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordPagingResponse" message="AttendanceService_EmployeeLeaveRecordPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRealLeaveDayByEmployeeIdAndDate">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDate" message="AttendanceService_GetRealLeaveDayByEmployeeIdAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDateResponse" message="AttendanceService_GetRealLeaveDayByEmployeeIdAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordAdd">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordAdd" message="AttendanceService_EmployeeLeaveRecordAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordAddResponse" message="AttendanceService_EmployeeLeaveRecordAdd_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

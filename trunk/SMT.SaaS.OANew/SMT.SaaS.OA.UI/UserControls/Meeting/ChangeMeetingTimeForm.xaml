@@ -1,0 +1,94 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    x:Class="SMT.SaaS.OA.UI.UserControls.ChangeMeetingTimeForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+    >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>            
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <controls:TabControl Grid.Row="0"  VerticalAlignment="Stretch" x:Name="senddoctab" Margin="0,-8,0,8" SelectionChanged="senddoctab_SelectionChanged">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGADD}" Grid.Row="0" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    
+                    <dataInput:Label x:Name="lblTitle" Margin="8,0,118,0" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" />
+
+                    <dataInput:Label Margin="6,2,10,7" Grid.Row="1" Content="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}"/>
+                    <dataInput:Label Margin="6,2,10,7" Grid.Row="2" Content="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}"/>
+                    <dataInput:Label Margin="6,2,10,0" Grid.Row="3" Height="15" VerticalAlignment="Top" Content="{Binding Converter={StaticResource ResourceConveter}, Source=EDITREASON}"/>
+                    <controls:DatePicker x:Name="DPStart" HorizontalAlignment="Left" Style="{StaticResource DatePickerStyle}" Margin="0,2,1,2" Width="114" Grid.Column="1" Grid.Row="1" Height="24"/>
+                    <controls:DatePicker x:Name="DPEnd" HorizontalAlignment="Left" Margin="0,2,1,2" Style="{StaticResource DatePickerStyle}" Width="116" Grid.Column="1" Grid.Row="2" Height="24"/>
+                    <TextBox Margin="0,2,20,2" x:Name="txtResult" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="EDITREASON"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <inputToolkit:TimeUpDown x:Name="tpStartTime" Grid.Column="1" Grid.Row="1" Style="{StaticResource TimeUpDownStyle}" Margin="130,2,20,2" Height="24"  />
+                    <inputToolkit:TimeUpDown x:Name="tpEndTime" Grid.Column="1" Grid.Row="2" Style="{StaticResource TimeUpDownStyle}" Margin="130,2,20,2" Height="24"  />
+                </Grid>
+
+
+            </controls:TabItem>
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGNOTICE}" x:Name="tabnotice" >
+                <Grid Height="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="30"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=NOTICETITLE}" TextWrapping="Wrap"/>
+                    <TextBlock Margin="2" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=NOTICECONTENT}" TextWrapping="Wrap"/>
+                    <TextBlock Margin="2" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TELL}" TextWrapping="Wrap"/>
+                    <TextBox x:Name="txtMessageTitle" Margin="2,2,10,2" Grid.Column="1" TextWrapping="Wrap" MinWidth="150" HorizontalAlignment="Stretch">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="NOTICETITLE" />
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <!--<TextBox x:Name="txtMessageContent" Margin="2,2,10,2" Grid.Column="1" MinWidth="150" Grid.Row="1" TextWrapping="Wrap" Width="auto" HorizontalAlignment="Stretch">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="NOTICECONTENT" />
+                        </validator:ValidatorService.Validator>
+                    </TextBox>-->
+                     <richtext:RichMainPage Grid.Row="1" Grid.Column="1" x:Name="txtMessageContent" MinHeight="150" Margin="2,2,10,2">
+                               <validator:ValidatorService.Validator>
+                                  <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="NOTICECONTENT" ></validator:RequiredValidator>
+                               </validator:ValidatorService.Validator>
+                     </richtext:RichMainPage>
+                    <TextBox x:Name="txtMessageTel" Margin="2,2,10,2" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" MinWidth="150" HorizontalAlignment="Stretch">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="MEETINGMESSATETEL" />
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+        
+        
+        
+        
+
+    </Grid>
+</smtLocal:BaseForm>

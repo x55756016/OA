@@ -1,0 +1,248 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+    x:Class="SMT.SaaS.OA.UI.UserControls.AuditCompanyDocForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad">
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+
+        <Grid  Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="0.4*" />
+            </Grid.ColumnDefinitions>
+            <!-- 公文标题-->
+
+            <TextBlock Margin="8,5,0,3"
+                        Text="{Binding Converter={StaticResource ResourceConveter}, Source=OASENDDOCTITLE}"
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        Width="49"
+                        Foreground="Gray" />
+            <TextBlock x:Name="tbltitle"
+                        Margin="8,2"
+                        Grid.Column="1"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Bottom"
+                        Height="24" />
+            <!--发文部门-->
+            <TextBlock Margin="8,5,0,3"
+                        Grid.Column="2"
+                        Text="{Binding Converter={StaticResource ResourceConveter}, Source=OADOCDEPARTMENT}"
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        Foreground="Gray" />
+            <TextBlock x:Name="tbldepartment"
+                        Margin="8,2"
+                        Grid.Column="3"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Bottom"
+                        Height="24" />
+            <!--发布时间-->
+            <TextBlock Margin="8,5,0,3"
+                        TextWrapping="Wrap"
+        Text="{Binding Converter={StaticResource ResourceConveter}, Source=APPLYDATE}"
+                        Foreground="Gray" Grid.Column="4" />
+            <TextBlock x:Name="tbladddate"
+                        Margin="8,2"
+                        Grid.Column="5"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Bottom"
+                        Height="24" />
+
+            <!--公文类型-->
+            <TextBlock Margin="8,5,0,3"
+                        Text="{Binding Converter={StaticResource ResourceConveter}, Source=DOCUMENTTYPE}"
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        Width="50"
+                        Foreground="Gray" Grid.Row="1" />
+            <TextBlock x:Name="tbldoctype"
+                        Margin="8,2"
+                        Grid.Column="1"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Bottom"
+                        Height="24" Grid.Row="1" />
+            <!--公文缓急-->
+            <TextBlock Margin="8,5,0,3"
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        Text="{Binding Converter={StaticResource ResourceConveter}, Source=DOCPRIORITY}"
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        Foreground="Gray" />
+            <TextBlock x:Name="tblprioritity"
+                        Margin="8,2"
+                        Grid.Column="3"
+                        Grid.Row="1"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Bottom"
+                        Height="24" />
+            <!--公文级别-->
+            <TextBlock Margin="8,5,0,3"
+                        Grid.Row="1"
+                        Text="{Binding Converter={StaticResource ResourceConveter}, Source=GRADE}"
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        Foreground="Gray" Grid.Column="4" />
+            <TextBlock x:Name="tblgrade"
+                        Margin="8,2"
+                        Grid.Column="5"
+                        Grid.Row="1"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Bottom"
+                        Height="24" />
+            <!--申请人-->
+            <TextBlock 
+                Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYAPPLYOWNERNAME}"
+                        Margin="8,2"
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Bottom"
+                        Height="24" />
+            <TextBlock x:Name="tbladduser"
+                        Margin="8,2"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                       Grid.ColumnSpan="5"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Bottom"
+                        Height="24" />
+            <!--主送方-->
+            <TextBlock Margin="8,5,0,3"
+                        Grid.Row="10"
+                        Text="{Binding Converter={StaticResource ResourceConveter}, Source=MOSTLYSENDERCOLON}"
+                        TextWrapping="Wrap"
+                        d:LayoutOverrides="Width"
+                        Foreground="Gray"
+                        Height="24" HorizontalAlignment="Left" />
+            <TextBlock x:Name="tblsend"
+                        Margin="0,5,9.5,0"
+                        Grid.Column="1"
+                        Grid.Row="10"
+                        TextWrapping="Wrap"
+                        Height="24"
+					    Grid.ColumnSpan="5"
+                        VerticalAlignment="Center" />
+            <!--抄送-->
+            <TextBlock Margin="8,5,0,3"
+                        Grid.Row="11"
+                        Text="{Binding Converter={StaticResource ResourceConveter}, Source=COPYSENDERCOLON}"
+                        TextWrapping="Wrap"
+                        d:LayoutOverrides="Width"
+                        Foreground="Gray" HorizontalAlignment="Left" />
+            <TextBlock x:Name="tblcopy"
+                        Margin="0,0,14,0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="11"
+                        TextWrapping="Wrap" />
+            <!--公文显示界面-->
+            <!--上面的线-->
+            <Border BorderBrush="DarkGray"
+                    BorderThickness="1"
+                    Height="1"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="6"
+                    VerticalAlignment="Bottom"
+                    Margin="8,0,20,2"></Border>
+            <!--下面的线-->
+            <Border BorderBrush="DarkGray"
+                    BorderThickness="1"
+                    Height="1"
+                    Grid.Row="9"
+                    Grid.ColumnSpan="6"
+                    VerticalAlignment="Bottom"
+                    Margin="8,0,20,2"></Border>
+            <richtext:RichMainPage Grid.Row="8"
+                                    Grid.ColumnSpan="6"
+                                    x:Name="tblcontent"
+                                    Margin="15,2,2,12"
+                                    HorizontalAlignment="Stretch" />
+            <!--<TextBlock x:Name="tblcontent" Grid.Row="8" MinHeight="150" MinWidth="300" Margin="15,0,2,8" HorizontalAlignment="Stretch" TextWrapping="Wrap" Grid.ColumnSpan="4"/>-->
+            <Grid Grid.Row="5" VerticalAlignment="Center" Grid.Column="0"  Grid.ColumnSpan="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="tbltitlecompany"
+                        Foreground="Red"                                   
+                        Height="50"                        
+                        
+                        Margin="1,30,1,10"
+					    VerticalAlignment="Center"
+					    HorizontalAlignment="Center"
+                        Text=""
+                        TextWrapping="Wrap"                                   
+                        FontSize="40" d:LayoutOverrides="Width, GridBox" Grid.Row="0" />
+                <TextBlock Text="文   件" VerticalAlignment="Center"
+					    HorizontalAlignment="Center" Foreground="Red" Margin="1,5,1,20" FontSize="40" Grid.Row="1" />
+                <Border BorderBrush="Red" BorderThickness="0,1,0,0" Height="1" HorizontalAlignment="Stretch" Grid.Row="2" Margin="60,0,60,0"></Border>
+            </Grid>
+            <TextBlock x:Name="tblnum"
+                        Margin="10,15,10,0"
+                        Grid.Column="0"
+					    Grid.ColumnSpan="6"
+                        Grid.Row="6"
+					    HorizontalAlignment="Center"
+								   
+					    Text=""
+                        TextWrapping="Wrap"
+                        Height="24"
+                        FontSize="20"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="0.5,-0.733" d:LayoutOverrides="GridBox" />
+
+
+
+            <TextBlock x:Name="tblcontenttitle"                                   
+                        Grid.Column="0"
+                        Grid.Row="7"
+                        Text=""
+					    Margin="0,11,0,2"
+					    Grid.ColumnSpan="6"
+					    HorizontalAlignment="Center"
+					    VerticalAlignment="Bottom"
+                        TextWrapping="Wrap"
+                        FontWeight="Bold"
+                        FontSize="19" d:LayoutOverrides="Width" />
+            <!--附件信息-->
+
+            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ACCESSORYINFO}"
+                               Margin="8,5,0,3"
+                               HorizontalAlignment="Left"
+                               Grid.Row="12"
+                               Grid.Column="0" VerticalAlignment="Top" />
+            <!--<local:CtrlFileUploadM x:Name="ctrFile"
+                                           Grid.Row="12"
+                                           Grid.Column="1"
+                                           Grid.ColumnSpan="5"
+                                           Margin="5,2,10,0"></local:CtrlFileUploadM>-->
+
+
+        </Grid>
+    </ScrollViewer>
+    </smtLocal:BaseForm>

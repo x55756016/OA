@@ -1,0 +1,58 @@
+﻿<local:BasePage 
+    x:Class="SMT.SaaS.OA.UI.Views.PersonalOffice.ApprovalTypeSet" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    d:DesignWidth="680" d:DesignHeight="480"
+    Title="ApprovalTypeSet Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="SaveBtn" Content="保存" Click="SaveBtn_Click" Grid.Row="0" Width="80" Style="{StaticResource CommonButtonStyle}"></Button>
+            <controls:TreeView x:Name="treeOrganization" Grid.Row="1" Grid.Column="0"
+                           SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}">
+            </controls:TreeView>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+
+                    <RowDefinition ></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <controls:TreeView x:Name="treeApproval" Grid.Row="1" Grid.Column="0" Margin="2,2"
+                           SelectedItemChanged="treeApproval_SelectedItemChanged" MaxHeight="600" Style="{StaticResource TreeViewStyle}">
+                </controls:TreeView>
+                <!--<ListBox Height="260"  HorizontalAlignment="Right" Margin="100,25,10,0" Name="FirstComany" VerticalAlignment="Top" MinWidth="200" >
+                    
+                </ListBox>-->
+                <StackPanel Orientation="Vertical" Grid.Column="1" >
+                    <Button Content="=>" Height="23" Name="AddBtn" Width="75" Click="button1_Click" Margin="2,50,2,18" />
+                    <Button Content="=>>" Height="23" Name="AddAllBtn" Width="75" Click="buttonAll_Click" Margin="2,20,2,18" />
+                    <Button Content="&lt;&lt;=" Height="23" Name="DelAllBtn" Width="75" Click="buttonDel_Click" Margin="2,20,2,18" />
+                    <Button Content="&lt;=" Height="23" Name="DelBtn" Width="75" Click="DelBtn_Click" Margin="2,28,2,8"/>
+                </StackPanel>
+                
+                    <ListBox Grid.Column="2" HorizontalAlignment="Left" Margin="2,2" Name="SelectedList" Style="{StaticResource ListBoxStyle}" VerticalAlignment="Stretch" MinWidth="200" />
+               
+                
+            </Grid>
+
+        </Grid>
+    </Grid>
+</local:BasePage>

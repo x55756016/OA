@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+  <xs:complexType name="ArrayOfV_ContractTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ContractTemplate" nillable="true" type="tns:V_ContractTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ContractTemplate" nillable="true" type="tns:ArrayOfV_ContractTemplate" />
+  <xs:complexType name="V_ContractTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="contractTemplate" nillable="true" type="q1:T_OA_CONTRACTTEMPLATE" />
+      <xs:element minOccurs="0" name="contractType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ContractTemplate" nillable="true" type="tns:V_ContractTemplate" />
+  <xs:complexType name="V_ContractApplications">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="contractApp" nillable="true" type="q2:T_OA_CONTRACTAPP" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="contractPrint" nillable="true" type="q3:T_OA_CONTRACTPRINT" />
+      <xs:element minOccurs="0" name="contractType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ContractApplications" nillable="true" type="tns:V_ContractApplications" />
+  <xs:complexType name="ArrayOfV_ContractPrint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ContractPrint" nillable="true" type="tns:V_ContractPrint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ContractPrint" nillable="true" type="tns:ArrayOfV_ContractPrint" />
+  <xs:complexType name="V_ContractPrint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="contractApp" nillable="true" type="tns:V_ContractApplications" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="contractPrint" nillable="true" type="q4:T_OA_CONTRACTPRINT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ContractPrint" nillable="true" type="tns:V_ContractPrint" />
+  <xs:complexType name="ArrayOfV_ContractView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ContractView" nillable="true" type="tns:V_ContractView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ContractView" nillable="true" type="tns:ArrayOfV_ContractView" />
+  <xs:complexType name="V_ContractView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="contractApp" nillable="true" type="tns:V_ContractApplications" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="contractPrint" nillable="true" type="q5:T_OA_CONTRACTPRINT" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="viewContract" nillable="true" type="q6:T_OA_CONTRACTVIEW" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ContractView" nillable="true" type="tns:V_ContractView" />
+  <xs:complexType name="ArrayOfV_ContractApplications">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ContractApplications" nillable="true" type="tns:V_ContractApplications" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ContractApplications" nillable="true" type="tns:ArrayOfV_ContractApplications" />
+  <xs:complexType name="ArrayOfV_WelfareStandard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_WelfareStandard" nillable="true" type="tns:V_WelfareStandard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_WelfareStandard" nillable="true" type="tns:ArrayOfV_WelfareStandard" />
+  <xs:complexType name="V_WelfareStandard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareDetail" nillable="true" type="q7:T_OA_WELFAREDETAIL" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareStandard" nillable="true" type="q8:T_OA_WELFAREMASERT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_WelfareStandard" nillable="true" type="tns:V_WelfareStandard" />
+  <xs:complexType name="ArrayOfV_WelfareDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_WelfareDetails" nillable="true" type="tns:V_WelfareDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_WelfareDetails" nillable="true" type="tns:ArrayOfV_WelfareDetails" />
+  <xs:complexType name="V_WelfareDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareDetails" nillable="true" type="q9:T_OA_WELFAREDETAIL" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareDetailsViews" nillable="true" type="q10:T_OA_WELFAREDISTRIBUTEDETAIL" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareGrantViews" nillable="true" type="q11:T_OA_WELFAREDISTRIBUTEMASTER" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareViews" nillable="true" type="q12:T_OA_WELFAREMASERT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_WelfareDetails" nillable="true" type="tns:V_WelfareDetails" />
+  <xs:complexType name="ArrayOfV_WelfareProvision">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_WelfareProvision" nillable="true" type="tns:V_WelfareProvision" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_WelfareProvision" nillable="true" type="tns:ArrayOfV_WelfareProvision" />
+  <xs:complexType name="V_WelfareProvision">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="standard" type="xs:decimal" />
+      <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareProvision" nillable="true" type="q13:T_OA_WELFAREDISTRIBUTEMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_WelfareProvision" nillable="true" type="tns:V_WelfareProvision" />
+  <xs:complexType name="ArrayOfV_WelfarePaymentWithdrawal">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_WelfarePaymentWithdrawal" nillable="true" type="tns:V_WelfarePaymentWithdrawal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_WelfarePaymentWithdrawal" nillable="true" type="tns:ArrayOfV_WelfarePaymentWithdrawal" />
+  <xs:complexType name="V_WelfarePaymentWithdrawal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="beingWithdrawn" nillable="true" type="q14:T_OA_WELFAREDISTRIBUTEUNDO" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="welfareProvision" nillable="true" type="q15:T_OA_WELFAREDISTRIBUTEMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_WelfarePaymentWithdrawal" nillable="true" type="tns:V_WelfarePaymentWithdrawal" />
+  <xs:complexType name="ArrayOfV_ContractType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ContractType" nillable="true" type="tns:V_ContractType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ContractType" nillable="true" type="tns:ArrayOfV_ContractType" />
+  <xs:complexType name="V_ContractType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="contractType" nillable="true" type="q16:T_OA_CONTRACTTYPE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ContractType" nillable="true" type="tns:V_ContractType" />
+</xs:schema>

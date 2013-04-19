@@ -1,0 +1,64 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    x:Class="SMT.SaaS.OA.UI.UserControls.NoticeWebpart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views.Meeting" 
+    >
+    <UserControl.Resources>
+        <local:ConverterNumberToWayString x:Key="StateConvert" />
+        <local:ConverterDateToFormatString x:Key="DateTimeConvert" />
+        <local:ConverterMeetingContentToFormatString x:Key="ContentConvert" />
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <data:DataGrid 
+            x:Name="DaGr" AutoGenerateColumns="False"   IsReadOnly="True"  Width="auto" VerticalScrollBarVisibility="Visible" 
+            MinHeight="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
+            CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+            RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" Grid.Row="0" Grid.Column="1" Margin="5,0,20,0" LoadingRow="dgmember_LoadingRow">
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn Header="ROWNUMBER" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock/>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTemplateColumn Header="NOTICETITLE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <!--<Button Content="{Binding Path=FormTitle,Converter={StaticResource ContentConvert}}" x:Name="titlebtn" Click="titlebtn_Click"></Button>-->
+                                <TextBlock Text="{Binding Path=FormTitle,Converter={StaticResource ContentConvert}}" x:Name="titlebtn" MouseLeftButtonDown="titlebtn_Click" ></TextBlock>
+                                
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTemplateColumn Header="NOTICETYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock x:Name="formtype" Text="{Binding Path=Formtype}" VerticalAlignment="Center" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTemplateColumn Header="PUBLISHDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Path=FormDate,Converter={StaticResource DateTimeConvert}}" VerticalAlignment="Center" ></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+
+    </Grid>
+</smtLocal:BaseForm>

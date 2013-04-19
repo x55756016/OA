@@ -1,0 +1,128 @@
+﻿<smtLocal:BaseForm x:Class="SMT.SaaS.OA.UI.UserControls.SatisfactionSurveyChildWindow"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+                   xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors"
+                   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                   xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                   xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                   xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+                   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                   xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI">
+
+    <Grid x:Name="PARENT">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <controls:TabControl Grid.Row="1" Height="Auto" x:Name="tabBase">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}">
+                <Grid x:Name="contextInfo">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <validator:ValidatorManager Name="checkGroup" />
+                    <!--  调查主题  -->
+                    <TextBlock 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=SurveysTITLE}" />
+                    <TextBox Name="txtSubject"
+                             Grid.Column="1"
+                             Height="27"
+                             Text="{Binding Path=SATISFACTIONTITLE ,Mode=TwoWay,ValidatesOnExceptions=True,NotifyOnValidationError=True}"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch">
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire/>
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ErrorMessage="REQUIRED" ErrorMessageParameter="SurveysTITLE" ManagerName="checkGroup" />
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <!--  调查内容  -->
+                    <TextBlock Grid.Row="1"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=SurveysContent}" />
+                    <TextBox Name="txtContent"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Height="27"
+                             Text="{Binding Path=CONTENT,Mode=TwoWay,ValidatesOnExceptions=True,NotifyOnValidationError=True}"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto">
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire/>
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ErrorMessage="REQUIRED" ErrorMessageParameter="SurveysContent" ManagerName="checkGroup" />
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <!--  调查题目  -->
+                    <TextBlock Grid.Row="2"
+                               HorizontalAlignment="Left"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=SURVEYSUBJECT}" Margin="0,6,0,0" />
+                    <data:DataGrid Name="dgSubject"
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                                   MinHeight="150"
+                                   MaxHeight="300"
+                                   VerticalScrollBarVisibility="Auto"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   AutoGenerateColumns="False"
+                                   SelectionMode="Single"
+                                   CellStyle="{StaticResource DataGridCellStyle}"
+                                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                   LoadingRow="dgSubject_LoadingRow"
+                                   RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                                   RowStyle="{StaticResource DataGridRowStyle}"
+                                   Style="{StaticResource DataGridStyle}">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Header="VEHICLECARDID" Binding="{Binding SATISFACTIONMASTERID}"  Visibility="Collapsed"/>
+                            <data:DataGridTextColumn Header="SubjectId"  Binding="{Binding SUBJECTID}"  IsReadOnly="True" Width="52"/>
+                            <data:DataGridTemplateColumn Header="SubjectContent" CanUserResize="True" MinWidth="380">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" >
+                                            <TextBox x:Name="txtSub"   Text="{Binding CONTENT,Mode=TwoWay,ValidatesOnExceptions=True,NotifyOnValidationError=True}" KeyDown="txtSub_KeyDown"   TextWrapping="Wrap" MinHeight="27" MaxHeight="40" VerticalScrollBarVisibility="Auto" >
+                                                <validator:ValidatorService.Validator>
+                                                    <validator:RequiredValidator ManagerName="checkGroup" ErrorMessage="REQUIRED" ErrorMessageParameter="SubjectContent"/>
+                                                </validator:ValidatorService.Validator>
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="OPERATION" x:Name="Operation" Width="50">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <smtx:ImageButton x:Name="delSubject" Click="delSubject_Click" BorderThickness="0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

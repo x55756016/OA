@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonDll</RootNamespace>
+    <AssemblyName>CommonDll</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>%24/SMT.SaaS/SMT.SaaS.Portal/SMT.SaaS.OANew/CommonDll</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://10.10.4.242:8080</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Document\oaEngine\ApplicationsForContracts.xml" />
+    <Content Include="Document\oaEngine\archivesLending.xml" />
+    <Content Include="Document\oaEngine\BOList.xml" />
+    <Content Include="Document\oaEngine\CompanyDoc.xml" />
+    <Content Include="Document\oaEngine\ConserVationForm.xml" />
+    <Content Include="Document\oaEngine\ConserVationRecord.xml" />
+    <Content Include="Document\oaEngine\houseHireApp.xml" />
+    <Content Include="Document\oaEngine\housingIssuance.xml" />
+    <Content Include="Document\oaEngine\MaintenanceAppForm.xml" />
+    <Content Include="Document\oaEngine\MaintenanceRecord.xml" />
+    <Content Include="Document\oaEngine\MeetingInfo.xml" />
+    <Content Include="Document\oaEngine\MeetingRoomApp.xml" />
+    <Content Include="Document\oaEngine\Organization.xml" />
+    <Content Include="Document\oaEngine\ReviewMissionReports.xml" />
+    <Content Include="Document\oaEngine\TravelApplication.xml" />
+    <Content Include="Document\oaEngine\T_FAM_ASSETPURREQUIRE.xml" />
+    <Content Include="Document\oaEngine\T_FAM_ASSETSADJUSTMENT.xml" />
+    <Content Include="Document\oaEngine\T_FAM_ASSETSMAINTAIN.xml" />
+    <Content Include="Document\oaEngine\T_FAM_ASSETSSALES.xml" />
+    <Content Include="Document\oaEngine\T_FAM_ASSETSWASTAGE.xml" />
+    <Content Include="Document\oaEngine\T_FAM_SUPPLIESHANDLE.xml" />
+    <Content Include="Document\oaEngine\T_OA_APPROVALINFO.xml" />
+    <Content Include="Document\oaEngine\T_OA_CONTRACTVIEW.xml" />
+    <Content Include="Document\oaEngine\T_OA_DISTRIBUTEUSER.xml" />
+    <Content Include="Document\oaEngine\T_OA_LENDARCHIVES.xml" />
+    <Content Include="Document\oaEngine\licenseBorrow.xml" />
+    <Content Include="Document\oaEngine\T_OA_REQUIRE.xml" />
+    <Content Include="Document\oaEngine\T_OA_REQUIREDISTRIBUTE.xml" />
+    <Content Include="Document\oaEngine\T_OA_REQUIREMASTER.xml" />
+    <Content Include="Document\oaEngine\T_OA_SATISFACTIONDISTRIBUTE.xml" />
+    <Content Include="Document\oaEngine\T_OA_SATISFACTIONMASTER.xml" />
+    <Content Include="Document\oaEngine\T_OA_SATISFACTIONREQUIRE.xml" />
+    <Content Include="Document\oaEngine\VehicleDispatchForm.xml" />
+    <Content Include="Document\oaEngine\VehicleDispatchRecord.xml" />
+    <Content Include="Document\oaEngine\VehicleUseAppForm.xml" />
+    <Content Include="Document\oaEngine\WelfareProvisionFor.xml" />
+    <Content Include="Document\oaEngine\WelfareStandardApplication.xml" />
+    <Content Include="Document\撤消挂起项.txt" />
+    <Content Include="OA脚本变更\20101116.txt" />
+    <Content Include="OA脚本变更\20110412 SQl脚本变更.txt" />
+    <Content Include="OA脚本变更\Travel.sql" />
+    <Content Include="安装开发环境\EFOracleProvider.dll" />
+    <Content Include="安装开发环境\SMTDevEnvironmentSetUp.exe" />
+    <Content Include="安装开发环境\SMTDevEnvironmentSetUp.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\SMT_DATA_OA.pdm" />
+    <None Include="Data\SMT_DATA_OA_TravelModel.pdm" />
+    <None Include="Document\OA系统开发进度表.mpp" />
+    <None Include="Document\任务确认及验收单-OA.xls" />
+    <None Include="Document\日工作总结\刘锦.xls" />
+    <None Include="Document\日工作总结\刘建兴.xls" />
+    <None Include="Document\集团员工国内出差管理制度修改版.docx" />
+    <None Include="安装开发环境\RegeditDll.bat" />
+    <None Include="开发帮助与规范\OA数据库设计文档.doc" />
+    <None Include="开发帮助与规范\OA需求说明书.doc" />
+    <None Include="开发帮助与规范\SMT_DATA_OA.pdm" />
+    <None Include="开发帮助与规范\神州通在线SaaS体系开发帮助文档.doc" />
+    <None Include="开发帮助与规范\神州通在线科技编程规范.doc" />
+    <None Include="开发帮助与规范\神州通数据库命名规则.doc" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.OA.BLL", "SMT.SaaS.OA.BLL\SMT.SaaS.OA.BLL.csproj", "{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.OA.DAL", "SMT.SaaS.OA.DAL\SMT.SaaS.OA.DAL.csproj", "{4B906A26-7F19-4707-A3DA-61482FE72BA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.OA.Services", "SMT.Saas.OA.Services\SMT.SaaS.OA.Services.csproj", "{F41CE952-0A8E-488C-BD79-05BE26D28801}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.OA.Web", "SMT.SaaS.OA.Web\SMT.SaaS.OA.Web.csproj", "{A183256A-8622-4497-AF8B-EA4B32AC7B6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RefrenceProject", "RefrenceProject", "{F998EBE3-7DAC-420B-8811-02AA650FA12C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT_OA_EFModel", "SMT_OA_EFModel\SMT_OA_EFModel.csproj", "{30D6706D-A200-4ED0-BBAA-3574E09F54D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.OA.UI", "SMT.SaaS.OA.UI\SMT.SaaS.OA.UI.csproj", "{55F7A86F-8F9D-45EA-B717-B4DB332B71EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F41CE952-0A8E-488C-BD79-05BE26D28801} = {F41CE952-0A8E-488C-BD79-05BE26D28801}
+		{F41CE952-0A8E-488C-BD79-05BE26D28801} = {F41CE952-0A8E-488C-BD79-05BE26D28801}
+		{F41CE952-0A8E-488C-BD79-05BE26D28801} = {F41CE952-0A8E-488C-BD79-05BE26D28801}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonDll", "CommonDll\CommonDll.csproj", "{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = SMT.SaaS.OA.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B906A26-7F19-4707-A3DA-61482FE72BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B906A26-7F19-4707-A3DA-61482FE72BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B906A26-7F19-4707-A3DA-61482FE72BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B906A26-7F19-4707-A3DA-61482FE72BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41CE952-0A8E-488C-BD79-05BE26D28801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41CE952-0A8E-488C-BD79-05BE26D28801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41CE952-0A8E-488C-BD79-05BE26D28801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41CE952-0A8E-488C-BD79-05BE26D28801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A183256A-8622-4497-AF8B-EA4B32AC7B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A183256A-8622-4497-AF8B-EA4B32AC7B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A183256A-8622-4497-AF8B-EA4B32AC7B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30D6706D-A200-4ED0-BBAA-3574E09F54D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D6706D-A200-4ED0-BBAA-3574E09F54D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D6706D-A200-4ED0-BBAA-3574E09F54D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F7A86F-8F9D-45EA-B717-B4DB332B71EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F7A86F-8F9D-45EA-B717-B4DB332B71EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F7A86F-8F9D-45EA-B717-B4DB332B71EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F7A86F-8F9D-45EA-B717-B4DB332B71EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30D6706D-A200-4ED0-BBAA-3574E09F54D1} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
+		{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
+	EndGlobalSection
+	GlobalSection(PowerDesigner) = preSolution
+		HasSWS = 1
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,74 @@
+﻿<smtLocal:BaseForm
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+             x:Class="SMT.SaaS.OA.UI.UserControls.ArchivesAddForm"
+             xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+             xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d">
+
+	<Grid x:Name="LayoutRoot" SizeChanged="LayoutRoot_SizeChanged" >
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="auto"/>
+					<RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="auto"/>
+					<ColumnDefinition Width="0.75*"/>
+					<ColumnDefinition Width="auto"/>
+				</Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+				<!--<TextBox x:Name="txtType" Width="100"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>-->
+
+				<!--<dataInput:Label HorizontalAlignment="Left"  Content="*" Foreground="red" Grid.Row="0" Grid.Column="2"/>-->
+				<StackPanel x:Name="UpLoad" Orientation="Horizontal"  Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Left">
+					<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARCHIVESTYPE}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+					<ComboBox x:Name="comboxType" Margin="10,0,0,0" VerticalAlignment="Center"  Height="25"/>
+					<!--<Button x:Name="startUpload" Margin="19,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=UPLOAD}" Width="60" Click="startUpload_Click" Height="25"  Style="{StaticResource CommonButtonStyle}"/>-->
+					<!--<Button x:Name="Upload" Margin="10,0,0,0" Content="上传附件" Width="60" Style="{StaticResource ButtonToolBarStyle}" Click="Upload_Click"/>-->
+				</StackPanel>
+				<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARCHIVESTITLE}"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Margin="10,0,10,0"/>
+				<TextBox Text="{Binding ARCHIVESTITLE,Mode=TwoWay}" Grid.ColumnSpan="1" Grid.Row="1" Grid.Column="1" MaxLength="200" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"   Style="{StaticResource TextBoxStyle}"  HorizontalAlignment="Stretch" Width="Auto" d:LayoutOverrides="GridBox" Margin="0,0,40,0" Height="25">
+					<validator:ValidatorService.Validator>
+						<validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ARCHIVESTITLE"/>
+					</validator:ValidatorService.Validator>
+                    <interaction:Interaction.Behaviors>
+                        <behaviors:ShowRequire></behaviors:ShowRequire>
+                    </interaction:Interaction.Behaviors>
+        </TextBox>
+				<!--<dataInput:Label HorizontalAlignment="Left"  Content="*" Foreground="red" Grid.Row="1" Grid.Column="2"/>-->
+				<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARCHIVESCONTENT}" VerticalAlignment="Top" Margin="10,5,10,0" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"/>
+				<richtext:RichMainPage Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" x:Name="txtContent" Margin="0,5,40,0" MinHeight="200">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ARCHIVESCONTENT" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire></behaviors:ShowRequire>
+                        </interaction:Interaction.Behaviors>
+        </richtext:RichMainPage>
+                <!--<TextBox x:Name="txtContent" Text="{Binding CONTENT,Mode=TwoWay}" Grid.ColumnSpan="1" MinHeight="200" Style="{StaticResource TextBoxStyle}" Margin="0,5,40,0"  AcceptsReturn="True" Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto"  HorizontalAlignment="Stretch" d:LayoutOverrides="GridBox, VerticalMargin" Width="Auto">
+					<validator:ValidatorService.Validator>
+						<validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ARCHIVESCONTENT"/>
+					</validator:ValidatorService.Validator>
+				</TextBox>-->
+				<!--<dataInput:Label HorizontalAlignment="Left"  Content="*" Foreground="red" Grid.Row="2" Grid.Column="2"/>-->
+				<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ACCESSORYINFO}" VerticalAlignment="Top" Margin="10,5,0,0" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0"/>
+				
+                <!--<local:CtrlFileUploadM x:Name="ctrFile" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1"></local:CtrlFileUploadM>-->
+        
+                <!--
+				<TextBox x:Name="txtCreatUserId" Grid.Row="1" Grid.Column="1" Text="" Visibility="Collapsed"  Style="{StaticResource TextBoxStyle}" />
+				<TextBox x:Name="txtCreateDate" Grid.Row="1" Grid.Column="1" Text="" Visibility="Collapsed"  Style="{StaticResource TextBoxStyle}" />
+				<TextBox x:Name="txtArchivesId" Grid.Row="1" Grid.Column="1" Text="" Visibility="Collapsed"  Style="{StaticResource TextBoxStyle}" />
+				<TextBox x:Name="txtCompanyId" Grid.Row="1" Grid.Column="1" Text="" Visibility="Collapsed"  Style="{StaticResource TextBoxStyle}" />
+                -->
+			</Grid>
+</smtLocal:BaseForm>

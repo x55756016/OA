@@ -1,0 +1,106 @@
+﻿<local:BasePage 
+    xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  
+    x:Class="SMT.SaaS.OA.UI.Views.Meeting.MeetingRoomManagement" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+    xmlns:localbase="clr-namespace:SMT.SaaS.OA.UI.Views.Meeting" 
+           Title="会议室管理" >
+    <local:BasePage.Resources>        
+        <localbase:ConverterDateToFormatString x:Key="DateTimeConvert" />       
+        
+    </local:BasePage.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--right up begin-->
+
+            <smt:ViewTitle x:Name="ViewTitles" Grid.Row="0" Width="auto" VerticalAlignment="Top"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" Grid.Row="1" IsExpanded="True"  x:Name="controlsToolkitTUV" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="top">
+                <Grid Style="{StaticResource FrameGridPagerStyle}" ShowGridLines="False" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGROOM}" Height="16" Margin="0,4" />
+                        <TextBox x:Name="txtMeetingRoom" Width="100"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Height="15" Margin="0,4" />
+                        <TextBox x:Name="txtMemo" Width="120" />
+                        <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  Click="SearchBtn_Click" Margin="4,1,10,1" Style="{StaticResource CommonButtonStyle}"/>
+                    </StackPanel>
+                </Grid>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar  Grid.Row="2" x:Name="ToolBar" Width="auto"/>
+            <StackPanel x:Name="spBtn" Orientation="Horizontal">
+                
+                <TextBox x:Name="HdRoom" Visibility="Collapsed"></TextBox>
+            </StackPanel>
+            <data:DataGrid Grid.Row="3" x:Name="DaGr" AutoGenerateColumns="False"  
+                           ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                           LoadingRow="DaGr_LoadingRow" 
+                           Grid.Column="0"  IsReadOnly="True" 
+                            ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           >
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}" Width="40">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <dataFormToolkit:DataField Label="">
+                                    <!--<CheckBox x:Name="myChkBox" Click="myChkBox_Click" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>-->
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </dataFormToolkit:DataField>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="MEETINGROOM" Binding="{Binding MEETINGROOMNAME}"/>
+                    <data:DataGridTextColumn Header="ADDRESS" Binding="{Binding LOCATION}"/>
+                    <data:DataGridTextColumn Header="ADDPEOPLE" Binding="{Binding CREATEUSERNAME}"/>
+                    <data:DataGridTemplateColumn Header="ADDDATE">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=CREATEDATE,Converter={StaticResource DateTimeConvert}}" VerticalAlignment="Center" ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="UPDATEUSERID" Binding="{Binding UPDATEUSERNAME}"/>
+
+                    <data:DataGridTemplateColumn Header="UPDATEDATE">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=UPDATEDATE,Converter={StaticResource DateTimeConvert}}" VerticalAlignment="Center" ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4" VerticalAlignment="Bottom"></smt:GridPager>
+
+
+        </Grid>
+    </Grid>
+</local:BasePage>

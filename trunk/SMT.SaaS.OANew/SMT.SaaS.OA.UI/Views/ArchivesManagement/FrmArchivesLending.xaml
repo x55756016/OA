@@ -1,0 +1,80 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.ArchivesManagement.FrmArchivesLending" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:local="clr-namespace:SMT.SaaS.OA.UI"    
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"      
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="档案借阅管理">
+            <navigation:Page.Resources>
+                <local:CheckStateConverter x:Key="StateConvert" />
+                <local:CustomDateConverter x:Key="DateConvert" />
+                <local:CompanyInfoConverter x:Key="CompanyConvert" />
+            </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="expander" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="top" >
+                <Grid Style="{StaticResource FrameGridPagerStyle}" ShowGridLines="False" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARCHIVESTYPE}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtSearchType" Width="100" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARCHIVESTITLE}" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtSearchTitle" Width="120" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                        <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Click="SearchBtn_Click" Width="60" Style="{StaticResource CommonButtonStyle}"/>
+                    </StackPanel>
+                </Grid>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Grid.Row="2"/>
+            <Grid Grid.Row="3">
+                <!--档案列表-->
+                <data:DataGrid 
+                    x:Name="dgArchives" AutoGenerateColumns="False"  IsReadOnly="True" HorizontalAlignment="Stretch" 
+                    LoadingRow="dgArchives_LoadingRow" Style="{StaticResource DataGridStyle}"
+                    CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                    RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                    ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <!--<CheckBox x:Name="myChkBox" Tag="{Binding LENDARCHIVESID}" Checked="myChkBox_Checked" Unchecked="myChkBox_Unchecked" HorizontalAlignment="Center" VerticalAlignment="Center" ></CheckBox>-->
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="LENDARCHIVESID" Binding="{Binding LENDARCHIVESID}" Visibility="Collapsed"></data:DataGridTextColumn>                        
+                        <data:DataGridTextColumn Header="ARCHIVESTITLE" Binding="{Binding T_OA_ARCHIVES.ARCHIVESTITLE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="DOCTYPE" Binding="{Binding T_OA_ARCHIVES.RECORDTYPE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="COMPANYNAME" Binding="{Binding T_OA_ARCHIVES.COMPANYID,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="LENDTIME" Binding="{Binding STARTDATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="RETURNTIME" Binding="{Binding PLANENDDATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE,Converter={StaticResource StateConvert}}"></data:DataGridTextColumn>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+            </Grid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

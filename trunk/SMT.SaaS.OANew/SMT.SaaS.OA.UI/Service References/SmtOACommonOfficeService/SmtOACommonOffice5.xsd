@@ -1,0 +1,2291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+  <xs:import schemaLocation="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+  <xs:import schemaLocation="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
+  <xs:import schemaLocation="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+  <xs:element name="GetSendDocSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrSendDocId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSendDocSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetSendDocSingleInfoByIdResult" nillable="true" type="q1:T_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSendDocInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSendDocInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetSendDocInfosResult" nillable="true" type="q2:ArrayOfT_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistrbutedSendDocInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrContent" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StrGrade" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrProritity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrDocType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistrbutedSendDocInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDistrbutedSendDocInfosResult" nillable="true" type="q3:ArrayOfT_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSavedSendDocInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrContent" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StrGrade" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrProritity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrdocType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSavedSendDocInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetSavedSendDocInfosResult" nillable="true" type="q4:ArrayOfT_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSendDocInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrSendDoc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSendDocInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetSendDocInfosListBySearchResult" nillable="true" type="q5:ArrayOfT_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistrbutedSendDoc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inttake" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistrbutedSendDocResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDistrbutedSendDocResult" nillable="true" type="q6:ArrayOfT_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSendDocInfosListByWorkFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q7:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q8:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSendDocInfosListByWorkFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetSendDocInfosListByWorkFlowResult" nillable="true" type="q9:ArrayOfV_BumfCompanySendDoc" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBumfDocInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="docId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBumfDocInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetBumfDocInfoResult" nillable="true" type="q10:V_BumfCompanySendDoc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMYSendDocInfosList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q11:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q12:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMYSendDocInfosListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMYSendDocInfosListResult" nillable="true" type="q13:ArrayOfV_BumfCompanySendDoc" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitCompanyDocFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q14:T_OA_SENDDOC" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="flowRecordInfo" nillable="true" type="q15:FLOW_FLOWRECORDDETAIL_T" />
+        <xs:element minOccurs="0" name="toUserId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitCompanyDocFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitCompanyDocFlowResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitUpdateFlowComment1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FlowGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="toUserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FlowContent" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitUpdateFlowComment1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitUpdateFlowComment1Result" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q16:T_OA_DISTRIBUTEUSER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocDistrbuteAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteBatchAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q17:ArrayOfT_OA_DISTRIBUTEUSER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteBatchAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocDistrbuteBatchAddResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddCompanyDocDistrbute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q18:ArrayOfT_OA_DISTRIBUTEUSER" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeids" nillable="true" type="q19:ArrayOfstring" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="doc" nillable="true" type="q20:T_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddCompanyDocDistrbuteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BatchAddCompanyDocDistrbuteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddCompanyDocDistrbuteForNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q21:ArrayOfT_OA_DISTRIBUTEUSER" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LstCompanyIDs" nillable="true" type="q22:ArrayOfstring" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LstDepartmentIDs" nillable="true" type="q23:ArrayOfstring" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LstPostIDs" nillable="true" type="q24:ArrayOfstring" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeids" nillable="true" type="q25:ArrayOfstring" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="doc" nillable="true" type="q26:T_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddCompanyDocDistrbuteForNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BatchAddCompanyDocDistrbuteForNewResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseDocTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="docId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseDocTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CloseDocTaskResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrDistrbuteIDs" nillable="true" type="q27:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocDistrbuteBatchDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q28:T_OA_DISTRIBUTEUSER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocDistrbuteInfoUpdateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteInfoUpdateByBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q29:ArrayOfT_OA_DISTRIBUTEUSER" />
+        <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocDistrbuteInfoUpdateByBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocDistrbuteInfoUpdateByBatchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocDistrbuteSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrDistrbuteId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocDistrbuteSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocDistrbuteSingleInfoByIdResult" nillable="true" type="q30:T_OA_DISTRIBUTEUSER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocDistrbuteInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrFormID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocDistrbuteInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocDistrbuteInfosResult" nillable="true" type="q31:ArrayOfT_OA_DISTRIBUTEUSER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocDistrbuteInfosByFormID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrFormID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocDistrbuteInfosByFormIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDocDistrbuteInfosByFormIDResult" nillable="true" type="q32:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyDocNumsByUserid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterstring" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyDocNumsByUseridResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetCompanyDocNumsByUseridResult" nillable="true" type="q33:ArrayOfV_CompanyDocNum" />
+        <xs:element minOccurs="0" name="filterstring" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchDelMeetingTypeTemplateInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TemplateIDs" nillable="true" type="q34:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchDelMeetingTypeTemplateInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BatchDelMeetingTypeTemplateInfosResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeTemplateNameInfosByMeetingType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeTemplateNameInfosByMeetingTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingTypeTemplateNameInfosByMeetingTypeResult" nillable="true" type="q35:ArrayOfT_OA_MEETINGTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintTypeTemplateInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrTemplateName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrContent" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintTypeTemplateInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetintTypeTemplateInfosListBySearchResult" nillable="true" type="q36:ArrayOfT_OA_MEETINGTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeTemplateAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q37:T_OA_MEETINGTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeTemplateAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingTypeTemplateAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingTypeTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrTemplateName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingTypeTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingTypeTemplateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeTemplateDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTemplateID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeTemplateDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingTypeTemplateDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeTemplateUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q38:T_OA_MEETINGTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeTemplateUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingTypeTemplateUpdateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeTemplateSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTemplateId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeTemplateSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingTypeTemplateSingleInfoByIdResult" nillable="true" type="q39:T_OA_MEETINGTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTemplateName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingContentAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q40:T_OA_MEETINGCONTENT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingContentAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingContentAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddMeetingContentInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q41:ArrayOfT_OA_MEETINGCONTENT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddMeetingContentInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BatchAddMeetingContentInfosResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingContentInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StruserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingContentInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingContentInfoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingContentDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrContentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingContentDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingContentDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingContentInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q42:T_OA_MEETINGCONTENT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingContentInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingContentSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrContentId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingContentSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingContentSingleInfoByIdResult" nillable="true" type="q43:T_OA_MEETINGCONTENT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingContentInfosByMeetngInfoID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingInfoID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingContentInfosByMeetngInfoIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingContentInfosByMeetngInfoIDResult" nillable="true" type="q44:ArrayOfT_OA_MEETINGCONTENT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWork">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentSetAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="AgentSet" nillable="true" type="q45:T_OA_AGENTSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentSetAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgentSetAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAgentSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AgentSetId" nillable="true" type="q46:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAgentSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteAgentSetResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAgentSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="AgentSet" nillable="true" type="q47:T_OA_AGENTSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAgentSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAgentSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentSetListById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q48:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q49:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentSetListByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAgentSetListByIdResult" nillable="true" type="q50:ArrayOfT_OA_AGENTSET" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentSetBysId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgentSetId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentSetBysIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAgentSetBysIdResult" nillable="true" type="q51:T_OA_AGENTSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentDataSetAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="AgentDataSet" nillable="true" type="q52:T_OA_AGENTDATESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentDataSetAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgentDataSetAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistAgent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistAgentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistAgentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAgentDataSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AgentDataSetId" nillable="true" type="q53:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAgentDataSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteAgentDataSetResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAgentDataSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="AgentSet" nillable="true" type="q54:T_OA_AGENTDATESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAgentDataSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAgentDataSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentDataSetListById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q55:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q56:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentDataSetListByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAgentDataSetListByIdResult" nillable="true" type="q57:ArrayOfT_OA_AGENTDATESET" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentDataSetBysId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgentDataSetId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentDataSetBysIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAgentDataSetBysIdResult" nillable="true" type="q58:T_OA_AGENTDATESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q59:T_OA_SENDDOCTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocTypeAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistDocTypeInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrDocType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistDocTypeInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistDocTypeInfoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrDocTypeIDs" nillable="true" type="q60:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocTypeBatchDelResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q61:T_OA_SENDDOCTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrDocTypeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocTypeSingleInfoByIdResult" nillable="true" type="q62:T_OA_SENDDOCTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocTypeInfosResult" nillable="true" type="q63:ArrayOfT_OA_SENDDOCTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q64="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q64:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q65:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocTypeInfosListBySearchResult" nillable="true" type="q66:ArrayOfT_OA_SENDDOCTYPE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeNameInfosToCombox">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeNameInfosToComboxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDocTypeNameInfosToComboxResult" nillable="true" type="q67:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocPriorityAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q68:T_OA_PRIORITIES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocPriorityAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocPriorityAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistDocPriorityInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrDocPriority" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistDocPriorityInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistDocPriorityInfoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocPriorityBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrDocPriorityIDs" nillable="true" type="q69:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocPriorityBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocPriorityBatchDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocPriorityInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q70:T_OA_PRIORITIES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocPriorityInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocPrioritySingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrDocPriorityId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocPrioritySingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocPrioritySingleInfoByIdResult" nillable="true" type="q71:T_OA_PRIORITIES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocPrioritiesInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocPrioritiesInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocPrioritiesInfosResult" nillable="true" type="q72:ArrayOfT_OA_PRIORITIES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocPriorityInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q73:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q74:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocPriorityInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocPriorityInfosListBySearchResult" nillable="true" type="q75:ArrayOfT_OA_PRIORITIES" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProritityNameInfosToCombox">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProritityNameInfosToComboxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetProritityNameInfosToComboxResult" nillable="true" type="q76:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GradeAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q77:T_OA_GRADED" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GradeAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GradeAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistGradeInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrGrade" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistGradeInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistGradeInfoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GradeBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrGradeIDs" nillable="true" type="q78:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GradeBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GradeBatchDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GradeInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q79:T_OA_GRADED" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GradeInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrGradeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetGradeSingleInfoByIdResult" nillable="true" type="q80:T_OA_GRADED" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetGradeInfosResult" nillable="true" type="q81:ArrayOfT_OA_GRADED" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q82="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q82:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q83:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetGradeInfosListBySearchResult" nillable="true" type="q84:ArrayOfT_OA_GRADED" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocGradeNameInfosToCombox">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocGradeNameInfosToComboxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDocGradeNameInfosToComboxResult" nillable="true" type="q85:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeTemplateAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q86:T_OA_SENDDOCTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeTemplateAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocTypeTemplateAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistDocTypeTemplateInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrGrade" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrProritity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrDepartmentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrPositionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistDocTypeTemplateInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistDocTypeTemplateInfoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeTemplateBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrDocTypeTemplateIDs" nillable="true" type="q87:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeTemplateBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocTypeTemplateBatchDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeTemplateInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q88:T_OA_SENDDOCTEMPLATE" />
+        <xs:element minOccurs="0" name="StrResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocTypeTemplateInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeTemplateSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrDocTypeTemplateId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeTemplateSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocTypeTemplateSingleInfoByIdResult" nillable="true" type="q89:T_OA_SENDDOCTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeTemplateContentByDocType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrDocType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeTemplateContentByDocTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocTypeTemplateContentByDocTypeResult" nillable="true" type="q90:ArrayOfT_OA_SENDDOCTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeTemplateInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeTemplateInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocTypeTemplateInfosResult" nillable="true" type="q91:ArrayOfT_OA_SENDDOCTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeTemplateInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q92="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q92:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q93:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeTemplateInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetDocTypeTemplateInfosListBySearchResult" nillable="true" type="q94:ArrayOfT_OA_SENDDOCTEMPLATE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q95:T_OA_SENDDOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendDocAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistSendDocInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrGrade" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrProritity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SendDepart" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrDepartmentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrPositionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistSendDocInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistSendDocInfoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrSendDocIDs" nillable="true" type="q96:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendDocBatchDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q97:T_OA_SENDDOC" />
+        <xs:element minOccurs="0" name="StrResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomInfoByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RoomId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomInfoByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingRoomInfoByIDResult" nillable="true" type="q98:ArrayOfT_OA_MEETINGROOM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q99="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q99:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingRoomInfosResult" nillable="true" type="q100:ArrayOfT_OA_MEETINGROOM" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomdAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q101:T_OA_MEETINGROOM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomdAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingRoomdAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomdDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RoomID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomdDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingRoomdDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchDelMeetingRoomdInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RoomIDs" nillable="true" type="q102:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchDelMeetingRoomdInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BatchDelMeetingRoomdInfosResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q103:T_OA_MEETINGROOM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RoomName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingRoomResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RoomId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingRoomByIdResult" nillable="true" type="q104:T_OA_MEETINGROOM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomNameInfosToCombox">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomNameInfosToComboxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingRoomNameInfosToComboxResult" nillable="true" type="q105:ArrayOfT_OA_MEETINGROOM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintRoomInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrMemo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintRoomInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetintRoomInfosListBySearchResult" nillable="true" type="q106:ArrayOfT_OA_MEETINGROOM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomTreeInfosByCompanyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomTreeInfosByCompanyIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingRoomTreeInfosByCompanyIDResult" nillable="true" type="q107:ArrayOfT_OA_MEETINGROOM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTimeChangeAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q108:T_OA_MEETINGTIMECHANGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTimeChangeAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingTimeChangeAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingTimeChange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingInfoID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StrCreateUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingTimeChangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingTimeChangeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingStaffInfoAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q109:T_OA_MEETINGSTAFF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingStaffInfoAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingStaffInfoAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddMeetingStaffInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q110:ArrayOfT_OA_MEETINGSTAFF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddMeetingStaffInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BatchAddMeetingStaffInfosResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMeetingStaffsByEmcce">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q111:T_OA_MEETINGSTAFF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMeetingStaffsByEmcceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingStaffInfoByAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingInfoId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingStaffInfoByAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingStaffInfoByAddResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingStaffInfoDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingStaffID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingStaffInfoDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingStaffInfoDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingStaffUpdateInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q112:T_OA_MEETINGSTAFF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingStaffUpdateInfosResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMeetingStaffInfosByMeetingInfoID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingInfoID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMeetingStaffInfosByMeetingInfoIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAllMeetingStaffInfosByMeetingInfoIDResult" nillable="true" type="q113:ArrayOfT_OA_MEETINGSTAFF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingStaffByMeetingInfoIdEmcee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrFlag" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrIsOk" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrMeetingInfoID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingStaffByMeetingInfoIdEmceeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMeetingStaffByMeetingInfoIdEmceeResult" nillable="true" type="q114:ArrayOfV_MyMeetingInfosManagement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomTimeChangeAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q115:T_OA_MEETINGROOMTIMECHANGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomTimeChangeAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingRoomTimeChangeAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingRoomTimeChange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrAppId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StrCreateUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingRoomTimeChangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingRoomTimeChangeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomAppInfoAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q116:T_OA_MEETINGROOMAPP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomAppInfoAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingRoomAppInfoAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingRoomAppInfoByAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrRoomName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrDepartment" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startdt" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="enddt" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StrCreateUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingRoomAppInfoByAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingRoomAppInfoByAddResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingRoomJustUsing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrRoomName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startdt" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="enddt" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingRoomJustUsingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingRoomJustUsingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomAppInfoDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrRoomAppInfoID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomAppInfoDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingRoomAppInfoDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomAppBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrRoomAppIDs" nillable="true" type="q117:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomAppBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingRoomAppBatchDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomAppUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q118:T_OA_MEETINGROOMAPP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingRoomAppUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingRoomAppUpdateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomAppSingleInfoByAppId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrRoomAppId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomAppSingleInfoByAppIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingRoomAppSingleInfoByAppIdResult" nillable="true" type="q119:T_OA_MEETINGROOMAPP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomAppInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomAppInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingRoomAppInfosResult" nillable="true" type="q120:ArrayOfT_OA_MEETINGROOMAPP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomAppBySelectRooms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="start" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="end" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StrCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomAppBySelectRoomsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingRoomAppBySelectRoomsResult" nillable="true" type="q121:ArrayOfT_OA_MEETINGROOMAPP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomAppInfosByFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q122="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q122:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q123:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingRoomAppInfosByFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMeetingRoomAppInfosByFlowResult" nillable="true" type="q124:ArrayOfV_MeetingRoomApp" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintRoomAppInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingRoom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrDepartment" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StrCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrCreateUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintRoomAppInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetintRoomAppInfosListBySearchResult" nillable="true" type="q125:ArrayOfT_OA_MEETINGROOMAPP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q126:T_OA_MEETINGINFO" />
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingstaffObj" nillable="true" type="q127:ArrayOfT_OA_MEETINGSTAFF" />
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="ContentObj" nillable="true" type="q128:ArrayOfT_OA_MEETINGCONTENT" />
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingmessageObj" nillable="true" type="q129:T_OA_MEETINGMESSAGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingInfoAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingInfoByAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrMeetingType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrRoom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrCreatUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startdt" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="enddt" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingInfoByAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingInfoByAddResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingInfoID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingInfoDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoUpdateByForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q130:T_OA_MEETINGINFO" />
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingstaffObj" nillable="true" type="q131:ArrayOfT_OA_MEETINGSTAFF" />
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="ContentObj" nillable="true" type="q132:ArrayOfT_OA_MEETINGCONTENT" />
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingmessageObj" nillable="true" type="q133:T_OA_MEETINGMESSAGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoUpdateByFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingInfoUpdateByFormResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q134:T_OA_MEETINGINFO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingInfoUpdateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrMeetingInfoIDs" nillable="true" type="q135:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingInfoBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingInfoBatchDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingInfoSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMeetingInfoId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingInfoSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingInfoSingleInfoByIdResult" nillable="true" type="q136:T_OA_MEETINGINFO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingMessageByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MessageID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingMessageByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingMessageByIDResult" nillable="true" type="q137:T_OA_MEETINGMESSAGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintInfosListByTitleTimeSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrDepartment" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrContent" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StrCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintInfosListByTitleTimeSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetintInfosListByTitleTimeSearchResult" nillable="true" type="q138:ArrayOfT_OA_MEETINGINFO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyMeetingInfosManagement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q139="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q139:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="StrUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyMeetingInfosManagementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMyMeetingInfosManagementResult" nillable="true" type="q140:ArrayOfV_MyMeetingInfosManagement" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyEmceeMeetingInfosManagement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q141="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q141:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="StrUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyEmceeMeetingInfosManagementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMyEmceeMeetingInfosManagementResult" nillable="true" type="q142:ArrayOfV_MyMeetingInfosManagement" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMeetingNoticeInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q143:T_OA_MEETINGINFO" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="message" nillable="true" type="q144:T_OA_MEETINGMESSAGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMeetingNoticeInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateMeetingNoticeInfoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowIdByKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="masterID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flagStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowIdByKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFlowIdByKeyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingNoticeByNoticeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NoticeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingNoticeByNoticeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMeetingNoticeByNoticeIDResult" nillable="true" type="q145:V_MeetingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingInfoListByFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q146="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q146:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q147:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingInfoListByFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMeetingInfoListByFlowResult" nillable="true" type="q148:ArrayOfV_MeetingInfo" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q149:T_OA_MEETINGINFO" />
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="flowRecordInfo" nillable="true" type="q150:FLOW_FLOWRECORDDETAIL_T" />
+        <xs:element minOccurs="0" name="toUserId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitFlowResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="flowRecordInfo" nillable="true" type="q151:FLOW_FLOWRECORDDETAIL_T" />
+        <xs:element minOccurs="0" name="toUserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="empComment" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitCommentResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeInfoByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TypeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeInfoByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingTypeInfoByIDResult" nillable="true" type="q152:ArrayOfT_OA_MEETINGTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q153="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q153:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q154:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingTypeInfosResult" nillable="true" type="q155:ArrayOfT_OA_MEETINGTYPE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintTypeInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="searchMeetingTypeInfo" nillable="true" type="q156:T_OA_MEETINGTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetintTypeInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetintTypeInfosListBySearchResult" nillable="true" type="q157:ArrayOfT_OA_MEETINGTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q158:T_OA_MEETINGTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingTypeAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TypeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingTypeDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeBatchDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q159="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArrTypeID" nillable="true" type="q159:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeBatchDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingTypeBatchDelResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q160:T_OA_MEETINGTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeetingTypeUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MeetingType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistMeetingTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistMeetingTypeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TypeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingTypeByIdResult" nillable="true" type="q161:T_OA_MEETINGTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TypeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingTypeSingleInfoByIdResult" nillable="true" type="q162:T_OA_MEETINGTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeNameInfosToCombox">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeNameInfosToComboxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingTypeNameInfosToComboxResult" nillable="true" type="q163:ArrayOfT_OA_MEETINGTYPE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeTemplateInfoByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTemplateId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMeetingTypeTemplateInfoByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetMeetingTypeTemplateInfoByIDResult" nillable="true" type="q164:ArrayOfT_OA_MEETINGTEMPLATE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTypeTemplateInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q165="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q165:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q166:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTypeTemplateInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTypeTemplateInfosResult" nillable="true" type="q167:ArrayOfT_OA_MEETINGTEMPLATE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

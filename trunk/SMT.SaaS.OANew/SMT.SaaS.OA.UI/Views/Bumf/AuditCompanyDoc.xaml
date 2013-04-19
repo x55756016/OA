@@ -1,0 +1,82 @@
+﻿<controls:ChildWindow 
+    x:Class="SMT.SaaS.OA.UI.Views.Bumf.AuditCompanyDoc" 	
+	xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+	xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:auditcontrol="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+	x:Name="ChildWindow" Style="{StaticResource ChildWindowStyle}"
+	Width="500" Height="500" mc:Ignorable="d"
+	
+     Title="AuditCompanyDoc" >
+    <Grid x:Name="LayoutRoot" Margin="2">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.065*"/>
+			<RowDefinition Height="0.07*"/>
+			<RowDefinition Height="0.063*"/>
+			<RowDefinition Height="0.072*"/>
+			<RowDefinition Height="0.065*"/>
+			<RowDefinition Height="0.072*"/>
+			<RowDefinition Height="0.291*"/>
+			<RowDefinition Height="0.301*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="60"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="60"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="25,4,12,1">
+            <Button x:Name="OKButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=OKBUTTON}" Click="OKButton_Click" Width="75" Height="23" Style="{StaticResource ButtonToolBarStyle}" HorizontalAlignment="Right" Margin="5,4,0,4"/>
+			<Button x:Name="CancelButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCELBUTTON}" Click="CancelButton_Click" Width="75" Height="23" Style="{StaticResource ButtonToolBarStyle}" HorizontalAlignment="Right" Margin="5,4,0,4"/>
+		</StackPanel>
+
+		
+		<TextBlock Margin="0,5,8,3" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SENDDOCTITLE}" TextWrapping="Wrap" HorizontalAlignment="Right" Width="49"/>
+		<TextBlock Margin="0,6,17,6" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=GRADENAME}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+		<TextBlock Margin="0,8,1,6" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DOCUMENTTYPE}" TextWrapping="Wrap" HorizontalAlignment="Right" Width="50" Grid.Column="2" Grid.RowSpan="2"/>
+		<TextBlock Margin="0,8,8,8" Grid.Column="2" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DOCUMENTNUM}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+		<TextBlock Margin="0,8,8,0" Grid.Column="2" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PRIORITYNAME}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        
+		<StackPanel Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="4" Orientation="Horizontal" Height="133" VerticalAlignment="top">
+			<TextBlock Margin="8,43,8,63" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTENT}" TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment"/>
+		    
+			<ScrollViewer Margin="20,1,0,24" Width="419" d:LayoutOverrides="VerticalAlignment">
+				<TextBlock x:Name="tblDocContent" Height="47"  Width="392" TextWrapping="Wrap" VerticalAlignment="Top"/>
+			</ScrollViewer>
+		    
+		</StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="7" Orientation="Vertical" Grid.ColumnSpan="4" Margin="0,8">
+            <!--<TextBlock Margin="1,4,1,1" Grid.Row="4" Text="审核意见" TextWrapping="Wrap" >
+            	
+            </TextBlock>-->
+
+            <ScrollViewer Margin="10,3,0,0" Width="463">
+                <!--<auditcontrol:AuditListControl Width="400" Height="100"></auditcontrol:AuditListControl>-->
+                <auditcontrol:AuditControl Height="93" x:Name="AuditC"></auditcontrol:AuditControl>
+            </ScrollViewer>
+
+        </StackPanel>
+        <TextBlock x:Name="tblTitle" Margin="52,2,0,0" Grid.Column="1" Grid.ColumnSpan="2" TextWrapping="Wrap" Foreground="#FFFB0606" d:LayoutOverrides="VerticalAlignment"/>
+    	<TextBlock Margin="0,6,17,8" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MOSTLYSENDER}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+    	<TextBlock Margin="0,8,8,8" Grid.Column="2" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENT}" TextWrapping="Wrap" HorizontalAlignment="Right" RenderTransformOrigin="-0.273,0.5"/>
+    	<TextBlock Margin="0,8,17,0" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=COPYSENDER}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="tblDocTitle" Margin="8,5,41,3" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment"/>
+        <TextBlock x:Name="tblNumber" Margin="8,5,64,0" Grid.Column="3" Grid.Row="1" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblgrade" Margin="8,2,61,2" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblproritity" HorizontalAlignment="Left" Margin="8,2,0,2" Width="76" Grid.Column="3" Grid.Row="2" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblsend" Margin="8,2,77,2" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tbldepartment" Margin="8,2,86,2" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblcopy" Margin="8,2,77,2" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblDocType" Margin="8,2,77,8" Grid.Column="3" Grid.Row="4" TextWrapping="Wrap"/>
+        <TextBlock Margin="0,8,15,8" Grid.Row="5" Text="提交人" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        <TextBlock Margin="5,8,8,8" Grid.Column="2" Grid.Row="5" Text="提交时间" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="tblAddDate" Margin="8,2,35,2" Grid.Column="3" Grid.Row="5" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblAdduser" Margin="8,2,50,2" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap"/>        
+        
+	</Grid>
+</controls:ChildWindow>

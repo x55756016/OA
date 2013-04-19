@@ -1,0 +1,122 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.VehicleManagement.FrmMaintenanceAppManager" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"    
+           xmlns:local="clr-namespace:SMT.SaaS.OA.UI;assembly=SMT.SaaS.OA.UI"     
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="MaintenanceAppManager Page">
+    <navigation:Page.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:CustomDateConverter x:Key="DateConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" IsExpanded="True"  x:Name="controlsToolkitTUV" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MaintenanceType}" Margin="4" />
+                    <ComboBox x:Name="cmbConserVationName" Width="150" Style="{StaticResource ComboBoxStyle}"></ComboBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RepairContent}" Margin="4" />
+                    <TextBox x:Name="txtConserVationContent" Width="120" Style="{StaticResource TextBoxStyle}"/>
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=REPAIRDATE}" Margin="4,2,0,2"></dataInput:Label>
+                    <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpStart" Margin="4,1,4,1"></controls:DatePicker>
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" Margin="4,2,0,2"></dataInput:Label>
+                    <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpEnd" Margin="4,1,4,1"></controls:DatePicker>
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  Click="SearchBtn_Click" Margin="4,1,10,1" Style="{StaticResource CommonButtonStyle}" />
+                </StackPanel>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <Grid Grid.Row="3">
+                <data:DataGrid x:Name="dg" AutoGenerateColumns="False"   Grid.Row="1" Grid.Column="0"  LoadingRow="dg_LoadingRow" IsReadOnly="True"  
+                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
+                               CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                               RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn Header="SELECT" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Tag="{Binding REQUIRETITLE}" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="REPAIRDATE" >
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="4,0,0,0">
+                                        <TextBlock Text="{Binding REPAIRDATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}" VerticalAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="RETRIEVEDATE" >
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="4,0,0,0">
+                                        <TextBlock Text="{Binding RETRIEVEDATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}" VerticalAlignment="Center"  TextWrapping="Wrap" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="ASSETID" >
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0">
+                                        <TextBlock Text="{Binding T_OA_VEHICLE.ASSETID}" VerticalAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="VIN" Binding="{Binding T_OA_VEHICLE.VIN}"/>
+                        <data:DataGridTemplateColumn Header="RepairContent" Width="80">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding CONTENT}" VerticalAlignment="Center" TextTrimming="WordEllipsis" Width="80"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="MaintenanceType" Binding="{Binding MAINTENANCETYPE}"/>
+                        <data:DataGridTextColumn Header="RepairFees" Binding="{Binding CHARGEMONEY}"/>
+                       
+                        <data:DataGridTemplateColumn Header="REPAIRCOMPANY" >
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding REPAIRCOMPANY}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="APPTEL" Binding="{Binding TEL}"/>
+                        <data:DataGridTemplateColumn Header="CHECKSTATE"  Width="60">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding CHECKSTATE,Converter={StaticResource StateConvert}}" VerticalAlignment="Center" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+            </Grid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

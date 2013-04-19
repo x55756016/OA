@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="FAM">
+  <ObjectList>
+    <Object Name="T_FAM_ASSETSADJUSTMENT" Description="固定资产调拨"></Object>
+    <Object Name="T_FAM_ASSETPURREQUIRE" Description="固定资产申购"></Object>
+    <Object Name="T_FAM_ASSETSSALES" Description="固定资产出售"></Object>
+    <Object Name="T_FAM_ASSETSMAINTAIN" Description="固定资产维修"></Object>
+    <Object Name="T_FAM_ASSETSWASTAGE" Description="资产报损"></Object>
+    <Object Name="T_FAM_SUPPLIESHANDLE" Description="办公用品登记"></Object>
+    <Object Name="housingIssuance" Description="房源发布"></Object>
+    <Object Name="houseHireApp" Description="房源申请"></Object>
+    <Object Name="MeetingInfo" Description="会议申请"></Object>
+    <Object Name="MeetingRoomApp" Description="会议室申请"></Object>
+    <Object Name="Organization" Description="机构注册"></Object>
+    <Object Name="archivesLending" Description="档案借阅"></Object>
+    <Object Name="CompanyDoc" Description="公司发文"></Object>
+    <Object Name="licenseBorrow" Description="证照外借"></Object>
+    <Object Name="ApplicationsForContracts" Description="合同申请"></Object>
+    <Object Name="T_OA_CONTRACTVIEW" Description="合同查看申请"></Object>
+    <Object Name="WelfareStandardApplication" Description="福利标准申请"></Object>
+    <Object Name="WelfareProvisionFor" Description="福利发放申请"></Object>
+    <Object Name="T_OA_WELFAREDISTRIBUTEUNDO" Description="福利发放撤销申请"></Object>
+    <Object Name="TravelApplication" Description="出差申请"></Object>
+    <Object Name="ReviewMissionReports" Description="出差报告"></Object>
+    <Object Name="T_OA_REQUIREMASTER" Description="员工调查方案"></Object>
+    <Object Name="T_OA_REQUIRE" Description="员工调查申请"></Object>
+    <Object Name="ET_OA_REQUIREDISTRIBUTE" Description="员工调查发布"></Object>
+    <Object Name="T_OA_SATISFACTIONMASTER" Description="满意度调查方案"></Object>
+    <Object Name="T_OA_SATISFACTIONREQUIRE" Description="满意度调查申请"></Object>
+    <Object Name="T_OA_SATISFACTIONDISTRIBUTE" Description="满意度调查发布"></Object>
+    <Object Name="ConserVationForm" Description="保养申请"></Object>
+    <Object Name="ConserVationRecord" Description="保养记录"></Object>
+    <Object Name="MaintenanceAppForm" Description="维修申请"></Object>
+    <Object Name="MaintenanceRecord" Description="维修记录"></Object>
+    <Object Name="VehicleDispatchForm" Description="派车申请"></Object>
+    <Object Name="VehicleDispatchRecord" Description="调度记录"></Object>
+    <Object Name="VehicleUseAppForm" Description="用车申请"></Object>
+    <Object Name="ApprovalForm" Description="报批件"></Object>
+    <Object Name="T_OA_DISTRIBUTEUSER" Description="分发范围"></Object>
+  </ObjectList>
+</System>

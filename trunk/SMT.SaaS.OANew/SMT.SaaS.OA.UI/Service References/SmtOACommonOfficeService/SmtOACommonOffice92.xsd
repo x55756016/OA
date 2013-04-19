@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOACommonOffice.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="Flow_FlowRecord_T">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreateCompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreateDepartmentID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatePostID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreateUserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreateUserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EditDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EditUserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EditUserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FlowCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InstanceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentStateCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Flow_FlowRecord_T" nillable="true" type="tns:Flow_FlowRecord_T" />
+</xs:schema>

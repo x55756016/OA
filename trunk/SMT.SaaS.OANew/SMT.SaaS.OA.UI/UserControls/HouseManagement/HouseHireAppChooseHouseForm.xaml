@@ -1,0 +1,61 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"   x:Class="SMT.SaaS.OA.UI.UserControls.HouseHireAppChooseHouseForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"         
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"         
+    >
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="controlsToolkitTUV" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Grid.Row="0">
+            <Grid Style="{StaticResource FrameGridPagerStyle}" ShowGridLines="False" >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMMUNITY}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtUptown" Width="100" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUILDING}" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtHouseName" Width="120" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Click="SearchBtn_Click" Width="60" Style="{StaticResource CommonButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+        </controlsToolkit:Expander>
+        <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False" RenderTransformOrigin="0.5,0.5"  IsReadOnly="True" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" MinHeight="350"
+                               Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+            <data:DataGrid.Columns>
+                <!--<data:DataGridTemplateColumn Header="Choose" Width="50">-->
+                <!--
+                <data:DataGridTemplateColumn Header="SELECT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="myChkBox" Unchecked="myChkBox_Unchecked" Checked="myChkBox_Checked" Tag="{Binding HOUSEID}" HorizontalAlignment="Center" VerticalAlignment="Center" ></CheckBox>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                -->
+                <data:DataGridTextColumn Header="HOUSEID" Binding="{Binding HOUSEID}" Visibility="Collapsed"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="COMMUNITY" Binding="{Binding UPTOWN}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="BUILDING" Binding="{Binding HOUSENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="FLOOR" Binding="{Binding FLOOR}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="ROOMNO" Binding="{Binding NUM}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="RENTAL" Binding="{Binding RENTCOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="DEPOSIT" Binding="{Binding DEPOSIT}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="MANAGEMENTFEE" Binding="{Binding MANAGECOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                <!--<data:DataGridTextColumn Header="LEASECONTRACT" Binding="{Binding CONTENT}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>-->
+                <data:DataGridTextColumn Header="CANRENT" Binding="{Binding ISRENT,Converter={StaticResource RentConvert}}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+        <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="2"></smt:GridPager>
+    </Grid>
+</smtLocal:BaseForm>

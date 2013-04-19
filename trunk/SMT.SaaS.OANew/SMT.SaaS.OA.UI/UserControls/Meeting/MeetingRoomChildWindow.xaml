@@ -1,0 +1,99 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    x:Class="SMT.SaaS.OA.UI.UserControls.Meeting.MeetingRoomChildWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+     xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+     xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    >
+    <Grid x:Name="LayoutRoot" Background="White">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="70"/>
+    		<ColumnDefinition Width="0.415*"/>
+    		<ColumnDefinition Width="70"/>
+    		<ColumnDefinition Width="0.462*"/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="30"/>
+    		<RowDefinition Height="30"/>
+    		<RowDefinition Height="7"/>
+            <RowDefinition Height="23" />
+            <RowDefinition Height="100"/>
+    		<RowDefinition Height="auto"/>
+    		
+    	</Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+		<!--Row1-->
+        <TextBlock Margin="8,2,2,0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGROOM}" TextWrapping="Wrap">            
+        </TextBlock>
+        <TextBlock Margin="8,2,2,0" Grid.Column="2" Text="所属公司" TextWrapping="Wrap" />
+        <TextBox x:Name="txtRoom" Margin="2" Grid.Column="1" Text="{Binding MEETINGROOMNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" MaxLength="100"  TextWrapping="NoWrap" Style="{StaticResource TextBoxStyle}" MinWidth="150">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="MEETINGROOM"/>
+            </validator:ValidatorService.Validator>
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </TextBox>
+        <TextBox x:Name="txtcompany" Margin="2,2,30,2" Grid.Column="3" TextWrapping="Wrap" IsReadOnly="True" Style="{StaticResource TextBoxStyle}" MinWidth="150">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="COMPANY"/>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <Button x:Name="btnLookUpPartyb" Grid.Row="0" Grid.Column="3" Height="18" Click="CompanyObject_FindClick" HorizontalAlignment="Right" Margin="0,6,10,6">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+        </Button>
+        <!--Row2-->
+    	<TextBlock Margin="8,8,8,0" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGROOMADDRESS}" TextWrapping="Wrap" Grid.Column="2"/>
+    	<TextBlock Margin="8,2,2,0" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SEATQUANTITY}" TextWrapping="Wrap"/>
+		<TextBox x:Name="txtPosition" Margin="2,2,10,2" Grid.Column="3" MaxLength="100" Grid.Row="1" Text="{Binding LOCATION, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" TextWrapping="NoWrap" Style="{StaticResource TextBoxStyle}" MinWidth="150"/>
+        <TextBox x:Name="txtseat" Margin="2" Grid.Column="1" Grid.Row="1" MaxLength="19" Text="{Binding SEAT, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" MinWidth="150">
+            <validator:ValidatorService.Validator>
+                <!--<validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SEATQUANTITY"/>-->
+                <validator:RegexValidator ManagerName="Group1" ErrorMessage="IsInt" IsRequired="True" ErrorMessageParameter="SEATQUANTITY"
+				        Expression="^\d+$"></validator:RegexValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <!--Row3-->
+    	<TextBlock Margin="8,2,2,0" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ROOMAREA}"  TextWrapping="Wrap" Grid.RowSpan="2" />
+        <TextBox x:Name="txtarea" Margin="2" Grid.Column="1" Grid.Row="2" MaxLength="19" Text="{Binding AREA, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" MinWidth="150" Grid.RowSpan="2">
+            <validator:ValidatorService.Validator>
+                <validator:RegexValidator ManagerName="Group1" ErrorMessage="IsInt" IsRequired="True" ErrorMessageParameter="ROOMAREA"
+				        Expression="^\d+$"></validator:RegexValidator>
+                <!--<validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" IsRequired="True" ErrorMessageParameter="ROOMAREA"/>-->
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <!--Row4-->
+    	<TextBlock Margin="8,40,2,20" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ESTABLISHMENT}" TextWrapping="Wrap"/>
+		<Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,4,10,2">
+		    <Grid.RowDefinitions>
+			    <RowDefinition Height="30"></RowDefinition>
+				<RowDefinition Height="30"></RowDefinition>
+				<RowDefinition Height="30"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+			    <ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<CheckBox x:Name="chxRostrum" Margin="2,2,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=ROSTRUM}" Style="{StaticResource CheckBoxStyle}"/>
+            <CheckBox x:Name="chxNetwork" Margin="2,2,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=NETWORK}" Grid.Row="1" Style="{StaticResource CheckBoxStyle}"/>
+            <CheckBox x:Name="chxVideo" Margin="2,2,0,0"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=VIDEO}" Grid.Column="1" Style="{StaticResource CheckBoxStyle}"/>
+            <CheckBox x:Name="chxAudio" Margin="2,2,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=AUDIO}" Grid.Column="2" Style="{StaticResource CheckBoxStyle}"/>
+            <CheckBox x:Name="chxWifi" Margin="2,2,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=WIFI}" Grid.Column="1" Grid.Row="1" Style="{StaticResource CheckBoxStyle}"/>
+            <CheckBox x:Name="chxTel" Margin="2,2,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=TEL}" Grid.Column="2" Grid.Row="1" Style="{StaticResource CheckBoxStyle}"/>
+            <CheckBox x:Name="chxProjector" Margin="2,2,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=PROJECTOR}" Grid.Row="2" Style="{StaticResource CheckBoxStyle}"/>
+            <CheckBox x:Name="chxAirConditioning" Margin="2,2,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=AIRCONDITIONING}" Grid.Column="1" Grid.Row="2" Style="{StaticResource CheckBoxStyle}"/>
+            <CheckBox x:Name="chxWaterDispenser" Margin="2,2,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=WATERDISPENSER}" Grid.Column="2" Grid.Row="2" Style="{StaticResource CheckBoxStyle}"/>
+			
+		</Grid>
+		<!--Row5-->
+		<TextBlock Margin="8,2,2,0" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" TextWrapping="Wrap"/>
+		<TextBox x:Name="txtremark" Margin="2,2,10,0" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5" 
+                 Text="{Binding REMARK, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="60" MaxLength="200"
+                 Style="{StaticResource TextBoxStyle}" AcceptsReturn="True" MinWidth="150" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+    </Grid>
+</smtLocal:BaseForm>

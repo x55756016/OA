@@ -1,0 +1,89 @@
+﻿<local:BasePage 
+           xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           x:Class="SMT.SaaS.OA.UI.Views.AssetManagement.TreeAssetManagementPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+		   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="TreeAssetManagementPage Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smtx:ViewTitle>
+            <Grid Background="Transparent" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbEmpNameTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <smtx:LookUp Name="lkEmpName" DataContext="{Binding T_HR_EMPLOYEE}"  Grid.Row="0" Grid.Column="1" DisplayMemberPath="EMPLOYEECNAME" FindClick="lkEmpName_FindClick" Margin="5,0,0,0" Height="22" Width="150" HorizontalAlignment="Stretch" />
+                <TextBlock x:Name="txtBalanceYearTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BALANCEYEAR}" Style="{StaticResource FrameGridTextBlock1}" Margin="5,0,0,0" Grid.Column="2" VerticalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBalanceYear" Grid.Row="0" Grid.Column="3" Height="22" Width="150"/>
+                <TextBlock x:Name="txtBalanceMonthTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BALANCEMONTH}" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="4"/>
+                <inputToolkit:NumericUpDown x:Name="nudBalanceMonth" Grid.Column="5" Width="150" Maximum="12" Minimum="1"></inputToolkit:NumericUpDown>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Column="6" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="Center" Height="22" Click="btnSearch_Click" Margin="5,0,0,0" Width="100" HorizontalAlignment="Left" />
+            </Grid>
+            <smtx:FormToolBar x:Name="toolbar1" Grid.Row="2" Width="auto"></smtx:FormToolBar>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <controls:TreeView x:Name="treeOrganization" Grid.RowSpan="2" Grid.Column="0"
+                           SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}"></controls:TreeView>
+                <data:DataGrid x:Name="dgAMBList" Grid.Row="0" Grid.Column="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" LoadingRow="dgAMBList_LoadingRow" 
+                       Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding MONTHLYBALANCEID}"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="BALANCEYEAR" Binding="{Binding BALANCEYEAR}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="BALANCEMONTH" Binding="{Binding BALANCEMONTH}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="BALANCEDATE" Binding="{Binding BALANCEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="NEEDATTENDDAYS" Binding="{Binding NEEDATTENDDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="REALATTENDDAYS" Binding="{Binding REALATTENDDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="LATEDAYS" Binding="{Binding LATEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="LEAVEEARLYDAYS" Binding="{Binding LEAVEEARLYDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="ABSENTDAYS" Binding="{Binding ABSENTDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="AFFAIRLEAVEDAYS" Binding="{Binding AFFAIRLEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="SICKLEAVEDAYS" Binding="{Binding SICKLEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="OTHERLEAVEDAYS" Binding="{Binding OTHERLEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="1" Grid.Column="1"></smtx:GridPager>
+            </Grid>
+        </Grid>
+    </Grid>
+</local:BasePage>

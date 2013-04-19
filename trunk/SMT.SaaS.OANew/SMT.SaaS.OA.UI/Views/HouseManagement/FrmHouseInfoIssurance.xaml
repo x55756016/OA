@@ -1,0 +1,75 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.HouseManagement.FrmHouseInfoIssurance" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"          
+           xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"    
+           xmlns:local="clr-namespace:SMT.SaaS.OA.UI"        
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="FrmHouseInfoIssurance Page">
+    <navigation:Page.Resources>
+        <local:CustomDateConverter x:Key="DateConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="expander" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="top" >
+                <Grid Style="{StaticResource FrameGridPagerStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISSUANCETITLE}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtTitle" Width="100" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                        <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISSUANCECONTENT}" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtContent" Width="120" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>-->                        
+                        <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Style="{StaticResource CommonButtonStyle}" Click="SearchBtn_Click" Width="60"/>
+                    </StackPanel>
+                </Grid>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Grid.Row="2"/>
+                <!--发布信息列表-->
+                <data:DataGrid 
+                    x:Name="dgHouse" AutoGenerateColumns="False" Grid.Row="3" IsReadOnly="True" HorizontalAlignment="Stretch" 
+                    Style="{StaticResource DataGridStyle}"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" LoadingRow="dgHouse_LoadingRow"
+                    CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                    <!--<data:DataGrid x:Name="dgArchives" AutoGenerateColumns="False" Width="auto">-->
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>                   
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>                        
+                        <data:DataGridTextColumn Header="ISSUANCEID" Binding="{Binding ISSUANCEID}" Visibility="Collapsed"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="ISSUANCETITLE" Binding="{Binding ISSUANCETITLE}"></data:DataGridTextColumn>
+                        <!--<data:DataGridTextColumn Header="ISSUANCECONTENT" Binding="{Binding CONTENT}"></data:DataGridTextColumn>-->
+                        <data:DataGridTextColumn Header="CREATEUSERID" Binding="{Binding CREATEUSERNAME}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="CREATEDATE" Binding="{Binding CREATEDATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="UPDATEUSERID" Binding="{Binding UPDATEUSERNAME}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="UPDATEDATE" Binding="{Binding UPDATEDATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="CHECKSTATE"
+                                             Binding="{Binding CHECKSTATE,Converter={StaticResource StateConvert}}"></data:DataGridTextColumn>
+                </data:DataGrid.Columns>
+                </data:DataGrid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4" VerticalAlignment="Bottom"></smt:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="/SMT.SAAS.Themes;component/ShinyBlue.xaml"/>
+		<ResourceDictionary Source="/SMT.SAAS.Themes;component/Controls/system.windows.Button.xaml"/>
+		<ResourceDictionary Source="/SMT.SAAS.Themes;component/ControlTemplate.xaml"/>
+		<ResourceDictionary Source="/SMT.SAAS.Themes;component/ShinyGreen.xaml"/>
+	</ResourceDictionary.MergedDictionaries>
+	<!-- 应该在此定义资源字典条目。-->
+</ResourceDictionary>

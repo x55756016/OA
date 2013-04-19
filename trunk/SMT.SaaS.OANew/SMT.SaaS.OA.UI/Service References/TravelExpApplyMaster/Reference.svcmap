@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f41582b0-da01-4f87-815f-5681247c5726" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.ComponentModel.DataAnnotations" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Net" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.Windows" />
+      <ReferencedAssembly AssemblyName="System.Windows.Browser" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.DataForm.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.DataVisualization.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Layout.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Navigation" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Theming.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Data" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Serialization" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address=" http://172.30.50.13/SmtOnline/Services/SMTFBAService/OaInterface.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OaInterface2.xsd" MetadataType="Schema" ID="beb2782b-46cd-4666-a729-06e006defd77" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Services/SMTFBAService/OaInterface.svc?xsd=xsd1" />
+    <MetadataFile FileName="OaInterface2.wsdl" MetadataType="Wsdl" ID="714f6099-0d82-4343-aa8b-ae7b67f75a5f" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Services/SMTFBAService/OaInterface.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="OaInterface21.wsdl" MetadataType="Wsdl" ID="f6ba73a4-7274-4f95-8372-4ce9ef0886b1" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Services/SMTFBAService/OaInterface.svc?wsdl" />
+    <MetadataFile FileName="OaInterface1.disco" MetadataType="Disco" ID="db98e436-9fbc-4bed-90e1-f8836bedd43c" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Services/SMTFBAService/OaInterface.svc?disco" />
+    <MetadataFile FileName="OaInterface21.xsd" MetadataType="Schema" ID="00c6e37e-7950-4cc4-8db0-3dffc7da9ffa" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Services/SMTFBAService/OaInterface.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

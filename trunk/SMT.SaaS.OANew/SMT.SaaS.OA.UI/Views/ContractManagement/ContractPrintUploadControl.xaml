@@ -1,0 +1,118 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="SMT.SaaS.OA.UI.Views.ContractManagement.ContractPrintUploadControl"
+    mc:Ignorable="d">
+    <controls:TabControl x:Name="tbcContainer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="2" Style="{StaticResource TabControlStyle}">
+        <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTINFORMATION}" Style="{StaticResource TabItemStyle}">
+            <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" SizeChanged="LayoutRoot_SizeChanged" Background="Transparent" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="auto"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="66"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="66"/>
+                    <ColumnDefinition Width="0.3*"/>
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="ContractTitle"  TextWrapping="NoWrap" Grid.Column="3" Style="{StaticResource TextBoxStyle}" Height="25" Margin="0,0,20,4" HorizontalAlignment="Stretch">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="APPLICATIONTITLE"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATEDATE}" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3"/>
+                <TextBlock  VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EFFICDATE}" TextWrapping="Wrap" Grid.Column="0" Grid.Row="3"/>
+                <TextBlock HorizontalAlignment="Left"  VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTTITLE}" TextWrapping="Wrap" Grid.Column="2" Grid.Row="0"/>
+                <TextBlock HorizontalAlignment="Left"  VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTLEVEL}" TextWrapping="Wrap" Grid.Column="2" Grid.Row="1"/>
+                <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTTYPE}" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+                <TextBlock Grid.Row="6"  VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=THECONTRACT}" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+                <TextBlock HorizontalAlignment="Left" x:Name="txtFile" Grid.Row="7" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FileUpload}" TextWrapping="Wrap" Height="22" VerticalAlignment="Top"/>
+				<TextBlock VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTNUMBER}" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+                <richtext:RichMainPage Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" x:Name="ContractText" Margin="1,5,20,0" MinHeight="200">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="THECONTRACT" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                </richtext:RichMainPage>
+                <!--<TextBox x:Name="ContractText" AcceptsReturn="True"  TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" MinHeight="150" Height="100" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="6" Style="{StaticResource TextBoxStyle}" Margin="1,5,20,0" VerticalAlignment="Top">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="THECONTRACT"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>-->
+                <TextBox x:Name="ContractID"  TextWrapping="NoWrap"  Grid.Column="1" Style="{StaticResource TextBoxStyle}" Height="25" Margin="0,0,20,4" Width="Auto">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CONTRACTNUMBER"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <!--<aa:CtrlFileUploadM x:Name="ctrFile" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Margin="1,5,20,0"/>-->
+                <ComboBox x:Name="ContractLevel" Grid.Column="3" Grid.Row="1" Height="25" Margin="0,0,20,4"/>
+                <controls:DatePicker x:Name="StartTime" Style="{StaticResource DatePickerStyle}" Grid.Row="3" Grid.Column="1" Height="25" Margin="0,0,20,4"/>
+                <controls:DatePicker x:Name="EndTime" Style="{StaticResource DatePickerStyle}"  Grid.Row="3" Grid.Column="3" Height="25" Margin="0,0,20,0" HorizontalAlignment="Stretch"/>
+                <ComboBox x:Name="ContractTypeID" Height="25" Grid.Row="1" SelectionChanged="ContractTypeID_SelectionChanged" Grid.Column="1" Margin="0,0,20,4" />
+                <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTTEMPLATE}" TextWrapping="Wrap" Height="24" Grid.Row="5" />
+                <ComboBox x:Name="HasChosenTemplate" Grid.Row="5" SelectionChanged="HasChosenTemplate_SelectionChanged" Grid.Column="1" Margin="0,0,20,4" Height="25"/>
+
+                <TextBlock Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PARTY}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Grid  Grid.Row="2" Grid.Column="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Height="25" x:Name="txtPartya" TextWrapping="NoWrap"  
+					 IsReadOnly="False" Style="{StaticResource TextBoxStyle}" MaxLength="25" Margin="0,-1,43,4">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ASSETID"/>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <Button  Grid.Column="1" x:Name="btnLookUpPartya"  Height="23" Click="btnLookUpPartya_Click" Margin="-42,1,18,6">
+                        <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+                    </Button>
+                </Grid>
+				<TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=B}" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" HorizontalAlignment="Left"  />
+                <Grid  Grid.Row="2" Grid.Column="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Height="25" x:Name="txtPartyb" TextWrapping="NoWrap"  
+					 IsReadOnly="False" Style="{StaticResource TextBoxStyle}" MaxLength="25" Margin="0,-1,43,4">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ASSETID"/>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <Button  Grid.Column="1" x:Name="btnLookUpPartyb"  Height="23" Click="btnLookUpPartyb_Click" Margin="-42,1,18,6">
+                        <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+                    </Button>
+                </Grid>
+				
+                <TextBlock HorizontalAlignment="Left" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTLOGO}" TextWrapping="Wrap" Width="70" Grid.Column="2"/>
+                <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtYes" Click="rbtYes_Click"  Margin="5,3,0,-3" Content="{Binding Converter={StaticResource ResourceConveter}, Source=BUSINESSCONTRACT}" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Left" Width="52" Height="30" IsChecked="True"/>
+				<RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="RbtNo" Click="RbtNo_Click"  HorizontalAlignment="Left" Margin="65,3,0,-3" Width="46" Height="30" Content="{Binding Converter={StaticResource ResourceConveter}, Source=PERSONNELCONTRACT}" Grid.Column="3" Grid.Row="5" />
+				<TextBlock  VerticalAlignment="Top" x:Name="txtDateSigned" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DATESIGNED}" TextWrapping="Wrap" Grid.Column="0" Grid.Row="4"/>
+				<controls:DatePicker x:Name="DateSigned" Style="{StaticResource DatePickerStyle}" Grid.Row="4" Grid.Column="1" Height="25" Margin="0,1,20,4"/>
+				<TextBlock  VerticalAlignment="Top" x:Name="txtPrintCopies" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PRINTCOPIES}" TextWrapping="Wrap" Grid.Column="2" Grid.Row="4"/>
+                <inputToolkit:NumericUpDown x:Name="nudBalanceMonth" Grid.Column="3" Grid.Row="4" Maximum="12" Margin="0,1,20,4" Height="25" Style="{StaticResource NumericUpDownStyle}"/>
+			</Grid>
+        </controls:TabItem>
+        <!--<controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}">
+            <ScrollViewer Margin="4" d:LayoutOverrides="GridBox" Height="490" x:Name="ShowAudit">
+                <audit:AuditControl x:Name="audit"/>
+            </ScrollViewer>
+        </controls:TabItem>-->
+    </controls:TabControl>
+</smtLocal:BaseForm>

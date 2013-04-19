@@ -1,0 +1,46 @@
+﻿<controls:ChildWindow x:Class="SMT.SaaS.OA.UI.CommForm.EmployeeLookupForm" 
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                      xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                      xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+                      xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                      xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+                      xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                      Width="400" Height="300" >
+    <Grid x:Name="LayoutRoot" Margin="2" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Border  Margin="0 0 0 25">
+                <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"                
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxWidth="1024" MaxHeight="450" >
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn  x:Name="CheckColunm" >
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox x:Name="checkbox" Tag="123" Margin="5,5,0,0" ></CheckBox>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+            </Border>
+            <Border  BorderBrush="Black"  Height="25" VerticalAlignment="Bottom" Margin="0 0 0 0">
+                <StackPanel  VerticalAlignment="bottom" Background="Black" >
+                    <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smtx:GridPager>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Button x:Name="CancelButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCEL}" Click="CancelButton_Click"  
+                Style="{StaticResource ButtonCompetenceStyle}" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1"/>
+        <Button x:Name="OKButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=OKBUTTON}" Click="OKButton_Click" 
+                Style="{StaticResource ButtonCompetenceStyle}" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1"/>
+        <Button x:Name="CloseButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CLEAR}" Click="CloseButton_Click" 
+                Style="{StaticResource ButtonCompetenceStyle}" HorizontalAlignment="Right" Margin="0,12,158,0" Grid.Row="1"/>
+    </Grid>
+</controls:ChildWindow>

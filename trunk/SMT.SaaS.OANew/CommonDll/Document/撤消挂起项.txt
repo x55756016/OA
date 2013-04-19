@@ -1,0 +1,4 @@
+﻿tf workspaces /owner:liujx /computer:* /server:172.20.30.60 /format:detailed
+
+tf undo /workspace:SMT-LIUJX;LiuJX /server:172.20.30.60 $/SMT.SaaS/SMT.SaaS.OA/CommonDll/开发帮助与规范/OA数
+据库设计文档.doc

@@ -1,0 +1,86 @@
+﻿<local:BasePage 
+            xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+            x:Class="SMT.SaaS.OA.UI.Views.BenefitsAdministration.WelfarePaymentWithdrawalPage" 
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	        mc:Ignorable="d"
+			xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+	        xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	        xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	        xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+	        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	        xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	        xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+            xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+            Title="福利发放撤销">
+    <navigation:Page.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+        <local:CustomDateConverter x:Key="DateTimeConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <!--right up begin-->
+
+            <smtx:ViewTitle x:Name="ViewTitles" Grid.Row="0"></smtx:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="controlsToolkitTUV" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top" Grid.Row="1">
+                <Grid Style="{StaticResource FrameGridPagerStyle}" ShowGridLines="False" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BENEFITSPAIDWERE}"/>
+                        <TextBox x:Name="txtProvisionName" Width="100" Margin="5,0,0,0" VerticalAlignment="Top"/>
+                        <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTENTDISTRIBUTION}"/>
+                        <TextBox x:Name="txtProvisionContent" Width="100" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                        <Button x:Name="Search" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Style="{StaticResource CommonButtonStyle}" Margin="10,0,0,0" Click="Search_Click" />
+                        <Button x:Name="EmptyBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CLEAR}" Margin="10,0,0,0" Click="EmptyBtn_Click"  Style="{StaticResource CommonButtonStyle}" Width="60"/>
+                    </StackPanel>
+                </Grid>
+            </controlsToolkit:Expander>
+
+            <smtx:FormToolBar x:Name="FormToolBar1" Background="Transparent" Grid.Row="2"></smtx:FormToolBar>
+            <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False" Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}"  Grid.Row="3"
+                           RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" 
+                           ItemsSource="{Binding Collection}" LoadingRow="DaGr_LoadingRow" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" IsReadOnly="True">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--<CheckBox x:Name="myChkBox" Tag="{Binding ARCHIVESID}" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>-->
+                                <Image Name="entityLogo" Tag="{Binding ARCHIVESID}" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="BENEFITSPAIDWERE" Binding="{Binding welfareProvision.WELFAREDISTRIBUTETITLE,Mode=TwoWay}" />
+                    <data:DataGridTextColumn Header="CREATEUSERID" Binding="{Binding beingWithdrawn.CREATEUSERNAME,Mode=TwoWay}" />
+                    <data:DataGridTextColumn Header="CREATECOMPANYID" Binding="{Binding beingWithdrawn.CREATECOMPANYID,Mode=TwoWay,Converter={StaticResource CompanyConvert},ConverterParameter=Company}" />
+                    <data:DataGridTextColumn Header="RESPECTIVEPOSITIONS" Binding="{Binding beingWithdrawn.OWNERPOSTID,Mode=TwoWay,Converter={StaticResource CompanyConvert},ConverterParameter=Post}" />
+                    <data:DataGridTemplateColumn Header="CHECKSTATE" >
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=beingWithdrawn.CHECKSTATE,Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" VerticalAlignment="Center" ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <!--<data:DataPager x:Name="dpGrid" DisplayMode="FirstLastPreviousNextNumeric"  Source="{Binding ItemsSource,ElementName=DaGr}" VerticalAlignment="Bottom" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" />-->
+            <smtx:GridPager Name="dpGrid" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

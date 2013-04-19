@@ -1,0 +1,135 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views"
+             
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             x:Class="SMT.SaaS.OA.UI.UserControls.HouseInfoIssuranceForm"
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+             xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+                   xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+                    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+
+                   
+             mc:Ignorable="d">    
+    <Grid x:Name="LayoutRoot" SizeChanged="LayoutRoot_SizeChanged" Margin="2" >
+        <ctr:TabControl x:Name="tbcContainer" Margin="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TabControlStyle}">
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+               <Grid x:Name="MainGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="0.146*"/>
+                            <ColumnDefinition Width="0.854*"/>
+                        </Grid.ColumnDefinitions>
+                        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                        <!--Title-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISSUANCETITLE}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Text="{Binding ISSUANCETITLE,Mode=TwoWay}" x:Name="txtTitle" MaxLength="200" VerticalScrollBarVisibility="Auto" Margin="5,2,20,2"   VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="2">
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ISSUANCETITLE"></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                        <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+
+                    </TextBox>
+                        <!--Content-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISSUANCECONTENT}" VerticalAlignment="Top" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
+                    <richtext:RichMainPage Grid.Row="1"
+                                           Grid.Column="1"
+                                           Grid.ColumnSpan="2"
+                                           x:Name="txtContent"
+                                           MinHeight="200"
+                                           MaxHeight="300"
+                                           Margin="5,0,20,0">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1"
+                                                         ErrorMessage="REQUIRED"
+                                                         ErrorMessageParameter="ISSUANCECONTENT"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire></behaviors:ShowRequire>
+                        </interaction:Interaction.Behaviors>
+                    </richtext:RichMainPage>
+                   
+                       <!--WorkYear-->
+                    <Border BorderBrush="#FF6D8193" Grid.Row="3" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Width="Auto" Margin="0,7,20,7"  />                        
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DISTRBUTEOBJECT}" VerticalAlignment="Top" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="0"/>
+                        <data:DataGrid x:Name="dgIssunanceObj" AutoGenerateColumns="False"   IsReadOnly="True" 
+                                       VerticalScrollBarVisibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Top" Style="{StaticResource DataGridStyle}"
+                                       CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                                       RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                       Grid.Row="4" Grid.Column="1" Margin="5,0,20,0" Grid.ColumnSpan="2" MinHeight="200">
+                            <data:DataGrid.Columns>
+                                <data:DataGridTemplateColumn Header="SELECT">
+                                    <data:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Style="{StaticResource CheckBoxStyle}" x:Name="myChkBoxObj" Tag="{Binding ObjectID}" VerticalAlignment="Center" HorizontalAlignment="Center"></CheckBox>
+                                        </DataTemplate>
+                                    </data:DataGridTemplateColumn.CellTemplate>
+                                </data:DataGridTemplateColumn>
+                                <data:DataGridTextColumn Header="OBJECTTYPE" Binding="{Binding ObjectType,Converter={StaticResource ObjectTypeConverter}}"></data:DataGridTextColumn>
+                                <data:DataGridTextColumn Header="OBJECTNAME" Binding="{Binding ObjectName}"></data:DataGridTextColumn>
+                            </data:DataGrid.Columns>
+                        </data:DataGrid>
+                        <!--
+                        <TextBlock x:Name="tbFirstRowTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOUSEINFO}" Style="{StaticResource HeaderTextStyle}" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,4,0,0"/>
+                        <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="3" BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Top"  />
+                        
+                        <TextBlock x:Name="tbSecondRowTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DISTRBUTEOBJECT}" Style="{StaticResource HeaderTextStyle}" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,4,0,0"/>
+                        <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="6" BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Top"  />
+                        -->
+                       
+                    </Grid>
+            </ctr:TabItem>
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=HOUSEINFO}" Style="{StaticResource TabItemStyle}">
+                 <data:DataGrid x:Name="dgHouse" AutoGenerateColumns="False"   IsReadOnly="True" 
+                                MinHeight="350" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Stretch" 
+                                VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                                RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                            <data:DataGrid.Columns>
+                                <data:DataGridTemplateColumn Header="SELECT">
+                                    <data:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox x:Name="myChkBox" Style="{StaticResource CheckBoxStyle}" Unchecked="myChkBox_Unchecked" Checked="myChkBox_Checked" Tag="{Binding HOUSEID}" VerticalAlignment="Center" HorizontalAlignment="Center"></CheckBox>
+                                        </DataTemplate>
+                                    </data:DataGridTemplateColumn.CellTemplate>
+                                </data:DataGridTemplateColumn>
+                                <data:DataGridTextColumn Header="COMMUNITY" Binding="{Binding UPTOWN}"></data:DataGridTextColumn>
+                                <data:DataGridTextColumn Header="BUILDING" Binding="{Binding HOUSENAME}"></data:DataGridTextColumn>
+                                <data:DataGridTextColumn Header="FLOOR" Binding="{Binding FLOOR}"></data:DataGridTextColumn>
+                                <data:DataGridTextColumn Header="ROOMNO" Binding="{Binding ROOMCODE}"></data:DataGridTextColumn>
+                                <data:DataGridTextColumn Header="RENTCOST" Binding="{Binding RENTCOST}"></data:DataGridTextColumn>
+                                <data:DataGridTextColumn Header="DEPOSIT" Binding="{Binding DEPOSIT}"></data:DataGridTextColumn>
+								<data:DataGridTextColumn Header="SHAREDDEPOSIT" Binding="{Binding SHAREDDEPOSIT}"></data:DataGridTextColumn>
+								<data:DataGridTextColumn Header="SHAREDRENTCOST" Binding="{Binding SHAREDRENTCOST}"></data:DataGridTextColumn>
+                                <data:DataGridTextColumn Header="HIRENUMBER" Binding="{Binding Number}"></data:DataGridTextColumn>
+                            
+                                <data:DataGridTextColumn Header="MANAGEMENTFEE" Binding="{Binding MANAGECOST}"></data:DataGridTextColumn>
+                            </data:DataGrid.Columns>
+                        </data:DataGrid>
+            </ctr:TabItem>           
+            <!--<ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ScrollViewer x:Name="scvAudit" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="350">
+                            <audit:AuditControl Visibility="Visible" x:Name="audit">
+                            </audit:AuditControl>
+                        </ScrollViewer>
+                </StackPanel>
+            </ctr:TabItem>-->
+        </ctr:TabControl>        
+    </Grid>
+</smtLocal:BaseForm>

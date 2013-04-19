@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1cb5d079-4756-4b99-bb3c-bea418834cf5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Microsoft.Expression.Prototyping.Interactivity" />
+      <ReferencedAssembly AssemblyName="Microsoft.Expression.Prototyping.Runtime" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.ComponentModel.DataAnnotations" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Net" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.Windows" />
+      <ReferencedAssembly AssemblyName="System.Windows.Browser" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.DataForm.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.DataVisualization.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Layout.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Navigation" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Theming.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Data" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Serialization" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3938/SmtOADocumentAdmin.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SmtOADocumentAdmin8.xsd" MetadataType="Schema" ID="8aaa09d3-5294-48d3-bbfd-49a314f35ffe" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd8" />
+    <MetadataFile FileName="SmtOADocumentAdmin.xsd" MetadataType="Schema" ID="4c3e27e7-33ce-4375-9b85-3c2c63528edf" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd1" />
+    <MetadataFile FileName="SmtOADocumentAdmin1.xsd" MetadataType="Schema" ID="e61c5daa-e872-4272-819f-7ec7bb9e31eb" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd0" />
+    <MetadataFile FileName="SmtOADocumentAdmin2.xsd" MetadataType="Schema" ID="916c8702-d2b2-4afd-ba49-9d794f3b85b7" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd3" />
+    <MetadataFile FileName="SmtOADocumentAdmin3.xsd" MetadataType="Schema" ID="baca5a23-9e8f-48dd-89ac-5af2c9da26c0" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd2" />
+    <MetadataFile FileName="SmtOADocumentAdmin4.xsd" MetadataType="Schema" ID="4ce2f522-5c9d-4acf-970e-916f65a14a2a" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd5" />
+    <MetadataFile FileName="SmtOADocumentAdmin.wsdl" MetadataType="Wsdl" ID="150119c2-0eb7-4ef2-aa7f-1bdb54c9f69e" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?wsdl" />
+    <MetadataFile FileName="SmtOADocumentAdmin.disco" MetadataType="Disco" ID="b3d04e1a-233b-4bdf-8a9f-f047b3859eff" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?disco" />
+    <MetadataFile FileName="SmtOADocumentAdmin7.xsd" MetadataType="Schema" ID="6b8d8b47-9dbf-47f8-a135-74341010505b" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd6" />
+    <MetadataFile FileName="SmtOADocumentAdmin1.wsdl" MetadataType="Wsdl" ID="c35a034c-fb80-4611-afda-f02be29aa09c" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SmtOADocumentAdmin5.xsd" MetadataType="Schema" ID="98bb9d8b-280e-4f07-b4c0-df02a7bce00d" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd4" />
+    <MetadataFile FileName="SmtOADocumentAdmin6.xsd" MetadataType="Schema" ID="2f2225c4-a917-4bfa-b7fd-28305da7e96a" SourceId="1" SourceUrl="http://localhost:3938/SmtOADocumentAdmin.svc?xsd=xsd7" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

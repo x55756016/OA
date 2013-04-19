@@ -1,0 +1,171 @@
+﻿<localbase:BasePage 
+    x:Class="SMT.SaaS.OA.UI.Views.Bumf.CompanySendDocManagement" 
+    xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views.Meeting" 
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"         
+    d:DesignWidth="640" d:DesignHeight="480"
+    xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+    xmlns:localbase="clr-namespace:SMT.SaaS.OA.UI"                    
+                    Title="CompanySendDocManagement Page">
+    <navigation:Page.Resources>
+        <local:ConverterDateToFormatString x:Key="DateTimeConvert" />
+        <local:ConverterMeetingContentToFormatString x:Key="ContentConvert" />
+        <local:ConverterDocDistrbute x:Key="ConverterDocDistrbute"/>
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" Grid.Row="0" VerticalAlignment="Top"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="controlsToolkitTUV" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top"  Margin="0,1,0,2" >
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SENDDOCTITLE}" Margin="2,4" />
+                        <TextBox x:Name="txtSendDocTitle" MaxLength="50" Width="120" Margin="4,0,0,0"/>                        
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ADDDATE}" Margin="2,4" />
+                        <basics:DatePicker x:Name="dpStart"  MinWidth="92" Margin="4,0,0,0"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" Margin="2,4" />
+                        <basics:DatePicker x:Name="dpEnd"  MinWidth="92" Margin="4,0,0,0"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=OWNERID}"
+                                   Width="auto"
+                                   VerticalAlignment="Bottom"
+                                   Margin="2,5,1,5" />
+                        <TextBox x:Name="txtOwnerName"
+                              HorizontalAlignment="left"
+                              VerticalAlignment="Bottom"
+                              Style="{StaticResource TextBoxStyle}"
+                              IsReadOnly="True"
+                              Width="100"
+                              Margin="2,2,0,4" d:LayoutOverrides="HorizontalAlignment" />
+
+                        <Button x:Name="btnLookUpOwner"
+                                    Height="22"
+                                    Click="btnLookUpOwner_Click"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,2,0,3"
+                                    d:LayoutOverrides="HorizontalAlignment, Height">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png" />
+                        </Button>
+                        <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Click="SearchBtn_Click" Margin="4,1,10,1" Style="{StaticResource CommonButtonStyle}"/>
+                        <Button x:Name="btnReset"
+                                Content="{Binding Converter={StaticResource ResourceConveter}, Source=RESET}"
+                                Click="btnReset_Click"
+                                Width="60"
+                                Margin="5,2,5,2"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource CommonButtonStyle}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=GRADENAME}" Margin="2,4" />
+                        <appCtr:TravelDictionaryComboBox x:Name="cbxGrade" Category="COMPANYDOCGRADE"  Style="{StaticResource ComboBoxStyle}" MinWidth="100" Margin="4,0,0,0"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DOCTYPE}" Margin="2,4" />
+                        <ComboBox x:Name="cbxdoctype" Style="{StaticResource ComboBoxStyle}"  MinWidth="100" Margin="4,0,0,0"></ComboBox>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PRIORITYNAME}" Margin="2,4" />
+                        <appCtr:TravelDictionaryComboBox x:Name="cbxProritity" Category="COMPANYDOCPRIORITY" Style="{StaticResource ComboBoxStyle}"  MinWidth="100" Margin="4,0,0,0"/>
+                        <StackPanel x:Name="spIsSave" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISARCHIVES}" Margin="2,4" />
+                            <ComboBox x:Name="cbxIsSave" Style="{StaticResource ComboBoxStyle}"  MinWidth="70" Margin="4,0,0,0">
+                                <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=PLEASESELECTED}" IsSelected="True"></ComboBoxItem>
+                                <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=NOSAVEDBUMF}"></ComboBoxItem>
+                                <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=SAVEDBUMF}"></ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel x:Name="spIsDistrbute" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DISTRBUTESTATE}" Margin="2,4" />
+                            <ComboBox x:Name="cbxDistrbute" Style="{StaticResource ComboBoxStyle}"  MinWidth="70">
+                                <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=PLEASESELECTED}" IsSelected="True"></ComboBoxItem>
+                                <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=NODISTRBUTEBUMF}"></ComboBoxItem>
+                                <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=DISTRBUTEDBUMF}"></ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+
+                </StackPanel>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False"  
+                           ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                           LoadingRow="DaGr_LoadingRow"   IsReadOnly="True" 
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" SelectionChanged="DaGr_SelectionChanged"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           Grid.Column="1" Grid.Row="3">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                 <Image Name="entityLogo" Width="16" Height="16"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Header="SENDDOCTITLE">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=OACompanySendDoc.SENDDOCTITLE,Converter={StaticResource ContentConvert},ConverterParameter=30}" ToolTipService.ToolTip="{Binding Path=OACompanySendDoc.SENDDOCTITLE}" MaxWidth="200"  Margin="2,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <!--<data:DataGridTextColumn Header="SENDDOCTITLE"
+                                             Binding="{Binding  Path=OACompanySendDoc.SENDDOCTITLE,Converter={StaticResource ContentConvert},ConverterParameter=40}"/>-->
+                    <data:DataGridTextColumn Header="DOCUMENTTYPE" Binding="{Binding doctype.SENDDOCTYPE}"/>
+                    <data:DataGridTextColumn Header="GRADENAME" Binding="{Binding OACompanySendDoc.GRADED}"/>
+                    <data:DataGridTextColumn Header="PRIORITYNAME" Binding="{Binding OACompanySendDoc.PRIORITIES}"/>                    
+                    <data:DataGridTextColumn Header="DOCUMENTNUM"
+                                             Binding="{Binding OACompanySendDoc.NUM}" />
+                    <data:DataGridTextColumn Header="KEYWORDS"
+                                             Binding="{Binding OACompanySendDoc.KEYWORDS}" />
+                    <data:DataGridTemplateColumn Header="CHECKSTATE">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=OACompanySendDoc.CHECKSTATE,Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}"
+                                               VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Header="DISTRBUTESTATE">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=OACompanySendDoc.ISDISTRIBUTE,Converter={StaticResource ConverterDocDistrbute}}"
+                                               VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="ADDPEOPLE" Binding="{Binding OACompanySendDoc.CREATEUSERNAME}"/>                    
+                    
+                    <data:DataGridTemplateColumn Header="ADDDATE">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=OACompanySendDoc.CREATEDATE,Converter={StaticResource DateTimeConvert}}" VerticalAlignment="Center"  Width="120" Margin="2,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click"  VerticalAlignment="Bottom" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</localbase:BasePage>

@@ -1,0 +1,106 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.MaintenanceAppForm_aud"    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   
+    xmlns:fbctr="clr-namespace:SMT.SaaS.FrameworkUI.FBControls;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI" >
+    <Grid x:Name="LayoutRoot" Margin="2" Loaded="LayoutRoot_Loaded">
+        <controls:TabControl  Margin="2" Style="{StaticResource TabControlStyle}">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+				<Grid Margin="7">
+                    <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition  Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                    <TextBlock Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=VIN}" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                    <ComboBox x:Name="cmbVehicleAssetId" Grid.Row="0" Grid.Column="1" Style="{StaticResource ComboBoxStyle}"  Width="auto"  HorizontalAlignment="Stretch" VerticalAlignment="Center"></ComboBox>
+                   
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MaintenanceType}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource SysTextBlockStyle}"/>
+                    <ComboBox x:Name="cmbRepairName" Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStyle}" Width="auto"  HorizontalAlignment="Stretch" VerticalAlignment="Center">                       
+                    </ComboBox>
+                    
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REPAIRDATE}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource SysTextBlockStyle}"/>
+                    <controls:DatePicker Grid.Row="2" Grid.Column="1"  x:Name="dateREPAIRDATE" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,0,0,0">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="REPAIRDATE" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </controls:DatePicker>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RETRIEVEDATE}" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource SysTextBlockStyle}"/>
+                    <controls:DatePicker Grid.Row="3" Grid.Column="1"  x:Name="dateRETRIEVEDATE" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Margin="5,0,0,0">                   
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="RETRIEVEDATE" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </controls:DatePicker>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REPAIRCOMPANY}" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource SysTextBlockStyle}"/>
+                    <TextBox Grid.Row="4" Grid.Column="1"  x:Name="txtREPAIRCOMPANY" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+					Style="{StaticResource TextBoxStyle}" MaxLength="50">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="REPAIRCOMPANY" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=APPTEL}" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource SysTextBlockStyle}"/>
+                    <TextBox Grid.Row="5" Grid.Column="1"  x:Name="txtTel" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+					Style="{StaticResource TextBoxStyle}" MaxLength="50">
+                       <validator:ValidatorService.Validator>
+                            <validator:RegexValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="APPTEL"></validator:RegexValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RepairContent}" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource SysTextBlockStyle}"/>
+                    <TextBox Grid.Row="6" Grid.Column="1"  x:Name="txtContent" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+					 Style="{StaticResource TextBoxStyle}" MaxLength="200" MinHeight="60" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CONTENT" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Style="{StaticResource SysTextBlockStyle}"/>
+                    <TextBox Grid.Row="7" Grid.Column="1"  x:Name="txtReMark" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+					Style="{StaticResource TextBoxStyle}" MaxLength="200" MinHeight="60" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap">
+                    </TextBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=IsHasFee}" Grid.Row="8" Grid.Column="0" Style="{StaticResource SysTextBlockStyle}"/>
+                    <Grid Grid.Row="8" Grid.Column="1" Width="auto" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="ckbHasFee" Grid.Column="0" Checked="CheckBox_Click" Unchecked="CheckBox_Click" VerticalAlignment="Center"></CheckBox>
+                        <TextBlock x:Name="txbFee" Text="{Binding Converter={StaticResource ResourceConveter}, Source=RepairFees}"  Grid.Column="1" Style="{StaticResource SysTextBlockStyle}" Visibility="Collapsed"/>
+                        <TextBox x:Name="txtFee" Style="{StaticResource TextBoxStyle}" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Visibility="Collapsed">
+                            <validator:ValidatorService.Validator>
+                                <validator:RegexValidator ManagerName="Group1" ErrorMessage="REQUIREDNUMERICAL" ErrorMessageParameter="RepairFees" Expression="^[0-9]+(.[0-9]{1,2})?$"></validator:RegexValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                    </Grid>
+                    <!--预算控件-->
+                    <ScrollViewer  Grid.Row="9" Grid.Column="1"  x:Name="scvFB" Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <fbctr:ChargeApplyControl  x:Name="fbCtr" Width="auto">
+                        </fbctr:ChargeApplyControl>
+                    </ScrollViewer>
+                </Grid>
+				</ScrollViewer>
+            </controls:TabItem>
+            <!--<controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ScrollViewer x:Name="slvView"  Grid.Row="8" Grid.ColumnSpan="2" VerticalAlignment="Top">
+                        <audit:AuditControl x:Name="viewApproval" AuditCompleted="viewApproval_AuditCompleted">
+                        </audit:AuditControl>
+                    </ScrollViewer>
+                </StackPanel>
+            </controls:TabItem>-->
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

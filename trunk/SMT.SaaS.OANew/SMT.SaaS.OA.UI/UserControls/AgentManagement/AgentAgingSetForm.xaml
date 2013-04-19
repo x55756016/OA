@@ -1,0 +1,124 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+	xmlns:fbctr="clr-namespace:SMT.SaaS.FrameworkUI.FBControls;assembly=SMT.SaaS.FrameworkUI"
+	xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+	xmlns:UserControls="clr-namespace:SMT.SaaS.OA.UI.UserControls"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+    x:Class="SMT.SaaS.OA.UI.UserControls.AgentManagement.AgentAgingSetForm">
+    <controls:TabControl  x:Name="tbcContainer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TabControlStyle}">
+        <controls:TabItem Header="使用代理时效设置" Visibility="Visible" Style="{StaticResource TabItemStyle}">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+                <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" Margin="4,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="66" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="86" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+                    <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" Margin="0,8,0,0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EFFECTDATE}" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Top"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,8,0,0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=INVALIDDATE}" TextWrapping="Wrap" HorizontalAlignment="Left" RenderTransformOrigin="0.434,1.263" d:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Margin="0,8,0,0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+                    <TextBlock HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Text="{Binding Converter={StaticResource ResourceConveter}, Source=BELONGSTOTHESYSTEM}"
+                           TextWrapping="Wrap"
+                           Margin="0,8,0,0" />
+						   <ComboBox Grid.Column="1" Grid.Row="0" x:Name="cbSYSTEMTYPE"  Margin="0,1,20,4" Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" SelectionChanged="cbSYSTEMTYPE_SelectionChanged"></ComboBox>
+                    <!--<appCtr:TravelDictionaryComboBox Grid.Column="1"
+                                           Grid.Row="0"
+                                           x:Name="cbSYSTEMTYPE"
+                                           Category=""
+                                           SelectedValue=""
+                                           Margin="0,1,20,4"
+                                           Height="25"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Width="Auto"
+                                           SelectionChanged="cbSYSTEMTYPE_SelectionChanged" />-->
+
+                    <TextBlock HorizontalAlignment="Left"
+                           Grid.Row="0"
+                           Grid.Column="2"
+                           VerticalAlignment="Top"
+                           Text="{Binding Converter={StaticResource ResourceConveter}, Source=AGENTMODULE}"
+                           TextWrapping="Wrap"
+                           Margin="0,8,0,0" />
+						   <ComboBox Grid.Column="3" Grid.Row="0" x:Name="cbModelCode"  Margin="0,1,20,4" Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto"></ComboBox>
+                    <!--<appCtr:TravelDictionaryComboBox 
+                                           Grid.Row="0"
+                                           Grid.Column="3"
+                                           x:Name="cbModelCode"
+                                           Category=""
+                                           SelectedValue=""
+                                           Margin="0,1,20,4"
+                                           Height="25"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Width="Auto"/>-->
+                    <TextBox x:Name="txtEMPLOYEENAME"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         IsReadOnly="True"
+                         TextWrapping="NoWrap"
+                         Height="25"
+                         Style="{StaticResource TextBoxStyle}"
+                         Margin="0,1,20,4" />
+                    <!--<TextBlock HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=AGENTMODULE}" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
+                    <TextBox x:Name="txtAGENTMODULE"
+                         TextWrapping="NoWrap"
+                         Text="{Binding SYSCODE,Mode=TwoWay}"
+						 Grid.Row="0"
+                         Grid.Column="3"
+                         Style="{StaticResource TextBoxStyle}"
+                         Visibility="Collapsed"
+                         Height="25"
+                         Margin="0,1,20,4"
+                         d:LayoutOverrides="Height" />
+                    
+                    <controls:DatePicker Grid.Row="2" Grid.Column="1" Style="{StaticResource DatePickerStyle}" x:Name="dINVALIDDATE" Height="25" Margin="0,1,20,4" 
+                                     Text="{Binding Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                    <controls:DatePicker Grid.Row="1" Grid.Column="3" Style="{StaticResource DatePickerStyle}" x:Name="dEFFECTDATE" Margin="0,1,20,4"
+                                     Text="{Binding Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                    <TextBlock HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" Margin="0,8,0,0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PLANEXPIRATIONDATE}" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.438" VerticalAlignment="Top"/>
+                    
+                    <!--预算控件-->
+                    <!--<Grid Grid.Row="8" Grid.Column="1" Margin="20 0 20 0" Grid.ColumnSpan="3"
+                                      x:Name="scvFB" VerticalAlignment="Stretch"
+                                      HorizontalAlignment="Stretch" Visibility="Collapsed">
+                        <fbctr:ChargeApplyControl  x:Name="fbCtr">
+                        </fbctr:ChargeApplyControl>
+                    </Grid>-->
+                    <controls:DatePicker Grid.Row="2" Grid.Column="3" Style="{StaticResource DatePickerStyle}" x:Name="dPLANEXPIRATIONDATE" Height="25" Margin="0,1,20,4" 
+                    	Text="{Binding ConverterParameter=DATE, Converter={StaticResource CustomDateConverter}, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                </Grid>
+            </ScrollViewer>
+        </controls:TabItem>
+        <!--<controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+            <ScrollViewer Margin="4" d:LayoutOverrides="GridBox" Height="490" x:Name="ShowAudit">
+                <audit:AuditControl x:Name="audit"/>
+            </ScrollViewer>
+        </controls:TabItem>-->
+    </controls:TabControl>
+</smtLocal:BaseForm>

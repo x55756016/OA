@@ -1,0 +1,98 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.Bumf.DocTypeManagement" 
+            xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	        mc:Ignorable="d"
+	        xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	        xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	        xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+	        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	        xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	        xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+            xmlns:convert="clr-namespace:SMT.SaaS.OA.UI.Views.Meeting" 
+            xmlns:Bumf ="clr-namespace:SMT.SaaS.OA.UI.Views.Bumf"
+            xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+            xmlns:local="clr-namespace:SMT.SaaS.OA.UI"        
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"         
+           Title="DocTypeManagement Page" >
+    <navigation:Page.Resources>
+        <Bumf:ConverterOPTFlagToString x:Key="FlagConvert" />
+        <convert:ConverterDateToFormatString x:Key="DateTimeConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" IsExpanded="True"  x:Name="controlsToolkitTUV" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top"  Margin="0,1,0,2" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DOCUMENTTYPE}" Margin="4" />
+                    <TextBox x:Name="txtDocType" Width="100" MaxLength="50" Style="{StaticResource TextBoxStyle}"/>
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=ADDDATE}" Margin="4,2,0,2"></dataInput:Label>
+                    <controls:DatePicker x:Name="dpStart" Margin="4,1,4,1" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" Margin="4,2,0,2"></dataInput:Label>
+                    <controls:DatePicker x:Name="dpEnd" Margin="4,1,4,1" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISARCHIVES}" Margin="4" />
+                    <ComboBox x:Name="cbxIsSave" Width="80" Style="{StaticResource ComboBoxStyle}">
+                        <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=PLEASESELECTED}" IsSelected="True"/>
+                        <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=RECORD}"/>
+                        <ComboBoxItem Content="{Binding Converter={StaticResource ResourceConveter}, Source=NORECORD}"/>
+                    </ComboBox>
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  Click="SearchBtn_Click" Margin="4,1,10,1" Style="{StaticResource CommonButtonStyle}" />
+                </StackPanel>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <Grid Grid.Row="3">
+                <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False"  
+                           ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                           LoadingRow="DaGr_LoadingRow" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Style="{StaticResource DataGridStyle}"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           SelectionChanged="DaGr_SelectionChanged"
+                           Grid.Column="1">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}" >
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="DOCUMENTTYPE" Binding="{Binding SENDDOCTYPE}"/>
+                        <data:DataGridTemplateColumn Header="ISARCHIVES">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=OPTFLAG,Converter={StaticResource FlagConvert}}" VerticalAlignment="Center"></TextBlock>                                  
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="ADDPEOPLE" Binding="{Binding CREATEUSERNAME}"/>
+                        <data:DataGridTemplateColumn Header="ADDDATE">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=CREATEDATE,Converter={StaticResource DateTimeConvert}}" VerticalAlignment="Center"  Width="120" Margin="2,0,0,0"></TextBlock>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="UPDATEUSERID" Binding="{Binding UPDATEUSERNAME}"/>
+                        <data:DataGridTemplateColumn Header="UPDATEDATE">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=UPDATEDATE,Converter={StaticResource DateTimeConvert}}" VerticalAlignment="Center"  Width="120" Margin="2,0,0,0"></TextBlock>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+            </Grid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4" VerticalAlignment="Bottom"></smt:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

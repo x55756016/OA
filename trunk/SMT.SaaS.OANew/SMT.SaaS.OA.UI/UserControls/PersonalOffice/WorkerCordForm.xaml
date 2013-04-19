@@ -1,0 +1,58 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.WorkerCordForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+              xmlns:UserControls="clr-namespace:SMT.SaaS.OA.UI.UserControls"
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"></ColumnDefinition>
+            <ColumnDefinition Width="0.75*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <TextBlock Grid.Row="0" Grid.Column="0"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=WorkCordDateTime}" TextWrapping="Wrap" Style="{StaticResource SysTextBlockStyle}" VerticalAlignment="Center"/>
+        <Grid Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <UserControls:DateTimeInput Grid.Column="0" Grid.Row="0"  x:Name="dtiDateTime"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="auto" Height="auto">
+                <validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="STARTTIME" ></validator:RequiredValidator>
+                </validator:ValidatorService.Validator>
+            </UserControls:DateTimeInput>
+            <TextBlock Grid.Column="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CREATEUSERID}" Style="{StaticResource SysTextBlockStyle}" VerticalAlignment="Center" TextWrapping="Wrap" Margin="10,3,0,0" Width="36" />
+            <TextBox x:Name="txtCreateUserName" Grid.Row="0" Grid.Column="2" MaxLength="50" IsReadOnly="True" Style="{StaticResource TextBoxStyle}" Width="auto" Height="auto" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+        </Grid>
+
+        
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WorkCordTitle}" Style="{StaticResource SysTextBlockStyle}" VerticalAlignment="Top" TextWrapping="Wrap"/>
+        
+        
+        <TextBox x:Name="txtTitle" Grid.Row="1" Grid.Column="1" MaxLength="50"  Style="{StaticResource TextBoxStyle}" Width="auto" Height="auto" TextWrapping="NoWrap">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="WorkCordTitle" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WorkCordContent}" Style="{StaticResource SysTextBlockStyle}" VerticalAlignment="Top" />
+        <TextBox x:Name="txtContent"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Visible"
+                 Style="{StaticResource TextBoxStyle}" Width="auto" Height="auto" MinHeight="220" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="WorkCordContent" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+    </Grid>
+</smtLocal:BaseForm>

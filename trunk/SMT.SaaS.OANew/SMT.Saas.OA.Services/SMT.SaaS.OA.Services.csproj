@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F41CE952-0A8E-488C-BD79-05BE26D28801}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.SaaS.OA.Services</RootNamespace>
+    <AssemblyName>SMT.SaaS.OA.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMT.Foundation.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Smt.Global.IContract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\Smt.Global.IContract.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Services">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Services.Client">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AgentServices.svc" />
+    <Content Include="clientaccesspolicy.xml" />
+    <Content Include="EngineEventServices.svc" />
+    <Content Include="EngineServices.svc" />
+    <Content Include="OAUpdateCheckServices.svc" />
+    <Content Include="SmtOACommonAdmin.svc" />
+    <Content Include="SmtOACommonOffice.svc" />
+    <Content Include="SmtOADocumentAdmin.svc" />
+    <Content Include="SmtOAPersonOffice.svc" />
+    <Content Include="TestEngineUpdateCheckState.aspx" />
+    <Content Include="TravrlPrintServices.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgentServices.svc.cs">
+      <DependentUpon>AgentServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Class\CommonOffice\AgentManagementService.cs" />
+    <Compile Include="Class\DocumentAdmin\WelfareStandardService.cs" />
+    <Compile Include="Class\CommonAdmin\AccidentRecordManageService.cs" />
+    <Compile Include="Class\CommonAdmin\ConserVationManageService.cs" />
+    <Compile Include="Class\DocumentAdmin\ContractManagementServiceFrom.cs" />
+    <Compile Include="Class\CommonAdmin\CostRecordManagerService.cs" />
+    <Compile Include="Class\CommonAdmin\MaintenanceAPPService.cs" />
+    <Compile Include="Class\CommonAdmin\VehicleDispatchManageService.cs" />
+    <Compile Include="Class\CommonAdmin\VehicleInfoManageService.cs" />
+    <Compile Include="Class\CommonAdmin\VehicleUseAppManageService.cs" />
+    <Compile Include="Class\CommonAdmin\HousingManagement.cs" />
+    <Compile Include="Class\CommonOffice\BumfManagementService.cs" />
+    <Compile Include="Class\CommonOffice\MeetingManagementService.cs" />
+    <Compile Include="Class\CTestFlow.cs" />
+    <Compile Include="Class\DocumentAdmin\ArchivesManagementService.cs" />
+    <Compile Include="Class\DocumentAdmin\OrganManagementService.cs" />
+    <Compile Include="Class\Enums.cs" />
+    <Compile Include="Class\LoginUserInfo.cs" />
+    <Compile Include="Class\PersonOffice\ApprovalManagementService.cs" />
+    <Compile Include="Class\PersonOffice\AreaAllowanceServices.cs" />
+    <Compile Include="Class\PersonOffice\CalendarManagementService.cs" />
+    <Compile Include="Class\PersonOffice\EmployeeSurveyControlServices.cs" />
+    <Compile Include="Class\PersonOffice\EmployeeSurveysCreateManagementService.cs" />
+    <Compile Include="Class\PersonOffice\EmployeeSurveysService.cs" />
+    <Compile Include="Class\PersonOffice\EmployeeSurveyViewService.cs" />
+    <Compile Include="Class\PersonOffice\SatisfactionsService.cs" />
+    <Compile Include="Class\PersonOffice\Survey\EmployeeSurvey\EmployeeAppService.cs" />
+    <Compile Include="Class\PersonOffice\Survey\EmployeeSurvey\EmployeeSurveyingService.cs" />
+    <Compile Include="Class\PersonOffice\Survey\EmployeeSurvey\EmployeeSurveyRequireDistributeService.cs" />
+    <Compile Include="Class\PersonOffice\Survey\EmployeeSurvey\EmployeeSurveyService.cs" />
+    <Compile Include="Class\PersonOffice\Survey\SatisfactionSurvey\SatisfactionAppService.cs" />
+    <Compile Include="Class\PersonOffice\Survey\SatisfactionSurvey\SatisfactionDistributeService.cs" />
+    <Compile Include="Class\PersonOffice\Survey\SatisfactionSurvey\SatisfactionSurveyService.cs" />
+    <Compile Include="Class\PersonOffice\TravelmanagementService.cs" />
+    <Compile Include="Class\PersonOffice\OrderMealService.cs" />
+    <Compile Include="Class\PersonOffice\TravelReimbursementService.cs" />
+    <Compile Include="Class\PersonOffice\WorkerCordManagementService.cs" />
+    <Compile Include="Class\PersonOffice\SatisfactionService.cs" />
+    <Compile Include="EngineEventServices.svc.cs">
+      <DependentUpon>EngineEventServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="EngineServices.svc.cs">
+      <DependentUpon>EngineServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IUserAuthenticate.cs" />
+    <Compile Include="OAUpdateCheckServices.svc.cs">
+      <DependentUpon>OAUpdateCheckServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SerializerHelper.cs" />
+    <Compile Include="SmtOACommonAdmin.svc.cs">
+      <DependentUpon>SmtOACommonAdmin.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SmtOACommonOffice.svc.cs">
+      <DependentUpon>SmtOACommonOffice.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SmtOADocumentAdmin.svc.cs">
+      <DependentUpon>SmtOADocumentAdmin.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SmtOAPersonOffice.svc.cs">
+      <DependentUpon>SmtOAPersonOffice.svc</DependentUpon>
+    </Compile>
+    <Compile Include="TestEngineUpdateCheckState.aspx.cs">
+      <DependentUpon>TestEngineUpdateCheckState.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestEngineUpdateCheckState.aspx.designer.cs">
+      <DependentUpon>TestEngineUpdateCheckState.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TravrlPrintServices.svc.cs">
+      <DependentUpon>TravrlPrintServices.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\SMT.EntityFlowSys.Flow_FlowRecord_T.datasource" />
+    <None Include="Properties\DataSources\SMT.EntityFlowSys.Flow_ModelFlowRelation_T.datasource" />
+    <None Include="Properties\DataSources\SMT.SaaS.BLL.FlowService.CompositeType.datasource" />
+    <None Include="Properties\DataSources\SMT.SaaS.BLL.FlowService.Flow_FlowRecord_T.datasource" />
+    <None Include="Properties\DataSources\SMT.SaaS.BLL.FlowService.Flow_ModelFlowRelation_T.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_ACCIDENTRECORD.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMT.SaaS.OA.BLL\SMT.SaaS.OA.BLL.csproj">
+      <Project>{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}</Project>
+      <Name>SMT.SaaS.OA.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.SaaS.OA.DAL\SMT.SaaS.OA.DAL.csproj">
+      <Project>{4B906A26-7F19-4707-A3DA-61482FE72BA4}</Project>
+      <Name>SMT.SaaS.OA.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT_OA_EFModel\SMT_OA_EFModel.csproj">
+      <Project>{30D6706D-A200-4ED0-BBAA-3574E09F54D1}</Project>
+      <Name>SMT_OA_EFModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>3938</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

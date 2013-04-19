@@ -1,0 +1,57 @@
+﻿<local:BasePage 
+		     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		     xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+		     xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+		     xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+		     xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+		     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+		     x:Class="SMT.SaaS.OA.UI.Views.BenefitsAdministration.SelectWelfarePaymentRecords"
+		     xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+		     xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+			 xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+		     xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" mc:Ignorable="d">
+    <navigation:Page.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:DictionaryConverter x:Key="DictionaryConverter" />
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+        <local:CustomDateConverter x:Key="DateTimeConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False" LoadingRow="DaGr_LoadingRow" IsReadOnly="True"  Width="auto" Height="auto" MinHeight="350" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
+                  CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}" >
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Tag="{Binding ARCHIVESID}" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="BENEFITSPAIDWERE" Binding="{Binding welfareProvision.WELFAREDISTRIBUTETITLE,Mode=TwoWay}"/>
+                    <data:DataGridTextColumn Header="CREATEUSERID" Binding="{Binding welfareProvision.CREATEUSERNAME,Mode=TwoWay}" />
+                    <data:DataGridTextColumn Header="RELEASETIME" Binding="{Binding welfareProvision.DISTRIBUTEDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
+                    <data:DataGridTextColumn Header="CREATECOMPANYID" Binding="{Binding welfareProvision.CREATECOMPANYID,Mode=TwoWay,Converter={StaticResource CompanyConvert},ConverterParameter=Company}" />
+                    <data:DataGridTextColumn Header="RESPECTIVEPOSITIONS" Binding="{Binding welfareProvision.OWNERPOSTID,Mode=TwoWay,Converter={StaticResource CompanyConvert},ConverterParameter=Post}" />
+                    <data:DataGridTemplateColumn Header="CHECKSTATE" >
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=welfareProvision.CHECKSTATE,Converter={StaticResource StateConvert}}" VerticalAlignment="Center" ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smtx:GridPager Name="dpGrid" PageSize="20" Click="GridPager_Click"  Grid.Row="1" VerticalAlignment="Stretch" Grid.Column="3" HorizontalAlignment="Stretch" IsEnabled="False"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

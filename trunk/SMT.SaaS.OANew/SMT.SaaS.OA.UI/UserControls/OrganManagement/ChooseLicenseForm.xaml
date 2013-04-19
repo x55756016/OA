@@ -1,0 +1,21 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.ChooseLicenseForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"         
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    >
+    <Grid x:Name="LayoutRoot">
+        <data:DataGrid x:Name="dgLicense" AutoGenerateColumns="False"  IsReadOnly="True" HorizontalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
+CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" Width="auto">            
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn Header="SELECT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="myChkBox" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="LICENSENAME" Binding="{Binding DICTIONARYNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+    </Grid>
+</smtLocal:BaseForm>

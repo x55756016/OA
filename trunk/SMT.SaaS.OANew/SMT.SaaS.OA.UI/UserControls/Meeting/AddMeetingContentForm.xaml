@@ -1,0 +1,34 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    x:Class="SMT.SaaS.OA.UI.UserControls.AddMeetingContentForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:local="clr-namespace:SMT.SaaS.FrameworkUI.FileUpload;assembly=SMT.SaaS.FrameworkUI"
+    >
+    <Grid x:Name="LayoutRoot" Background="White" Margin="2" Loaded="LayoutRoot_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="0.867*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition x:Name="upload" Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+        <TextBlock Grid.Row="1"
+                   Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGCONTENT}" TextWrapping="Wrap" Height="22" VerticalAlignment="Top" Margin="0,6,0,0"/>
+        <TextBox x:Name="txtContent" Margin="5,5,20,5" HorizontalScrollBarVisibility="Auto" MinHeight="300" MinWidth="200" VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="MEETINGCONTENT" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        
+        <TextBlock x:Name="lblTitle" Grid.Column="1"  Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+        <!--<Button x:Name="BtnUpload" Click="BtnUpload_Click" Content="{Binding Converter={StaticResource ResourceConveter}, Source=UPLOAD}" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}"  Grid.Row="2" Grid.Column="1" Margin="0,0,20,0" ></Button>-->
+        <local:CtrlFileUploadM x:Name="ctrFile" Grid.Row="3" Grid.ColumnSpan="2"></local:CtrlFileUploadM>
+    </Grid>
+</smtLocal:BaseForm>

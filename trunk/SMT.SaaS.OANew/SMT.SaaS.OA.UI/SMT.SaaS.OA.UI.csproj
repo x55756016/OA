@@ -1,0 +1,3169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55F7A86F-8F9D-45EA-B717-B4DB332B71EE}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.SaaS.OA.UI</RootNamespace>
+    <AssemblyName>SMT.SaaS.OA.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>zh-Hans</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>SMT.SaaS.OA.UI.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>SMT.SaaS.OA.UI.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ExpressionBlendVersion>4.0.20621.0</ExpressionBlendVersion>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <Utf8Output>true</Utf8Output>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="silverPDF">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\silverPDF.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.FileUpLoad">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.FileUpLoad.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.AnimationEngine">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.AnimationEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Application">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Behaviors">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.CommonReportsModel">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.CommonReportsModel.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Controls.Toolkit">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Extensions">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.FrameworkUI, Version=1.1.1.1218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.FrameworkUI.RichNotepad">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.RichNotepad.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Globalization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Images">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Images.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.LocalData">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContext">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.MoblieXml">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.MoblieXml.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Platform.Application">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Platform.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.PublicControls">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.PublicControls.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Themes">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Saas.Tools">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Window">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Data.DataForm.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Theming.Toolkit">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Theming.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonBar">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.RibbonBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Scheduler">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.Scheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ScheduleView">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Rtf">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Documents.FormatProviders.Rtf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Xaml">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.FormatProviders.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Proofing.Dictionaries.En-US">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Summer">
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Themes.Summer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\ApplicationStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\OASystem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OASystem.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Class\AppConfig.cs" />
+    <Compile Include="Class\ByteConverter.cs" />
+    <Compile Include="Class\CheckStateCBX.cs" />
+    <Compile Include="Class\CheckStateConverter.cs" />
+    <Compile Include="Class\Common.cs" />
+    <Compile Include="Class\Constants.cs" />
+    <Compile Include="Class\ConverNumberToCheckStateString.cs" />
+    <Compile Include="Class\ConverterDateToShortDate.cs" />
+    <Compile Include="Class\ConverterNumberToOptFlagString.cs" />
+    <Compile Include="Class\ConverterNumberToWayString.cs" />
+    <Compile Include="Class\ConvertLanguage.cs" />
+    <Compile Include="Class\ConverUseFlag.cs" />
+    <Compile Include="Class\CustomDateConverter.cs" />
+    <Compile Include="Class\DataActionSubmitFlow.cs" />
+    <Compile Include="Class\DataObjectToXml.cs" />
+    <Compile Include="Class\DataPageExtension.cs" />
+    <Compile Include="Class\DictionaryComboBox.cs" />
+    <Compile Include="Class\DictionaryConverter.cs" />
+    <Compile Include="Class\Enums.cs" />
+    <Compile Include="Class\GlobalFunction.cs" />
+    <Compile Include="Class\GridHelper.cs" />
+    <Compile Include="Class\IndentifyCodeClass.cs" />
+    <Compile Include="Class\IndexToBrushConverter.cs" />
+    <Compile Include="Class\LendFlagConverter.cs" />
+    <Compile Include="Class\LoginUser.cs" />
+    <Compile Include="Class\ModuleNameConverter.cs" />
+    <Compile Include="Class\PermissionHelper.cs" />
+    <Compile Include="Class\Permissions.cs" />
+    <Compile Include="Class\SearchInfoEntity.cs" />
+    <Compile Include="Class\TravelDictionaryComboBox.cs" />
+    <Compile Include="Class\TreeHelper.cs" />
+    <Compile Include="Class\Utility.cs" />
+    <Compile Include="CommForm\EmployeeLookupForm.xaml.cs">
+      <DependentUpon>EmployeeLookupForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommForm\OrganizationLookupForm.xaml.cs">
+      <DependentUpon>OrganizationLookupForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\BaseForm.cs" />
+    <Compile Include="Class\UIDictionary.cs" />
+    <Compile Include="Form\EmployeeSurveys\EmployeeSurveysMasterForm.xaml.cs">
+      <DependentUpon>EmployeeSurveysMasterForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\EmployeeSurveys\JoinSurveyingForm.xaml.cs">
+      <DependentUpon>JoinSurveyingForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\EmployeeSurveys\SelectSchemeCW.xaml.cs">
+      <DependentUpon>SelectSchemeCW.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AgentChannel\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\EngineDataSource\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SmtOACommonAdminService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SmtOACommonOfficeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SmtOADocumentAdminService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SmtOAPersonOfficeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TravelExpApplyMaster\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AgentManagement\AgentAgingSetForm.xaml.cs">
+      <DependentUpon>AgentAgingSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AgentManagement\ProxySettingsForm.xaml.cs">
+      <DependentUpon>ProxySettingsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ArchivesManagement\ArchivesLendingForm.xaml.cs">
+      <DependentUpon>ArchivesLendingForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ArchivesManagement\ArchivesReturnForm.xaml.cs">
+      <DependentUpon>ArchivesReturnForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ArchivesManagement\ArchivesViewForm.xaml.cs">
+      <DependentUpon>ArchivesViewForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\AddDistrbuteForm.xaml.cs">
+      <DependentUpon>AddDistrbuteForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\AuditCompanyDocForm.xaml.cs">
+      <DependentUpon>AuditCompanyDocForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\CompanyDocForm.xaml.cs">
+      <DependentUpon>CompanyDocForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\DocTypeForm.xaml.cs">
+      <DependentUpon>DocTypeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\DocTypeTemplateForm.xaml.cs">
+      <DependentUpon>DocTypeTemplateForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\GradeForm.xaml.cs">
+      <DependentUpon>GradeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\MySendDocForm.xaml.cs">
+      <DependentUpon>MySendDocForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\PriviewSendDoc.xaml.cs">
+      <DependentUpon>PriviewSendDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PersonalOffice\ApprovalType\ApprovalTypeList.xaml.cs">
+      <DependentUpon>ApprovalTypeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PersonalOffice\ApprovalType\SelectApprovalType.xaml.cs">
+      <DependentUpon>SelectApprovalType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeChildWindow\EmployeesSurveyAppChildWindow.xaml.cs">
+      <DependentUpon>EmployeesSurveyAppChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeChildWindow\EmployeeSurveyChildWindow.xaml.cs">
+      <DependentUpon>EmployeeSurveyChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeChildWindow\EmployeeSurveyDistributeChildWindow.xaml.cs">
+      <DependentUpon>EmployeeSurveyDistributeChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\GrandsonWindow\JoinSurveying.xaml.cs">
+      <DependentUpon>JoinSurveying.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\GrandsonWindow\SelectScheme.xaml.cs">
+      <DependentUpon>SelectScheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\GrandsonWindow\ShowSatisfactioningDetail.xaml.cs">
+      <DependentUpon>ShowSatisfactioningDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\GrandsonWindow\ShowSatisfactioningResult.xaml.cs">
+      <DependentUpon>ShowSatisfactioningResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionChildWindow\SatisfactionAppChildWindow.xaml.cs">
+      <DependentUpon>SatisfactionAppChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionChildWindow\SatisfactionDistributeChildWindow.xaml.cs">
+      <DependentUpon>SatisfactionDistributeChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionChildWindow\SatisfactioningChildWindow.xaml.cs">
+      <DependentUpon>SatisfactioningChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionChildWindow\SatisfactionSurveyChildWindow.xaml.cs">
+      <DependentUpon>SatisfactionSurveyChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionsChildWindow.xaml.cs">
+      <DependentUpon>SatisfactionsChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\BusinessApplicationsForm.xaml.cs">
+      <DependentUpon>BusinessApplicationsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HouseManagement\HireRecordForm.xaml.cs">
+      <DependentUpon>HireRecordForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HouseManagement\MemberHireApp.xaml.cs">
+      <DependentUpon>MemberHireApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\CancelMeetingForm.xaml.cs">
+      <DependentUpon>CancelMeetingForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\EmceeMemberMeetingForm.xaml.cs">
+      <DependentUpon>EmceeMemberMeetingForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\MeetingRoomChildWindow.xaml.cs">
+      <DependentUpon>MeetingRoomChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\SelectMeetingRoom.xaml.cs">
+      <DependentUpon>SelectMeetingRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PersonalOffice\ApprovalForm_aud.xaml.cs">
+      <DependentUpon>ApprovalForm_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurvey_add.xaml.cs">
+      <DependentUpon>EmployeeSurvey_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurvey_upd.xaml.cs">
+      <DependentUpon>EmployeeSurvey_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurveyApp_add.xaml.cs">
+      <DependentUpon>EmployeeSurveyApp_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurvey_sel.xaml.cs">
+      <DependentUpon>EmployeeSurvey_sel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurveyApp_upd.xaml.cs">
+      <DependentUpon>EmployeeSurveyApp_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurveyDistribute_add.xaml.cs">
+      <DependentUpon>EmployeeSurveyDistribute_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurveyApp_sel.xaml.cs">
+      <DependentUpon>EmployeeSurveyApp_sel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurveyDistribute_upd.xaml.cs">
+      <DependentUpon>EmployeeSurveyDistribute_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSubmissions_0.xaml.cs">
+      <DependentUpon>EmployeeSubmissions_0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSubmissions_3.xaml.cs">
+      <DependentUpon>EmployeeSubmissions_3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeList_sat.xaml.cs">
+      <DependentUpon>EmployeeList_sat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurveyApp_aud.xaml.cs">
+      <DependentUpon>EmployeeSurveyApp_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurveyDistribute_aud.xaml.cs">
+      <DependentUpon>EmployeeSurveyDistribute_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\Satisfaction_add.xaml.cs">
+      <DependentUpon>Satisfaction_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\Satisfaction_upd.xaml.cs">
+      <DependentUpon>Satisfaction_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\Satisfaction_sel.xaml.cs">
+      <DependentUpon>Satisfaction_sel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionApp_add.xaml.cs">
+      <DependentUpon>SatisfactionApp_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionApp_aud.xaml.cs">
+      <DependentUpon>SatisfactionApp_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionApp_sel.xaml.cs">
+      <DependentUpon>SatisfactionApp_sel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionApp_upd.xaml.cs">
+      <DependentUpon>SatisfactionApp_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionDistribute_add.xaml.cs">
+      <DependentUpon>SatisfactionDistribute_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionDistribute_aud.xaml.cs">
+      <DependentUpon>SatisfactionDistribute_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SatisfactionDistribute_upd.xaml.cs">
+      <DependentUpon>SatisfactionDistribute_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\Satisfaction_0.xaml.cs">
+      <DependentUpon>Satisfaction_0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\Satisfaction_1.xaml.cs">
+      <DependentUpon>Satisfaction_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\Satisfaction_3.xaml.cs">
+      <DependentUpon>Satisfaction_3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SurveyAnswer_sat.xaml.cs">
+      <DependentUpon>SurveyAnswer_sat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SurveyShowList_sat.xaml.cs">
+      <DependentUpon>SurveyShowList_sat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\Satisfaction_aud.xaml.cs">
+      <DependentUpon>Satisfaction_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSurvey_aud.xaml.cs">
+      <DependentUpon>EmployeeSurvey_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SurveyShowList_sat_1.xaml.cs">
+      <DependentUpon>SurveyShowList_sat_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SurveyAnswer_sat_1.xaml.cs">
+      <DependentUpon>SurveyAnswer_sat_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SurveyShowList_1.xaml.cs">
+      <DependentUpon>SurveyShowList_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SurveyAnswer_1.xaml.cs">
+      <DependentUpon>SurveyAnswer_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\AreaAllowanceForm.xaml.cs">
+      <DependentUpon>AreaAllowanceForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\AreaForm.xaml.cs">
+      <DependentUpon>AreaForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\AreaSortForm.xaml.cs">
+      <DependentUpon>AreaSortForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\PlaneLineForms.xaml.cs">
+      <DependentUpon>PlaneLineForms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\ReplicationProgram.xaml.cs">
+      <DependentUpon>ReplicationProgram.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\SetSolutionForms.xaml.cs">
+      <DependentUpon>SetSolutionForms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\SolutionForms.xaml.cs">
+      <DependentUpon>SolutionForms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl.xaml.cs">
+      <DependentUpon>TravelReimbursementControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\VehicleStandardForms.xaml.cs">
+      <DependentUpon>VehicleStandardForms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\MaintenanceRecordForm_add.xaml.cs">
+      <DependentUpon>MaintenanceRecordForm_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\MaintenanceRecordForm_upd.xaml.cs">
+      <DependentUpon>MaintenanceRecordForm_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleDispatchForm_add.xaml.cs">
+      <DependentUpon>VehicleDispatchForm_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleDispatchForm_sel.xaml.cs">
+      <DependentUpon>VehicleDispatchForm_sel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleDispatchForm_upd.xaml.cs">
+      <DependentUpon>VehicleDispatchForm_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleDispatchRecord_add.xaml.cs">
+      <DependentUpon>VehicleDispatchRecord_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleDispatchRecord_upd.xaml.cs">
+      <DependentUpon>VehicleDispatchRecord_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleMgt.cs" />
+    <Compile Include="UserControls\VehicleManagement\VehicleUseAppForm_aud.xaml.cs">
+      <DependentUpon>VehicleUseAppForm_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleUseAppForm_sel.xaml.cs">
+      <DependentUpon>VehicleUseAppForm_sel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleInfo_upd.xaml.cs">
+      <DependentUpon>VehicleInfo_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\MaintenanceApp_sel.xaml.cs">
+      <DependentUpon>MaintenanceApp_sel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\ConserVationRecord_add.xaml.cs">
+      <DependentUpon>ConserVationRecord_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\ConserVation_sel.xaml.cs">
+      <DependentUpon>ConserVation_sel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\ConserVationRecord_upd.xaml.cs">
+      <DependentUpon>ConserVationRecord_upd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleDispatchForm_aud.xaml.cs">
+      <DependentUpon>VehicleDispatchForm_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleDispatchRecord_aud.xaml.cs">
+      <DependentUpon>VehicleDispatchRecord_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\MaintenanceAppForm_aud.xaml.cs">
+      <DependentUpon>MaintenanceAppForm_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\MaintenanceRecordForm_aud.xaml.cs">
+      <DependentUpon>MaintenanceRecordForm_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\ConserVationRecord_aud.xaml.cs">
+      <DependentUpon>ConserVationRecord_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\ConserVationForm_aud.xaml.cs">
+      <DependentUpon>ConserVationForm_aud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPart\CompanyDocWebPart.xaml.cs">
+      <DependentUpon>CompanyDocWebPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPart\HouseIssueWebPart.xaml.cs">
+      <DependentUpon>HouseIssueWebPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPart\MeetingNoticeWebPart.xaml.cs">
+      <DependentUpon>MeetingNoticeWebPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPart\NoticeWebpart.xaml.cs">
+      <DependentUpon>NoticeWebpart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPart\OAWebPart.xaml.cs">
+      <DependentUpon>OAWebPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPart\OAStaffSurveyWebPart.xaml.cs">
+      <DependentUpon>OAStaffSurveyWebPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPart\SatisfactionSurveyWebPart.xaml.cs">
+      <DependentUpon>SatisfactionSurveyWebPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebPart\StaffSurveyWebPart.xaml.cs">
+      <DependentUpon>StaffSurveyWebPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AgentManagement\AgentAgingSet.xaml.cs">
+      <DependentUpon>AgentAgingSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AgentManagement\ProxySettings.xaml.cs">
+      <DependentUpon>ProxySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArchivesManagement\CFrmArchivesBrowser.xaml.cs">
+      <DependentUpon>CFrmArchivesBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AssetManagement\AssetPurchaseControl.xaml.cs">
+      <DependentUpon>AssetPurchaseControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AssetManagement\AssetPurchasePage.xaml.cs">
+      <DependentUpon>AssetPurchasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AssetManagement\TreeAssetManagementPage.xaml.cs">
+      <DependentUpon>TreeAssetManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\SelectWelfarePaymentRecords.xaml.cs">
+      <DependentUpon>SelectWelfarePaymentRecords.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\WelfarePaymentWithdrawalControl.xaml.cs">
+      <DependentUpon>WelfarePaymentWithdrawalControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\WelfarePaymentWithdrawalPage.xaml.cs">
+      <DependentUpon>WelfarePaymentWithdrawalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\MyCompanyDoc.xaml.cs">
+      <DependentUpon>MyCompanyDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\PriorityForm.xaml.cs">
+      <DependentUpon>PriorityForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Bumf\SendDocInfoForm.xaml.cs">
+      <DependentUpon>SendDocInfoForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HouseManagement\HouseHireAppChooseHouseForm.xaml.cs">
+      <DependentUpon>HouseHireAppChooseHouseForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HouseManagement\HouseHireAppForm.xaml.cs">
+      <DependentUpon>HouseHireAppForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HouseManagement\HouseInfoChooseForm.xaml.cs">
+      <DependentUpon>HouseInfoChooseForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HouseManagement\HouseInfoIssuranceForm.xaml.cs">
+      <DependentUpon>HouseInfoIssuranceForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HouseManagement\HouseInfoManagementForm.xaml.cs">
+      <DependentUpon>HouseInfoManagementForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\AddMeetingContentForm.xaml.cs">
+      <DependentUpon>AddMeetingContentForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\ChangeMeetingTimeForm.xaml.cs">
+      <DependentUpon>ChangeMeetingTimeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\EmceeMeetingForm.xaml.cs">
+      <DependentUpon>EmceeMeetingForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\MeetingDetailForm.xaml.cs">
+      <DependentUpon>MeetingDetailForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\MeetingForm.xaml.cs">
+      <DependentUpon>MeetingForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\MeetingRoomAppForm.xaml.cs">
+      <DependentUpon>MeetingRoomAppForm.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\Meeting\MeetingRoomForm.xaml.cs">
+      <DependentUpon>MeetingRoomForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\MeetingTemplateForm.xaml.cs">
+      <DependentUpon>MeetingTemplateForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\MeetingTypeForm.xaml.cs">
+      <DependentUpon>MeetingTypeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\MyMeetingDetailInfoForm.xaml.cs">
+      <DependentUpon>MyMeetingDetailInfoForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrderMeal\AddOrderMealRemark.xaml.cs">
+      <DependentUpon>AddOrderMealRemark.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrderMeal\OrderMealDetailInfo.xaml.cs">
+      <DependentUpon>OrderMealDetailInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrderMeal\OrderMealForm.xaml.cs">
+      <DependentUpon>OrderMealForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrganManagement\ChooseLicenseForm.xaml.cs">
+      <DependentUpon>ChooseLicenseForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrganManagement\LicenseBorrowForm.xaml.cs">
+      <DependentUpon>LicenseBorrowForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrganManagement\LicenseBorrowReturn.xaml.cs">
+      <DependentUpon>LicenseBorrowReturn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrganManagement\LicenseDetailForm.xaml.cs">
+      <DependentUpon>LicenseDetailForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrganManagement\OrganAddForm.xaml.cs">
+      <DependentUpon>OrganAddForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PersonalOffice\WorkerCordForm.xaml.cs">
+      <DependentUpon>WorkerCordForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\ConserVationForm.xaml.cs">
+      <DependentUpon>ConserVationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\MaintenanceAppForm.xaml.cs">
+      <DependentUpon>MaintenanceAppForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleUseAppForm.xaml.cs">
+      <DependentUpon>VehicleUseAppForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArchivesManagement\CFrmArchivesSearch.xaml.cs">
+      <DependentUpon>CFrmArchivesSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArchivesManagement\FrmArchivesLending.xaml.cs">
+      <DependentUpon>FrmArchivesLending.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArchivesManagement\FrmArchivesManager.xaml.cs">
+      <DependentUpon>FrmArchivesManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArchivesManagement\FrmArchivesReturn.xaml.cs">
+      <DependentUpon>FrmArchivesReturn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\BenefitsAdministrationChildWindows.xaml.cs">
+      <DependentUpon>BenefitsAdministrationChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\UpdateWelfarePaymentDetailsChildWindows.xaml.cs">
+      <DependentUpon>UpdateWelfarePaymentDetailsChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\WelfarePaymentDetailsPage.xaml.cs">
+      <DependentUpon>WelfarePaymentDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\WelfareProvisionChildWindows.xaml.cs">
+      <DependentUpon>WelfareProvisionChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ApplicationsForContractsPages.xaml.cs">
+      <DependentUpon>ApplicationsForContractsPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ContractPrintingControl.xaml.cs">
+      <DependentUpon>ContractPrintingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ContractPrintingPage.xaml.cs">
+      <DependentUpon>ContractPrintingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ContractPrintUploadControl.xaml.cs">
+      <DependentUpon>ContractPrintUploadControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ContractTemplateDetailInfos.xaml.cs">
+      <DependentUpon>ContractTemplateDetailInfos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ContractTemplatePage.xaml.cs">
+      <DependentUpon>ContractTemplatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ContractTemplates.xaml.cs">
+      <DependentUpon>ContractTemplates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\SelectViewRecordsControl.xaml.cs">
+      <DependentUpon>SelectViewRecordsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ViewContractApplicationControl.xaml.cs">
+      <DependentUpon>ViewContractApplicationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ViewContractApplicationPage.xaml.cs">
+      <DependentUpon>ViewContractApplicationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeList.xaml.cs">
+      <DependentUpon>EmployeeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSatisfactionSurveys\EmployeeSurveysMaster.xaml.cs">
+      <DependentUpon>EmployeeSurveysMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSatisfactionSurveys\EmployeeSurveysApp.xaml.cs">
+      <DependentUpon>EmployeeSurveysApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSatisfactionSurveys\EmployeeSurveysDistribute.xaml.cs">
+      <DependentUpon>EmployeeSurveysDistribute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSatisfactionSurveys\EmployeeSurveying.xaml.cs">
+      <DependentUpon>EmployeeSurveying.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSatisfactionSurveys\Satisfaction.xaml.cs">
+      <DependentUpon>Satisfaction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSatisfactionSurveys\SatisfactionApp.xaml.cs">
+      <DependentUpon>SatisfactionApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSatisfactionSurveys\SatisfactionDistribute.xaml.cs">
+      <DependentUpon>SatisfactionDistribute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeSatisfactionSurveys\Satisfactioning.xaml.cs">
+      <DependentUpon>Satisfactioning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HouseManagement\FrmHouseHireAppManagement.xaml.cs">
+      <DependentUpon>FrmHouseHireAppManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HouseManagement\FrmHouseInfoIssurance.xaml.cs">
+      <DependentUpon>FrmHouseInfoIssurance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HouseManagement\HireRecordManagement.xaml.cs">
+      <DependentUpon>HireRecordManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HouseManagement\MyHouseHireManagement.xaml.cs">
+      <DependentUpon>MyHouseHireManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\EmceeMeeting.xaml.cs">
+      <DependentUpon>EmceeMeeting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Meeting\FrmConfirmJoinMeeting.xaml.cs">
+      <DependentUpon>FrmConfirmJoinMeeting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MeetingManagementInfos.xaml.cs">
+      <DependentUpon>MeetingManagementInfos.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Meeting\MeetingRoomManagementPage.xaml.cs">
+      <DependentUpon>MeetingRoomManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderMeal\MyOrderMealManageFrame.xaml.cs">
+      <DependentUpon>MyOrderMealManageFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderMeal\MyOrderMealManagement.xaml.cs">
+      <DependentUpon>MyOrderMealManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderMeal\OrderMealManagement.xaml.cs">
+      <DependentUpon>OrderMealManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderMeal\OrderMealManagementFrame.xaml.cs">
+      <DependentUpon>OrderMealManagementFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ArchivesManagement\ArchivesAddForm.xaml.cs">
+      <DependentUpon>ArchivesAddForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BasePage.cs" />
+    <Compile Include="CommForm\LookupForm.xaml.cs">
+      <DependentUpon>LookupForm.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomDataForm.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceWrapper.cs" />
+    <Compile Include="ServiceResult.cs" />
+    <Compile Include="UserControls\DateTimeInput.xaml.cs">
+      <DependentUpon>DateTimeInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SurveyAnswer.xaml.cs">
+      <DependentUpon>SurveyAnswer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\SurveyShowList.xaml.cs">
+      <DependentUpon>SurveyShowList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\BenefitsAdministrationPage.xaml.cs">
+      <DependentUpon>BenefitsAdministrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BenefitsAdministration\WelfareProvisionPage.xaml.cs">
+      <DependentUpon>WelfareProvisionPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Bumf\AuditBumf.xaml.cs">
+      <DependentUpon>AuditBumf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\AuditCompanyDoc.xaml.cs">
+      <DependentUpon>AuditCompanyDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\BumfManagementFrame.xaml.cs">
+      <DependentUpon>BumfManagementFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\CompanyDocFrame.xaml.cs">
+      <DependentUpon>CompanyDocFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\CompanySendDocManagement.xaml.cs">
+      <DependentUpon>CompanySendDocManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\DocTypeManagement.xaml.cs">
+      <DependentUpon>DocTypeManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\DocTypeTemplateManagement.xaml.cs">
+      <DependentUpon>DocTypeTemplateManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\GradeManagement.xaml.cs">
+      <DependentUpon>GradeManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Bumf\PriorityManagement.xaml.cs">
+      <DependentUpon>PriorityManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ApplicationsForContracts.xaml.cs">
+      <DependentUpon>ApplicationsForContracts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ContractTypeDefinition.xaml.cs">
+      <DependentUpon>ContractTypeDefinition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContractManagement\ContractTypeDefinitionPages.xaml.cs">
+      <DependentUpon>ContractTypeDefinitionPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Surveys\EmployeeSubmissions_1.xaml.cs">
+      <DependentUpon>EmployeeSubmissions_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HouseManagement\FrmHouseInfoManagement.xaml.cs">
+      <DependentUpon>FrmHouseInfoManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\AddMeeting.xaml.cs">
+      <DependentUpon>AddMeeting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\AddMeetingAccessories.xaml.cs">
+      <DependentUpon>AddMeetingAccessories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\AddMeetingContent.xaml.cs">
+      <DependentUpon>AddMeetingContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\EditMeetingTime.xaml.cs">
+      <DependentUpon>EditMeetingTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MeetingManagement.xaml.cs">
+      <DependentUpon>MeetingManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MeetingMangementDetailInfo.xaml.cs">
+      <DependentUpon>MeetingMangementDetailInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MeetingRoomAppManagement.xaml.cs">
+      <DependentUpon>MeetingRoomAppManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MeetingRoomManagement.xaml.cs">
+      <DependentUpon>MeetingRoomManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MeetingTemplateManagement.xaml.cs">
+      <DependentUpon>MeetingTemplateManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MeetingTypeManagement.xaml.cs">
+      <DependentUpon>MeetingTypeManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MyMeetingDetailInfo.xaml.cs">
+      <DependentUpon>MyMeetingDetailInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Meeting\MyMeetingInfosManagement.xaml.cs">
+      <DependentUpon>MyMeetingInfosManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrganManagement\FrmLicenseReturnManagement.xaml.cs">
+      <DependentUpon>FrmLicenseReturnManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrganManagement\FrmOrganRegister.xaml.cs">
+      <DependentUpon>FrmOrganRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrganManagement\FrmLicenseBorrowManagement.xaml.cs">
+      <DependentUpon>FrmLicenseBorrowManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrganManagement\FrmLicenseManagement.xaml.cs">
+      <DependentUpon>FrmLicenseManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonalOffice\ApprovalTypeSet.xaml.cs">
+      <DependentUpon>ApprovalTypeSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonalOffice\CFrmCalendarInfo.xaml.cs">
+      <DependentUpon>CFrmCalendarInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonalOffice\FrmApprovalManagement.xaml.cs">
+      <DependentUpon>FrmApprovalManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonalOffice\FrmCalendarManagement.xaml.cs">
+      <DependentUpon>FrmCalendarManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonalOffice\FrmWorkerCordManagement.xaml.cs">
+      <DependentUpon>FrmWorkerCordManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\S_Images.xaml.cs">
+      <DependentUpon>S_Images.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Travelmanagement\AreaAllowance.xaml.cs">
+      <DependentUpon>AreaAllowance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Travelmanagement\AreaSort.xaml.cs">
+      <DependentUpon>AreaSort.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Travelmanagement\PlaneLineManagement.xaml.cs">
+      <DependentUpon>PlaneLineManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Travelmanagement\SolutionManagement.xaml.cs">
+      <DependentUpon>SolutionManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Travelmanagement\SolutionSetManagement.xaml.cs">
+      <DependentUpon>SolutionSetManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\TravelRequestForm.xaml.cs">
+      <DependentUpon>TravelRequestForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Travelmanagement\TravelapplicationPage.xaml.cs">
+      <DependentUpon>TravelapplicationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\TravelRequestForm_Agent.cs" />
+    <Compile Include="Views\Travelmanagement\VehicleStandardManagement.xaml.cs">
+      <DependentUpon>VehicleStandardManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Travelmanagement\TravelRequestForm_Audit.cs" />
+    <Compile Include="Form\Travelmanagement\TravelRequestForm_SaveEdit.cs" />
+    <Compile Include="Views\VehicleManagement\CFrmAccidentRecordManager.xaml.cs">
+      <DependentUpon>CFrmAccidentRecordManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\CFrmCostRecordManager.xaml.cs">
+      <DependentUpon>CFrmCostRecordManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VehicleManagement\VehicleInfo_add.xaml.cs">
+      <DependentUpon>VehicleInfo_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\FrmAccidentRecordManager.xaml.cs">
+      <DependentUpon>FrmAccidentRecordManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\FrmConserVationManager.xaml.cs">
+      <DependentUpon>FrmConserVationManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\FrmCostRecordManager.xaml.cs">
+      <DependentUpon>FrmCostRecordManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\FrmVehicleDispatchManager.xaml.cs">
+      <DependentUpon>FrmVehicleDispatchManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\FrmVehicleInfoManager.xaml.cs">
+      <DependentUpon>FrmVehicleInfoManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\FrmVehicleUseAppManager.xaml.cs">
+      <DependentUpon>FrmVehicleUseAppManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\FrmMaintenanceAppManager.xaml.cs">
+      <DependentUpon>FrmMaintenanceAppManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\VehicleDispatchRecord.xaml.cs">
+      <DependentUpon>VehicleDispatchRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\MaintenanceRecord.xaml.cs">
+      <DependentUpon>MaintenanceRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManagement\ConserVationRecord.xaml.cs">
+      <DependentUpon>ConserVationRecord.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="CommForm\EmployeeLookupForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommForm\LookupForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommForm\OrganizationLookupForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\EmployeeSurveys\EmployeeSurveysMasterForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\EmployeeSurveys\JoinSurveyingForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\EmployeeSurveys\SelectSchemeCW.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\DesignTimeResources.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+    <Page Include="UserControls\AgentManagement\AgentAgingSetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AgentManagement\ProxySettingsForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ArchivesManagement\ArchivesLendingForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ArchivesManagement\ArchivesReturnForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ArchivesManagement\ArchivesViewForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Bumf\AddDistrbuteForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Bumf\AuditCompanyDocForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Bumf\CompanyDocForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Bumf\DocTypeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Bumf\DocTypeTemplateForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Bumf\GradeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Bumf\MySendDocForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Bumf\PriviewSendDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PersonalOffice\ApprovalType\ApprovalTypeList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PersonalOffice\ApprovalType\SelectApprovalType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeChildWindow\EmployeesSurveyAppChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeChildWindow\EmployeeSurveyChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeChildWindow\EmployeeSurveyDistributeChildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\GrandsonWindow\JoinSurveying.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\GrandsonWindow\SelectScheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\GrandsonWindow\ShowSatisfactioningDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\GrandsonWindow\ShowSatisfactioningResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionChildWindow\SatisfactionAppChildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionChildWindow\SatisfactionDistributeChildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionChildWindow\SatisfactioningChildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionChildWindow\SatisfactionSurveyChildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionsChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\BusinessApplicationsForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\HouseManagement\HireRecordForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\HouseManagement\MemberHireApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\CancelMeetingForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\EmceeMemberMeetingForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\MeetingRoomChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\SelectMeetingRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PersonalOffice\ApprovalForm_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurvey_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurvey_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurveyApp_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurvey_sel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurveyApp_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurveyDistribute_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurveyApp_sel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurveyDistribute_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSubmissions_0.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSubmissions_3.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeList_sat.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurveyApp_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurveyDistribute_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\Satisfaction_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\Satisfaction_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\Satisfaction_sel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionApp_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionApp_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionApp_sel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionApp_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionDistribute_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionDistribute_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SatisfactionDistribute_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\Satisfaction_0.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\Satisfaction_1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\Satisfaction_3.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SurveyAnswer_sat.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SurveyShowList_sat.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\Satisfaction_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSurvey_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SurveyShowList_sat_1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SurveyAnswer_sat_1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SurveyShowList_1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SurveyAnswer_1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Travelmanagement\AreaAllowanceForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\AreaForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\AreaSortForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\PlaneLineForms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\ReplicationProgram.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\SetSolutionForms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\SolutionForms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\TravelReimbursementControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\VehicleStandardForms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\MaintenanceRecordForm_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\MaintenanceRecordForm_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleDispatchForm_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleDispatchForm_sel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleDispatchForm_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleDispatchRecord_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleDispatchRecord_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleUseAppForm_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleUseAppForm_sel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleInfo_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\MaintenanceApp_sel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\ConserVationRecord_add.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\ConserVation_sel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\ConserVationRecord_upd.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleDispatchForm_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleDispatchRecord_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\MaintenanceAppForm_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\MaintenanceRecordForm_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\ConserVationRecord_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\ConserVationForm_aud.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\WebPart\CompanyDocWebPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\WebPart\HouseIssueWebPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\WebPart\MeetingNoticeWebPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\WebPart\NoticeWebpart.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\WebPart\OAWebPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\WebPart\OAStaffSurveyWebPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\WebPart\SatisfactionSurveyWebPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\WebPart\StaffSurveyWebPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AgentManagement\AgentAgingSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AgentManagement\ProxySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ArchivesManagement\CFrmArchivesBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AssetManagement\AssetPurchaseControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AssetManagement\AssetPurchasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AssetManagement\TreeAssetManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\SelectWelfarePaymentRecords.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\WelfarePaymentWithdrawalControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\WelfarePaymentWithdrawalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\MyCompanyDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Bumf\PriorityForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Bumf\SendDocInfoForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\HouseManagement\HouseHireAppChooseHouseForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\HouseManagement\HouseHireAppForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\HouseManagement\HouseInfoChooseForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\HouseManagement\HouseInfoIssuranceForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\HouseManagement\HouseInfoManagementForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\AddMeetingContentForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\ChangeMeetingTimeForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\EmceeMeetingForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\MeetingDetailForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\MeetingForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\MeetingRoomAppForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\MeetingRoomForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\MeetingTemplateForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\MeetingTypeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\MyMeetingDetailInfoForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OrderMeal\AddOrderMealRemark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OrderMeal\OrderMealDetailInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OrderMeal\OrderMealForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OrganManagement\ChooseLicenseForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OrganManagement\LicenseBorrowForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OrganManagement\LicenseBorrowReturn.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OrganManagement\LicenseDetailForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OrganManagement\OrganAddForm.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PersonalOffice\WorkerCordForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\ConserVationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\MaintenanceAppForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleUseAppForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ArchivesManagement\CFrmArchivesSearch.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ArchivesManagement\FrmArchivesLending.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ArchivesManagement\FrmArchivesManager.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ArchivesManagement\FrmArchivesReturn.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\BenefitsAdministrationChildWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\UpdateWelfarePaymentDetailsChildWindows.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\WelfarePaymentDetailsPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\WelfareProvisionChildWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ApplicationsForContractsPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ContractPrintingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ContractPrintingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ContractPrintUploadControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ContractTemplateDetailInfos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ContractTemplatePage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ContractTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\SelectViewRecordsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ViewContractApplicationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ViewContractApplicationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeSatisfactionSurveys\EmployeeSurveysMaster.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeSatisfactionSurveys\EmployeeSurveysApp.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeSatisfactionSurveys\EmployeeSurveysDistribute.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeSatisfactionSurveys\EmployeeSurveying.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeSatisfactionSurveys\Satisfaction.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeSatisfactionSurveys\SatisfactionApp.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeSatisfactionSurveys\SatisfactionDistribute.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EmployeeSatisfactionSurveys\Satisfactioning.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HouseManagement\FrmHouseHireAppManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HouseManagement\FrmHouseInfoIssurance.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HouseManagement\HireRecordManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HouseManagement\MyHouseHireManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\EmceeMeeting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Meeting\FrmConfirmJoinMeeting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MeetingManagementInfos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MeetingRoomManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrderMeal\MyOrderMealManageFrame.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrderMeal\MyOrderMealManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrderMeal\OrderMealManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrderMeal\OrderMealManagementFrame.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ArchivesManagement\ArchivesAddForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DateTimeInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SurveyAnswer.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\SurveyShowList.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\BenefitsAdministrationPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BenefitsAdministration\WelfareProvisionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\AuditBumf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\AuditCompanyDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\BumfManagementFrame.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\CompanyDocFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\CompanySendDocManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\DocTypeManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\DocTypeTemplateManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\GradeManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Bumf\PriorityManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ApplicationsForContracts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ContractTypeDefinition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContractManagement\ContractTypeDefinitionPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Surveys\EmployeeSubmissions_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HouseManagement\FrmHouseInfoManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\AddMeeting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\AddMeetingAccessories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\AddMeetingContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\EditMeetingTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MeetingManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MeetingMangementDetailInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MeetingRoomAppManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MeetingRoomManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MeetingTemplateManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MeetingTypeManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MyMeetingDetailInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Meeting\MyMeetingInfosManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrganManagement\FrmLicenseReturnManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrganManagement\FrmOrganRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrganManagement\FrmLicenseBorrowManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrganManagement\FrmLicenseManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonalOffice\ApprovalTypeSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PersonalOffice\CFrmCalendarInfo.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonalOffice\FrmApprovalManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonalOffice\FrmCalendarManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonalOffice\FrmWorkerCordManagement.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\S_Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Travelmanagement\AreaAllowance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Travelmanagement\AreaSort.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Travelmanagement\PlaneLineManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Travelmanagement\SolutionManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Travelmanagement\SolutionSetManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Travelmanagement\TravelRequestForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Travelmanagement\TravelapplicationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Travelmanagement\VehicleStandardManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VehicleManagement\CFrmAccidentRecordManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\CFrmCostRecordManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\VehicleManagement\VehicleInfo_add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\FrmAccidentRecordManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\FrmConserVationManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\FrmCostRecordManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\FrmVehicleDispatchManager.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\FrmVehicleInfoManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\FrmVehicleUseAppManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\FrmMaintenanceAppManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\VehicleDispatchRecord.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\MaintenanceRecord.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManagement\ConserVationRecord.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+    <None Include="Service References\AgentChannel\AgentServices.wsdl" />
+    <None Include="Service References\AgentChannel\AgentServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgentChannel\AgentServices1.wsdl" />
+    <None Include="Service References\AgentChannel\AgentServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgentChannel\AgentServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgentChannel\AgentServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgentChannel\AgentServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgentChannel\AgentServices5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgentChannel\AgentServices6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgentChannel\AgentServices7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgentChannel\SMT.SaaS.OA.UI.AgentChannel.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineDataSource\EngineDataModel.xsd" />
+    <None Include="Service References\EngineDataSource\service.wsdl" />
+    <None Include="Service References\EngineDataSource\service.xsd" />
+    <None Include="Service References\EngineDataSource\service1.xsd" />
+    <None Include="Service References\EngineDataSource\SMT.SaaS.OA.UI.EngineDataSource.T_FLOW_ENGINEMSGLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineDataSource\System.Data.Objects.DataClasses.xsd" />
+    <None Include="Service References\EngineDataSource\System.Data.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_ACCIDENTRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_CONSERVATION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_CONSERVATIONRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_COSTRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_DISTRIBUTEUSER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_HIREAPP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_HIRERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_HOUSEINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_HOUSEINFOISSUANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_HOUSELIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_MAINTENANCEAPP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_MAINTENANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_SENDDOC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_VEHICLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_VEHICLECARD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_VEHICLEDISPATCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_VEHICLEDISPATCHDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_VEHICLEDISPATCHRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.T_OA_VEHICLEUSEAPP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.V_HireRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.V_HouseHireApp1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.V_HouseHireList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.V_HouseHirer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.V_HouseInfoTree.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SMT.SaaS.OA.UI.SmtOACommonAdminService.V_SystemNotice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin.wsdl" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin1.wsdl" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin1.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin11.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin110.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin12.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin13.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin14.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin15.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin16.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin17.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin18.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin19.xsd" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin2.wsdl" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin21.wsdl" />
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_AGENTDATESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_AGENTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_DISTRIBUTEUSER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_GRADED.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_MEETINGCONTENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_MEETINGINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_MEETINGMESSAGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_MEETINGROOM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_MEETINGROOMAPP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_MEETINGSTAFF.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_MEETINGTEMPLATE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_MEETINGTYPE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_PRIORITIES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_SENDDOC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_SENDDOCTEMPLATE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.T_OA_SENDDOCTYPE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.V_BumfCompanySendDoc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.V_CompanyDocNum.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.V_MeetingInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.V_MeetingRoomApp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SMT.SaaS.OA.UI.SmtOACommonOfficeService.V_MyMeetingInfosManagement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice.wsdl" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice1.wsdl" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice1.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice2.wsdl" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice2.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice21.wsdl" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice3.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice4.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice5.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice6.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice7.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice8.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice9.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice91.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice92.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice93.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice94.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice95.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice96.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice97.xsd" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice98.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_ARCHIVES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_CONTRACTAPP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_CONTRACTTEMPLATE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_CONTRACTTYPE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_CONTRACTVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_LENDARCHIVES1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_LICENSEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_LICENSEMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_LICENSEUSER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_ORGANIZATION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_WELFAREDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_WELFAREDISTRIBUTEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_WELFAREDISTRIBUTEMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_WELFAREDISTRIBUTEUNDO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.T_OA_WELFAREMASERT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_ContractApplications.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_ContractPrint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_ContractTemplate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_ContractType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_ContractView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_WelfareDetails1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_WelfarePaymentWithdrawal.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_WelfareProvision.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SMT.SaaS.OA.UI.SmtOADocumentAdminService.V_WelfareStandard.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin.wsdl" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin1.wsdl" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin1.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin2.wsdl" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin2.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin21.wsdl" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin3.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin4.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin5.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin6.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin7.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin8.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin9.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin91.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin92.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin93.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin94.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin95.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin96.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin97.xsd" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin98.xsd" />
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_APPROVALINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_APPROVALTYPESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_AREAALLOWANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_AREACITY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_AREADIFFERENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_BUSINESSTRIP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_BUSINESSTRIPDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_CALENDAR.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_CANTAKETHEPLANELINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_ORDERMEAL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_PROGRAMAPPLICATIONS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_REIMBURSEMENTDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_REQUIRE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_REQUIREDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_REQUIREDETAIL2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_REQUIREDISTRIBUTE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_REQUIREMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_REQUIRERESULT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_SATISFACTIONDISTRIBUTE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_SATISFACTIONMASTER1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_SATISFACTIONREQUIRE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_SATISFACTIONRESULT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_TAKETHESTANDARDTRANSPORT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_TRAVELREIMBURSEMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_TRAVELSOLUTIONS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_WORKRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_DepartmentWithCompany2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_EmployeeID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_EmployeeSurvey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_EmployeeSurveyApp1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_EmployeeSurveying.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_EmployeeSurveyMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_EmployeeSurveyRequireDistribute.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_EmployeeSurveysModel1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_EmployeeSurveySubject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_MyEusurvey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_MyStaticfaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_REQUIRERESULTMODE1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_Satisfaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_SatisfactionResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_Satisfactions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_SystemNotice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_Travelmanagement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.V_TravelReimbursement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice.wsdl" />
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice1.wsdl" />
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TravelExpApplyMaster\OaInterface2.wsdl" />
+    <None Include="Service References\TravelExpApplyMaster\OaInterface2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TravelExpApplyMaster\OaInterface21.wsdl" />
+    <None Include="Service References\TravelExpApplyMaster\OaInterface21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SMT-OA 测试文档.doc" />
+    <None Include="SMT.SaaS.FrameworkUI.AuditService.Flow_FlowRecord_T.datasource" />
+    <None Include="Service References\EngineDataSource\configuration91.svcinfo" />
+    <None Include="Service References\EngineDataSource\configuration.svcinfo" />
+    <None Include="Service References\EngineDataSource\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SmtOACommonOfficeService\configuration91.svcinfo" />
+    <None Include="Service References\SmtOACommonOfficeService\configuration.svcinfo" />
+    <None Include="Service References\SmtOACommonOfficeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\configuration91.svcinfo" />
+    <None Include="Service References\SmtOACommonAdminService\configuration.svcinfo" />
+    <None Include="Service References\SmtOACommonAdminService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SmtOADocumentAdminService\configuration91.svcinfo" />
+    <None Include="Service References\SmtOADocumentAdminService\configuration.svcinfo" />
+    <None Include="Service References\SmtOADocumentAdminService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin1.disco" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice1.disco" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin1.disco" />
+    <None Include="Service References\SmtOADocumentAdminService\SmtOADocumentAdmin.disco" />
+    <None Include="Service References\SmtOACommonAdminService\SmtOACommonAdmin.disco" />
+    <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice.disco" />
+    <None Include="Service References\AgentChannel\AgentServices.disco" />
+    <None Include="Service References\AgentChannel\configuration91.svcinfo" />
+    <None Include="Service References\AgentChannel\configuration.svcinfo" />
+    <None Include="Service References\AgentChannel\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SmtOAPersonOffice.disco" />
+    <None Include="Service References\SmtOAPersonOfficeService\configuration91.svcinfo" />
+    <None Include="Service References\SmtOAPersonOfficeService\configuration.svcinfo" />
+    <None Include="Service References\SmtOAPersonOfficeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TravelExpApplyMaster\configuration91.svcinfo" />
+    <None Include="Service References\TravelExpApplyMaster\configuration.svcinfo" />
+    <None Include="Service References\TravelExpApplyMaster\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TravelExpApplyMaster\OaInterface1.disco" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Resources\ApplicationStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ApplicationStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\OASystem.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OASystem.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AgentChannel\" />
+    <WCFMetadataStorage Include="Service References\EmpSurveysWS\" />
+    <WCFMetadataStorage Include="Service References\EngineDataSource\" />
+    <WCFMetadataStorage Include="Service References\SmtOACommonAdminService\" />
+    <WCFMetadataStorage Include="Service References\SmtOACommonOfficeService\" />
+    <WCFMetadataStorage Include="Service References\SmtOADocumentAdminService\" />
+    <WCFMetadataStorage Include="Service References\SmtOAPersonOfficeService\" />
+    <WCFMetadataStorage Include="Service References\TravelExpApplyMaster\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SAAS.FrameWork\SMT.SAAS.Themes\SMT.SAAS.Themes.csproj" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
+      <Project>{2C6FFFA6-6ACD-4C24-ADD5-ACEB431011E0}</Project>
+      <Name>SMT.SAAS.Themes</Name>
+      <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

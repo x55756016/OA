@@ -1,0 +1,86 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.LicenseBorrowForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+             xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+            xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+            xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             >
+    <Grid x:Name="LayoutRoot">    
+        <ctr:TabControl x:Name="tbcContainer" Margin="2" Height="auto" Grid.ColumnSpan="2" Style="{StaticResource TabControlStyle}">
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                        <!--<TextBox x:Name="txtType" Width="100"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>-->
+
+                        <!--<dataInput:Label HorizontalAlignment="Left"  Content="*" Foreground="red" Grid.Row="0" Grid.Column="2"/>-->
+
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LICENSENAME}"  VerticalAlignment="Center" Margin="5,5,10,0" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox x:Name="txtLicenseName" Width="340" Grid.Row="0" Grid.Column="1" Margin="5,5,0,0" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="LICENSENAME"></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                        </TextBox>
+
+                        <!--<dataInput:Label HorizontalAlignment="Left"  Content="*" Foreground="red" Grid.Row="2" Grid.Column="2"/>-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LENDTIME}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
+                        <controls:DatePicker x:Name="sDate" Text="{Binding STARTDATE,Mode=TwoWay}" Margin="5,5,0,0" Width="340" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Style="{StaticResource DatePickerStyle}">
+                            <validator:ValidatorService.Validator>
+                                <validator:DateValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="LENDTIME" IsRequired="True" ></validator:DateValidator>
+                            </validator:ValidatorService.Validator>
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                        </controls:DatePicker>
+                        
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RETURNTIME}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"/>
+                        <controls:DatePicker x:Name="eDate" Text="{Binding ENDDATE,Mode=TwoWay}" Margin="5,5,0,0" Width="340" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Style="{StaticResource DatePickerStyle}">
+                            <validator:ValidatorService.Validator>
+                                <validator:DateValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="RETURNTIME" IsRequired="True" ></validator:DateValidator>
+                            </validator:ValidatorService.Validator>
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                        </controls:DatePicker>
+
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PURPOSE}" VerticalAlignment="Top" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0"/>
+                        <TextBox Text="{Binding CONTENT,Mode=TwoWay}"  x:Name="txtContent" Width="340" MinHeight="150" VerticalAlignment="Stretch" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="3" Grid.Column="1" Margin="5,5,0,0" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}">
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PURPOSE"></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                        </TextBox>                       
+                    </Grid>
+                </StackPanel>
+            </ctr:TabItem>
+            <!--<ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ScrollViewer x:Name="scvAudit" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="150">
+                        <audit:AuditControl Visibility="Visible" x:Name="audit">
+                        </audit:AuditControl>
+                    </ScrollViewer>
+                </StackPanel>
+            </ctr:TabItem>-->
+        </ctr:TabControl>
+
+    </Grid>
+</smtLocal:BaseForm>

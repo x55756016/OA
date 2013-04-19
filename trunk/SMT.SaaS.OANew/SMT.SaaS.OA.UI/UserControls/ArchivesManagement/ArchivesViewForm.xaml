@@ -1,0 +1,24 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SMT.SaaS.OA.UI.UserControls.ArchivesViewForm" 
+    >
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="0.60*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition Width="0.70*"/>
+		</Grid.ColumnDefinitions>
+		<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARCHIVESTITLE}"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0,0,10,0"/>
+		<TextBox x:Name="txtTitle" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Margin="0,5,8,0" Style="{StaticResource TextBoxStyle}"/>
+		<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARCHIVESCONTENT}" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
+		<!--<TextBox x:Name="txtContent" Width="auto" Margin="0,5,8,0" MinHeight="392" AcceptsReturn="True"  Style="{StaticResource TextBoxStyle}" TextWrapping="Wrap"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto"/>-->
+		<richtext:RichMainPage Grid.Row="1" Grid.Column="1" x:Name="txtContent" Margin="0,5,8,0" MinHeight="392"/>
+		
+	</Grid>
+</smtLocal:BaseForm>

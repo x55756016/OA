@@ -1,0 +1,105 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.VehicleManagement.FrmVehicleInfoManager" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:local="clr-namespace:SMT.SaaS.OA.UI"        
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"  xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"   
+           xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+           xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:conver="clr-namespace:SMT.SaaS.OA.UI.Class" 
+           
+           Title="VehicleInfoManager Page">
+    <navigation:Page.Resources>
+        <conver:ConverUseFlag x:Name="userFlag"></conver:ConverUseFlag>
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" IsExpanded="True"  x:Name="controlsToolkitTUV" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top"  Margin="0,1,0,2" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSETID}" Margin="4" />
+                    <TextBox x:Name="txtASSETID" Width="120" Style="{StaticResource TextBoxStyle}"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CarModel}" Margin="4" />
+                    <TextBox x:Name="txtCarModel" Width="120" Style="{StaticResource TextBoxStyle}"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=VIN}" Margin="4" />
+                    <TextBox x:Name="txVIN" Width="120" Style="{StaticResource TextBoxStyle}"/>
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=ADDDATE}" Margin="4,2,0,2"></dataInput:Label>
+                    <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpStart" Margin="4,1,4,1"></controls:DatePicker>
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" Margin="4,2,0,2"></dataInput:Label>
+                    <controls:DatePicker Style="{StaticResource DatePickerStyle}"  x:Name="dpEnd" Margin="4,1,4,1"></controls:DatePicker>
+
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  Click="SearchBtn_Click" Margin="4,1,10,1" Style="{StaticResource CommonButtonStyle}" />
+                </StackPanel>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <Grid Grid.Row="3">
+                <data:DataGrid x:Name="dg" AutoGenerateColumns="False"  LoadingRow="dg_LoadingRow"  
+                               IsReadOnly="True"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                               RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn Header="SELECT" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}"  Width="28">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Name="entityLogo" Tag="{Binding ASSETID}" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="ASSETID" >
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding ASSETID}" VerticalAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="CarModel" Binding="{Binding VEHICLEMODEL}"/>                        
+                        <data:DataGridTemplateColumn Header="VIN"  Width="80">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding VIN}" VerticalAlignment="Center" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="VehicleCOMPANYID"  Width="80">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding COMPANYID}" VerticalAlignment="Center" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="UseFlag"  Width="80">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding VEHICLEFLAG, Converter={StaticResource DictionaryConverter},ConverterParameter=VEHICLEFLAG}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click"  VerticalAlignment="Bottom" Grid.Row="4"></smt:GridPager>
+            </Grid>
+        </Grid>
+    </Grid>
+</local:BasePage >
