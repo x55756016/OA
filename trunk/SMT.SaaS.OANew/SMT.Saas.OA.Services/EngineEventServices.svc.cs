@@ -234,6 +234,13 @@ namespace SMT.SaaS.OA.Services
                 entity.POSTLEVEL = buip.POSTLEVEL;
                 entity.STARTCITYNAME = buip.STARTCITYNAME;
                 entity.ENDCITYNAME = buip.ENDCITYNAME;
+                Tracer.Debug("出差终审自动生成出差报销："+entity.OWNERNAME
+                    +"-"+ entity.OWNERPOSTNAME
+                    + "-" + entity.OWNERDEPARTMENTNAME
+                    + "-" + entity.OWNERCOMPANYNAME
+                    + "-岗位级别：" + entity.POSTLEVEL
+                    + "-开始城市：" + entity.STARTCITYNAME
+                    + "-结束城市：" + entity.ENDCITYNAME);
                 //添加子表数据
                 EmployeeWS.V_EMPLOYEEDETAIL emp = new EmployeeWS.V_EMPLOYEEDETAIL();
                 EmployeeWS.PersonnelServiceClient cinet = new EmployeeWS.PersonnelServiceClient();//人事服务(查询员工岗位级别用)
