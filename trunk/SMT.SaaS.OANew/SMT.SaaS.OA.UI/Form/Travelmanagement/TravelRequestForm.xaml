@@ -23,7 +23,6 @@
     x:Class="SMT.SaaS.OA.UI.Views.Travelmanagement.TravelRequestForm">
     <UserControl.Resources>
         <local:CheckStateConverter x:Key="StateConvert" />
-        <!--<local:DictionaryConverter x:Key="DictionaryConverter" />-->
         <local:CompanyInfoConverter x:Key="CompanyConvert" />
         <local:CustomDateConverter x:Key="DateTimeConvert" />
     </UserControl.Resources>

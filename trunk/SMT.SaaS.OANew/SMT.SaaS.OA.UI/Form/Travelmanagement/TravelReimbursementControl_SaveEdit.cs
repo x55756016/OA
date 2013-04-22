@@ -261,7 +261,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     else
                     {
-                        OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
+                        OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
                     }
                 }
                 else
@@ -477,11 +477,11 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                             if (needsubmit == true)
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Submit");
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
                             }
                         }
                         if (TravelReimbursement_Golbal.CHECKSTATE == Utility.GetCheckState(CheckStates.Approving))
@@ -503,11 +503,11 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                             if (needsubmit == true)
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Submit");
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
                             }
                         }
                         else if (TravelReimbursement_Golbal.CHECKSTATE == Utility.GetCheckState(CheckStates.UnSubmit))
@@ -524,11 +524,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                             }
                             if (needsubmit == true)
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Submit");
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
                             }
                         }
                         break;
@@ -545,11 +545,11 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                             if (needsubmit == true)
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Submit");
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
                             }
                         }//审核通过直接修改表单状态
                         else
@@ -571,18 +571,18 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                                 if (needsubmit == true)
                                 {
-                                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
+                                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Submit");
                                 }
                                 else
                                 {
-                                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
+                                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
                                 }
                                 RefreshUI(RefreshedTypes.AuditInfo);
                                 Resubmit = false;
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
                             }
                         }
                         break;
@@ -608,18 +608,18 @@ namespace SMT.SaaS.OA.UI.UserControls
                 return;
             }
 
-            TrList = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-            if (TrList.Count() > 1)
+            TravelDetailList_Golbal = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+            if (TravelDetailList_Golbal.Count() > 1)
             {
                 for (int i = 0; i < DaGrs.SelectedItems.Count; i++)
                 {
                     int k = DaGrs.SelectedIndex;//当前选中行
                     T_OA_REIMBURSEMENTDETAIL entDel = DaGrs.SelectedItems[i] as T_OA_REIMBURSEMENTDETAIL;
 
-                    if (TrList.Contains(entDel))
+                    if (TravelDetailList_Golbal.Contains(entDel))
                     {
 
-                        TrList.Remove(entDel);
+                        TravelDetailList_Golbal.Remove(entDel);
                         if (citysEndList_Golbal.Count > k)
                         {
 
@@ -645,7 +645,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                         }
                     }
                 }
-                DaGrs.ItemsSource = TrList;
+                DaGrs.ItemsSource = TravelDetailList_Golbal;
             }
             else
             {

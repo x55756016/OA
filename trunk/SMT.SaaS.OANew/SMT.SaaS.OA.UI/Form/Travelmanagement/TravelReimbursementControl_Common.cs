@@ -410,9 +410,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetTranSportcostsTextBox(TextBox txtTranSportcosts, int i)
         {
-            if (DaGrs.Columns[8].GetCellContent(TrList[i - 1]) != null)
+            if (DaGrs.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtTranSportcosts = DaGrs.Columns[8].GetCellContent(TrList[i - 1]).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
+                txtTranSportcosts = DaGrs.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
             }
             return txtTranSportcosts;
         }
@@ -424,9 +424,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetASubsidiesTextBox(TextBox txtASubsidies, int i)
         {
-            if (DaGrs.Columns[9].GetCellContent(TrList[i - 1]) != null)
+            if (DaGrs.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtASubsidies = DaGrs.Columns[9].GetCellContent(TrList[i - 1]).FindName("txtACCOMMODATION") as TextBox;//住宿费
+                txtASubsidies = DaGrs.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtACCOMMODATION") as TextBox;//住宿费
             }
             return txtASubsidies;
         }
@@ -438,9 +438,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetTFSubsidiesTextBox(TextBox txtTFSubsidies, int i)
         {
-            if (DaGrs.Columns[10].GetCellContent(TrList[i - 1]) != null)
+            if (DaGrs.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtTFSubsidies = DaGrs.Columns[10].GetCellContent(TrList[i - 1]).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                txtTFSubsidies = DaGrs.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
             }
 
             return txtTFSubsidies;
@@ -453,9 +453,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetMealSubsidiesTextBox(TextBox txtMealSubsidies, int i)
         {
-            if (DaGrs.Columns[11].GetCellContent(TrList[i - 1]) != null)
+            if (DaGrs.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtMealSubsidies = DaGrs.Columns[11].GetCellContent(TrList[i - 1]).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                txtMealSubsidies = DaGrs.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
             }
             return txtMealSubsidies;
         }
@@ -467,9 +467,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetOtherCostsTextBox(TextBox txtOtherCosts, int i)
         {
-            if (DaGrs.Columns[12].GetCellContent(TrList[i - 1]) != null)
+            if (DaGrs.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtOtherCosts = DaGrs.Columns[12].GetCellContent(TrList[i - 1]).FindName("txtOtherCosts") as TextBox;//其他费用
+                txtOtherCosts = DaGrs.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtOtherCosts") as TextBox;//其他费用
             }
             return txtOtherCosts;
         }
@@ -506,6 +506,11 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         private T_OA_TAKETHESTANDARDTRANSPORT GetVehicleTypeValue(string ToolType)
         {
+            if(string.IsNullOrEmpty(EmployeePostLevel))
+            {
+                MessageBox.Show("当前报销员工岗位级别为空,请联系管理员");
+                return null;
+            }
             try
             {
                 if (string.IsNullOrEmpty(ToolType))
@@ -550,33 +555,33 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// </summary>
         public void TravelTime()
         {
-            if (TrList == null || DaGrs.ItemsSource == null)
+            if (TravelDetailList_Golbal == null || DaGrs.ItemsSource == null)
             {
                 return;
             }
             #region 存在多条的处理
             TextBox myDaysTime = new TextBox();
             bool OneDayTrave = false;
-            for (int i = 0; i < TrList.Count; i++)
+            for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
             {
                 GetTraveDayTextBox(myDaysTime, i).Text = string.Empty;
                 OneDayTrave = false;
                 //记录本条记录以便处理
-                DateTime FirstStartTime = Convert.ToDateTime(TrList[i].STARTDATE);
-                DateTime FirstEndTime = Convert.ToDateTime(TrList[i].ENDDATE);
-                string FirstTraveFrom = TrList[i].DEPCITY;
-                string FirstTraveTo = TrList[i].DESTCITY;
+                DateTime FirstStartTime = Convert.ToDateTime(TravelDetailList_Golbal[i].STARTDATE);
+                DateTime FirstEndTime = Convert.ToDateTime(TravelDetailList_Golbal[i].ENDDATE);
+                string FirstTraveFrom = TravelDetailList_Golbal[i].DEPCITY;
+                string FirstTraveTo = TravelDetailList_Golbal[i].DESTCITY;
                 //遍历剩余的记录
-                for (int j = i + 1; j < TrList.Count; j++)
+                for (int j = i + 1; j < TravelDetailList_Golbal.Count; j++)
                 {
-                    DateTime NextStartTime = Convert.ToDateTime(TrList[j].STARTDATE);
-                    DateTime NextEndTime = Convert.ToDateTime(TrList[j].ENDDATE);
-                    string NextTraveFrom = TrList[j].DEPCITY;
-                    string NextTraveTo = TrList[j].DESTCITY;
+                    DateTime NextStartTime = Convert.ToDateTime(TravelDetailList_Golbal[j].STARTDATE);
+                    DateTime NextEndTime = Convert.ToDateTime(TravelDetailList_Golbal[j].ENDDATE);
+                    string NextTraveFrom = TravelDetailList_Golbal[j].DEPCITY;
+                    string NextTraveTo = TravelDetailList_Golbal[j].DESTCITY;
                     GetTraveDayTextBox(myDaysTime, j).Text = string.Empty;
                     if (NextEndTime.Date == FirstStartTime.Date)
                     {
-                        if (NextTraveTo == FirstTraveFrom && (TrList.Count == 2 || TrList.Count == 1))
+                        if (NextTraveTo == FirstTraveFrom && (TravelDetailList_Golbal.Count == 2 || TravelDetailList_Golbal.Count == 1))
                         {
                             myDaysTime = GetTraveDayTextBox(myDaysTime, i);
                             myDaysTime.Text = "1";
@@ -594,7 +599,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (OneDayTrave == true) continue;
                 //非当天往返
                 decimal TotalDays = 0;
-                switch (TrList.Count())
+                switch (TravelDetailList_Golbal.Count())
                 {
                     case 1:
                         TotalDays = CaculateTravDays(FirstStartTime, FirstEndTime);
@@ -603,23 +608,23 @@ namespace SMT.SaaS.OA.UI.UserControls
                         break;
                     case 2:
                         if (i == 1) break;
-                        DateTime NextEndTime = Convert.ToDateTime(TrList[i + 1].ENDDATE);
+                        DateTime NextEndTime = Convert.ToDateTime(TravelDetailList_Golbal[i + 1].ENDDATE);
                         TotalDays = CaculateTravDays(FirstStartTime, NextEndTime);
                         myDaysTime = GetTraveDayTextBox(myDaysTime, i);
                         myDaysTime.Text = TotalDays.ToString();
                         break;
                     default:
-                        if (i == TrList.Count() - 1) break;//最后一条记录不处理
-                        if (i == TrList.Count() - 2)//倒数第二条记录=最后一条结束时间-上一条开始时间
+                        if (i == TravelDetailList_Golbal.Count() - 1) break;//最后一条记录不处理
+                        if (i == TravelDetailList_Golbal.Count() - 2)//倒数第二条记录=最后一条结束时间-上一条开始时间
                         {
-                            DateTime NextENDDATETime = Convert.ToDateTime(TrList[i + 1].ENDDATE);
+                            DateTime NextENDDATETime = Convert.ToDateTime(TravelDetailList_Golbal[i + 1].ENDDATE);
                             TotalDays = CaculateTravDays(FirstStartTime, NextENDDATETime);
                             myDaysTime = GetTraveDayTextBox(myDaysTime, i);
                             myDaysTime.Text = TotalDays.ToString();
                             break;
                         }
                         //否则出差时间=下一条开始时间-上一条开始时间
-                        DateTime NextStartTime = Convert.ToDateTime(TrList[i + 1].STARTDATE);
+                        DateTime NextStartTime = Convert.ToDateTime(TravelDetailList_Golbal[i + 1].STARTDATE);
                         TotalDays = CaculateTravDays(FirstStartTime, NextStartTime);
                         myDaysTime = GetTraveDayTextBox(myDaysTime, i);
                         myDaysTime.Text = TotalDays.ToString();
@@ -631,9 +636,9 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         private TextBox GetTraveDayTextBox(TextBox myDaysTime, int i)
         {
-            if (DaGrs.Columns[4].GetCellContent(TrList[i]) != null)
+            if (DaGrs.Columns[4].GetCellContent(TravelDetailList_Golbal[i]) != null)
             {
-                myDaysTime = DaGrs.Columns[4].GetCellContent(TrList[i]).FindName("txtTOTALDAYS") as TextBox;
+                myDaysTime = DaGrs.Columns[4].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtTOTALDAYS") as TextBox;
             }
             return myDaysTime;
         }
@@ -669,29 +674,29 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         public void TravelTimeCalculation()
         {
-            if (TrList == null || DaGrs.ItemsSource == null)
+            if (TravelDetailList_Golbal == null || DaGrs.ItemsSource == null)
             {
                 return;
             }
             #region 存在多条的处理
             TextBox myDaysTime = new TextBox();
             bool OneDayTrave = false;
-            for (int i = 0; i < TrList.Count; i++)
+            for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
             {
                 GetTraveTimeCalculationTextBox(myDaysTime, i).Text = string.Empty;
                 OneDayTrave = false;
                 //记录本条记录以便处理
-                DateTime FirstStartTime = Convert.ToDateTime(TrList[i].STARTDATE);
-                DateTime FirstEndTime = Convert.ToDateTime(TrList[i].ENDDATE);
-                string FirstTraveFrom = TrList[i].DEPCITY;
-                string FirstTraveTo = TrList[i].DESTCITY;
+                DateTime FirstStartTime = Convert.ToDateTime(TravelDetailList_Golbal[i].STARTDATE);
+                DateTime FirstEndTime = Convert.ToDateTime(TravelDetailList_Golbal[i].ENDDATE);
+                string FirstTraveFrom = TravelDetailList_Golbal[i].DEPCITY;
+                string FirstTraveTo = TravelDetailList_Golbal[i].DESTCITY;
                 //遍历剩余的记录
-                for (int j = i + 1; j < TrList.Count; j++)
+                for (int j = i + 1; j < TravelDetailList_Golbal.Count; j++)
                 {
-                    DateTime NextStartTime = Convert.ToDateTime(TrList[j].STARTDATE);
-                    DateTime NextEndTime = Convert.ToDateTime(TrList[j].ENDDATE);
-                    string NextTraveFrom = TrList[j].DEPCITY;
-                    string NextTraveTo = TrList[j].DESTCITY;
+                    DateTime NextStartTime = Convert.ToDateTime(TravelDetailList_Golbal[j].STARTDATE);
+                    DateTime NextEndTime = Convert.ToDateTime(TravelDetailList_Golbal[j].ENDDATE);
+                    string NextTraveFrom = TravelDetailList_Golbal[j].DEPCITY;
+                    string NextTraveTo = TravelDetailList_Golbal[j].DESTCITY;
                     GetTraveTimeCalculationTextBox(myDaysTime, j).Text = string.Empty;
                     if (NextEndTime.Date == FirstStartTime.Date)
                     {
@@ -713,7 +718,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (OneDayTrave == true) continue;
                 //非当天往返
                 decimal TotalDays = 0;
-                switch (TrList.Count())
+                switch (TravelDetailList_Golbal.Count())
                 {
                     case 1:
                         TotalDays = CaculateTravCalculationDays(FirstStartTime, FirstEndTime);
@@ -722,23 +727,23 @@ namespace SMT.SaaS.OA.UI.UserControls
                         break;
                     case 2:
                         if (i == 1) break;
-                        DateTime NextEndTime = Convert.ToDateTime(TrList[i + 1].ENDDATE);
+                        DateTime NextEndTime = Convert.ToDateTime(TravelDetailList_Golbal[i + 1].ENDDATE);
                         TotalDays = CaculateTravCalculationDays(FirstStartTime, NextEndTime);
                         myDaysTime = GetTraveTimeCalculationTextBox(myDaysTime, i);
                         myDaysTime.Text = TotalDays.ToString();
                         break;
                     default:
-                        if (i == TrList.Count() - 1) break;//最后一条记录不处理
-                        if (i == TrList.Count() - 2)//倒数第二条记录=最后一条结束时间-上一条开始时间
+                        if (i == TravelDetailList_Golbal.Count() - 1) break;//最后一条记录不处理
+                        if (i == TravelDetailList_Golbal.Count() - 2)//倒数第二条记录=最后一条结束时间-上一条开始时间
                         {
-                            DateTime NextENDDATETime = Convert.ToDateTime(TrList[i + 1].ENDDATE);
+                            DateTime NextENDDATETime = Convert.ToDateTime(TravelDetailList_Golbal[i + 1].ENDDATE);
                             TotalDays = CaculateTravCalculationDays(FirstStartTime, NextENDDATETime);
                             myDaysTime = GetTraveTimeCalculationTextBox(myDaysTime, i);
                             myDaysTime.Text = TotalDays.ToString();
                             break;
                         }
                         //否则出差时间=下一条开始时间-上一条开始时间
-                        DateTime NextStartTime = Convert.ToDateTime(TrList[i + 1].STARTDATE);
+                        DateTime NextStartTime = Convert.ToDateTime(TravelDetailList_Golbal[i + 1].STARTDATE);
                         TotalDays = CaculateTravCalculationDays(FirstStartTime, NextStartTime);
                         myDaysTime = GetTraveTimeCalculationTextBox(myDaysTime, i);
                         myDaysTime.Text = TotalDays.ToString();
@@ -750,9 +755,9 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         private TextBox GetTraveTimeCalculationTextBox(TextBox myDaysTime, int i)
         {
-            if (DaGrs.Columns[5].GetCellContent(TrList[i]) != null)
+            if (DaGrs.Columns[5].GetCellContent(TravelDetailList_Golbal[i]) != null)
             {
-                myDaysTime = DaGrs.Columns[5].GetCellContent(TrList[i]).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
+                myDaysTime = DaGrs.Columns[5].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
             }
             return myDaysTime;
         }
@@ -1367,18 +1372,18 @@ namespace SMT.SaaS.OA.UI.UserControls
 
             if (entareaallowance != null)//根据出差的城市及出差人的级别，将当前出差人的标准信息显示在备注中
             {
-                if (i <= TrList.Count() && TrList.Count() > 1)
+                if (i <= TravelDetailList_Golbal.Count() && TravelDetailList_Golbal.Count() > 1)
                 {
-                    if (TrList[i - 1].PRIVATEAFFAIR == "1")//如果是私事
+                    if (TravelDetailList_Golbal[i - 1].PRIVATEAFFAIR == "1")//如果是私事
                     {
                         textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "的出差报销标准是：交通补贴：" + "无" + ",餐费补贴：" + "无" + ",住宿标准：" + "无" + "。\n";
                     }
-                    else if (TrList[i - 1].GOOUTTOMEET == "1")//如果是内部会议及培训
+                    else if (TravelDetailList_Golbal[i - 1].GOOUTTOMEET == "1")//如果是内部会议及培训
                     {
                         //textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "的出差为《内部会议、培训》，无各项差旅补贴。\n";
                         textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "的出差为《内部会议、培训》，无各项差旅补贴。<br/>";
                     }
-                    else if (TrList[i - 1].COMPANYCAR == "1")//如果是公司派车
+                    else if (TravelDetailList_Golbal[i - 1].COMPANYCAR == "1")//如果是公司派车
                     {
                         textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "的出差报销标准是：交通补贴：" + "无" + "餐费补贴：" + entareaallowance.MEALSUBSIDIES.ToString() + "元,住宿标准：" + entareaallowance.ACCOMMODATION + "元。\n";
                         //textStandards.Text += "(以上为员工现岗位级别的补贴，仅供参考)";
@@ -1395,17 +1400,17 @@ namespace SMT.SaaS.OA.UI.UserControls
                         //textStandards.Text += "(以上为员工现岗位级别的补贴，仅供参考)";
                     }
                 }
-                if (TrList.Count() == 1)   //只有一条记录的情况
+                if (TravelDetailList_Golbal.Count() == 1)   //只有一条记录的情况
                 {
-                    if (TrList[i - 1].PRIVATEAFFAIR == "1")//如果是私事
+                    if (TravelDetailList_Golbal[i - 1].PRIVATEAFFAIR == "1")//如果是私事
                     {
                         textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "的出差报销标准是：交通补贴：" + "无" + "，餐费补贴：" + "无" + "，住宿标准：" + "无" + "。\n";
                     }
-                    else if (TrList[i - 1].GOOUTTOMEET == "1")//如果是内部会议及培训
+                    else if (TravelDetailList_Golbal[i - 1].GOOUTTOMEET == "1")//如果是内部会议及培训
                     {
                         textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "的出差为《内部会议、培训》，无各项差旅补贴。\n";
                     }
-                    else if (TrList[i - 1].COMPANYCAR == "1")//如果是公司派车
+                    else if (TravelDetailList_Golbal[i - 1].COMPANYCAR == "1")//如果是公司派车
                     {
                         textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "的出差报销标准是：交通补贴：" + "无" + "餐费补贴：" + entareaallowance.MEALSUBSIDIES.ToString() + "元，住宿标准：" + entareaallowance.ACCOMMODATION + "元。\n";
                         //textStandards.Text += "(以上为员工现岗位级别的补贴，仅供参考)";
@@ -1457,9 +1462,10 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <param name="e"></param>
         void TrC_GetTravleAreaAllowanceByPostValueCompleted(object sender, GetTravleAreaAllowanceByPostValueCompletedEventArgs e)
         {
+
             try
-            {                
-               
+            {
+
                 if (e.Error != null && !string.IsNullOrEmpty(e.Error.Message))
                 {
                     Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message);
@@ -1476,15 +1482,16 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "您公司的出差方案没有对应的出差补贴", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     }
-                    if (formType != FormTypes.New)
-                    {
-                        RefreshUI(RefreshedTypes.AuditInfo);
-                        RefreshUI(RefreshedTypes.All);
-                    }
                 }
-                if(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count() > 0)
+
+                if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count() > 0)
                 {
                     BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
+                }
+                if (formType != FormTypes.New)
+                {
+                    RefreshUI(RefreshedTypes.AuditInfo);
+                    RefreshUI(RefreshedTypes.All);
                 }
             }
             catch (Exception ex)
@@ -1492,7 +1499,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                 Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             }
-            RefreshUI(RefreshedTypes.HideProgressBar);
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+            }
         }
 
         #endregion

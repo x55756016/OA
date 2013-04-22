@@ -284,7 +284,7 @@ namespace SMT.SaaS.OA.UI
             #endregion
 
             //出差申请
-            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(BusinessApplicationsForm), new List<string> { "CHECKSTATE", "CITY", "VICHILESTANDARD", "VICHILELEVEL" }));
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(BusinessApplicationsForm), new List<string> { "CHECKSTATE", "VICHILESTANDARD", "VICHILELEVEL", "PROVINCE", "CITY" }));
 
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(ConserVationForm), new List<string> { "CONSERVANAME" }));
 
@@ -292,7 +292,7 @@ namespace SMT.SaaS.OA.UI
 
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(TravelapplicationPage), new List<string> { "CHECKSTATE", "CITY", "CHECKSTATE" }));
 
-            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(TravelRequestForm), new List<string> { "CHECKSTATE", "CITY", "VICHILESTANDARD", "VICHILELEVEL", "PROVINCE" }));
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(TravelRequestForm), new List<string> { "CHECKSTATE", "VICHILESTANDARD", "VICHILELEVEL", "PROVINCE", "CITY" }));
 
             //dicts.Add(new KeyValuePair<Type, List<string>>(typeof(TravelReimbursementPage), new List<string> { "CHECKSTATE", "CITY", "VICHILESTANDARD", "VICHILELEVEL" }));
 

@@ -30,8 +30,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         private SmtOAPersonOfficeClient OaPersonOfficeClient;
         private PersonnelServiceClient HrPersonnelclient;
         private OaInterfaceClient OaInterfaceClient;//预算费用报销单号使用
-
-        private bool isloaded = false;//控制Tab切换时的数据加载 
+        private bool isPageloadCompleted = false;//控制Tab切换时的数据加载 
         private V_Travelmanagement businesstrip = new V_Travelmanagement();
         private T_OA_TRAVELREIMBURSEMENT TravelReimbursement;
        
@@ -44,7 +43,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         private bool Resubmit = true;
         private string travelReimbursementID = "";
         //private SMT.Saas.Tools.AttendanceWS.AttendanceServiceClient AttendanceClient = new SMT.Saas.Tools.AttendanceWS.AttendanceServiceClient();
-        private ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TrList = new ObservableCollection<T_OA_REIMBURSEMENTDETAIL>();
+        private ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TravelDetailList_Golbal = new ObservableCollection<T_OA_REIMBURSEMENTDETAIL>();
         public List<T_SYS_DICTIONARY> ListVechileLevel = new List<T_SYS_DICTIONARY>();
         public T_OA_REIMBURSEMENTDETAIL TrDetail;
         public List<T_OA_CANTAKETHEPLANELINE> cantaketheplaneline = new List<T_OA_CANTAKETHEPLANELINE>();//可乘坐飞机线路设置
@@ -146,7 +145,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             entBrowser.BtnSaveSubmit.Click += new RoutedEventHandler(BtnSaveSubmit_Click);
 
             GetVechileLevelInfos();
-            if (isloaded == true) return;//如果已经加载过，再次切换时就不再加载
+            if (isPageloadCompleted == true) return;//如果已经加载过，再次切换时就不再加载
             if (formType == FormTypes.Browse || formType == FormTypes.Audit)
             {
                 Utility.InitFileLoad("TravelReimbursement", travelReimbursementID, formType, uploadFile);
@@ -202,6 +201,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         return;
                     }
+                    isPageloadCompleted = true;
                     TravelReimbursement_Golbal = e.Result;
 
                     if (TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString()
@@ -298,6 +298,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                         RefreshUI(RefreshedTypes.ShowProgressBar);
                         OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(TravelReimbursement_Golbal.OWNERCOMPANYID, null, null);
                     }
+                    else
+                    {
+                        if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count > 0)
+                        {
+                            BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
+                        }
+                    }
 
                     //OaPersonOfficeClient.GetTravelReimbursementDetailAsync(TravelReimbursement.TRAVELREIMBURSEMENTID);
                 }
@@ -322,6 +329,8 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region DataGrid BindData 加载显示出差报销数据
         private void BindDataGrid(ObservableCollection<T_OA_REIMBURSEMENTDETAIL> obj)//加载出差报销子表
         {
+            TravelDetailList_Golbal = obj;
+
             citysStartList_Golbal.Clear();
             citysEndList_Golbal.Clear();
             foreach (T_OA_REIMBURSEMENTDETAIL detail in obj)
@@ -331,11 +340,11 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
-                DaGrss.ItemsSource = TrList;
+                DaGrss.ItemsSource = TravelDetailList_Golbal;
             }
             else
             {
-                DaGrs.ItemsSource = TrList;
+                DaGrs.ItemsSource = TravelDetailList_Golbal;
             }
         }
 
@@ -428,7 +437,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                         //myCity.TxtSelectedCity.Text = GetCityName(obje.DEPCITY);
                                         //注释原因：obje.depcity仍然是中文而不是数字
                                         myCity.TxtSelectedCity.Text = GetCityName(tmp.DEPCITY);
-                                        if (TrList.Count() > 1)
+                                        if (TravelDetailList_Golbal.Count() > 1)
                                         {
                                             if (i > 1)
                                             {

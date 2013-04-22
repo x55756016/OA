@@ -348,13 +348,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                     T_OA_REIMBURSEMENTDETAIL btlist = (T_OA_REIMBURSEMENTDETAIL)chk.DataContext;
                     if (btlist != null)
                     {
-                        var ents = from ent in TrList
+                        var ents = from ent in TravelDetailList_Golbal
                                    where ent.REIMBURSEMENTDETAILID == btlist.REIMBURSEMENTDETAILID
                                    select ent;
                         if (ents.Count() > 0)
                         {
-                            int k = TrList.IndexOf(ents.FirstOrDefault());
-                            TrList[k].GOOUTTOMEET = "1";
+                            int k = TravelDetailList_Golbal.IndexOf(ents.FirstOrDefault());
+                            TravelDetailList_Golbal[k].GOOUTTOMEET = "1";
                             ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("您已勾选内部会议或培训，无各项补贴！"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         }
                     }
@@ -375,13 +375,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                 T_OA_REIMBURSEMENTDETAIL btlist = (T_OA_REIMBURSEMENTDETAIL)chk.DataContext;
                 if (btlist != null)
                 {
-                    var ents = from ent in TrList
+                    var ents = from ent in TravelDetailList_Golbal
                                where ent.REIMBURSEMENTDETAILID == btlist.REIMBURSEMENTDETAILID
                                select ent;
                     if (ents.Count() > 0)
                     {
-                        int k = TrList.IndexOf(ents.FirstOrDefault());
-                        TrList[k].GOOUTTOMEET = "0";
+                        int k = TravelDetailList_Golbal.IndexOf(ents.FirstOrDefault());
+                        TravelDetailList_Golbal[k].GOOUTTOMEET = "0";
                     }
                 }
             }
@@ -399,13 +399,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                     T_OA_REIMBURSEMENTDETAIL btlist = (T_OA_REIMBURSEMENTDETAIL)chk.DataContext;
                     if (btlist != null)
                     {
-                        var ents = from ent in TrList
+                        var ents = from ent in TravelDetailList_Golbal
                                    where ent.REIMBURSEMENTDETAILID == btlist.REIMBURSEMENTDETAILID
                                    select ent;
                         if (ents.Count() > 0)
                         {
-                            int k = TrList.IndexOf(ents.FirstOrDefault());
-                            TrList[k].COMPANYCAR = "1";
+                            int k = TravelDetailList_Golbal.IndexOf(ents.FirstOrDefault());
+                            TravelDetailList_Golbal[k].COMPANYCAR = "1";
                             ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("您已勾选公司派车，无交通补贴！"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         }
                     }
@@ -426,13 +426,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                 T_OA_REIMBURSEMENTDETAIL btlist = (T_OA_REIMBURSEMENTDETAIL)chk.DataContext;
                 if (btlist != null)
                 {
-                    var ents = from ent in TrList
+                    var ents = from ent in TravelDetailList_Golbal
                                where ent.REIMBURSEMENTDETAILID == btlist.REIMBURSEMENTDETAILID
                                select ent;
                     if (ents.Count() > 0)
                     {
-                        int k = TrList.IndexOf(ents.FirstOrDefault());
-                        TrList[k].COMPANYCAR = "0";
+                        int k = TravelDetailList_Golbal.IndexOf(ents.FirstOrDefault());
+                        TravelDetailList_Golbal[k].COMPANYCAR = "0";
                     }
                 }
             }
@@ -556,12 +556,12 @@ namespace SMT.SaaS.OA.UI.UserControls
                             SetNextDepartureCity(SelectIndex);
                         }
                         //将选择的城市值赋给对应的集合
-                        if (TrList.Count() > 0)
+                        if (TravelDetailList_Golbal.Count() > 0)
                         {
-                            var ents = from ent in TrList
+                            var ents = from ent in TravelDetailList_Golbal
                                        where ent.REIMBURSEMENTDETAILID == list.REIMBURSEMENTDETAILID
                                        select ent;
-                            TrList.ForEach(item =>
+                            TravelDetailList_Golbal.ForEach(item =>
                             {
                                 if (item.REIMBURSEMENTDETAILID == list.REIMBURSEMENTDETAILID)
                                 {
@@ -844,7 +844,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
             if (formType != FormTypes.New)
             {
-                if (TrList.Count() > 0)
+                if (TravelDetailList_Golbal.Count() > 0)
                 {
                     //foreach (T_OA_REIMBURSEMENTDETAIL tailList in TrList)
                     //{
@@ -859,16 +859,16 @@ namespace SMT.SaaS.OA.UI.UserControls
                     //}
                     //将原有记录的最后一条记录的目的城市作为出发城市。
                     //buip.DEPCITY = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(TrList.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY);
-                    if (TrList.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>() != null)
+                    if (TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>() != null)
                     {
-                        buip.DEPCITY = TrList.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY;
-                        buip.STARTDATE = TrList.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().ENDDATE;
+                        buip.DEPCITY = TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY;
+                        buip.STARTDATE = TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().ENDDATE;
 
                     }
                 }
                 buip.ENDDATE = DateTime.Now;
-                TrList.Add(buip);
-                DaGrs.ItemsSource = TrList;
+                TravelDetailList_Golbal.Add(buip);
+                DaGrs.ItemsSource = TravelDetailList_Golbal;
 
                 foreach (Object obje in DaGrs.ItemsSource)
                 {

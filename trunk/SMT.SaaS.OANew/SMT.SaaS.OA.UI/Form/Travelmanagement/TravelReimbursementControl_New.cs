@@ -158,7 +158,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     ListDetail.Add(TrDetail);
                     i++;
                 }
-                TrList = ListDetail;
+                TravelDetailList_Golbal = ListDetail;
             }
         }
     }

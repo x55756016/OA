@@ -108,13 +108,20 @@ namespace SMT.SaaS.OA.UI.Class
         }
         private void BindItems(string cate)
         {
-            DictionaryManager dm = new DictionaryManager();
-            dm.OnDictionaryLoadCompleted += (o, e) =>
+            try
             {
-                List<T_SYS_DICTIONARY> dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
-                BindComboBox(dicts, cate, SelectedValue);
-            };
-            dm.LoadDictionary(cate);
+                DictionaryManager dm = new DictionaryManager();
+                dm.OnDictionaryLoadCompleted += (o, e) =>
+                {
+                    List<T_SYS_DICTIONARY> dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
+                    BindComboBox(dicts, cate, SelectedValue);
+                };
+                dm.LoadDictionary(cate);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         /// <summary>
         /// 可用于动态加载字典

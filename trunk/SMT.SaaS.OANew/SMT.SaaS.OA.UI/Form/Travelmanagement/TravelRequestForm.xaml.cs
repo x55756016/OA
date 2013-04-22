@@ -172,6 +172,26 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 HideControl();
             }
 
+            FormToolBar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
+            FormToolBar1.btnEdit.Visibility = Visibility.Collapsed;//修改
+            FormToolBar1.btnDelete.Visibility = Visibility.Collapsed;//删除
+            FormToolBar1.BtnView.Visibility = Visibility.Collapsed;//查看
+            FormToolBar1.btnRefresh.Visibility = Visibility.Collapsed;//刷新
+            FormToolBar1.btnReSubmit.Visibility = Visibility.Collapsed;//重新提交
+            FormToolBar1.btnAudit.Visibility = Visibility.Collapsed;//审核
+            FormToolBar1.cbxCheckState.Visibility = Visibility.Collapsed;
+            FormToolBar1.btnPrint.Visibility = Visibility.Collapsed;//打印
+            FormToolBar1.btnOutPDF.Visibility = Visibility.Collapsed;//导出pdf
+            FormToolBar1.btnOutExcel.Visibility = Visibility.Collapsed;//导出excel
+            FormToolBar1.stpCheckState.Visibility = Visibility.Collapsed;//检查审核状态
+            FormToolBar1.retEdit.Visibility = Visibility.Collapsed;
+            FormToolBar1.retRead.Visibility = Visibility.Collapsed;
+            FormToolBar1.retRefresh.Visibility = Visibility.Collapsed;
+            FormToolBar1.retAudit.Visibility = Visibility.Collapsed;
+            FormToolBar1.retDelete.Visibility = Visibility.Collapsed;
+            FormToolBar1.retPDF.Visibility = Visibility.Collapsed;
+            FormToolBar1.retAuditNoPass.Visibility = Visibility.Collapsed;
+
             if (formType == FormTypes.New)
             {
                 Master_Golbal = new T_OA_BUSINESSTRIP();
@@ -206,25 +226,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 }
             }
 
-            FormToolBar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
-            FormToolBar1.btnEdit.Visibility = Visibility.Collapsed;//修改
-            FormToolBar1.btnDelete.Visibility = Visibility.Collapsed;//删除
-            FormToolBar1.BtnView.Visibility = Visibility.Collapsed;//查看
-            FormToolBar1.btnRefresh.Visibility = Visibility.Collapsed;//刷新
-            FormToolBar1.btnReSubmit.Visibility = Visibility.Collapsed;//重新提交
-            FormToolBar1.btnAudit.Visibility = Visibility.Collapsed;//审核
-            FormToolBar1.cbxCheckState.Visibility = Visibility.Collapsed;
-            FormToolBar1.btnPrint.Visibility = Visibility.Collapsed;//打印
-            FormToolBar1.btnOutPDF.Visibility = Visibility.Collapsed;//导出pdf
-            FormToolBar1.btnOutExcel.Visibility = Visibility.Collapsed;//导出excel
-            FormToolBar1.stpCheckState.Visibility = Visibility.Collapsed;//检查审核状态
-            FormToolBar1.retEdit.Visibility = Visibility.Collapsed;
-            FormToolBar1.retRead.Visibility = Visibility.Collapsed;
-            FormToolBar1.retRefresh.Visibility = Visibility.Collapsed;
-            FormToolBar1.retAudit.Visibility = Visibility.Collapsed;
-            FormToolBar1.retDelete.Visibility = Visibility.Collapsed;
-            FormToolBar1.retPDF.Visibility = Visibility.Collapsed;
-            FormToolBar1.retAuditNoPass.Visibility = Visibility.Collapsed;
+
         }
         #endregion
 
@@ -1104,6 +1106,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         }
                         else
                         {
+                            if (formType != FormTypes.New && Master_Golbal.T_OA_BUSINESSTRIPDETAIL.Count > 0)
+                            {
+                                BindDataGrid(Master_Golbal.T_OA_BUSINESSTRIPDETAIL);
+                            }
                             RefreshUI(RefreshedTypes.HideProgressBar);
                             if (Master_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
                             {

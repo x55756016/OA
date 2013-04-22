@@ -112,7 +112,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "OWNERPOSTID", TravelReimbursement_Golbal.OWNERPOSTID, postName));
             }
-            foreach (T_OA_REIMBURSEMENTDETAIL objDetail in TrList)//填充子表
+            foreach (T_OA_REIMBURSEMENTDETAIL objDetail in TravelDetailList_Golbal)//填充子表
             {
                 if (objDetail.BUSINESSDAYS != null)//出差天数
                 {
@@ -192,7 +192,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
             }
             ObservableCollection<Object> TrListObj = new ObservableCollection<Object>();
-            foreach (var item in TrList)
+            foreach (var item in TravelDetailList_Golbal)
             {
                 TrListObj.Add(item);
             }
