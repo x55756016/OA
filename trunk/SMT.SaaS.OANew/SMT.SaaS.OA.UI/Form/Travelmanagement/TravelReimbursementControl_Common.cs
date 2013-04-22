@@ -1462,7 +1462,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <param name="e"></param>
         void TrC_GetTravleAreaAllowanceByPostValueCompleted(object sender, GetTravleAreaAllowanceByPostValueCompletedEventArgs e)
         {
-
             try
             {
 
@@ -1487,11 +1486,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count() > 0)
                 {
                     BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
-                }
-                if (formType != FormTypes.New)
-                {
-                    RefreshUI(RefreshedTypes.AuditInfo);
                     RefreshUI(RefreshedTypes.All);
+                    if (TravelReimbursement_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
+                    {
+                        RefreshUI(RefreshedTypes.AuditInfo);
+                    }
                 }
             }
             catch (Exception ex)

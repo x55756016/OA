@@ -204,12 +204,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                     isPageloadCompleted = true;
                     TravelReimbursement_Golbal = e.Result;
 
-                    if (TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString()
-                    || TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnApproved).ToString())
-                    {
-                        RefreshUI(RefreshedTypes.All);
-                    }
-
                     //ljx  2011-8-29  
                     if (formType == FormTypes.Edit)
                     {
@@ -311,9 +305,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                         if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count > 0)
                         {
                             BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
+                            RefreshUI(RefreshedTypes.All);
+                            if (TravelReimbursement_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
+                            {
+                                RefreshUI(RefreshedTypes.AuditInfo);
+                            }
                         }
                     }
-
                     //OaPersonOfficeClient.GetTravelReimbursementDetailAsync(TravelReimbursement.TRAVELREIMBURSEMENTID);
                 }
             }
@@ -324,11 +322,6 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             finally
             {
-                if (formType != FormTypes.New)
-                {
-                    RefreshUI(RefreshedTypes.AuditInfo);
-                    RefreshUI(RefreshedTypes.All);
-                }
                 RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
