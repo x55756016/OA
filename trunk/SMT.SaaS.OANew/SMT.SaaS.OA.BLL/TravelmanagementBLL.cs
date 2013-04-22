@@ -59,11 +59,29 @@ namespace SMT.SaaS.OA.BLL
                 return null;
             }
 
-            var ents = from a in dal.GetObjects<T_OA_BUSINESSTRIP>()
-                       where a.BUSINESSTRIPID == TravelmanagementID
-                       select a;
-            return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+            var entsM = from a in dal.GetObjects<T_OA_BUSINESSTRIP>()
+                        where a.BUSINESSTRIPID == TravelmanagementID
 
+                        select a;
+            var entsd = from a in dal.GetObjects<T_OA_BUSINESSTRIPDETAIL>()
+                        where a.T_OA_BUSINESSTRIP.BUSINESSTRIPID == TravelmanagementID
+                        orderby a.STARTDATE
+                        select a;
+            if (entsM.Count() > 0)
+            {
+                var q = entsM.FirstOrDefault();
+                if (entsd.Count() > 0)
+                {
+                    var e = entsd.ToList().OrderBy(c => c.STARTDATE);
+                    foreach (var a in e)
+                    {
+                        q.T_OA_BUSINESSTRIPDETAIL.Add(a);
+                    }
+
+                }
+                return q;
+            }
+            return null;
         }
         public T_OA_BUSINESSTRIP GetTravelmanagementBysId()
         {

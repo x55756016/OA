@@ -37,12 +37,38 @@ namespace SMT.SaaS.OA.BLL
         /// <param name="TravelReimbursementID">报销ID</param>
         /// <returns>返回结果</returns>
         public T_OA_TRAVELREIMBURSEMENT GetTravelReimbursementById(string TravelReimbursementID)
-        {
-            
-            var ents = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_REIMBURSEMENTDETAIL")
+        {            
+            //var ents = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_REIMBURSEMENTDETAIL")
+            //           join b in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>() on a.TRAVELREIMBURSEMENTID equals b.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID
+            //           where a.TRAVELREIMBURSEMENTID == TravelReimbursementID     
+            //           orderby b.STARTDATE
+            //           select a;
+            //return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+
+            var entsM = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>()
                        where a.TRAVELREIMBURSEMENTID == TravelReimbursementID
+                       
                        select a;
-            return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+            var entsd = from a in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>() 
+                        where a.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == TravelReimbursementID
+                       orderby a.STARTDATE
+                       select a;
+            if (entsM.Count() > 0)
+            {
+                var q = entsM.FirstOrDefault();
+                if (entsd.Count() > 0)
+                {
+                   var e=entsd.ToList().OrderBy(c=>c.STARTDATE);
+                    foreach(var a in e)
+                    {
+                        q.T_OA_REIMBURSEMENTDETAIL.Add(a);
+                    }
+
+                }
+                return q;
+            }
+            return null;
+
         }
         #endregion
 
