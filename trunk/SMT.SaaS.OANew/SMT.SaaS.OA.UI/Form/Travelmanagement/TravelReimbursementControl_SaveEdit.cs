@@ -30,7 +30,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         void BtnSaveSubmit_Click(object sender, RoutedEventArgs e)
         {
             RefreshUI(RefreshedTypes.ShowProgressBar);
-            isSubmit = true;
+            //isSubmit = true;
             needsubmit = true;
             clickSubmit = true;
 
@@ -256,7 +256,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 else
                 {
                     needsubmit = false;
-                    isSubmit = false;
+                    //isSubmit = false;
                     RefreshUI(RefreshedTypes.HideProgressBar);
                 }
             }
@@ -377,9 +377,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Result), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                         return;
                     }
-                    if (e.UserState.ToString() == "Edit" && !isSubmit)
+                    else
                     {
-                        isSubmit = false;
+                        //isSubmit = false;
                         Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
                         if (GlobalFunction.IsSaveAndClose(refreshType))
                         {
@@ -387,26 +387,33 @@ namespace SMT.SaaS.OA.UI.UserControls
                             ParentEntityBrowser.ParentWindow.Close();
                         }
                     }
-                    if (e.UserState.ToString() == "Audit")
-                    {
-                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
-                    }
-                    canSubmit = true;
-                    //if (e.UserState.ToString() == "Submit")
+
+
+                    //if (e.UserState.ToString() == "Edit" && !isSubmit)
                     //{
-                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSSUBMITAUDIT"));
+                    //    isSubmit = false;
+                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
+                    //    if (GlobalFunction.IsSaveAndClose(refreshType))
+                    //    {
+                    //        RefreshUI(refreshType);
+                    //        ParentEntityBrowser.ParentWindow.Close();
+                    //    }
                     //}
+                    //if (e.UserState.ToString() == "Audit")
+                    //{
+                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
+                    //}
+                    canSubmit = true;
 
                     RefreshUI(RefreshedTypes.AuditInfo);
                     if (TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0 || fbCtr.Order.TOTALMONEY > 0)
                     {
                         if (needsubmit == true)
                         {
-
                             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                             entBrowser.ManualSubmit();
                             HideButtons();
-                            OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
+                            //OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
                         }
                         else
                         {
@@ -434,6 +441,10 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
 
@@ -638,7 +649,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
 
                         TrList.Remove(entDel);
-                        if (cityscode.Count > k)
+                        if (citysEndList_Golbal.Count > k)
                         {
 
                             int EachCount = 0;
@@ -652,14 +663,14 @@ namespace SMT.SaaS.OA.UI.UserControls
                                     {
                                         if (k > 0)
                                         {
-                                            mystarteachCity.TxtSelectedCity.Text = GetCityName(cityscode[k - 1]);
-                                            citycode[k + 1] = cityscode[k - 1];//上一城市的城市值
+                                            mystarteachCity.TxtSelectedCity.Text = GetCityName(citysEndList_Golbal[k - 1]);
+                                            citysStartList_Golbal[k + 1] = citysEndList_Golbal[k - 1];//上一城市的城市值
                                         }
                                     }
                                 }
                             }
-                            cityscode.RemoveAt(k);//清除目标城市的值
-                            citycode.RemoveAt(k);//清除出发城市的值
+                            citysEndList_Golbal.RemoveAt(k);//清除目标城市的值
+                            citysStartList_Golbal.RemoveAt(k);//清除出发城市的值
                         }
                     }
                 }

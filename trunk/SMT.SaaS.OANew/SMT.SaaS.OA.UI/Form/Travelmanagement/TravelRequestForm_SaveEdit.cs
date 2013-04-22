@@ -31,135 +31,25 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
 
-            IsSubmit = false;//点击了提交按钮
+            //IsSubmit = false;//点击了提交按钮
             needsubmit = true;
             isSubmit = true;
             Save();
         }
+
+
+        public void DoAction(string actionType)
+        {
+            switch (actionType)
+            {
+                case "0":
+                    refreshType = RefreshedTypes.All;
+                    Save();
+                    break;
+            }
+        }
         #endregion
 
-        #region 出差时间计算
-        public void TravelTimeCalculation()
-        {
-            if (TraveDetailList_Golbal == null || DaGrs.ItemsSource == null)
-            {
-                return;
-            }
-            #region 存在多条的处理
-            TextBox myDaysTime = new TextBox();
-            bool OneDayTrave = false;
-            for (int i = 0; i < TraveDetailList_Golbal.Count; i++)
-            {
-                GetTraveDayTextBox(myDaysTime, i).Text = string.Empty;
-                OneDayTrave = false;
-                //记录本条记录以便处理
-                DateTime FirstStartTime = Convert.ToDateTime(TraveDetailList_Golbal[i].STARTDATE);
-                DateTime FirstEndTime = Convert.ToDateTime(TraveDetailList_Golbal[i].ENDDATE);
-                string FirstTraveFrom = TraveDetailList_Golbal[i].DEPCITY;
-                string FirstTraveTo = TraveDetailList_Golbal[i].DESTCITY;
-                //遍历剩余的记录
-                for (int j = i + 1; j < TraveDetailList_Golbal.Count; j++)
-                {
-                    DateTime NextStartTime = Convert.ToDateTime(TraveDetailList_Golbal[j].STARTDATE);
-                    DateTime NextEndTime = Convert.ToDateTime(TraveDetailList_Golbal[j].ENDDATE);
-                    string NextTraveFrom = TraveDetailList_Golbal[j].DEPCITY;
-                    string NextTraveTo = TraveDetailList_Golbal[j].DESTCITY;
-                    GetTraveDayTextBox(myDaysTime, j).Text = string.Empty;
-                    if (NextEndTime.Date == FirstStartTime.Date)
-                    {
-                        if (NextTraveTo == FirstTraveFrom)
-                        {
-                            myDaysTime = GetTraveDayTextBox(myDaysTime, i);
-                            myDaysTime.Text = "1";
-                            i = j - 1;
-                            OneDayTrave = true;
-                            break;
-                        }
-                        else continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                if (OneDayTrave == true) continue;
-                //非当天往返
-                decimal TotalDays = 0;
-                switch (TraveDetailList_Golbal.Count())
-                {
-                    case 1:
-                        TotalDays = CaculateTravDays(FirstStartTime, FirstEndTime);
-                        myDaysTime = GetTraveDayTextBox(myDaysTime, i);
-                        myDaysTime.Text = TotalDays.ToString();
-                        break;
-                    case 2:
-                        if (i == 1) break;
-                        DateTime NextEndTime = Convert.ToDateTime(TraveDetailList_Golbal[i + 1].ENDDATE);
-                        TotalDays = CaculateTravDays(FirstStartTime, NextEndTime);
-                        myDaysTime = GetTraveDayTextBox(myDaysTime, i);
-                        myDaysTime.Text = TotalDays.ToString();
-                        break;
-                    default:
-                        if (i == TraveDetailList_Golbal.Count() - 1) break;//最后一条记录不处理
-                        if (i == TraveDetailList_Golbal.Count() - 2)//倒数第二条记录=最后一条结束时间-上一条开始时间
-                        {
-                            DateTime NextENDDATETime = Convert.ToDateTime(TraveDetailList_Golbal[i + 1].ENDDATE);
-                            TotalDays = CaculateTravDays(FirstStartTime, NextENDDATETime);
-                            myDaysTime = GetTraveDayTextBox(myDaysTime, i);
-                            myDaysTime.Text = TotalDays.ToString();
-                            break;
-                        }
-                        //否则出差时间=下一条开始时间-上一条开始时间
-                        DateTime NextStartTime = Convert.ToDateTime(TraveDetailList_Golbal[i + 1].STARTDATE);
-                        TotalDays = CaculateTravDays(FirstStartTime, NextStartTime);
-                        myDaysTime = GetTraveDayTextBox(myDaysTime, i);
-                        myDaysTime.Text = TotalDays.ToString();
-                        break;
-                }
-            }
-            #endregion
-        }
-        /// <summary>
-        /// 获取出差申请每列后面的出差天数文本框
-        /// </summary>
-        /// <param name="txtDaysCount">出差天数文本框</param>
-        /// <param name="i">行数</param>
-        /// <returns></returns>
-        private TextBox GetTraveDayTextBox(TextBox txtDaysCount, int i)
-        {
-            if (DaGrs.Columns[6].GetCellContent(TraveDetailList_Golbal[i]) != null)
-            {
-                txtDaysCount = DaGrs.Columns[6].GetCellContent(TraveDetailList_Golbal[i]).FindName("txtTOTALDAYS") as TextBox;
-            }
-            return txtDaysCount;
-        }
-        /// <summary>
-        /// 计算出差时长结算-开始时间NextStartTime-FirstStartTime
-        /// </summary>
-        /// <param name="FirstStartTime">开始时间</param>
-        /// <param name="NextStartTime">结束时间</param>
-        /// <returns></returns>
-        private decimal CaculateTravDays(DateTime FirstStartTime, DateTime NextStartTime)
-        {
-            //计算出差时间（天数）
-            TimeSpan TraveDays = NextStartTime.Subtract(FirstStartTime);
-            decimal TotalDays = 0;//出差天数
-            decimal TotalHours = 0;//出差小时
-            TotalDays = TraveDays.Days;
-            TotalHours = TraveDays.Hours;
-            int customhalfday = travelsolutions_Golbal.CUSTOMHALFDAY.ToInt32();
-            if (TotalHours >= customhalfday)//如果出差时间大于等于方案设置的时间，按方案标准时间计算
-            {
-                TotalDays += 1;
-            }
-            else
-            {
-                if (TotalHours > 0)
-                    TotalDays += Convert.ToDecimal("0.5");//TotalDays += decimal.Round(TotalHours / 24,1);
-            }
-            return TotalDays;
-        }
-        #endregion
 
         #region 字段赋值
         /// <summary>
@@ -170,10 +60,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             //计算出差时间
             TravelTimeCalculation();
 
-            businesstripMaster_Golbal.TEL = this.txtTELL.Text;//联系电话;
-            businesstripMaster_Golbal.CHARGEMONEY = 0;//费用;
-            businesstripMaster_Golbal.ISAGENT = (bool)ckEnabled.IsChecked ? "1" : "0";//是否启用代理
-            businesstripMaster_Golbal.CONTENT = this.txtSubject.Text;//出差事由
+            Master_Golbal.TEL = this.txtTELL.Text;//联系电话;
+            Master_Golbal.CHARGEMONEY = 0;//费用;
+            Master_Golbal.ISAGENT = (bool)ckEnabled.IsChecked ? "1" : "0";//是否启用代理
+            Master_Golbal.CONTENT = this.txtSubject.Text;//出差事由
             NewDetail();
             string StartCity = string.Empty;//出发城市
             string EndCity = string.Empty;//目标城市
@@ -196,44 +86,44 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     StartTime = TraveDetailList_Golbal[0].STARTDATE.ToString();
                     EndTime = TraveDetailList_Golbal[TraveDetailList_Golbal.Count() - 1].ENDDATE.ToString();
                 }
-                businesstripMaster_Golbal.DEPCITY = StartCity;
-                businesstripMaster_Golbal.DESTCITY = EndCity;
+                Master_Golbal.DEPCITY = StartCity;
+                Master_Golbal.DESTCITY = EndCity;
 
-                businesstripMaster_Golbal.STARTCITYNAME = GetCityName(StartCity);
-                businesstripMaster_Golbal.ENDCITYNAME = GetCityName(EndCity);
+                Master_Golbal.STARTCITYNAME = GetCityName(StartCity);
+                Master_Golbal.ENDCITYNAME = GetCityName(EndCity);
 
-                businesstripMaster_Golbal.STARTDATE = Convert.ToDateTime(StartTime);
-                businesstripMaster_Golbal.ENDDATE = Convert.ToDateTime(EndTime);
+                Master_Golbal.STARTDATE = Convert.ToDateTime(StartTime);
+                Master_Golbal.ENDDATE = Convert.ToDateTime(EndTime);
             }
             if (formType == FormTypes.New)
             {
-                //businesstrip.BUSINESSTRIPID = System.Guid.NewGuid().ToString();
-                if (string.IsNullOrEmpty(businesstripMaster_Golbal.OWNERID))
+                //如果出差记录的所属人为空，那么赋值当前操作人为单据所属人
+                if (string.IsNullOrEmpty(Master_Golbal.OWNERID))
                 {
-                    businesstripMaster_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;//岗位ID
-                    businesstripMaster_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//公司ID
-                    businesstripMaster_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;//部门ID
-                    businesstripMaster_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;//员工ID
-                    businesstripMaster_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName; //员工姓名
+                    Master_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;//岗位ID
+                    Master_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//公司ID
+                    Master_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;//部门ID
+                    Master_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;//员工ID
+                    Master_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName; //员工姓名
                 }
-                businesstripMaster_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
-                businesstripMaster_Golbal.CREATEDATE = DateTime.Now;//创建时间
-                businesstripMaster_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
-                businesstripMaster_Golbal.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//创建公司ID
-                businesstripMaster_Golbal.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;//创建部门ID
-                businesstripMaster_Golbal.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;//创建岗位ID
-                businesstripMaster_Golbal.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//创建人ID
-                businesstripMaster_Golbal.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;//创建人姓名
+                //Master_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
+                Master_Golbal.CREATEDATE = DateTime.Now;//创建时间
+                Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
+                Master_Golbal.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//创建公司ID
+                Master_Golbal.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;//创建部门ID
+                Master_Golbal.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;//创建岗位ID
+                Master_Golbal.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//创建人ID
+                Master_Golbal.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;//创建人姓名
 
                 //ctrFile.FormID = businesstrip.BUSINESSTRIPID;
                 //ctrFile.Save();
             }
             else
             {
-                businesstripMaster_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
-                businesstripMaster_Golbal.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//修改人ID
-                businesstripMaster_Golbal.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-                businesstripMaster_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
+                Master_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
+                Master_Golbal.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//修改人ID
+                Master_Golbal.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+                Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
 
                 //ctrFile.FormID = businesstrip.BUSINESSTRIPID;
                 //ctrFile.Save();
@@ -462,12 +352,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             SetTraveRequestValue();
             if (formType == FormTypes.New)
             {
-                OaPersonOfficeClient.TravelmanagementAddAsync(businesstripMaster_Golbal, TraveDetailList_Golbal);
+                OaPersonOfficeClient.TravelmanagementAddAsync(Master_Golbal, TraveDetailList_Golbal);
             }
             else
             {
-                UserState = "Edit";
-                OaPersonOfficeClient.UpdateTravelmanagementAsync(businesstripMaster_Golbal, TraveDetailList_Golbal, UserState);
+                //UserState = "Edit";
+                OaPersonOfficeClient.UpdateTravelmanagementAsync(Master_Golbal, TraveDetailList_Golbal, "Edit");
             }
         }
         #endregion
@@ -516,10 +406,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region 修改Completed
         void Travelmanagement_UpdateTravelmanagementCompleted(object sender, UpdateTravelmanagementCompletedEventArgs e)
         {
-            //RefreshUI(RefreshedTypes.HideProgressBar);
             try
             {
-                OaPersonOfficeClient.GetTravelmanagementByIdAsync(businesstrID);
                 if (e.Error != null && e.Error.Message != "")
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
@@ -571,6 +459,167 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             }
         }
+        #endregion
+
+        #region 废弃代码
+
+        //private V_EMPLOYEEDETAIL employeepost = new V_EMPLOYEEDETAIL();
+
+        #region 获取出差用户的组织信息
+
+        //void client_GetEmployeePostBriefByEmployeeIDCompleted(object sender, GetEmployeePostBriefByEmployeeIDCompletedEventArgs e)
+        //{
+        //    V_EMPLOYEEDETAIL employeepost = new V_EMPLOYEEDETAIL();
+        //    string StrName = string.Empty;
+        //    bool isLoadingAct = string.IsNullOrEmpty(Master_Golbal.POSTLEVEL);
+        //    if (e.Result != null)
+        //    {
+        //        employeepost = e.Result;
+        //        //获取出差人的岗位级别
+        //        if (!string.IsNullOrEmpty(Master_Golbal.OWNERPOSTID))//新建时如果选了出差人,获取被选出差人的岗位等级
+        //        {
+        //            if (employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault() != null)
+        //            {
+        //                Master_Golbal.POSTLEVEL = employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault().POSTLEVEL.ToString();
+        //            }
+        //            else
+        //            {
+        //                var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
+        //                Master_Golbal.POSTLEVEL = ent != null ? ent.POSTLEVEL.ToString() : "0 ";
+        //            }
+        //        }
+        //        else //默认为当前用户的岗位等级
+        //        {
+        //            Master_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
+        //        }
+        //        if (formType == FormTypes.New && isLoadingAct)
+        //        {
+        //            var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
+        //            Master_Golbal.OWNERPOSTNAME = ent != null ? ent.PostName.ToString() : employeepost.EMPLOYEEPOSTS[0].PostName;
+        //            Master_Golbal.OWNERDEPARTMENTNAME = ent != null ? ent.DepartmentName.ToString() : employeepost.EMPLOYEEPOSTS[0].DepartmentName;
+        //            Master_Golbal.OWNERCOMPANYNAME = ent != null ? ent.CompanyName.ToString() : employeepost.EMPLOYEEPOSTS[0].CompanyName;
+        //            StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME;
+        //            txtTraveEmployee.Text = StrName;
+        //            if (string.IsNullOrEmpty(Master_Golbal.OWNERNAME))//如果没有选择出差人的情况
+        //            {
+        //                Master_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+        //            }
+        //            ToolTipService.SetToolTip(txtTraveEmployee, StrName);
+        //            if (!string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYID))//如果是选出差人的情况下(获取所选用户公司)
+        //            {
+        //                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
+        //            }
+        //            else //默认是当前用户(当前用户公司)
+        //            {
+        //                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, null, null);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            RefreshUI(RefreshedTypes.AuditInfo);
+        //            RefreshUI(RefreshedTypes.All);
+
+        //            //2013/3/27 alter by ken 修改加载员工岗位信息方式
+        //            Master_Golbal.OWNERPOSTNAME = employeepost.EMPLOYEEPOSTS.Where(c => c.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault().PostName;
+        //            Master_Golbal.OWNERDEPARTMENTNAME = employeepost.EMPLOYEEPOSTS.Where(c => c.DepartmentID == Master_Golbal.OWNERDEPARTMENTID).FirstOrDefault().DepartmentName;
+        //            Master_Golbal.OWNERCOMPANYNAME = employeepost.EMPLOYEEPOSTS.Where(c => c.CompanyID == Master_Golbal.OWNERCOMPANYID).FirstOrDefault().CompanyName;
+        //            //Master_Golbal.OWNERPOSTNAME = (Application.Current.Resources["SYS_PostInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_POST>).Where(c => c.POSTID == Businesstrip.OWNERPOSTID).FirstOrDefault().T_HR_POSTDICTIONARY.POSTNAME;
+        //            //Master_Golbal.OWNERDEPARTMENTNAME = (Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>).Where(c => c.DEPARTMENTID == Businesstrip.OWNERDEPARTMENTID).FirstOrDefault().T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
+        //            //Master_Golbal.OWNERCOMPANYNAME = (Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>).Where(c => c.COMPANYID == Businesstrip.OWNERCOMPANYID).FirstOrDefault().CNAME;
+        //            StrName = Master_Golbal.OWNERNAME + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME;
+        //            txtTraveEmployee.Text = StrName;
+        //            //strTravelEmployeeName = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
+        //            ToolTipService.SetToolTip(txtTraveEmployee, StrName);
+        //            OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
+        //        }
+        //        if (!string.IsNullOrEmpty(employeepost.MOBILE))
+        //        {
+        //            txtTELL.Text = employeepost.MOBILE;//手机号码
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("对不起，该员工已离职，不能进行该操作"));
+        //    }
+        //}
+        
+        //void client_GetAllEmployeePostBriefByEmployeeIDCompleted(object sender, GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs e)
+        //{
+        //    V_EMPLOYEEDETAIL employeepost = new V_EMPLOYEEDETAIL();
+        //    string StrName = string.Empty;
+        //    if (e.Result != null)
+        //    {
+        //        employeepost = e.Result;
+        //        //获取出差人的岗位级别
+        //        if (!string.IsNullOrEmpty(Master_Golbal.OWNERPOSTID))//新建时如果选了出差人,获取被选出差人的岗位等级
+        //        {
+        //            if (employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault() != null)
+        //            {
+        //                Master_Golbal.POSTLEVEL = employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault().POSTLEVEL.ToString();
+        //            }
+        //            else
+        //            {
+        //                var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
+        //                Master_Golbal.POSTLEVEL = ent != null ? ent.POSTLEVEL.ToString() : "0 ";
+        //            }
+        //        }
+        //        else //默认为当前用户的岗位等级
+        //        {
+        //            Master_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
+        //        }
+        //        if (formType == FormTypes.New)
+        //        {
+        //            var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
+        //            Master_Golbal.OWNERPOSTNAME = ent != null ? ent.PostName.ToString() : employeepost.EMPLOYEEPOSTS[0].PostName;
+        //            Master_Golbal.OWNERDEPARTMENTNAME = ent != null ? ent.DepartmentName.ToString() : employeepost.EMPLOYEEPOSTS[0].DepartmentName;
+        //            Master_Golbal.OWNERCOMPANYNAME = ent != null ? ent.CompanyName.ToString() : employeepost.EMPLOYEEPOSTS[0].CompanyName;
+        //            StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME;
+        //            txtTraveEmployee.Text = StrName;
+        //            if (string.IsNullOrEmpty(Master_Golbal.OWNERNAME))//如果没有选择出差人的情况
+        //            {
+        //                //strTravelEmployeeName = Common.CurrentLoginUserInfo.EmployeeName;
+        //            }
+        //            ToolTipService.SetToolTip(txtTraveEmployee, StrName);
+        //            if (!string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYID))//如果是选出差人的情况下(获取所选用户公司)
+        //            {
+        //                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
+        //            }
+        //            else //默认是当前用户(当前用户公司)
+        //            {
+        //                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, null, null);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            RefreshUI(RefreshedTypes.AuditInfo);
+        //            RefreshUI(RefreshedTypes.All);
+        //            //2013/3/27 alter by ken 修改加载员工岗位信息方式
+        //            Master_Golbal.OWNERPOSTNAME = employeepost.EMPLOYEEPOSTS.Where(c => c.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault().PostName;
+        //            Master_Golbal.OWNERDEPARTMENTNAME = employeepost.EMPLOYEEPOSTS.Where(c => c.DepartmentID == Master_Golbal.OWNERDEPARTMENTID).FirstOrDefault().DepartmentName;
+        //            Master_Golbal.OWNERCOMPANYNAME = employeepost.EMPLOYEEPOSTS.Where(c => c.CompanyID == Master_Golbal.OWNERCOMPANYID).FirstOrDefault().CompanyName;
+        //            StrName = Master_Golbal.OWNERNAME + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME;
+        //            txtTraveEmployee.Text = StrName;
+        //            //strTravelEmployeeName = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
+        //            ToolTipService.SetToolTip(txtTraveEmployee, StrName);
+        //            OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
+        //        }
+        //        if (employeepost.MOBILE != null && txtTELL.Text == null)
+        //        {
+        //            txtTELL.Text = employeepost.MOBILE;//手机号码
+        //        }
+        //        else if (txtTELL.Text == null)
+        //        {
+        //            if (employeepost.OFFICEPHONE != null)
+        //            {
+        //                txtTELL.Text = employeepost.OFFICEPHONE;//座机号码
+        //            }
+        //        }
+        //    }
+
+        //}
+
+        #endregion
+
         #endregion
     }
 }

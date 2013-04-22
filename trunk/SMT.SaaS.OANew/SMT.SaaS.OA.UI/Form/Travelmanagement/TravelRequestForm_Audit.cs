@@ -52,21 +52,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             return "";
         }
-
-        public void DoAction(string actionType)
-        {
-            switch (actionType)
-            {
-                case "0":
-                    refreshType = RefreshedTypes.All;
-                    Save();
-                    break;
-                //case "1":
-                //    refreshType = RefreshedTypes.CloseAndReloadData;
-                //    Save();
-                //    break;
-            }
-        }
         public List<NavigateItem> GetLeftMenuItems()
         {
             List<NavigateItem> items = new List<NavigateItem>();
@@ -84,15 +69,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             List<ToolbarItem> items = new List<ToolbarItem>();
             if (formType != FormTypes.Browse && formType != FormTypes.Audit)
             {
-                //ToolbarItem item = new ToolbarItem
-                //{
-                //    DisplayType = ToolbarItemDisplayTypes.Image,
-                //    Key = "1",
-                //    Title = Utility.GetResourceStr("SAVEANDCLOSE"),
-                //    ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/16_saveClose.png"
-                //};
-                //items.Add(item);
-
                 ToolbarItem item = new ToolbarItem
                 {
                     DisplayType = ToolbarItemDisplayTypes.Image,
@@ -122,11 +98,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #endregion
 
 
-
-        void audit_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
-        {
-            RefreshUI(RefreshedTypes.ShowProgressBar);
-        }
 
         /// <summary>
         ///     回到提交前的状态
@@ -194,28 +165,28 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
             AutoList.Add(basedata("T_OA_BUSINESSTRIP", "CHECKSTATE", Master_Golbal.CHECKSTATE, GetCheckState(Master_Golbal.CHECKSTATE)));//审核状态
-            if (Master_Golbal.OWNERID != null && !string.IsNullOrEmpty(peopletravel))//出差人
+            if (Master_Golbal.OWNERID != null && !string.IsNullOrEmpty(Master_Golbal.OWNERNAME))//出差人
             {
-                AutoList.Add(basedata("T_OA_BUSINESSTRIP", "OWNERID", Master_Golbal.OWNERID, peopletravel + "-" + postName + "-" + depName + "-" + corpName));
+                AutoList.Add(basedata("T_OA_BUSINESSTRIP", "OWNERID", Master_Golbal.OWNERID, Master_Golbal.OWNERNAME + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME));
             }
-            if (Master_Golbal.OWNERCOMPANYID != null && !string.IsNullOrEmpty(corpName))//所属公司
+            if (Master_Golbal.OWNERCOMPANYID != null && !string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYNAME))//所属公司
             {
-                AutoList.Add(basedata("T_OA_BUSINESSTRIP", "OWNERCOMPANYID", Master_Golbal.OWNERCOMPANYID, corpName));
+                AutoList.Add(basedata("T_OA_BUSINESSTRIP", "OWNERCOMPANYID", Master_Golbal.OWNERCOMPANYID, Master_Golbal.OWNERCOMPANYNAME));
             }
-            if (Master_Golbal.OWNERDEPARTMENTID != null && !string.IsNullOrEmpty(depName))//所属部门
+            if (Master_Golbal.OWNERDEPARTMENTID != null && !string.IsNullOrEmpty(Master_Golbal.OWNERDEPARTMENTNAME))//所属部门
             {
-                AutoList.Add(basedata("T_OA_BUSINESSTRIP", "OWNERDEPARTMENTID", Master_Golbal.OWNERDEPARTMENTID, depName));
+                AutoList.Add(basedata("T_OA_BUSINESSTRIP", "OWNERDEPARTMENTID", Master_Golbal.OWNERDEPARTMENTID, Master_Golbal.OWNERDEPARTMENTNAME));
             }
-            if (Master_Golbal.OWNERPOSTID != null && !string.IsNullOrEmpty(postName))//所属岗位
+            if (Master_Golbal.OWNERPOSTID != null && !string.IsNullOrEmpty(Master_Golbal.OWNERPOSTNAME))//所属岗位
             {
-                AutoList.Add(basedata("T_OA_BUSINESSTRIP", "OWNERPOSTID", Master_Golbal.OWNERPOSTID, postName));
+                AutoList.Add(basedata("T_OA_BUSINESSTRIP", "OWNERPOSTID", Master_Golbal.OWNERPOSTID, Master_Golbal.OWNERPOSTNAME));
             }
             if (fbCtr.Order.TOTALMONEY != null && fbCtr.Order.TOTALMONEY > 0)//借款金额
             {
                 AutoList.Add(basedata("T_OA_BUSINESSTRIP", "CHARGEMONEY", Master_Golbal.CHARGEMONEY.ToString(), fbCtr.Order.TOTALMONEY.ToString()));
             }
-            AutoList.Add(basedata("T_OA_BUSINESSTRIP", "POSTLEVEL", postLevel, string.Empty));//出差人的岗位级别
-            //AutoList.Add(basedata("T_OA_BUSINESSTRIP", "DEPARTMENTNAME", string.Empty, depName));//出差人所在部门
+            AutoList.Add(basedata("T_OA_BUSINESSTRIP", "POSTLEVEL", Master_Golbal.POSTLEVEL, string.Empty));//出差人的岗位级别
+            //AutoList.Add(basedata("T_OA_BUSINESSTRIP", "DEPARTMENTNAME", string.Empty, Master_Golbal.OWNERDEPARTMENTNAME));//出差人所在部门
             if (Master_Golbal.ISAGENT != null)//是否启用代理
             {
                 if (Master_Golbal.ISAGENT == "0")
@@ -330,6 +301,14 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 Utility.SetAuditEntity(entity, "T_OA_BUSINESSTRIP", Master_Golbal.BUSINESSTRIPID, strXmlObjectSource);
             }
         }
+
+
+
+        void audit_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
+        {
+            RefreshUI(RefreshedTypes.ShowProgressBar);
+        }
+
         void AuditCtrl_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
         {
             if (Common.CurrentLoginUserInfo.EmployeeID != Master_Golbal.OWNERID && Master_Golbal.CHECKSTATE == "0")
@@ -339,28 +318,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("OPERATINGWITHOUTAUTHORITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return;
             }
-            //if (actions == FormTypes.Resubmit || actions == FormTypes.Edit)
-            //{
-            //    //RefreshUI(RefreshedTypes.ShowProgressBar);
-            //    RefreshUI(RefreshedTypes.HideProgressBar);
-            //    e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
-            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"),
-            //        Utility.GetResourceStr("请先保存修改的记录"),
-            //    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            //    return;
-            //}
         }
+        
         public void OnSubmitCompleted(FrameworkUI.AuditControl.AuditEventArgs.AuditResult args)
         {
             string state = "";
             Utility.InitFileLoad(FormTypes.Audit, uploadFile, Master_Golbal.BUSINESSTRIPID, false);
-            UserState = "Audit";
-            IsSubmit = true;
-            if (formType == FormTypes.Audit)
-            {
-                IsAudit = false;
-            }
-            //BackToSubmit();
             switch (args)
             {
                 case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Auditing://审核中
@@ -393,7 +356,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             if (Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
             {
-                UserState = "Submit";
+                //UserState = "Submit";
             }
             if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
             {

@@ -27,9 +27,6 @@
         <local:CompanyInfoConverter x:Key="CompanyConvert" />
         <local:CustomDateConverter x:Key="DateTimeConvert" />
     </UserControl.Resources>
-    <!--<controls:TabControl  x:Name="tbcContainer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TabControlStyle}">
-        <controls:TabItem Header="出差信息" Visibility="Visible" Style="{StaticResource TabItemStyle}">
-            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">-->
     <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" Margin="4,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -66,8 +63,6 @@
                 <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
             </Button>
         </Grid>
-
- 
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
             
                 <Grid.ColumnDefinitions>
@@ -84,9 +79,8 @@
                 <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENABLED}" Width="30" Height="18" VerticalAlignment="Center" Margin="20,5,0,0" HorizontalAlignment="Left" d:LayoutOverrides="GridBox"/>
          
         </Grid>
-
         <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TRAVELTIME}"  VerticalAlignment="Center" Margin="0,0,0,0"/>
-        <ScrollViewer x:Name="ShowAudits"  HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="3" Grid.ColumnSpan="3" 
+        <ScrollViewer x:Name="svdgEdit"  HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="3" Grid.ColumnSpan="3" 
                                   Grid.Column="1" Margin="5,1,20,4" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <data:DataGrid x:Name="DaGrs" AutoGenerateColumns="False" Grid.Row="4" Grid.Column="1" LoadingRow="DaGrs_LoadingRow" 
 				          Style="{StaticResource DataGridStyle}" CanUserSortColumns="False"
@@ -221,7 +215,7 @@
         </ScrollViewer>
 		
 		<!--查看或审核时不显示控件只读取数据-->
-		<ScrollViewer x:Name="tbShowAudits"  HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.Row="3" Grid.ColumnSpan="3" 
+		<ScrollViewer x:Name="svdgReadOnly"  HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.Row="3" Grid.ColumnSpan="3" 
                                   Grid.Column="1" Margin="5,1,20,4" Width="618" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Visibility="Collapsed">
 		<data:DataGrid x:Name="DaGridReadOnly" AutoGenerateColumns="False" Grid.Row="2" Grid.Column="1" LoadingRow="DaGrss_LoadingRow" 
 				          Style="{StaticResource DataGridStyle}" CanUserSortColumns="False"
@@ -356,20 +350,7 @@
 
             <my:FileControl x:Name="uploadFile" HorizontalAlignment="Left" MaxWidth="618"/>
         </ScrollViewer>
-        <!--<aa:CtrlFileUploadM x:Name="ctrFile"
-                                                Grid.Row="5"
-                                                Grid.Column="1"
-                                                Grid.ColumnSpan="3"
-                                                Margin="0,0,20,2" />-->
-			
             <TextBlock Visibility="Collapsed" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Left" x:Name="lblFees"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=Fees}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,0"/>
             <TextBox Visibility="Collapsed" Grid.Row="8" Grid.Column="3" x:Name="txtFee" Text="{Binding CHARGEMONEY,Mode=TwoWay}"  Margin="0,1,20,4" IsReadOnly="True" Style="{StaticResource TextBoxStyle}"/>
     </Grid>
-    <!--</ScrollViewer>
-        </controls:TabItem>-->
-    <!--<controls:TabItem x:Name="TabLoan" Header="{Binding Converter={StaticResource ResourceConveter}, Source=LOANAPPLICATION}" Visibility="Collapsed" Style="{StaticResource TabItemStyle}">
-            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">-->
-    <!--</ScrollViewer>
-        </controls:TabItem>-->
-    <!--</controls:TabControl>-->
 </smtLocal:BaseForm>

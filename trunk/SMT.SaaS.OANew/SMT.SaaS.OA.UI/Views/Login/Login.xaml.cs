@@ -133,9 +133,17 @@ namespace SMT.SaaS.OA.UI.Views.Login
                         LoadCompanyInfo();
                         if (!IsolatedStorageSettings.ApplicationSettings.Contains("usName"))
                         {
+                            IsolatedStorageSettings.ApplicationSettings.Add("usName",this.UserName.Text);
+                        }
+                        else
+                        {
                             IsolatedStorageSettings.ApplicationSettings["usName"] = this.UserName.Text;
                         }
                         if (!IsolatedStorageSettings.ApplicationSettings.Contains("Password"))
+                        {
+                            IsolatedStorageSettings.ApplicationSettings.Add("Password",paw.Password);
+                        }
+                        else
                         {
                             IsolatedStorageSettings.ApplicationSettings["Password"] = paw.Password;
                         }
@@ -260,161 +268,8 @@ namespace SMT.SaaS.OA.UI.Views.Login
                 App.Navigation(mainPage);
             }
         }
-        //void organClient_GetAllPostViewCompleted(object sender, GetAllPostViewCompletedEventArgs e)
-        //{
-        //    if (e.Error == null)
-        //    {
-        //        if (e.Result != null)
-        //        {
-
-        //            List<V_POST> vpostList = e.Result.ToList();
-        //            entlist = new List<T_HR_POST>();
-        //            foreach (var ent in vpostList)
-        //            {
-        //                T_HR_POST pt = new T_HR_POST();
-        //                pt.POSTID = ent.POSTID;
-        //                pt.FATHERPOSTID = ent.FATHERPOSTID;
-        //                pt.CHECKSTATE = ent.CHECKSTATE;
-        //                pt.EDITSTATE = ent.EDITSTATE;
-
-        //                pt.T_HR_POSTDICTIONARY = new T_HR_POSTDICTIONARY();
-        //                pt.T_HR_POSTDICTIONARY.POSTDICTIONARYID = Guid.NewGuid().ToString();
-        //                pt.T_HR_POSTDICTIONARY.POSTNAME = ent.POSTNAME;
-
-        //                pt.T_HR_DEPARTMENT = new T_HR_DEPARTMENT();
-        //                pt.T_HR_DEPARTMENT = allDepartments.Where(s => s.DEPARTMENTID == ent.DEPARTMENTID).FirstOrDefault();
-
-        //                entlist.Add(pt);
-        //            }
-        //            App.Current.Resources.Add("SYS_PostInfo", entlist);
-        //            this.OK.IsEnabled = true;
-        //            //if(IsFinished)
-        //        }
-        //    }
-        //}
-
-        //void organClient_GetAllDepartmentViewCompleted(object sender, GetAllDepartmentViewCompletedEventArgs e)
-        //{
-        //    if (e.Error == null)
-        //    {
-        //        if (e.Result != null)
-        //        {
-        //            List<V_DEPARTMENT> entTemps = e.Result.ToList();
-        //            allDepartments = new List<T_HR_DEPARTMENT>();
-        //            var ents = entTemps.OrderBy(c => c.FATHERID);
-        //            foreach (var ent in ents)
-        //            {
-        //                T_HR_DEPARTMENT dep = new T_HR_DEPARTMENT();
-        //                dep.DEPARTMENTID = ent.DEPARTMENTID;
-        //                dep.FATHERID = ent.FATHERID;
-        //                dep.FATHERTYPE = ent.FATHERTYPE;
-        //                dep.T_HR_DEPARTMENTDICTIONARY = new T_HR_DEPARTMENTDICTIONARY();
-        //                dep.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID = ent.DEPARTMENTDICTIONARYID;
-        //                dep.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME = ent.DEPARTMENTNAME;
-        //                dep.T_HR_COMPANY = new T_HR_COMPANY();
-        //                dep.T_HR_COMPANY = allCompanys.Where(s => s.COMPANYID == ent.COMPANYID).FirstOrDefault();
-
-        //                dep.DEPARTMENTBOSSHEAD = ent.DEPARTMENTBOSSHEAD;
-        //                dep.SORTINDEX = ent.SORTINDEX;
-        //                dep.CHECKSTATE = ent.CHECKSTATE;
-        //                dep.EDITSTATE = ent.EDITSTATE;
-        //                allDepartments.Add(dep);
-        //            }
-
-        //            App.Current.Resources.Add("SYS_DepartmentInfo", allDepartments);
-        //            organClient.GetAllPostViewAsync("");
-        //        }
-        //    }
-        //}
-
-        //void organClient_GetALLCompanyViewCompleted(object sender, GetALLCompanyViewCompletedEventArgs e)
-        //{
-        //    if (e.Error == null)
-        //    {
-        //        if (e.Result != null)
-        //        {
-        //            List<V_COMPANY> entTemps = e.Result.ToList();
-        //            allCompanys = new List<T_HR_COMPANY>();
-        //            var ents = entTemps.OrderBy(c => c.FATHERID);
-        //            foreach (var ent in ents)
-        //            {
-        //                T_HR_COMPANY company = new T_HR_COMPANY();
-        //                company.COMPANYID = ent.COMPANYID;
-        //                company.CNAME = ent.CNAME;
-        //                company.ENAME = ent.ENAME;
-        //                if (!string.IsNullOrEmpty(ent.BRIEFNAME))
-        //                {
-        //                    company.BRIEFNAME = ent.BRIEFNAME;
-        //                }
-        //                else
-        //                {
-        //                    company.BRIEFNAME = ent.CNAME;
-        //                }
-
-        //                company.COMPANRYCODE = ent.COMPANRYCODE;
-        //                company.SORTINDEX = ent.SORTINDEX;
-        //                if (!string.IsNullOrEmpty(ent.FATHERCOMPANYID))
-        //                {
-        //                    company.T_HR_COMPANY2 = new T_HR_COMPANY();
-        //                    company.T_HR_COMPANY2.COMPANYID = ent.FATHERCOMPANYID;
-        //                    company.T_HR_COMPANY2.CNAME = entTemps.Where(s => s.COMPANYID == ent.FATHERCOMPANYID).FirstOrDefault().CNAME;
-        //                }
-        //                company.FATHERID = ent.FATHERID;
-        //                company.FATHERTYPE = ent.FATHERTYPE;
-        //                company.CHECKSTATE = ent.CHECKSTATE;
-        //                company.EDITSTATE = ent.EDITSTATE;
-        //                allCompanys.Add(company);
-        //            }
-        //            App.Current.Resources.Add("SYS_CompanyInfo", allCompanys);
-        //            organClient.GetAllDepartmentViewAsync("");
-        //        }
-        //    }
-        //}
         #endregion
 
-        
-        #region 获取组织架构废弃
-        
-        
-        //void organClient_GetPostAllCompleted(object sender, GetPostAllCompletedEventArgs e)
-        //{            
-        //    if (e.Error == null)
-        //    {
-        //        if (e.Result != null)
-        //        {
-        //            App.Current.Resources.Add("SYS_PostInfo", e.Result.ToList());
-        //            this.OK.IsEnabled = true;
-        //            //if(IsFinished)
-        //        }
-        //    }
-        //}
-
-        //void organClient_GetDepartmentAllCompleted(object sender, GetDepartmentAllCompletedEventArgs e)
-        //{
-        //    if (e.Error == null)
-        //    {
-        //        if (e.Result != null)
-        //        {
-        //            App.Current.Resources.Add("SYS_DepartmentInfo", e.Result.ToList());
-        //            organClient.GetPostAllAsync("");
-        //        }
-        //    }
-        //}
-
-        //void organClient_GetCompanyAllCompleted(object sender, GetCompanyAllCompletedEventArgs e)
-        //{
-        //    if (e.Error == null)
-        //    {
-        //        if (e.Result != null)
-        //        {
-        //            App.Current.Resources.Add("SYS_CompanyInfo", e.Result.ToList());
-        //            organClient.GetDepartmentAllAsync("");
-        //        }
-        //    }
-            
-        //}
-        #endregion
-        
         
     }
 }

@@ -283,7 +283,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                 continue;
                             }
                             //获取交通工具类型
-                            int i = CheckTraveToolStand(TraveDetailRow.TYPEOFTRAVELTOOLS.ToString(), TraveDetailRow.TAKETHETOOLLEVEL.ToString(), postLevel);
+                            int i = CheckTraveToolStand(TraveDetailRow.TYPEOFTRAVELTOOLS.ToString(), TraveDetailRow.TAKETHETOOLLEVEL.ToString(), Master_Golbal.POSTLEVEL);
                             switch (i)
                             {
                                 case 0://类型超标
@@ -308,7 +308,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region 启用代理按钮ckEnabled_Click
         private void ckEnabled_Click(object sender, RoutedEventArgs e)
         {
-            OaCommonOfficeClient.IsExistAgentAsync("T_OA_BUSINESSTRIP", employeepost.EMPLOYEEPOSTS[0].CompanyID);
+            OaCommonOfficeClient.IsExistAgentAsync("T_OA_BUSINESSTRIP", Master_Golbal.OWNERCOMPANYID);
         }
         #endregion
 

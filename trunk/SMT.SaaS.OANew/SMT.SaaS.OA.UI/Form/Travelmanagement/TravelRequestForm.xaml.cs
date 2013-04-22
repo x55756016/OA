@@ -27,12 +27,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
     public partial class TravelRequestForm : BaseForm, IClient, IEntityEditor, IAudit
     {
         #region 全局变量
-        private bool isloaded = false;//控制Tab切换时的数据加载
+        private bool isPageloadCompleted = false;//控制Tab切换时的数据加载
         private SmtOAPersonOfficeClient OaPersonOfficeClient;
         private PersonnelServiceClient HrPersonnelclient;
         private SmtOACommonOfficeClient OaCommonOfficeClient;
-        private T_OA_BUSINESSTRIP businesstripMaster_Golbal;
-        private V_EMPLOYEEDETAIL employeepost = new V_EMPLOYEEDETAIL();
+       
         private FormTypes formType;
         private RefreshedTypes refreshType = RefreshedTypes.CloseAndReloadData;
 
@@ -46,35 +45,38 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         /// 当前方案交通工具标准
         /// </summary>
         public List<T_OA_TAKETHESTANDARDTRANSPORT> transportToolStand = new List<T_OA_TAKETHESTANDARDTRANSPORT>();//
-        bool IsAudit = true;
-        private string businesstrID = string.Empty;
+        //bool IsAudit = true;
+        //private string Master_Golbal.BUSINESSTRIPID = string.Empty;
         //开始城市集合
         private List<string> citysStartList_Golbal = new List<string>();
         //目标城市集合
         private List<string> citysEndList_Golbal = new List<string>();
         private List<string> endTime = new List<string>();
-        private DateTimePicker txtEndTime = new DateTimePicker();
+        //private DateTimePicker txtEndTime = new DateTimePicker();
         //员工信息
-        private string peopletravel = string.Empty;//出差人
-        public string postLevel = string.Empty;
-        public string depName = string.Empty;//出差人的所属部门
-        public string postName = string.Empty;//出差人的所属岗位
-        public string corpName = string.Empty;//出差人所属公司(初始化时用)
+        //private string strTravelEmployeeName = string.Empty;//出差人
+        //public string Master_Golbal.POSTLEVEL = string.Empty;
+        //public string Master_Golbal.OWNERDEPARTMENTNAME = string.Empty;//出差人的所属部门
+        //public string Master_Golbal.OWNERPOSTNAME = string.Empty;//出差人的所属岗位
+        //public string Master_Golbal.OWNERCOMPANYNAME = string.Empty;//出差人所属公司(初始化时用)
         private bool BtnNewButton = false;//单击新建按钮
         public bool needsubmit = false; //为真时可以进行提交
         public bool isSubmit = false;//为真时不作保存成功的提示
-        public string UserState = string.Empty;
-        private bool IsSubmit = false;//是否是点击了提交按钮
+        //public string UserState = string.Empty;
+        //private bool IsSubmit = false;//是否是点击了提交按钮
 
 
         public EntityBrowser ParentEntityBrowser { get; set; }
+
+        private T_OA_BUSINESSTRIP Master_TravelBussiness;
+
         public T_OA_BUSINESSTRIP Master_Golbal
         {
-            get { return businesstripMaster_Golbal; }
+            get { return Master_TravelBussiness; }
             set
             {
                 this.DataContext = value;
-                businesstripMaster_Golbal = value;
+                Master_TravelBussiness = value;
             }
         }
         #endregion
@@ -87,42 +89,66 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             InitializeComponent();
             this.formType = FormTypes.New;
-            this.businesstrID = "";
-            InitData();
-            InitEvent();
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
-                ShowAudits.Visibility = Visibility.Collapsed;
-                tbShowAudits.Visibility = Visibility.Visible;
+                svdgEdit.Visibility = Visibility.Collapsed;
+                svdgReadOnly.Visibility = Visibility.Visible;
             }
             else
             {
-                ShowAudits.Visibility = Visibility.Visible;
-                tbShowAudits.Visibility = Visibility.Collapsed;
+                svdgEdit.Visibility = Visibility.Visible;
+                svdgReadOnly.Visibility = Visibility.Collapsed;
             }
             this.Loaded += new RoutedEventHandler(TravelapplicationPage_Loaded);
         }
-        public TravelRequestForm(FormTypes action, string businesstrID)
+
+        public TravelRequestForm(FormTypes action, string BUSINESSTRIPID)
         {
             InitializeComponent();
             this.formType = action;
-            this.businesstrID = businesstrID;
-            InitData();
-            InitEvent();
-            IsSubmit = true;
+            if (!string.IsNullOrEmpty(BUSINESSTRIPID))
+            {
+                Master_Golbal = new T_OA_BUSINESSTRIP();
+                Master_Golbal.BUSINESSTRIPID = BUSINESSTRIPID;
+            }
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
-                ShowAudits.Visibility = Visibility.Collapsed;
-                tbShowAudits.Visibility = Visibility.Visible;
+                svdgEdit.Visibility = Visibility.Collapsed;
+                svdgReadOnly.Visibility = Visibility.Visible;
             }
             else
             {
-                ShowAudits.Visibility = Visibility.Visible;
-                tbShowAudits.Visibility = Visibility.Collapsed;
+                svdgEdit.Visibility = Visibility.Visible;
+                svdgReadOnly.Visibility = Visibility.Collapsed;
                 
             }
             this.Loaded += new RoutedEventHandler(TravelapplicationPage_Loaded);
         }
+
+        #region InitEvent
+
+        private void InitWCFSvClinetEvent()
+        {
+            OaPersonOfficeClient = new SmtOAPersonOfficeClient();
+            OaCommonOfficeClient = new SmtOACommonOfficeClient();
+            HrPersonnelclient = new PersonnelServiceClient();
+
+            OaCommonOfficeClient.IsExistAgentCompleted += new EventHandler<IsExistAgentCompletedEventArgs>(SoaChannel_IsExistAgentCompleted);
+            //HrPersonnelclient.GetAllEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetAllEmployeePostBriefByEmployeeIDCompleted);
+            //HrPersonnelclient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetEmployeePostBriefByEmployeeIDCompleted);
+            OaPersonOfficeClient.TravelmanagementAddCompleted += new EventHandler<TravelmanagementAddCompletedEventArgs>(Travelmanagement_TravelmanagementAddCompleted);//添加
+            OaPersonOfficeClient.UpdateTravelmanagementCompleted += new EventHandler<UpdateTravelmanagementCompletedEventArgs>(Travelmanagement_UpdateTravelmanagementCompleted);//修改   
+            OaPersonOfficeClient.GetTravelmanagementByIdCompleted += new EventHandler<GetTravelmanagementByIdCompletedEventArgs>(Travelmanagement_GetTravelmanagementByIdCompleted);
+            //OaPersonOfficeClient.GetBusinesstripDetailCompleted += new EventHandler<GetBusinesstripDetailCompletedEventArgs>(Travelmanagement_GetBusinesstripDetailCompleted);
+            OaPersonOfficeClient.GetTravelSolutionByCompanyIDCompleted += new EventHandler<GetTravelSolutionByCompanyIDCompletedEventArgs>(Travelmanagement_GetTravelSolutionByCompanyIDCompleted);
+            //fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);
+            //Travelmanagement.GetUnderwayTravelmanagementAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
+
+        }
+
+
+        #endregion
+
         #endregion      
 
         #region 页面事件
@@ -130,36 +156,56 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region 页面Load事件
         void TravelapplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
+            if (isPageloadCompleted == true) return;//如果已经加载过，再次切换时就不再加载
+
+            InitWCFSvClinetEvent();
+            GetVechileLevelInfos();
             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
             entBrowser.BtnSaveSubmit.Click -= new RoutedEventHandler(entBrowser.btnSubmit_Click);
             entBrowser.BtnSaveSubmit.Click += new RoutedEventHandler(BtnSaveSubmit_Click);
 
-            GetVechileLevelInfos();
-            if (isloaded == true) return;//如果已经加载过，再次切换时就不再加载
             fbCtr.GetPayType.Visibility = Visibility.Visible;
-
             if (formType == FormTypes.Browse || formType == FormTypes.Audit)
             {
                 FileLoadedCompleted();
                 this.txtSubject.Foreground = new SolidColorBrush(Colors.Black);
                 HideControl();
             }
-            if (formType != FormTypes.New)
+
+            if (formType == FormTypes.New)
             {
-                if (!string.IsNullOrEmpty(businesstrID))
-                {
-                    RefreshUI(RefreshedTypes.ShowProgressBar);
-                    OaPersonOfficeClient.GetTravelmanagementByIdAsync(businesstrID);
-                    Utility.InitFileLoad("TravelRequest", businesstrID, formType, uploadFile);
-                }
+                Master_Golbal = new T_OA_BUSINESSTRIP();
+                Master_Golbal.BUSINESSTRIPID = System.Guid.NewGuid().ToString();
+                Master_Golbal.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
+                Master_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                Master_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+                Master_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+                Master_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
+                Master_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+                Master_Golbal.OWNERPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
+                Master_Golbal.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
+                Master_Golbal.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+                Master_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
+                Master_Golbal.TEL = Common.CurrentLoginUserInfo.Telphone;
+                txtTELL.Text = Common.CurrentLoginUserInfo.Telphone;
+                string StrName = Master_Golbal.OWNERNAME + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME;
+                txtTraveEmployee.Text = StrName;
+                //strTravelEmployeeName = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
+                ToolTipService.SetToolTip(txtTraveEmployee, StrName);
+                Utility.InitFileLoad("TravelRequest", Master_Golbal.BUSINESSTRIPID, formType, uploadFile);
+                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, null, null);
+
             }
             else
             {
-                businesstrID = System.Guid.NewGuid().ToString();
-                //将出差申请ID前置了，以前是放在了后面这样会导致审核控件提示ID为空
-                businesstripMaster_Golbal.BUSINESSTRIPID = businesstrID;
-                Utility.InitFileLoad("TravelRequest", businesstrID, formType, uploadFile);
+                if (!string.IsNullOrEmpty(Master_Golbal.BUSINESSTRIPID))
+                {
+                    RefreshUI(RefreshedTypes.ShowProgressBar);
+                    OaPersonOfficeClient.GetTravelmanagementByIdAsync(Master_Golbal.BUSINESSTRIPID);
+                    Utility.InitFileLoad("TravelRequest", Master_Golbal.BUSINESSTRIPID, formType, uploadFile);
+                }
             }
+
             FormToolBar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             FormToolBar1.btnEdit.Visibility = Visibility.Collapsed;//修改
             FormToolBar1.btnDelete.Visibility = Visibility.Collapsed;//删除
@@ -182,45 +228,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         }
         #endregion
 
-        #region InitData()
-
-        private void InitEvent()
-        {
-            OaPersonOfficeClient = new SmtOAPersonOfficeClient();
-            OaCommonOfficeClient = new SmtOACommonOfficeClient();
-            HrPersonnelclient = new PersonnelServiceClient();
-            if (formType == FormTypes.New)
-            {
-                HrPersonnelclient.GetEmployeePostBriefByEmployeeIDAsync(Common.CurrentLoginUserInfo.EmployeeID);//获取当期用户信息
-            }
-            OaCommonOfficeClient.IsExistAgentCompleted += new EventHandler<IsExistAgentCompletedEventArgs>(SoaChannel_IsExistAgentCompleted);
-            HrPersonnelclient.GetAllEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetAllEmployeePostBriefByEmployeeIDCompleted);
-            HrPersonnelclient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetEmployeePostBriefByEmployeeIDCompleted);
-            OaPersonOfficeClient.TravelmanagementAddCompleted += new EventHandler<TravelmanagementAddCompletedEventArgs>(Travelmanagement_TravelmanagementAddCompleted);//添加
-            OaPersonOfficeClient.UpdateTravelmanagementCompleted += new EventHandler<UpdateTravelmanagementCompletedEventArgs>(Travelmanagement_UpdateTravelmanagementCompleted);//修改   
-            OaPersonOfficeClient.GetTravelmanagementByIdCompleted += new EventHandler<GetTravelmanagementByIdCompletedEventArgs>(Travelmanagement_GetTravelmanagementByIdCompleted);
-            OaPersonOfficeClient.GetBusinesstripDetailCompleted += new EventHandler<GetBusinesstripDetailCompletedEventArgs>(Travelmanagement_GetBusinesstripDetailCompleted);
-            OaPersonOfficeClient.GetTravelSolutionByCompanyIDCompleted += new EventHandler<GetTravelSolutionByCompanyIDCompletedEventArgs>(Travelmanagement_GetTravelSolutionByCompanyIDCompleted);
-            //fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);
-            //Travelmanagement.GetUnderwayTravelmanagementAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
-        }
-
-        private void InitData()
-        {
-            if (formType == FormTypes.New)
-            {
-                //InitFBControl();
-                Master_Golbal = new T_OA_BUSINESSTRIP();
-                Master_Golbal.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
-                Master_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-                Master_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
-                Master_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-                Master_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
-                Master_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-            }
-        }
-
-        #endregion
 
         #region 屏蔽控件
         private void HideControl()
@@ -230,10 +237,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             txtTELL.IsReadOnly = true;
             ckEnabled.IsEnabled = false;
 
-            ShowAudits.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            svdgEdit.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
             DaGrs.IsEnabled = false;
             DaGrs.Columns[9].Visibility = Visibility.Collapsed;
-            ShowAudits.IsEnabled = true;
+            svdgEdit.IsEnabled = true;
             fbCtr.IsEnabled = false;
             FormToolBar1.Visibility = Visibility.Collapsed;
         }
@@ -457,10 +464,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 DaGrs.ItemsSource = TraveDetailList_Golbal;
                 DaGrs.SelectedIndex = 0;
             }
-            if (!string.IsNullOrEmpty(businesstrID))
-            {
-                //ctrFile.Load_fileData(businesstrID);
-            }
+            //if (!string.IsNullOrEmpty(Master_Golbal.BUSINESSTRIPID))
+            //{
+            //    //ctrFile.Load_fileData(Master_Golbal.BUSINESSTRIPID);
+            //}
         }
         #endregion
 
@@ -478,42 +485,52 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
                     SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj post = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)userInfo.ParentObject;
                     string postid = post.ObjectID;
-                    postName = post.ObjectName;//岗位
-                    postLevel = (ent.FirstOrDefault().ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE).T_HR_EMPLOYEEPOST.Where(s => s.T_HR_POST.POSTID == postid).FirstOrDefault().POSTLEVEL.ToString();
+                    //Master_Golbal.OWNERPOSTNAME = post.ObjectName;//岗位
+                    Master_Golbal.POSTLEVEL = (ent.FirstOrDefault().ObjectInstance 
+                        as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE).T_HR_EMPLOYEEPOST.Where(s => s.T_HR_POST.POSTID 
+                            == postid).FirstOrDefault().POSTLEVEL.ToString();
 
                     SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj dept = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)post.ParentObject;
                     string deptid = dept.ObjectID;
-                    depName = dept.ObjectName;//部门
+                    Master_Golbal.OWNERDEPARTMENTNAME = dept.ObjectName;//部门
 
                     SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY corp = (dept.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT).T_HR_COMPANY;
-                    string corpid = corp.COMPANYID;
-                    corpName = corp.CNAME;//公司
+                    string selectCompanyId = corp.COMPANYID;
+                    Master_Golbal.OWNERCOMPANYNAME = corp.CNAME;//公司
 
                     string StrEmployee = userInfo.ObjectName + "[" + post.ObjectName + "-" + dept.ObjectName + "-" + corp.CNAME + "]";
                     txtTraveEmployee.Text = StrEmployee;//出差人
-                    peopletravel = userInfo.ObjectName;
+                    //strTravelEmployeeName = userInfo.ObjectName;
                     ToolTipService.SetToolTip(txtTraveEmployee, StrEmployee);
-                    businesstripMaster_Golbal.OWNERID = userInfo.ObjectID;//出差人ID
-                    HrPersonnelclient.GetEmployeePostBriefByEmployeeIDAsync(businesstripMaster_Golbal.OWNERID, "lookup");
-                    businesstripMaster_Golbal.OWNERNAME = userInfo.ObjectName;//出差人
-                    businesstripMaster_Golbal.OWNERCOMPANYID = corpid;
-                    businesstripMaster_Golbal.OWNERDEPARTMENTID = deptid;
-                    businesstripMaster_Golbal.OWNERPOSTID = postid;
+                    Master_Golbal.OWNERID = userInfo.ObjectID;//出差人ID
+                    Master_Golbal.OWNERNAME = userInfo.ObjectName;//出差人
+                    Master_Golbal.OWNERCOMPANYID = selectCompanyId;
+                    Master_Golbal.OWNERDEPARTMENTID = deptid;
+                    Master_Golbal.OWNERPOSTID = postid;
 
-                    businesstripMaster_Golbal.OWNERPOSTNAME=postName;
-                    businesstripMaster_Golbal.OWNERDEPARTMENTNAME=depName;
-                    businesstripMaster_Golbal.OWNERCOMPANYNAME=corpName;
-                    businesstripMaster_Golbal.POSTLEVEL = postLevel;
+                    Master_Golbal.OWNERPOSTNAME=Master_Golbal.OWNERPOSTNAME;
+                    Master_Golbal.OWNERDEPARTMENTNAME=Master_Golbal.OWNERDEPARTMENTNAME;
+                    Master_Golbal.OWNERCOMPANYNAME=Master_Golbal.OWNERCOMPANYNAME;
 
-                    fbCtr.Order.OWNERCOMPANYID = corpid;
-                    fbCtr.Order.OWNERCOMPANYNAME = corpName;
+                    fbCtr.Order.OWNERCOMPANYID = selectCompanyId;
+                    fbCtr.Order.OWNERCOMPANYNAME = Master_Golbal.OWNERCOMPANYNAME;
                     fbCtr.Order.OWNERDEPARTMENTID = deptid;
-                    fbCtr.Order.OWNERDEPARTMENTNAME = depName;
+                    fbCtr.Order.OWNERDEPARTMENTNAME = Master_Golbal.OWNERDEPARTMENTNAME;
                     fbCtr.Order.OWNERPOSTID = postid;
-                    fbCtr.Order.OWNERPOSTNAME = postName;
+                    fbCtr.Order.OWNERPOSTNAME = post.ObjectName;
                     fbCtr.Order.OWNERID = userInfo.ObjectID;
                     fbCtr.Order.OWNERNAME = userInfo.ObjectName;
                     fbCtr.RefreshData();
+
+                    if (!string.IsNullOrEmpty(selectCompanyId))//如果是选出差人的情况下(获取所选用户公司)
+                    {
+                        OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
+                    }
+                    else //默认是当前用户(当前用户公司)
+                    {
+                        MessageBox.Show("请选择出差员工");
+                    }
+                    
                 }
             };
             lookup.MultiSelected = false;
@@ -737,19 +754,21 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region DataGrid 数据加载、字典数据转换
         private void BindDataGrid(ObservableCollection<T_OA_BUSINESSTRIPDETAIL> obj)
         {
-            TraveDetailList_Golbal = obj;
-            foreach (T_OA_BUSINESSTRIPDETAIL detail in TraveDetailList_Golbal)
+            if (obj == null) return;
+            citysStartList_Golbal.Clear();
+            citysEndList_Golbal.Clear();
+            foreach (T_OA_BUSINESSTRIPDETAIL detail in obj)
             {
                 citysStartList_Golbal.Add(detail.DEPCITY);
                 citysEndList_Golbal.Add(detail.DESTCITY);
             }
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
-                DaGridReadOnly.ItemsSource = TraveDetailList_Golbal;
+                DaGridReadOnly.ItemsSource = obj;
             }
             else
             {
-                DaGrs.ItemsSource = TraveDetailList_Golbal;
+                DaGrs.ItemsSource = obj;
             }
         }
         /// <summary>
@@ -972,32 +991,32 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         #region 获取出差申请明细
      
-        void Travelmanagement_GetBusinesstripDetailCompleted(object sender, GetBusinesstripDetailCompletedEventArgs e)//出差申请明细
-        {
-            isloaded = true;
-            if (IsSubmit)
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-            }
+        //void Travelmanagement_GetBusinesstripDetailCompleted(object sender, GetBusinesstripDetailCompletedEventArgs e)//出差申请明细
+        //{
+        //    isloaded = true;
+        //    if (IsSubmit)
+        //    {
+        //        RefreshUI(RefreshedTypes.HideProgressBar);
+        //    }
             
-            try
-            {
-                if (e.Result != null)
-                {
-                    BindDataGrid(e.Result);
-                }
-                else
-                {
-                    BindDataGrid(null);
-                }
-            }
-            catch (Exception ex)
-            {
-                isloaded = false;
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-        }
+        //    try
+        //    {
+        //        if (e.Result != null)
+        //        {
+        //            BindDataGrid(e.Result);
+        //        }
+        //        else
+        //        {
+        //            BindDataGrid(null);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        isloaded = false;
+        //        Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
+        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+        //    }
+        //}
 
         void Travelmanagement_GetTravelmanagementByIdCompleted(object sender, GetTravelmanagementByIdCompletedEventArgs e)
         {
@@ -1007,117 +1026,102 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 {
                     if (e.Result != null)
                     {
+                        #region 设置数据已加载属性，绑定数据
+                        isPageloadCompleted = true;
                         Master_Golbal = e.Result;
-                        
-                        if (Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString()
-                    || Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnApproved).ToString())
+                        if (Master_Golbal.T_OA_BUSINESSTRIPDETAIL.Count > 0)
                         {
-                            RefreshUI(RefreshedTypes.All);
-                        }
-                        if (formType == FormTypes.Edit)
-                        {
-                            if (Master_Golbal.CHECKSTATE == (Convert.ToInt32(CheckStates.Approving)).ToString() || Master_Golbal.CHECKSTATE == (Convert.ToInt32(CheckStates.Approved)).ToString() || Master_Golbal.CHECKSTATE == (Convert.ToInt32(CheckStates.UnApproved)).ToString())
-                            {
-                                formType = FormTypes.Audit;
-                                ShowAudits.Visibility = Visibility.Collapsed;
-                                tbShowAudits.Visibility = Visibility.Visible;
-                                //Utility.InitFileLoad("TravelRequest", businesstrID, actions, uploadFile);
-                            }
-                        }
-                        if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
-                        {
-                            ShowAudits.Visibility = Visibility.Collapsed;
-                            tbShowAudits.Visibility = Visibility.Visible;
-                        }
-                        else
-                        {
-                            ShowAudits.Visibility = Visibility.Visible;
-                            tbShowAudits.Visibility = Visibility.Collapsed;
-                        }
-                        Utility.InitFileLoad("TravelRequest", businesstrID, formType, uploadFile);
-                        if (formType == FormTypes.Resubmit)
-                        {
-                            Master_Golbal.CHECKSTATE = (Convert.ToInt32(CheckStates.UnSubmit)).ToString();
-                        }
-                        if (Master_Golbal.TEL != null)
-                        {
-                            txtTELL.Text = Master_Golbal.TEL.ToString();//联系电话;
-                        }
-                        this.txtSubject.Text = Master_Golbal.CONTENT;//出差事由
-
-                        if (Master_Golbal.ISAGENT == "1")
-                        {
-                            this.ckEnabled.IsChecked = true;
-                        }
-                        //InitFBControl();
-
-                        lookupTraveEmployee.DataContext = Master_Golbal;
-                        txtTraveEmployee.Text = Master_Golbal.OWNERNAME;//出差人
-                        //插入代理
-                        if (Master_Golbal == null || TraveDetailList_Golbal == null)
-                        {
-                            return;
-                        }
-                        int i = TraveDetailList_Golbal.Count() - 1;
-                        AddAgent(i);
-                        #region
-
-                        postLevel = Master_Golbal.POSTLEVEL;
-                        postName = Master_Golbal.OWNERPOSTNAME;
-                        depName = Master_Golbal.OWNERDEPARTMENTNAME;
-                        corpName = Master_Golbal.OWNERCOMPANYNAME;
-                        string StrName = Master_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + corpName;
-                        txtTraveEmployee.Text = StrName;
-                        if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
-                        {
-                            if (formType == FormTypes.New)
-                            {
-                                if (string.IsNullOrEmpty(peopletravel))//如果没有选择出差人的情况
-                                {
-                                    peopletravel = Common.CurrentLoginUserInfo.EmployeeName;
-                                }
-                                txtTELL.Text = employeepost.MOBILE;//手机号码
-                                ToolTipService.SetToolTip(txtTraveEmployee, StrName);
-                            }
-                            else
-                            {
-                                ToolTipService.SetToolTip(txtTraveEmployee, StrName);
-                                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
-                                RefreshUI(RefreshedTypes.AuditInfo);
-                                RefreshUI(RefreshedTypes.All);
-                            }
-
-                            if (!string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYID))//如果是选出差人的情况下(获取所选用户公司)
-                            {
-                                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
-                            }
-                            else //默认是当前用户(当前用户公司)
-                            {
-                                OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, null, null);
-                            }
+                            TraveDetailList_Golbal = Master_Golbal.T_OA_BUSINESSTRIPDETAIL;                         
+                            //初始化上传控件
+                            Utility.InitFileLoad("TravelRequest", Master_Golbal.BUSINESSTRIPID, formType, uploadFile);
                         }
                         #endregion
 
-                        if (formType != FormTypes.New || formType != FormTypes.Edit)
+                        #region 设置显示数据的grid
+                        if (formType == FormTypes.New 
+                            || formType == FormTypes.Edit)
                         {
+                            if (Master_Golbal.CHECKSTATE != (Convert.ToInt32(CheckStates.UnSubmit)).ToString())
+                            {
+                                formType = FormTypes.Audit;
+                                svdgEdit.Visibility = Visibility.Collapsed;
+                                svdgReadOnly.Visibility = Visibility.Visible;
+                            }
+                            else
+                            {
+                                svdgEdit.Visibility = Visibility.Visible;
+                                svdgReadOnly.Visibility = Visibility.Collapsed;
+                            }
+                        }
+                        if (formType == FormTypes.Resubmit)
+                        {
+                            Master_Golbal.CHECKSTATE = (Convert.ToInt32(CheckStates.UnSubmit)).ToString();
+                            svdgEdit.Visibility = Visibility.Visible;
+                            svdgReadOnly.Visibility = Visibility.Collapsed;
+                        }
+                        #endregion
+
+                        #region 获取出差人组织架构，岗位级别,联系电话
+
+                        lookupTraveEmployee.DataContext = Master_Golbal;
+                        txtTraveEmployee.Text = Master_Golbal.OWNERNAME;//出差人
+                        if(!string.IsNullOrEmpty(Master_Golbal.TEL))
+                        {
+                            txtTELL.Text = Master_Golbal.TEL;
+                        }
+                        //Master_Golbal.POSTLEVEL = Master_Golbal.POSTLEVEL;
+                        //strTravelEmployeeName = Master_Golbal.OWNERNAME;
+                        ToolTipService.SetToolTip(txtTraveEmployee, Master_Golbal.OWNERNAME);
+                        //Master_Golbal.OWNERPOSTNAME = Master_Golbal.OWNERPOSTNAME;
+                        //Master_Golbal.OWNERDEPARTMENTNAME = Master_Golbal.OWNERDEPARTMENTNAME;
+                        //Master_Golbal.OWNERCOMPANYNAME = Master_Golbal.OWNERCOMPANYNAME;
+                        string StrName = Master_Golbal.OWNERNAME + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME;
+                        txtTraveEmployee.Text = StrName;
+                        this.txtSubject.Text = Master_Golbal.CONTENT;//出差事由
+                        //启用代理
+                        if (Master_Golbal.ISAGENT == "1")
+                        {
+                            this.ckEnabled.IsChecked = true;
+                            int i = TraveDetailList_Golbal.Count() - 1;
+                            AddAgent(i);
+                        }
+
+                        #endregion
+
+                        #region 刷新界面
+                        RefreshUI(RefreshedTypes.ToolBar);
+                        if (Master_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
+                        {
+                            RefreshUI(RefreshedTypes.AuditInfo);
+                        }
+                        #endregion
+
+                        #region 判断是否需要修改，并判断是否获取出差方案
+                        if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
+                        {
+                            //重新提交获取出差方案
+                            OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
+                        }
+                        else
+                        {
+                            RefreshUI(RefreshedTypes.HideProgressBar);
                             if (Master_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
                             {
                                 HideControl();
                             }
                         }
-                        else if (formType != FormTypes.Resubmit)
-                        {
-                            if (Master_Golbal.CHECKSTATE == ((int)CheckStates.Approving).ToString() ||
-                                Master_Golbal.CHECKSTATE == ((int)CheckStates.Approved).ToString() ||
-                                Master_Golbal.CHECKSTATE == ((int)CheckStates.WaittingApproval).ToString())
-                            {
-                                HideControl();
-                            }
-                        }
+                        #endregion
+                    }
+                    else
+                    {
+                        RefreshUI(RefreshedTypes.HideProgressBar);
+                        BindDataGrid(null);
+                        return;
                     }
                 }
                 else
                 {
+                    RefreshUI(RefreshedTypes.HideProgressBar);
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 }
             }
@@ -1131,285 +1135,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         #endregion
 
-        #region 获取出差用户的组织信息
-
-        void client_GetAllEmployeePostBriefByEmployeeIDCompleted(object sender, GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs e)
-        {
-            string StrName = string.Empty;
-            if (e.Result != null)
-            {
-                employeepost = e.Result;
-                //获取出差人的岗位级别
-                if (!string.IsNullOrEmpty(Master_Golbal.OWNERPOSTID))//新建时如果选了出差人,获取被选出差人的岗位等级
-                {
-                    if (employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault() != null)
-                    {
-                        postLevel = employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault().POSTLEVEL.ToString();
-                    }
-                    else
-                    {
-                        var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
-                        postLevel = ent != null ? ent.POSTLEVEL.ToString() : "0 ";
-                    }
-                }
-                else //默认为当前用户的岗位等级
-                {
-                    postLevel = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
-                }
-                if (formType == FormTypes.New)
-                {
-                    var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
-                    postName = ent != null ? ent.PostName.ToString() : employeepost.EMPLOYEEPOSTS[0].PostName;
-                    depName = ent != null ? ent.DepartmentName.ToString() : employeepost.EMPLOYEEPOSTS[0].DepartmentName;
-                    corpName = ent != null ? ent.CompanyName.ToString() : employeepost.EMPLOYEEPOSTS[0].CompanyName;
-                    StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" + postName + "-" + depName + "-" + corpName;
-                    txtTraveEmployee.Text = StrName;
-                    if (string.IsNullOrEmpty(peopletravel))//如果没有选择出差人的情况
-                    {
-                        peopletravel = Common.CurrentLoginUserInfo.EmployeeName;
-                    }
-                    ToolTipService.SetToolTip(txtTraveEmployee, StrName);
-                    if (!string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYID))//如果是选出差人的情况下(获取所选用户公司)
-                    {
-                        OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
-                    }
-                    else //默认是当前用户(当前用户公司)
-                    {
-                        OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, null, null);
-                    }
-                }
-                else
-                {
-                    RefreshUI(RefreshedTypes.AuditInfo);
-                    RefreshUI(RefreshedTypes.All);
-                    //2013/3/27 alter by ken 修改加载员工岗位信息方式
-                    postName = employeepost.EMPLOYEEPOSTS.Where(c => c.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault().PostName;
-                    depName = employeepost.EMPLOYEEPOSTS.Where(c => c.DepartmentID == Master_Golbal.OWNERDEPARTMENTID).FirstOrDefault().DepartmentName;
-                    corpName = employeepost.EMPLOYEEPOSTS.Where(c => c.CompanyID == Master_Golbal.OWNERCOMPANYID).FirstOrDefault().CompanyName;
-                    StrName = Master_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + corpName;
-                    txtTraveEmployee.Text = StrName;
-                    peopletravel = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
-                    ToolTipService.SetToolTip(txtTraveEmployee, StrName);
-                    OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
-                }
-                if (employeepost.MOBILE != null && txtTELL.Text==null)
-                {
-                    txtTELL.Text = employeepost.MOBILE;//手机号码
-                }
-                else if(txtTELL.Text==null)
-                {
-                    if (employeepost.OFFICEPHONE != null)
-                    {
-                        txtTELL.Text = employeepost.OFFICEPHONE;//座机号码
-                    }
-                }
-            }
-            
-        }
-        
-        void client_GetEmployeePostBriefByEmployeeIDCompleted(object sender, GetEmployeePostBriefByEmployeeIDCompletedEventArgs e)
-        {
-            string StrName = string.Empty;
-            bool isLoadingAct = string.IsNullOrEmpty(postLevel);
-            if (e.Result != null)
-            {
-                employeepost = e.Result;
-                //获取出差人的岗位级别
-                if (!string.IsNullOrEmpty(Master_Golbal.OWNERPOSTID))//新建时如果选了出差人,获取被选出差人的岗位等级
-                {
-                    if (employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault() != null)
-                    {
-                        postLevel = employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault().POSTLEVEL.ToString();
-                    }
-                    else
-                    {
-                        var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
-                        postLevel = ent != null ? ent.POSTLEVEL.ToString() : "0 ";
-                    }
-                }
-                else //默认为当前用户的岗位等级
-                {
-                    postLevel = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
-                }
-                if (formType == FormTypes.New && isLoadingAct)
-                {
-                    var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
-                    postName = ent != null ? ent.PostName.ToString() : employeepost.EMPLOYEEPOSTS[0].PostName;
-                    depName = ent != null ? ent.DepartmentName.ToString() : employeepost.EMPLOYEEPOSTS[0].DepartmentName;
-                    corpName = ent != null ? ent.CompanyName.ToString() : employeepost.EMPLOYEEPOSTS[0].CompanyName;
-                    StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" + postName + "-" + depName + "-" + corpName;
-                    txtTraveEmployee.Text = StrName;
-                    if (string.IsNullOrEmpty(peopletravel))//如果没有选择出差人的情况
-                    {
-                        peopletravel = Common.CurrentLoginUserInfo.EmployeeName;
-                    }
-                    ToolTipService.SetToolTip(txtTraveEmployee, StrName);
-                    if (!string.IsNullOrEmpty(Master_Golbal.OWNERCOMPANYID))//如果是选出差人的情况下(获取所选用户公司)
-                    {
-                        OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
-                    }
-                    else //默认是当前用户(当前用户公司)
-                    {
-                        OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, null, null);
-                    }
-                }
-                else
-                {
-                    RefreshUI(RefreshedTypes.AuditInfo);
-                    RefreshUI(RefreshedTypes.All);
-
-                    //2013/3/27 alter by ken 修改加载员工岗位信息方式
-                    postName = employeepost.EMPLOYEEPOSTS.Where(c => c.POSTID == Master_Golbal.OWNERPOSTID).FirstOrDefault().PostName;
-                    depName = employeepost.EMPLOYEEPOSTS.Where(c => c.DepartmentID == Master_Golbal.OWNERDEPARTMENTID).FirstOrDefault().DepartmentName;
-                    corpName = employeepost.EMPLOYEEPOSTS.Where(c => c.CompanyID == Master_Golbal.OWNERCOMPANYID).FirstOrDefault().CompanyName;
-                    //postName = (Application.Current.Resources["SYS_PostInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_POST>).Where(c => c.POSTID == Businesstrip.OWNERPOSTID).FirstOrDefault().T_HR_POSTDICTIONARY.POSTNAME;
-                    //depName = (Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>).Where(c => c.DEPARTMENTID == Businesstrip.OWNERDEPARTMENTID).FirstOrDefault().T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
-                    //corpName = (Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>).Where(c => c.COMPANYID == Businesstrip.OWNERCOMPANYID).FirstOrDefault().CNAME;
-                    StrName = Master_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + corpName;
-                    txtTraveEmployee.Text = StrName;
-                    peopletravel = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
-                    ToolTipService.SetToolTip(txtTraveEmployee, StrName);
-                    OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
-                }
-                if (employeepost.MOBILE != null && string.IsNullOrEmpty(txtTELL.Text))
-                {
-                    txtTELL.Text = employeepost.MOBILE;//手机号码
-                }
-                if (e.UserState == "lookup")
-                {
-                    if (employeepost.MOBILE != null)
-                        txtTELL.Text = employeepost.MOBILE;
-                    else
-                        txtTELL.Text = "";
-                }
-                else if (txtTELL.Text == null)
-                {
-                    if (employeepost.OFFICEPHONE != null)
-                    {
-                        txtTELL.Text = employeepost.OFFICEPHONE;//座机号码
-                    }
-                }
-            }
-            else
-            {
-                Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("对不起，该员工已离职，不能进行该操作"));
-            }
-        }
-        
-        #endregion
-
-        #region 根据当前用户的级别过滤出该级别能乘坐的交通工具类型，能否借款
-
-        /// <summary>
-        /// 根据当前用户的岗位级别与方案设置的岗位级别匹配，确认该出差人是否能够申请借款
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Travelmanagement_GetTravelSolutionByCompanyIDCompleted(object sender, GetTravelSolutionByCompanyIDCompletedEventArgs e)
-        {
-            try
-            {
-                RefreshUI(RefreshedTypes.AuditInfo);
-                RefreshUI(RefreshedTypes.All);
-                travelsolutions_Golbal = new T_OA_TRAVELSOLUTIONS();
-                if (e.Error != null && !string.IsNullOrEmpty(e.Error.Message))
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Error.Message), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
-                }
-                if (e.Result != null)
-                {
-                    travelsolutions_Golbal = e.Result;//出差方案
-                }
-                if (postLevel.ToInt32() <= travelsolutions_Golbal.RANGEPOSTLEVEL.ToInt32())
-                {
-                    fbCtr.IsEnabled = false;//如果当前用户的级别与方案设置的"报销范围级别"相同则不能申请费用
-                }
-                if (e.PlaneObj != null)
-                {
-                    cantaketheplaneline = e.PlaneObj.ToList();//乘坐飞机线路设置
-                }
-                if (e.StandardObj != null)
-                {
-                    transportToolStand = e.StandardObj.ToList();//乘坐交通工具标准设置
-                }
-                //添加动作判断原因：load时直接赋予了出差申请ID
-                if (formType != FormTypes.New)
-                {
-                    if (Master_Golbal.BUSINESSTRIPID != null)
-                    {
-                        //RefreshUI(RefreshedTypes.ShowProgressBar);//获取明细时加载进度
-                        OaPersonOfficeClient.GetBusinesstripDetailAsync(Master_Golbal.BUSINESSTRIPID);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-        }
-        
-        /// <summary>
-        /// 根据当前用户的级别过滤出该级别能乘坐的交通工具类型
-        /// </summary>
-        /// <param name="ToolType">交通工具类型</param>
-        /// <returns></returns>
-        private T_OA_TAKETHESTANDARDTRANSPORT GetVehicleTypeValue(string TraveToolType)
-        {
-            if (string.IsNullOrEmpty(TraveToolType))
-            {
-                var q = from ent in transportToolStand
-                        where ent.ENDPOSTLEVEL.Contains(postLevel)
-                        select ent;
-                q = q.OrderBy(n => n.TYPEOFTRAVELTOOLS);
-                if (q.Count() > 0)
-                {
-                    return q.FirstOrDefault();
-                }
-            }
-            else
-            {
-                var q = from ent in transportToolStand
-                        where ent.ENDPOSTLEVEL.Contains(postLevel) && ent.TYPEOFTRAVELTOOLS == TraveToolType
-                        orderby ent.TAKETHETOOLLEVEL ascending
-                        select ent;
-
-                if (q.Count() > 0)
-                {
-                    return q.FirstOrDefault();
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// 根据当前用户的级别过滤出该级别能乘坐的交通工具类型
-        /// </summary>
-        /// <param name="TraveToolType">交通工具类型</param>
-        /// <param name="postLevel">岗位级别</param>
-        /// <returns>0：类型超标，1：类型不超标，2：级别不超标</returns>
-        private int CheckTraveToolStand(string TraveToolType, string TraveToolLevel, string postLevel)
-        {
-            int i = 0;
-            var q = from ent in transportToolStand
-                    where ent.ENDPOSTLEVEL.Contains(postLevel) && ent.TYPEOFTRAVELTOOLS == TraveToolType
-                    orderby ent.TAKETHETOOLLEVEL ascending
-                    select ent;
-            if (q.Count() > 0)
-            {
-                i = 1;
-            }
-            var qLevel = from ent in q
-                         where ent.TAKETHETOOLLEVEL.Contains(TraveToolLevel)
-                         select ent;
-            if (qLevel.Count() > 0)
-            {
-                i = 2;
-            }
-            return i;
-        }
-        #endregion
 
         #region 出差申请Grid中控件事件
 
@@ -1749,63 +1474,62 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         }
                     }
                 }
-                if (employeepost != null)
+                //if (employeepost != null)
+                //{
+                if (!string.IsNullOrEmpty(Master_Golbal.POSTLEVEL))
                 {
-                    if (employeepost != null)
+                    if (DaGrs.SelectedItem != null)
                     {
-                        if (DaGrs.SelectedItem != null)
+                        if (DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem) != null)
                         {
-                            if (DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem) != null)
-                            {
-                                TravelDictionaryComboBox ComLevel = DaGrs.Columns[5].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
-                                TravelDictionaryComboBox ComType = DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileType") as TravelDictionaryComboBox;
-                                T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
-                                T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
-                                level = ComLevel.SelectedItem as T_SYS_DICTIONARY;
-                                type = ComType.SelectedItem as T_SYS_DICTIONARY;
+                            TravelDictionaryComboBox ComLevel = DaGrs.Columns[5].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
+                            TravelDictionaryComboBox ComType = DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileType") as TravelDictionaryComboBox;
+                            T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
+                            T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
+                            level = ComLevel.SelectedItem as T_SYS_DICTIONARY;
+                            type = ComType.SelectedItem as T_SYS_DICTIONARY;
 
-                                if (transportToolStand.Count() > 0)
+                            if (transportToolStand.Count() > 0)
+                            {
+                                if (thd != null)
                                 {
-                                    if (thd != null)
+                                    if (type != null)
                                     {
-                                        if (type != null)
+                                        if (thd.TYPEOFTRAVELTOOLS.ToInt32() <= type.DICTIONARYVALUE)
                                         {
-                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() <= type.DICTIONARYVALUE)
+                                            if (tempcomTypeBorderBrush != null)
                                             {
-                                                if (tempcomTypeBorderBrush != null)
-                                                {
-                                                    ComType.BorderBrush = tempcomTypeBorderBrush;
-                                                }
-                                                if (tempcomTypeForeBrush != null)
-                                                {
-                                                    ComType.Foreground = tempcomTypeForeBrush;
-                                                }
-                                                if (tempcomLevelForeBrush != null)
-                                                {
-                                                    ComLevel.Foreground = tempcomLevelForeBrush;
-                                                }
-                                                if (tempcomLevelBorderBrush != null)
-                                                {
-                                                    ComLevel.BorderBrush = tempcomLevelBorderBrush;
-                                                }
+                                                ComType.BorderBrush = tempcomTypeBorderBrush;
                                             }
-                                            else
+                                            if (tempcomTypeForeBrush != null)
                                             {
-                                                if (thd.TYPEOFTRAVELTOOLS.ToInt32() > type.DICTIONARYVALUE && thd.TAKETHETOOLLEVEL.ToInt32() > level.DICTIONARYVALUE)
-                                                {
-                                                    ComType.BorderBrush = new SolidColorBrush(Colors.Red);
-                                                    ComType.Foreground = new SolidColorBrush(Colors.Red);
-                                                    ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
-                                                    ComLevel.Foreground = new SolidColorBrush(Colors.Red);
-                                                    return;
-                                                }
-                                                if (thd.TYPEOFTRAVELTOOLS.ToInt32() > type.DICTIONARYVALUE)
-                                                {
-                                                    ComType.BorderBrush = new SolidColorBrush(Colors.Red);
-                                                    ComType.Foreground = new SolidColorBrush(Colors.Red);
-                                                    ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
-                                                    ComLevel.Foreground = new SolidColorBrush(Colors.Red);
-                                                }
+                                                ComType.Foreground = tempcomTypeForeBrush;
+                                            }
+                                            if (tempcomLevelForeBrush != null)
+                                            {
+                                                ComLevel.Foreground = tempcomLevelForeBrush;
+                                            }
+                                            if (tempcomLevelBorderBrush != null)
+                                            {
+                                                ComLevel.BorderBrush = tempcomLevelBorderBrush;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() > type.DICTIONARYVALUE && thd.TAKETHETOOLLEVEL.ToInt32() > level.DICTIONARYVALUE)
+                                            {
+                                                ComType.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                ComType.Foreground = new SolidColorBrush(Colors.Red);
+                                                ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                                return;
+                                            }
+                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() > type.DICTIONARYVALUE)
+                                            {
+                                                ComType.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                ComType.Foreground = new SolidColorBrush(Colors.Red);
+                                                ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                ComLevel.Foreground = new SolidColorBrush(Colors.Red);
                                             }
                                         }
                                     }
@@ -1814,15 +1538,19 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         }
                     }
                 }
+                //}
             }
         }
+
 
         private void ComVechileTypeLeve_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TravelDictionaryComboBox vechiletype = sender as TravelDictionaryComboBox;
             if (vechiletype.SelectedIndex >= 0)
             {
-                if (employeepost != null)
+                //if (employeepost != null)
+                //{
+                if (!string.IsNullOrEmpty(Master_Golbal.POSTLEVEL))
                 {
                     if (DaGrs.SelectedItem != null)
                     {

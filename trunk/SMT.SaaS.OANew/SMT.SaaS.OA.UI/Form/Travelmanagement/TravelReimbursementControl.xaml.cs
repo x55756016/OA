@@ -54,8 +54,8 @@ namespace SMT.SaaS.OA.UI.UserControls
         public T_OA_TRAVELSOLUTIONS travelsolutions = new T_OA_TRAVELSOLUTIONS();
         public List<T_OA_AREAALLOWANCE> areaallowance = new List<T_OA_AREAALLOWANCE>();
         private SMTLoading loadbar = new SMTLoading();
-        private List<string> citycode = new List<string>();
-        private List<string> cityscode = new List<string>();
+        private List<string> citysStartList_Golbal = new List<string>();
+        private List<string> citysEndList_Golbal = new List<string>();
         public double Fees = 0;
         private string EmployeeName = string.Empty;//出差人
         public string EmployeePostLevel = string.Empty;//出差人的岗位级别
@@ -69,7 +69,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         private string bxbz = string.Empty;//报销标准
         private string UsableMoney = string.Empty;//用来存储可用额度
         public bool needsubmit = false;//提交审核
-        private bool isSubmit = false;//是提交的话不弹出保存成功提示
+        //private bool isSubmit = false;//是提交的话不弹出保存成功提示
         public bool clickSubmit = false;//单击了提交按钮
         private bool BtnNewButton = false;//单击新建按钮
         private bool SaveBtn = false;//保存数据
@@ -297,12 +297,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                         RefreshUI(RefreshedTypes.ShowProgressBar);
                         OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(TravelReimbursement_Golbal.OWNERCOMPANYID, null, null);
                     }
-                   
-                    if (travelReimbursement.T_OA_REIMBURSEMENTDETAIL.Count > 0)
-                    {
-                        isloaded = true;
-                        BindDataGrid(travelReimbursement.T_OA_REIMBURSEMENTDETAIL);
-                    }
 
                     //OaPersonOfficeClient.GetTravelReimbursementDetailAsync(TravelReimbursement.TRAVELREIMBURSEMENTID);
                 }
@@ -327,12 +321,12 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region DataGrid BindData 加载显示出差报销数据
         private void BindDataGrid(ObservableCollection<T_OA_REIMBURSEMENTDETAIL> obj)//加载出差报销子表
         {
-          
-            TrList = obj;
-            foreach (T_OA_REIMBURSEMENTDETAIL detail in TrList)
+            citysStartList_Golbal.Clear();
+            citysEndList_Golbal.Clear();
+            foreach (T_OA_REIMBURSEMENTDETAIL detail in obj)
             {
-                citycode.Add(detail.DEPCITY);
-                cityscode.Add(detail.DESTCITY);
+                citysStartList_Golbal.Add(detail.DEPCITY);
+                citysEndList_Golbal.Add(detail.DESTCITY);
             }
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
@@ -391,8 +385,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (BtnNewButton == true)
                 {
                     myCitys.TxtSelectedCity.Text = string.Empty;
-                    citycode.Add(tmp.DEPCITY);
-                    cityscode.Add(string.Empty);
+                    citysStartList_Golbal.Add(tmp.DEPCITY);
+                    citysEndList_Golbal.Add(string.Empty);
                 }
                 else
                 {
@@ -720,7 +714,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (BtnNewButton == true)
                 {
                     myCitys.Text = string.Empty;
-                    citycode.Add(tmp.DEPCITY);
+                    citysStartList_Golbal.Add(tmp.DEPCITY);
                 }
                 else
                 {

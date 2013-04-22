@@ -544,8 +544,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         #endregion
 
 
-
-
         #region 出差时间计算
         /// <summary>
         /// 计算出差天数
@@ -816,7 +814,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     double tresult = toodays;//计算本次出差的总天数
 
-                    string cityValue = cityscode[i - 1].Replace(",", "");//目标城市值
+                    string cityValue = citysEndList_Golbal[i - 1].Replace(",", "");//目标城市值
                     entareaallowance = this.GetAllowanceByCityValue(cityValue);
 
                     #region 根据本次出差的总天数,根据天数获取相应的补贴
@@ -1279,7 +1277,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                         double toodays = 0;
                         //获取出差补贴
                         T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-                        string cityValue = cityscode[i - 1].Replace(",", "");//目标城市值
+                        string cityValue = citysEndList_Golbal[i - 1].Replace(",", "");//目标城市值
                         //根据城市查出差标准补贴（已根据岗位级别过滤）
                         entareaallowance = this.GetAllowanceByCityValue(cityValue);
 
@@ -1364,7 +1362,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         private T_OA_AREAALLOWANCE StandardsMethod(int i)
         {
             T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-            string cityValue = cityscode[i - 1].Replace(",", "");//目标城市值
+            string cityValue = citysEndList_Golbal[i - 1].Replace(",", "");//目标城市值
             entareaallowance = this.GetAllowanceByCityValue(cityValue);
 
             if (entareaallowance != null)//根据出差的城市及出差人的级别，将当前出差人的标准信息显示在备注中
@@ -1483,6 +1481,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                         RefreshUI(RefreshedTypes.AuditInfo);
                         RefreshUI(RefreshedTypes.All);
                     }
+                }
+                if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count() > 0)
+                {
+                    BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
                 }
             }
             catch (Exception ex)

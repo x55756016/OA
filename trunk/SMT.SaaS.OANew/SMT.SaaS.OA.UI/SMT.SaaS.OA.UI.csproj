@@ -119,7 +119,7 @@
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.FrameworkUI, Version=1.1.1.1218, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SMT.SaaS.FrameworkUI">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.FrameworkUI.RichNotepad">
@@ -325,6 +325,7 @@
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_New.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Common.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Core.cs" />
+    <Compile Include="Form\Travelmanagement\TravelRequestForm_Common.cs" />
     <Compile Include="Service References\AgentChannel\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

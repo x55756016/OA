@@ -100,13 +100,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
                         TrDetail.THENUMBEROFNIGHTS = Newdatys.Text;
                     }
-                    if (citycode.Count() > 0)
+                    if (citysStartList_Golbal.Count() > 0)
                     {
-                        TrDetail.DEPCITY = citycode[i].Replace(",", "");//出发城市
+                        TrDetail.DEPCITY = citysStartList_Golbal[i].Replace(",", "");//出发城市
                     }
-                    if (cityscode.Count() > 0)
+                    if (citysEndList_Golbal.Count() > 0)
                     {
-                        TrDetail.DESTCITY = cityscode[i].Replace(",", "");//目标城市
+                        TrDetail.DESTCITY = citysEndList_Golbal[i].Replace(",", "");//目标城市
                     }
                     if (ToolType != null)//乘坐交通工具类型
                     {

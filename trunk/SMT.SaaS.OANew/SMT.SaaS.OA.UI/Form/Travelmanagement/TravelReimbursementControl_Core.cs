@@ -131,7 +131,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     double toodays = 0;
                     //获取出差补贴
                     T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-                    string cityValue = cityscode[i - 1].Replace(",", "");//目标城市值
+                    string cityValue = citysEndList_Golbal[i - 1].Replace(",", "");//目标城市值
                     //根据城市查出差标准补贴（已根据岗位级别过滤）
                     entareaallowance = this.GetAllowanceByCityValue(cityValue);
 
@@ -457,18 +457,18 @@ namespace SMT.SaaS.OA.UI.UserControls
                         T_OA_REIMBURSEMENTDETAIL list = DaGrs.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
                         SearchCity myCitys = DaGrs.Columns[1].GetCellContent(DaGrs.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;//出发城市
                         SearchCity mystartCity = DaGrs.Columns[3].GetCellContent(DaGrs.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;//目标城市
-                        int k = citycode.IndexOf(list.DEPCITY);
+                        int k = citysStartList_Golbal.IndexOf(list.DEPCITY);
 
                         if (k > -1)
                         {
-                            citycode[k] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();
-                            list.DEPCITY = citycode[k];
+                            citysStartList_Golbal[k] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();
+                            list.DEPCITY = citysStartList_Golbal[k];
                         }
                         else
                         {
-                            citycode.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
+                            citysStartList_Golbal.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
                         }
-                        if (citycode.Count > 1)
+                        if (citysStartList_Golbal.Count > 1)
                         {
                             if (myCitys.TxtSelectedCity.Text.ToString().Trim() == mystartCity.TxtSelectedCity.Text.ToString().Trim())
                             {
@@ -479,10 +479,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                         }
                     }
                 }
-                if (citycode.Last().Split(',').Count() > 2)
+                if (citysStartList_Golbal.Last().Split(',').Count() > 2)
                 {
                     txt.TxtSelectedCity.Text = string.Empty;
-                    citycode.RemoveAt(citycode.Count - 1);
+                    citysStartList_Golbal.RemoveAt(citysStartList_Golbal.Count - 1);
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANONLYCHOOSEONE", "DEPARTURECITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return;
                 }
@@ -518,9 +518,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                         //T_OA_BUSINESSTRIPDETAIL list = DaGrs.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
                         SearchCity myCitys = DaGrs.Columns[3].GetCellContent(DaGrs.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;
                         SearchCity mystartCity = DaGrs.Columns[1].GetCellContent(DaGrs.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;
-                        if (citycode.Count() > 0)
+                        if (citysStartList_Golbal.Count() > 0)
                         {
-                            mystartCity.Tag = citycode[SelectIndex];//将旧的传递起来
+                            mystartCity.Tag = citysStartList_Golbal[SelectIndex];//将旧的传递起来
                         }
                         if (string.IsNullOrEmpty(mystartCity.TxtSelectedCity.Text))
                         {
@@ -528,7 +528,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("请先选择出发城市"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                             return;
                         }
-                        if (cityscode.Count > 1)
+                        if (citysEndList_Golbal.Count > 1)
                         {
                             if (mystartCity.TxtSelectedCity.Text.ToString().Trim() == myCitys.TxtSelectedCity.Text.ToString().Trim())
                             {
@@ -537,23 +537,23 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 return;
                             }
                         }
-                        if (cityscode.Count >= (SelectIndex + 1))
+                        if (citysEndList_Golbal.Count >= (SelectIndex + 1))
                         {
-                            cityscode[SelectIndex] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();
+                            citysEndList_Golbal[SelectIndex] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();
                         }
                         else
                         {
-                            cityscode.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
+                            citysEndList_Golbal.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
                         }
-                        if (citycode.Count == (SelectIndex + 1))
+                        if (citysStartList_Golbal.Count == (SelectIndex + 1))
                         {
-                            citycode.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
+                            citysStartList_Golbal.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
                             SetNextDepartureCity(SelectIndex);
                         }
                         else
                         {
-                            citycode[SelectIndex] = mystartCity.Tag.ToString();
-                            citycode[SelectIndex + 1] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();//出发城市中下一条记录
+                            citysStartList_Golbal[SelectIndex] = mystartCity.Tag.ToString();
+                            citysStartList_Golbal[SelectIndex + 1] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();//出发城市中下一条记录
                             SetNextDepartureCity(SelectIndex);
                         }
                         //将选择的城市值赋给对应的集合
@@ -573,10 +573,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                         }
                     }
                 }
-                if (cityscode.Last().Split(',').Count() > 2)
+                if (citysEndList_Golbal.Last().Split(',').Count() > 2)
                 {
                     txt.TxtSelectedCity.Text = string.Empty;
-                    cityscode.RemoveAt(cityscode.Count - 1);
+                    citysEndList_Golbal.RemoveAt(citysEndList_Golbal.Count - 1);
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANONLYCHOOSEONE", "ARRIVALCITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return;
                 }
@@ -606,7 +606,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     SearchCity mystarteachCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
                     if ((SelectIndex + 2) == EachCount)
                     {
-                        mystarteachCity.TxtSelectedCity.Text = GetCityName(citycode[SelectIndex + 1]);
+                        mystarteachCity.TxtSelectedCity.Text = GetCityName(citysStartList_Golbal[SelectIndex + 1]);
                     }
                 }
             }

@@ -3,6 +3,7 @@
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"                       
                       xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
                       Title="登陆" x:Name="ChildWindowBlue" >
     <Grid x:Name="LayoutRoot" Height="259" Width="360" Background="Transparent">
@@ -17,7 +18,8 @@
         <PasswordBox Style="{StaticResource PasswordBoxStyle}" x:Name="paw" VerticalAlignment="Top" Password="smt123456"  TabIndex="2" Margin="117,68,88,0" RenderTransformOrigin="0.579,1.583" Grid.Row="1"/>
 
         <TextBox Style="{StaticResource TextBoxStyle}" x:Name="YanZM" TabIndex="3" TextWrapping="Wrap" Margin="117,0,160,71" Grid.Row="1" Height="24" VerticalAlignment="Bottom"/>
-        <local:S_Images HorizontalAlignment="Right" Grid.Row="1" Margin="0,100,55,0" Width="100" Height="30" Background="Transparent"  VerticalAlignment="Top"/>
+        <!--<local:S_Images HorizontalAlignment="Right" Grid.Row="1" Margin="0,100,55,0" Width="100" Height="30" Background="Transparent"  VerticalAlignment="Top"/>-->
+        <smt:DateTimePicker  Grid.Row="1" Margin="0,100,55,0" VerticalAlignment="Top"></smt:DateTimePicker>
         <TextBox Style="{StaticResource TextBoxStyle}" x:Name="UserName"  TabIndex="1" Text="smtwangl"  VerticalAlignment="Top" TextWrapping="Wrap" Margin="117,31,88,0" Grid.Row="1" />
         <!--<TextBlock HorizontalAlignment="Left" Text="验证码：" Height="24" Width="60" TextWrapping="Wrap" Grid.Row="1" Margin="54,0,0,67" VerticalAlignment="Bottom" />-->
         <Canvas Grid.Row="0" Background="Transparent" Margin="0,-10,0,0">
