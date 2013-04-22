@@ -87,7 +87,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             //add by luojie
             //当没有报销金额时弹出提醒
-            decimal totalFee = Convert.ToDecimal(txtFee.Text);
+            decimal totalFee = Convert.ToDecimal(txtChargeApplyTotal.Text);
             if (totalFee <= 0 && (!checkMeet && !checkPrivate))
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出差报销费用不能为零，请填写报销费用!"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
@@ -244,14 +244,25 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 保存函数
         private void Save()
         {
+            RefreshUI(RefreshedTypes.ShowProgressBar);
             SaveBtn = true;
             try
             {
                 if (Check())
                 {
-                    textStandards.Text = string.Empty;//清空报销标准说明
+                    //textStandards.Text = string.Empty;//清空报销标准说明
                     //字段赋值
                     SetTraveReimbursementValue();
+
+                    if (TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0)
+                    {
+                        fbCtr.Order.ORDERID = TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID;
+                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit);//提交费用 
+                    }
+                    else
+                    {
+                        OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
+                    }
                 }
                 else
                 {
@@ -272,8 +283,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// </summary>
         private void SetTraveReimbursementValue()
         {
-            RefreshUI(RefreshedTypes.ShowProgressBar);
-
             //计算出差时间
             TravelTime();
 
@@ -285,11 +294,11 @@ namespace SMT.SaaS.OA.UI.UserControls
 
             //CountMoney();
 
-            if (!string.IsNullOrEmpty(this.txtFees.Text) && this.txtFees.Text.Trim() != "0")
+            if (!string.IsNullOrEmpty(this.txtSubTotal.Text) && this.txtSubTotal.Text.Trim() != "0")
             {
                 if (fbCtr.TravelSubject != null)
                 {
-                    fbCtr.TravelSubject.ApplyMoney = Convert.ToDecimal(this.txtFees.Text);//将本次出差总费用给预算
+                    fbCtr.TravelSubject.ApplyMoney = Convert.ToDecimal(this.txtSubTotal.Text);//将本次出差总费用给预算
                 }
             }
             else
@@ -309,51 +318,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                 fbCtr.Order.PAYMENTINFO = txtPAYMENTINFO.Text;//支付信息
                 StrPayInfo = txtPAYMENTINFO.Text;
             }
-
-
-            travelReimbursement.TEL = this.txtTELL.Text;//联系电话;
-            travelReimbursement.CONTENT = this.txtReport.Text;//报告内容    
-            travelReimbursement.THETOTALCOST = Convert.ToDecimal(txtFees.Text);//本次差旅总费用
-            //travelReimbursement.REIMBURSEMENTOFCOSTS = fbCtr.Order.TOTALMONEY;//总费用;
-            travelReimbursement.REIMBURSEMENTTIME = Convert.ToDateTime(ReimbursementTime.Text);
-            travelReimbursement.REMARKS = this.txtRemark.Text;
-            if (formType == FormTypes.New)
-            {
-                //travelReimbursement.TRAVELREIMBURSEMENTID = System.Guid.NewGuid().ToString();
-                //travelReimbursement.T_OA_BUSINESSTRIP = businesstrip.Travelmanagement;
-                //travelReimbursement.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
-                //travelReimbursement.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//创建公司ID
-                //travelReimbursement.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;//创建部门ID
-                //travelReimbursement.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;//创建岗位ID
-                //travelReimbursement.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//创建人ID
-                //travelReimbursement.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;//创建人姓名
-                //travelReimbursement.OWNERCOMPANYID = businesstrip.Travelmanagement.OWNERCOMPANYID;//所属公司ID
-                //travelReimbursement.OWNERDEPARTMENTID = businesstrip.Travelmanagement.OWNERDEPARTMENTID;//所属部门ID
-                //travelReimbursement.OWNERPOSTID = businesstrip.Travelmanagement.OWNERPOSTID;//所属岗位ID
-                //travelReimbursement.OWNERID = businesstrip.Travelmanagement.OWNERID;//所属人ID
-                //travelReimbursement.OWNERNAME = businesstrip.Travelmanagement.OWNERNAME;//报销人ID(出差人)
-                //travelReimbursement.CLAIMSWERE = businesstrip.Travelmanagement.OWNERID;//报销人ID(出差人)
-                //travelReimbursement.CLAIMSWERENAME = businesstrip.Travelmanagement.OWNERNAME;//报销人姓名
-                //travelReimbursement.CREATEDATE = DateTime.Now;//创建时间
-                //ctrFile.FormID = travelReimbursement.TRAVELREIMBURSEMENTID;
-                //ctrFile.Save();
-            }
-            else
-            {
-                RefreshUI(RefreshedTypes.ShowProgressBar);
-            }
-            if (travelReimbursement.REIMBURSEMENTOFCOSTS > 0)
-            {
-                fbCtr.Order.ORDERID = TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID;
-                fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit);//提交费用 
-            }
-            else if (travelReimbursement.REIMBURSEMENTOFCOSTS == 0)
-            {
-                if (formType != FormTypes.New)
-                {
-                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Edit");
-                }
-            }
+            TravelReimbursement_Golbal.TEL = this.txtTELL.Text;//联系电话;
+            TravelReimbursement_Golbal.CONTENT = this.txtReport.Text;//报告内容    
+            TravelReimbursement_Golbal.THETOTALCOST = Convert.ToDecimal(txtSubTotal.Text);//本次差旅总费用
+            TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS = fbCtr.Order.TOTALMONEY;//总费用;
+            //TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS = decimal.Parse(txtChargeApplyTotal.Text);
+            TravelReimbursement_Golbal.REIMBURSEMENTTIME = Convert.ToDateTime(ReimbursementTime.Text);
+            TravelReimbursement_Golbal.REMARKS = this.txtRemark.Text;
 
         }
 
@@ -502,15 +473,15 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 txtPAYMENTINFO.Text = fbCtr.Order.PAYMENTINFO;//支付信息
                                 StrPayInfo = txtPAYMENTINFO.Text;
                             }
-                            travelReimbursement.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
+                            TravelReimbursement_Golbal.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
 
                             if (needsubmit == true)
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Submit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
                             }
                         }
                         if (TravelReimbursement_Golbal.CHECKSTATE == Utility.GetCheckState(CheckStates.Approving))
@@ -528,15 +499,15 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 return;
                             }
                             txtNoClaims.Text = fbCtr.Order.INNERORDERCODE;//保存后将单号显示出来
-                            travelReimbursement.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
+                            TravelReimbursement_Golbal.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
 
                             if (needsubmit == true)
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Submit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
                             }
                         }
                         else if (TravelReimbursement_Golbal.CHECKSTATE == Utility.GetCheckState(CheckStates.UnSubmit))
@@ -549,15 +520,15 @@ namespace SMT.SaaS.OA.UI.UserControls
                             if (fbCtr.Order.INNERORDERCODE != null)
                             {
                                 txtNoClaims.Text = fbCtr.Order.INNERORDERCODE;//保存后将单号显示出来
-                                travelReimbursement.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
+                                TravelReimbursement_Golbal.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
                             }
                             if (needsubmit == true)
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Submit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
                             }
                         }
                         break;
@@ -570,15 +541,15 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 return;
                             }
                             txtNoClaims.Text = fbCtr.Order.INNERORDERCODE;//保存后将单号显示出来
-                            travelReimbursement.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
+                            TravelReimbursement_Golbal.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
 
                             if (needsubmit == true)
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Submit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
                             }
                             else
                             {
-                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Edit");
+                                OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
                             }
                         }//审核通过直接修改表单状态
                         else
@@ -596,15 +567,15 @@ namespace SMT.SaaS.OA.UI.UserControls
                                     return;
                                 }
                                 txtNoClaims.Text = fbCtr.Order.INNERORDERCODE;//保存后将单号显示出来
-                                travelReimbursement.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
+                                TravelReimbursement_Golbal.NOBUDGETCLAIMS = fbCtr.Order.INNERORDERCODE;//预算返回的报销单号
 
                                 if (needsubmit == true)
                                 {
-                                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Submit");
+                                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Submit");
                                 }
                                 else
                                 {
-                                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(travelReimbursement, TrList, formType.ToString(), "Edit");
+                                    OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TrList, formType.ToString(), "Edit");
                                 }
                                 RefreshUI(RefreshedTypes.AuditInfo);
                                 Resubmit = false;

@@ -102,10 +102,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             this.Loaded += new RoutedEventHandler(TravelapplicationPage_Loaded);
         }
 
-        public TravelRequestForm(FormTypes action, string BUSINESSTRIPID)
+        public TravelRequestForm(FormTypes formType, string BUSINESSTRIPID)
         {
             InitializeComponent();
-            this.formType = action;
+            this.formType = formType;
             if (!string.IsNullOrEmpty(BUSINESSTRIPID))
             {
                 Master_Golbal = new T_OA_BUSINESSTRIP();

@@ -182,7 +182,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 {
                     transportToolStand = e.StandardObj.ToList();//乘坐交通工具标准设置
                 }
-                if (Master_Golbal.T_OA_BUSINESSTRIPDETAIL.Count > 0)
+                if (formType!=FormTypes.New && Master_Golbal.T_OA_BUSINESSTRIPDETAIL.Count > 0)
                 {
                     BindDataGrid(Master_Golbal.T_OA_BUSINESSTRIPDETAIL);
                 }

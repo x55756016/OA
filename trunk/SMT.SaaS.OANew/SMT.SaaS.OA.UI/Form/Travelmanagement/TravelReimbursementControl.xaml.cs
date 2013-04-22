@@ -33,7 +33,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         private bool isloaded = false;//控制Tab切换时的数据加载 
         private V_Travelmanagement businesstrip = new V_Travelmanagement();
-        private T_OA_TRAVELREIMBURSEMENT travelReimbursement;
+        private T_OA_TRAVELREIMBURSEMENT TravelReimbursement;
        
         private FormTypes formType;
         private V_EMPLOYEEDETAIL employeepost = new V_EMPLOYEEDETAIL();
@@ -82,11 +82,11 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         public T_OA_TRAVELREIMBURSEMENT TravelReimbursement_Golbal
         {
-            get { return travelReimbursement; }
+            get { return TravelReimbursement; }
             set
             {
                 this.DataContext = value;
-                travelReimbursement = value;
+                TravelReimbursement = value;
             }
         }
         #endregion
@@ -152,15 +152,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 Utility.InitFileLoad("TravelReimbursement", travelReimbursementID, formType, uploadFile);
                 BrowseShieldedControl();
             }
-            if (formType != FormTypes.New)
-            {
-                if (!string.IsNullOrEmpty(travelReimbursementID))
-                {
-                    RefreshUI(RefreshedTypes.ShowProgressBar);
-                    OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
-                    Utility.InitFileLoad("TravelReimbursement", travelReimbursementID, formType, uploadFile);
-                }
-            }
             FormToolBar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             FormToolBar1.btnEdit.Visibility = Visibility.Collapsed;//修改
             FormToolBar1.btnDelete.Visibility = Visibility.Collapsed;//删除
@@ -180,6 +171,16 @@ namespace SMT.SaaS.OA.UI.UserControls
             FormToolBar1.retDelete.Visibility = Visibility.Collapsed;
             FormToolBar1.retPDF.Visibility = Visibility.Collapsed;
             FormToolBar1.retAuditNoPass.Visibility = Visibility.Collapsed;
+
+            if (formType != FormTypes.New)
+            {
+                if (!string.IsNullOrEmpty(travelReimbursementID))
+                {
+                    RefreshUI(RefreshedTypes.ShowProgressBar);
+                    OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
+                    Utility.InitFileLoad("TravelReimbursement", travelReimbursementID, formType, uploadFile);
+                }
+            }
         }
 
         #endregion
@@ -233,8 +234,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                         txtTELL.Text = TravelReimbursement_Golbal.TEL;//联系电话
                     }
                     ReimbursementTime.Text = TravelReimbursement_Golbal.CREATEDATE.Value.ToShortDateString();//报销时间
-                    txtFee.Text = TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS.ToString();//本次差旅总费用
-                    txtFees.Text = TravelReimbursement_Golbal.THETOTALCOST.ToString();//差旅合计
+                    txtChargeApplyTotal.Text = TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS.ToString();//本次差旅总费用
+                    txtSubTotal.Text = TravelReimbursement_Golbal.THETOTALCOST.ToString();//差旅合计
 
                     if (!string.IsNullOrEmpty(TravelReimbursement_Golbal.NOBUDGETCLAIMS))//报销单号
                     {

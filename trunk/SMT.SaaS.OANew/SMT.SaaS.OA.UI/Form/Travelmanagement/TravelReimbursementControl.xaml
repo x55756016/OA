@@ -834,7 +834,7 @@
                                 RenderTransformOrigin="0.704,2.895"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Stretch" Height="20" Margin="5,1,20,4"/><!--差旅费合计-->
-                   <TextBox x:Name="txtFees"                                     
+                   <TextBox x:Name="txtSubTotal"                                     
                                 Margin="5,1,20,4"
                                 Grid.Column="1"
                                 IsReadOnly="True"
@@ -927,7 +927,7 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Stretch" Height="20"/><!--报销费用总计-->
 								
-								<TextBox x:Name="txtFee"
+								<TextBox x:Name="txtChargeApplyTotal"
 								Grid.Row="12"
                                 Grid.Column="1"
                                 IsReadOnly="True"

@@ -55,7 +55,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     TrDetail = new T_OA_REIMBURSEMENTDETAIL();
                     TrDetail.REIMBURSEMENTDETAILID = (obje as T_OA_REIMBURSEMENTDETAIL).REIMBURSEMENTDETAILID;
-                    TrDetail.T_OA_TRAVELREIMBURSEMENT = travelReimbursement;
+                    TrDetail.T_OA_TRAVELREIMBURSEMENT = TravelReimbursement_Golbal;
 
                     DateTimePicker StartDate = ((DateTimePicker)((StackPanel)DaGrs.Columns[0].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;
                     DateTimePicker EndDate = ((DateTimePicker)((StackPanel)DaGrs.Columns[2].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;

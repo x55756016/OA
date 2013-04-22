@@ -221,9 +221,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                     this.txtAccommodation.Text = string.Empty;
                     this.txtAccommodation.Visibility = Visibility.Collapsed;
                 }
-                txtFees.Text = totall.ToString();
-                txtFee.Text = totall.ToString();
-                travelReimbursement.REIMBURSEMENTOFCOSTS = decimal.Parse(totall.ToString());
+                txtSubTotal.Text = totall.ToString();//差旅费总结
+                txtChargeApplyTotal.Text = totall.ToString(); //费用报销总计包括其他费用，如业务招待费               
             }
             catch (Exception ex)
             {

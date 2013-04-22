@@ -42,82 +42,20 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #endregion
 
         #region 费用控件
-        private void HiddenFBControl()
-        {
-            if (scvFB.Visibility == Visibility.Visible)
-            {
-                scvFB.Visibility = Visibility.Collapsed;
-                RefreshUI(RefreshedTypes.All);
-            }
-            else
-            {
-                scvFB.Visibility = Visibility.Visible;
-                RefreshUI(RefreshedTypes.All);
-            }
-        }
+        //private void HiddenFBControl()
+        //{
+        //    if (scvFB.Visibility == Visibility.Visible)
+        //    {
+        //        scvFB.Visibility = Visibility.Collapsed;
+        //        RefreshUI(RefreshedTypes.All);
+        //    }
+        //    else
+        //    {
+        //        scvFB.Visibility = Visibility.Visible;
+        //        RefreshUI(RefreshedTypes.All);
+        //    }
+        //}
 
-        private void InitFBControl()
-        {
-            fbCtr.ApplyType = FrameworkUI.FBControls.ChargeApplyControl.ApplyTypes.BorrowApply;
-            fbCtr.OrderType = FrameworkUI.FBControls.ChargeApplyControl.OrderTypes.Travel;
-            if (formType == FormTypes.New)
-            {
-                fbCtr.Order.ORDERID = "";
-                fbCtr.strExtOrderModelCode = "CCSQ";
-            }
-            else
-            {
-                fbCtr.Order.ORDERID = Master_Golbal.BUSINESSTRIPID;//费用对象
-                fbCtr.strExtOrderModelCode = "CCSQ";
-            }
-            fbCtr.Order.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-            fbCtr.Order.CREATECOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
-            fbCtr.Order.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
-            fbCtr.Order.CREATEDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
-            fbCtr.Order.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-            fbCtr.Order.CREATEPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
-            fbCtr.Order.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
-            fbCtr.Order.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-
-            fbCtr.Order.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-            fbCtr.Order.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
-            fbCtr.Order.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
-            fbCtr.Order.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
-            fbCtr.Order.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-            fbCtr.Order.OWNERPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
-            fbCtr.Order.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
-            fbCtr.Order.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-
-
-            fbCtr.Order.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
-            fbCtr.Order.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-
-            fbCtr.InitDataComplete += (o, e) =>
-            {
-                Binding bding = new Binding();
-                bding.Path = new PropertyPath("TOTALMONEY");
-                this.txtFee.SetBinding(TextBox.TextProperty, bding);
-                this.txtFee.DataContext = fbCtr.Order;
-                if (formType == FormTypes.Browse || formType == FormTypes.Audit)
-                {
-                    fbCtr.strExtOrderModelCode = "CCSQ";
-                    if (fbCtr.ListDetail.Count() <= 0)
-                    {
-                        fbCtr.Visibility = Visibility.Collapsed;//查看或审核时如果没有费用就隐藏
-                    }
-                }
-            };
-            if (formType == FormTypes.Audit || formType == FormTypes.Browse)
-            {
-                fbCtr.strExtOrderModelCode = "CCSQ";
-                fbCtr.InitData(false);
-                fbCtr.GetParamenter();
-            }
-            else
-            {
-                fbCtr.InitData();
-            }
-        }
         #endregion
 
         #region 隐藏附件控件

@@ -114,8 +114,8 @@ namespace SMT.SaaS.OA.UI.UserControls
             bding.Path = new PropertyPath("TOTALMONEY");
             if (fbCtr.ListDetail.Count() > 0)
             {
-                this.txtFee.SetBinding(TextBox.TextProperty, bding);//报销费用总额
-                this.txtFee.DataContext = fbCtr.Order;
+                this.txtChargeApplyTotal.SetBinding(TextBox.TextProperty, bding);//报销费用总额
+                this.txtChargeApplyTotal.DataContext = fbCtr.Order;
             }
             this.txtAvailableCredit.Text = fbCtr.TravelSubject.UsableMoney.ToString();//当前用户可用额度
             if (fbCtr.Order.PAYMENTINFO != null && !string.IsNullOrEmpty(fbCtr.Order.PAYMENTINFO))
@@ -1233,8 +1233,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                     #endregion
 
                     total += txtTFSubsidies.Text.ToDouble() + txtMealSubsidies.Text.ToDouble();
-                    this.txtFees.Text = total.ToString();//总费用
-                    this.txtFee.Text = total.ToString();
+                    this.txtSubTotal.Text = total.ToString();//总费用
+                    this.txtChargeApplyTotal.Text = total.ToString();
 
                     Fees = total;
                 }
@@ -1482,7 +1482,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                         RefreshUI(RefreshedTypes.All);
                     }
                 }
-                if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count() > 0)
+                if(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count() > 0)
                 {
                     BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
                 }
