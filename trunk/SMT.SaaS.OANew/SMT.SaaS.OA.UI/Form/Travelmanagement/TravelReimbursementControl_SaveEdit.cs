@@ -377,11 +377,20 @@ namespace SMT.SaaS.OA.UI.UserControls
                     else
                     {
                         //isSubmit = false;
-                        if (e.UserState.ToString() != "Submit")
+                        if (e.UserState.ToString() == "Audit")//提示审核人审核成功
+                        {
+                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
+                        }
+                        else if (e.UserState.ToString() == "Submit")//提交成功
                         {
                             Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
 
                         }
+                        else//更新成功
+                        {
+                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
+                        }
+
                         if (GlobalFunction.IsSaveAndClose(refreshType))
                         {
                             RefreshUI(refreshType);
