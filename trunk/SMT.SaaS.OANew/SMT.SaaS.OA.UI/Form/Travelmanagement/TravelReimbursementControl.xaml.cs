@@ -295,6 +295,14 @@ namespace SMT.SaaS.OA.UI.UserControls
                             txtRemark.IsReadOnly = false;
                             textStandards.IsReadOnly = false;
                         }
+                        StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" 
+                            + Common.CurrentLoginUserInfo.UserPosts[0].PostName
+                            + "-" + Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName + "-"
+                            + Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+                        txtPeopleTravel.Text = StrName;
+                        EmployeePostLevel = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
+                        TravelReimbursement_Golbal.POSTLEVEL = EmployeePostLevel;
+
                         RefreshUI(RefreshedTypes.ShowProgressBar);
                         OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(TravelReimbursement_Golbal.OWNERCOMPANYID, null, null);
                     }

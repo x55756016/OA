@@ -33,7 +33,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             //isSubmit = true;
             needsubmit = true;
             clickSubmit = true;
-
+            this.refreshType = RefreshedTypes.ShowAudit;
             Save();
         }
 
@@ -219,11 +219,17 @@ namespace SMT.SaaS.OA.UI.UserControls
                 //}
             }
 
-            if (string.IsNullOrEmpty(this.txtReport.Text.Trim()))
+            if (string.IsNullOrEmpty(this.txtReport.Text.Trim()))//报告内容
             {
                 RefreshUI(RefreshedTypes.HideProgressBar);
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "REPORT"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 this.txtRemark.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtPAYMENTINFO.Text))//支付信息
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "支付信息不能为空，请重新填写", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return false;
             }
 
@@ -292,7 +298,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             //添加子表数据
             NewDetail();
 
-            //CountMoney();
+            CountMoney();
 
             if (!string.IsNullOrEmpty(this.txtSubTotal.Text) && this.txtSubTotal.Text.Trim() != "0")
             {
@@ -325,6 +331,26 @@ namespace SMT.SaaS.OA.UI.UserControls
             //TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS = decimal.Parse(txtChargeApplyTotal.Text);
             TravelReimbursement_Golbal.REIMBURSEMENTTIME = Convert.ToDateTime(ReimbursementTime.Text);
             TravelReimbursement_Golbal.REMARKS = this.txtRemark.Text;
+            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.POSTLEVEL))
+            {
+                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
+            }
+            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERNAME))
+            {
+                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.EmployeeName;
+            }
+            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERPOSTNAME))
+            {
+                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
+            }
+            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERDEPARTMENTNAME))
+            {
+                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
+            }
+            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERCOMPANYNAME))
+            {
+                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+            }
 
         }
 
@@ -351,7 +377,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                     else
                     {
                         //isSubmit = false;
-                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
+                        if (e.UserState.ToString() != "Submit")
+                        {
+                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
+
+                        }
                         if (GlobalFunction.IsSaveAndClose(refreshType))
                         {
                             RefreshUI(refreshType);
