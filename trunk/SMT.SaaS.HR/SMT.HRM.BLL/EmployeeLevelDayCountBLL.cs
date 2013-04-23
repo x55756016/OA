@@ -1540,7 +1540,10 @@ namespace SMT.HRM.BLL
 
                     if (strVacType == (Convert.ToInt32(Common.LeaveTypeValue.AnnualLeave) + 1).ToString())
                     {
-                        GetEmployeeCurAnnualLeaveDays(entEmployee.EMPLOYEEID, dtEntryDate, entLeaveTypeSet.MAXDAYS.Value, ref dAddDays);
+                        GetEmployeeAnnualLeaveDays(entAttSolAsign.ATTENDANCESOLUTIONASIGNID
+                            ,entEmployee.EMPLOYEEID, dtEntryDate
+                            ,entLeaveTypeSet.MAXDAYS.Value, 
+                            ref dAddDays, entAttSolAsign.OWNERCOMPANYID);
                     }
 
                     string strNumOfDecDefault = "0.5";
@@ -1570,9 +1573,17 @@ namespace SMT.HRM.BLL
 
                     if (q.Count() > 0)
                     {
-                        Tracer.Debug(entEmployee.EMPLOYEECNAME + "今年已生成过带薪假：" + entLeaveTypeSet.LEAVETYPENAME +" 总天数："+ q.FirstOrDefault().DAYS
-                            +" 生效日期"+q.FirstOrDefault().EFFICDATE+" 终止日期"+q.FirstOrDefault().TERMINATEDATE);
-                        continue;
+                        if (entLeaveTypeSet.LEAVETYPEVALUE == "4")//年假
+                        {
+                            //清空年假，重新生成
+                            dal.Delete(q.FirstOrDefault());
+                        }
+                        else
+                        {
+                            Tracer.Debug(entEmployee.EMPLOYEECNAME + "今年已生成过带薪假：" + entLeaveTypeSet.LEAVETYPENAME + " 总天数：" + q.FirstOrDefault().DAYS
+                                + " 生效日期" + q.FirstOrDefault().EFFICDATE + " 终止日期" + q.FirstOrDefault().TERMINATEDATE);
+                            continue;
+                        }
                     }
 
                     T_HR_EMPLOYEELEVELDAYCOUNT entAdd = new T_HR_EMPLOYEELEVELDAYCOUNT();
@@ -1615,7 +1626,8 @@ namespace SMT.HRM.BLL
                     //{
                     dal.AddToContext(entAdd);
                     //}
-                    Tracer.Debug("生成员工：" + entAdd.EMPLOYEENAME + " 带薪假:" + entLeaveTypeSet.LEAVETYPENAME + " 生效日期：" + entAdd.EFFICDATE.Value.ToString("yyyy-MM-dd") + "- 终止日期：" + entAdd.TERMINATEDATE.Value.ToString("yyyy-MM-dd"));
+                    Tracer.Debug("生成员工：" + entAdd.EMPLOYEENAME + " 带薪假:" + entLeaveTypeSet.LEAVETYPENAME 
+                        +" 总天数："+entAdd.DAYS+ " 生效日期：" + entAdd.EFFICDATE.Value.ToString("yyyy-MM-dd") + "- 终止日期：" + entAdd.TERMINATEDATE.Value.ToString("yyyy-MM-dd"));
                 }
                 int intDay = dal.SaveContextChanges();
                 if (intDay > 0)
@@ -1638,136 +1650,151 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="dtEntryDate"></param>
         /// <param name="dMaxLeaveDays"></param>
-        /// <param name="dCurLeaveDay"></param>
-        private void GetEmployeeCurAnnualLeaveDays(string EMPLOYEEID, DateTime dtEntryDate, decimal dMaxLeaveDays, ref decimal dCurLeaveDay)
+        /// <param name="totalDays"></param>
+        private void GetEmployeeAnnualLeaveDays(string AttSolAsignId,string EMPLOYEEID, DateTime dtEntryDate, decimal dMaxLeaveDays, ref decimal totalDays, string ownerCompanyid)
         {
-            DateTime dtCurDate = DateTime.Now;
-            DateTime dtYearStartDate = DateTime.Parse(dtEntryDate.ToString("yyyy") + "-1-1");
-            DateTime dtYearEndDate = DateTime.Parse(dtCurDate.AddYears(-1).ToString("yyyy") + "-12-31");
-
+            //DateTime dtYearStartDate = DateTime.Parse(dtEntryDate.ToString("yyyy") + "-1-1");
+            DateTime thisYearFirstDay = DateTime.Parse((DateTime.Now.Year.ToString() + "-1-1").ToString()); 
+            //DateTime dtLastYearEndDate = DateTime.Parse(DateTime.Now.AddYears(-1).ToString("yyyy") + "-12-31");
             try
             {
-                var q =(from t in dal.GetObjects<T_HR_PENSIONMASTER>()
-                                        where t.T_HR_EMPLOYEE.EMPLOYEEID == EMPLOYEEID
-                                            //&& t.ISVALID == "1" 
-                                        && t.CHECKSTATE == "2"
-                                        select t).ToList();                
+                //现在时间-入职时间=时间差
+                TimeSpan tsCurCheck = DateTime.Now.Subtract(dtEntryDate);
+                Tracer.Debug("生成员工带薪年假：员工入职时间：" + dtEntryDate.ToString("yyyy-MM-dd"));
+                int entryYear = tsCurCheck.Days / 366;
+                if (entryYear < 1)//入职日到当前时间，总工作天数不满一年，不计算年假
+                {
+                    //不满一年，年假=0
+                    Tracer.Debug("生成员工带薪年假：员工入职时间：" + dtEntryDate.ToString("yyyy-MM-dd") + " 入职不满一年，不生成年假");
+                    totalDays = 0;
+                    return;
+                }
+
+                #region 获取该员工本年应休假天数
+
+                var q = (from t in dal.GetObjects<T_HR_PENSIONMASTER>()
+                         where t.T_HR_EMPLOYEE.EMPLOYEEID == EMPLOYEEID
+                         && t.CHECKSTATE == "2"
+                         select t).ToList();
                 //根据员工ID查询社保档案表
-                T_HR_PENSIONMASTER p = q.OrderByDescending(c=>c.UPDATEDATE).FirstOrDefault();
-
-                //工作开始时间
+                T_HR_PENSIONMASTER p = q.OrderByDescending(c => c.UPDATEDATE).FirstOrDefault();
+                //社保缴交起始时间
                 string dSOCIALSERVICE;
-
-                //如果为null，那么dCurLeaveDay=0
                 if (p != null)
                 {
                     if (string.IsNullOrEmpty(p.SOCIALSERVICEYEAR))
                     {
+                        Tracer.Debug("生成员工带薪年假：获取的员工社保缴交起始时间为空");
                         dSOCIALSERVICE = null;
                     }
                     else
                     {
                         dSOCIALSERVICE = p.SOCIALSERVICEYEAR.ToString();
+                        Tracer.Debug("生成员工带薪年假：获取的员工社保缴交起始时间：" + dSOCIALSERVICE);
                     }
                 }
                 else
                 {
+                    Tracer.Debug("生成员工带薪年假：获取的员工社保档案为空");
                     dSOCIALSERVICE = null;
-                    //return;
                 }
-                //TimeSpan tsEntrtCheck = dtEntryDate.Subtract(dtYearStartDate);
-                //if (tsEntrtCheck.Days >= 0 && tsEntrtCheck.Days <= 15)
-                //{
-                //    dtEntryDate = dtYearStartDate;
-                //}
-
-                //现在时间-入职时间=时间差
-                TimeSpan tsCurCheck = dtCurDate.Subtract(dtEntryDate);
-                if (tsCurCheck.Days < 365)          //入职日到当前时间，总工作天数不满一年，不计算年假
-                {
-                    //不满一年，年假=0
-                    dCurLeaveDay = 0;
-                    return;
-                }
-
-                TimeSpan tsCur = dtYearEndDate.Subtract(dtEntryDate);
-                decimal dBaseLeaveDays = 5;             //满一年，基础年假为5天(此标准仅适用于中国)
-                decimal dTotalWorkDays = tsCur.Days;
-                decimal d = decimal.Round(dTotalWorkDays / 365, 1);
-
-                //入职满一年，按此方式进行计算
-                if (d <= 1)
-                {
-                    dCurLeaveDay = decimal.Round(dBaseLeaveDays * d);
-                    return;
-                }
-
-                //入职超过一年，按以下方式进行计算
-                DateTime nowDate = DateTime.Now;
-                TimeSpan dNewDate;
-                //新的工作时间的计算：工作时间=当年1月1日-工作开始时间
-                DateTime newNowDate = DateTime.Parse((nowDate.Year.ToString() + "-1-1").ToString());
-
-                //DateTime newNowDates =DateTime.Parse(nowDate.ToShortDateString().ToString());
+                //DateTime DateTime.Now = DateTime.Now;
+                TimeSpan needTimeSpan;
                 //解决工作开始时间为空的情况，如果为空，那么取入职时间来计算
                 if (string.IsNullOrEmpty(dSOCIALSERVICE))
                 {
-                    //工作时间为空，取入职时间来计算年假
-                    dNewDate = nowDate.Subtract(dtEntryDate);
+                    //社保缴交时间为空，取入职时间来计算年假
+                    needTimeSpan = DateTime.Now.Subtract(dtEntryDate);
+
+                    Tracer.Debug("生成员工带薪年假," + " 计算时间区间：" +
+                        dtEntryDate.ToString("yyyy-MM-dd")
+                        + "--"
+                        + dtEntryDate.ToString("yyyy-MM-dd")
+                        + "社保缴交起始时间为空，按员工入职时间计算:入职天数" + needTimeSpan.Days);
                 }
                 else
                 {
-                    //工作时间不为空，计算年假方式 当年1月1日-工作开始时间
-                    dNewDate = newNowDate.Subtract(DateTime.Parse(dSOCIALSERVICE));
+                    //社保缴交时间不为空，计算年假方式 当年1月1日-工作开始时间
+                    //新的工作时间的计算：工作时间=当年1月1日-工作开始时间
+                    needTimeSpan = thisYearFirstDay.Subtract(DateTime.Parse(dSOCIALSERVICE));
+                    Tracer.Debug("生成员工带薪年假," + "计算时间区间：" +
+                        dtEntryDate.ToString("yyyy-MM-dd")
+                        + "--"
+                        + dtEntryDate.ToString("yyyy-MM-dd")
+                        + "按社保缴交起始时间计算:计算天数" + needTimeSpan.Days);
                 }
-
                 //得到工作时间
-                decimal workTimes = dNewDate.Days / 365;
+                decimal workTimes = needTimeSpan.Days / 365;
+                Tracer.Debug("生成员工带薪年假：计算得出该员工工作年限" + workTimes);
                 if (workTimes >= 1 && workTimes < 10)
                 {
-                    dCurLeaveDay = 5;
-                    return;
+                    totalDays = 5;
+                    Tracer.Debug("生成员工带薪年假：5天");
+                    //return;
                 }
-
-
                 else if (workTimes >= 10 && workTimes < 20)
                 {
-                    dCurLeaveDay = 10;
-                    return;
+                    totalDays = 10;
+                    Tracer.Debug("生成员工带薪年假：10天");
+                    //return;
                 }
-
                 else if (workTimes >= 20)
                 {
-                    dCurLeaveDay = 15;
-                    return;
+                    totalDays = 15;
+                    Tracer.Debug("生成员工带薪年假：15天");
+                    //return;
+                }
+                #endregion
+                //如果是第二年在职，年假按一下方式计算
+                if (entryYear >= 1 && entryYear < 2)
+                { 
+                    //满一年，基础年假为5天(此标准仅适用于中国)
+                    totalDays = decimal.Round(totalDays * (12 - dtEntryDate.Month) / 12);                   
                 }
 
-                //TimeSpan tsCur = dtYearEndDate.Subtract(dtEntryDate);
+                var allday = from ent in dal.GetObjects<T_HR_EMPLOYEELEAVERECORD>()
+                        join levType in dal.GetObjects<T_HR_LEAVETYPESET>() 
+                        on ent.T_HR_LEAVETYPESET.LEAVETYPESETID equals levType.LEAVETYPESETID
+                        where ent.EMPLOYEEID == EMPLOYEEID
+                        && ent.OWNERCOMPANYID == ownerCompanyid
+                        && ent.T_HR_LEAVETYPESET.LEAVETYPEVALUE=="4"//年假
+                        && ent.CHECKSTATE=="2"
+                        && ent.STARTDATETIME >= thisYearFirstDay
+                       select ent;
+                if (allday.Count() > 0)
+                {
+                    try
+                    {
+                        var AttSolution = from v in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
+                                          where v.ATTENDANCESOLUTIONASIGNID == AttSolAsignId
+                                          select v.T_HR_ATTENDANCESOLUTION;
+                        if (AttSolution.Count() > 0)
+                        {
+                            foreach (var item in allday)
+                            {
+                                if (item.LEAVEDAYS != null && item.LEAVEDAYS > 0)
+                                {
+                                    totalDays = totalDays - item.LEAVEDAYS.Value;
+                                    Tracer.Debug("生成年假总天数减去已请年假：" + item.LEAVEDAYS.Value+" 天");
+                                }
+                                if (item.LEAVEHOURS != null && item.LEAVEHOURS > 0)
+                                {
+                                    totalDays = (totalDays * AttSolution.FirstOrDefault().WORKTIMEPERDAY.Value
+                                        - item.LEAVEHOURS.Value) / AttSolution.FirstOrDefault().WORKTIMEPERDAY.Value;
+                                    Tracer.Debug("生成年假总天数减去已请年假：" + item.LEAVEHOURS.Value + " 小时");
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Tracer.Debug("生成带薪年假扣减已请天数异常：" + ex.ToString());
+                        totalDays = 0;
+                    }
+                }
 
-                #region 旧的年假公式 注释
-                //decimal dTotalWorkDays = tsCur.Days;
 
-                //decimal dBaseLeaveDays = 5;             //满一年，基础年假为5天(此标准仅适用于中国)
-                //decimal d = decimal.Round(dTotalWorkDays / 365, 1);
 
-                //if (d >= 1)
-                //{
-                //    decimal dAddDays = 0;
-                //    int iEntryYear = dtYearEndDate.Year - dtYearStartDate.Year - 1;
-                //    dAddDays = iEntryYear;
-                //    if (iEntryYear > 10)
-                //    {
-                //        dAddDays = 10;
-                //    }
-
-                //    dCurLeaveDay = dBaseLeaveDays + dAddDays;
-                //}
-                //else
-                //{
-                //    //四舍五入进1
-                //    dCurLeaveDay = decimal.Round(dBaseLeaveDays * d);
-                //}
-                #endregion
             }
             catch (Exception ex)
             {
