@@ -123,7 +123,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             this.travelReimbursementID = travelReimbursementID;
             this.businesstrID = StrBusinesstrID;
             InitEvent();
-            InitData();
+            NewMaster_Golbal();
 
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {

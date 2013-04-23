@@ -296,7 +296,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             TravelAllowance();
 
             //添加子表数据
-            NewDetail();
+            NewDetail_Golbal();
 
             CountMoney();
 
@@ -337,19 +337,23 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERNAME))
             {
-                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.EmployeeName;
+                TravelReimbursement_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
+                TravelReimbursement_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
             }
             if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERPOSTNAME))
             {
-                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
+                TravelReimbursement_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+                TravelReimbursement_Golbal.OWNERPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
             }
             if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERDEPARTMENTNAME))
             {
-                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
+                TravelReimbursement_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+                TravelReimbursement_Golbal.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
             }
             if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERCOMPANYNAME))
             {
-                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+                TravelReimbursement_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                TravelReimbursement_Golbal.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
             }
 
         }

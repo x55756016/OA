@@ -27,7 +27,7 @@ namespace SMT.SaaS.OA.UI.UserControls
     public partial class TravelReimbursementControl
     {
         #region 新建时初始化(已经不存在此逻辑)
-        private void InitData()
+        private void NewMaster_Golbal()
         {
             if (formType == FormTypes.New)
             {
@@ -41,7 +41,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <summary>
         /// 操作子表数据
         /// </summary>
-        private void NewDetail()
+        private void NewDetail_Golbal()
         {
             ObservableCollection<T_OA_REIMBURSEMENTDETAIL> ListDetail = new ObservableCollection<T_OA_REIMBURSEMENTDETAIL>();
             string StrStartDt = "";   //开始时间
