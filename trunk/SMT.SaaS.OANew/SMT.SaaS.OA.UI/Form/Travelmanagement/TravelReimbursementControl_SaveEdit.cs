@@ -361,134 +361,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         #endregion
 
 
-        #region 修改Completed
-        void TrC_UpdateTravelReimbursementCompleted(object sender, UpdateTravelReimbursementCompletedEventArgs e)
-        {
-            try
-            {
-                if (e.Error != null && e.Error.Message != "")
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
-                    RefreshUI(RefreshedTypes.HideProgressBar);
-                }
-                else
-                {
-                    if (e.Result != "")
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Result), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
-                        return;
-                    }
-                    else
-                    {
-                        //isSubmit = false;
-                        if (e.UserState.ToString() == "Audit")//提示审核人审核成功
-                        {
-                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
-                        }
-                        else if (e.UserState.ToString() == "Submit")//提交成功
-                        {
-                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
-
-                        }
-                        else//更新成功
-                        {
-                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
-                        }
-
-                        if (GlobalFunction.IsSaveAndClose(refreshType))
-                        {
-                            RefreshUI(refreshType);
-                            ParentEntityBrowser.ParentWindow.Close();
-                        }
-                    }
-
-
-                    //if (e.UserState.ToString() == "Edit" && !isSubmit)
-                    //{
-                    //    isSubmit = false;
-                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
-                    //    if (GlobalFunction.IsSaveAndClose(refreshType))
-                    //    {
-                    //        RefreshUI(refreshType);
-                    //        ParentEntityBrowser.ParentWindow.Close();
-                    //    }
-                    //}
-                    //if (e.UserState.ToString() == "Audit")
-                    //{
-                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
-                    //}
-                    canSubmit = true;
-
-                    RefreshUI(RefreshedTypes.AuditInfo);
-                    if (TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0 || fbCtr.Order.TOTALMONEY > 0)
-                    {
-                        if (needsubmit == true)
-                        {
-                            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-                            entBrowser.ManualSubmit();
-                            HideButtons();
-                            //OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
-                        }
-                        else
-                        {
-                            needsubmit = false;
-                            RefreshUI(RefreshedTypes.HideProgressBar);
-                        }
-                    }
-                    else
-                    {
-                        needsubmit = false;
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出差报销费用不能为零，请填写报销费用!"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        if (clickSubmit == true)
-                        {
-                            RefreshUI(RefreshedTypes.HideProgressBar);
-                            RefreshUI(RefreshedTypes.All);
-                            //clickSubmit = false;
-                        }
-                    }
-
-                    //RefreshUI(RefreshedTypes.All);
-                }
-                //TrC.GetTravelReimbursementByIdAsync(travelReimbursementID);
-            }
-            catch (Exception ex)
-            {
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-            finally
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-            }
-        }
-
-        /// <summary>
-        /// 点提交后隐藏按钮
-        /// </summary>
-        public void HideButtons()
-        {
-            needsubmit = false;
-            #region 隐藏entitybrowser中的toolbar按钮
-            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-            entBrowser.BtnSaveSubmit.IsEnabled = false;
-            if (entBrowser.EntityEditor is IEntityEditor)
-            {
-                List<ToolbarItem> bars = GetToolBarItems();
-                if (bars != null)
-                {
-                    ToolBar bar = SMT.SaaS.FrameworkUI.Common.Utility.FindChildControl<ToolBar>(entBrowser, "toolBar1");
-                    if (bar != null)
-                    {
-                        bar.Visibility = Visibility.Collapsed;
-                    }
-                }
-            }
-
-            #endregion
-            RefreshUI(RefreshedTypes.AuditInfo);
-        }
-        #endregion
-
         #region 费用保存Completed
         void fbCtr_SaveCompleted(object sender, SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs e)
         {
@@ -634,69 +506,136 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
 
-        #region 废弃的代码
-
-
-
-        #region 出差报销行删除事件
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        #region 修改Completed
+        void TrC_UpdateTravelReimbursementCompleted(object sender, UpdateTravelReimbursementCompletedEventArgs e)
         {
-            if (DaGrs.SelectedItems == null)
+            try
             {
-                return;
-            }
-
-            if (DaGrs.SelectedItems.Count == 0)
-            {
-                return;
-            }
-
-            TravelDetailList_Golbal = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-            if (TravelDetailList_Golbal.Count() > 1)
-            {
-                for (int i = 0; i < DaGrs.SelectedItems.Count; i++)
+                if (e.Error != null && e.Error.Message != "")
                 {
-                    int k = DaGrs.SelectedIndex;//当前选中行
-                    T_OA_REIMBURSEMENTDETAIL entDel = DaGrs.SelectedItems[i] as T_OA_REIMBURSEMENTDETAIL;
-
-                    if (TravelDetailList_Golbal.Contains(entDel))
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    RefreshUI(RefreshedTypes.HideProgressBar);
+                }
+                else
+                {
+                    if (e.Result != "")
                     {
-
-                        TravelDetailList_Golbal.Remove(entDel);
-                        if (citysEndList_Golbal.Count > k)
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Result), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                        return;
+                    }
+                    else
+                    {
+                        //isSubmit = false;
+                        if (e.UserState.ToString() == "Audit")//提示审核人审核成功
                         {
+                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
+                        }
+                        else if (e.UserState.ToString() == "Submit")//提交成功
+                        {
+                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
 
-                            int EachCount = 0;
-                            foreach (Object obje in DaGrs.ItemsSource)//将下一个出发城市的值修改
-                            {
-                                EachCount++;
-                                if (DaGrs.Columns[1].GetCellContent(obje) != null)
-                                {
-                                    SearchCity mystarteachCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
-                                    if ((k + 1) == EachCount)
-                                    {
-                                        if (k > 0)
-                                        {
-                                            mystarteachCity.TxtSelectedCity.Text = GetCityName(citysEndList_Golbal[k - 1]);
-                                            citysStartList_Golbal[k + 1] = citysEndList_Golbal[k - 1];//上一城市的城市值
-                                        }
-                                    }
-                                }
-                            }
-                            citysEndList_Golbal.RemoveAt(k);//清除目标城市的值
-                            citysStartList_Golbal.RemoveAt(k);//清除出发城市的值
+                        }
+                        else//更新成功
+                        {
+                            Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
+                        }
+
+                        if (GlobalFunction.IsSaveAndClose(refreshType))
+                        {
+                            RefreshUI(refreshType);
+                            ParentEntityBrowser.ParentWindow.Close();
                         }
                     }
+
+
+                    //if (e.UserState.ToString() == "Edit" && !isSubmit)
+                    //{
+                    //    isSubmit = false;
+                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
+                    //    if (GlobalFunction.IsSaveAndClose(refreshType))
+                    //    {
+                    //        RefreshUI(refreshType);
+                    //        ParentEntityBrowser.ParentWindow.Close();
+                    //    }
+                    //}
+                    //if (e.UserState.ToString() == "Audit")
+                    //{
+                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
+                    //}
+                    canSubmit = true;
+
+                    RefreshUI(RefreshedTypes.AuditInfo);
+                    if (TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0 || fbCtr.Order.TOTALMONEY > 0)
+                    {
+                        if (needsubmit == true)
+                        {
+                            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                            entBrowser.ManualSubmit();
+                            HideButtons();
+                            //OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
+                        }
+                        else
+                        {
+                            needsubmit = false;
+                            RefreshUI(RefreshedTypes.HideProgressBar);
+                        }
+                    }
+                    else
+                    {
+                        needsubmit = false;
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出差报销费用不能为零，请填写报销费用!"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        if (clickSubmit == true)
+                        {
+                            RefreshUI(RefreshedTypes.HideProgressBar);
+                            RefreshUI(RefreshedTypes.All);
+                            //clickSubmit = false;
+                        }
+                    }
+
+                    //RefreshUI(RefreshedTypes.All);
                 }
-                DaGrs.ItemsSource = TravelDetailList_Golbal;
+                //TrC.GetTravelReimbursementByIdAsync(travelReimbursementID);
             }
-            else
+            catch (Exception ex)
             {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "必须保留一条出差时间及地点!", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
+                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
+
+        /// <summary>
+        /// 点提交后隐藏按钮
+        /// </summary>
+        public void HideButtons()
+        {
+            needsubmit = false;
+            #region 隐藏entitybrowser中的toolbar按钮
+            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+            entBrowser.BtnSaveSubmit.IsEnabled = false;
+            if (entBrowser.EntityEditor is IEntityEditor)
+            {
+                List<ToolbarItem> bars = GetToolBarItems();
+                if (bars != null)
+                {
+                    ToolBar bar = SMT.SaaS.FrameworkUI.Common.Utility.FindChildControl<ToolBar>(entBrowser, "toolBar1");
+                    if (bar != null)
+                    {
+                        bar.Visibility = Visibility.Collapsed;
+                    }
+                }
+            }
+
+            #endregion
+            RefreshUI(RefreshedTypes.AuditInfo);
+        }
         #endregion
+
+
+        #region 废弃的代码
 
 
         #region 查询出差报销明细
@@ -726,64 +665,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         //    }
         //}
         #endregion
-
-        #region 隐藏附件控件
-        //public void FileLoadedCompleted()
-        //{
-        //    //if (!ctrFile._files.HasAccessory)
-        //    //{
-        //    //    SMT.SaaS.FrameworkUI.Common.Utility.HiddenGridRow(this.LayoutRoot, 6);
-        //    //    this.lblFile.Visibility = Visibility.Collapsed;
-        //    //}
-        //}
-        #endregion
-
-        #region 隐藏和显示FB控件
-        private void fbChkBox_Checked(object sender, RoutedEventArgs e)
-        {
-            if (fbChkBox.IsChecked == true)
-            {
-                scvFB.Visibility = Visibility.Visible;
-            }
-        }
-
-        private void fbChkBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            if (fbChkBox.IsChecked == false)
-            {
-                scvFB.Visibility = Visibility.Collapsed;
-            }
-        }
-        #endregion
-
-        #region LayoutRoot_Loaded
-        private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(travelReimbursementID))
-            {
-                //ctrFile.Load_fileData(travelReimbursementID);
-            }
-            fbCtr.GetPayType.Visibility = Visibility.Visible;
-        }
-        #endregion
-
-        #region 键盘事件
-        private void TextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            //if (e.Key == Key.Enter)
-            //{
-            //    if (DaGrs.SelectedIndex == TrList.Count - 1)
-            //    {
-            //        T_OA_REIMBURSEMENTDETAIL buport = new T_OA_REIMBURSEMENTDETAIL();
-            //        buport.REIMBURSEMENTDETAILID = Guid.NewGuid().ToString();
-            //        buport.STARTDATE = DateTime.Now;
-            //        buport.ENDDATE = DateTime.Now;
-            //        TrList.Add(buport);
-            //    }
-            //}
-        }
-        #endregion
-
 
         #region 删除
         //private void myDelete_Click(object sender, RoutedEventArgs e)

@@ -1562,5 +1562,125 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         #endregion 
 
+
+        
+        //以下下为无用代码
+        #region 出差报销行删除事件
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (DaGrs.SelectedItems == null)
+            {
+                return;
+            }
+
+            if (DaGrs.SelectedItems.Count == 0)
+            {
+                return;
+            }
+
+            TravelDetailList_Golbal = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+            if (TravelDetailList_Golbal.Count() > 1)
+            {
+                for (int i = 0; i < DaGrs.SelectedItems.Count; i++)
+                {
+                    int k = DaGrs.SelectedIndex;//当前选中行
+                    T_OA_REIMBURSEMENTDETAIL entDel = DaGrs.SelectedItems[i] as T_OA_REIMBURSEMENTDETAIL;
+
+                    if (TravelDetailList_Golbal.Contains(entDel))
+                    {
+
+                        TravelDetailList_Golbal.Remove(entDel);
+                        if (citysEndList_Golbal.Count > k)
+                        {
+
+                            int EachCount = 0;
+                            foreach (Object obje in DaGrs.ItemsSource)//将下一个出发城市的值修改
+                            {
+                                EachCount++;
+                                if (DaGrs.Columns[1].GetCellContent(obje) != null)
+                                {
+                                    SearchCity mystarteachCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
+                                    if ((k + 1) == EachCount)
+                                    {
+                                        if (k > 0)
+                                        {
+                                            mystarteachCity.TxtSelectedCity.Text = GetCityName(citysEndList_Golbal[k - 1]);
+                                            citysStartList_Golbal[k + 1] = citysEndList_Golbal[k - 1];//上一城市的城市值
+                                        }
+                                    }
+                                }
+                            }
+                            citysEndList_Golbal.RemoveAt(k);//清除目标城市的值
+                            citysStartList_Golbal.RemoveAt(k);//清除出发城市的值
+                        }
+                    }
+                }
+                DaGrs.ItemsSource = TravelDetailList_Golbal;
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "必须保留一条出差时间及地点!", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return;
+            }
+        }
+        #endregion
+
+        #region 隐藏附件控件
+        //public void FileLoadedCompleted()
+        //{
+        //    //if (!ctrFile._files.HasAccessory)
+        //    //{
+        //    //    SMT.SaaS.FrameworkUI.Common.Utility.HiddenGridRow(this.LayoutRoot, 6);
+        //    //    this.lblFile.Visibility = Visibility.Collapsed;
+        //    //}
+        //}
+        #endregion
+
+        #region 隐藏和显示FB控件
+        private void fbChkBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (fbChkBox.IsChecked == true)
+            {
+                scvFB.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void fbChkBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (fbChkBox.IsChecked == false)
+            {
+                scvFB.Visibility = Visibility.Collapsed;
+            }
+        }
+        #endregion
+
+        #region LayoutRoot_Loaded
+        private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(travelReimbursementID))
+            {
+                //ctrFile.Load_fileData(travelReimbursementID);
+            }
+            fbCtr.GetPayType.Visibility = Visibility.Visible;
+        }
+        #endregion
+
+        #region 键盘事件
+        private void TextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            //if (e.Key == Key.Enter)
+            //{
+            //    if (DaGrs.SelectedIndex == TrList.Count - 1)
+            //    {
+            //        T_OA_REIMBURSEMENTDETAIL buport = new T_OA_REIMBURSEMENTDETAIL();
+            //        buport.REIMBURSEMENTDETAILID = Guid.NewGuid().ToString();
+            //        buport.STARTDATE = DateTime.Now;
+            //        buport.ENDDATE = DateTime.Now;
+            //        TrList.Add(buport);
+            //    }
+            //}
+        }
+        #endregion
+
     }
 }
