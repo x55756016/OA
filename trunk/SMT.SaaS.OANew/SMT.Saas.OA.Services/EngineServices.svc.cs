@@ -296,6 +296,88 @@ namespace SMT.SaaS.OA.Services
 
         #endregion
 
+
+        #region 出差申请终审后新增出差报销信息
+        /// <summary>
+        /// 填充TIMINGTRIGGERACTIVITY实体 -luojie
+        /// </summary>
+        public void MakeTravelreimbursementTriggerEntity(string strXml)
+        {
+            Tracer.Debug("出差申请开始调用定时触发出差报销生成的接口");
+            try
+            {
+                using (EngineWcfGlobalFunctionClient wcfClient = new EngineWcfGlobalFunctionClient())
+                {
+                    string strBusinesStripId = string.Empty;
+                    StringReader strRdr = new StringReader(strXml);
+                    XmlReader xr = XmlReader.Create(strRdr);
+                    while (xr.Read())
+                    {
+                        if (xr.NodeType == XmlNodeType.Element)
+                        {
+                            string elementName = xr.Name;
+                            if (elementName == "Paras" || elementName == "System")
+                            {
+                                while (xr.Read())
+                                {
+                                    string type = xr.NodeType.ToString();
+                                    #region
+                                    if (xr["Name"] != null)
+                                    {
+                                        if (xr["Name"].ToUpper() == "BUSINESSTRIPID")
+                                        {
+                                            strBusinesStripId = xr["Value"];
+                                        }
+                                    }
+                                    #endregion
+                                }
+                            }
+                        }
+                    }
+
+                    T_WF_TIMINGTRIGGERACTIVITY triggerEntity = new T_WF_TIMINGTRIGGERACTIVITY();
+                    triggerEntity.TRIGGERID = Guid.NewGuid().ToString();
+                    triggerEntity.BUSINESSID = strBusinesStripId;
+                    triggerEntity.TRIGGERNAME = strBusinesStripId;
+                    triggerEntity.SYSTEMCODE = "OA";
+                    triggerEntity.SYSTEMNAME = "办公系统";
+                    triggerEntity.MODELCODE = "T_OA_BUSINESSTRIP";
+                    triggerEntity.MODELNAME = "出差申请";
+                    triggerEntity.TRIGGERACTIVITYTYPE = 2;
+
+                    //获取出差申请的结束时间
+                    DateTime arriveTime = GetLatestTimeOfBusinesstrip(GetBusinessIdFromString(strXml));
+                    triggerEntity.TRIGGERTIME = arriveTime;//待改-出差申请的结束时间
+                    Tracer.Debug("出差申请结束时间:" + arriveTime.ToString());
+                    triggerEntity.TRIGGERROUND = 0;
+                    triggerEntity.WCFURL = "EngineEventServices.svc";//需要传输数据至的服务名
+                    triggerEntity.FUNCTIONNAME = "EventTriggerProcess";//需要传输数据至的方法名称
+                    //因两次调用回调函数的问题在此产生出差报销id
+                    //strXml += "<Para FuncName=\"DelayTravelreimbursmentAdd\"  Name=\"TRAVELREIMBURSEMENTID\"  Description=\"出差报销ID\" Value=\""+Guid.NewGuid().ToString()+"\" ValueName=\"出差报销ID\" ></Para>";
+                    //处理消息规则里T_OA_BUSINESSTRIP的信息
+                    strXml = strXml.Replace("<?xml version=\"1.0\" encoding=\"utf-8\" ?>", "").Replace("<Paras>", "").Replace("</Paras>", "").Replace("TableName", "FuncName").Replace("T_OA_BUSINESSTRIP", "DelayTravelreimbursmentAdd").Trim();
+                    //处理消息规则里T_OA_TRAVELREIMBURSEMENT的信息
+                    strXml = strXml.Replace("T_OA_TRAVELREIMBURSEMENT", "DelayTravelreimbursmentAdd");
+                    triggerEntity.FUNCTIONPARAMTER = strXml;//传输的对象方法获取的数据
+                    triggerEntity.PAMETERSPLITCHAR = "Г";
+                    triggerEntity.WCFBINDINGCONTRACT = "CustomBinding";
+                    triggerEntity.CREATEDATETIME = System.DateTime.Now;
+                    //triggerEntity.TRIGGERSTART = System.DateTime.Now;
+                    //triggerEntity.TRIGGEREND = Convert.ToDateTime("2099/12/30 18:00:00");
+                    wcfClient.WFAddTimingTrigger(triggerEntity);
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("出差申请调用定时触发出差报销生成的接口失败:" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return;
+            }
+            Tracer.Debug("出差申请调用定时触发出差报销生成的接口成功");
+        }
+
+
+        #endregion
+
         #region 公司发文
         /// <summary>
         /// 根据传回的XML，添加公文信息
@@ -651,86 +733,6 @@ namespace SMT.SaaS.OA.Services
         }
         #endregion
 
-        #region 生成出差申请终审通过后给引擎的XML信息
-        /// <summary>
-        /// 填充TIMINGTRIGGERACTIVITY实体 -luojie
-        /// </summary>
-        public void MakeTravelreimbursementTriggerEntity(string strXml)
-        {
-            Tracer.Debug("出差申请开始调用定时触发出差报销生成的接口");
-            try
-            {
-                using (EngineWcfGlobalFunctionClient wcfClient = new EngineWcfGlobalFunctionClient())
-                {
-                    string strBusinesStripId = string.Empty;
-                    StringReader strRdr = new StringReader(strXml);
-                    XmlReader xr = XmlReader.Create(strRdr);
-                    while (xr.Read())
-                    {
-                        if (xr.NodeType == XmlNodeType.Element)
-                        {
-                            string elementName = xr.Name;
-                            if (elementName == "Paras" || elementName == "System")
-                            {
-                                while (xr.Read())
-                                {
-                                    string type = xr.NodeType.ToString();
-                                    #region
-                                    if (xr["Name"] != null)
-                                    {
-                                        if (xr["Name"].ToUpper() == "BUSINESSTRIPID")
-                                        {
-                                            strBusinesStripId = xr["Value"];
-                                        }
-                                    }
-                                    #endregion
-                                }
-                            }
-                        }
-                    }
-
-                    T_WF_TIMINGTRIGGERACTIVITY triggerEntity = new T_WF_TIMINGTRIGGERACTIVITY();
-                    triggerEntity.TRIGGERID = Guid.NewGuid().ToString();
-                    triggerEntity.BUSINESSID = strBusinesStripId;
-                    triggerEntity.TRIGGERNAME = strBusinesStripId;
-                    triggerEntity.SYSTEMCODE = "OA";
-                    triggerEntity.SYSTEMNAME = "办公系统";
-                    triggerEntity.MODELCODE = "T_OA_BUSINESSTRIP";
-                    triggerEntity.MODELNAME = "出差申请";                    
-                    triggerEntity.TRIGGERACTIVITYTYPE = 2;
-
-                    //获取出差申请的结束时间
-                    DateTime arriveTime = GetLatestTimeOfBusinesstrip(GetBusinessIdFromString(strXml));
-                    triggerEntity.TRIGGERTIME = arriveTime;//待改-出差申请的结束时间
-                    Tracer.Debug("出差申请结束时间:"+arriveTime.ToString());
-                    triggerEntity.TRIGGERROUND = 0;
-                    triggerEntity.WCFURL = "EngineEventServices.svc";//需要传输数据至的服务名
-                    triggerEntity.FUNCTIONNAME = "EventTriggerProcess";//需要传输数据至的方法名称
-                    //因两次调用回调函数的问题在此产生出差报销id
-                    //strXml += "<Para FuncName=\"DelayTravelreimbursmentAdd\"  Name=\"TRAVELREIMBURSEMENTID\"  Description=\"出差报销ID\" Value=\""+Guid.NewGuid().ToString()+"\" ValueName=\"出差报销ID\" ></Para>";
-                    //处理消息规则里T_OA_BUSINESSTRIP的信息
-                    strXml = strXml.Replace("<?xml version=\"1.0\" encoding=\"utf-8\" ?>", "").Replace("<Paras>", "").Replace("</Paras>", "").Replace("TableName", "FuncName").Replace("T_OA_BUSINESSTRIP", "DelayTravelreimbursmentAdd").Trim();
-                    //处理消息规则里T_OA_TRAVELREIMBURSEMENT的信息
-                    strXml = strXml.Replace("T_OA_TRAVELREIMBURSEMENT", "DelayTravelreimbursmentAdd");
-                    triggerEntity.FUNCTIONPARAMTER = strXml;//传输的对象方法获取的数据
-                    triggerEntity.PAMETERSPLITCHAR = "Г";
-                    triggerEntity.WCFBINDINGCONTRACT = "CustomBinding";
-                    triggerEntity.CREATEDATETIME = System.DateTime.Now;
-                    //triggerEntity.TRIGGERSTART = System.DateTime.Now;
-                    //triggerEntity.TRIGGEREND = Convert.ToDateTime("2099/12/30 18:00:00");
-                    wcfClient.WFAddTimingTrigger(triggerEntity);
-                }
-            }
-            catch (Exception ex)
-            {
-                Tracer.Debug("出差申请调用定时触发出差报销生成的接口失败:" + System.DateTime.Now.ToString() + " " + ex.ToString());
-                return;
-            }
-            Tracer.Debug("出差申请调用定时触发出差报销生成的接口成功");
-        }
-
-        
-        #endregion
 
         /// <summary>
         /// 获取出差申请最后的时间 -luojie
