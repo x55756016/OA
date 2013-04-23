@@ -489,6 +489,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                             };
                                             if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
                                             {
+                                                if (formType == FormTypes.Audit) return;
                                                 com.SelectionBox("操作确认", "当前单据没有获取到交通补贴，是否继续操作？", ComfirmWindow.titlename, "");
                                             }
                                         }
@@ -809,6 +810,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                             };
                                             if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
                                             {
+                                                if (formType == FormTypes.Audit) return;
                                                 com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
                                             }
                                         }
@@ -831,6 +833,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                             };
                                             if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
                                             {
+                                                if (formType == FormTypes.Audit) return;
                                                 com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
                                             }
                                         }
