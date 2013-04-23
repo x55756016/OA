@@ -31,8 +31,6 @@
     <Attribute  Name="OWNERCOMPANYID" Description="所属公司" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="OWNERNAME" Description="所属用户名称" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="OWNERID" Description="所属用户ID" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="SubmitUserID" Description="提交者ID" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="CURRENTEMPLOYEENAME" Description="提交者姓名" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CHECKSTATE" Description="审批状态" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CONTRACTTITLE" Description="标题" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CONTRACTFLAG" Description="合同标志" DataType="string" DataValue=""></Attribute>

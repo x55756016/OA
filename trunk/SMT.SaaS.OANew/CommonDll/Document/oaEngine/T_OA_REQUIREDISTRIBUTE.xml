@@ -12,7 +12,7 @@
     <AssemblyName>SMT.SaaS.OA.UI</AssemblyName>
     <PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>
     <ProcessName>CreateFormFromEngine</ProcessName>
-    <PageParameter>SMT.SaaS.OA.UI.UserControls.EmployeeSurveyDistributeChildWindow</PageParameter>
+    <PageParameter>SMT.SaaS.OA.UI.UserControls.EmployeeSurveyDistribute_add</PageParameter>
     <ApplicationOrder>{REQUIREDISTRIBUTEID}</ApplicationOrder>
     <FormTypes>Audit</FormTypes>  
 </MsgOpen>

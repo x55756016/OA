@@ -38,8 +38,6 @@
     <Attribute  Name="CREATETIME" Description="创建时间" DataType="NVARCHAR2" DataValue=""></Attribute>
     <Attribute  Name="CREATEDATE" Description="创建日期" DataType="NVARCHAR2" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERID" Description="创建人" DataType="NVARCHAR2" DataValue=""></Attribute>
-    <Attribute  Name="SubmitUserID" Description="提交者ID" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="CURRENTEMPLOYEENAME" Description="提交者姓名" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="GUID" Description="GUID" DataType="NVARCHAR2" DataValue=""></Attribute>
     <Attribute  Name="CHECKSTATE" Description="审批状态" DataType="NVARCHAR2" DataValue=""></Attribute>
     <Attribute  Name="CURRENTNODECODE" Description="当前节点代码" DataType="NVARCHAR2" DataValue=""></Attribute>

@@ -31,8 +31,6 @@
     <Attribute  Name="CREATEDATE" Description="创建日期" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERID" Description="创建人ID" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERNAME" Description="创建人姓名" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="SubmitUserID" Description="提交者ID" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="CURRENTEMPLOYEENAME" Description="提交者姓名" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="ISSUANCEID" Description="GUID" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CHECKSTATE" Description="审批状态" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="PLANENDDATE" Description="" DataType="DateTime" DataValue=""></Attribute>

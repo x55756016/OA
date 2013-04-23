@@ -31,8 +31,6 @@
     <Attribute  Name="CREATEDATE" Description="创建日期" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERID" Description="创建人ID" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERNAME" Description="创建人姓名" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="SubmitUserID" Description="提交者ID" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="CURRENTEMPLOYEENAME" Description="提交者姓名" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="MEETINGINFOID" Description="会议申请ID" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="ISAUTO" Description="是否自动" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="MEETINGROOMNAME" Description="会议室名" DataType="string" DataValue=""></Attribute>

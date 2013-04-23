@@ -31,8 +31,6 @@
     <Attribute  Name="CREATEDATE" Description="创建日期" DataType="NVARCHAR2" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERID" Description="创建人ID" DataType="NVARCHAR2" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERNAME" Description="创建人姓名" DataType="NVARCHAR2" DataValue=""></Attribute>
-    <Attribute  Name="SubmitUserID" Description="提交者ID" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="CURRENTEMPLOYEENAME" Description="提交者姓名" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""></Attribute>
     <Attribute  Name="PLANENDDATE" Description="计划归还时间" DataType="DATE" DataValue=""></Attribute>
     <Attribute  Name="ENDDATE" Description="归还时间" DataType="DATE" DataValue=""></Attribute>

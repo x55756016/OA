@@ -12,7 +12,7 @@
     <AssemblyName>SMT.SaaS.OA.UI</AssemblyName>
     <PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>
     <ProcessName>CreateFormFromEngine</ProcessName>
-    <PageParameter>SMT.SaaS.OA.UI.UserControls.EmployeesSurveyAppChildWindow</PageParameter>
+    <PageParameter>SMT.SaaS.OA.UI.UserControls.EmployeeSurveyApp_aud</PageParameter>
     <ApplicationOrder>{REQUIREID}</ApplicationOrder>
     <FormTypes>Audit</FormTypes>  
 </MsgOpen>

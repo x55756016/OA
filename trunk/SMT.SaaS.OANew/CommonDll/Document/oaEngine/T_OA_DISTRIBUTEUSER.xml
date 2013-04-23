@@ -12,7 +12,7 @@ Binding="customBinding" SplitChar="Г">
     <AssemblyName>SMT.SaaS.OA.UI</AssemblyName>
     <PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>
     <ProcessName>CreateFormFromEngine</ProcessName>
-    <PageParameter>SMT.SaaS.OA.UI.UserControls.JoinSurveying</PageParameter>
+    <PageParameter>SMT.SaaS.OA.UI.UserControls.EmployeeSubmissions_0</PageParameter>
     <ApplicationOrder>{DISTRIBUTEUSERID}</ApplicationOrder>
     <FormTypes>Audit</FormTypes>
   </MsgOpen>

@@ -31,8 +31,6 @@
     <Attribute  Name="CREATEDATE" Description="创建日期" DataType="DateTime" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERID" Description="创建人ID" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CREATEUSERNAME" Description="创建人姓名" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="SubmitUserID" Description="提交者ID" DataType="string" DataValue=""></Attribute>
-    <Attribute  Name="CURRENTEMPLOYEENAME" Description="提交者姓名" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CHECKSTATE" Description="审核状态" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="DEPARTMENTID" Description="申请部门ID" DataType="string" DataValue=""></Attribute>
     <Attribute  Name="CONTENT" Description="备注" DataType="string" DataValue=""></Attribute>
