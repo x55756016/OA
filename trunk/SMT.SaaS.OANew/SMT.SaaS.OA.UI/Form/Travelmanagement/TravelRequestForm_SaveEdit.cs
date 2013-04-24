@@ -37,7 +37,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             Save();
         }
 
-
         public void DoAction(string actionType)
         {
             switch (actionType)
@@ -49,7 +48,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
         }
         #endregion
-
 
         #region 字段赋值
         /// <summary>

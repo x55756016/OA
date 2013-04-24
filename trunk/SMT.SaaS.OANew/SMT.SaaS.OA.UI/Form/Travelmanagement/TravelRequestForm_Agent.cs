@@ -256,7 +256,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         public void ClosedWCFClient()
         {
             OaPersonOfficeClient.DoClose();
-            HrPersonnelclient.DoClose();
+            //HrPersonnelclient.DoClose();
         }
 
         public bool CheckDataContenxChange()

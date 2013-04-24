@@ -52,6 +52,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             return "";
         }
+
         public List<NavigateItem> GetLeftMenuItems()
         {
             List<NavigateItem> items = new List<NavigateItem>();
@@ -64,6 +65,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             return items;
         }
+
         public List<ToolbarItem> GetToolBarItems()
         {
             List<ToolbarItem> items = new List<ToolbarItem>();
@@ -82,6 +84,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         }
 
         public event UIRefreshedHandler OnUIRefreshed;
+
         public void RefreshUI(RefreshedTypes type)
         {
             if (OnUIRefreshed != null)
@@ -91,40 +94,134 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 OnUIRefreshed(this, args);
             }
         }
+
         private void Close()
         {
             RefreshUI(RefreshedTypes.CloseAndReloadData);
         }
         #endregion
 
-
-
-        /// <summary>
-        ///     回到提交前的状态
-        /// </summary>
-        private void BackToSubmit()
+        #region IAudit
+        public void SetFlowRecordEntity(FrameworkUI.AuditControl.Flow_FlowRecord_T entity)
         {
-            needsubmit = false;
-            #region 隐藏entitybrowser中的toolbar按钮
-            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-            entBrowser.BtnSaveSubmit.IsEnabled = false;
-            if (entBrowser.EntityEditor is IEntityEditor)
+            if (formType == FormTypes.Edit || formType == FormTypes.Resubmit)
             {
-                List<ToolbarItem> bars = GetToolBarItems();
-                if (bars != null)
+                if (Master_Golbal.CHECKSTATE == "0" || Master_Golbal.CHECKSTATE == "3")
                 {
-                    ToolBar bar = SMT.SaaS.FrameworkUI.Common.Utility.FindChildControl<ToolBar>(entBrowser, "toolBar1");
-                    if (bar != null)
-                    {
-                        bar.Visibility = Visibility.Collapsed;
-                    }
+                    EntityBrowser browser = this.FindParentByType<EntityBrowser>();
+                    browser.AuditCtrl.Auditing += new EventHandler<SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs>(AuditCtrl_Auditing);
                 }
             }
+            string strXmlObjectSource = string.Empty;
+            entity.SystemCode = "OA";
+            if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
+                strXmlObjectSource = GetXmlString(Master_Golbal, entity.BusinessObjectDefineXML);
 
-            #endregion
-            RefreshUI(RefreshedTypes.AuditInfo);
+            Dictionary<string, string> paraIDs = new Dictionary<string, string>();
+            paraIDs.Add("CreateUserID", Master_Golbal.OWNERID);
+            paraIDs.Add("CreatePostID", Master_Golbal.OWNERPOSTID);
+            paraIDs.Add("CreateDepartmentID", Master_Golbal.OWNERDEPARTMENTID);
+            paraIDs.Add("CreateCompanyID", Master_Golbal.OWNERCOMPANYID);
+
+            if (Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
+            {
+                Utility.SetAuditEntity(entity, "T_OA_BUSINESSTRIP", Master_Golbal.BUSINESSTRIPID, strXmlObjectSource, paraIDs);
+            }
+            else
+            {
+                Utility.SetAuditEntity(entity, "T_OA_BUSINESSTRIP", Master_Golbal.BUSINESSTRIPID, strXmlObjectSource);
+            }
         }
 
+        void audit_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
+        {
+            RefreshUI(RefreshedTypes.ShowProgressBar);
+        }
+
+        void AuditCtrl_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
+        {
+            if (Common.CurrentLoginUserInfo.EmployeeID != Master_Golbal.OWNERID && Master_Golbal.CHECKSTATE == "0")
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("OPERATINGWITHOUTAUTHORITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return;
+            }
+        }
+        
+        public void OnSubmitCompleted(FrameworkUI.AuditControl.AuditEventArgs.AuditResult args)
+        {
+            string state = "";
+            Utility.InitFileLoad(FormTypes.Audit, uploadFile, Master_Golbal.BUSINESSTRIPID, false);
+            switch (args)
+            {
+                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Auditing://审核中
+                    state = Utility.GetCheckState(CheckStates.Approving);
+                    if (Master_Golbal.CHARGEMONEY > 0)
+                    {
+                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.Approving); //审核中
+                    }
+                    break;
+                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Successful://审核通过
+                    state = Utility.GetCheckState(CheckStates.Approved);
+                    formType = FormTypes.Audit;
+                    if (Master_Golbal.CHARGEMONEY > 0)
+                    {
+                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.Approved); //审核通过
+                    }
+                    if (Master_Golbal.ISAGENT == "1")//如果启用代理
+                    {
+                        AddAgent(TraveDetailList_Golbal.Count() - 1);
+                        OaCommonOfficeClient.AgentDataSetAddAsync(AgentDateSet);//插入代理
+                    }
+                    break;
+                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Fail://审核未通过
+                    state = Utility.GetCheckState(CheckStates.UnApproved);
+                    if (Master_Golbal.CHARGEMONEY > 0)
+                    {
+                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnApproved); //审核不通过
+                    }
+                    break;
+            }
+            if (Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
+            {
+                //UserState = "Submit";
+            }
+            if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
+            {
+                SetTraveRequestValue();
+            }
+            Master_Golbal.CHECKSTATE = state;
+            RefreshUI(RefreshedTypes.HideProgressBar);
+            if (formType == FormTypes.Edit || formType == FormTypes.Resubmit)
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSSUBMITAUDIT"),
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+            if (formType == FormTypes.Audit || formType == FormTypes.Browse)
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"),
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+
+            //approvalInfo.CHECKSTATE = state;
+            RefreshUI(RefreshedTypes.AuditInfo);
+            RefreshUI(RefreshedTypes.All);
+            //Travelmanagement.UpdateTravelmanagementAsync(Businesstrip, buipList, actions.ToString(), UserState);
+        }
+
+        public string GetAuditState()
+        {
+            string state = "-1";
+            if (Master_Golbal != null)
+                state = Master_Golbal.CHECKSTATE;
+            if (formType == FormTypes.Browse)
+            {
+                state = "-1";
+            }
+            return state;
+        }
+        #endregion
 
         #region MobileXml
         private AutoDictionary basedata(string TableName, string Name, string Value, string Text)
@@ -270,128 +367,32 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         }
         #endregion
 
-        #region IAudit
-        public void SetFlowRecordEntity(FrameworkUI.AuditControl.Flow_FlowRecord_T entity)
+        /// <summary>
+        ///     回到提交前的状态
+        /// </summary>
+        private void BackToSubmit()
         {
-            if (formType == FormTypes.Edit || formType == FormTypes.Resubmit)
+            needsubmit = false;
+
+            #region 隐藏entitybrowser中的toolbar按钮
+            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+            entBrowser.BtnSaveSubmit.IsEnabled = false;
+            if (entBrowser.EntityEditor is IEntityEditor)
             {
-                if (Master_Golbal.CHECKSTATE == "0" || Master_Golbal.CHECKSTATE == "3")
+                List<ToolbarItem> bars = GetToolBarItems();
+                if (bars != null)
                 {
-                    EntityBrowser browser = this.FindParentByType<EntityBrowser>();
-                    browser.AuditCtrl.Auditing += new EventHandler<SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs>(AuditCtrl_Auditing);
+                    ToolBar bar = SMT.SaaS.FrameworkUI.Common.Utility.FindChildControl<ToolBar>(entBrowser, "toolBar1");
+                    if (bar != null)
+                    {
+                        bar.Visibility = Visibility.Collapsed;
+                    }
                 }
             }
-            string strXmlObjectSource = string.Empty;
-            entity.SystemCode = "OA";
-            if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
-                strXmlObjectSource = GetXmlString(Master_Golbal, entity.BusinessObjectDefineXML);
 
-            Dictionary<string, string> paraIDs = new Dictionary<string, string>();
-            paraIDs.Add("CreateUserID", Master_Golbal.OWNERID);
-            paraIDs.Add("CreatePostID", Master_Golbal.OWNERPOSTID);
-            paraIDs.Add("CreateDepartmentID", Master_Golbal.OWNERDEPARTMENTID);
-            paraIDs.Add("CreateCompanyID", Master_Golbal.OWNERCOMPANYID);
+            #endregion
 
-            if (Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
-            {
-                Utility.SetAuditEntity(entity, "T_OA_BUSINESSTRIP", Master_Golbal.BUSINESSTRIPID, strXmlObjectSource, paraIDs);
-            }
-            else
-            {
-                Utility.SetAuditEntity(entity, "T_OA_BUSINESSTRIP", Master_Golbal.BUSINESSTRIPID, strXmlObjectSource);
-            }
-        }
-
-
-
-        void audit_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
-        {
-            RefreshUI(RefreshedTypes.ShowProgressBar);
-        }
-
-        void AuditCtrl_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
-        {
-            if (Common.CurrentLoginUserInfo.EmployeeID != Master_Golbal.OWNERID && Master_Golbal.CHECKSTATE == "0")
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("OPERATINGWITHOUTAUTHORITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
-            }
-        }
-        
-        public void OnSubmitCompleted(FrameworkUI.AuditControl.AuditEventArgs.AuditResult args)
-        {
-            string state = "";
-            Utility.InitFileLoad(FormTypes.Audit, uploadFile, Master_Golbal.BUSINESSTRIPID, false);
-            switch (args)
-            {
-                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Auditing://审核中
-                    state = Utility.GetCheckState(CheckStates.Approving);
-                    if (Master_Golbal.CHARGEMONEY > 0)
-                    {
-                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.Approving); //审核中
-                    }
-                    break;
-                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Successful://审核通过
-                    state = Utility.GetCheckState(CheckStates.Approved);
-                    formType = FormTypes.Audit;
-                    if (Master_Golbal.CHARGEMONEY > 0)
-                    {
-                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.Approved); //审核通过
-                    }
-                    if (Master_Golbal.ISAGENT == "1")//如果启用代理
-                    {
-                        AddAgent(TraveDetailList_Golbal.Count() - 1);
-                        OaCommonOfficeClient.AgentDataSetAddAsync(AgentDateSet);//插入代理
-                    }
-                    break;
-                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Fail://审核未通过
-                    state = Utility.GetCheckState(CheckStates.UnApproved);
-                    if (Master_Golbal.CHARGEMONEY > 0)
-                    {
-                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnApproved); //审核不通过
-                    }
-                    break;
-            }
-            if (Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
-            {
-                //UserState = "Submit";
-            }
-            if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
-            {
-                SetTraveRequestValue();
-            }
-            Master_Golbal.CHECKSTATE = state;
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            if (formType == FormTypes.Edit || formType == FormTypes.Resubmit)
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSSUBMITAUDIT"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-            if (formType == FormTypes.Audit || formType == FormTypes.Browse)
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-
-            //approvalInfo.CHECKSTATE = state;
             RefreshUI(RefreshedTypes.AuditInfo);
-            RefreshUI(RefreshedTypes.All);
-            //Travelmanagement.UpdateTravelmanagementAsync(Businesstrip, buipList, actions.ToString(), UserState);
         }
-
-        public string GetAuditState()
-        {
-            string state = "-1";
-            if (Master_Golbal != null)
-                state = Master_Golbal.CHECKSTATE;
-            if (formType == FormTypes.Browse)
-            {
-                state = "-1";
-            }
-            return state;
-        }
-        #endregion
     }
 }
