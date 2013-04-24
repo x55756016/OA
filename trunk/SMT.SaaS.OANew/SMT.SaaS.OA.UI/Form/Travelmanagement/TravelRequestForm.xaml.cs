@@ -108,9 +108,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             this.formType = formType;
             if (!string.IsNullOrEmpty(BUSINESSTRIPID))
             {
-                Master_Golbal = new T_OA_BUSINESSTRIP();
+                Master_Golbal = new T_OA_BUSINESSTRIP();//传递出差id给Load事件
                 Master_Golbal.BUSINESSTRIPID = BUSINESSTRIPID;
             }
+
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
                 svdgEdit.Visibility = Visibility.Collapsed;
@@ -206,8 +207,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 Master_Golbal.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
                 Master_Golbal.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
                 Master_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
-                Master_Golbal.TEL = Common.CurrentLoginUserInfo.Telphone;
-                txtTELL.Text = Common.CurrentLoginUserInfo.Telphone;
+                if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.Telphone))
+                {
+                    Master_Golbal.TEL = Common.CurrentLoginUserInfo.Telphone;
+                    txtTELL.Text = Common.CurrentLoginUserInfo.Telphone;
+                }
                 string StrName = Master_Golbal.OWNERNAME + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME;
                 txtTraveEmployee.Text = StrName;
                 //strTravelEmployeeName = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
@@ -487,39 +491,46 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
                     SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj post = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)userInfo.ParentObject;
                     string postid = post.ObjectID;
-                    //Master_Golbal.OWNERPOSTNAME = post.ObjectName;//岗位
-                    Master_Golbal.POSTLEVEL = (ent.FirstOrDefault().ObjectInstance 
-                        as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE).T_HR_EMPLOYEEPOST.Where(s => s.T_HR_POST.POSTID 
-                            == postid).FirstOrDefault().POSTLEVEL.ToString();
+                    //Master_Golbal.OWNERPOSTNAME = post.ObjectName;//岗位                 
 
                     SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj dept = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)post.ParentObject;
                     string deptid = dept.ObjectID;
-                    Master_Golbal.OWNERDEPARTMENTNAME = dept.ObjectName;//部门
 
                     SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY corp = (dept.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT).T_HR_COMPANY;
                     string selectCompanyId = corp.COMPANYID;
-                    Master_Golbal.OWNERCOMPANYNAME = corp.CNAME;//公司
 
                     string StrEmployee = userInfo.ObjectName + "[" + post.ObjectName + "-" + dept.ObjectName + "-" + corp.CNAME + "]";
                     txtTraveEmployee.Text = StrEmployee;//出差人
                     //strTravelEmployeeName = userInfo.ObjectName;
                     ToolTipService.SetToolTip(txtTraveEmployee, StrEmployee);
-                    Master_Golbal.OWNERID = userInfo.ObjectID;//出差人ID
-                    Master_Golbal.OWNERNAME = userInfo.ObjectName;//出差人
+
+                    Master_Golbal.POSTLEVEL = (ent.FirstOrDefault().ObjectInstance
+                     as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE).T_HR_EMPLOYEEPOST.Where(s => s.T_HR_POST.POSTID
+                         == postid).FirstOrDefault().POSTLEVEL.ToString();
+
                     Master_Golbal.OWNERCOMPANYID = selectCompanyId;
+                    Master_Golbal.OWNERCOMPANYNAME = corp.CNAME;
+
                     Master_Golbal.OWNERDEPARTMENTID = deptid;
+                    Master_Golbal.OWNERDEPARTMENTNAME = dept.ObjectName;
+
                     Master_Golbal.OWNERPOSTID = postid;
+                    Master_Golbal.OWNERPOSTNAME = post.ObjectName;
 
-                    Master_Golbal.OWNERPOSTNAME=Master_Golbal.OWNERPOSTNAME;
-                    Master_Golbal.OWNERDEPARTMENTNAME=Master_Golbal.OWNERDEPARTMENTNAME;
-                    Master_Golbal.OWNERCOMPANYNAME=Master_Golbal.OWNERCOMPANYNAME;
+                    Master_Golbal.OWNERID = userInfo.ObjectID;
+                    Master_Golbal.OWNERNAME = userInfo.ObjectName;
 
+
+                    //fb控件
                     fbCtr.Order.OWNERCOMPANYID = selectCompanyId;
-                    fbCtr.Order.OWNERCOMPANYNAME = Master_Golbal.OWNERCOMPANYNAME;
+                    fbCtr.Order.OWNERCOMPANYNAME = corp.CNAME;
+
                     fbCtr.Order.OWNERDEPARTMENTID = deptid;
-                    fbCtr.Order.OWNERDEPARTMENTNAME = Master_Golbal.OWNERDEPARTMENTNAME;
+                    fbCtr.Order.OWNERDEPARTMENTNAME = dept.ObjectName;
+
                     fbCtr.Order.OWNERPOSTID = postid;
                     fbCtr.Order.OWNERPOSTNAME = post.ObjectName;
+
                     fbCtr.Order.OWNERID = userInfo.ObjectID;
                     fbCtr.Order.OWNERNAME = userInfo.ObjectName;
                     fbCtr.RefreshData();
@@ -991,7 +1002,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         #endregion
 
-        #region 获取出差申请明细
+        #region 获取出差申请信息
      
         //void Travelmanagement_GetBusinesstripDetailCompleted(object sender, GetBusinesstripDetailCompletedEventArgs e)//出差申请明细
         //{
@@ -1098,24 +1109,24 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         }
                         #endregion
 
-                        #region 判断是否需要修改，并判断是否获取出差方案
-                        if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
-                        {
+                        #region 获取出差方案，工具标准用来报销，及显示控件颜色
+                        //if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
+                        //{
                             //重新提交获取出差方案
                             OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(Master_Golbal.OWNERCOMPANYID, null, null);
-                        }
-                        else
-                        {
-                            if (formType != FormTypes.New && Master_Golbal.T_OA_BUSINESSTRIPDETAIL.Count > 0)
-                            {
-                                BindDataGrid(Master_Golbal.T_OA_BUSINESSTRIPDETAIL);
-                            }
-                            RefreshUI(RefreshedTypes.HideProgressBar);
-                            if (Master_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
-                            {
-                                HideControl();
-                            }
-                        }
+                        //}
+                        //else
+                        //{
+                        //    if (formType != FormTypes.New && Master_Golbal.T_OA_BUSINESSTRIPDETAIL.Count > 0)
+                        //    {
+                        //        BindDataGrid(Master_Golbal.T_OA_BUSINESSTRIPDETAIL);
+                        //    }
+                        //    RefreshUI(RefreshedTypes.HideProgressBar);
+                        //    if (Master_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
+                        //    {
+                        //        HideControl();
+                        //    }
+                        //}
                         #endregion
                     }
                     else

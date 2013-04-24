@@ -180,6 +180,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 }
                 if (e.StandardObj != null)
                 {
+                    //交通工具乘坐标准
                     transportToolStand = e.StandardObj.ToList();//乘坐交通工具标准设置
                 }
                 if (formType != FormTypes.New && Master_Golbal.T_OA_BUSINESSTRIPDETAIL.Count > 0)

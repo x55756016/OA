@@ -273,9 +273,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                             BrowseShieldedControl();
                         }
                     }
-                    if (formType == FormTypes.New || formType == FormTypes.Edit
-                        || formType == FormTypes.Resubmit)
-                    {
+                    //if (formType == FormTypes.New || formType == FormTypes.Edit
+                    //    || formType == FormTypes.Resubmit)
+                    //{
                         //我的单据中用到(判断出差报告如果在未提交状态,FormType状态改为可编辑)
                         if (TravelReimbursement_Golbal.CHECKSTATE == ((int)CheckStates.UnSubmit).ToString())
                         {
@@ -299,19 +299,19 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                         RefreshUI(RefreshedTypes.ShowProgressBar);
                         OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(TravelReimbursement_Golbal.OWNERCOMPANYID, null, null);
-                    }
-                    else
-                    {
-                        if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count > 0)
-                        {
-                            BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
-                            RefreshUI(RefreshedTypes.All);
-                            if (TravelReimbursement_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
-                            {
-                                RefreshUI(RefreshedTypes.AuditInfo);
-                            }
-                        }
-                    }
+                    //}
+                    //else
+                    //{
+                    //    if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count > 0)
+                    //    {
+                    //        BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
+                    //        RefreshUI(RefreshedTypes.All);
+                    //        if (TravelReimbursement_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
+                    //        {
+                    //            RefreshUI(RefreshedTypes.AuditInfo);
+                    //        }
+                    //    }
+                    //}
                     //OaPersonOfficeClient.GetTravelReimbursementDetailAsync(TravelReimbursement.TRAVELREIMBURSEMENTID);
                 }
             }
