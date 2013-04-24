@@ -29,12 +29,19 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 新建时初始化(已经不存在此逻辑)
         private void NewMaster_Golbal()
         {
-            if (formType == FormTypes.New)
-            {
-                TravelReimbursement_Golbal = new T_OA_TRAVELREIMBURSEMENT();
-                TravelReimbursement_Golbal.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
-                ReimbursementTime.Text = System.DateTime.Now.ToShortDateString();
-            }
+            TravelReimbursement_Golbal = new T_OA_TRAVELREIMBURSEMENT();
+            TravelReimbursement_Golbal.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
+            ReimbursementTime.Text = System.DateTime.Now.ToShortDateString();
+            TravelReimbursement_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
+            TravelReimbursement_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+            TravelReimbursement_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+            TravelReimbursement_Golbal.OWNERPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
+            TravelReimbursement_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+            TravelReimbursement_Golbal.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
+            TravelReimbursement_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+            TravelReimbursement_Golbal.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+            TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
+
         }
         #endregion
 
