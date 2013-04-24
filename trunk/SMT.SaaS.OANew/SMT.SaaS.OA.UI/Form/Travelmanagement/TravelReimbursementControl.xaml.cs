@@ -249,12 +249,14 @@ namespace SMT.SaaS.OA.UI.UserControls
                     postName = TravelReimbursement_Golbal.OWNERPOSTNAME;
                     depName = TravelReimbursement_Golbal.OWNERDEPARTMENTNAME;
                     companyName = TravelReimbursement_Golbal.OWNERCOMPANYNAME;
-                    EmployeePostLevel = TravelReimbursement_Golbal.POSTLEVEL;
                     string StrName = TravelReimbursement_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + companyName;
+
                     txtPeopleTravel.Text = StrName;
                     ToolTipService.SetToolTip(txtPeopleTravel, StrName);
+
                     EmployeeName = TravelReimbursement_Golbal.OWNERNAME;//出差人
 
+                    EmployeePostLevel = TravelReimbursement_Golbal.POSTLEVEL;
 
 
                     if (formType != FormTypes.New || formType != FormTypes.Edit)
@@ -273,46 +275,22 @@ namespace SMT.SaaS.OA.UI.UserControls
                             BrowseShieldedControl();
                         }
                     }
-                    //if (formType == FormTypes.New || formType == FormTypes.Edit
-                    //    || formType == FormTypes.Resubmit)
-                    //{
-                        //我的单据中用到(判断出差报告如果在未提交状态,FormType状态改为可编辑)
-                        if (TravelReimbursement_Golbal.CHECKSTATE == ((int)CheckStates.UnSubmit).ToString())
-                        {
-                            //将Form状态改为编辑
-                            formType = FormTypes.Edit;
-                            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-                            entBrowser.FormType = FormTypes.Edit;
-                            //重新启用Form中的控件
-                            txtTELL.IsReadOnly = false;
-                            fbCtr.IsEnabled = true;
-                            txtRemark.IsReadOnly = false;
-                            textStandards.IsReadOnly = false;
-                        }
-                        StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" 
-                            + Common.CurrentLoginUserInfo.UserPosts[0].PostName
-                            + "-" + Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName + "-"
-                            + Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
-                        txtPeopleTravel.Text = StrName;
-                        EmployeePostLevel = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
-                        TravelReimbursement_Golbal.POSTLEVEL = EmployeePostLevel;
+                    //我的单据中用到(判断出差报告如果在未提交状态,FormType状态改为可编辑)
+                    if (TravelReimbursement_Golbal.CHECKSTATE == ((int)CheckStates.UnSubmit).ToString())
+                    {
+                        //将Form状态改为编辑
+                        formType = FormTypes.Edit;
+                        EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                        entBrowser.FormType = FormTypes.Edit;
+                        //重新启用Form中的控件
+                        txtTELL.IsReadOnly = false;
+                        fbCtr.IsEnabled = true;
+                        txtRemark.IsReadOnly = false;
+                        textStandards.IsReadOnly = false;
+                    }
 
-                        RefreshUI(RefreshedTypes.ShowProgressBar);
-                        OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(TravelReimbursement_Golbal.OWNERCOMPANYID, null, null);
-                    //}
-                    //else
-                    //{
-                    //    if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count > 0)
-                    //    {
-                    //        BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
-                    //        RefreshUI(RefreshedTypes.All);
-                    //        if (TravelReimbursement_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
-                    //        {
-                    //            RefreshUI(RefreshedTypes.AuditInfo);
-                    //        }
-                    //    }
-                    //}
-                    //OaPersonOfficeClient.GetTravelReimbursementDetailAsync(TravelReimbursement.TRAVELREIMBURSEMENTID);
+                    RefreshUI(RefreshedTypes.ShowProgressBar);
+                    OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(TravelReimbursement_Golbal.OWNERCOMPANYID, null, null);
                 }
             }
             catch (Exception ex)
