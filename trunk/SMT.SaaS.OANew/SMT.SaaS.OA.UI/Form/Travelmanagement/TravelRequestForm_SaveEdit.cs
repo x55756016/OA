@@ -49,7 +49,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         }
         #endregion
 
-        #region 字段赋值
+
+        #region 保存出差申请单字段赋值
         /// <summary>
         /// 字段赋值
         /// </summary>
@@ -80,7 +81,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 if (TraveDetailList_Golbal.Count() > 1)
                 {
                     StartCity = TraveDetailList_Golbal[0].DEPCITY.ToString();
-                    EndCity = TraveDetailList_Golbal[TraveDetailList_Golbal.Count() - 1].DEPCITY.ToString();
+                    EndCity = TraveDetailList_Golbal[TraveDetailList_Golbal.Count() - 1].DESTCITY.ToString();
                     StartTime = TraveDetailList_Golbal[0].STARTDATE.ToString();
                     EndTime = TraveDetailList_Golbal[TraveDetailList_Golbal.Count() - 1].ENDDATE.ToString();
                 }
@@ -93,44 +94,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 Master_Golbal.STARTDATE = Convert.ToDateTime(StartTime);
                 Master_Golbal.ENDDATE = Convert.ToDateTime(EndTime);
             }
-            if (formType == FormTypes.New)
+            if (formType != FormTypes.New)
             {
-                //如果出差记录的所属人为空，那么赋值当前操作人为单据所属人
-                if (string.IsNullOrEmpty(Master_Golbal.OWNERID))
-                {
-                    Master_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;//岗位ID
-                    Master_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//公司ID
-                    Master_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;//部门ID
-                    Master_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;//员工ID
-                    Master_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName; //员工姓名
-                }
-                //Master_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
-                Master_Golbal.CREATEDATE = DateTime.Now;//创建时间
-                Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
-                Master_Golbal.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//创建公司ID
-                Master_Golbal.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;//创建部门ID
-                Master_Golbal.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;//创建岗位ID
-                Master_Golbal.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//创建人ID
-                Master_Golbal.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;//创建人姓名
-
-                //ctrFile.FormID = businesstrip.BUSINESSTRIPID;
-                //ctrFile.Save();
-            }
-            else
-            {
-                //Master_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
                 Master_Golbal.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//修改人ID
                 Master_Golbal.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
                 Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
-
-                //ctrFile.FormID = businesstrip.BUSINESSTRIPID;
-                //ctrFile.Save();
             }
-            //if (businesstrip.CHARGEMONEY > 0)
-            //{
-            //    fbCtr.Order.ORDERID = Businesstrip.BUSINESSTRIPID;
-            //    fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit);//提交费用
-            //}
         }
         #endregion
 

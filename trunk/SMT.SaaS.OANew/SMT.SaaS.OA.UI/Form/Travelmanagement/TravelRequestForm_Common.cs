@@ -614,19 +614,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         }
         #endregion
 
-        #region 交通工具类型、级别控件
-        /// <summary>
-        /// 获取交通工具的级别
-        /// </summary>
-        void GetVechileLevelInfos()
-        {
-            List<T_SYS_DICTIONARY> dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
-            var objs = from d in dicts
-                       where d.DICTIONCATEGORY == "VICHILELEVEL"
-                       orderby d.DICTIONARYVALUE
-                       select d;
-            ListVechileLevel = objs.ToList();
-        }
+        #region 交通工具类型、级别控件事件     
 
         private void ComVechileType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1357,31 +1345,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #endregion
 
 
-        #region LayoutRoot_Loaded
-        private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (DaGrs.ItemsSource == null)
-            {
-                TraveDetailList_Golbal = new ObservableCollection<T_OA_BUSINESSTRIPDETAIL>();
-                T_OA_BUSINESSTRIPDETAIL buip = new T_OA_BUSINESSTRIPDETAIL();
-                buip.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
-                buip.STARTDATE = DateTime.Now;
-                buip.ENDDATE = DateTime.Now;
-                TraveDetailList_Golbal.Add(buip);
 
-                T_OA_BUSINESSTRIPDETAIL buipd = new T_OA_BUSINESSTRIPDETAIL();
-                buipd.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
-                TraveDetailList_Golbal.Add(buipd);
-
-                DaGrs.ItemsSource = TraveDetailList_Golbal;
-                DaGrs.SelectedIndex = 0;
-            }
-            //if (!string.IsNullOrEmpty(Master_Golbal.BUSINESSTRIPID))
-            //{
-            //    //ctrFile.Load_fileData(Master_Golbal.BUSINESSTRIPID);
-            //}
-        }
-        #endregion
 
 
 

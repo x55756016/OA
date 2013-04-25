@@ -126,30 +126,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             this.Loaded += new RoutedEventHandler(TravelapplicationPage_Loaded);
         }
 
-        #region InitWCFClientEvent
-
-        private void InitWCFSvClinetEvent()
-        {
-            OaPersonOfficeClient = new SmtOAPersonOfficeClient();
-            OaCommonOfficeClient = new SmtOACommonOfficeClient();
-            //HrPersonnelclient = new PersonnelServiceClient();
-
-            OaCommonOfficeClient.IsExistAgentCompleted += new EventHandler<IsExistAgentCompletedEventArgs>(SoaChannel_IsExistAgentCompleted);
-            //HrPersonnelclient.GetAllEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetAllEmployeePostBriefByEmployeeIDCompleted);
-            //HrPersonnelclient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetEmployeePostBriefByEmployeeIDCompleted);
-            OaPersonOfficeClient.TravelmanagementAddCompleted += new EventHandler<TravelmanagementAddCompletedEventArgs>(Travelmanagement_TravelmanagementAddCompleted);//添加
-            OaPersonOfficeClient.UpdateTravelmanagementCompleted += new EventHandler<UpdateTravelmanagementCompletedEventArgs>(Travelmanagement_UpdateTravelmanagementCompleted);//修改   
-            OaPersonOfficeClient.GetTravelmanagementByIdCompleted += new EventHandler<GetTravelmanagementByIdCompletedEventArgs>(Travelmanagement_GetTravelmanagementByIdCompleted);
-            //OaPersonOfficeClient.GetBusinesstripDetailCompleted += new EventHandler<GetBusinesstripDetailCompletedEventArgs>(Travelmanagement_GetBusinesstripDetailCompleted);
-            OaPersonOfficeClient.GetTravelSolutionByCompanyIDCompleted += new EventHandler<GetTravelSolutionByCompanyIDCompletedEventArgs>(Travelmanagement_GetTravelSolutionByCompanyIDCompleted);
-            //fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);
-            //Travelmanagement.GetUnderwayTravelmanagementAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
-
-        }
-
-
-        #endregion
-
         #endregion      
 
         #region 2页面Load事件
@@ -172,6 +148,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
 
             FormToolBar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
+
             FormToolBar1.btnEdit.Visibility = Visibility.Collapsed;//修改
             FormToolBar1.btnDelete.Visibility = Visibility.Collapsed;//删除
             FormToolBar1.BtnView.Visibility = Visibility.Collapsed;//查看
@@ -210,6 +187,18 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     Master_Golbal.TEL = Common.CurrentLoginUserInfo.Telphone;
                     txtTELL.Text = Common.CurrentLoginUserInfo.Telphone;
                 }
+                Master_Golbal.CREATEDATE = DateTime.Now;//创建时间
+                Master_Golbal.UPDATEDATE = DateTime.Now;//更新时间
+                Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
+                Master_Golbal.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;//创建公司ID
+                Master_Golbal.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;//创建部门ID
+                Master_Golbal.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;//创建岗位ID
+                Master_Golbal.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//创建人ID
+                Master_Golbal.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;//创建人姓名
+                Master_Golbal.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//修改人ID
+                Master_Golbal.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+                Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
+
                 string StrName = Master_Golbal.OWNERNAME + "-" + Master_Golbal.OWNERPOSTNAME + "-" + Master_Golbal.OWNERDEPARTMENTNAME + "-" + Master_Golbal.OWNERCOMPANYNAME;
                 txtTraveEmployee.Text = StrName;
                 //strTravelEmployeeName = Master_Golbal.OWNERNAME;//修改、查看、审核时获取已保存在本地的出差人
@@ -227,13 +216,48 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     Utility.InitFileLoad("TravelRequest", Master_Golbal.BUSINESSTRIPID, formType, uploadFile);
                 }
             }
+        }
 
+        #region InitWCFClientEvent
+        private void InitWCFSvClinetEvent()
+        {
+            OaPersonOfficeClient = new SmtOAPersonOfficeClient();
+            OaCommonOfficeClient = new SmtOACommonOfficeClient();
+            //HrPersonnelclient = new PersonnelServiceClient();
+
+            OaCommonOfficeClient.IsExistAgentCompleted += new EventHandler<IsExistAgentCompletedEventArgs>(SoaChannel_IsExistAgentCompleted);
+            //HrPersonnelclient.GetAllEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetAllEmployeePostBriefByEmployeeIDCompleted);
+            //HrPersonnelclient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetEmployeePostBriefByEmployeeIDCompleted);
+            OaPersonOfficeClient.TravelmanagementAddCompleted += new EventHandler<TravelmanagementAddCompletedEventArgs>(Travelmanagement_TravelmanagementAddCompleted);//添加
+            OaPersonOfficeClient.UpdateTravelmanagementCompleted += new EventHandler<UpdateTravelmanagementCompletedEventArgs>(Travelmanagement_UpdateTravelmanagementCompleted);//修改   
+            OaPersonOfficeClient.GetTravelmanagementByIdCompleted += new EventHandler<GetTravelmanagementByIdCompletedEventArgs>(Travelmanagement_GetTravelmanagementByIdCompleted);
+            //OaPersonOfficeClient.GetBusinesstripDetailCompleted += new EventHandler<GetBusinesstripDetailCompletedEventArgs>(Travelmanagement_GetBusinesstripDetailCompleted);
+            OaPersonOfficeClient.GetTravelSolutionByCompanyIDCompleted += new EventHandler<GetTravelSolutionByCompanyIDCompletedEventArgs>(Travelmanagement_GetTravelSolutionByCompanyIDCompleted);
+            //fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);
+            //Travelmanagement.GetUnderwayTravelmanagementAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
 
         }
         #endregion
-        
+
+        #region 获取交通工具的级别字典
+        /// <summary>
+        /// 获取交通工具的级别字典
+        /// </summary>
+        void GetVechileLevelInfos()
+        {
+            List<T_SYS_DICTIONARY> dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
+            var objs = from d in dicts
+                       where d.DICTIONCATEGORY == "VICHILELEVEL"
+                       orderby d.DICTIONARYVALUE
+                       select d;
+            ListVechileLevel = objs.ToList();
+        }
+        #endregion
+
+        #endregion
+
         #region 3获取出差申请信息
-     
+
         //void Travelmanagement_GetBusinesstripDetailCompleted(object sender, GetBusinesstripDetailCompletedEventArgs e)//出差申请明细
         //{
         //    isloaded = true;
@@ -437,8 +461,33 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         #endregion
 
+        #region 5新建出差申请单默认的2条出差申请记录
+        private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (DaGrs.ItemsSource == null)
+            {
+                TraveDetailList_Golbal = new ObservableCollection<T_OA_BUSINESSTRIPDETAIL>();
+                T_OA_BUSINESSTRIPDETAIL buip = new T_OA_BUSINESSTRIPDETAIL();
+                buip.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
+                buip.STARTDATE = DateTime.Now;
+                buip.ENDDATE = DateTime.Now;
+                TraveDetailList_Golbal.Add(buip);
 
-        #region DaGrs_LoadingRow
+                T_OA_BUSINESSTRIPDETAIL buipd = new T_OA_BUSINESSTRIPDETAIL();
+                buipd.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
+                TraveDetailList_Golbal.Add(buipd);
+
+                DaGrs.ItemsSource = TraveDetailList_Golbal;
+                DaGrs.SelectedIndex = 0;
+            }
+            //if (!string.IsNullOrEmpty(Master_Golbal.BUSINESSTRIPID))
+            //{
+            //    //ctrFile.Load_fileData(Master_Golbal.BUSINESSTRIPID);
+            //}
+        }
+        #endregion
+
+        #region 6DaGrs_LoadingRow
         /// <summary>
         /// 默认显示出差时间、地点数据的DataGrid
         /// </summary>
