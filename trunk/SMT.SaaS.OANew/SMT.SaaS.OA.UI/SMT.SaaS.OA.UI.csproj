@@ -1078,6 +1078,7 @@
       <DependentUpon>TravelapplicationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Form\Travelmanagement\TravelRequestForm_Agent.cs" />
+    <Compile Include="Views\Travelmanagement\TravelapplicationPage_AddReimbursement.cs" />
     <Compile Include="Views\Travelmanagement\VehicleStandardManagement.xaml.cs">
       <DependentUpon>VehicleStandardManagement.xaml</DependentUpon>
     </Compile>

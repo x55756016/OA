@@ -436,6 +436,219 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         }
 
         #endregion
+
+
+        #region DaGrs_LoadingRow
+        /// <summary>
+        /// 默认显示出差时间、地点数据的DataGrid
+        /// </summary>
+        Brush tempcomTypeBorderBrush;//定义combox默认颜色变量
+        Brush tempcomTypeForeBrush;
+        Brush tempcomLevelBorderBrush;
+        Brush tempcomLevelForeBrush;
+        private void DaGrs_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            T_OA_BUSINESSTRIPDETAIL tmp = (T_OA_BUSINESSTRIPDETAIL)e.Row.DataContext;
+            ImageButton MyButton_Delbaodao = DaGrs.Columns[10].GetCellContent(e.Row).FindName("myDelete") as ImageButton;
+            SearchCity myCity = DaGrs.Columns[1].GetCellContent(e.Row).FindName("txtDEPARTURECITY") as SearchCity;
+            SearchCity myCitys = DaGrs.Columns[3].GetCellContent(e.Row).FindName("txtTARGETCITIES") as SearchCity;
+            CheckBox IsCheck = DaGrs.Columns[7].GetCellContent(e.Row).FindName("myChkBox") as CheckBox;
+            CheckBox IsCheckMeet = DaGrs.Columns[8].GetCellContent(e.Row).FindName("myChkBoxMeet") as CheckBox;
+            CheckBox IsCheckCar = DaGrs.Columns[9].GetCellContent(e.Row).FindName("myChkBoxCar") as CheckBox;
+            TravelDictionaryComboBox ComVechile = DaGrs.Columns[4].GetCellContent(e.Row).FindName("ComVechileType") as TravelDictionaryComboBox;
+            TravelDictionaryComboBox ComLevel = DaGrs.Columns[5].GetCellContent(e.Row).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
+            if (BtnNewButton == true)
+            {
+                myCitys.TxtSelectedCity.Text = string.Empty;
+                citysStartList_Golbal.Add(tmp.DEPCITY);
+            }
+            else
+            {
+                BtnNewButton = false;
+            }
+            MyButton_Delbaodao.Margin = new Thickness(0);
+            MyButton_Delbaodao.AddButtonAction("/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png", Utility.GetResourceStr("DELETE"));
+            MyButton_Delbaodao.Tag = tmp;
+            myCity.Tag = tmp;
+
+            myCitys.Tag = tmp;
+            ComVechile.SelectedIndex = 0;
+            ComLevel.SelectedIndex = 0;
+            //对默认颜色进行赋值
+            tempcomTypeBorderBrush = ComVechile.BorderBrush;
+            tempcomTypeForeBrush = ComVechile.Foreground;
+            tempcomLevelBorderBrush = ComLevel.BorderBrush;
+            tempcomLevelForeBrush = ComLevel.Foreground;
+
+            ObservableCollection<T_OA_BUSINESSTRIPDETAIL> objs = DaGrs.ItemsSource as ObservableCollection<T_OA_BUSINESSTRIPDETAIL>;
+            if (formType != FormTypes.New)
+            {
+                int j = 0;
+                if (DaGrs.ItemsSource != null && TraveDetailList_Golbal != null)
+                {
+                    foreach (var obje in objs)
+                    {
+                        j++;
+                        if (obje.BUSINESSTRIPDETAILID == tmp.BUSINESSTRIPDETAILID)//判断记录的ID是否相同
+                        {
+                            if (myCity != null)//出发城市
+                            {
+                                if (obje.DEPCITY != null)
+                                {
+                                    myCity.TxtSelectedCity.Text = GetCityName(obje.DEPCITY);
+                                    if (TraveDetailList_Golbal.Count() > 1)
+                                    {
+                                        if (j > 1)
+                                        {
+                                            //By  : Sam
+                                            //Date: 2011-9-6
+                                            //For : 此处之前设置双击的时候还会出现打开状态
+                                            myCity.IsEnabled = false;
+                                            ((DataGridCell)((StackPanel)myCity.Parent).Parent).IsEnabled = false;
+                                        }
+                                    }
+                                }
+                            }
+                            if (myCitys != null)//目标城市
+                            {
+                                if (obje.DESTCITY != null)
+                                {
+                                    myCitys.TxtSelectedCity.Text = GetCityName(obje.DESTCITY);
+                                }
+                            }
+                            if (obje.PRIVATEAFFAIR == "1")//私事
+                            {
+                                IsCheck.IsChecked = true;
+                            }
+                            if (obje.GOOUTTOMEET == "1")//外出开会
+                            {
+                                IsCheckMeet.IsChecked = true;
+                            }
+                            if (obje.COMPANYCAR == "1")//公司派车
+                            {
+                                IsCheckCar.IsChecked = true;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+
+                        string dictid = "";
+                        //获取交通工具类型、级别
+                        if (ComVechile != null)
+                        {
+                            T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
+                            T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
+                            type = ComVechile.SelectedItem as T_SYS_DICTIONARY;
+                            level = ComLevel.SelectedItem as T_SYS_DICTIONARY;
+                            var thd = transportToolStand.FirstOrDefault();
+                            if (type != null)
+                            {
+                                thd = this.GetVehicleTypeValue(type.DICTIONARYVALUE.ToString());
+                                foreach (T_SYS_DICTIONARY Region in ComVechile.Items)
+                                {
+                                    if (thd != null)
+                                    {
+                                        dictid = Region.DICTIONARYID;
+                                        if (Region.DICTIONARYVALUE.ToString() == tmp.TYPEOFTRAVELTOOLS)
+                                        {
+                                            if (transportToolStand.Count() > 0)
+                                            {
+                                                ComVechile.SelectedItem = Region;
+                                                if (thd.TYPEOFTRAVELTOOLS.ToInt32() > Region.DICTIONARYVALUE)
+                                                {
+                                                    ComVechile.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                    ComVechile.Foreground = new SolidColorBrush(Colors.Red);
+                                                    ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                    ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                                }
+                                                if (thd.TYPEOFTRAVELTOOLS.ToInt32() <= Region.DICTIONARYVALUE)
+                                                {
+                                                    if (tempcomTypeBorderBrush != null)
+                                                    {
+                                                        ComVechile.BorderBrush = tempcomTypeBorderBrush;
+                                                    }
+                                                    if (tempcomTypeForeBrush != null)
+                                                    {
+                                                        ComVechile.Foreground = tempcomTypeForeBrush;
+                                                    }
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (ComLevel != null)
+                        {
+                            var ents = from ent in ListVechileLevel
+                                       where ent.T_SYS_DICTIONARY2.DICTIONARYID == dictid
+                                       select ent;
+                            ComLevel.ItemsSource = ents.ToList();
+                            if (ents.Count() > 0)
+                            {
+                                T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
+                                T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
+                                type = ComVechile.SelectedItem as T_SYS_DICTIONARY;
+                                level = ComLevel.SelectedItem as T_SYS_DICTIONARY;
+
+                                var thd = transportToolStand.FirstOrDefault();
+                                if (type != null)
+                                {
+                                    thd = this.GetVehicleTypeValue(type.DICTIONARYVALUE.ToString());
+                                }
+                                if (thd != null)
+                                {
+                                    foreach (T_SYS_DICTIONARY RegionLevel in ComLevel.Items)
+                                    {
+                                        if (RegionLevel.DICTIONARYVALUE.ToString() == tmp.TAKETHETOOLLEVEL)
+                                        {
+                                            ComLevel.SelectedItem = RegionLevel;
+                                            if (thd.TAKETHETOOLLEVEL.ToInt32() <= RegionLevel.DICTIONARYVALUE)
+                                            {
+                                                if (tempcomLevelForeBrush != null)
+                                                {
+                                                    ComLevel.Foreground = tempcomLevelForeBrush;
+                                                }
+                                                if (tempcomLevelBorderBrush != null)
+                                                {
+                                                    ComLevel.BorderBrush = tempcomLevelBorderBrush;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (thd.TAKETHETOOLLEVEL.ToInt32() > RegionLevel.DICTIONARYVALUE)
+                                                {
+                                                    ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                    ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                                    return;
+                                                }
+                                                else
+                                                {
+                                                    if (tempcomLevelForeBrush != null)
+                                                    {
+                                                        ComLevel.Foreground = tempcomLevelForeBrush;
+                                                    }
+                                                    if (tempcomLevelBorderBrush != null)
+                                                    {
+                                                        ComLevel.BorderBrush = tempcomLevelBorderBrush;
+                                                    }
+                                                }
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                            }// ComLevel != null
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
                 
     }
 }

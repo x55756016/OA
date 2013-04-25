@@ -282,7 +282,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     if (TravelReimbursement_Golbal.CHECKSTATE == ((int)CheckStates.UnSubmit).ToString())
                     {
                         //将Form状态改为编辑
-                        formType = FormTypes.Edit;
+                        //formType = FormTypes.Edit;
                         EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                         entBrowser.FormType = FormTypes.Edit;
                         //重新启用Form中的控件
