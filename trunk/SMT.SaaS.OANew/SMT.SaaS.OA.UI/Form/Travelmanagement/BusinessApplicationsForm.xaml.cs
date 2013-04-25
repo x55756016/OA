@@ -16,6 +16,8 @@ using SMT.SaaS.OA.UI.Views.Travelmanagement;
 using SMT.SaaS.FrameworkUI;
 using SMT.SaaS.OA.UI.SmtOAPersonOfficeService;
 using SMT.Saas.Tools.OrganizationWS;
+using SMT.SAAS.Main;
+
 namespace SMT.SaaS.OA.UI.UserControls
 {
     public partial class BusinessApplicationsForm : BaseForm, IEntityEditor
@@ -88,183 +90,196 @@ namespace SMT.SaaS.OA.UI.UserControls
             //organClient.GetALLCompanyViewAsync("");
             //2013/3/27停止加载所有组织架构，直接加载出差业务数据
             Travelmanagement.GetAccordingToBusinesstripIdCheckAsync(businesstrID);
+            SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("获取出差报销，出差申请id：" + businesstrID);
         }
 
         void Travelmanagement_GetAccordingToBusinesstripIdCheckCompleted(object sender, GetAccordingToBusinesstripIdCheckCompletedEventArgs e)
         {
-            if (e.Result != null)
+            try
             {
-                TraveView = e.Result;
-                //missionReportsID = TraveView.ReportId;
-                travelReimbursementID = TraveView.TrId;
-                traverlCheck = TraveView.TraveAppCheckState;
-                //reportCheckState = TraveView.ReportCheckState;
-                trCheckState = TraveView.TrCheckState;
-
-            }
-            //if (string.IsNullOrEmpty(missionReportsID) || missionReportsID == "空")//如果没有报告隐藏Tab
-            //{
-            //    TabReport.Visibility = Visibility.Collapsed;//出差报告Tab
-            //}
-            //else
-            //{
-            //    if (reportCheckState == "0" || reportCheckState == "1" || reportCheckState == "3")
-            //    {
-            //        TabTravel.SelectedIndex = 1;
-            //        if (actions != FormTypes.Browse && actions != FormTypes.Edit)
-            //        {
-            //            tbbTravelapplication.Visibility = Visibility.Collapsed;//隐藏出差申请Tab
-            //            traveformFather.Visibility = Visibility.Collapsed;//隐藏出差报销Tab
-            //        }
-            //    }
-            //}
-            //if (string.IsNullOrEmpty(travelReimbursementID) || travelReimbursementID == "空")
-            //修改如果出差申请没审核通过则出差报销不显示
-            //if (traverlCheck != Convert.ToInt32(CheckStates.Approved).ToString())
-            //{
-            //    traveformFather.Visibility = Visibility.Collapsed;//出差报销Tab
-            //}
-            //判断出差报销是否存在
-            bool BoolReimID = !string.IsNullOrEmpty(travelReimbursementID) && travelReimbursementID != "空";
-            if (false == BoolReimID) traveformFather.Visibility = Visibility.Collapsed;//出差报销Tab
-
-            if (traverlCheck != Convert.ToInt32(CheckStates.Approved).ToString())
-            {
-                traveformFather.Visibility = Visibility.Collapsed;//出差报销Tab
-            }
-            else
-            {
-                if (trCheckState == "0" || trCheckState == "1" || trCheckState == "3")
+                if (e.Result != null)
                 {
-                    TabTravel.SelectedIndex = 2;
-                    if (actions != FormTypes.Browse && actions != FormTypes.Edit)
-                    {
-                        tbbTravelapplication.Visibility = Visibility.Collapsed;//隐藏出差申请Tab
-                        //TabReport.Visibility = Visibility.Collapsed;//隐藏出差报告Tab
-                    }
-                }
-            }
+                    TraveView = e.Result;
+                    //missionReportsID = TraveView.ReportId;
+                    travelReimbursementID = TraveView.TrId;
+                    traverlCheck = TraveView.TraveAppCheckState;
+                    //reportCheckState = TraveView.ReportCheckState;
+                    trCheckState = TraveView.TrCheckState;
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("打开出差form获取到的出差报销id：" + TraveView.TrId);
 
-            if (actions == FormTypes.New)//新增
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
-
-                TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.New, "");
-                TravelapplicationForm.ParentEntityBrowser = this.ParentEntityBrowser;
-                EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
-                TravelBrowser.FormType = FormTypes.New;
-                TravelBrowser.MinWidth = 980;
-                TravelBrowser.MinHeight = 445;
-                TravelapplicationGd.Children.Add(TravelBrowser);
-            }
-            else if (actions == FormTypes.Edit)
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
-
-                //TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Edit, businesstrID);
-                //2012-9-21 ljx 
-                TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Edit, TraveView.Travelmanagement.BUSINESSTRIPID);
-                TravelapplicationForm.ParentEntityBrowser = this.ParentEntityBrowser;
-                EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
-                TravelBrowser.FormType = FormTypes.Edit;
-                //TravelBrowser.MinWidth = 980;
-                TravelBrowser.MinHeight = 445;
-                TravelapplicationGd.Children.Add(TravelBrowser);
-
-
-                if (BoolReimID && traverlCheck == Convert.ToInt32(CheckStates.Approved).ToString())
-                {
-                    //出差报销
-                    TravelReimbursementControl TravelReimbursementForm = new TravelReimbursementControl(FrameworkUI.FormTypes.Edit, travelReimbursementID, businesstrID);
-                    TravelReimbursementForm.ParentEntityBrowser = this.ParentEntityBrowser;
-                    EntityBrowser TravelReimbursementBrowser = new EntityBrowser(TravelReimbursementForm);
-                    TravelReimbursementBrowser.FormType = FormTypes.Edit;
-                    //TravelReimbursementBrowser.MinWidth = 980;
-                    TravelReimbursementBrowser.MinHeight = 445;
-                    TravelReimbursementGd.Children.Add(TravelReimbursementBrowser);
-                }
-            }
-            else if (actions == FormTypes.Browse)
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
-
-                TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Browse, businesstrID);
-                EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
-                TravelBrowser.FormType = FormTypes.Browse;
-                TravelBrowser.MinWidth = 728;
-                TravelBrowser.MinHeight = 445;
-                TravelapplicationGd.Children.Add(TravelBrowser);
-
-
-                if (BoolReimID && traverlCheck == Convert.ToInt32(CheckStates.Approved).ToString())
-                {
-                    //出差报销
-                    TravelReimbursementControl TravelReimbursementForm = new TravelReimbursementControl(FrameworkUI.FormTypes.Browse, travelReimbursementID, businesstrID);
-                    EntityBrowser TravelReimbursementBrowser = new EntityBrowser(TravelReimbursementForm);
-                    TravelReimbursementBrowser.FormType = FormTypes.Browse;
-                    TravelReimbursementBrowser.MinWidth = 728;
-                    TravelReimbursementBrowser.MinHeight = 445;
-                    TravelReimbursementGd.Children.Add(TravelReimbursementBrowser);
-                }
-            }
-            else if (actions == FormTypes.Audit)
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
-
-                TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Audit, businesstrID);
-                EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
-                TravelBrowser.FormType = FormTypes.Audit;
-                TravelBrowser.MinWidth = 728;
-                TravelBrowser.MinHeight = 445;
-                TravelapplicationGd.Children.Add(TravelBrowser);
-
-
-                if (BoolReimID && traverlCheck == Convert.ToInt32(CheckStates.Approved).ToString())
-                {
-                    //出差报销
-                    TravelReimbursementControl TravelReimbursementForm = new TravelReimbursementControl(FrameworkUI.FormTypes.Audit, travelReimbursementID, businesstrID);
-                    EntityBrowser TravelReimbursementBrowser = new EntityBrowser(TravelReimbursementForm);
-                    TravelReimbursementBrowser.FormType = FormTypes.Audit;
-                    TravelReimbursementBrowser.MinWidth = 728;
-                    TravelReimbursementBrowser.MinHeight = 445;
-                    TravelReimbursementGd.Children.Add(TravelReimbursementBrowser);
-                }
-            }
-            else
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
-
-                if (traverlCheck != "3")
-                {
-                    tbbTravelapplication.Visibility = Visibility.Collapsed;//出差申请Tab
                 }
                 else
                 {
-                    TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Resubmit, businesstrID);
-                    EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
-                    TravelBrowser.FormType = FormTypes.Resubmit;
-                    TravelBrowser.MinWidth = 980;
-                    TravelBrowser.MinHeight = 445;
-                    TravelapplicationGd.Children.Add(TravelBrowser);
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("GetAccordingToBusinesstripId返回结果为空");
                 }
+                //if (string.IsNullOrEmpty(missionReportsID) || missionReportsID == "空")//如果没有报告隐藏Tab
+                //{
+                //    TabReport.Visibility = Visibility.Collapsed;//出差报告Tab
+                //}
+                //else
+                //{
+                //    if (reportCheckState == "0" || reportCheckState == "1" || reportCheckState == "3")
+                //    {
+                //        TabTravel.SelectedIndex = 1;
+                //        if (actions != FormTypes.Browse && actions != FormTypes.Edit)
+                //        {
+                //            tbbTravelapplication.Visibility = Visibility.Collapsed;//隐藏出差申请Tab
+                //            traveformFather.Visibility = Visibility.Collapsed;//隐藏出差报销Tab
+                //        }
+                //    }
+                //}
+                //if (string.IsNullOrEmpty(travelReimbursementID) || travelReimbursementID == "空")
+                //修改如果出差申请没审核通过则出差报销不显示
+                //if (traverlCheck != Convert.ToInt32(CheckStates.Approved).ToString())
+                //{
+                //    traveformFather.Visibility = Visibility.Collapsed;//出差报销Tab
+                //}
+                //判断出差报销是否存在
+                bool BoolReimID = !string.IsNullOrEmpty(travelReimbursementID) && travelReimbursementID != "空";
+                if (false == BoolReimID) traveformFather.Visibility = Visibility.Collapsed;//出差报销Tab
 
-                if (trCheckState != "3")
+                if (traverlCheck != Convert.ToInt32(CheckStates.Approved).ToString())
                 {
                     traveformFather.Visibility = Visibility.Collapsed;//出差报销Tab
                 }
                 else
                 {
+                    if (trCheckState == "0" || trCheckState == "1" || trCheckState == "3")
+                    {
+                        TabTravel.SelectedIndex = 2;
+                        if (actions != FormTypes.Browse && actions != FormTypes.Edit)
+                        {
+                            tbbTravelapplication.Visibility = Visibility.Collapsed;//隐藏出差申请Tab
+                            //TabReport.Visibility = Visibility.Collapsed;//隐藏出差报告Tab
+                        }
+                    }
+                }
+
+                if (actions == FormTypes.New)//新增
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
+
+                    TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.New, "");
+                    TravelapplicationForm.ParentEntityBrowser = this.ParentEntityBrowser;
+                    EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
+                    TravelBrowser.FormType = FormTypes.New;
+                    TravelBrowser.MinWidth = 980;
+                    TravelBrowser.MinHeight = 445;
+                    TravelapplicationGd.Children.Add(TravelBrowser);
+                }
+                else if (actions == FormTypes.Edit)
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
+
+                    //TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Edit, businesstrID);
+                    //2012-9-21 ljx 
+                    TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Edit, TraveView.Travelmanagement.BUSINESSTRIPID);
+                    TravelapplicationForm.ParentEntityBrowser = this.ParentEntityBrowser;
+                    EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
+                    TravelBrowser.FormType = FormTypes.Edit;
+                    //TravelBrowser.MinWidth = 980;
+                    TravelBrowser.MinHeight = 445;
+                    TravelapplicationGd.Children.Add(TravelBrowser);
+
+
                     if (BoolReimID && traverlCheck == Convert.ToInt32(CheckStates.Approved).ToString())
                     {
                         //出差报销
-                        TravelReimbursementControl TravelReimbursementForm = new TravelReimbursementControl(FrameworkUI.FormTypes.Resubmit, travelReimbursementID, businesstrID);
+                        TravelReimbursementControl TravelReimbursementForm = new TravelReimbursementControl(FrameworkUI.FormTypes.Edit, travelReimbursementID, businesstrID);
+                        TravelReimbursementForm.ParentEntityBrowser = this.ParentEntityBrowser;
                         EntityBrowser TravelReimbursementBrowser = new EntityBrowser(TravelReimbursementForm);
-                        TravelReimbursementBrowser.FormType = FormTypes.Resubmit;
-                        TravelReimbursementBrowser.MinWidth = 980;
+                        TravelReimbursementBrowser.FormType = FormTypes.Edit;
+                        //TravelReimbursementBrowser.MinWidth = 980;
                         TravelReimbursementBrowser.MinHeight = 445;
                         TravelReimbursementGd.Children.Add(TravelReimbursementBrowser);
                     }
                 }
+                else if (actions == FormTypes.Browse)
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
+
+                    TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Browse, businesstrID);
+                    EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
+                    TravelBrowser.FormType = FormTypes.Browse;
+                    TravelBrowser.MinWidth = 728;
+                    TravelBrowser.MinHeight = 445;
+                    TravelapplicationGd.Children.Add(TravelBrowser);
+
+
+                    if (BoolReimID && traverlCheck == Convert.ToInt32(CheckStates.Approved).ToString())
+                    {
+                        //出差报销
+                        TravelReimbursementControl TravelReimbursementForm = new TravelReimbursementControl(FrameworkUI.FormTypes.Browse, travelReimbursementID, businesstrID);
+                        EntityBrowser TravelReimbursementBrowser = new EntityBrowser(TravelReimbursementForm);
+                        TravelReimbursementBrowser.FormType = FormTypes.Browse;
+                        TravelReimbursementBrowser.MinWidth = 728;
+                        TravelReimbursementBrowser.MinHeight = 445;
+                        TravelReimbursementGd.Children.Add(TravelReimbursementBrowser);
+                    }
+                }
+                else if (actions == FormTypes.Audit)
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
+
+                    TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Audit, businesstrID);
+                    EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
+                    TravelBrowser.FormType = FormTypes.Audit;
+                    TravelBrowser.MinWidth = 728;
+                    TravelBrowser.MinHeight = 445;
+                    TravelapplicationGd.Children.Add(TravelBrowser);
+
+
+                    if (BoolReimID && traverlCheck == Convert.ToInt32(CheckStates.Approved).ToString())
+                    {
+                        //出差报销
+                        TravelReimbursementControl TravelReimbursementForm = new TravelReimbursementControl(FrameworkUI.FormTypes.Audit, travelReimbursementID, businesstrID);
+                        EntityBrowser TravelReimbursementBrowser = new EntityBrowser(TravelReimbursementForm);
+                        TravelReimbursementBrowser.FormType = FormTypes.Audit;
+                        TravelReimbursementBrowser.MinWidth = 728;
+                        TravelReimbursementBrowser.MinHeight = 445;
+                        TravelReimbursementGd.Children.Add(TravelReimbursementBrowser);
+                    }
+                }
+                else
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);//停止进度圈
+
+                    if (traverlCheck != "3")
+                    {
+                        tbbTravelapplication.Visibility = Visibility.Collapsed;//出差申请Tab
+                    }
+                    else
+                    {
+                        TravelRequestForm TravelapplicationForm = new TravelRequestForm(FormTypes.Resubmit, businesstrID);
+                        EntityBrowser TravelBrowser = new EntityBrowser(TravelapplicationForm);
+                        TravelBrowser.FormType = FormTypes.Resubmit;
+                        TravelBrowser.MinWidth = 980;
+                        TravelBrowser.MinHeight = 445;
+                        TravelapplicationGd.Children.Add(TravelBrowser);
+                    }
+
+                    if (trCheckState != "3")
+                    {
+                        traveformFather.Visibility = Visibility.Collapsed;//出差报销Tab
+                    }
+                    else
+                    {
+                        if (BoolReimID && traverlCheck == Convert.ToInt32(CheckStates.Approved).ToString())
+                        {
+                            //出差报销
+                            TravelReimbursementControl TravelReimbursementForm = new TravelReimbursementControl(FrameworkUI.FormTypes.Resubmit, travelReimbursementID, businesstrID);
+                            EntityBrowser TravelReimbursementBrowser = new EntityBrowser(TravelReimbursementForm);
+                            TravelReimbursementBrowser.FormType = FormTypes.Resubmit;
+                            TravelReimbursementBrowser.MinWidth = 980;
+                            TravelReimbursementBrowser.MinHeight = 445;
+                            TravelReimbursementGd.Children.Add(TravelReimbursementBrowser);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("打开出差form，获取出差异常：" + ex.ToString());
             }
         }
 
