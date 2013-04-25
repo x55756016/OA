@@ -140,7 +140,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             travelReimbursement.OWNERDEPARTMENTNAME = businesstripInfo.OWNERDEPARTMENTNAME;
 
                             travelReimbursement.OWNERCOMPANYID = businesstripInfo.OWNERCOMPANYID;
-                            travelReimbursement.OWNERCOMPANYNAME = businesstripInfo.OWNERDEPARTMENTNAME;
+                            travelReimbursement.OWNERCOMPANYNAME = businesstripInfo.OWNERCOMPANYNAME;
 
                             travelReimbursement.POSTLEVEL = businesstripInfo.POSTLEVEL;
 
@@ -153,11 +153,13 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             travelReimbursement.CREATEDEPARTMENTID = businesstripInfo.CREATEDEPARTMENTID;
                             travelReimbursement.CREATECOMPANYID = businesstripInfo.CREATECOMPANYID;
 
+                            postLevel = businesstripInfo.POSTLEVEL;
                             //client.GetEmployeePostBriefByEmployeeIDAsync(businesstripInfo.OWNERID, e.UserState);
-                            if (businesstripInfo.BUSINESSTRIPID != null)
-                            {
-                                Travelmanagement.GetBusinesstripDetailAsync(businesstripInfo.BUSINESSTRIPID);//申请明细
-                            }
+                            //if (businesstripInfo.BUSINESSTRIPID != null)
+                            //{
+                            //    Travelmanagement.GetBusinesstripDetailAsync(businesstripInfo.BUSINESSTRIPID);//申请明细
+                            //}
+                            Travelmanagement.GetTravelSolutionByCompanyIDAsync(businesstripInfo.OWNERCOMPANYID, null, null, e.UserState);//出差方案
                         }
                     }
                 }
@@ -381,237 +383,238 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             TrListInfo.CREATEDATE = Convert.ToDateTime(businesstripInfo.UPDATEDATE);//创建时间
                             TrListInfo.CREATEUSERNAME = businesstripInfo.CREATEUSERNAME;//创建人
                             cityscode.Add(TrListInfo.DESTCITY);
+                           
+                            #region 废弃逻辑
+                            T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
+                            string cityValue = cityscode[i - 1];//目标城市值
+                            entareaallowance = GetAllowanceByCityValue(cityValue);
+
+                            #region 根据本次出差的总天数,根据天数获取相应的补贴
+                            if (travelsolutions != null)
+                            {
+                                if (tresult <= int.Parse(travelsolutions.MINIMUMINTERVALDAYS))//本次出差总时间小于等于设定天数的报销标准
+                                {
+                                    if (entareaallowance != null)
+                                    {
+                                        if (detail.BUSINESSDAYS != null)
+                                        {
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            {
+                                                TrListInfo.TRANSPORTATIONSUBSIDIES = 0;//交通补贴
+                                            }
+                                            else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+                                            {
+                                                TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                            }
+                                            else
+                                            {
+                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                {
+                                                    if (entareaallowance.TRANSPORTATIONSUBSIDIES != null)
+                                                    {
+                                                        TrListInfo.TRANSPORTATIONSUBSIDIES = decimal.Parse((Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES) * toodays).ToString());
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                                }
+                                            }
+                                        }
+
+                                        if (detail.BUSINESSDAYS != null)
+                                        {
+                                            if (detail.PRIVATEAFFAIR == "1")//餐费补贴
+                                            {
+                                                TrListInfo.MEALSUBSIDIES = 0;
+                                            }
+                                            else if (detail.GOOUTTOMEET == "1")//如果是开会
+                                            {
+                                                TrListInfo.MEALSUBSIDIES = 0;
+                                            }
+                                            else
+                                            {
+                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                {
+                                                    TrListInfo.MEALSUBSIDIES = decimal.Parse((Convert.ToDouble(entareaallowance.MEALSUBSIDIES) * toodays).ToString());
+                                                }
+                                                else
+                                                {
+                                                    TrListInfo.MEALSUBSIDIES = 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    {
+                                        TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                        TrListInfo.MEALSUBSIDIES = 0;
+                                    }
+                                }
+                            }
+                            #endregion
+
+                            #region 如果出差天数大于设定的最大天数,按驻外标准获取补贴
+                            if (travelsolutions != null)
+                            {
+                                if (tresult > int.Parse(travelsolutions.MAXIMUMRANGEDAYS))
+                                {
+                                    if (entareaallowance != null)
+                                    {
+                                        double DbTranceport = Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES);
+                                        double DbMeal = Convert.ToDouble(entareaallowance.MEALSUBSIDIES);
+                                        double tfSubsidies = Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES) * (Convert.ToDouble(travelsolutions.INTERVALRATIO) / 100);
+                                        double mealSubsidies = Convert.ToDouble(entareaallowance.MEALSUBSIDIES) * (Convert.ToDouble(travelsolutions.INTERVALRATIO) / 100);
+
+                                        if (detail.BUSINESSDAYS != null)
+                                        {
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            {
+                                                TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                            }
+                                            else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+                                            {
+                                                TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                            }
+                                            else
+                                            {
+                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                {
+                                                    double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbTranceport;
+                                                    double middlemoney = (Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS) - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * tfSubsidies;
+                                                    double lastmoney = (tresult - Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS)) * Convert.ToDouble(entareaallowance.OVERSEASSUBSIDIES);
+                                                    TrListInfo.TRANSPORTATIONSUBSIDIES = decimal.Parse((minmoney + middlemoney + lastmoney).ToString());
+                                                }
+                                                else
+                                                {
+                                                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                                }
+                                            }
+                                        }
+
+                                        if (detail.BUSINESSDAYS != null)
+                                        {
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            {
+                                                TrListInfo.MEALSUBSIDIES = 0;
+                                            }
+                                            else if (detail.GOOUTTOMEET == "1")//如果是开会
+                                            {
+                                                TrListInfo.MEALSUBSIDIES = 0;
+                                            }
+                                            else
+                                            {
+                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                {
+                                                    double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbMeal;
+                                                    double middlemoney = (Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS) - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * mealSubsidies;
+                                                    double lastmoney = (tresult - Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS)) * Convert.ToDouble(entareaallowance.OVERSEASSUBSIDIES);
+                                                    TrListInfo.MEALSUBSIDIES = decimal.Parse((minmoney + middlemoney + lastmoney).ToString());
+                                                }
+                                                else
+                                                {
+                                                    TrListInfo.MEALSUBSIDIES = 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    {
+                                        TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                        TrListInfo.MEALSUBSIDIES = 0;
+                                    }
+                                }
+                            }
+                            #endregion
+
+                            #region 如果出差时间大于设定的最小天数并且小于设定的最大天数的报销标准
+                            if (travelsolutions != null)
+                            {
+                                if (tresult >= Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) && tresult <= Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS))
+                                {
+                                    if (entareaallowance != null)
+                                    {
+                                        double DbTranceport = Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES);
+                                        double DbMeal = Convert.ToDouble(entareaallowance.MEALSUBSIDIES);
+                                        double tfSubsidies = Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES) * (Convert.ToDouble(travelsolutions.INTERVALRATIO) / 100);
+                                        double mealSubsidies = Convert.ToDouble(entareaallowance.MEALSUBSIDIES) * (Convert.ToDouble(travelsolutions.INTERVALRATIO) / 100);
+
+                                        if (detail.BUSINESSDAYS != null)
+                                        {
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            {
+                                                TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                            }
+                                            else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+                                            {
+                                                TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                            }
+                                            else
+                                            {
+                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                {
+                                                    double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbTranceport;
+                                                    double middlemoney = (tresult - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * tfSubsidies;
+                                                    TrListInfo.TRANSPORTATIONSUBSIDIES = decimal.Parse((minmoney + middlemoney).ToString());
+                                                }
+                                                else
+                                                {
+                                                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                                }
+                                            }
+                                        }
+
+                                        if (detail.BUSINESSDAYS != null)
+                                        {
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            {
+                                                TrListInfo.MEALSUBSIDIES = 0;
+                                            }
+                                            else if (detail.GOOUTTOMEET == "1")//如果是开会
+                                            {
+                                                TrListInfo.MEALSUBSIDIES = 0;
+                                            }
+                                            else
+                                            {
+                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                {
+                                                    //最小区间段金额
+                                                    double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbMeal;
+                                                    //中间区间段金额
+                                                    double middlemoney = (tresult - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * mealSubsidies;
+                                                    TrListInfo.MEALSUBSIDIES = decimal.Parse((minmoney + middlemoney).ToString());
+                                                }
+                                                else
+                                                {
+                                                    TrListInfo.MEALSUBSIDIES = 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    {
+                                        TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
+                                        TrListInfo.MEALSUBSIDIES = 0;
+                                    }
+                                }
+                            }
+                            total += Convert.ToDouble(TrListInfo.TRANSPORTATIONSUBSIDIES + TrListInfo.MEALSUBSIDIES);
+                            travelReimbursement.THETOTALCOST = decimal.Parse(total.ToString());//差旅费用总和
+                            travelReimbursement.REIMBURSEMENTOFCOSTS = decimal.Parse(total.ToString());//报销费用总和
+
+                            #endregion
+                            #endregion
 
                             TrDetail.Add(TrListInfo);
-                            #region 废弃逻辑
-                            //T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-                            //string cityValue = cityscode[i - 1];//目标城市值
-                            //entareaallowance = GetAllowanceByCityValue(cityValue);
-
-                            //#region 根据本次出差的总天数,根据天数获取相应的补贴
-                            //if (travelsolutions != null)
-                            //{
-                            //    if (tresult <= int.Parse(travelsolutions.MINIMUMINTERVALDAYS))//本次出差总时间小于等于设定天数的报销标准
-                            //    {
-                            //        if (entareaallowance != null)
-                            //        {
-                            //            if (detail.BUSINESSDAYS != null)
-                            //            {
-                            //                if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                            //                {
-                            //                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;//交通补贴
-                            //                }
-                            //                else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
-                            //                {
-                            //                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //                }
-                            //                else
-                            //                {
-                            //                    if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //                    {
-                            //                        if (entareaallowance.TRANSPORTATIONSUBSIDIES != null)
-                            //                        {
-                            //                            TrListInfo.TRANSPORTATIONSUBSIDIES = decimal.Parse((Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES) * toodays).ToString());
-                            //                        }
-                            //                    }
-                            //                    else
-                            //                    {
-                            //                        TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //                    }
-                            //                }
-                            //            }
-
-                            //            if (detail.BUSINESSDAYS != null)
-                            //            {
-                            //                if (detail.PRIVATEAFFAIR == "1")//餐费补贴
-                            //                {
-                            //                    TrListInfo.MEALSUBSIDIES = 0;
-                            //                }
-                            //                else if (detail.GOOUTTOMEET == "1")//如果是开会
-                            //                {
-                            //                    TrListInfo.MEALSUBSIDIES = 0;
-                            //                }
-                            //                else
-                            //                {
-                            //                    if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //                    {
-                            //                        TrListInfo.MEALSUBSIDIES = decimal.Parse((Convert.ToDouble(entareaallowance.MEALSUBSIDIES) * toodays).ToString());
-                            //                    }
-                            //                    else
-                            //                    {
-                            //                        TrListInfo.MEALSUBSIDIES = 0;
-                            //                    }
-                            //                }
-                            //            }
-                            //        }
-                            //    }
-                            //    else
-                            //    {
-                            //        if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //        {
-                            //            TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //            TrListInfo.MEALSUBSIDIES = 0;
-                            //        }
-                            //    }
-                            //}
-                            //#endregion
-
-                            //#region 如果出差天数大于设定的最大天数,按驻外标准获取补贴
-                            //if (travelsolutions != null)
-                            //{
-                            //    if (tresult > int.Parse(travelsolutions.MAXIMUMRANGEDAYS))
-                            //    {
-                            //        if (entareaallowance != null)
-                            //        {
-                            //            double DbTranceport = Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES);
-                            //            double DbMeal = Convert.ToDouble(entareaallowance.MEALSUBSIDIES);
-                            //            double tfSubsidies = Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES) * (Convert.ToDouble(travelsolutions.INTERVALRATIO) / 100);
-                            //            double mealSubsidies = Convert.ToDouble(entareaallowance.MEALSUBSIDIES) * (Convert.ToDouble(travelsolutions.INTERVALRATIO) / 100);
-
-                            //            if (detail.BUSINESSDAYS != null)
-                            //            {
-                            //                if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                            //                {
-                            //                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //                }
-                            //                else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
-                            //                {
-                            //                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //                }
-                            //                else
-                            //                {
-                            //                    if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //                    {
-                            //                        double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbTranceport;
-                            //                        double middlemoney = (Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS) - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * tfSubsidies;
-                            //                        double lastmoney = (tresult - Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS)) * Convert.ToDouble(entareaallowance.OVERSEASSUBSIDIES);
-                            //                        TrListInfo.TRANSPORTATIONSUBSIDIES = decimal.Parse((minmoney + middlemoney + lastmoney).ToString());
-                            //                    }
-                            //                    else
-                            //                    {
-                            //                        TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //                    }
-                            //                }
-                            //            }
-
-                            //            if (detail.BUSINESSDAYS != null)
-                            //            {
-                            //                if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                            //                {
-                            //                    TrListInfo.MEALSUBSIDIES = 0;
-                            //                }
-                            //                else if (detail.GOOUTTOMEET == "1")//如果是开会
-                            //                {
-                            //                    TrListInfo.MEALSUBSIDIES = 0;
-                            //                }
-                            //                else
-                            //                {
-                            //                    if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //                    {
-                            //                        double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbMeal;
-                            //                        double middlemoney = (Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS) - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * mealSubsidies;
-                            //                        double lastmoney = (tresult - Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS)) * Convert.ToDouble(entareaallowance.OVERSEASSUBSIDIES);
-                            //                        TrListInfo.MEALSUBSIDIES = decimal.Parse((minmoney + middlemoney + lastmoney).ToString());
-                            //                    }
-                            //                    else
-                            //                    {
-                            //                        TrListInfo.MEALSUBSIDIES = 0;
-                            //                    }
-                            //                }
-                            //            }
-                            //        }
-                            //    }
-                            //    else
-                            //    {
-                            //        if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //        {
-                            //            TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //            TrListInfo.MEALSUBSIDIES = 0;
-                            //        }
-                            //    }
-                            //}
-                            //#endregion
-
-                            //#region 如果出差时间大于设定的最小天数并且小于设定的最大天数的报销标准
-                            //if (travelsolutions != null)
-                            //{
-                            //    if (tresult >= Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) && tresult <= Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS))
-                            //    {
-                            //        if (entareaallowance != null)
-                            //        {
-                            //            double DbTranceport = Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES);
-                            //            double DbMeal = Convert.ToDouble(entareaallowance.MEALSUBSIDIES);
-                            //            double tfSubsidies = Convert.ToDouble(entareaallowance.TRANSPORTATIONSUBSIDIES) * (Convert.ToDouble(travelsolutions.INTERVALRATIO) / 100);
-                            //            double mealSubsidies = Convert.ToDouble(entareaallowance.MEALSUBSIDIES) * (Convert.ToDouble(travelsolutions.INTERVALRATIO) / 100);
-
-                            //            if (detail.BUSINESSDAYS != null)
-                            //            {
-                            //                if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                            //                {
-                            //                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //                }
-                            //                else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
-                            //                {
-                            //                    TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //                }
-                            //                else
-                            //                {
-                            //                    if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //                    {
-                            //                        double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbTranceport;
-                            //                        double middlemoney = (tresult - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * tfSubsidies;
-                            //                        TrListInfo.TRANSPORTATIONSUBSIDIES = decimal.Parse((minmoney + middlemoney).ToString());
-                            //                    }
-                            //                    else
-                            //                    {
-                            //                        TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //                    }
-                            //                }
-                            //            }
-
-                            //            if (detail.BUSINESSDAYS != null)
-                            //            {
-                            //                if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                            //                {
-                            //                    TrListInfo.MEALSUBSIDIES = 0;
-                            //                }
-                            //                else if (detail.GOOUTTOMEET == "1")//如果是开会
-                            //                {
-                            //                    TrListInfo.MEALSUBSIDIES = 0;
-                            //                }
-                            //                else
-                            //                {
-                            //                    if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //                    {
-                            //                        //最小区间段金额
-                            //                        double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbMeal;
-                            //                        //中间区间段金额
-                            //                        double middlemoney = (tresult - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * mealSubsidies;
-                            //                        TrListInfo.MEALSUBSIDIES = decimal.Parse((minmoney + middlemoney).ToString());
-                            //                    }
-                            //                    else
-                            //                    {
-                            //                        TrListInfo.MEALSUBSIDIES = 0;
-                            //                    }
-                            //                }
-                            //            }
-                            //        }
-                            //    }
-                            //    else
-                            //    {
-                            //        if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            //        {
-                            //            TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
-                            //            TrListInfo.MEALSUBSIDIES = 0;
-                            //        }
-                            //    }
-                            //}
-                            //total += Convert.ToDouble(TrListInfo.TRANSPORTATIONSUBSIDIES + TrListInfo.MEALSUBSIDIES);
-                            //travelReimbursement.THETOTALCOST = decimal.Parse(total.ToString());//差旅费用总和
-                            //travelReimbursement.REIMBURSEMENTOFCOSTS = decimal.Parse(total.ToString());//报销费用总和
-
-                            //#endregion
-                            #endregion
                         }
                         string result = BusinessDays.ToString(); //计算本次出差的总时间,超过24小时天数加1
                         travelReimbursement.COMPUTINGTIME = result;//总时间

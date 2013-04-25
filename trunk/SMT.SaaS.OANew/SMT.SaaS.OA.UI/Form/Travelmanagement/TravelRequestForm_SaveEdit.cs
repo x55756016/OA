@@ -118,7 +118,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             else
             {
-                Master_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
+                //Master_Golbal = lookupTraveEmployee.DataContext as T_OA_BUSINESSTRIP;//出差人
                 Master_Golbal.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;//修改人ID
                 Master_Golbal.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
                 Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
