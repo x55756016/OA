@@ -2333,7 +2333,7 @@ namespace SMT.HRM.BLL
                             if (attState == (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString())
                             {
                                 item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixTravelAbnormal) + 1).ToString();
-                            }                            
+                            }
                             item.UPDATEDATE = DateTime.Now;
                             item.REMARK = "请假或出差修改考勤状态";
                             dal.Update(item);
@@ -2346,6 +2346,16 @@ namespace SMT.HRM.BLL
                             item.ATTENDANCESTATE = attState;
                             item.UPDATEDATE = DateTime.Now;
                             item.REMARK = "请假或出差修改考勤状态";
+                            dal.Update(item);
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(item.ATTENDANCESTATE))
+                        {
+                            item.ATTENDANCESTATE = "1";
+                            item.UPDATEDATE = DateTime.Now;
+                            item.REMARK = "请假或出差修改当天考勤状态为正常：" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd");
                             dal.Update(item);
                         }
                     }
