@@ -82,15 +82,16 @@ namespace SMT.HRM.BLL
                     //SMT.Foundation.Log.Tracer.Debug("UpdateCheckState start;" + bll.GetType().Name);
                     i = bll.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
                     bll.Dispose();
-                    SMT.Foundation.Log.Tracer.Debug("UpdateCheckState 返回结果;" + i.ToString());
-                    SMT.Foundation.Log.Tracer.Debug("手机调用业务逻辑层 bll.Dispose();");
+                    SMT.Foundation.Log.Tracer.Debug("UpdateCheckState成功： strEntityName：" + strEntityName
+                    +" EntityKeyName:"+EntityKeyName+ " EntityKeyValue：" + EntityKeyValue 
+                    +" CheckState:" + CheckState + " 受影响的记录数：" + i.ToString());
+                    //SMT.Foundation.Log.Tracer.Debug("手机调用业务逻辑层 bll.Dispose();");
                 }
             }
             catch (Exception ex)
             {
-                SMT.Foundation.Log.Tracer.Debug("strEntityName：" + strEntityName);
-                SMT.Foundation.Log.Tracer.Debug("EntityKeyValue：" + EntityKeyValue);
-                SMT.Foundation.Log.Tracer.Debug(ex.ToString());
+                SMT.Foundation.Log.Tracer.Debug("UpdateCheckState错误： strEntityName：" + strEntityName
+                    +" EntityKeyValue：" + EntityKeyValue+" 异常信息："+ex.ToString());
             }
 
             return i;
