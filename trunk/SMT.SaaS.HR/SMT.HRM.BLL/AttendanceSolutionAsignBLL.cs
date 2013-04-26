@@ -1399,7 +1399,7 @@ namespace SMT.HRM.BLL
             }
             catch (Exception ex)
             {
-                Utility.SaveLog("执行函数AsignAttendanceSolutionByOrgID失败，失败原因：" + ex.ToString());
+                Utility.SaveLog("考勤初始化错误：执行函数AsignAttendanceSolutionByOrgID失败，失败原因：" + ex.ToString());
                 strRes = "考勤初始化失败";
             }
             return strRes;

@@ -7,6 +7,7 @@ using SMT_HRM_EFModel;
 using System.Collections;
 using System.Linq.Dynamic;
 using SMT.HRM.DAL;
+using SMT.Foundation.Log;
 
 
 namespace SMT.HRM.BLL
@@ -133,8 +134,8 @@ namespace SMT.HRM.BLL
 
                 //    foreach (T_HR_ATTENDANCERECORD item in entArs)
                 //    {
-                //        item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString();
-                //        bllAttendRecord.ModifyAttRd(item);
+                       //item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString();
+                       //bllAttendRecord.ModifyAttRd(item);
 
                 //        string strAbnormCategory = (Convert.ToInt32(Common.AbnormCategory.Absent) + 1).ToString();
                 //        IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = from a in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
@@ -156,8 +157,16 @@ namespace SMT.HRM.BLL
                 //        dal.SaveContextChanges();
                 //    }
                 //}
+
+                Tracer.Debug("出差消除异常开始，请假开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                      + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss"));
                 AbnormRecordBLL bll = new AbnormRecordBLL();
-                bll.DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value);  
+
+                string attState = (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString();
+                bll.DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, attState);
+
+                Tracer.Debug("出差消除异常结束，请假开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                  + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss"));
                 dal.Add(entity);            
             }
             catch (Exception ex)

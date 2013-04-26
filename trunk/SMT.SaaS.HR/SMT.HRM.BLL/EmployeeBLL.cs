@@ -3297,7 +3297,7 @@ namespace SMT.HRM.BLL
             }
             if (employees != null && employees.Count() > 0)
             {
-                SMT.Foundation.Log.Tracer.Debug("返回直接上级或部门负责人为" + employees[0].EMPLOYEECNAME + " 查询的岗位：" + PostID);
+                //SMT.Foundation.Log.Tracer.Debug("返回直接上级或部门负责人为" + employees[0].EMPLOYEECNAME + " 查询的岗位：" + PostID);
             }
             return employees;
         }

@@ -923,9 +923,17 @@ namespace SMT.HRM.BLL
                         return "{REQUIREDFIELDS}";
                     }
                     AbnormRecordBLL bll = new AbnormRecordBLL();
-                    bll.DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATETIME.Value, ent.ENDDATETIME.Value);                  
+
+                    Tracer.Debug(" 请假消除异常开始，请假开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                        + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss") );
+                    string attState = (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString();
+                    bll.DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATETIME.Value, ent.ENDDATETIME.Value, attState);
+
+                    Tracer.Debug(" 请假消除异常结束，请假开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                       + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss"));
                 }
                 ent.CHECKSTATE = strCheckState;
+                ent.UPDATEDATE = DateTime.Now;
                 Update(ent);
                 strMsg = "{SAVESUCCESSED}";
             }
