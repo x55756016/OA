@@ -2121,17 +2121,17 @@ namespace SMT.HRM.BLL
                 string dtInit = datLevestart.Year.ToString() + "-" + datLevestart.Month.ToString();
                 try
                 {
-                    Tracer.Debug(" 请假消除异常没有查到考勤初始化数据，请假开始时间:" + dtStart.ToString("yyyy-MM-dd HH:mm:ss")
+                    Tracer.Debug(" 请假或出差消除异常没有查到考勤初始化数据，请假开始时间:" + dtStart.ToString("yyyy-MM-dd HH:mm:ss")
                              + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，开始初始化员工考勤：" + dtInit);
                     AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
                     //初始化该员工当月考勤记录
                     bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", EMPLOYEEID, dtInit);
 
-                    Tracer.Debug(" 请假消除异常没有查到考勤初始化数据，初始化员工考勤成功，初始化月份：" + dtInit);
+                    Tracer.Debug(" 请假或出差消除异常没有查到考勤初始化数据，初始化员工考勤成功，初始化月份：" + dtInit);
                 }
                 catch (Exception ex)
                 {
-                    Tracer.Debug(" 请假消除异常初始化考勤失败：月份：" + dtInit + "失败原因：" + ex.ToString());
+                    Tracer.Debug(" 请假或出差消除异常初始化考勤失败：月份：" + dtInit + "失败原因：" + ex.ToString());
                 }
 
                 entArs = from r in dal.GetObjects<T_HR_ATTENDANCERECORD>()
@@ -2160,8 +2160,9 @@ namespace SMT.HRM.BLL
                 }
                 try
                 {
-                    Tracer.Debug(" 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
-                         + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，共检测到异常记录数共：" + i + "条记录");
+                    Tracer.Debug(" 请假或出差消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                         + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，共检测到异常记录数共：" + i + "条记录" 
+                         + "类型6为请假，4为出差：" + attState);
                     Dictionary<AttendPeriod, AttendanceState> thisDayAttendState = new Dictionary<AttendPeriod, AttendanceState>();//考勤时间段1上午，2中午，3下午 考勤异常状态 1 缺勤 2 请假
                     foreach (T_HR_EMPLOYEEABNORMRECORD AbnormRecorditem in entAbnormRecords.ToList())
                     {
