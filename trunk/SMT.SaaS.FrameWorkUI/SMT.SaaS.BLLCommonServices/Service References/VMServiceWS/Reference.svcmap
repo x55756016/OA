@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3f01168f-f950-482c-83ad-044a50b898f7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VMServices.xsd" MetadataType="Schema" ID="0bf64a5a-301d-49c8-b30f-c447f3aee93b" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="VMServices1.xsd" MetadataType="Schema" ID="c6757269-8040-43a4-b7d1-3ddc2b0103e6" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="VMServices2.xsd" MetadataType="Schema" ID="ca72123c-ca53-489a-9072-b0629757722f" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="VMServices.wsdl" MetadataType="Wsdl" ID="2e375e1b-aa46-4069-a846-ce58224ca6c8" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?wsdl" />
+    <MetadataFile FileName="VMServices3.xsd" MetadataType="Schema" ID="e6577d16-837d-4de1-aa3c-d3c9850de646" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="VMServices.disco" MetadataType="Disco" ID="ca1e8408-9bd4-40f1-a147-66bf8596bd8a" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="EntityNames">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AttendanceSolution" />
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="Department" />
+      <xs:enumeration value="AttendanceDeductMaster" />
+      <xs:enumeration value="Post" />
+      <xs:enumeration value="Employee" />
+      <xs:enumeration value="FreeLeaveDaySet" />
+      <xs:enumeration value="LeaveTypeSet" />
+      <xs:enumeration value="OvertimeReward" />
+      <xs:enumeration value="SalarySolution" />
+      <xs:enumeration value="SalaryStandard" />
+      <xs:enumeration value="SalaryArchive" />
+      <xs:enumeration value="SchedulingTemplateMaster" />
+      <xs:enumeration value="CustomGuerdonSet" />
+      <xs:enumeration value="ShiftDefine" />
+      <xs:enumeration value="SalaryItemSet" />
+      <xs:enumeration value="SalaryLevel" />
+      <xs:enumeration value="AreaCategory" />
+      <xs:enumeration value="SalarySystem" />
+      <xs:enumeration value="EmployeeLeaveRecord" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EntityNames" nillable="true" type="tns:EntityNames" />
+</xs:schema>

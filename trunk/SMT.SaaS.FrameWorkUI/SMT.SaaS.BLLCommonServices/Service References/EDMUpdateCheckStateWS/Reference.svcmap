@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c488e56d-294d-495f-97db-07c386eff97d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.57/New/Services/EDM/EDMUpdateCheckState.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EDMUpdateCheckState.disco" MetadataType="Disco" ID="0302d4ac-9994-4024-84fd-fc18065d1201" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/EDM/EDMUpdateCheckState.svc?disco" />
+    <MetadataFile FileName="EDMUpdateCheckState.xsd" MetadataType="Schema" ID="5880de5d-48dd-4acf-82db-6fc981c34941" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/EDM/EDMUpdateCheckState.svc?xsd=xsd0" />
+    <MetadataFile FileName="EDMUpdateCheckState.wsdl" MetadataType="Wsdl" ID="85f2f0d7-3e49-47c6-9a93-69c32ea87fc6" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/EDM/EDMUpdateCheckState.svc?wsdl" />
+    <MetadataFile FileName="EDMUpdateCheckState1.xsd" MetadataType="Schema" ID="9c0fdbb6-cc4f-4d68-a382-959b36d4cdb7" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/EDM/EDMUpdateCheckState.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

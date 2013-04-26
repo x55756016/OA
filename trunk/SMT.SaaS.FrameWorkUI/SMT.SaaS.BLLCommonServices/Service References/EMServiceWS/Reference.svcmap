@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e97617a7-e480-48ae-b59b-734abd74f8d3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1600/EMServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EMServices1.wsdl" MetadataType="Wsdl" ID="83cda250-96f3-4b54-9c30-3c7b5f1930fb" SourceId="1" SourceUrl="http://localhost:1600/EMServices.svc?wsdl" />
+    <MetadataFile FileName="EMServices1.disco" MetadataType="Disco" ID="a12bb9b8-5701-40d7-81cf-297cc4417acd" SourceId="1" SourceUrl="http://localhost:1600/EMServices.svc?disco" />
+    <MetadataFile FileName="EMServices4.xsd" MetadataType="Schema" ID="d40241c8-9722-4bbc-bc1b-1c247f691da0" SourceId="1" SourceUrl="http://localhost:1600/EMServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="EMServices41.xsd" MetadataType="Schema" ID="dffa38c2-63a5-4710-ae11-7f99e3dfd6e1" SourceId="1" SourceUrl="http://localhost:1600/EMServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="EMServices42.xsd" MetadataType="Schema" ID="4b0af035-fe3a-493e-ab3a-9097b467fafb" SourceId="1" SourceUrl="http://localhost:1600/EMServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="EMServices43.xsd" MetadataType="Schema" ID="d0e518be-f4a6-4053-9339-7390b3824c96" SourceId="1" SourceUrl="http://localhost:1600/EMServices.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

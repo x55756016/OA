@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2615692f-ac1e-4701-923c-1f435a8bc89c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1600/TMServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TMServices1.wsdl" MetadataType="Wsdl" ID="098ad865-7480-4b1a-8542-403989ab9eae" SourceId="1" SourceUrl="http://localhost:1600/TMServices.svc?wsdl" />
+    <MetadataFile FileName="TMServices1.disco" MetadataType="Disco" ID="12867dc1-98a1-4f9c-87ce-7115009610d9" SourceId="1" SourceUrl="http://localhost:1600/TMServices.svc?disco" />
+    <MetadataFile FileName="TMServices4.xsd" MetadataType="Schema" ID="c870cbd2-723a-4f1f-90b8-b8702afc2d48" SourceId="1" SourceUrl="http://localhost:1600/TMServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="TMServices41.xsd" MetadataType="Schema" ID="fa1c2ade-ce87-4814-b1f7-e2432f251a17" SourceId="1" SourceUrl="http://localhost:1600/TMServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="TMServices42.xsd" MetadataType="Schema" ID="77d9a2cc-1cc1-4896-bc49-9cb0babe9c4f" SourceId="1" SourceUrl="http://localhost:1600/TMServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="TMServices43.xsd" MetadataType="Schema" ID="634d309b-0058-4b4b-a1e7-80aa40da65bd" SourceId="1" SourceUrl="http://localhost:1600/TMServices.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

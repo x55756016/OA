@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+      <xsd:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT.FB.BLL" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT.FB.Services" />
+      <xsd:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FBService_FetchSalaryBudget_InputMessage">
+    <wsdl:part name="parameters" element="FetchSalaryBudget" />
+  </wsdl:message>
+  <wsdl:message name="FBService_FetchSalaryBudget_OutputMessage">
+    <wsdl:part name="parameters" element="FetchSalaryBudgetResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_UpdateSalaryBudget_InputMessage">
+    <wsdl:part name="parameters" element="UpdateSalaryBudget" />
+  </wsdl:message>
+  <wsdl:message name="FBService_UpdateSalaryBudget_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateSalaryBudgetResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_GetBorrowers_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowers" />
+  </wsdl:message>
+  <wsdl:message name="FBService_GetBorrowers_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowersResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_RepayBySalary_InputMessage">
+    <wsdl:part name="parameters" element="RepayBySalary" />
+  </wsdl:message>
+  <wsdl:message name="FBService_RepayBySalary_OutputMessage">
+    <wsdl:part name="parameters" element="RepayBySalaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_GetLeavingUser_InputMessage">
+    <wsdl:part name="parameters" element="GetLeavingUser" />
+  </wsdl:message>
+  <wsdl:message name="FBService_GetLeavingUser_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeavingUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_RemoveExtensionOrder_InputMessage">
+    <wsdl:part name="parameters" element="RemoveExtensionOrder" />
+  </wsdl:message>
+  <wsdl:message name="FBService_RemoveExtensionOrder_OutputMessage">
+    <wsdl:part name="parameters" element="RemoveExtensionOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_Save_InputMessage">
+    <wsdl:part name="parameters" element="Save" />
+  </wsdl:message>
+  <wsdl:message name="FBService_Save_OutputMessage">
+    <wsdl:part name="parameters" element="SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_SaveEntity_InputMessage">
+    <wsdl:part name="parameters" element="SaveEntity" />
+  </wsdl:message>
+  <wsdl:message name="FBService_SaveEntity_OutputMessage">
+    <wsdl:part name="parameters" element="SaveEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_QueryFBEntities_InputMessage">
+    <wsdl:part name="parameters" element="QueryFBEntities" />
+  </wsdl:message>
+  <wsdl:message name="FBService_QueryFBEntities_OutputMessage">
+    <wsdl:part name="parameters" element="QueryFBEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_GetFBEntities_InputMessage">
+    <wsdl:part name="parameters" element="GetFBEntities" />
+  </wsdl:message>
+  <wsdl:message name="FBService_GetFBEntities_OutputMessage">
+    <wsdl:part name="parameters" element="GetFBEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_CloseBudget_InputMessage">
+    <wsdl:part name="parameters" element="CloseBudget" />
+  </wsdl:message>
+  <wsdl:message name="FBService_CloseBudget_OutputMessage">
+    <wsdl:part name="parameters" element="CloseBudgetResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_UpdateCheckState_InputMessage">
+    <wsdl:part name="parameters" element="UpdateCheckState" />
+  </wsdl:message>
+  <wsdl:message name="FBService_UpdateCheckState_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateCheckStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_UpdateExtensionOrder_InputMessage">
+    <wsdl:part name="parameters" element="UpdateExtensionOrder" />
+  </wsdl:message>
+  <wsdl:message name="FBService_UpdateExtensionOrder_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateExtensionOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_CreatePersonMoneyAssignInfo_InputMessage">
+    <wsdl:part name="parameters" element="CreatePersonMoneyAssignInfo" />
+  </wsdl:message>
+  <wsdl:message name="FBService_CreatePersonMoneyAssignInfo_OutputMessage">
+    <wsdl:part name="parameters" element="CreatePersonMoneyAssignInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBService_HRPersonPostChanged_InputMessage">
+    <wsdl:part name="parameters" element="HRPersonPostChanged" />
+  </wsdl:message>
+  <wsdl:message name="FBService_HRPersonPostChanged_OutputMessage">
+    <wsdl:part name="parameters" element="HRPersonPostChangedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FBService">
+    <wsdl:operation name="FetchSalaryBudget">
+      <wsdl:input wsaw:Action="urn:FBService/FetchSalaryBudget" message="FBService_FetchSalaryBudget_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/FetchSalaryBudgetResponse" message="FBService_FetchSalaryBudget_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalaryBudget">
+      <wsdl:input wsaw:Action="urn:FBService/UpdateSalaryBudget" message="FBService_UpdateSalaryBudget_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/UpdateSalaryBudgetResponse" message="FBService_UpdateSalaryBudget_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowers">
+      <wsdl:input wsaw:Action="urn:FBService/GetBorrowers" message="FBService_GetBorrowers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/GetBorrowersResponse" message="FBService_GetBorrowers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RepayBySalary">
+      <wsdl:input wsaw:Action="urn:FBService/RepayBySalary" message="FBService_RepayBySalary_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/RepayBySalaryResponse" message="FBService_RepayBySalary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeavingUser">
+      <wsdl:input wsaw:Action="urn:FBService/GetLeavingUser" message="FBService_GetLeavingUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/GetLeavingUserResponse" message="FBService_GetLeavingUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveExtensionOrder">
+      <wsdl:input wsaw:Action="urn:FBService/RemoveExtensionOrder" message="FBService_RemoveExtensionOrder_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/RemoveExtensionOrderResponse" message="FBService_RemoveExtensionOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input wsaw:Action="urn:FBService/Save" message="FBService_Save_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/SaveResponse" message="FBService_Save_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEntity">
+      <wsdl:input wsaw:Action="urn:FBService/SaveEntity" message="FBService_SaveEntity_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/SaveEntityResponse" message="FBService_SaveEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryFBEntities">
+      <wsdl:input wsaw:Action="urn:FBService/QueryFBEntities" message="FBService_QueryFBEntities_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/QueryFBEntitiesResponse" message="FBService_QueryFBEntities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFBEntities">
+      <wsdl:input wsaw:Action="urn:FBService/GetFBEntities" message="FBService_GetFBEntities_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/GetFBEntitiesResponse" message="FBService_GetFBEntities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseBudget">
+      <wsdl:input wsaw:Action="urn:FBService/CloseBudget" message="FBService_CloseBudget_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/CloseBudgetResponse" message="FBService_CloseBudget_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckState">
+      <wsdl:input wsaw:Action="urn:FBService/UpdateCheckState" message="FBService_UpdateCheckState_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/UpdateCheckStateResponse" message="FBService_UpdateCheckState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExtensionOrder">
+      <wsdl:input wsaw:Action="urn:FBService/UpdateExtensionOrder" message="FBService_UpdateExtensionOrder_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/UpdateExtensionOrderResponse" message="FBService_UpdateExtensionOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePersonMoneyAssignInfo">
+      <wsdl:input wsaw:Action="urn:FBService/CreatePersonMoneyAssignInfo" message="FBService_CreatePersonMoneyAssignInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/CreatePersonMoneyAssignInfoResponse" message="FBService_CreatePersonMoneyAssignInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HRPersonPostChanged">
+      <wsdl:input wsaw:Action="urn:FBService/HRPersonPostChanged" message="FBService_HRPersonPostChanged_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FBService/HRPersonPostChangedResponse" message="FBService_HRPersonPostChanged_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

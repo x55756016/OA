@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ff83bff8-9af6-41b9-98ff-a910de4df630" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3938/OAUpdateCheckServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OAUpdateCheckServices.wsdl" MetadataType="Wsdl" ID="5b929fe4-65f4-4080-b3a9-5579918aed62" SourceId="1" SourceUrl="http://localhost:3938/OAUpdateCheckServices.svc?wsdl" />
+    <MetadataFile FileName="OAUpdateCheckServices.disco" MetadataType="Disco" ID="998befec-9ff4-4ceb-978f-2e5f3e961e43" SourceId="1" SourceUrl="http://localhost:3938/OAUpdateCheckServices.svc?disco" />
+    <MetadataFile FileName="OAUpdateCheckServices1.wsdl" MetadataType="Wsdl" ID="429f8be1-6b17-4216-8f6e-76667225cae3" SourceId="1" SourceUrl="http://localhost:3938/OAUpdateCheckServices.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="OAUpdateCheckServices.xsd" MetadataType="Schema" ID="ad6f68a2-34bf-400d-86c3-91d4e1b8c6be" SourceId="1" SourceUrl="http://localhost:3938/OAUpdateCheckServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="OAUpdateCheckServices1.xsd" MetadataType="Schema" ID="e2eecc4d-6f91-4c8d-a5d6-fac797ab4847" SourceId="1" SourceUrl="http://localhost:3938/OAUpdateCheckServices.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

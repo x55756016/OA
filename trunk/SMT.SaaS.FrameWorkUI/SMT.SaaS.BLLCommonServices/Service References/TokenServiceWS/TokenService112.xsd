@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:10007/TokenService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+  <xs:import schemaLocation="http://localhost:10007/TokenService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.PublicInterface.Token" />
+  <xs:element name="CreateToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="user" nillable="true" type="q1:T_SYS_USER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.SaaS.PublicInterface.Token" minOccurs="0" name="CreateTokenResult" nillable="true" type="q2:TokenResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.SaaS.PublicInterface.Token" minOccurs="0" name="RemoveTokenResult" nillable="true" type="q3:TokenResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.SaaS.PublicInterface.Token" minOccurs="0" name="GetUserResult" nillable="true" type="q4:TokenResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

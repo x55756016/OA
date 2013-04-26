@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/MainUIServices.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/MainUIServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/MainUIServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MainUIServices_UserLogin_InputMessage">
+    <wsdl:part name="parameters" element="UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="MainUIServices_UserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="MainUIServices_UserLoginToTaken_InputMessage">
+    <wsdl:part name="parameters" element="UserLoginToTaken" />
+  </wsdl:message>
+  <wsdl:message name="MainUIServices_UserLoginToTaken_OutputMessage">
+    <wsdl:part name="parameters" element="UserLoginToTakenResponse" />
+  </wsdl:message>
+  <wsdl:message name="MainUIServices_GetSystemTypeByUserID_InputMessage">
+    <wsdl:part name="parameters" element="GetSystemTypeByUserID" />
+  </wsdl:message>
+  <wsdl:message name="MainUIServices_GetSystemTypeByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSystemTypeByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="MainUIServices_UserLoginOut_InputMessage">
+    <wsdl:part name="parameters" element="UserLoginOut" />
+  </wsdl:message>
+  <wsdl:message name="MainUIServices_UserLoginOut_OutputMessage">
+    <wsdl:part name="parameters" element="UserLoginOutResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MainUIServices">
+    <wsdl:operation name="UserLogin">
+      <wsdl:input wsaw:Action="urn:MainUIServices/UserLogin" message="MainUIServices_UserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MainUIServices/UserLoginResponse" message="MainUIServices_UserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLoginToTaken">
+      <wsdl:input wsaw:Action="urn:MainUIServices/UserLoginToTaken" message="MainUIServices_UserLoginToTaken_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MainUIServices/UserLoginToTakenResponse" message="MainUIServices_UserLoginToTaken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemTypeByUserID">
+      <wsdl:input wsaw:Action="urn:MainUIServices/GetSystemTypeByUserID" message="MainUIServices_GetSystemTypeByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MainUIServices/GetSystemTypeByUserIDResponse" message="MainUIServices_GetSystemTypeByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLoginOut">
+      <wsdl:input wsaw:Action="urn:MainUIServices/UserLoginOut" message="MainUIServices_UserLoginOut_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MainUIServices/UserLoginOutResponse" message="MainUIServices_UserLoginOut_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

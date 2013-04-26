@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT.FB.Services" />
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+  <xs:element name="FetchSalaryBudget">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchSalaryBudgetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="FetchSalaryBudgetResult" nillable="true" type="q1:ArrayOfT_FB_BUDGETACCOUNT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSalaryBudget">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="xml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSalaryBudgetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSalaryBudgetResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBorrowers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBorrowersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="GetBorrowersResult" nillable="true" type="q2:ArrayOfDebtInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RepayBySalary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="listDebt" nillable="true" type="q3:ArrayOfDebtInfo" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.FB.Services" minOccurs="0" name="repayType" type="q4:FBService.RepayType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RepayBySalaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="RepayBySalaryResult" nillable="true" type="q5:ArrayOfDebtInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeavingUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeavingUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="GetLeavingUserResult" nillable="true" type="q6:ArrayOfDebtInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveExtensionOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orderIDs" nillable="true" type="q7:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveExtensionOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RemoveExtensionOrderResult" nillable="true" type="q8:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="fbEntity" nillable="true" type="q9:FBEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="SaveResult" nillable="true" type="q10:SaveResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="saveEntity" nillable="true" type="q11:SaveEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="SaveEntityResult" nillable="true" type="q12:SaveResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryFBEntities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="queryExpression" nillable="true" type="q13:QueryExpression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryFBEntitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="QueryFBEntitiesResult" nillable="true" type="q14:ArrayOfFBEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFBEntities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="qp" nillable="true" type="q15:QueryExpression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFBEntitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="GetFBEntitiesResult" nillable="true" type="q16:ArrayOfFBEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseBudget">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseBudgetResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCheckState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckStates" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCheckStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCheckStateResult" type="xs:int" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExtensionOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckStates" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExtensionOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="UpdateExtensionOrderResult" nillable="true" type="q17:T_FB_EXTENSIONALORDER" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePersonMoneyAssignInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ASSIGNCOMPANYID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePersonMoneyAssignInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HRPersonPostChanged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="personChange" nillable="true" type="q18:T_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HRPersonPostChangedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HRPersonPostChangedResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

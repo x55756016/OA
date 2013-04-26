@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMTIM.Application.DataObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMTIM.Application.DataObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="MailDept">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdminName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdminPass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeptId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeptName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkMan" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Manager" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailDept" nillable="true" type="tns:MailDept" />
+  <xs:complexType name="MailUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdminName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdminPass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentDeptId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileQuota" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailBox" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailQuota" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginDeptId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailUser" nillable="true" type="tns:MailUser" />
+  <xs:complexType name="ArrayOfHREmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HREmployee" nillable="true" type="tns:HREmployee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHREmployee" nillable="true" type="tns:ArrayOfHREmployee" />
+  <xs:complexType name="HREmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HREmployee" nillable="true" type="tns:HREmployee" />
+</xs:schema>

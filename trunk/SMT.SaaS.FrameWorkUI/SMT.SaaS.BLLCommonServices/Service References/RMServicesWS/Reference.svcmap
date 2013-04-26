@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f475888b-d488-4a9e-b9e4-9569b35d686a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1600/RMServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RMServices4.xsd" MetadataType="Schema" ID="3190dd30-9d46-4a49-9fb9-9d345f24d857" SourceId="1" SourceUrl="http://localhost:1600/RMServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="RMServices41.xsd" MetadataType="Schema" ID="d7e6d8a1-2d5d-4834-9b80-cb40462f5927" SourceId="1" SourceUrl="http://localhost:1600/RMServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="RMServices42.xsd" MetadataType="Schema" ID="fe864208-871a-41e4-8d2a-26cd110964b2" SourceId="1" SourceUrl="http://localhost:1600/RMServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="RMServices43.xsd" MetadataType="Schema" ID="d50a8693-ee54-452d-945f-d5e34c3f7c82" SourceId="1" SourceUrl="http://localhost:1600/RMServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="RMServices1.wsdl" MetadataType="Wsdl" ID="8d330e8f-1f29-4deb-9e8b-392c0536f65f" SourceId="1" SourceUrl="http://localhost:1600/RMServices.svc?wsdl" />
+    <MetadataFile FileName="RMServices1.disco" MetadataType="Disco" ID="09dba462-cbb7-44a4-a1a4-ae50aab03903" SourceId="1" SourceUrl="http://localhost:1600/RMServices.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

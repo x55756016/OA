@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f20d259b-f3ed-42de-a41e-6e2334449ce7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.50.83:5102/SmtOnline/Services/SMTFBAService/DailyUpdateCheckStateService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DailyUpdateCheckStateService.xsd" MetadataType="Schema" ID="87197c15-ce74-446f-8364-a00ee13f46cd" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/SMTFBAService/DailyUpdateCheckStateService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DailyUpdateCheckStateService.wsdl" MetadataType="Wsdl" ID="b72a3dc2-5f3b-4e22-9d0b-e3c11648408d" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/SMTFBAService/DailyUpdateCheckStateService.svc?wsdl" />
+    <MetadataFile FileName="DailyUpdateCheckStateService.disco" MetadataType="Disco" ID="b79e2550-ac71-4741-a55a-f23e9add551c" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/SMTFBAService/DailyUpdateCheckStateService.svc?disco" />
+    <MetadataFile FileName="DailyUpdateCheckStateService1.xsd" MetadataType="Schema" ID="744fec54-205a-42d9-96e8-7ea4d7b134a1" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/SMTFBAService/DailyUpdateCheckStateService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DailyUpdateCheckStateService1.wsdl" MetadataType="Wsdl" ID="8c93d6e5-1628-48d4-8d38-cea6139e12de" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/SMTFBAService/DailyUpdateCheckStateService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

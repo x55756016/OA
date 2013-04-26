@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1604/BllCommonPermissionServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" />
+  <xs:import schemaLocation="http://localhost:1604/BllCommonPermissionServices.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetUserMenuPermsByUserPermissionBllCommon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="menuCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerCompanyIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerDepartmentIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerPositionIDs" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMenuPermsByUserPermissionBllCommonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserMenuPermsByUserPermissionBllCommonResult" nillable="true" type="q1:ArrayOfV_BllCommonUserPermission" />
+        <xs:element minOccurs="0" name="OwnerCompanyIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerDepartmentIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerPositionIDs" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMenuPermsByUserPermissionBllCommonAddPermissionValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="menuCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerCompanyIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerDepartmentIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerPositionIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrPermissionValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMenuPermsByUserPermissionBllCommonAddPermissionValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserMenuPermsByUserPermissionBllCommonAddPermissionValueResult" nillable="true" type="q2:ArrayOfV_BllCommonUserPermission" />
+        <xs:element minOccurs="0" name="OwnerCompanyIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerDepartmentIDs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OwnerPositionIDs" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetOrganizationFilterToNewFrame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q3:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="menuCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SysCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetOrganizationFilterToNewFrameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SetOrganizationFilterToNewFrameResult" nillable="true" type="q4:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

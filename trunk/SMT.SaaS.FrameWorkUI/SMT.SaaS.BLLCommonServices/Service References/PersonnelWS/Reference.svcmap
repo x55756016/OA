@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="080e8c0d-f233-419b-acda-af68ebc7fb08" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12168/PersonnelService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PersonnelService1.xsd" MetadataType="Schema" ID="0201d021-d75c-4d85-a6bf-d303aebecdb7" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PersonnelService.xsd" MetadataType="Schema" ID="e9fa2112-96fb-440f-89d8-9d838fdabc73" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PersonnelService2.xsd" MetadataType="Schema" ID="89b7dbee-f647-4913-b75a-522fb6547bc0" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PersonnelService4.xsd" MetadataType="Schema" ID="c3312bb4-8b33-4b3a-82d2-aa40f23c7481" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PersonnelService.wsdl" MetadataType="Wsdl" ID="1abcebac-68c0-4948-b42d-37e7d3cc1d8b" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?wsdl" />
+    <MetadataFile FileName="PersonnelService6.xsd" MetadataType="Schema" ID="fd249e9f-7228-467f-95bd-2bde77a21a19" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PersonnelService3.xsd" MetadataType="Schema" ID="388abc19-ed10-4ed6-bc9d-cc89431cd71f" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PersonnelService7.xsd" MetadataType="Schema" ID="110cd97c-b2fc-4dd4-b51c-7abe47ed1d5d" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PersonnelService5.xsd" MetadataType="Schema" ID="60e818b5-8acd-4065-be83-8b9ab8342c12" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PersonnelService.disco" MetadataType="Disco" ID="b1a92ec6-19cf-40f5-a463-9780880f8dbb" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?disco" />
+    <MetadataFile FileName="PersonnelService1.wsdl" MetadataType="Wsdl" ID="0a012a47-11e0-4383-9aaf-8c7f35a88b61" SourceId="1" SourceUrl="http://localhost:12168/PersonnelService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -79,7 +79,7 @@ namespace SMT.HRM.BLL
                 if (type != null)
                 {
                     IOperate bll = (IOperate)Activator.CreateInstance(type);
-                    SMT.Foundation.Log.Tracer.Debug("UpdateCheckState start;" + bll.GetType().Name);
+                    //SMT.Foundation.Log.Tracer.Debug("UpdateCheckState start;" + bll.GetType().Name);
                     i = bll.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
                     bll.Dispose();
                     SMT.Foundation.Log.Tracer.Debug("UpdateCheckState 返回结果;" + i.ToString());

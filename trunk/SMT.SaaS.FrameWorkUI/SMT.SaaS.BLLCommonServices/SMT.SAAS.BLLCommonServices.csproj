@@ -1,0 +1,1625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.SaaS.BLLCommonServices</RootNamespace>
+    <AssemblyName>SMT.SaaS.BLLCommonServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\SMT.SaaS.BLLCommonServices.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\SMT.SaaS.BLLCommonServices.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMT.Foundation.Log">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="Dynamic.cs" />
+    <Compile Include="EntityFormResource.Designer.cs">
+      <DependentUpon>EntityFormResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Enums.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\BllCommonUserPermissionWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\EDMUpdateCheckStateWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\EMServiceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\EngineConfigWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FbDailyUpdateCheckStateWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FBServiceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FlowWFService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GSCommonWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\HrCommonWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\HrUpdateCheckStateWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MailService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MVCCacheSV\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OAPersonalWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OAUpdateCheckWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OrganizationWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PerformanceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PermissionWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PersonalRecordWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PersonnelWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PMUserLoginWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RMServicesWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TKServicesWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TMServicesWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TokenServiceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VMServiceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WPServicesWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices.wsdl" />
+    <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices1.wsdl" />
+    <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BllCommonUserPermissionWS\SMT.SaaS.BLLCommonServices.BllCommonUserPermissionWS.V_BllCommonUserPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EDMUpdateCheckStateWS\EDMUpdateCheckState.wsdl" />
+    <None Include="Service References\EDMUpdateCheckStateWS\EDMUpdateCheckState.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EDMUpdateCheckStateWS\EDMUpdateCheckState1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EMServiceWS\EMServices1.wsdl" />
+    <None Include="Service References\EMServiceWS\EMServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EMServiceWS\EMServices41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EMServiceWS\EMServices42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EMServiceWS\EMServices43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EMServiceWS\SMT.SaaS.BLLCommonServices.EMServiceWS.ResultObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction1.wsdl" />
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_FLOW_CUSTOMFLOWDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_FLOW_ENGINENOTES1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FbDailyUpdateCheckStateWS\DailyUpdateCheckStateService.wsdl" />
+    <None Include="Service References\FbDailyUpdateCheckStateWS\DailyUpdateCheckStateService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FbDailyUpdateCheckStateWS\DailyUpdateCheckStateService1.wsdl" />
+    <None Include="Service References\FbDailyUpdateCheckStateWS\DailyUpdateCheckStateService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\Arrays4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\service2.wsdl" />
+    <None Include="Service References\FBServiceWS\service5.wsdl" />
+    <None Include="Service References\FBServiceWS\service7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\service8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT.FB.BLL4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT.FB.Services1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT.FlowWFService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT.SaaS.BLLCommonServices.FBServiceWS.FBEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT.SaaS.BLLCommonServices.FBServiceWS.SaveResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT.SaaS.BLLCommonServices.FBServiceWS.T_FB_BUDGETACCOUNT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT.SaaS.BLLCommonServices.FBServiceWS.T_FB_EXTENSIONALORDER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT_FB_EFModel1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT_HRM_EFModel13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\SMT_System_EFModel1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\System.Data.Objects.DataClasses4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBServiceWS\System.Data4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\Service1.wsdl" />
+    <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.DataResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_FLOWRECORDDETAIL_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_FLOWRECORDMASTER_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.TaskInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.T_WF_PERSONALRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowWFService\SMT10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GSCommonWS\GSCommonServices.wsdl" />
+    <None Include="Service References\GSCommonWS\GSCommonServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GSCommonWS\GSCommonServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrCommonWS\HrCommonService.wsdl" />
+    <None Include="Service References\HrCommonWS\HrCommonService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrCommonWS\HrCommonService1.wsdl" />
+    <None Include="Service References\HrCommonWS\HrCommonService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrCommonWS\HrCommonService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices2.wsdl" />
+    <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices21.wsdl" />
+    <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\MailService.wsdl" />
+    <None Include="Service References\MailService\MailService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\MailService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailService\MailService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService.wsdl" />
+    <None Include="Service References\MVCCacheSV\CacheService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MVCCacheSV\SMT.SaaS.BLLCommonServices.MVCCacheSV.LoginUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MVCCacheSV\SMT.SaaS.BLLCommonServices.MVCCacheSV.QueryResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_APPROVALINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_APPROVALTYPESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_AREAALLOWANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_AREACITY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_AREADIFFERENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_BUSINESSTRIP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_BUSINESSTRIPDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_CALENDAR.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_CANTAKETHEPLANELINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_FILEUPLOAD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_ORDERMEAL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_PROGRAMAPPLICATIONS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_REIMBURSEMENTDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_REQUIRE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_REQUIREDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_REQUIREDETAIL2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_REQUIREDISTRIBUTE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_REQUIREMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_REQUIRERESULT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_SATISFACTIONDISTRIBUTE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_SATISFACTIONMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_SATISFACTIONREQUIRE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_SATISFACTIONRESULT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_TAKETHESTANDARDTRANSPORT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_TRAVELREIMBURSEMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_TRAVELSOLUTIONS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.T_OA_WORKRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_DepartmentWithCompany.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_EmployeeID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_EmployeeSurvey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_EmployeeSurveyApp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_EmployeeSurveying.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_EmployeeSurveyMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_EmployeeSurveyRequireDistribute.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_EmployeeSurveysModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_EmployeeSurveySubject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_MyEusurvey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_MyStaticfaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_REQUIRERESULTMODE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_Satisfaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_SatisfactionResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_Satisfactions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_SystemNotice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_Travelmanagement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SMT.SaaS.BLLCommonServices.OAPersonalWS.V_TravelReimbursement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice.wsdl" />
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice1.wsdl" />
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices.wsdl" />
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices1.wsdl" />
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService.wsdl" />
+    <None Include="Service References\OrganizationWS\OrganizationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService1.wsdl" />
+    <None Include="Service References\OrganizationWS\OrganizationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService3.wsdl" />
+    <None Include="Service References\OrganizationWS\OrganizationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService4.wsdl" />
+    <None Include="Service References\OrganizationWS\OrganizationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_COMPANY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_DEPARTMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_DEPARTMENTSWITHCOMPANY1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_POST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\PerformanceService.wsdl" />
+    <None Include="Service References\PerformanceWS\PerformanceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceWS\PerformanceService1.wsdl" />
+    <None Include="Service References\PerformanceWS\PerformanceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceWS\PerformanceService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceWS\PerformanceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceWS\PerformanceService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceWS\PerformanceService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceWS\PerformanceService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.T_HR_KPIPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.T_HR_KPIRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.T_HR_KPIRECORDCOMPLAIN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.T_HR_KPITYPE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.T_HR_PERFORMANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.T_HR_RAMDONGROUPPERSON.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.T_HR_RANDOMGROUP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.T_HR_SUMPERFORMANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.V_COMPLAINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.V_EMPLOYEEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.V_KPIRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.V_PERFORMANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.V_PERFORMANCERECORDDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService.wsdl" />
+    <None Include="Service References\PermissionWS\PermissionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.FlowUserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_COUNTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_FBADMIN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_Dictionary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_FBAdmin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_MenuSetRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_ProvinceCity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_RoleEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_UserMenuPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService.wsdl" />
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService1.wsdl" />
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService2.wsdl" />
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService4.wsdl" />
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService.wsdl" />
+    <None Include="Service References\PersonnelWS\PersonnelService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService1.wsdl" />
+    <None Include="Service References\PersonnelWS\PersonnelService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PMUserLoginWS\MainUIServices2.wsdl" />
+    <None Include="Service References\PMUserLoginWS\MainUIServices21.wsdl" />
+    <None Include="Service References\PMUserLoginWS\MainUIServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PMUserLoginWS\MainUIServices31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PMUserLoginWS\MainUIServices32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PMUserLoginWS\SMT.SaaS.BLLCommonServices.PMUserLoginWS.V_UserLogin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RMServicesWS\RMServices1.wsdl" />
+    <None Include="Service References\RMServicesWS\RMServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMServicesWS\RMServices41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMServicesWS\RMServices42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMServicesWS\RMServices43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMServicesWS\SMT.SaaS.BLLCommonServices.RMServicesWS.ResultObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TKServicesWS\SMT.SaaS.BLLCommonServices.TKServicesWS.ResultObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TKServicesWS\TKServices1.wsdl" />
+    <None Include="Service References\TKServicesWS\TKServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TKServicesWS\TKServices41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TKServicesWS\TKServices42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TKServicesWS\TKServices43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TMServicesWS\SMT.SaaS.BLLCommonServices.TMServicesWS.ResultObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TMServicesWS\TMServices1.wsdl" />
+    <None Include="Service References\TMServicesWS\TMServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TMServicesWS\TMServices41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TMServicesWS\TMServices42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TMServicesWS\TMServices43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TokenServiceWS\SMT.SaaS.BLLCommonServices.TokenServiceWS.TokenResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TokenServiceWS\TokenService.wsdl" />
+    <None Include="Service References\TokenServiceWS\TokenService111.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TokenServiceWS\TokenService112.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TokenServiceWS\TokenService113.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TokenServiceWS\TokenService114.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TokenServiceWS\TokenService115.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TokenServiceWS\TokenService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TokenServiceWS\TokenService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TokenServiceWS\TokenService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VMServiceWS\SMT.SaaS.BLLCommonServices.VMServiceWS.ResultObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VMServiceWS\VMServices.wsdl" />
+    <None Include="Service References\VMServiceWS\VMServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VMServiceWS\VMServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VMServiceWS\VMServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VMServiceWS\VMServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WPServicesWS\SMT.SaaS.BLLCommonServices.WPServicesWS.QueryResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WPServicesWS\SMT.SaaS.BLLCommonServices.WPServicesWS.ResultObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WPServicesWS\SMT.SaaS.BLLCommonServices.WPServicesWS.SaveResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WPServicesWS\SMT.SaaS.BLLCommonServices.WPServicesWS.T_FB_SUBJECT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WPServicesWS\WPServices.wsdl" />
+    <None Include="Service References\WPServicesWS\WPServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WPServicesWS\WPServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WPServicesWS\WPServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WPServicesWS\WPServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WPServicesWS\WPServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WPServicesWS\WPServices41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WPServicesWS\WPServices42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WPServicesWS\WPServices43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BllCommonUserPermissionWS\" />
+    <WCFMetadataStorage Include="Service References\EDMUpdateCheckStateWS\" />
+    <WCFMetadataStorage Include="Service References\EMServiceWS\" />
+    <WCFMetadataStorage Include="Service References\EngineConfigWS\" />
+    <WCFMetadataStorage Include="Service References\FbDailyUpdateCheckStateWS\" />
+    <WCFMetadataStorage Include="Service References\FBServiceWS\" />
+    <WCFMetadataStorage Include="Service References\FlowWFService\" />
+    <WCFMetadataStorage Include="Service References\GSCommonWS\" />
+    <WCFMetadataStorage Include="Service References\HrCommonWS\" />
+    <WCFMetadataStorage Include="Service References\HrUpdateCheckStateWS\" />
+    <WCFMetadataStorage Include="Service References\MailService\" />
+    <WCFMetadataStorage Include="Service References\MVCCacheSV\" />
+    <WCFMetadataStorage Include="Service References\OAPersonalWS\" />
+    <WCFMetadataStorage Include="Service References\OAUpdateCheckWS\" />
+    <WCFMetadataStorage Include="Service References\OrganizationWS\" />
+    <WCFMetadataStorage Include="Service References\PerformanceWS\" />
+    <WCFMetadataStorage Include="Service References\PermissionWS\" />
+    <WCFMetadataStorage Include="Service References\PersonalRecordWS\" />
+    <WCFMetadataStorage Include="Service References\PersonnelWS\" />
+    <WCFMetadataStorage Include="Service References\PMUserLoginWS\" />
+    <WCFMetadataStorage Include="Service References\RMServicesWS\" />
+    <WCFMetadataStorage Include="Service References\TKServicesWS\" />
+    <WCFMetadataStorage Include="Service References\TMServicesWS\" />
+    <WCFMetadataStorage Include="Service References\TokenServiceWS\" />
+    <WCFMetadataStorage Include="Service References\VMServiceWS\" />
+    <WCFMetadataStorage Include="Service References\WPServicesWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganizationWS\OrganizationService2.wsdl" />
+    <None Include="Service References\OrganizationWS\OrganizationService21.wsdl" />
+    <None Include="Service References\OrganizationWS\OrganizationService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService81.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService82.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService83.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService84.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService85.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService86.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService87.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PermissionWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PermissionWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.CustomerPermission1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_DICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_PERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ROLEENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ROLEMENUPERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USERROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_EntityMenu1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_OnlineUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_Permission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_UserLoginRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_UserLoginRecordHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganizationWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganizationWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganizationWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_COMPANY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_COMPANYHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_DEPARTMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_DEPARTMENTDICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_DEPARTMENTHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_POST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_POSTDICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_POSTHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_ATTENDANCEDEDUCTMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_RELATIONPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_UserPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_UserPermissionRoleID1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_UserPermissionUI1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_PF_PERSONALRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EngineConfigWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EngineConfigWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EngineConfigWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_FLOW_ENGINEMSGLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USERLOGINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FBServiceWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FBServiceWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FBServiceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BllCommonUserPermissionWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BllCommonUserPermissionWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BllCommonUserPermissionWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrganizationWS\OrganizationService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonalRecordWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonalRecordWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonalRecordWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityFormResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntityFormResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TokenServiceWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TokenServiceWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TokenServiceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HrCommonWS\HrCommonService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HrCommonWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HrCommonWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HrCommonWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OAUpdateCheckWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OAUpdateCheckWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OAUpdateCheckWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HrUpdateCheckStateWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HrUpdateCheckStateWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HrUpdateCheckStateWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FbDailyUpdateCheckStateWS\DailyUpdateCheckStateService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FbDailyUpdateCheckStateWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FbDailyUpdateCheckStateWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FbDailyUpdateCheckStateWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TokenServiceWS\TokenService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\PersonnelService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TKServicesWS\TKServices1.disco" />
+    <None Include="Service References\TMServicesWS\TMServices1.disco" />
+    <None Include="Service References\RMServicesWS\RMServices1.disco" />
+    <None Include="Service References\WPServicesWS\WPServices.disco" />
+    <None Include="Service References\TKServicesWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TKServicesWS\configuration.svcinfo" />
+    <None Include="Service References\TKServicesWS\configuration91.svcinfo" />
+    <None Include="Service References\PMUserLoginWS\MainUIServices1.disco" />
+    <None Include="Service References\PMUserLoginWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PMUserLoginWS\configuration.svcinfo" />
+    <None Include="Service References\PMUserLoginWS\configuration91.svcinfo" />
+    <None Include="Service References\VMServiceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VMServiceWS\configuration.svcinfo" />
+    <None Include="Service References\VMServiceWS\configuration91.svcinfo" />
+    <None Include="Service References\VMServiceWS\VMServices.disco" />
+    <None Include="Service References\TMServicesWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TMServicesWS\configuration.svcinfo" />
+    <None Include="Service References\TMServicesWS\configuration91.svcinfo" />
+    <None Include="Service References\WPServicesWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WPServicesWS\configuration.svcinfo" />
+    <None Include="Service References\WPServicesWS\configuration91.svcinfo" />
+    <None Include="Service References\PersonalRecordWS\PersonalRecordService1.disco" />
+    <None Include="Service References\RMServicesWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\RMServicesWS\configuration.svcinfo" />
+    <None Include="Service References\RMServicesWS\configuration91.svcinfo" />
+    <None Include="Service References\PermissionWS\PermissionService.disco" />
+    <None Include="Service References\FlowWFService\configuration91.svcinfo" />
+    <None Include="Service References\FlowWFService\configuration.svcinfo" />
+    <None Include="Service References\FlowWFService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\GSCommonWS\GSCommonServices.disco" />
+    <None Include="Service References\GSCommonWS\configuration91.svcinfo" />
+    <None Include="Service References\GSCommonWS\configuration.svcinfo" />
+    <None Include="Service References\GSCommonWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\FlowWFService\SMT1.disco" />
+    <None Include="Service References\EDMUpdateCheckStateWS\configuration91.svcinfo" />
+    <None Include="Service References\EDMUpdateCheckStateWS\configuration.svcinfo" />
+    <None Include="Service References\EDMUpdateCheckStateWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EDMUpdateCheckStateWS\EDMUpdateCheckState.disco" />
+    <None Include="Service References\EMServiceWS\configuration91.svcinfo" />
+    <None Include="Service References\EMServiceWS\configuration.svcinfo" />
+    <None Include="Service References\EMServiceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PerformanceWS\PerformanceService.disco" />
+    <None Include="Service References\PerformanceWS\configuration91.svcinfo" />
+    <None Include="Service References\PerformanceWS\configuration.svcinfo" />
+    <None Include="Service References\PerformanceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OrganizationWS\OrganizationService.disco" />
+    <None Include="Service References\OrganizationWS\OrganizationService2.disco" />
+    <None Include="Service References\OAPersonalWS\SmtOAPersonOffice.disco" />
+    <None Include="Service References\OAPersonalWS\configuration91.svcinfo" />
+    <None Include="Service References\OAPersonalWS\configuration.svcinfo" />
+    <None Include="Service References\OAPersonalWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MVCCacheSV\configuration91.svcinfo" />
+    <None Include="Service References\MVCCacheSV\configuration.svcinfo" />
+    <None Include="Service References\MVCCacheSV\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MVCCacheSV\CacheService.disco" />
+    <None Include="Service References\EMServiceWS\EMServices1.disco" />
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction1.disco" />
+    <None Include="Service References\MailService\MailService.disco" />
+    <None Include="Service References\MailService\configuration91.svcinfo" />
+    <None Include="Service References\MailService\configuration.svcinfo" />
+    <None Include="Service References\MailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\PersonalRecordWS\PersonalRecordService.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

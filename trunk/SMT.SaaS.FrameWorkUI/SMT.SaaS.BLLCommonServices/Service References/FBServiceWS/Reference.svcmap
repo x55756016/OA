@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="51c00b1f-1666-49ee-a2a2-2c2644202312" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:23938/FBService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service2.wsdl" MetadataType="Wsdl" ID="1f0731b9-ffe3-4595-affe-4e3bee8db45c" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="service5.wsdl" MetadataType="Wsdl" ID="ca1bfd45-caed-48e5-8444-6480b802ba92" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="service7.xsd" MetadataType="Schema" ID="0e835778-fc60-4f9d-b7bc-a0c39ab63826" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="SMT_FB_EFModel1.xsd" MetadataType="Schema" ID="f114535d-4400-483e-94f7-d7bfd398a5b7" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="Arrays4.xsd" MetadataType="Schema" ID="0c0eb357-f7ff-4703-a355-3d86d83af4b1" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="System.Data.Objects.DataClasses4.xsd" MetadataType="Schema" ID="abfd3dc2-ac77-4367-aede-be5beddda34b" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="System.Data4.xsd" MetadataType="Schema" ID="94ddd18a-c374-42f1-a192-ba7ec9c89c59" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="SMT.FB.BLL4.xsd" MetadataType="Schema" ID="d6d50724-7955-479e-bf26-3a07df568d81" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="SMT.FlowWFService4.xsd" MetadataType="Schema" ID="c3fd1952-2b16-44c2-9af6-4256b18896bd" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="SMT_System_EFModel1.xsd" MetadataType="Schema" ID="8cf80225-5afd-459a-9e43-85a9dd27c95b" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="service8.xsd" MetadataType="Schema" ID="5f352fd0-d87f-4363-8b2e-8d5e53f3df24" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="SMT.FB.Services1.xsd" MetadataType="Schema" ID="f2583f47-3e02-43f1-a501-f3e02454ca9c" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+    <MetadataFile FileName="SMT_HRM_EFModel13.xsd" MetadataType="Schema" ID="e1ec20c2-e46c-418d-a44b-29ba431f97f5" SourceId="1" SourceUrl="http://localhost:23938/FBService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
