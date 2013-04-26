@@ -1,0 +1,434 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.WebParts.Views.MyRecord"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+             xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+             xmlns:cvt="clr-namespace:SMT.SAAS.Platform.WebParts.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:SmtPager="clr-namespace:SMT.SaaS.DatePager;assembly=SMT.SaaS.DatePager"
+             KeyDown="UserControl_KeyDown"  KeyUp="UserControl_KeyUp" d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <cvt:DataFormatConvert x:Key="DataFormatConvert" />
+        <cvt:DictionaryConverter x:Key="DictionaryConverter" />
+        <cvt:MenusConverter x:Key="MenusConverter" />
+
+    </UserControl.Resources>
+    <Grid x:Name="PARENT">
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <controls:TabControl x:Name="tcPersonalRd"
+                                 Grid.Row="0"
+                                 Background="White"
+                                 SelectionChanged="tcPersonalRd_SelectionChanged"
+                                 Style="{StaticResource TabControlStyle}">
+           
+                <controls:TabItem Header="审核中"
+                                  Style="{StaticResource TabItemStyle}"
+                                  Tag="close">
+                    <ScrollViewer BorderThickness="0"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  Style="{StaticResource ScrollViewerStyle}"
+                                  VerticalScrollBarVisibility="Auto">
+                        <ListBox x:Name="lbApprovingPRList"
+                                 Margin="0,2,0,0"
+                                 BorderBrush="AliceBlue"
+                                 BorderThickness="0"
+                                 ItemContainerStyle="{StaticResource ListBoxItemStyle}"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 Style="{StaticResource ListBoxStyle}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Background="White" Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,3,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="32" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="36" />
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Row="0"
+                                               Grid.Column="0"
+                                               Width="32"
+                                               Height="32"
+                                               Source="/SMT.SAAS.FrameworkUI;Component/Images/icos/Processed.png" />
+                                        <StackPanel Grid.Column="1"
+                                                    Margin="5"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="[" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="{Binding SYSTYPE}" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="]" />
+                                        </StackPanel>
+                                        <HyperlinkButton Grid.Column="2"
+                                                         Margin="5"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Center"
+                                                         Click="HyperlinkButton_Click"
+                                                         DataContext="{Binding}"
+                                                         FontFamily="Arial,SimSun"
+                                                         FontSize="12"
+                                                         Style="{StaticResource HyperlinkButtonNoborder}">
+                                            <HyperlinkButton.Content>
+                                                <TextBlock Width="auto"
+                                                           Tag="{Binding CONFIGINFO}"
+                                                           Text="{Binding Path=MODELDESCRIPTION}"
+                                                           TextTrimming="WordEllipsis" />
+                                            </HyperlinkButton.Content>
+                                        </HyperlinkButton>
+                                        <StackPanel Grid.Column="3"
+                                                    Margin="2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="[" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="{Binding CREATEDATE,
+                                                                      Converter={StaticResource DataFormatConvert}}" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="]" />
+                                        </StackPanel>
+                                        <Path Grid.Row="1"
+                                              Grid.ColumnSpan="4"
+                                              Height="1"
+                                              Data="M24,136 L576,136"
+                                              Fill="{StaticResource WebpartUnderLines1}"
+                                              Stretch="Fill"
+                                              Stroke="{StaticResource WebpartUnderLines1}"
+                                              StrokeThickness="0.5" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </controls:TabItem>
+                <controls:TabItem Header="审核通过"
+                                  Style="{StaticResource TabItemStyle}"
+                                  Tag="close">
+                    <ScrollViewer BorderThickness="0"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  Style="{StaticResource ScrollViewerStyle}"
+                                  VerticalScrollBarVisibility="Auto">
+                        <ListBox x:Name="lbApprovedPRList"
+                                 Margin="0,2,0,0"
+                                 BorderBrush="AliceBlue"
+                                 BorderThickness="0"
+                                 ItemContainerStyle="{StaticResource ListBoxItemStyle}"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 Style="{StaticResource ListBoxStyle}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Background="White" Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,3,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="32" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="36" />
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Row="0"
+                                               Grid.Column="0"
+                                               Width="32"
+                                               Height="32"
+                                               Source="/SMT.SAAS.FrameworkUI;Component/Images/icos/Processed.png" />
+                                        <StackPanel Grid.Column="1"
+                                                    Margin="5"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="[" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="{Binding SYSTYPE}" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="]" />
+                                        </StackPanel>
+                                        <HyperlinkButton Grid.Column="2"
+                                                         Margin="5"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Center"
+                                                         Click="HyperlinkButton_Click"
+                                                         DataContext="{Binding}"
+                                                         FontFamily="Arial,SimSun"
+                                                         FontSize="12"
+                                                         Style="{StaticResource HyperlinkButtonNoborder}">
+                                            <HyperlinkButton.Content>
+                                                <TextBlock Width="auto"
+                                                           Tag="{Binding CONFIGINFO}"
+                                                           Text="{Binding Path=MODELDESCRIPTION}"
+                                                           TextTrimming="WordEllipsis" />
+                                            </HyperlinkButton.Content>
+                                        </HyperlinkButton>
+                                        <StackPanel Grid.Column="3"
+                                                    Margin="2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="[" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="{Binding CREATEDATE,
+                                                                      Converter={StaticResource DataFormatConvert}}" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="]" />
+                                        </StackPanel>
+                                        <Path Grid.Row="1"
+                                              Grid.ColumnSpan="4"
+                                              Height="1"
+                                              Data="M24,136 L576,136"
+                                              Fill="{StaticResource WebpartUnderLines1}"
+                                              Stretch="Fill"
+                                              Stroke="{StaticResource WebpartUnderLines1}"
+                                              StrokeThickness="0.5" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </controls:TabItem>
+                <controls:TabItem Header="审核未通过"
+                                  Style="{StaticResource TabItemStyle}"
+                                  Tag="close">
+                    <ScrollViewer BorderThickness="0"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  Style="{StaticResource ScrollViewerStyle}"
+                                  VerticalScrollBarVisibility="Auto">
+                        <ListBox x:Name="lbUnApprovedPRList"
+                                 Margin="0,2,0,0"
+                                 BorderBrush="AliceBlue"
+                                 BorderThickness="0"
+                                 ItemContainerStyle="{StaticResource ListBoxItemStyle}"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 Style="{StaticResource ListBoxStyle}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Background="White" Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,3,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="32" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="36" />
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Row="0"
+                                               Grid.Column="0"
+                                               Width="32"
+                                               Height="32"
+                                               Source="/SMT.SAAS.FrameworkUI;Component/Images/icos/Processed.png" />
+                                        <StackPanel Grid.Column="1"
+                                                    Margin="5"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="[" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="{Binding SYSTYPE}" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="]" />
+                                        </StackPanel>
+                                        <HyperlinkButton Grid.Column="2"
+                                                         Margin="5"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Center"
+                                                         Click="HyperlinkButton_Click"
+                                                         DataContext="{Binding}"
+                                                         FontFamily="Arial,SimSun"
+                                                         FontSize="12"
+                                                         Style="{StaticResource HyperlinkButtonNoborder}">
+                                            <HyperlinkButton.Content>
+                                                <TextBlock Width="auto"
+                                                           Tag="{Binding CONFIGINFO}"
+                                                           Text="{Binding Path=MODELDESCRIPTION}"
+                                                           TextTrimming="WordEllipsis" />
+                                            </HyperlinkButton.Content>
+                                        </HyperlinkButton>
+                                        <StackPanel Grid.Column="3"
+                                                    Margin="2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="[" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="{Binding CREATEDATE,
+                                                                      Converter={StaticResource DataFormatConvert}}" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="]" />
+                                        </StackPanel>
+                                        <Path Grid.Row="1"
+                                              Grid.ColumnSpan="4"
+                                              Height="1"
+                                              Data="M24,136 L576,136"
+                                              Fill="{StaticResource WebpartUnderLines1}"
+                                              Stretch="Fill"
+                                              Stroke="{StaticResource WebpartUnderLines1}"
+                                              StrokeThickness="0.5" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </controls:TabItem>
+                <controls:TabItem Header="转发"
+                                  Style="{StaticResource TabItemStyle}"
+                                  Tag="close">
+                    <ScrollViewer BorderThickness="0"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  Style="{StaticResource ScrollViewerStyle}"
+                                  VerticalScrollBarVisibility="Auto">
+                        <ListBox x:Name="lbForwardPRList"
+                                 Margin="0,2,0,0"
+                                 BorderBrush="AliceBlue"
+                                 BorderThickness="0"
+                                 ItemContainerStyle="{StaticResource ListBoxItemStyle}"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 Style="{StaticResource ListBoxStyle}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Background="White" Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,3,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="32" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="36" />
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Row="0"
+                                               Grid.Column="0"
+                                               Width="32"
+                                               Height="32"
+                                               Source="/SMT.SAAS.FrameworkUI;Component/Images/icos/Processed.png" />
+                                        <StackPanel Grid.Column="1"
+                                                    Margin="5"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="[" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="{Binding SYSTYPE}" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="]" />
+                                        </StackPanel>
+                                        <HyperlinkButton Grid.Column="2"
+                                                         Margin="5"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Center"
+                                                         Click="HyperlinkButton_Click"
+                                                         DataContext="{Binding}"
+                                                         FontFamily="Arial,SimSun"
+                                                         FontSize="12"
+                                                         Style="{StaticResource HyperlinkButtonNoborder}">
+                                            <HyperlinkButton.Content>
+                                                <TextBlock Width="auto"
+                                                           Tag="{Binding CONFIGINFO}"
+                                                           Text="{Binding Path=MODELDESCRIPTION}"
+                                                           TextTrimming="WordEllipsis" />
+                                            </HyperlinkButton.Content>
+                                        </HyperlinkButton>
+                                        <StackPanel Grid.Column="3"
+                                                    Margin="2"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="[" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="{Binding CREATEDATE,
+                                                                      Converter={StaticResource DataFormatConvert}}" />
+                                            <TextBlock FontFamily="Arial,SimSun"
+                                                       FontSize="12"
+                                                       Text="]" />
+                                        </StackPanel>
+                                        <Path Grid.Row="1"
+                                              Grid.ColumnSpan="4"
+                                              Height="1"
+                                              Data="M24,136 L576,136"
+                                              Fill="{StaticResource WebpartUnderLines1}"
+                                              Stretch="Fill"
+                                              Stroke="{StaticResource WebpartUnderLines1}"
+                                              StrokeThickness="0.5" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </controls:TabItem>                
+            </controls:TabControl>
+            <SmtPager:SmtPager x:Name="Pager" Grid.Row="1" HorizontalAlignment="Right"  ButtonNumber="5"/>
+        </Grid>
+    </Grid>
+</UserControl>

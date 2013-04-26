@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="986dc0b9-eb18-4b18-a741-f8da65426dee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PermissionService.xsd" MetadataType="Schema" ID="2a0e7a26-3522-4e95-8b68-5e5c0f6561ee" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PermissionService1.xsd" MetadataType="Schema" ID="952fab79-c88f-45be-a91b-41191129fff8" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PermissionService2.xsd" MetadataType="Schema" ID="8542832d-6394-46e5-96cb-c72c685ff081" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PermissionService3.xsd" MetadataType="Schema" ID="a5721495-7b6d-4449-9a74-ef3f46439daa" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd9" />
+    <MetadataFile FileName="PermissionService4.xsd" MetadataType="Schema" ID="43f478af-57bb-4067-8cfb-348cab164d91" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PermissionService5.xsd" MetadataType="Schema" ID="f1282ead-f9cc-4a87-b8a6-94ca80c436a0" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PermissionService.disco" MetadataType="Disco" ID="b4fb5e99-9848-40ec-a8ec-5396f707143b" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?disco" />
+    <MetadataFile FileName="PermissionService6.xsd" MetadataType="Schema" ID="1c7732b4-2f16-4f37-9b37-bb70f190b690" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PermissionService7.xsd" MetadataType="Schema" ID="54df5628-933b-468e-834a-afc416f86251" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PermissionService.wsdl" MetadataType="Wsdl" ID="84efe3c4-1c5c-428e-9865-0ca92ac94006" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?wsdl" />
+    <MetadataFile FileName="PermissionService8.xsd" MetadataType="Schema" ID="95af1110-0232-4c43-9888-72847a34b119" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd8" />
+    <MetadataFile FileName="PermissionService9.xsd" MetadataType="Schema" ID="7ec880b9-e420-42f4-8493-2ac27ddb6473" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

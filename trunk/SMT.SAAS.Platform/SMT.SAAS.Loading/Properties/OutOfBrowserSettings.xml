@@ -1,0 +1,15 @@
+<OutOfBrowserSettings ShortName="SMT企业门户系统" EnableGPUAcceleration="True" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>您的桌面上的 SMT 应用程序；在家、工作或旅途中均可使用。</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="SMT信息平台" Height="768" Width="1024" WindowStartupLocation="CenterScreen" WindowStyle="BorderlessRoundCornersWindow" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.SecuritySettings>
+    <SecuritySettings ElevatedPermissions="Required" />
+  </OutOfBrowserSettings.SecuritySettings>
+  <OutOfBrowserSettings.Icons>
+    <Icon Size="16,16">Images/icons/Comicon.png</Icon>
+    <Icon Size="32,32">Images/icons/Comicon.png</Icon>
+    <Icon Size="48,48">Images/icons/Comicon.png</Icon>
+    <Icon Size="128,128">Images/icons/Comicon.png</Icon>
+  </OutOfBrowserSettings.Icons>
+</OutOfBrowserSettings>

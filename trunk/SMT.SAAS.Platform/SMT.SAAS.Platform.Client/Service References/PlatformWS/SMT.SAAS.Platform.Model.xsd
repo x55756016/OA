@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SAAS.Platform.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SAAS.Platform.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ModuleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DependsOn" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnterAssembly" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HostAddress" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InitParams" nillable="true" type="q2:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="IsSave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleIcon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentModuleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UseState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModuleInfo" nillable="true" type="tns:ModuleInfo" />
+  <xs:complexType name="ArrayOfModuleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModuleInfo" nillable="true" type="tns:ModuleInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModuleInfo" nillable="true" type="tns:ArrayOfModuleInfo" />
+  <xs:complexType name="ArrayOfShortCut">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShortCut" nillable="true" type="tns:ShortCut" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShortCut" nillable="true" type="tns:ArrayOfShortCut" />
+  <xs:complexType name="ShortCut">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssemplyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IconPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSysNeed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Params" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShortCutID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserState" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortCut" nillable="true" type="tns:ShortCut" />
+</xs:schema>

@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:cvt="clr-namespace:SMT.SAAS.Platform.WebParts.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:loading="clr-namespace:SMT.SAAS.Platform.WebParts"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+             xmlns:v="clr-namespace:SMT.SAAS.Platform.WebParts.Views"
+             d:DesignHeight="600"
+             d:DesignWidth="700"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <cvt:DataFormatConvert x:Key="DataFormat" />
+        <cvt:PendTaskConvert x:Key="PendTaskConvert" />
+        <cvt:ColorConvert x:Key="ColorConvert" />
+    </UserControl.Resources>
+    <Border Grid.ColumnSpan="2"
+            Margin="0,6,0,0"
+            BorderBrush="#d2d2d2"
+            BorderThickness="1">
+        <Border BorderBrush="White" BorderThickness="1">
+            <Grid x:Name="LayoutRoot" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <sp:GridSplitter x:Name="grsplSplitterColumn"
+                                 Grid.Column="1"
+                                 Width="3"
+                                 VerticalAlignment="Stretch"
+                                 Style="{StaticResource GridSplitterStyle}" />
+                <ScrollViewer Margin="6,10,6,6"
+                              BorderThickness="0"
+                              HorizontalScrollBarVisibility="Disabled"
+                              Style="{StaticResource ScrollViewerStyle}"
+                              VerticalScrollBarVisibility="Auto">
+                    <Border x:Name="borTaskContent" />
+                </ScrollViewer>                
+                <loading:SMTLoading x:Name="loading" Grid.ColumnSpan="3" />
+            </Grid>
+        </Border>
+    </Border>
+</UserControl>

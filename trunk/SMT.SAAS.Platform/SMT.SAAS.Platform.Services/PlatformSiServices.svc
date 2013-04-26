@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SMT.SAAS.Platform.Services.PlatformSiServices" CodeBehind="PlatformSiServices.svc.cs" %>

@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.Xamls.MainPagePart.LoadingLogin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+	<UserControl.Resources>
+		<Storyboard x:Name="SBRolling" RepeatBehavior="Forever">
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="E1">
+				<DiscreteColorKeyFrame KeyTime="0:0:0" Value="#FFE57318"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.15" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.3" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.45" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.6" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.75" Value="#FF437BC1"/>
+			</ColorAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="E2">
+				<DiscreteColorKeyFrame KeyTime="0:0:0" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.15" Value="#FFE57318"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.3" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.45" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.6" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.75" Value="#FF437BC1"/>
+			</ColorAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="E3">
+				<DiscreteColorKeyFrame KeyTime="0:0:0" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.15" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.3" Value="#FFE57318"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.45" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.6" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.75" Value="#FF437BC1"/>
+			</ColorAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="E4">
+				<DiscreteColorKeyFrame KeyTime="0:0:0" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.15" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.3" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.45" Value="#FFE57318"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.6" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.75" Value="#FF437BC1"/>
+			</ColorAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="E5">
+				<DiscreteColorKeyFrame KeyTime="0:0:0" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.15" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.3" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.45" Value="#FF437BC1"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.6" Value="#FFE57318"/>
+				<DiscreteColorKeyFrame KeyTime="0:0:0.75" Value="#FF437BC1"/>
+			</ColorAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="#C8c8c8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.35*"/>
+            <RowDefinition Height="0.65*"/>
+        </Grid.RowDefinitions>
+		<Border Grid.ColumnSpan="3" Grid.RowSpan="2">
+			<Border.Background>
+				<RadialGradientBrush>
+					<GradientStop Color="White" Offset="0"/>
+					<GradientStop Color="#FFC8C8C8" Offset="0.987"/>
+				</RadialGradientBrush>
+			</Border.Background></Border>
+        <Image Source="/Images/loading_logo.png" Width="175" Height="43"
+               Grid.Column="1" Grid.Row="1" VerticalAlignment="Top"/>
+        <StackPanel Width="110" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top"
+              Margin="29,63,36,0" Height="10" Orientation="Horizontal">
+        	<Ellipse Width="9" Fill="White" Height="9" x:Name="E11" Margin="0,0,0,-2"/>
+            	<Ellipse Width="9" Fill="#FFE57318" Height="9" x:Name="E1" Margin="-9,0,0,0"/>
+			<Ellipse Width="9" Fill="White" Height="9" x:Name="E12" Margin="16,0,0,-2"/>
+            	<Ellipse Width="9" Fill="#437bc1" Height="9" Margin="-9,0,0,0" x:Name="E2"  />
+			<Ellipse Width="9" Fill="White" Height="9" x:Name="E13" Margin="16,0,0,-2"/>
+            	<Ellipse Width="9" Fill="#437bc1" Height="9" Margin="-9,0,0,0" x:Name="E3"/>
+			<Ellipse Width="9" Fill="White" Height="9" x:Name="E14" Margin="16,0,0,-2"/>
+				<Ellipse Width="9" Fill="#437bc1" Height="9" Margin="-9,0,0,0" x:Name="E4"/>
+			<Ellipse Width="9" Fill="White" Height="9" x:Name="E15" Margin="16,0,0,-2"/>
+				<Ellipse Width="9" Fill="#437bc1" Height="9" Margin="-9,0,0,0" x:Name="E5"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

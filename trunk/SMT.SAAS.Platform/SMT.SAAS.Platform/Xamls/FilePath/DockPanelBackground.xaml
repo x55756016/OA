@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.Xamls.FilePath.DockPanelBackground"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="250" d:DesignHeight="300">
+
+    <Border  CornerRadius="3" BorderBrush="#FF1A64AD"
+	 BorderThickness="1">
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF1654A7" Offset="0"/>
+                <GradientStop Color="#FF042552" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Background="#FF1857AC" Grid.Row="0">
+                <TextBlock Text="快捷菜单" 
+                           Margin="8,3,0,0" 
+                           FontFamily="Microsoft YaHei"
+                            FontSize="14"
+                            Foreground="#FFFFFF"/>
+            </Border>
+            <Grid Grid.Row="1" RenderTransformOrigin="0.5,0">
+                <Grid.Background>
+                    <RadialGradientBrush GradientOrigin="0.5,-1.5" RadiusY="-0.7" RadiusX="-1">
+                        <GradientStop Color="#FF0D81F1" Offset="0.016"/>
+                        <GradientStop Color="Transparent" Offset="0.738"/>
+                        <GradientStop Color="#995492D0" Offset="0.16"/>
+                        <GradientStop Color="#7779A9DA" Offset="0.287"/>
+                    </RadialGradientBrush>
+                </Grid.Background>
+                <Rectangle Height="129" StrokeThickness="0" VerticalAlignment="Top"
+					 RenderTransformOrigin="0.5,0.5" Margin="0" HorizontalAlignment="Stretch">
+                    <Rectangle.Fill>
+                        <RadialGradientBrush Center="0.6,0.1" GradientOrigin="0.5,0" RadiusY="0.8">
+                            <RadialGradientBrush.RelativeTransform>
+                                <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                            </RadialGradientBrush.RelativeTransform>
+                            <GradientStop Color="#FF2792FF"/>
+                            <GradientStop Color="#001fb3c8" Offset="1"/>
+                            <GradientStop Color="#A597C9FD"/>
+                            <GradientStop Color="#CC4EA6FF"/>
+                            <GradientStop Color="#331FB3C8" Offset="0.439"/>
+                            <GradientStop Color="#7F4EA6FF" Offset="0.008"/>
+                        </RadialGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

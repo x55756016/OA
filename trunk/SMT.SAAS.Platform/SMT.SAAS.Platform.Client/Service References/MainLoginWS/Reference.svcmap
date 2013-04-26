@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cff7cacf-eaa0-48dc-9404-09481acd31c3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.57/New/Services/HR/UserLoginService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserLoginService4.xsd" MetadataType="Schema" ID="96176368-ec3c-44d8-a5dd-73d5b3ce023c" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/UserLoginService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserLoginService1.disco" MetadataType="Disco" ID="51b00697-0977-47fe-8022-8895daee1c07" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/UserLoginService.svc?disco" />
+    <MetadataFile FileName="UserLoginService41.xsd" MetadataType="Schema" ID="956b4d9a-f8b5-4d31-ba8b-ca990cf9f27d" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/UserLoginService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserLoginService42.xsd" MetadataType="Schema" ID="4361c8cb-6427-4051-b093-95d745316b9c" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/UserLoginService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserLoginService2.wsdl" MetadataType="Wsdl" ID="344951fc-9ace-49e7-90c1-015328cdcebe" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/UserLoginService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="UserLoginService21.wsdl" MetadataType="Wsdl" ID="7174129f-2fc4-46e8-87e5-8f3fbfd48c8d" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/UserLoginService.svc?wsdl" />
+    <MetadataFile FileName="UserLoginService43.xsd" MetadataType="Schema" ID="d5d91d2f-6610-4ac7-9a31-76f62ae4d63f" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/UserLoginService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

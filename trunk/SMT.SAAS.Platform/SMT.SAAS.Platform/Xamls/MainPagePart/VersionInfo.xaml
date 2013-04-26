@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.Xamls.MainPagePart.VersionInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="760"
+             mc:Ignorable="d">
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot" Background="White">
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontFamily" Value="Arial,SimSun" />
+                    <Setter Property="FontSize" Value="12" />
+                    <Setter Property="LineHeight" Value="25" />
+                    <Setter Property="Foreground" Value="#333333" />
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontFamily" Value="Arial,SimSun" />
+                    <Setter Property="FontSize" Value="12" />                   
+                    <Setter Property="Foreground" Value="#333333" />
+                </Style>
+            </Grid.Resources>
+            <TextBox Padding="5" TextWrapping="Wrap" IsReadOnly="True"  
+                     Text="&#xd;&#xa;协同办公系统版本更新说明&#xd;&#xa;&#xd;&#xa;版本号&#xd;&#xa; V1.1&#xd;&#xa;&#xd;&#xa;平台部分&#xd;&#xa;新增功能&#xd;&#xa;     1. 平台的操作界面修改为单页面操作，每次只能导航出一个操作界面，取消弹出操作方式（兼容老系统，老系统在平台中仍然是弹出操作）&#xd;&#xa;     2. 调出菜单的方式改为点击左下角【Start】按钮&#xd;&#xa;     3. 菜单布局改成了平铺类型，用户选择模块后系统自动筛选出相应菜单&#xd;&#xa;     4. 快捷菜单的设置改为从菜单区中将图标拖入快捷区&#xd;&#xa;     5. 快捷菜单的删除改为从快捷区将图标拖到【Start】按钮上&#xd;&#xa;     6. 待审核列表中的提单时间修改为剩余处理时间，剩余处理时间根据在流程的KPI中定义的要求处理时间为基准计算出来的&#xd;&#xa;     7. 待审核修改为从审核列表中导航进入，不再弹出新窗口&#xd;&#xa;     8. 使用类似Word的操作界面和操作方式&#xd;&#xa;     9. 点击平台中的【新建】，将看到有新建权限的菜单项&#xd;&#xa;优化功能&#xd;&#xa;     1. 重新设计开发了平台架构，改善了运行性能、稳定性及可维护性&#xd;&#xa;     2. 改善了子系统与平台的集成方式，由客户端集成改为了从服务端集成，大大提高了集成的效率&#xd;&#xa;     3. 系统改为按需加载；只有当进入某个模块时才载入与该模块相关的信息&#xd;&#xa;     4. 系统字典改为按需加载，使用那个部分时才加载相应部分字典内容&#xd;&#xa;     5. 元数据按照新的标准来生成，以支持手机终端&#xd;&#xa;&#xd;&#xa;流程&#xd;&#xa;修复功能&#xd;&#xa;    1. 代提单时消息提醒代提单人（如人力专员为A员工提交入职申请，通过后将提醒人力专员此单通过）&#xd;&#xa; &#xd;&#xa;新增功能&#xd;&#xa;   1. 增加会签功能，流程中定义会签节点后，会签节点上可以设置多个处理角色，同时设置两处理方法：&#xd;&#xa;      1) 一人通过暨全部通过：多个角色在处理时，只要其中的一个人审核了流程就流转到下一审核人&#xd;&#xa;      2) 所有人通过：多个处理角色都审核通过才能流转到下一审核人&#xd;&#xa;   2. 增加咨询功能，审核人在审核过程中咨询其他人的意见，审核人不需要等待被咨询人的回复，可以直接审核，被咨询人在待办中打开咨询回复，其回复的咨询意见只能被咨询人看到&#xd;&#xa;   3. 增加撤单功能，提单人在单据没有终审时可以撤销流程&#xd;&#xa;   4. 增加条件设置选择功能，设置流程中的跳转条件时可以选择需要的条件，而不需要手工输入，如事项审批流程中需要使用岗位级别做条件，可以点选岗位级别列表，从其中选择需要的级别。&#xd;&#xa;   5. 消息引擎增加了相关的接口&#xd;&#xa;&#xd;&#xa;办公系统&#xd;&#xa;修复功能&#xd;&#xa;   1. 修复了事项审批中选择不同“事项类型”提交流程出错&#xd;&#xa;   2. 修复了出差报告自动计算“出差天数”的错误&#xd;&#xa;   3. 修复了出差报销不能正常获取补贴和获取的补贴出错的错误&#xd;&#xa;   4. 修复了出差报销不能产生报销单号的错误&#xd;&#xa;&#xd;&#xa;新增功能&#xd;&#xa;   1. 出差申请审核通过后系统自动填写出差报告单并发给出差人&#xd;&#xa;   2. 出差报告审核通过后系统自动填写出差报销单并发给出差人&#xd;&#xa;   3. 将出差报告、出差报销的显示单据列表界面统一合并到出差申请中，取消出差报告、出差报销的列表界面&#xd;&#xa;   4. 更新了富文本框样式不能保存，没有表格等缺陷&#xd;&#xa;   5. 事项审批根据不同的类型显示不同的流程&#xd;&#xa;   6. 公文添加发布人授权权限&#xd;&#xa;   7. 公文发布时增加了发布预览功能，公文编号根据部门自动生成&#xd;&#xa;   8. 公文发布后可以收到及时提醒：消息提醒，RTX提醒，邮件提醒&#xd;&#xa;   9. 各个审核模块添加了审核人详细信息，区别了多次重复提交审核&#xd;&#xa;   10. 增加了“我的单据”的功能&#xd;&#xa;&#xd;&#xa;人力系统&#xd;&#xa;修复功能&#xd;&#xa;   1. 修复薪资生成结果错误&#xd;&#xa;   2. 修复新增薪资档案历史被覆盖的错误 &#xd;&#xa;   3. 修复薪资提交时提示预算不够的错误&#xd;&#xa;   4. 修复劳动合同保存后不显示在“我的单据”中的错误&#xd;&#xa;   5. 修复了请假后没有消掉异常签卡的错误&#xd;&#xa;   6. 修改加班申请时间的选择方式，增加结束日期&#xd;&#xa;   7. 打卡记录导入文件导入方式转换，解决Excel类型文件导入经常失败的问题&#xd;&#xa;   8. 修复考勤异常计算，全天缺勤只有一次签卡的错误&#xd;&#xa;&#xd;&#xa;新增功能&#xd;&#xa;   1. 新增入职中途能保存档案的功能&#xd;&#xa;   2. 提供月度考勤结果导入功能      &#xd;&#xa;   3. 新增员工实时信息表&#xd;&#xa;   4. 新增薪资汇总表、月底扣税表、员工扣款明细表&#xd;&#xa;   5. 新增社保记录导入新模版&#xd;&#xa;   6. 薪资结算增加离职薪资和按发薪机构结算的功能&#xd;&#xa;   7. 新增不需要做离职申请就可以直接做离职确认的功能&#xd;&#xa;&#xd;&#xa;优化功能&#xd;&#xa;   1. 优化薪资结算的速度&#xd;&#xa;   2. 优化“组织架构”加载信息的大小&#xd;&#xa;&#xd;&#xa;预算系统&#xd;&#xa;修复功能&#xd;&#xa;   1. 修复预算查询页排序分页功能&#xd;&#xa;   2. 修复查询分析结果不正确的问题&#xd;&#xa;   3. 修复还款额度大于借款额度的错误&#xd;&#xa;   4. 修复个人费用报销、借款、还款使用时间长后报错的错误&#xd;&#xa;   5. 修复了冲借款报销必须选择还款单的问题&#xd;&#xa;   6. 修复了代办任务不出现月度调拨单的问题&#xd;&#xa;   7. 修复了可用额度查询不出数据的问题&#xd;&#xa;   8. 修复费用报销单打印不显示备注信息的问题并增加支付信息的内容&#xd;&#xa;   9. 修复“可用额度查询”可按部门查询的问题&#xd;&#xa;   10. 修复同岗位下不同人员间不能调拨月度预算的问题&#xd;&#xa;   11. 修复兼职身份不能做跨部门年度预算调拨的问题&#xd;&#xa;   12. 修复兼职身份不能做跨部门年度和月度预算增补的问题&#xd;&#xa;   13. 整理了前期预算数据混乱的问题&#xd;&#xa;   14. 修复报销单号生成不唯一以及生成多个相同报销单号的问题&#xd;&#xa;   15. 修复年度、月度预算申请汇总时间跨月的问题&#xd;&#xa;   16. 修复了个人活动经费下拨问题&#xd;&#xa;&#xd;&#xa;新增功能&#xd;&#xa;   1. 查询分析导出功能&#xd;&#xa;   2. 查询借还款往来功能&#xd;&#xa;   3. 费用报销打印功能&#xd;&#xa;   4. 按部门查询借支记录功能&#xd;&#xa;   5. 支持以公司、部门、岗位为条件来查询“预算可用额度”&#xd;&#xa;&#xd;&#xa;权限系统&#xd;&#xa;修复功能&#xd;&#xa;   1. 自定义权限报错的错误&#xd;&#xa;&#xd;&#xa;新增功能&#xd;&#xa;   1. 增加了获取子部门权限的功能&#xd;&#xa;   2. 按需获取用户的权限菜单&#xd;&#xa;&#xd;&#xa;优化功能&#xd;&#xa;   1. 优化了用户登录时取权限信息的性能，减少了网络流量&#xd;&#xa;系统新增功能&#xd;&#xa;增加了通过手机终端审核单据的功能，目前支持iPhone、Android智能手机&#xd;&#xa;" 
+                     FontSize="16" />
+
+            <StackPanel  Visibility="Collapsed">
+                <TextBlock Margin="20"
+                           FontFamily="Arial,Microsoft YaHei"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Text="系统更新明细说明   -  版本V1.1" />
+
+                <TextBlock Margin="20,10"
+                           FontFamily="Arial,Microsoft YaHei"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Text="平台" />
+                <TextBlock Margin="30,10"
+                           FontFamily="Arial,Microsoft YaHei"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Text="新功能" />
+                <StackPanel Margin="40,10">
+                    <TextBlock FontSize="12"
+                               Text="1. 平台的操作界面修改为单页面操作，每次只能导航出一个操作界面，取消弹出操作方式（兼容老系统，老系统在平台中仍然是弹出操作）"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="2. 调出菜单的方式改为点左下角Start "
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="3. 菜单布局改成了平铺类型，用户点击系统和模块自动筛选出菜单"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="4. 快捷菜单的设置修改为从菜单中拖入快捷区"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="5. 快捷菜单的删除设置修改为从快捷区拖到Start按钮上"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="6. 待审核列表中的提单时间修改为剩余处理时间"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="7. 待审核修改为从审核列表中导航进入，不再弹出"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="8. 使用类似Word的操作界面和操作方式"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="9. 点平台中的新建可以打开所有有权限新建的功能，点击后可以直接新建对应模块的表单"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+
+                <TextBlock Margin="30,10"
+                           FontFamily="Arial,Microsoft YaHei"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Text="功能优化" />
+                <StackPanel Margin="40,10">
+                  
+                    <TextBlock FontSize="12"
+                               Text="1.	改为按需加载，使用时才载入系统"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="2.	改为按需加载，使用时才加载字典"
+                               TextWrapping="Wrap" />                   
+                </StackPanel>
+                <Rectangle Height="1"
+                           Margin="20,10,20,0"
+                           HorizontalAlignment="Stretch"
+                           Fill="#333333" />
+                <Rectangle Height="1"
+                           Margin="20,0,20,10"
+                           HorizontalAlignment="Stretch"
+                           Fill="Gray" />
+
+                <TextBlock Margin="20,10"
+                           FontFamily="Arial,Microsoft YaHei"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Text="流程" />
+                <TextBlock Margin="30,10"
+                           FontFamily="Arial,Microsoft YaHei"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Text="功能修复" />
+                <StackPanel Margin="40,10">
+                    <TextBlock FontSize="12"
+                               Text="1. 代提单时消息提醒代提单人（如人力专员为A员工提交入职申请，通过后将提醒人力专员此单通过） "
+                               TextWrapping="Wrap" />
+               
+                </StackPanel>
+
+                <TextBlock Margin="30,10"
+                           FontFamily="Arial,Microsoft YaHei"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Text="新功能" />
+                <StackPanel Margin="40,10">
+
+                    <TextBlock FontSize="12"
+                               Text="1.	增加会签功能，流程中定义会签节点后，会签节点上可以设置多个处理角色，同时设置两处理方法"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12" Margin="10"
+                               Text=" 1)	一人通过暨全部通过：多个角色在处理时，只要其中的一个人审核了流程就流转到下一审核人"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12" Margin="10"
+                               Text=" 2)	所有人通过：多个处理角色都审核通过才能流转到下一审核人"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="2.	增加咨询功能，审核人在审核过程中咨询其他人的意见，审核人不需要等待被咨询人的回复，可以直接审核，被咨询人在待办中打开咨询回复"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="3.	增加撤单功能，提单人在单据没有终审时可以撤销流程"
+                               TextWrapping="Wrap" />
+                    <TextBlock FontSize="12"
+                               Text="4.	增加条件设置选择功能，设置流程中的跳转条件时可以选择需要的条件，而不需要手工输入，如事项审批流程中需要使用岗位级别做条件，可以点选岗位级别列表，从其中选择需要的级别。"
+                               TextWrapping="Wrap" />
+                   
+                </StackPanel>
+                <Rectangle Height="1"
+                           Margin="20,10,20,0"
+                           HorizontalAlignment="Stretch"
+                           Fill="#333333" />
+                <Rectangle Height="1"
+                           Margin="20,0,20,10"
+                           HorizontalAlignment="Stretch"
+                           Fill="Gray" />
+
+
+
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

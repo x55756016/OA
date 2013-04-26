@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlatformSiServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:15739/PlatformSiServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformSiServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformSiServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SAAS.Platform.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPlatformSiServices_AddShortCut_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddShortCut" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformSiServices_AddShortCut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddShortCutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformSiServices_AddShortCutByList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddShortCutByList" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformSiServices_AddShortCutByList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddShortCutByListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformSiServices_AddShortCutByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddShortCutByUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformSiServices_AddShortCutByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddShortCutByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformSiServices_GetShortCutByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShortCutByUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformSiServices_GetShortCutByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShortCutByUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPlatformSiServices">
+    <wsdl:operation name="AddShortCut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformSiServices/AddShortCut" message="tns:IPlatformSiServices_AddShortCut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformSiServices/AddShortCutResponse" message="tns:IPlatformSiServices_AddShortCut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShortCutByList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformSiServices/AddShortCutByList" message="tns:IPlatformSiServices_AddShortCutByList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformSiServices/AddShortCutByListResponse" message="tns:IPlatformSiServices_AddShortCutByList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShortCutByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformSiServices/AddShortCutByUser" message="tns:IPlatformSiServices_AddShortCutByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformSiServices/AddShortCutByUserResponse" message="tns:IPlatformSiServices_AddShortCutByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShortCutByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformSiServices/GetShortCutByUser" message="tns:IPlatformSiServices_GetShortCutByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformSiServices/GetShortCutByUserResponse" message="tns:IPlatformSiServices_GetShortCutByUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPlatformSiServices" type="tns:IPlatformSiServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddShortCut">
+      <soap:operation soapAction="http://tempuri.org/IPlatformSiServices/AddShortCut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShortCutByList">
+      <soap:operation soapAction="http://tempuri.org/IPlatformSiServices/AddShortCutByList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShortCutByUser">
+      <soap:operation soapAction="http://tempuri.org/IPlatformSiServices/AddShortCutByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShortCutByUser">
+      <soap:operation soapAction="http://tempuri.org/IPlatformSiServices/GetShortCutByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PlatformSiServices">
+    <wsdl:port name="BasicHttpBinding_IPlatformSiServices" binding="tns:BasicHttpBinding_IPlatformSiServices">
+      <soap:address location="http://localhost:15739/PlatformSiServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

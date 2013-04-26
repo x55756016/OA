@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="Silverlight" elementFormDefault="qualified" targetNamespace="Silverlight" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" />
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TalkNews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" minOccurs="0" name="model" nillable="true" type="q1:T_PF_NEWS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Receive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" minOccurs="0" name="news" nillable="true" type="q2:T_PF_NEWS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

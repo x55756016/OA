@@ -1,0 +1,1158 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+<edmx:Runtime>
+<edmx:StorageModels>
+<Schema Namespace="SMT_Platform_EFModel.Store" Alias="Self" Provider="EFOracleProvider" ProviderManifestToken="10g" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="SMT_Platform_EFModelStoreContainer">
+    <EntitySet Name="T_PF_MODULEDEPENDS" EntityType="SMT_Platform_EFModel.Store.T_PF_MODULEDEPENDS" store:Type="Tables" />
+    <EntitySet Name="T_PF_MODULEINFO" EntityType="SMT_Platform_EFModel.Store.T_PF_MODULEINFO" store:Type="Tables" />
+    <EntitySet Name="T_PF_MODULEUPDATELOG" EntityType="SMT_Platform_EFModel.Store.T_PF_MODULEUPDATELOG" store:Type="Tables" />
+    <EntitySet Name="T_PF_MODULE_RESOURCE" EntityType="SMT_Platform_EFModel.Store.T_PF_MODULE_RESOURCE" store:Type="Tables" />
+    <EntitySet Name="T_PF_PUBLICPART" EntityType="SMT_Platform_EFModel.Store.T_PF_PUBLICPART" store:Type="Tables" />
+    <EntitySet Name="T_PF_RESOURCE" EntityType="SMT_Platform_EFModel.Store.T_PF_RESOURCE" store:Type="Tables" />
+    <EntitySet Name="T_PF_RESOURCEHOST" EntityType="SMT_Platform_EFModel.Store.T_PF_RESOURCEHOST" store:Type="Tables" />
+    <EntitySet Name="T_PF_RESOURCEMAPPING" EntityType="SMT_Platform_EFModel.Store.T_PF_RESOURCEMAPPING" store:Type="Tables" />
+    <EntitySet Name="T_PF_SHORTCUT" EntityType="SMT_Platform_EFModel.Store.T_PF_SHORTCUT" store:Type="Tables" />
+    <EntitySet Name="T_PF_SYSTEMCONFIG" EntityType="SMT_Platform_EFModel.Store.T_PF_SYSTEMCONFIG" store:Type="Tables" />
+    <EntitySet Name="T_PF_SYSTEMERROR" EntityType="SMT_Platform_EFModel.Store.T_PF_SYSTEMERROR" store:Type="Tables" />
+    <EntitySet Name="T_PF_USER_SHORTCUT" EntityType="SMT_Platform_EFModel.Store.T_PF_USER_SHORTCUT" store:Type="Tables" />
+    <EntitySet Name="T_PF_USER_WEBPART" EntityType="SMT_Platform_EFModel.Store.T_PF_USER_WEBPART" store:Type="Tables" />
+    <EntitySet Name="T_PF_WEBPART" EntityType="SMT_Platform_EFModel.Store.T_PF_WEBPART" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="T_PF_MODULEDEPENDS">
+    <Key>
+      <PropertyRef Name="DEPENDID" />
+      <PropertyRef Name="MODULEID" />
+    </Key>
+    <Property Name="DEPENDID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODULEID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_MODULEINFO">
+    <Key>
+      <PropertyRef Name="MODULEID" />
+    </Key>
+    <Property Name="MODULEID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODULECODE" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODULENAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="MODULETYPE" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="PARENTMODULEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="MODULEICON" Type="nvarchar2" MaxLength="400" />
+    <Property Name="VERSION" Type="nvarchar2" Nullable="false" MaxLength="1000" />
+    <Property Name="FILENAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="FILEPATH" Type="nvarchar2" MaxLength="400" />
+    <Property Name="ENTERASSEMBLY" Type="nvarchar2" MaxLength="400" />
+    <Property Name="ISSAVE" Type="nvarchar2" MaxLength="2" />
+    <Property Name="CLIENTID" Type="nvarchar2" MaxLength="400" />
+    <Property Name="SERVERID" Type="nvarchar2" MaxLength="400" />
+    <Property Name="USESTATE" Type="nvarchar2" MaxLength="2" />
+    <Property Name="HOSTADDRESS" Type="nvarchar2" MaxLength="400" />
+    <Property Name="DESCRIPTION" Type="nvarchar2" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_MODULEUPDATELOG">
+    <Key>
+      <PropertyRef Name="MODULELOGID" />
+    </Key>
+    <Property Name="MODULELOGID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODULEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="VERSION" Type="nvarchar2" MaxLength="100" />
+    <Property Name="DESCRIPTION" Type="nvarchar2" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_MODULE_RESOURCE">
+    <Key>
+      <PropertyRef Name="MODULEINFOID" />
+    </Key>
+    <Property Name="MODULEINFOID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="RESOURCEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_PUBLICPART">
+    <Key>
+      <PropertyRef Name="PARTID" />
+    </Key>
+    <Property Name="PARTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODULEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="PARTKEY" Type="nvarchar2" MaxLength="100" />
+    <Property Name="PIOCPATH" Type="nvarchar2" MaxLength="400" />
+    <Property Name="TITEL" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="FULLNAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="ASSEMPLYNAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="PARAMS" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="USERSTATE" Type="nvarchar2" Nullable="false" MaxLength="2" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_RESOURCE">
+    <Key>
+      <PropertyRef Name="RESOURCEID" />
+    </Key>
+    <Property Name="RESOURCEID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="RESOURCENAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FILEPATH" Type="nvarchar2" MaxLength="100" />
+    <Property Name="VERSION" Type="nvarchar2" MaxLength="100" />
+    <Property Name="TYPE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="STATE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="DESCRIPTION" Type="nvarchar2" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_RESOURCEHOST">
+    <Key>
+      <PropertyRef Name="HOSTID" />
+    </Key>
+    <Property Name="HOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="HOSTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="HOSTADDRESS" Type="nvarchar2" MaxLength="400" />
+    <Property Name="DESCRIPTION" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="HOSTVERSION" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ISMAINHOST" Type="nvarchar2" MaxLength="2" />
+    <Property Name="ISACCESS" Type="nvarchar2" MaxLength="2" />
+    <Property Name="SYNCDATE" Type="date" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_RESOURCEMAPPING">
+    <Key>
+      <PropertyRef Name="MAPPINGID" />
+    </Key>
+    <Property Name="MAPPINGID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="HOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="STARTIP" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ENDIP" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_SHORTCUT">
+    <Key>
+      <PropertyRef Name="SHORTCUTID" />
+    </Key>
+    <Property Name="SHORTCUTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODULEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="TITEL" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="ASSEMPLYNAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="ICONPATH" Type="nvarchar2" MaxLength="400" />
+    <Property Name="FULLNAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="ISSYSNEED" Type="nvarchar2" MaxLength="2" />
+    <Property Name="PARAMS" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="USERSTATE" Type="nvarchar2" Nullable="false" MaxLength="2" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_SYSTEMCONFIG">
+    <Key>
+      <PropertyRef Name="USERCONFIGID" />
+    </Key>
+    <Property Name="USERCONFIGID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="USERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CONFIGNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CONFIGINFO" Type="nvarchar2" />
+    <Property Name="CONFIGTYPE" Type="nvarchar2" MaxLength="4" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_SYSTEMERROR">
+    <Key>
+      <PropertyRef Name="ERRORID" />
+    </Key>
+    <Property Name="ERRORID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ERRORCODE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="APPNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="MODELNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ERRORTITEL" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CATEGORY" Type="nvarchar2" MaxLength="4" />
+    <Property Name="PRIORITY" Type="nvarchar2" MaxLength="4" />
+    <Property Name="MESSAGE" Type="nvarchar2" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_USER_SHORTCUT">
+    <Key>
+      <PropertyRef Name="USERSHORTCUTID" />
+    </Key>
+    <Property Name="USERSHORTCUTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SHORTCUTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_USER_WEBPART">
+    <Key>
+      <PropertyRef Name="USERWEBPARTID" />
+    </Key>
+    <Property Name="USERWEBPARTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="WEBPARTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="USERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="TEMPLATENAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="PARAMS" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_PF_WEBPART">
+    <Key>
+      <PropertyRef Name="WEBPARTID" />
+    </Key>
+    <Property Name="WEBPARTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODULEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ICONPATH" Type="nvarchar2" MaxLength="400" />
+    <Property Name="TITEL" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="FULLNAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="ASSEMPLYNAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="ISSYSNEED" Type="nvarchar2" MaxLength="2" />
+    <Property Name="PARAMS" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="TEMPLATENAME" Type="nvarchar2" Nullable="false" MaxLength="400" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="USERSTATE" Type="nvarchar2" Nullable="false" MaxLength="2" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+</Schema>
+</edmx:StorageModels>
+<edmx:ConceptualModels>
+<Schema Namespace="SMT_Platform_EFModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="SMT_Platform_EFModelContext">
+    <EntitySet Name="T_PF_MODULEDEPENDS" EntityType="SMT_Platform_EFModel.T_PF_MODULEDEPENDS" />
+    <EntitySet Name="T_PF_MODULEINFO" EntityType="SMT_Platform_EFModel.T_PF_MODULEINFO" />
+    <EntitySet Name="T_PF_MODULEUPDATELOG" EntityType="SMT_Platform_EFModel.T_PF_MODULEUPDATELOG" />
+    <EntitySet Name="T_PF_MODULE_RESOURCE" EntityType="SMT_Platform_EFModel.T_PF_MODULE_RESOURCE" />
+    <EntitySet Name="T_PF_PUBLICPART" EntityType="SMT_Platform_EFModel.T_PF_PUBLICPART" />
+    <EntitySet Name="T_PF_RESOURCE" EntityType="SMT_Platform_EFModel.T_PF_RESOURCE" />
+    <EntitySet Name="T_PF_RESOURCEHOST" EntityType="SMT_Platform_EFModel.T_PF_RESOURCEHOST" />
+    <EntitySet Name="T_PF_RESOURCEMAPPING" EntityType="SMT_Platform_EFModel.T_PF_RESOURCEMAPPING" />
+    <EntitySet Name="T_PF_SHORTCUT" EntityType="SMT_Platform_EFModel.T_PF_SHORTCUT" />
+    <EntitySet Name="T_PF_SYSTEMCONFIG" EntityType="SMT_Platform_EFModel.T_PF_SYSTEMCONFIG" />
+    <EntitySet Name="T_PF_SYSTEMERROR" EntityType="SMT_Platform_EFModel.T_PF_SYSTEMERROR" />
+    <EntitySet Name="T_PF_USER_SHORTCUT" EntityType="SMT_Platform_EFModel.T_PF_USER_SHORTCUT" />
+    <EntitySet Name="T_PF_USER_WEBPART" EntityType="SMT_Platform_EFModel.T_PF_USER_WEBPART" />
+    <EntitySet Name="T_PF_WEBPART" EntityType="SMT_Platform_EFModel.T_PF_WEBPART" />
+  </EntityContainer>
+  <EntityType Name="T_PF_MODULEDEPENDS">
+    <Key>
+      <PropertyRef Name="DEPENDID" />
+      <PropertyRef Name="MODULEID" />
+    </Key>
+    <Property Name="DEPENDID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODULEID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_MODULEINFO">
+    <Key>
+      <PropertyRef Name="MODULEID" />
+    </Key>
+    <Property Name="MODULEID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODULECODE" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODULENAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="MODULETYPE" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="PARENTMODULEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODULEICON" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="VERSION" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="FILENAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="FILEPATH" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ENTERASSEMBLY" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ISSAVE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTID" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="SERVERID" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="USESTATE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="HOSTADDRESS" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_MODULEUPDATELOG">
+    <Key>
+      <PropertyRef Name="MODULELOGID" />
+    </Key>
+    <Property Name="MODULELOGID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODULEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="VERSION" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_MODULE_RESOURCE">
+    <Key>
+      <PropertyRef Name="MODULEINFOID" />
+    </Key>
+    <Property Name="MODULEINFOID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RESOURCEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_PUBLICPART">
+    <Key>
+      <PropertyRef Name="PARTID" />
+    </Key>
+    <Property Name="PARTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODULEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="PARTKEY" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="PIOCPATH" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="TITEL" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="FULLNAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ASSEMPLYNAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="PARAMS" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="USERSTATE" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_RESOURCE">
+    <Key>
+      <PropertyRef Name="RESOURCEID" />
+    </Key>
+    <Property Name="RESOURCEID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RESOURCENAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FILEPATH" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="VERSION" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TYPE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="STATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_RESOURCEHOST">
+    <Key>
+      <PropertyRef Name="HOSTID" />
+    </Key>
+    <Property Name="HOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="HOSTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="HOSTADDRESS" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="HOSTVERSION" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ISMAINHOST" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="ISACCESS" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="SYNCDATE" Type="DateTime" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_RESOURCEMAPPING">
+    <Key>
+      <PropertyRef Name="MAPPINGID" />
+    </Key>
+    <Property Name="MAPPINGID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="HOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="STARTIP" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ENDIP" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_SHORTCUT">
+    <Key>
+      <PropertyRef Name="SHORTCUTID" />
+    </Key>
+    <Property Name="SHORTCUTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODULEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TITEL" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ASSEMPLYNAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ICONPATH" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="FULLNAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ISSYSNEED" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="PARAMS" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="USERSTATE" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_SYSTEMCONFIG">
+    <Key>
+      <PropertyRef Name="USERCONFIGID" />
+    </Key>
+    <Property Name="USERCONFIGID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="USERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CONFIGNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CONFIGINFO" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CONFIGTYPE" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_SYSTEMERROR">
+    <Key>
+      <PropertyRef Name="ERRORID" />
+    </Key>
+    <Property Name="ERRORID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ERRORCODE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="APPNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODELNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ERRORTITEL" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CATEGORY" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="PRIORITY" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="MESSAGE" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_USER_SHORTCUT">
+    <Key>
+      <PropertyRef Name="USERSHORTCUTID" />
+    </Key>
+    <Property Name="USERSHORTCUTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SHORTCUTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_USER_WEBPART">
+    <Key>
+      <PropertyRef Name="USERWEBPARTID" />
+    </Key>
+    <Property Name="USERWEBPARTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="WEBPARTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="USERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TEMPLATENAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="PARAMS" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_PF_WEBPART">
+    <Key>
+      <PropertyRef Name="WEBPARTID" />
+    </Key>
+    <Property Name="WEBPARTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODULEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ICONPATH" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="TITEL" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="FULLNAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ASSEMPLYNAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ISSYSNEED" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="PARAMS" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="TEMPLATENAME" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="USERSTATE" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+</Schema>
+</edmx:ConceptualModels>
+<edmx:Mappings>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="SMT_Platform_EFModelStoreContainer" CdmEntityContainer="SMT_Platform_EFModelContext">
+    <EntitySetMapping Name="T_PF_MODULEDEPENDS">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_MODULEDEPENDS">
+        <MappingFragment StoreEntitySet="T_PF_MODULEDEPENDS">
+          <ScalarProperty Name="DEPENDID" ColumnName="DEPENDID" />
+          <ScalarProperty Name="MODULEID" ColumnName="MODULEID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_MODULEINFO">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_MODULEINFO">
+        <MappingFragment StoreEntitySet="T_PF_MODULEINFO">
+          <ScalarProperty Name="MODULEID" ColumnName="MODULEID" />
+          <ScalarProperty Name="MODULECODE" ColumnName="MODULECODE" />
+          <ScalarProperty Name="MODULENAME" ColumnName="MODULENAME" />
+          <ScalarProperty Name="MODULETYPE" ColumnName="MODULETYPE" />
+          <ScalarProperty Name="PARENTMODULEID" ColumnName="PARENTMODULEID" />
+          <ScalarProperty Name="MODULEICON" ColumnName="MODULEICON" />
+          <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+          <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+          <ScalarProperty Name="FILEPATH" ColumnName="FILEPATH" />
+          <ScalarProperty Name="ENTERASSEMBLY" ColumnName="ENTERASSEMBLY" />
+          <ScalarProperty Name="ISSAVE" ColumnName="ISSAVE" />
+          <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+          <ScalarProperty Name="SERVERID" ColumnName="SERVERID" />
+          <ScalarProperty Name="USESTATE" ColumnName="USESTATE" />
+          <ScalarProperty Name="HOSTADDRESS" ColumnName="HOSTADDRESS" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_MODULEUPDATELOG">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_MODULEUPDATELOG">
+        <MappingFragment StoreEntitySet="T_PF_MODULEUPDATELOG">
+          <ScalarProperty Name="MODULELOGID" ColumnName="MODULELOGID" />
+          <ScalarProperty Name="MODULEID" ColumnName="MODULEID" />
+          <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_MODULE_RESOURCE">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_MODULE_RESOURCE">
+        <MappingFragment StoreEntitySet="T_PF_MODULE_RESOURCE">
+          <ScalarProperty Name="MODULEINFOID" ColumnName="MODULEINFOID" />
+          <ScalarProperty Name="RESOURCEID" ColumnName="RESOURCEID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_PUBLICPART">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_PUBLICPART">
+        <MappingFragment StoreEntitySet="T_PF_PUBLICPART">
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="MODULEID" ColumnName="MODULEID" />
+          <ScalarProperty Name="PARTKEY" ColumnName="PARTKEY" />
+          <ScalarProperty Name="PIOCPATH" ColumnName="PIOCPATH" />
+          <ScalarProperty Name="TITEL" ColumnName="TITEL" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="ASSEMPLYNAME" ColumnName="ASSEMPLYNAME" />
+          <ScalarProperty Name="PARAMS" ColumnName="PARAMS" />
+          <ScalarProperty Name="USERSTATE" ColumnName="USERSTATE" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_RESOURCE">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_RESOURCE">
+        <MappingFragment StoreEntitySet="T_PF_RESOURCE">
+          <ScalarProperty Name="RESOURCEID" ColumnName="RESOURCEID" />
+          <ScalarProperty Name="RESOURCENAME" ColumnName="RESOURCENAME" />
+          <ScalarProperty Name="FILEPATH" ColumnName="FILEPATH" />
+          <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_RESOURCEHOST">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_RESOURCEHOST">
+        <MappingFragment StoreEntitySet="T_PF_RESOURCEHOST">
+          <ScalarProperty Name="HOSTID" ColumnName="HOSTID" />
+          <ScalarProperty Name="HOSTNAME" ColumnName="HOSTNAME" />
+          <ScalarProperty Name="HOSTADDRESS" ColumnName="HOSTADDRESS" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="HOSTVERSION" ColumnName="HOSTVERSION" />
+          <ScalarProperty Name="ISMAINHOST" ColumnName="ISMAINHOST" />
+          <ScalarProperty Name="ISACCESS" ColumnName="ISACCESS" />
+          <ScalarProperty Name="SYNCDATE" ColumnName="SYNCDATE" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_RESOURCEMAPPING">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_RESOURCEMAPPING">
+        <MappingFragment StoreEntitySet="T_PF_RESOURCEMAPPING">
+          <ScalarProperty Name="MAPPINGID" ColumnName="MAPPINGID" />
+          <ScalarProperty Name="HOSTID" ColumnName="HOSTID" />
+          <ScalarProperty Name="STARTIP" ColumnName="STARTIP" />
+          <ScalarProperty Name="ENDIP" ColumnName="ENDIP" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_SHORTCUT">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_SHORTCUT">
+        <MappingFragment StoreEntitySet="T_PF_SHORTCUT">
+          <ScalarProperty Name="SHORTCUTID" ColumnName="SHORTCUTID" />
+          <ScalarProperty Name="MODULEID" ColumnName="MODULEID" />
+          <ScalarProperty Name="TITEL" ColumnName="TITEL" />
+          <ScalarProperty Name="ASSEMPLYNAME" ColumnName="ASSEMPLYNAME" />
+          <ScalarProperty Name="ICONPATH" ColumnName="ICONPATH" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="ISSYSNEED" ColumnName="ISSYSNEED" />
+          <ScalarProperty Name="PARAMS" ColumnName="PARAMS" />
+          <ScalarProperty Name="USERSTATE" ColumnName="USERSTATE" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_SYSTEMCONFIG">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_SYSTEMCONFIG">
+        <MappingFragment StoreEntitySet="T_PF_SYSTEMCONFIG">
+          <ScalarProperty Name="USERCONFIGID" ColumnName="USERCONFIGID" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="CONFIGNAME" ColumnName="CONFIGNAME" />
+          <ScalarProperty Name="CONFIGINFO" ColumnName="CONFIGINFO" />
+          <ScalarProperty Name="CONFIGTYPE" ColumnName="CONFIGTYPE" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_SYSTEMERROR">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_SYSTEMERROR">
+        <MappingFragment StoreEntitySet="T_PF_SYSTEMERROR">
+          <ScalarProperty Name="ERRORID" ColumnName="ERRORID" />
+          <ScalarProperty Name="ERRORCODE" ColumnName="ERRORCODE" />
+          <ScalarProperty Name="APPNAME" ColumnName="APPNAME" />
+          <ScalarProperty Name="MODELNAME" ColumnName="MODELNAME" />
+          <ScalarProperty Name="ERRORTITEL" ColumnName="ERRORTITEL" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_USER_SHORTCUT">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_USER_SHORTCUT">
+        <MappingFragment StoreEntitySet="T_PF_USER_SHORTCUT">
+          <ScalarProperty Name="USERSHORTCUTID" ColumnName="USERSHORTCUTID" />
+          <ScalarProperty Name="SHORTCUTID" ColumnName="SHORTCUTID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_USER_WEBPART">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_USER_WEBPART">
+        <MappingFragment StoreEntitySet="T_PF_USER_WEBPART">
+          <ScalarProperty Name="USERWEBPARTID" ColumnName="USERWEBPARTID" />
+          <ScalarProperty Name="WEBPARTID" ColumnName="WEBPARTID" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="TEMPLATENAME" ColumnName="TEMPLATENAME" />
+          <ScalarProperty Name="PARAMS" ColumnName="PARAMS" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PF_WEBPART">
+      <EntityTypeMapping TypeName="SMT_Platform_EFModel.T_PF_WEBPART">
+        <MappingFragment StoreEntitySet="T_PF_WEBPART">
+          <ScalarProperty Name="WEBPARTID" ColumnName="WEBPARTID" />
+          <ScalarProperty Name="MODULEID" ColumnName="MODULEID" />
+          <ScalarProperty Name="ICONPATH" ColumnName="ICONPATH" />
+          <ScalarProperty Name="TITEL" ColumnName="TITEL" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="ASSEMPLYNAME" ColumnName="ASSEMPLYNAME" />
+          <ScalarProperty Name="ISSYSNEED" ColumnName="ISSYSNEED" />
+          <ScalarProperty Name="PARAMS" ColumnName="PARAMS" />
+          <ScalarProperty Name="TEMPLATENAME" ColumnName="TEMPLATENAME" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="USERSTATE" ColumnName="USERSTATE" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
+</edmx:Mappings>
+</edmx:Runtime>
+<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+<Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
+<edmx:Options />
+<edmx:Diagrams >
+      <Diagram Name="SMT_Platform_EFModel">
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_MODULEDEPENDS" Width="1.5" PointX="0.75" PointY="0.75" Height="3.6456510416666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_MODULEINFO" Width="1.5" PointX="2.75" PointY="0.75" Height="6.006328125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_MODULEUPDATELOG" Width="1.5" PointX="4.75" PointY="0.75" Height="3.9828906249999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_MODULE_RESOURCE" Width="1.5" PointX="4.75" PointY="5.75" Height="3.6456510416666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_PUBLICPART" Width="1.5" PointX="6.75" PointY="0.75" Height="4.8259895833333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_RESOURCE" Width="1.5" PointX="6.75" PointY="6.75" Height="4.48875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_RESOURCEHOST" Width="1.5" PointX="0.75" PointY="7.75" Height="4.6573697916666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_RESOURCEMAPPING" Width="1.5" PointX="8.75" PointY="0.75" Height="3.9828906249999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_SHORTCUT" Width="1.5" PointX="8.75" PointY="5.75" Height="4.8259895833333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_SYSTEMCONFIG" Width="1.5" PointX="10.75" PointY="0.75" Height="4.1515104166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_SYSTEMERROR" Width="1.5" PointX="2.75" PointY="10.75" Height="4.6573697916666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_USER_SHORTCUT" Width="1.5" PointX="10.75" PointY="5.75" Height="3.6456510416666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_USER_WEBPART" Width="1.5" PointX="10.75" PointY="10.75" Height="4.1515104166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_Platform_EFModel.T_PF_WEBPART" Width="1.5" PointX="12.75" PointY="0.75" Height="4.9946093750000031" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+</edmx:Designer></edmx:Edmx>

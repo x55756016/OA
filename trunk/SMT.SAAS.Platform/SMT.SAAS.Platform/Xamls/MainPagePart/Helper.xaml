@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.Xamls.MainPagePart.Helper"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d" Background="#eef1f6">
+
+    <Grid x:Name="LayoutRoot" Background="#eef1f6" Margin="-10,-13,-10,-13" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Visibility="Visible">
+            <TextBlock Margin="10"
+                       FontFamily="Arial,Microsoft YaHei"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       Text="温馨提示" />
+            <TextBlock Margin="20,5"
+                       FontFamily="Arial,Microsoft YaHei"
+                       FontSize="14"
+                       FontWeight="Bold"
+                       Text="为帮助系统用户快速的学习使用本系统，请查看以下注意事项和操作方法" />
+
+            <StackPanel Margin="40,10">
+                <TextBlock Margin="4"
+                           FontSize="12"
+                           Text="1、平台左下角[Start]按钮为菜单按钮，点击后会打开菜单界面"
+                           TextWrapping="Wrap" />
+                <TextBlock Margin="4"
+                           FontSize="12"
+                           Text="2、图片新闻下面的空白区为快捷导航区，把菜单图标拖入快捷导航区会自动保存拖入的快捷菜单，下次登录直接从快捷导航菜单打开窗口"
+                           TextWrapping="Wrap" />
+                <TextBlock Margin="4"
+                           FontSize="12"
+                           Text="3、快捷导航区内的菜单拖到[Start]按钮上会删除快捷导航区中拖出的菜单"
+                           TextWrapping="Wrap" />
+                <TextBlock Margin="4"
+                           FontSize="12"
+                           Text="4、点击平台右下角的版本号会弹出版本升级说明，升级说明列出了本次的详细更新"
+                           TextWrapping="Wrap" />
+
+            </StackPanel>
+        </StackPanel>
+        <CheckBox x:Name="ckbisPopup"
+                  Grid.Row="1"
+                  Margin="10"
+                  HorizontalAlignment="Right"
+                  Checked="ckbisPopup_Checked"
+                  Content="下次不提示"
+                  IsChecked="False"
+                  Unchecked="ckbisPopup_Unchecked" />
+    </Grid>
+</UserControl>

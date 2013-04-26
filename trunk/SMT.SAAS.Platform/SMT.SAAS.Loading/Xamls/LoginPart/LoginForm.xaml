@@ -1,0 +1,178 @@
+﻿<Grid x:Class="SMT.SAAS.Platform.Xamls.LoginPart.LoginForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      d:DesignHeight="300"
+      d:DesignWidth="400"
+      mc:Ignorable="d">
+    <Grid x:Name="Root">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="210*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Width="370" Grid.Row="0"              
+              HorizontalAlignment="Center"
+              VerticalAlignment="Top">
+            <Border Margin="0"
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    CornerRadius="4">
+                <Border.Effect>
+                    <BlurEffect Radius="10" />
+                </Border.Effect>
+            </Border>
+            <Border Margin="1" CornerRadius="6">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="#66BFD2EF" />
+                        <GradientStop Offset="1" Color="#42A8C1E5" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border Margin="4"
+                        Background="#4CD1DBE9"
+                        BorderThickness="0"
+                        CornerRadius="3">
+                    <Path Height="68"
+                          Margin="0"
+                          VerticalAlignment="Top"
+                          Data="M5.3999996,8.5999985 L7,4.6000042 L11,3.0000062 L362.60001,3.0000062 L366.20001,4.6000042 L367,9.3999968 L367,69.953773 L314.20001,63.092232 L232.14919,56.661476 L175,53.523033 L119,52.63073 L86.310539,55.184559 L47,59.799923 L5.8000007,66.999916 z"
+                          Stretch="Fill"
+                          Stroke="Black"
+                          StrokeThickness="0"
+                          UseLayoutRounding="False">
+                        <Path.Fill>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="#66FFFFFF" />
+                                <GradientStop Offset="1" Color="#19E4E8EF" />
+                                <GradientStop Offset="0.586" Color="#2EFFFFFF" />
+                                <GradientStop Offset="0.975" Color="#25E4E8EF" />
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                </Border>
+            </Border>
+
+            <Canvas Width="370"
+                    Height="210"
+                    VerticalAlignment="Top">
+                <Image Canvas.Left="78"
+                       Canvas.Top="14"
+                       Width="213"
+                       Height="36"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Source="/Images/logo_login.png"
+                       Stretch="Fill" />
+                <TextBlock Canvas.Left="77"
+                           Canvas.Top="83"
+                           Height="25"
+                           FontFamily="Microsoft YaHei"
+                           FontSize="15"
+                           Foreground="#3d3d3d"
+                           Text="用户名" />
+                <TextBlock Canvas.Left="78"
+                           Canvas.Top="111"
+                           Height="25"
+                           FontFamily="Microsoft YaHei"
+                           FontSize="15"
+                           Foreground="#3d3d3d"
+                           Text="验证码" Visibility="Collapsed" />
+                <TextBlock Canvas.Left="78"
+                           Canvas.Top="123"
+                           Height="25"
+                           FontFamily="Microsoft YaHei"
+                           FontSize="15"
+                           Foreground="#3d3d3d"
+                           Text="密  码" />
+
+                <TextBox x:Name="txbUserName"
+                         Canvas.Left="137"
+                         Canvas.Top="81"
+                         Width="158"
+                         Height="23"
+                         Margin="0"
+                         IsTabStop="True"
+                         TabIndex="0"
+                         Text="{Binding UserName,
+                                        Mode=TwoWay,
+                                        ValidatesOnExceptions=true,
+                                        NotifyOnValidationError=true}"
+                         TextWrapping="Wrap" />
+                <TextBox x:Name="txbYZCode"
+                         Canvas.Left="137"
+                         Canvas.Top="109"
+                         Width="70"
+                         Height="23"
+                         Margin="0"
+                         TabIndex="1" Visibility="Collapsed"
+                         Text="{Binding UserValCode,
+                                        Mode=TwoWay,
+                                        ValidatesOnExceptions=true,
+                                        NotifyOnValidationError=true}"
+                         TextChanged="txbYZCode_TextChanged"
+                         TextWrapping="Wrap" />
+                <PasswordBox x:Name="txbUserPassword"
+                             Canvas.Left="137"
+                             Canvas.Top="120"
+                             Width="158"
+                             Height="23"
+                             Margin="0"
+                             Password="{Binding UserPassword,
+                                                Mode=TwoWay,
+                                                ValidatesOnExceptions=true,
+                                                NotifyOnValidationError=true}"
+                             TabIndex="2"
+                              />
+
+                <Button x:Name="btnLogin"
+                        Canvas.Left="137"
+                        Canvas.Top="171"
+                        Width="68"
+                        Height="22"
+                        Click="btnLogin_Click"
+                        Content="登 录"
+                        FontFamily="SimSun"
+                        FontSize="12"
+                        Foreground="#707070"
+                        IsEnabled="{Binding UnLock,Mode=TwoWay}"
+                        TabIndex="3" />
+
+                <Button x:Name="btnCPD" 
+                        Canvas.Left="211"
+                        Canvas.Top="171"
+                        Width="84"
+                        Height="22"
+                        Click="Button_Click"
+                        TabIndex="4">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="16"
+                               Height="16"
+                               Source="/Images/cp_ico.jpg"
+                               ToolTipService.ToolTip="修改密码" />
+                        <TextBlock Margin="2,2"
+                                   FontFamily="SimSun"
+                                   FontSize="12"
+                                   Foreground="#707070"
+                                   Text="修改密码" />
+                    </StackPanel>
+                </Button>
+
+                <!--  <Common:S_Images x:Name="checkcode" Canvas.Left="207" Canvas.Top="106"></Common:S_Images>  -->
+                <!--<Common:VerificationCode x:Name="valCode"
+                                         Canvas.Left="207"
+                                         Canvas.Top="106"
+                                         Code="{Binding CurrValCode,
+                                                        Mode=TwoWay}"  Visibility="Collapsed"/>-->
+                <TextBlock x:Name="txtError"
+                           Canvas.Left="141"
+                           Canvas.Top="165"
+                           Height="20"
+                           Foreground="#ff0000"
+                           Text="" />
+            </Canvas>
+        </Grid>
+        <TextBlock x:Name="txtLoadingMessage" Text="" Height="25" Width="auto" Margin="40,0,0,0" Grid.Row="2" HorizontalAlignment="Left" />
+    </Grid>
+</Grid>

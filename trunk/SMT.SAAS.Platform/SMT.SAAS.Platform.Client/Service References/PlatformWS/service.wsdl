@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlatformServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.SAAS.Platform.Model" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPlatformServices_AddModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModule" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_AddModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetModuleByCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleByCodes" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetModuleByCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleByCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetModuleFileStream_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleFileStream" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetModuleFileStream_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleFileStreamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_AddModuleByFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleByFile" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_AddModuleByFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleByFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetModuleCatalogByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleCatalogByUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetModuleCatalogByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleCatalogByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetShortCutByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShortCutByUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetShortCutByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShortCutByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_AddShortCutByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddShortCutByUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_AddShortCutByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddShortCutByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_RemoveShortCutByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveShortCutByUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_RemoveShortCutByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveShortCutByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetTaskConfigInfoByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskConfigInfoByUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetTaskConfigInfoByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskConfigInfoByUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPlatformServices">
+    <wsdl:operation name="AddModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/AddModule" message="tns:IPlatformServices_AddModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/AddModuleResponse" message="tns:IPlatformServices_AddModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleByCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetModuleByCodes" message="tns:IPlatformServices_GetModuleByCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetModuleByCodesResponse" message="tns:IPlatformServices_GetModuleByCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFileStream">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetModuleFileStream" message="tns:IPlatformServices_GetModuleFileStream_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetModuleFileStreamResponse" message="tns:IPlatformServices_GetModuleFileStream_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleByFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/AddModuleByFile" message="tns:IPlatformServices_AddModuleByFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/AddModuleByFileResponse" message="tns:IPlatformServices_AddModuleByFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleCatalogByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetModuleCatalogByUser" message="tns:IPlatformServices_GetModuleCatalogByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetModuleCatalogByUserResponse" message="tns:IPlatformServices_GetModuleCatalogByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShortCutByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetShortCutByUser" message="tns:IPlatformServices_GetShortCutByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetShortCutByUserResponse" message="tns:IPlatformServices_GetShortCutByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShortCutByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/AddShortCutByUser" message="tns:IPlatformServices_AddShortCutByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/AddShortCutByUserResponse" message="tns:IPlatformServices_AddShortCutByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveShortCutByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/RemoveShortCutByUser" message="tns:IPlatformServices_RemoveShortCutByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/RemoveShortCutByUserResponse" message="tns:IPlatformServices_RemoveShortCutByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskConfigInfoByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetTaskConfigInfoByUser" message="tns:IPlatformServices_GetTaskConfigInfoByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetTaskConfigInfoByUserResponse" message="tns:IPlatformServices_GetTaskConfigInfoByUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPlatformServices" type="tns:IPlatformServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddModule">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/AddModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleByCodes">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetModuleByCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFileStream">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetModuleFileStream" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleByFile">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/AddModuleByFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleCatalogByUser">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetModuleCatalogByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShortCutByUser">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetShortCutByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShortCutByUser">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/AddShortCutByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveShortCutByUser">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/RemoveShortCutByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskConfigInfoByUser">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetTaskConfigInfoByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PlatformServices">
+    <wsdl:port name="BasicHttpBinding_IPlatformServices" binding="tns:BasicHttpBinding_IPlatformServices">
+      <soap:address location="http://localhost:15739/PlatformServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

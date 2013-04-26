@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC7406BF-531D-49CA-A764-0E99D1C3A9B1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.Web</RootNamespace>
+    <AssemblyName>SMT.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplicationList>{FB2145AA-392E-4A16-978E-5132810FB549}|..\SMT.SAAS.Loading\SMT.SAAS.Loading.csproj|ClientBin|False</SilverlightApplicationList>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Images\back-9.png" />
+    <Content Include="ClientBin\Images\cp_ico.jpg" />
+    <Content Include="ClientBin\Images\db.png" />
+    <Content Include="ClientBin\Images\dot.png" />
+    <Content Include="ClientBin\Images\icons\address-book-1.png" />
+    <Content Include="ClientBin\Images\icons\Comicon.png" />
+    <Content Include="ClientBin\Images\icons\config.png" />
+    <Content Include="ClientBin\Images\icons\Contract2.png" />
+    <Content Include="ClientBin\Images\icons\ico_EmployeeComplain.png" />
+    <Content Include="ClientBin\Images\icons\level_moon.png" />
+    <Content Include="ClientBin\Images\icons\level_star.png" />
+    <Content Include="ClientBin\Images\icons\level_sun.png" />
+    <Content Include="ClientBin\Images\icons\menu_1.png" />
+    <Content Include="ClientBin\Images\icons\start_0.png" />
+    <Content Include="ClientBin\Images\loading_dot.png" />
+    <Content Include="ClientBin\Images\loading_logo.png" />
+    <Content Include="ClientBin\Images\logo.png" />
+    <Content Include="ClientBin\Images\logo_login.png" />
+    <Content Include="ClientBin\Images\map.png" />
+    <Content Include="ClientBin\Images\News\Des1.png" />
+    <Content Include="ClientBin\Images\News\Des2.png" />
+    <Content Include="ClientBin\Images\News\Des3.png" />
+    <Content Include="ClientBin\Images\News\Des4.png" />
+    <Content Include="ClientBin\Images\News\Des5.png" />
+    <Content Include="ClientBin\Images\News\Des6.png" />
+    <Content Include="ClientBin\Images\Next-9.png" />
+    <Content Include="ClientBin\Images\refresh.png" />
+    <Content Include="ClientBin\Images\UI_Main_Background.jpg" />
+    <Content Include="ClientBin\Images\User_1.png" />
+    <Content Include="ClientBin\DllVersion.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ClientBin\SMT.SAAS.Loading.xap" />
+    <Content Include="index.html" />
+    <Content Include="Silverlight.js" />
+    <Content Include="SMT.SAAS.Platform.MainTestPage.aspx" />
+    <Content Include="SMT.SAAS.Platform.MainTestPage.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SaaS.FrameworkUI.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SaaS.Window.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.ComponentModel.Composition.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.ComponentModel.Composition.Initialization.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.ComponentModel.DataAnnotations.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.Data.DataForm.Toolkit.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.Data.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.Data.Input.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.DataVisualization.Toolkit.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.Input.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.Input.Toolkit.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.Layout.Toolkit.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.Navigation.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Controls.Toolkit.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Windows.Data.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Xml.Linq.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Controls.Data.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Controls.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Controls.GridView.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Controls.Input.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Controls.Navigation.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Controls.RibbonBar.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Controls.RichTextBoxUI.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Data.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Documents.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Documents.FormatProviders.Html.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Documents.FormatProviders.OpenXml.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Documents.FormatProviders.Pdf.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Documents.FormatProviders.Xaml.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Windows.Themes.Summer.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SAAS.ClientUtility.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SAAS.ClientServices.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Wintellect.Sterling.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.Saas.Tools.FlowWFService.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.Saas.Tools.FBServiceWS.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.Saas.Tools.HrCommonServiceWS.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.Saas.Tools.PerformanceWS.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SAAS.Utility.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SAAS.Globalization.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SaaS.Images.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.Saas.PublicControls.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SAAS.Themes.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SAAS.Controls.Toolkit.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.SAAS.Controls.Toolkit.Windows.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\FJ.Core.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.Saas.Tools.AttendanceWS.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\SMT.Saas.Tools.DailyManagementWS.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\System.Xml.Serialization.zip" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>11111</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

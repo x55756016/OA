@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:12168/UserLoginService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
+  <xs:import schemaLocation="http://localhost:12168/UserLoginService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" />
+  <xs:element name="UserLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="UserLoginResult" nillable="true" type="q1:V_EMPLOYEEDETAIL" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="user" nillable="true" type="q2:V_UserLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

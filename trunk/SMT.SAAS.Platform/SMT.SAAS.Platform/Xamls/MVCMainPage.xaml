@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.Xamls.MVCMainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:DockPanels="clr-namespace:SMT.SAAS.Platform.Controls.DockPanels;assembly=SMT.SAAS.Platform.Controls"
+             xmlns:FilePath="clr-namespace:SMT.SAAS.Platform.Xamls.FilePath"
+             xmlns:InfoPanel="clr-namespace:SMT.SAAS.Platform.Controls.InfoPanel;assembly=SMT.SAAS.Platform.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:panel="clr-namespace:SMT.SAAS.Platform.Controls.CWrapPanel;assembly=SMT.SAAS.Platform.Controls"
+             xmlns:part="clr-namespace:SMT.SAAS.Platform.Xamls.MainPagePart"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:Xamls="clr-namespace:SMT.SAAS.Platform.Xamls"
+             xmlns:ld="clr-namespace:SMT.SAAS.Platform.WebParts;assembly=SMT.SAAS.Platform.WebParts"
+             d:DesignHeight="600"
+             d:DesignWidth="1000"
+             mc:Ignorable="d">
+
+    <Grid x:Name="Parent" ShowGridLines="False">
+        <Grid.Background>
+            <SolidColorBrush Color="#9ED9F4"></SolidColorBrush>
+        </Grid.Background>
+        <Grid x:Name="grdMain"
+              Margin="0,8,8,8"
+              ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--  第一行  -->           
+            <Grid x:Name="body"
+                  Grid.Row="1"
+                  Margin="0"
+                  Background="Transparent"
+                  Canvas.ZIndex="2">
+                <!--  中间区域  -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="LeftColumn1"
+                            Grid.Column="0"
+                            Width="8"
+                            Visibility="Visible" />                    
+                    <!--  主面板  -->
+                    <Grid Grid.Column="2">
+                        <Border Margin="0"
+                                Background="White"
+                                BorderBrush="White"
+                                BorderThickness="0"
+                                CornerRadius="3" />
+                        <Grid Margin="1" Background="Transparent">
+                            <!--  工作区  -->
+                            <Grid x:Name="WorkPanel">
+                                <part:WebPartHost x:Name="WebPartHost" Visibility="Collapsed" />
+                                <Xamls:ParentPanel x:Name="WorkHost"
+                                                   Background="White"
+                                                   Visibility="Collapsed" />
+                            </Grid>
+                            <!--  bottom  -->
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!--  第二行  -->
+            <Grid x:Name="gridBottom"
+                  Grid.Row="2"
+                  Margin="0,3,0,0"
+                  Canvas.ZIndex="5">
+                <Border Margin="0"
+                        BorderBrush="#2b3c50"
+                        BorderThickness="0,0,0,1"
+                        Canvas.ZIndex="2"
+                        CornerRadius="3,0,0,3" />                
+            </Grid>
+            <ld:SMTLoading x:Name="loading" Grid.RowSpan="4"/>
+
+        </Grid>
+
+        <Canvas x:Name="windowParent"
+                Grid.RowSpan="4"
+                Margin="6"
+                IsHitTestVisible="True"
+                Visibility="Visible" />        
+        <StackPanel x:Name="taskbar"
+                    Grid.RowSpan="4"
+                    Margin="6"
+                    Visibility="Collapsed" />
+    </Grid>
+</UserControl>

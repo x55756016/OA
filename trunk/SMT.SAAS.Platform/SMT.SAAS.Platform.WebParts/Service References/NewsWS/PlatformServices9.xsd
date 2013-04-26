@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="T_PF_PLATFORMCONFIG">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ASSEMPLYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONFIGID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INITPARAMS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISDEFAULT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISRESIZABLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISSYSNEED" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISSYSSHORTCUT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISWEBPART" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PARENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PIOCPATH" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROGRAMTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TITEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_PF_USERCONFIGRELEVANCE" nillable="true" type="tns:ArrayOfT_PF_USERCONFIGRELEVANCE" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USERSTATE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_PF_PLATFORMCONFIG" nillable="true" type="tns:T_PF_PLATFORMCONFIG" />
+  <xs:complexType name="ArrayOfT_PF_USERCONFIGRELEVANCE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PF_USERCONFIGRELEVANCE" nillable="true" type="tns:T_PF_USERCONFIGRELEVANCE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PF_USERCONFIGRELEVANCE" nillable="true" type="tns:ArrayOfT_PF_USERCONFIGRELEVANCE" />
+  <xs:complexType name="T_PF_USERCONFIGRELEVANCE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CUSTOMPARAMS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TEMPLATENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_PF_PLATFORMCONFIG" nillable="true" type="tns:T_PF_PLATFORMCONFIG" />
+          <xs:element minOccurs="0" name="T_PF_PLATFORMCONFIGReference" nillable="true" type="q2:EntityReferenceOfT_PF_PLATFORMCONFIGsUifyzDF" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USERCONFIGRELEVANCEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_PF_USERCONFIGRELEVANCE" nillable="true" type="tns:T_PF_USERCONFIGRELEVANCE" />
+  <xs:complexType name="T_PF_PROJECTCONFIG">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROJECTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROJECTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VERSIONFILENAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_PF_PROJECTCONFIG" nillable="true" type="tns:T_PF_PROJECTCONFIG" />
+  <xs:complexType name="T_PF_USERCONFIG">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CONFIGINFO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONFIGNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USERCONFIGID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_PF_USERCONFIG" nillable="true" type="tns:T_PF_USERCONFIG" />
+  <xs:complexType name="T_PF_NEWS">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="COMMENTCOUNT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ISIMAGE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISPOPUP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEWSCONTENT" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="NEWSID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEWSSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEWSTITEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEWSTYPEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PUTDEPTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PUTDEPTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="READCOUNT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_PF_NEWS" nillable="true" type="tns:T_PF_NEWS" />
+  <xs:complexType name="ArrayOfT_PF_DISTRIBUTEUSER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PF_DISTRIBUTEUSER" nillable="true" type="tns:T_PF_DISTRIBUTEUSER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PF_DISTRIBUTEUSER" nillable="true" type="tns:ArrayOfT_PF_DISTRIBUTEUSER" />
+  <xs:complexType name="T_PF_DISTRIBUTEUSER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DISTRIBUTEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FORMID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODELNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VIEWER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VIEWTYPE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_PF_DISTRIBUTEUSER" nillable="true" type="tns:T_PF_DISTRIBUTEUSER" />
+  <xs:complexType name="T_PF_NEWSView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="T_PF_DISTRIBUTEUSERS" nillable="true" type="tns:ArrayOfT_PF_DISTRIBUTEUSER" />
+      <xs:element minOccurs="0" name="T_PF_NEWS" nillable="true" type="tns:T_PF_NEWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_PF_NEWSView" nillable="true" type="tns:T_PF_NEWSView" />
+  <xs:complexType name="ArrayOfT_PF_NEWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PF_NEWS" nillable="true" type="tns:T_PF_NEWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PF_NEWS" nillable="true" type="tns:ArrayOfT_PF_NEWS" />
+  <xs:complexType name="ArrayOfT_PF_NEWSListView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PF_NEWSListView" nillable="true" type="tns:T_PF_NEWSListView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PF_NEWSListView" nillable="true" type="tns:ArrayOfT_PF_NEWSListView" />
+  <xs:complexType name="T_PF_NEWSListView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NEWSID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NEWSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NEWSTITEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NEWSTYPEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_PF_NEWSListView" nillable="true" type="tns:T_PF_NEWSListView" />
+  <xs:complexType name="ArrayOfT_PF_PLATFORMCONFIG">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PF_PLATFORMCONFIG" nillable="true" type="tns:T_PF_PLATFORMCONFIG" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PF_PLATFORMCONFIG" nillable="true" type="tns:ArrayOfT_PF_PLATFORMCONFIG" />
+</xs:schema>

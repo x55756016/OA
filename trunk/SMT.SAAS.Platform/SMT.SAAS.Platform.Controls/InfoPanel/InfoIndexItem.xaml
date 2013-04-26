@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.Controls.InfoPanel.InfoIndexItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    mc:Ignorable="d"
+    Foreground="{x:Null}" 
+    HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto" >
+
+    <Grid Height="Auto" Width="Auto" x:Name="LayoutRoot" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <vsm:VisualStateManager.VisualStateGroups>
+            <vsm:VisualStateGroup x:Name="VisualStateGroup">
+                <vsm:VisualStateGroup.Transitions>
+                    <vsm:VisualTransition GeneratedDuration="00:00:00.2000000" To="Select"/>
+                    <vsm:VisualTransition GeneratedDuration="00:00:00.2000000" To="Deselect"/>
+                </vsm:VisualStateGroup.Transitions>
+                <vsm:VisualState x:Name="Select">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" 
+                                                       Storyboard.TargetName="UnSelected" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Selected"
+                                                       Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00.2000000">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Selected"
+                                                       Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                            <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </vsm:VisualState>
+                <vsm:VisualState x:Name="Deselect">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" 
+                                                       Storyboard.TargetName="Selected" 
+                                                       Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
+                                                       Storyboard.TargetName="UnSelected" 
+                                                       Storyboard.TargetProperty="(UIElement.Opacity)">
+                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                            <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </vsm:VisualState>
+            </vsm:VisualStateGroup>
+        </vsm:VisualStateManager.VisualStateGroups>
+        <Image x:Name="UnSelected" Source="../InfoPanel/images/dot.png" Stretch="Fill" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" Width="7" Height="7"/>
+        <Image Height="7" HorizontalAlignment="Stretch" 
+               Margin="0,0,0,0" x:Name="Selected" VerticalAlignment="Stretch" 
+               Width="7" Source="../InfoPanel/images/dot-CURRENT.png" Stretch="Fill" Visibility="Collapsed"/>
+    </Grid>
+</UserControl>

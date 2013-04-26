@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.Xamls.Icons.NavigationTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Grid x:Name="LayoutRoot" Background="Transparent" Height="20" Margin="0,0,4,0" VerticalAlignment="Top" 
+          Cursor="Hand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="12"/>
+        </Grid.ColumnDefinitions>
+        <Path Data="M223.07758,12.429103 L233.67653,16.101788 L223.59106,20.4489" Fill="Transparent" 
+              Stretch="Fill" Stroke="Black"  UseLayoutRounding="False" 
+              Margin="0,3.998,4.081,6.081" HorizontalAlignment="Right" 
+              Width="5.17" Grid.Column="1" VerticalAlignment="Center">
+        </Path>
+        <TextBlock x:Name="NNavigation" FontSize="15" Margin="0,0,4,2"  Grid.Column="0"
+                   Foreground="#101010" VerticalAlignment="Top" Text="撒打发"
+                   FontFamily="Microsoft YaHei"></TextBlock>
+    </Grid>
+</UserControl>

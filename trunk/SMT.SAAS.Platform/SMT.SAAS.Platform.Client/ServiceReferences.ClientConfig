@@ -1,0 +1,33 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IPlatformServices" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_UserLoginService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+            <customBinding>
+                <binding name="CustomBinding_MainUIServices">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:15739/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
+                contract="PlatformWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />
+            <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_MainUIServices"
+                contract="UserLoginWS.MainUIServices" name="CustomBinding_MainUIServices" />
+            <endpoint address="http://localhost:12168/UserLoginService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_UserLoginService"
+                contract="MainLoginWS.UserLoginService" name="BasicHttpBinding_UserLoginService" />
+        </client>
+    </system.serviceModel>
+</configuration>

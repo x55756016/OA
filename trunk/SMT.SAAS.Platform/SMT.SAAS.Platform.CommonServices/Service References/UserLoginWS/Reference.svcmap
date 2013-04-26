@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="25decd66-b1fe-41eb-bd67-33696167cea4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MainUIServices.wsdl" MetadataType="Wsdl" ID="f869ef9f-8e4b-4cea-9101-36d0832a077d" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc?wsdl" />
+    <MetadataFile FileName="MainUIServices.disco" MetadataType="Disco" ID="8d12636e-e324-4c46-97d2-770e59ce12c6" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc?disco" />
+    <MetadataFile FileName="MainUIServices.xsd" MetadataType="Schema" ID="92c4ca1a-ae5a-4fcc-b029-c523420a1b80" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="MainUIServices1.xsd" MetadataType="Schema" ID="f972bb8a-252e-4b62-8059-8757c58c9b91" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="MainUIServices2.xsd" MetadataType="Schema" ID="13962b62-0371-4176-a646-78499b47155d" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="MainUIServices1.wsdl" MetadataType="Wsdl" ID="3747f420-69cf-423c-8f8f-1721c9bc38ba" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

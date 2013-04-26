@@ -1,0 +1,1451 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:CWrapPanel="clr-namespace:SMT.SAAS.Platform.Controls.CWrapPanel;assembly=SMT.SAAS.Platform.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:part="clr-namespace:SMT.SAAS.Platform.Xamls.MainPagePart"
+             xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+             xmlns:System_Windows_Controls_Primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls"
+      >
+    <LinearGradientBrush x:Key="LineColorBG" StartPoint=".5,0" EndPoint=".5,1">
+        <GradientStop Offset="0" Color="#fbfbfb" />
+        <GradientStop Offset="1" Color="#e2e2e2" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="FontSelectColor" StartPoint=".5,0" EndPoint=".5,1">
+        <GradientStop Offset="0" Color="#3167cb" />
+        <GradientStop Offset="1" Color="#3167cb" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="LineColorBG_2" StartPoint=".5,0" EndPoint=".5,1">
+        <GradientStop Offset="0" Color="#ffffff" />
+        <GradientStop Offset="1" Color="#bed1ec" />
+    </LinearGradientBrush>
+    <Style x:Key="TabItemStyle_sys" TargetType="sdk:TabItem">
+        <Setter Property="FontFamily" Value="SimSun" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Background" Value="#FF1F3B53" />
+        <Setter Property="BorderBrush" Value="#FFA3AEB9" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="6,2,6,2" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="MinWidth" Value="5" />
+        <Setter Property="MinHeight" Value="5" />
+        <Setter Property="Height" Value="29" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="sdk:TabItem">
+                    <Grid Background="{StaticResource LineColorBG}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="10" />
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="Root" Grid.Column="0">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0" />
+                                        <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="BorderTop"
+                                                                              Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#FF448DCA" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientTop"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientTop"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientTop"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientBottom"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientBottom"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientBottom"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientLeft"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientLeft"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientLeft"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientRight"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientRight"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientRight"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="0"
+                                                                               Duration="00:00:00.001"
+                                                                               Storyboard.TargetName="FocusVisualTop"
+                                                                               Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="0"
+                                                                               Duration="00:00:00.001"
+                                                                               Storyboard.TargetName="FocusVisualBottom"
+                                                                               Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="0"
+                                                                               Duration="00:00:00.001"
+                                                                               Storyboard.TargetName="FocusVisualLeft"
+                                                                               Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="0"
+                                                                               Duration="00:00:00.001"
+                                                                               Storyboard.TargetName="FocusVisualRight"
+                                                                               Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualTopSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualTopUnSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualBottomSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualBottomUnSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualLeftSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualLeftUnSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualRightSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualRightUnSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected" />
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualTop"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualBottom"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualLeft"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualRight"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualElement"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid x:Name="TemplateTopSelected"
+                                      Canvas.ZIndex="1"
+                                      Visibility="Collapsed">
+                                <Border Margin="0,0,0,4"
+                                            Background="Transparent"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="0,0,0,1"
+                                            CornerRadius="0"
+                                            Visibility="Collapsed">
+                                    <Border BorderBrush="#FFFFFFFF"
+                                                BorderThickness="0,0,0,1"
+                                                CornerRadius="0" />
+                                </Border>
+                                <Grid>
+                                    <Rectangle Margin="0,0,0,0" Fill="Transparent" />
+                                    <ContentControl x:Name="HeaderTopSelected"
+                                                        Margin="{TemplateBinding Padding}"
+                                                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                        VerticalAlignment="Center"
+                                                        Cursor="{TemplateBinding Cursor}"
+                                                        FontSize="{TemplateBinding FontSize}"
+                                                        FontWeight="Bold"
+                                                        Foreground="{StaticResource FontSelectColor}"
+                                                        IsTabStop="False" />
+                                </Grid>
+                                <Border x:Name="FocusVisualTop"
+                                            Margin="-2,-2,-2,0"
+                                            BorderBrush="#FF6DBDD1"
+                                            BorderThickness="1,1,1,0"
+                                            CornerRadius="0"
+                                            IsHitTestVisible="false"
+                                            Visibility="Collapsed" />
+                                <Border x:Name="DisabledVisualTopSelected"
+                                            Margin="-2,-2,-2,0"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="3,3,0,0"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateTopUnselected" Visibility="Collapsed">
+                                <Border x:Name="BorderTop"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="0"
+                                            CornerRadius="0">
+                                    <Border x:Name="GradientTop"
+                                                Background="{StaticResource LineColorBG}"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="0"
+                                                CornerRadius="0">
+                                        <Grid>
+                                            <ContentControl x:Name="HeaderTopUnselected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="Center"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="DisabledVisualTopUnSelected"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateBottomSelected"
+                                      Canvas.ZIndex="1"
+                                      Visibility="Collapsed">
+                                <Border Margin="-2,0,-2,-2"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1,0,1,1"
+                                            CornerRadius="0,0,3,3">
+                                    <Border BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="0,0,1,1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <Rectangle Margin="0,-2,0,0" Fill="#FFFFFFFF" />
+                                            <ContentControl x:Name="HeaderBottomSelected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="FocusVisualBottom"
+                                            Margin="-2,0,-2,-2"
+                                            BorderBrush="#FF6DBDD1"
+                                            BorderThickness="1,0,1,1"
+                                            CornerRadius="0,0,3,3"
+                                            IsHitTestVisible="false"
+                                            Visibility="Collapsed" />
+                                <Border x:Name="DisabledVisualBottomSelected"
+                                            Margin="-2,0,-2,-2"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0,0,3,3"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateBottomUnselected" Visibility="Collapsed">
+                                <Border x:Name="BorderBottom"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="0,0,3,3">
+                                    <Border x:Name="GradientBottom"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="0,0,1,1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <ContentControl x:Name="HeaderBottomUnselected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="DisabledVisualBottomUnSelected"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0,0,3,3"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateLeftSelected"
+                                      Canvas.ZIndex="1"
+                                      Visibility="Collapsed">
+                                <Border Margin="-2,-2,0,-2"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1,1,0,1"
+                                            CornerRadius="3,0,0,3">
+                                    <Border BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="1,0,0,1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <Rectangle Margin="0,0,-2,0" Fill="#FFFFFFFF" />
+                                            <ContentControl x:Name="HeaderLeftSelected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="FocusVisualLeft"
+                                            Margin="-2,-2,0,-2"
+                                            BorderBrush="#FF6DBDD1"
+                                            BorderThickness="1,1,0,1"
+                                            CornerRadius="3,0,0,3"
+                                            IsHitTestVisible="false"
+                                            Visibility="Collapsed" />
+                                <Border x:Name="DisabledVisualLeftSelected"
+                                            Margin="-2,-2,0,-2"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="3,0,0,3"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateLeftUnselected" Visibility="Collapsed">
+                                <Border x:Name="BorderLeft"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="3,0,0,3">
+                                    <Border x:Name="GradientLeft"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="1,0,0,1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <ContentControl x:Name="HeaderLeftUnselected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="DisabledVisualLeftUnSelected"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="3,0,0,3"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateRightSelected"
+                                      Canvas.ZIndex="1"
+                                      Visibility="Collapsed">
+                                <Border Margin="0,-2,-2,-2"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="0,1,1,1"
+                                            CornerRadius="0,3,3,0">
+                                    <Border BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="0,1,1,0">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <Rectangle Margin="-2,0,0,0" Fill="#FFFFFFFF" />
+                                            <ContentControl x:Name="HeaderRightSelected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="FocusVisualRight"
+                                            Margin="0,-2,-2,-2"
+                                            BorderBrush="#FF6DBDD1"
+                                            BorderThickness="0,1,1,1"
+                                            CornerRadius="0,3,3,0"
+                                            IsHitTestVisible="false"
+                                            Visibility="Collapsed" />
+                                <Border x:Name="DisabledVisualRightSelected"
+                                            Margin="0,-2,-2,-2"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0,3,3,0"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateRightUnselected" Visibility="Collapsed">
+                                <Border x:Name="BorderRight"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="0,3,3,0">
+                                    <Border x:Name="GradientRight"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="0,1,1,0">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <ContentControl x:Name="HeaderRightUnselected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="DisabledVisualRightUnSelected"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0,3,3,0"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Border x:Name="FocusVisualElement"
+                                        Margin="-1"
+                                        BorderBrush="#FF6DBDD1"
+                                        BorderThickness="1"
+                                        CornerRadius="3,3,0,0"
+                                        IsHitTestVisible="false"
+                                        Visibility="Collapsed" />
+                        </Grid>
+                        <Border Grid.Column="1"
+                                    Width="1"
+                                    Height="13"
+                                    Margin="0,0,0,2"
+                                    VerticalAlignment="Center"
+                                    Background="#c2c2c2" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TabControlStyle_sys" TargetType="sdk:TabControl">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FFFFFFFF" />
+                    <GradientStop Offset="1" Color="#FFFEFEFE" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FFA3AEB9" />
+                    <GradientStop Offset="0.375" Color="#FF8399A9" />
+                    <GradientStop Offset="0.375" Color="#FF718597" />
+                    <GradientStop Offset="1" Color="#FF617584" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="sdk:TabControl">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualTop" Storyboard.TargetProperty="Opacity">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualBottom" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualLeft" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualRight" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="TemplateTop"
+                                  Background="{StaticResource LineColorBG}"
+                                  Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <System_Windows_Controls_Primitives:TabPanel x:Name="TabPanelTop"
+                                                                             Margin="2,2,2,2"
+                                                                             Background="{StaticResource LineColorBG}"
+                                                                             Canvas.ZIndex="1" />
+                            <Border Grid.Row="1"
+                                        MinWidth="10"
+                                        MinHeight="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="0,1,0,0"
+                                        CornerRadius="0,0,3,3">
+                                <ContentPresenter x:Name="ContentTop"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                      Cursor="{TemplateBinding Cursor}" />
+                            </Border>
+                            <Border x:Name="DisabledVisualTop"
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Background="Transparent"
+                                        Canvas.ZIndex="1"
+                                        CornerRadius="0,0,3,3"
+                                        IsHitTestVisible="False"
+                                        Opacity="0" />
+                        </Grid>
+                        <Grid x:Name="TemplateBottom" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <System_Windows_Controls_Primitives:TabPanel x:Name="TabPanelBottom"
+                                                                             Grid.Row="1"
+                                                                             Margin="2,-1,2,2"
+                                                                             Canvas.ZIndex="1" />
+                            <Border MinWidth="10"
+                                        MinHeight="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="3,3,0,0">
+                                <ContentPresenter x:Name="ContentBottom"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                      Cursor="{TemplateBinding Cursor}" />
+                            </Border>
+                            <Border x:Name="DisabledVisualBottom"
+                                        Background="#8CFFFFFF"
+                                        Canvas.ZIndex="1"
+                                        CornerRadius="3,3,0,0"
+                                        IsHitTestVisible="False"
+                                        Opacity="0" />
+                        </Grid>
+                        <Grid x:Name="TemplateLeft" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <System_Windows_Controls_Primitives:TabPanel x:Name="TabPanelLeft"
+                                                                             Margin="2,2,-1,2"
+                                                                             Canvas.ZIndex="1" />
+                            <Border Grid.Column="1"
+                                        MinWidth="10"
+                                        MinHeight="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="0,3,3,0">
+                                <ContentPresenter x:Name="ContentLeft"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                      Cursor="{TemplateBinding Cursor}" />
+                            </Border>
+                            <Border x:Name="DisabledVisualLeft"
+                                        Grid.Column="1"
+                                        Background="#8CFFFFFF"
+                                        Canvas.ZIndex="1"
+                                        CornerRadius="0,3,3,0"
+                                        IsHitTestVisible="False"
+                                        Opacity="0" />
+                        </Grid>
+                        <Grid x:Name="TemplateRight" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <System_Windows_Controls_Primitives:TabPanel x:Name="TabPanelRight"
+                                                                             Grid.Column="1"
+                                                                             Margin="-1,2,2,2"
+                                                                             Canvas.ZIndex="1" />
+                            <Border MinWidth="10"
+                                        MinHeight="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="3,0,0,3">
+                                <ContentPresenter x:Name="ContentRight"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                      Cursor="{TemplateBinding Cursor}" />
+                            </Border>
+                            <Border x:Name="DisabledVisualRight"
+                                        Margin="0"
+                                        Background="#8CFFFFFF"
+                                        Canvas.ZIndex="1"
+                                        CornerRadius="3,0,0,3"
+                                        IsHitTestVisible="False"
+                                        Opacity="0" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TabItemStyle_Sys2" TargetType="sdk:TabItem">
+        <Setter Property="FontFamily" Value="SimSun" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="#FF1F3B53" />
+        <Setter Property="BorderBrush" Value="#FFA3AEB9" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="6,2,6,2" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="MinHeight" Value="5" />
+        <Setter Property="Height" Value="35" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="sdk:TabItem">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2" />
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="Root" Grid.Column="0">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0" />
+                                        <VisualTransition GeneratedDuration="0:0:0.1" To="MouseOver" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="BorderTop"
+                                                                              Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#FF448DCA" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientTop"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientTop"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientTop"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientBottom"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientBottom"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientBottom"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientLeft"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientLeft"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientLeft"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientRight"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#7FFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientRight"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#CCFFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="0"
+                                                                              Duration="00:00:00.001"
+                                                                              Storyboard.TargetName="GradientRight"
+                                                                              Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <SplineColorKeyFrame KeyTime="0" Value="#F2FFFFFF" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="0"
+                                                                               Duration="00:00:00.001"
+                                                                               Storyboard.TargetName="FocusVisualTop"
+                                                                               Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="0"
+                                                                               Duration="00:00:00.001"
+                                                                               Storyboard.TargetName="FocusVisualBottom"
+                                                                               Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="0"
+                                                                               Duration="00:00:00.001"
+                                                                               Storyboard.TargetName="FocusVisualLeft"
+                                                                               Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="0"
+                                                                               Duration="00:00:00.001"
+                                                                               Storyboard.TargetName="FocusVisualRight"
+                                                                               Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualTopSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualTopUnSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualBottomSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualBottomUnSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualLeftSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualLeftUnSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualRightSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualRightUnSelected" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected" />
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualTop"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualBottom"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualLeft"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualRight"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0"
+                                                                               Storyboard.TargetName="FocusVisualElement"
+                                                                               Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid x:Name="TemplateTopSelected"
+                                      Canvas.ZIndex="1"
+                                      Visibility="Collapsed">
+                                <Border Margin="0,4,-3,-1"
+                                            Background="#FFFFFF"
+                                            BorderBrush="#cdcdcd"
+                                            BorderThickness="1,1,1,0"
+                                            CornerRadius="3,3,0,0">
+                                    <Border Background="Transparent"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="1,1,0,0">
+                                        <Grid>
+                                            <Rectangle Margin="0,0,0,-2" Fill="Transparent" />
+                                            <ContentControl x:Name="HeaderTopSelected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                FontWeight="Bold"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="FocusVisualTop"
+                                            Margin="-2,-2,-2,0"
+                                            BorderBrush="#FF6DBDD1"
+                                            BorderThickness="1,1,1,0"
+                                            CornerRadius="3,3,0,0"
+                                            IsHitTestVisible="false"
+                                            Visibility="Collapsed" />
+                                <Border x:Name="DisabledVisualTopSelected"
+                                            Margin="-2,-2,-2,0"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="3,3,0,0"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateTopUnselected"
+                                      Margin="0"
+                                      Visibility="Collapsed">
+                                <Border x:Name="BorderTop"
+                                            Background="Transparent"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="0"
+                                            CornerRadius="0">
+                                    <Border x:Name="GradientTop"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="0"
+                                                CornerRadius="1,1,0,0">
+                                        <Grid>
+                                            <ContentControl x:Name="HeaderTopUnselected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="DisabledVisualTopUnSelected"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="3,3,0,0"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateBottomSelected"
+                                      Canvas.ZIndex="1"
+                                      Visibility="Collapsed">
+                                <Border Margin="-2,0,-2,-2"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1,0,1,1"
+                                            CornerRadius="0,0,3,3">
+                                    <Border BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="0,0,1,1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <Rectangle Margin="0,-2,0,0" Fill="#FFFFFFFF" />
+                                            <ContentControl x:Name="HeaderBottomSelected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="FocusVisualBottom"
+                                            Margin="-2,0,-2,-2"
+                                            BorderBrush="#FF6DBDD1"
+                                            BorderThickness="1,0,1,1"
+                                            CornerRadius="0,0,3,3"
+                                            IsHitTestVisible="false"
+                                            Visibility="Collapsed" />
+                                <Border x:Name="DisabledVisualBottomSelected"
+                                            Margin="-2,0,-2,-2"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0,0,3,3"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateBottomUnselected" Visibility="Collapsed">
+                                <Border x:Name="BorderBottom"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="0,0,3,3">
+                                    <Border x:Name="GradientBottom"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="0,0,1,1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <ContentControl x:Name="HeaderBottomUnselected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="DisabledVisualBottomUnSelected"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0,0,3,3"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateLeftSelected"
+                                      Canvas.ZIndex="1"
+                                      Visibility="Collapsed">
+                                <Border Margin="-2,-2,0,-2"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1,1,0,1"
+                                            CornerRadius="3,0,0,3">
+                                    <Border BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="1,0,0,1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <Rectangle Margin="0,0,-2,0" Fill="#FFFFFFFF" />
+                                            <ContentControl x:Name="HeaderLeftSelected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="FocusVisualLeft"
+                                            Margin="-2,-2,0,-2"
+                                            BorderBrush="#FF6DBDD1"
+                                            BorderThickness="1,1,0,1"
+                                            CornerRadius="3,0,0,3"
+                                            IsHitTestVisible="false"
+                                            Visibility="Collapsed" />
+                                <Border x:Name="DisabledVisualLeftSelected"
+                                            Margin="-2,-2,0,-2"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="3,0,0,3"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateLeftUnselected" Visibility="Collapsed">
+                                <Border x:Name="BorderLeft"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="3,0,0,3">
+                                    <Border x:Name="GradientLeft"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="1,0,0,1">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <ContentControl x:Name="HeaderLeftUnselected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="DisabledVisualLeftUnSelected"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="3,0,0,3"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateRightSelected"
+                                      Canvas.ZIndex="1"
+                                      Visibility="Collapsed">
+                                <Border Margin="0,-2,-2,-2"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="0,1,1,1"
+                                            CornerRadius="0,3,3,0">
+                                    <Border BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="0,1,1,0">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <Rectangle Margin="-2,0,0,0" Fill="#FFFFFFFF" />
+                                            <ContentControl x:Name="HeaderRightSelected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="FocusVisualRight"
+                                            Margin="0,-2,-2,-2"
+                                            BorderBrush="#FF6DBDD1"
+                                            BorderThickness="0,1,1,1"
+                                            CornerRadius="0,3,3,0"
+                                            IsHitTestVisible="false"
+                                            Visibility="Collapsed" />
+                                <Border x:Name="DisabledVisualRightSelected"
+                                            Margin="0,-2,-2,-2"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0,3,3,0"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Grid x:Name="TemplateRightUnselected" Visibility="Collapsed">
+                                <Border x:Name="BorderRight"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="0,3,3,0">
+                                    <Border x:Name="GradientRight"
+                                                BorderBrush="#FFFFFFFF"
+                                                BorderThickness="1"
+                                                CornerRadius="0,1,1,0">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                <GradientStop Offset="0.625" Color="#E5FFFFFF" />
+                                                <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <Grid>
+                                            <ContentControl x:Name="HeaderRightUnselected"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                                Cursor="{TemplateBinding Cursor}"
+                                                                FontSize="{TemplateBinding FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                IsTabStop="False" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="DisabledVisualRightUnSelected"
+                                            Background="#8CFFFFFF"
+                                            CornerRadius="0,3,3,0"
+                                            IsHitTestVisible="false"
+                                            Opacity="0" />
+                            </Grid>
+                            <Border x:Name="FocusVisualElement"
+                                        Margin="-1"
+                                        BorderBrush="#FF6DBDD1"
+                                        BorderThickness="1"
+                                        CornerRadius="3,3,0,0"
+                                        IsHitTestVisible="false"
+                                        Visibility="Collapsed" />
+                        </Grid>
+                        <Border Grid.Column="1"
+                                    Width="1"
+                                    Height="13"
+                                    Margin="0,0,-2,2"
+                                    VerticalAlignment="Center"
+                                    Background="#cdcdcd" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TabControlStyle_Sys2" TargetType="sdk:TabControl">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FFFFFFFF" />
+                    <GradientStop Offset="1" Color="#FFFEFEFE" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FFA3AEB9" />
+                    <GradientStop Offset="0.375" Color="#FF8399A9" />
+                    <GradientStop Offset="0.375" Color="#FF718597" />
+                    <GradientStop Offset="1" Color="#FF617584" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="sdk:TabControl">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualTop" Storyboard.TargetProperty="Opacity">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualBottom" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualLeft" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualRight" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="TemplateTop" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <System_Windows_Controls_Primitives:TabPanel x:Name="TabPanelTop"
+                                                                             Margin="0"
+                                                                             Background="{StaticResource LineColorBG_2}"
+                                                                             Canvas.ZIndex="1" />
+                            <Border Grid.Row="1"
+                                        MinWidth="10"
+                                        MinHeight="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="0,0,3,3">
+                                <ContentPresenter x:Name="ContentTop"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                      Cursor="{TemplateBinding Cursor}" />
+                            </Border>
+                            <Border x:Name="DisabledVisualTop"
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Background="#8CFFFFFF"
+                                        Canvas.ZIndex="1"
+                                        CornerRadius="0,0,3,3"
+                                        IsHitTestVisible="False"
+                                        Opacity="0" />
+                        </Grid>
+                        <Grid x:Name="TemplateBottom" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <System_Windows_Controls_Primitives:TabPanel x:Name="TabPanelBottom"
+                                                                             Grid.Row="1"
+                                                                             Margin="2,-1,2,2"
+                                                                             Canvas.ZIndex="1" />
+                            <Border MinWidth="10"
+                                        MinHeight="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="3,3,0,0">
+                                <ContentPresenter x:Name="ContentBottom"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                      Cursor="{TemplateBinding Cursor}" />
+                            </Border>
+                            <Border x:Name="DisabledVisualBottom"
+                                        Background="#8CFFFFFF"
+                                        Canvas.ZIndex="1"
+                                        CornerRadius="3,3,0,0"
+                                        IsHitTestVisible="False"
+                                        Opacity="0" />
+                        </Grid>
+                        <Grid x:Name="TemplateLeft" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <System_Windows_Controls_Primitives:TabPanel x:Name="TabPanelLeft"
+                                                                             Margin="2,2,-1,2"
+                                                                             Canvas.ZIndex="1" />
+                            <Border Grid.Column="1"
+                                        MinWidth="10"
+                                        MinHeight="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="0,3,3,0">
+                                <ContentPresenter x:Name="ContentLeft"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                      Cursor="{TemplateBinding Cursor}" />
+                            </Border>
+                            <Border x:Name="DisabledVisualLeft"
+                                        Grid.Column="1"
+                                        Background="#8CFFFFFF"
+                                        Canvas.ZIndex="1"
+                                        CornerRadius="0,3,3,0"
+                                        IsHitTestVisible="False"
+                                        Opacity="0" />
+                        </Grid>
+                        <Grid x:Name="TemplateRight" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <System_Windows_Controls_Primitives:TabPanel x:Name="TabPanelRight"
+                                                                             Grid.Column="1"
+                                                                             Margin="-1,2,2,2"
+                                                                             Canvas.ZIndex="1" />
+                            <Border MinWidth="10"
+                                        MinHeight="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="3,0,0,3">
+                                <ContentPresenter x:Name="ContentRight"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                      Cursor="{TemplateBinding Cursor}" />
+                            </Border>
+                            <Border x:Name="DisabledVisualRight"
+                                        Margin="0"
+                                        Background="#8CFFFFFF"
+                                        Canvas.ZIndex="1"
+                                        CornerRadius="3,0,0,3"
+                                        IsHitTestVisible="False"
+                                        Opacity="0" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

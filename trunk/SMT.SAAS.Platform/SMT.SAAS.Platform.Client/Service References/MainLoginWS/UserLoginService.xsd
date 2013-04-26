@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="V_EMPLOYEEDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CURRENTADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEPOSTS" nillable="true" type="tns:ArrayOfV_EMPLOYEEPOSTBRIEF" />
+      <xs:element minOccurs="0" name="EMPLOYEESTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOBILE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OFFICEPHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHOTO" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="POSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SEX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="URGENCYCONTACT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="URGENCYPERSON" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WORKAGE" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_EMPLOYEEDETAIL" nillable="true" type="tns:V_EMPLOYEEDETAIL" />
+  <xs:complexType name="ArrayOfV_EMPLOYEEPOSTBRIEF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EMPLOYEEPOSTBRIEF" nillable="true" type="tns:V_EMPLOYEEPOSTBRIEF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_EMPLOYEEPOSTBRIEF" nillable="true" type="tns:ArrayOfV_EMPLOYEEPOSTBRIEF" />
+  <xs:complexType name="V_EMPLOYEEPOSTBRIEF">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISAGENCY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_EMPLOYEEPOSTBRIEF" nillable="true" type="tns:V_EMPLOYEEPOSTBRIEF" />
+</xs:schema>

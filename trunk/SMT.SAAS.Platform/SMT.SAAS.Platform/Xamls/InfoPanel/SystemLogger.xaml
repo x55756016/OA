@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="SMT.SAAS.Platform.Xamls.SystemLogger"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+
+    <sdk:TabControl>
+        <sdk:TabItem Header="系统日志">
+            <data:DataGrid x:Name="dgLogList"
+                           Grid.Row="1"
+                           Margin="0 0 0 0"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           RowDetailsVisibilityMode="VisibleWhenSelected"
+                           SelectedIndex="0"
+                           SelectionMode="Single">
+                <data:DataGrid.Columns>
+                    <data:DataGridTextColumn Binding="{Binding LogCode}" Header="信息编码" />
+                    <data:DataGridTextColumn Binding="{Binding AppCode}" Header="系    统" />
+                    <data:DataGridTextColumn Binding="{Binding ModuleCode}" Header="模    块" />
+                    <data:DataGridTextColumn Binding="{Binding Message}" Header="信息描述" />
+                    <data:DataGridTextColumn Binding="{Binding CreateTime}" Header="时    间" />
+                </data:DataGrid.Columns>
+                <data:DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Border Margin="4 1 4 1"
+                                BorderBrush="Black"
+                                BorderThickness=".5"
+                                CornerRadius="2">
+                            <Grid Margin="10 5 10 5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" MaxHeight="150" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="信息编号: " />
+                                <TextBlock Grid.Column="2" Text="时    间: " />
+                                <TextBlock Grid.Row="1"    Text="系    统: " />
+                                <TextBlock Grid.Row="1"
+                                           Grid.Column="2" Text="模    块: " />
+                                <TextBlock Grid.Row="2" Text="详细信息: " />
+
+                                <TextBlock Grid.Column="1"
+                                           HorizontalAlignment="Left"
+                                           Text="{Binding LogCode}" />
+                                <TextBlock Grid.Column="3"
+                                           HorizontalAlignment="Left"
+                                           Text="{Binding CreateTime}" />
+                                <TextBlock Grid.Row="1"
+                                           Grid.Column="1"
+                                           HorizontalAlignment="Left"
+                                           Text="{Binding AppCode}" />
+                                <TextBlock Grid.Row="1"
+                                           Grid.Column="3"
+                                           HorizontalAlignment="Left"
+                                           Text="{Binding ModuleCode}" />
+                                <TextBlock Grid.Row="2"
+                                           Grid.Column="1"
+                                           Grid.ColumnSpan="3"
+                                           HorizontalAlignment="Left"
+                                           Text="{Binding Message}" />
+                                <TextBox Grid.Row="3"
+                                         Grid.ColumnSpan="4"
+                                         Text="{Binding Exception}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </data:DataGrid.RowDetailsTemplate>
+            </data:DataGrid>
+        </sdk:TabItem>
+    </sdk:TabControl>
+</UserControl>

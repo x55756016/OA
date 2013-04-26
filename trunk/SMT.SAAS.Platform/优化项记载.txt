@@ -1,0 +1,4 @@
+1.平台webparts独立包拆分
+2.平台取消webparts工程引用
+3.复制SMT.SAAS.Platform工程为SMT.SAAS.Platform.Main工程
+4.排除ChangePWDForm

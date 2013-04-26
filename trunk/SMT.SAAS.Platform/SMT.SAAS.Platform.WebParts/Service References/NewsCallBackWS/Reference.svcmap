@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e01186cc-5ba2-4c56-a2a0-377570cd61cf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NewsCallBack.xsd" MetadataType="Schema" ID="ea201095-8cf4-4806-af73-ea21a3f3a270" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd2" />
+    <MetadataFile FileName="NewsCallBack.wsdl" MetadataType="Wsdl" ID="7eef1875-8c88-4d70-9b64-a9138ae59b71" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="NewsCallBack1.xsd" MetadataType="Schema" ID="1d9884f5-5c52-4b0b-801b-719c7ed00587" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd4" />
+    <MetadataFile FileName="NewsCallBack2.xsd" MetadataType="Schema" ID="bde7254c-a13f-4a56-ba94-d7e90c8161cc" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsCallBack3.xsd" MetadataType="Schema" ID="57211e58-7e88-43da-89a1-3052c7a4fbd6" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd3" />
+    <MetadataFile FileName="NewsCallBack.disco" MetadataType="Disco" ID="fc425d2b-0ca6-48dc-b921-7afb38555f4b" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?disco" />
+    <MetadataFile FileName="NewsCallBack1.wsdl" MetadataType="Wsdl" ID="91e92e18-7175-4973-b5c6-a2adae530547" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?wsdl" />
+    <MetadataFile FileName="NewsCallBack4.xsd" MetadataType="Schema" ID="71203fb7-e12a-494a-94f1-902db61b9fcc" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

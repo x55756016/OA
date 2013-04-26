@@ -1,0 +1,201 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
+    <!--closebutton-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CloseButtonNomalbg">
+        <GradientStop Color="#fdfdfd" Offset="0"/>
+        <GradientStop Color="#f8f9f9" Offset="0.28"/>
+        <GradientStop Color="#f2f4f5" Offset="0.5"/>
+        <GradientStop Color="#ebeef0" Offset="0.5"/>
+        <GradientStop Color="#e4e9ec" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CloseButtonHoverbg">
+        <GradientStop Color="#fefefe" Offset="0"/>
+        <GradientStop Color="#f9f9fb" Offset="0.5"/>
+        <GradientStop Color="#f1f4f5" Offset="0.5"/>
+        <GradientStop Color="#f1f3f5" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CloseButtonNomalborder">
+        <GradientStop Color="#cdcdcd" Offset="0"/>
+        <GradientStop Color="#c5c5c5" Offset="0.28"/>
+        <GradientStop Color="#c5c5c5" Offset="0.5"/>
+        <GradientStop Color="#b2b2b2" Offset="0.5"/>
+        <GradientStop Color="#b2b2b2" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CloseButtonHoverborder">
+        <GradientStop Color="#dbdbdb" Offset="0"/>
+        <GradientStop Color="#dbdbdb" Offset="0.5"/>
+        <GradientStop Color="#c8c8c8" Offset="0.5"/>
+        <GradientStop Color="#c8c8c8" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CloseButtonSelectbg">
+        <GradientStop Color="#e2e2e2" Offset="0"/>
+        <GradientStop Color="#dadbdc" Offset="0.28"/>
+        <GradientStop Color="#d3d5d6" Offset="0.5"/>
+        <GradientStop Color="#c8cbcc" Offset="0.5"/>
+        <GradientStop Color="#c2c6c9" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CloseButtonSelectborder">
+        <GradientStop Color="#cdcdcd" Offset="0"/>
+        <GradientStop Color="#c0c0c0" Offset="0.28"/>
+        <GradientStop Color="#bcbcbc" Offset="0.5"/>
+        <GradientStop Color="#c8cbcc" Offset="0.5"/>
+        <GradientStop Color="#b2b2b2" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CloseButtonicon">
+        <GradientStop Color="Black" Offset="0"/>
+        <GradientStop Color="Black" Offset="0.28"/>
+        <GradientStop Color="Black" Offset="0.5"/>
+        <GradientStop Color="Black" Offset="1"/>
+    </LinearGradientBrush>
+    <!--Button-->
+    <Style TargetType="Button" x:Key="CloseButtonStyle">
+        <Setter Property="Background" Value="{StaticResource CloseButtonNomalbg}"/>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Padding"  Value="3"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="BorderThickness"  Value="1"/>
+        <Setter Property="BorderBrush"  Value="{StaticResource CloseButtonNomalborder}"/>
+        <Setter Property="Margin" Value="3"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualStateGroup.Transitions>
+                                    <vsm:VisualTransition GeneratedDuration="00:00:00.1"
+                                        To="MouseOver"/>
+                                    <vsm:VisualTransition GeneratedDuration="00:00:00.1"
+                                        To="Pressed"/>
+                                    <vsm:VisualTransition From="Normal"
+                                        GeneratedDuration="00:00:00.1000000"
+                                        To="MouseOver"/>
+                                    <vsm:VisualTransition From="MouseOver"
+                                        GeneratedDuration="00:00:00.1000000"
+                                        To="Normal"/>
+                                    <vsm:VisualTransition From="Pressed"
+                                        GeneratedDuration="00:00:00.1000000"
+                                        To="MouseOver"/>
+                                </vsm:VisualStateGroup.Transitions>
+                                <vsm:VisualState x:Name="Normal"/>
+                                <vsm:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Hover"
+                                                   Storyboard.TargetProperty="Opacity">
+                                            <SplineDoubleKeyFrame KeyTime="0"
+                                            Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0"
+                                                   Storyboard.TargetName="Contenticon2"
+                                                   Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0"
+                                              Value="Visible" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                   Duration="00:00:00.0010000"
+                                                   Storyboard.TargetName="Background"
+                                                   Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                            Value="0.7"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0"
+                                                   Storyboard.TargetName="Contenticon2"
+                                                   Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0"
+                                              Value="Visible" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Disabled">
+
+                                </vsm:VisualState>
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="FocusStates">
+                                <vsm:VisualStateGroup.Transitions>
+                                    <vsm:VisualTransition From="Focused"
+                                        GeneratedDuration="00:00:00.1000000"
+                                        To="Unfocused"/>
+                                    <vsm:VisualTransition From="Unfocused"
+                                        GeneratedDuration="00:00:00.1000000"
+                                        To="Focused"/>
+                                </vsm:VisualStateGroup.Transitions>
+                                <vsm:VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0"
+                                                   Storyboard.TargetName="FocusVisualElement"
+                                                   Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0"
+                                              Value="Visible" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0"
+                                                   Storyboard.TargetName="Contenticon2"
+                                                   Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0"
+                                              Value="Visible" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Unfocused"/>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                        <Border x:Name="Background"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="1">
+                            <!--鼠标经过的颜色-->
+                            <Border x:Name="Hover"
+                      Background="{StaticResource CloseButtonHoverbg}"
+                      CornerRadius="1"
+                      BorderBrush="{StaticResource CloseButtonHoverborder}"
+                      BorderThickness="1"
+                      Height="{TemplateBinding Height}"
+                      Width="{TemplateBinding Width}"
+                      Opacity="0"/>
+                        </Border>
+                        <Border x:Name="DisabledVisualElement"
+                    IsHitTestVisible="false"
+                    Opacity="0"
+                    Background="{StaticResource CloseButtonSelectbg}"
+                    CornerRadius="1"/>
+                        <!--鼠标按下后的颜色-->
+                        <Border x:Name="FocusVisualElement"
+                    IsHitTestVisible="false"
+                    Background="{StaticResource CloseButtonSelectbg}"
+                    Visibility="Collapsed"
+                    BorderBrush="{StaticResource CloseButtonSelectborder}"
+                    BorderThickness="1"
+                    CornerRadius="1"
+                    Opacity="0.8"/>
+                        <Border Margin="1" BorderBrush="White" BorderThickness="1"
+                                CornerRadius="0">
+                        </Border>
+                        <!--<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}"
+                              x:Name="contentPresenter"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"/>-->
+                        <Path Fill="{StaticResource CloseButtonicon}" Stroke="Transparent" Stretch="None"
+                  Data="M0,1L1,0L3,0L5,2L7,0L9,0L10,1L7,4L7,5L10,8L9,9L7,9L5,7L3,9L1,9L0,8L3,5L3,4Z"
+                  StrokeThickness="0.5" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="Contenticon"/>
+
+                        <Path Fill="#ad1314" Stroke="Transparent" Stretch="None"
+                  Data="M0,1L1,0L3,0L5,2L7,0L9,0L10,1L7,4L7,5L10,8L9,9L7,9L5,7L3,9L1,9L0,8L3,5L3,4Z" Visibility="Collapsed"
+                  StrokeThickness="0.5" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="Contenticon2"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,202 @@
+﻿
+<!--
+    根节点。在配置文件发生变更，需要修改版本属性。
+    版本（Version）值不能与上一版本值一致
+    Update_20111011.为模块加入Icon节点
+-->
+<!--
+    添加模块节点，并录入对应数据
+    1.ModuleCode :名称、所属模块代码为必填项。模块代码需要与权限系统严格一致。
+    2.Params :参数如果没有可以不填
+    3.Depends :依赖项可以不填，为缺省备用字段
+    
+    4.TaskType：关键字段，需要为完整类型信息。完整的类型程序集限定名称。参考AssemblyQualifiedName 格式填写。
+    5.Icon:模块图标，默认值/Images/icons/Comicon.png
+-->
+<ConfigTask Version="1.0">
+    <SystemType Name="办公系统"
+                Type="SMT.SaaS.OA.UI"
+                TypeId="1">
+
+        <Task Name="事项审批"
+              Depends="SMT.SAAS.OA.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_OA_APPROVALINFO.png"
+              ModuleCode="T_OA_APPROVALINFO"
+              Params=""
+              TaskType="SMT.SaaS.OA.UI.UserControls.ApprovalForm_aud,SMT.SaaS.OA.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="公司发文"
+              Depends="SMT.SAAS.OA.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_OA_SENDDOC.png"
+              ModuleCode="T_OA_SENDDOC"
+              Params=""
+              TaskType="SMT.SaaS.OA.UI.UserControls.CompanyDocForm,SMT.SaaS.OA.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  	<Task Name="个人借款"
+              Depends="SMT.FBAnalysis.UI"
+              ModuleCode="T_FB_BORROWAPPLYMASTER"
+              Params=""
+	      Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_FB_BORROWAPPLYMASTER.png"
+              TaskType="SMT.FBAnalysis.UI.Form.BorrowAppForm,SMT.FBAnalysis.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+	<Task Name="个人还款"
+              Depends="SMT.FBAnalysis.UI"
+              ModuleCode="T_FB_REPAYAPPLYMASTER"
+              Params=""
+   	      Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_FB_REPAYAPPLYMASTER.png"
+              TaskType="SMT.FBAnalysis.UI.Form.RepayApplyForm,SMT.FBAnalysis.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="费用报销"
+              Depends="SMT.FBAnalysis.UI"
+              ModuleCode="T_FB_CHARGEAPPLYMASTER"
+              Params=""
+	      Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_FB_CHARGEAPPLYMASTER.png"
+              TaskType="SMT.FBAnalysis.UI.Form.ChargeApplyForm,SMT.FBAnalysis.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+	<Task Name="出差申请"
+              Depends="SMT.SAAS.OA.UI"
+              ModuleCode="T_OA_BUSINESSTRIP"
+              Params=""
+	      Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_OA_BUSINESSTRIP.png"
+              TaskType="SMT.SaaS.OA.UI.Views.Travelmanagement.TravelRequestForm,SMT.SaaS.OA.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+
+    </SystemType>
+
+    <SystemType Name="人力资源管理系统"
+                Type="SMT.HRM.UI"
+                TypeId="0">
+        <Task Name="公司信息"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_COMPANY.png"
+              ModuleCode="T_HR_COMPANY"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.CompanyForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="部门信息"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_DEPARTMENT.png"
+              ModuleCode="T_HR_DEPARTMENT"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.DepartmentForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="岗位信息"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_POST.png"
+              ModuleCode="T_HR_POST"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.PostForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工社保档案"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_PENSIONMASTER.png"
+              ModuleCode="T_HR_PENSIONMASTER"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.PensionMasterForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+
+
+        <Task Name="员工黑名单"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/BlackLists.png"
+              ModuleCode="T_HR_BLACKLIST"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.BlackListForm2,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工商业保险"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEEINSURANCE.png"
+              ModuleCode="T_HR_EMPLOYEEINSURANCE"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.EmployeeInsuranceForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工劳动合同"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEECONTRACT.png"
+              ModuleCode="T_HR_EMPLOYEECONTRACT"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.EmployeeContractForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工应聘简历"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_RESUME.png"
+              ModuleCode="T_HR_RESUME"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.ResumeForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工离职"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_LEFTOFFICE.png"
+              ModuleCode="T_HR_LEFTOFFICE"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.LeftOfficeForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="离职确认"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_LEFTOFFICECONFIRM.png"
+              ModuleCode="T_HR_LEFTOFFICECONFIRM"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.LeftOfficeConfirmForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工入职"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEEENTRY.png"
+              ModuleCode="T_HR_EMPLOYEEENTRY"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.EntityPageForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工转正"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEECHECK.png"
+              ModuleCode="T_HR_EMPLOYEECHECK"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.EmployeeCheckForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工异动"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEEPOSTCHANGE.png"
+              ModuleCode="T_HR_EMPLOYEEPOSTCHANGE"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Personnel.EmployeePostChangeForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="异常签卡申请"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEESIGNINRECORD.png"
+              ModuleCode="T_HR_EMPLOYEESIGNINRECORD"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Attendance.SignInRdForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工请假申请"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEELEAVERECORD.png"
+              ModuleCode="T_HR_EMPLOYEELEAVERECORD"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Attendance.EmployeeLeaveRecordForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工加班申请"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEEOVERTIMERECORD.png"
+              ModuleCode="T_HR_EMPLOYEEOVERTIMERECORD"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Attendance.OverTimeForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Task Name="员工销假申请"
+              Depends="SMT.HRM.UI"
+              Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEECANCELLEAVE.png"
+              ModuleCode="T_HR_EMPLOYEECANCELLEAVE"
+              Params=""
+              TaskType="SMT.HRM.UI.Form.Attendance.TerminateLeaveForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+ <Task Name="薪资方案"
+            Depends="SMT.HRM.UI"
+            Icon="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1022.png"
+            ModuleCode="T_HR_SALARYSOLUTION"
+            Params=""
+            TaskType="SMT.HRM.UI.Form.Salary.SalarySolutionForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Task Name="薪资档案"
+           Depends="SMT.HRM.UI"
+           Icon="/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1026_d.png"
+           ModuleCode="T_HR_SALARYARCHIVE"
+           Params=""
+           TaskType="SMT.HRM.UI.Form.Salary.SalaryArchiveForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Task Name="薪资体系"
+          Depends="SMT.HRM.UI"
+          Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_SALARYSYSTEM.png"
+          ModuleCode="T_HR_SALARYSYSTEM"
+          Params=""
+          TaskType="SMT.HRM.UI.Form.Salary.SalarySystemNameForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Task Name="员工加扣款"
+        Depends="SMT.HRM.UI"
+        Icon="/SMT.SaaS.FrameworkUI;Component/Images/icon/T_HR_EMPLOYEEADDSUM.png"
+        ModuleCode="T_HR_EMPLOYEEADDSUM"
+        Params=""
+        TaskType="SMT.HRM.UI.Form.Salary.EmployeeAddSumForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </SystemType>
+</ConfigTask>
+
+
+
+
+
+
+
+
+
+

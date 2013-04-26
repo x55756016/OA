@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Silverlight" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Silverlight" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Silverlight/Imports">
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd0" namespace="Silverlight" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/Main/NewsCallBack.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INewsCallBack_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="INewsCallBack_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="INewsCallBack_TalkNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:TalkNews" />
+  </wsdl:message>
+  <wsdl:message name="INewsCallBack_Receive_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Receive" />
+  </wsdl:message>
+  <wsdl:portType name="INewsCallBack">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="Silverlight/INewsCallBack/Login" message="tns:INewsCallBack_Login_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="Silverlight/INewsCallBack/Logout" message="tns:INewsCallBack_Logout_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TalkNews">
+      <wsdl:input wsaw:Action="Silverlight/INewsCallBack/TalkNews" message="tns:INewsCallBack_TalkNews_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Receive">
+      <wsdl:output wsaw:Action="Silverlight/INewsCallBack/Receive" message="tns:INewsCallBack_Receive_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="SMT.SAAS.Platform" EntryPointType="SMT.SAAS.Platform.App" RuntimeVersion="4.0.50826.0">
+  <Deployment.Parts>
+    <ExtensionPart Source="SMT.SAAS.Platform.Main.xap" version="1.0.0" />
+  </Deployment.Parts>
+  <Deployment.ExternalParts>
+    <ExtensionPart Source="SMT.SAAS.Controls.Toolkit.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SAAS.Controls.Toolkit.Windows.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SaaS.FrameworkUI.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SAAS.Globalization.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SaaS.Images.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.Saas.PublicControls.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SAAS.Themes.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.Saas.Tools.AttendanceWS.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.Saas.Tools.DailyManagementWS.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SAAS.Utility.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SaaS.Window.zip" version="1.0.0" />
+    <ExtensionPart Source="System.ComponentModel.Composition.zip" version="1.0.0" />
+    <ExtensionPart Source="System.ComponentModel.Composition.Initialization.zip" version="1.0.0" />
+    <ExtensionPart Source="System.ComponentModel.DataAnnotations.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.Data.DataForm.Toolkit.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.Data.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.Data.Input.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.DataVisualization.Toolkit.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.Input.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.Input.Toolkit.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.Layout.Toolkit.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.Navigation.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Controls.Toolkit.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Windows.Data.zip" version="1.0.0" />
+    <ExtensionPart Source="System.Xml.Linq.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Controls.Data.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Controls.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Controls.GridView.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Controls.Input.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Controls.Navigation.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Controls.RibbonBar.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Controls.RichTextBoxUI.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Data.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Documents.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Documents.FormatProviders.Html.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Documents.FormatProviders.OpenXml.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Documents.FormatProviders.Pdf.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Documents.FormatProviders.Xaml.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Documents.Proofing.Dictionaries.En-US.zip" version="1.0.0" />
+    <ExtensionPart Source="Telerik.Windows.Themes.Summer.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.Saas.Tools.FlowWFService.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.Saas.Tools.FBServiceWS.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.Saas.Tools.HrCommonServiceWS.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.Saas.Tools.PerformanceWS.zip" version="1.0.0" />
+    <ExtensionPart Source="FJ.Core.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SAAS.ClientUtility.zip" version="1.0.0" />
+    <ExtensionPart Source="SMT.SAAS.ClientServices.zip" version="1.0.0" />
+  </Deployment.ExternalParts>
+</Deployment>

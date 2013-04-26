@@ -1,0 +1,194 @@
+﻿<Grid x:Class="SMT.SAAS.Platform.Xamls.LoginPart.ChangePWDForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      d:DesignHeight="322"
+      d:DesignWidth="400"
+      mc:Ignorable="d">
+    <Grid Width="370"
+          x:Name="root"
+          Height="258"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Top">
+        <Border Margin="0"
+                BorderBrush="Black"
+                BorderThickness="1"
+                CornerRadius="4">
+            <Border.Effect>
+                <BlurEffect Radius="10" />
+            </Border.Effect>
+        </Border>
+        <Border Margin="1" CornerRadius="6">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#66BFD2EF" />
+                    <GradientStop Offset="1" Color="#42A8C1E5" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border Margin="4"
+                    Background="#4CD1DBE9"
+                    BorderThickness="0"
+                    CornerRadius="3">
+                <Path Height="68"
+                      Margin="0"
+                      VerticalAlignment="Top"
+                      Data="M5.3999996,8.5999985 L7,4.6000042 L11,3.0000062 L362.60001,3.0000062 L366.20001,4.6000042 L367,9.3999968 L367,69.953773 L314.20001,63.092232 L232.14919,56.661476 L175,53.523033 L119,52.63073 L86.310539,55.184559 L47,59.799923 L5.8000007,66.999916 z"
+                      Stretch="Fill"
+                      Stroke="Black"
+                      StrokeThickness="0"
+                      UseLayoutRounding="False">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Offset="0" Color="#66FFFFFF" />
+                            <GradientStop Offset="1" Color="#19E4E8EF" />
+                            <GradientStop Offset="0.586" Color="#2EFFFFFF" />
+                            <GradientStop Offset="0.975" Color="#25E4E8EF" />
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+            </Border>
+        </Border>
+        <Canvas Width="370"
+                Height="210"
+                VerticalAlignment="Top">
+            <Image Canvas.Left="78"
+                   Canvas.Top="14"
+                   Width="213"
+                   Height="36"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Source="/Images/logo_login.png"
+                   Stretch="Fill" />
+            <TextBlock Canvas.Left="77"
+                       Canvas.Top="83"
+                       Height="25"
+                       FontFamily="Microsoft YaHei"
+                       FontSize="15"
+                       Foreground="#3d3d3d"
+                       Text="用户名" />
+            <TextBlock Canvas.Left="18"
+                       Canvas.Top="49"
+                       Height="25"
+                       FontFamily="Microsoft YaHei"
+                       FontSize="15"
+                       Foreground="#2C6ABA"
+                       Text="修改密码" />
+            <Border Canvas.Left="-2"
+                    Canvas.Top="70"
+                    Width="340"
+                    Height="1"
+                    Margin="20,0"
+                    HorizontalAlignment="Stretch"
+                    Background="#2C6ABA" />
+            <TextBlock Canvas.Left="78"
+                       Canvas.Top="111"
+                       Height="25"
+                       FontFamily="Microsoft YaHei"
+                       FontSize="15"
+                       Foreground="#3d3d3d"
+                       Text="密   码" />
+            <TextBlock Canvas.Left="78"
+                       Canvas.Top="138"
+                       Height="25"
+                       FontFamily="Microsoft YaHei"
+                       FontSize="15"
+                       Foreground="#3d3d3d"
+                       Text="新密码" />
+            <TextBlock Canvas.Left="77"
+                       Canvas.Top="167"
+                       Height="25"
+                       FontFamily="Microsoft YaHei"
+                       FontSize="15"
+                       Foreground="#3d3d3d"
+                       Text="确认密码" />
+
+            <TextBox x:Name="txbUserName"
+                     Canvas.Left="138"
+                     Canvas.Top="81"
+                     Width="158"
+                     Height="23"
+                     Margin="0"
+                     IsTabStop="True"
+                     TabIndex="10"
+                     Text="{Binding UserName,
+                                        Mode=TwoWay,
+                                        ValidatesOnExceptions=true,
+                                        NotifyOnValidationError=true}"
+                    
+                     TextWrapping="Wrap" />
+            <PasswordBox x:Name="txbUserPassword"
+                         Canvas.Left="138"
+                         Canvas.Top="109"
+                         Width="158"
+                         Height="23"
+                         Margin="0"
+                        
+                            Password="{Binding OldPwd,
+                                        Mode=TwoWay,
+                                        ValidatesOnExceptions=true,
+                                        NotifyOnValidationError=true}"
+                    
+                         TabIndex="11" />
+            <PasswordBox x:Name="txbNewPwd"
+                         Canvas.Left="138"
+                         Canvas.Top="137"
+                         Width="158"
+                         Height="23"
+                         Margin="0"
+                         IsEnabled="{Binding IsLock,Mode=TwoWay}"
+                         Password="{Binding NewPwd1,
+                                        Mode=TwoWay,
+                                        ValidatesOnExceptions=true,
+                                        NotifyOnValidationError=true}"
+                    
+                         TabIndex="12" />
+            <PasswordBox x:Name="txbNewPwd2"
+                         Canvas.Left="138"
+                         Canvas.Top="167"
+                         Width="158"
+                         Height="23"
+                         Margin="0"
+                          IsEnabled="{Binding IsLock,Mode=TwoWay}"
+                         Password="{Binding NewPwd2,
+                                        Mode=TwoWay,
+                                        ValidatesOnExceptions=true,
+                                        NotifyOnValidationError=true}"
+                    
+                         TabIndex="13" />
+            <Button x:Name="radButton1"
+                    Canvas.Left="137"
+                    Canvas.Top="215"
+                    Width="70"
+                    Height="22"
+                    Click="radButton1_Click"
+                    Content="修  改"
+                    FontFamily="SimSun"
+                    FontSize="12"
+                    Command="{Binding Submit}"
+                     IsEnabled="{Binding IsLock,Mode=TwoWay}"
+                    Foreground="#707070"
+                    TabIndex="14" />
+            <Button Canvas.Left="224"
+                    Canvas.Top="215"
+                    Width="70"
+                    Height="22"
+                    Click="Button_Click"
+                    Content="返   回"
+                    FontFamily="SimSun"
+                    FontSize="12"
+                    Foreground="#707070"
+                    TabIndex="15" />
+            <TextBlock x:Name="txtError"
+                       Canvas.Left="141"
+                       Canvas.Top="195"
+                       Height="20"
+                       Foreground="#ff0000"
+                       Text="" />
+            <TextBlock Height="60" Width="370" TextWrapping="Wrap" Canvas.Top="265"  Name="textBlock2" 
+                       Text="为了安全，协同办公系统登录密码已要求为8-15位英文与数字的组合，请修改密码后再登录。
+提示：修改协同办公系统密码会同时修改邮箱和即时通讯的登录密码"  />
+        </Canvas>
+
+    </Grid>
+   </Grid>
