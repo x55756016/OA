@@ -115,24 +115,24 @@ namespace SMT.HRM.Services
                 {
                     if (point.T_HR_SCORETYPE.ISSYSTEMSCORE == "1")
                     {
-                        SMT.Foundation.Log.Tracer.Debug("时间：" + System.DateTime.Now.ToString() + "被考核人：" + AppraiseeID + "是否系统打分：1" + "statecode" + stepID);
+                        //SMT.Foundation.Log.Tracer.Debug("时间：" + System.DateTime.Now.ToString() + "被考核人：" + AppraiseeID + "是否系统打分：1" + "statecode" + stepID);
                         return KPISystemScoreByKPIPoint(point, formCode, flowID, stepID, lastStepDate, stepDate, AppraiseeID);
                     }
                     else
                     {
-                        SMT.Foundation.Log.Tracer.Debug("时间：" + System.DateTime.Now + "被考核人：" + AppraiseeID + "是否系统打分：0");
+                        //SMT.Foundation.Log.Tracer.Debug("时间：" + System.DateTime.Now + "被考核人：" + AppraiseeID + "是否系统打分：0");
                         return 0;
                     }
                 }
                 else
                 {
-                    SMT.Foundation.Log.Tracer.Debug("时间：" + System.DateTime.Now.ToString() + "被考核人：" + AppraiseeID + "评分标准为空");
+                    //SMT.Foundation.Log.Tracer.Debug("时间：" + System.DateTime.Now.ToString() + "被考核人：" + AppraiseeID + "评分标准为空");
                     return 0;
                 }
             }
             else
             {
-                SMT.Foundation.Log.Tracer.Debug("时间：" + System.DateTime.Now.ToString() + "被考核人：" + AppraiseeID + "考核点为空" + " companyID:" + companyID + " modelRelationID:" + modelRelationID + " flowcode:" + flowCode + " stepCode:" + stepCode);
+                //SMT.Foundation.Log.Tracer.Debug("时间：" + System.DateTime.Now.ToString() + "被考核人：" + AppraiseeID + "考核点为空" + " companyID:" + companyID + " modelRelationID:" + modelRelationID + " flowcode:" + flowCode + " stepCode:" + stepCode);
                 return 0;
             }
 

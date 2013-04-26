@@ -1320,7 +1320,7 @@ namespace SMT.HRM.BLL
 
                     string strAttendState = (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString();
                     //增加考勤结算时计算同时存在考勤异常和请假的天数
-                    string strAttendStateMix = (Convert.ToInt32(Common.AttendanceState.Mix) + 1).ToString();
+                    string strAttendStateMix = (Convert.ToInt32(Common.AttendanceState.MixLeveAbnormal) + 1).ToString();
                     IQueryable<T_HR_ATTENDANCERECORD> entCurAttRds = entAttRds.Where(t => t.ATTENDANCESTATE == strAttendState || t.ATTENDANCESTATE == strAttendStateMix);
 
                     decimal dCurLeaveDays = entCurAttRds.Count();//标称请假天数
@@ -2699,10 +2699,12 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                string strAttState = (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString();
-
+                string strAttState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
+                //考勤结算时计算同时存在考勤异常和出差天数
+                string strAttendStateMix = (Convert.ToInt32(Common.AttendanceState.MixLeveAbnormal) + 1).ToString();
                 IQueryable<T_HR_ATTENDANCERECORD> entAttRdTemps = from r in entAttRds
                                                                   where r.ATTENDANCESTATE == strAttState
+                                                                  || r.ATTENDANCESTATE == strAttendStateMix
                                                                   select r;
 
                 if (entAttRdTemps.Count() == 0)

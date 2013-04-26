@@ -830,7 +830,7 @@ namespace SMT.HRM.BLL
             {
                 bIsAbnorm = true;
 
-                entAttRd.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Mix) + 1).ToString();
+                entAttRd.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixLeveAbnormal) + 1).ToString();
                 AttendanceRecordBLL bllAttendanceRecord = new AttendanceRecordBLL();
                 bllAttendanceRecord.ModifyAttRd(entAttRd);
             }
@@ -2326,7 +2326,14 @@ namespace SMT.HRM.BLL
                     {   //如果当天存在请假，同时也存在异常
                         if (thisDayAttendState.Values.Contains(AttendanceState.Leave) && thisDayAttendState.Values.Contains(AttendanceState.Abnormal))
                         {   //标记当天出勤状况为Mix状态
-                            item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Mix) + 1).ToString();
+                            if (attState == (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString())
+                            {
+                                item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixLeveAbnormal) + 1).ToString();
+                            }
+                            if (attState == (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString())
+                            {
+                                item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixTravelAbnormal) + 1).ToString();
+                            }                            
                             item.UPDATEDATE = DateTime.Now;
                             item.REMARK = "请假或出差修改考勤状态";
                             dal.Update(item);

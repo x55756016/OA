@@ -502,7 +502,7 @@ namespace SMT.HRM.BLL.Common
         /// <summary>
         /// 出差
         /// </summary>
-        OutOnDuty,
+        Travel,
         /// <summary>
         /// 休息
         /// </summary>
@@ -512,9 +512,13 @@ namespace SMT.HRM.BLL.Common
         /// </summary>
         Leave,
         /// <summary>
-        /// 混合状态(针对一天内同时出现请假，出差，考勤异常)
+        /// 混合状态(针对一天内同时出现请假，考勤异常)
         /// </summary>
-        Mix
+        MixLeveAbnormal,
+        /// <summary>
+        /// 混合状态(针对一天内同时出现出差，考勤异常)
+        /// </summary>
+        MixTravelAbnormal
     }
     /// <summary>
     /// 考勤异常类型(异常记录明细表专用)

@@ -152,7 +152,7 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public int UpdateCheckState(string strEntityName, string EntityKeyName, string EntityKeyValue, string CheckState)
         {
-            SMT.Foundation.Log.Tracer.Debug("手机审单调用了" + strEntityName + "表单ID为：" + EntityKeyValue + System.DateTime.Now.ToString());
+            //SMT.Foundation.Log.Tracer.Debug("手机审单调用了" + strEntityName + "表单ID为：" + EntityKeyValue + System.DateTime.Now.ToString());
             return dal.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
         }
     }

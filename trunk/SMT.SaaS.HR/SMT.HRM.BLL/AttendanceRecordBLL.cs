@@ -515,12 +515,12 @@ namespace SMT.HRM.BLL
                         continue;
                     }
 
-                    if (item.ATTENDANCESTATE == (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString())
+                    if (item.ATTENDANCESTATE == (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString())
                     {
                         continue;
                     }
 
-                    item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString();
+                    item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
                     ModifyAttRd(item);
                     entCheckAttRds.Add(item);
                 }

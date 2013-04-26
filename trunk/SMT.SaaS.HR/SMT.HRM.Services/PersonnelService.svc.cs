@@ -3136,7 +3136,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                Tracer.Debug("进入GetFlowUserInfoPostBriefByEmployeeID："+employeeids.Count().ToString());
+                //Tracer.Debug("进入GetFlowUserInfoPostBriefByEmployeeID："+employeeids.Count().ToString());
                 return bll.GetFlowUserInfoPostBriefByEmployeeID(employeeids);
             }
             

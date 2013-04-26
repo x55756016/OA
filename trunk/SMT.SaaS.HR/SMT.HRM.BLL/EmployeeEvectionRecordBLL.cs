@@ -162,7 +162,7 @@ namespace SMT.HRM.BLL
                       + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss"));
                 AbnormRecordBLL bll = new AbnormRecordBLL();
 
-                string attState = (Convert.ToInt32(Common.AttendanceState.OutOnDuty) + 1).ToString();
+                string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
                 bll.DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, attState);
 
                 Tracer.Debug("出差消除异常结束，请假开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
