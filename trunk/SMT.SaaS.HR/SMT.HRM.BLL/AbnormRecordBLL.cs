@@ -2355,7 +2355,9 @@ namespace SMT.HRM.BLL
                         {
                             item.ATTENDANCESTATE = "1";
                             item.UPDATEDATE = DateTime.Now;
-                            item.REMARK = "请假或出差修改当天考勤状态为正常：" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd");
+                            item.REMARK = "请假或出差修改当天考勤状态为正常：" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
+                                + " 类型6为请假，4为出差：" + attState;
+                            Tracer.Debug(item.REMARK);
                             dal.Update(item);
                         }
                     }
