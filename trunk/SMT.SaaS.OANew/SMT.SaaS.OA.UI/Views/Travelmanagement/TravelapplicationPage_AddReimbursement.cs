@@ -338,30 +338,26 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 if (ReimbursementSwitch == true)
                 {
-                    List<T_OA_BUSINESSTRIPDETAIL> TravelReportDetail = new List<T_OA_BUSINESSTRIPDETAIL>();
+                    List<T_OA_BUSINESSTRIPDETAIL> BusinessTripDetail = new List<T_OA_BUSINESSTRIPDETAIL>();
                     if (e.Result.Count > 0)
                     {
-                        TrDetail.Clear();//清理报销子表
-                        TravelReportDetail = e.Result.ToList();
+                        TrDetail_Gloabal.Clear();//清理报销子表
+                        BusinessTripDetail = e.Result.ToList();
                         List<string> cityscode = new List<string>();
                         double BusinessDays = 0;
                         int i = 0;
                         double total = 0;
 
-                        foreach (var detail in TravelReportDetail)
+                        foreach (var detail in BusinessTripDetail)
                         {
                             i++;
                             double toodays = 0;
 
                             //计算本次出差的时间
-                            List<string> list = new List<string>
-                        {
-                             detail.BUSINESSDAYS
-                        };
+                            List<string> list = new List<string>{detail.BUSINESSDAYS};
                             if (detail.BUSINESSDAYS != null)
                             {
                                 double totalHours = System.Convert.ToDouble(list[0]);
-
                                 BusinessDays += totalHours;//总天数
                                 toodays = totalHours;//单条数据的天数
                             }
@@ -614,12 +610,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             #endregion
                             #endregion
 
-                            TrDetail.Add(TrListInfo);
+                            TrDetail_Gloabal.Add(TrListInfo);
                         }
                         string result = BusinessDays.ToString(); //计算本次出差的总时间,超过24小时天数加1
                         travelReimbursement.COMPUTINGTIME = result;//总时间
                         Button btn = e.UserState as Button;
-                        Travelmanagement.TravelReimbursementAddAsync(travelReimbursement, TrDetail, btn);//保存出差报销
+                        Travelmanagement.TravelReimbursementAddAsync(travelReimbursement, TrDetail_Gloabal, btn);//保存出差报销
                     }
                 }
             }

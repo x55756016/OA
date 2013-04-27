@@ -50,7 +50,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         private T_OA_TRAVELREIMBURSEMENT travelReimbursement = new T_OA_TRAVELREIMBURSEMENT();
         private T_OA_TRAVELSOLUTIONS travelsolutions = new T_OA_TRAVELSOLUTIONS();
         private List<T_OA_AREAALLOWANCE> areaallowance = new List<T_OA_AREAALLOWANCE>();
-        private ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TrDetail = new ObservableCollection<T_OA_REIMBURSEMENTDETAIL>();//出差报销子表
+        private ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TrDetail_Gloabal = new ObservableCollection<T_OA_REIMBURSEMENTDETAIL>();//出差报销子表
         private int Tdetail;//用于判断是否存在出差报销子表记录
         //private ObservableCollection<T_OA_BUSINESSREPORTDETAIL> ReportDetail = new ObservableCollection<T_OA_BUSINESSREPORTDETAIL>();//出差报告从表
         private List<T_OA_AREACITY> areacitys = new List<T_OA_AREACITY>();
