@@ -327,7 +327,11 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
         /// <param name="e"></param>
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
-            PARENT.Children.Add(loadbar);
+            if(!PARENT.Children.Contains(loadbar))
+            {
+                PARENT.Children.Add(loadbar);
+            }
+            loadbar.Start();
             //loadbar.Stop();
             //清空
            // dgEmployeeList.ItemsSource = null;
