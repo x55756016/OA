@@ -28,7 +28,7 @@ namespace SMT.SaaS.OA.UI.UserControls
     {
         #region 全局变量
         private SmtOAPersonOfficeClient OaPersonOfficeClient;
-        private PersonnelServiceClient HrPersonnelclient;
+        //private PersonnelServiceClient HrPersonnelclient;
         private OaInterfaceClient OaInterfaceClient;//预算费用报销单号使用
         private bool isPageloadCompleted = false;//控制Tab切换时的数据加载 
         //private V_Travelmanagement businesstrip = new V_Travelmanagement();
@@ -94,11 +94,11 @@ namespace SMT.SaaS.OA.UI.UserControls
         private void InitEvent()
         {
             OaPersonOfficeClient = new SmtOAPersonOfficeClient();
-            HrPersonnelclient = new PersonnelServiceClient();
+            //HrPersonnelclient = new PersonnelServiceClient();
             areacitys = new List<T_OA_AREACITY>();
             OaInterfaceClient = new OaInterfaceClient();
-            HrPersonnelclient.GetAllEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetAllEmployeePostBriefByEmployeeIDCompleted);
-            HrPersonnelclient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetEmployeePostBriefByEmployeeIDCompleted);
+            //HrPersonnelclient.GetAllEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetAllEmployeePostBriefByEmployeeIDCompleted);
+            //HrPersonnelclient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(client_GetEmployeePostBriefByEmployeeIDCompleted);
             OaPersonOfficeClient.UpdateTravelReimbursementCompleted += new EventHandler<UpdateTravelReimbursementCompletedEventArgs>(TrC_UpdateTravelReimbursementCompleted);
             OaPersonOfficeClient.GetTravelReimbursementByIdCompleted += new EventHandler<GetTravelReimbursementByIdCompletedEventArgs>(TrC_GetTravelReimbursementByIdCompleted);
             //OaPersonOfficeClient.GetTravelReimbursementDetailCompleted += new EventHandler<GetTravelReimbursementDetailCompletedEventArgs>(TrC_GetTravelReimbursementDetailCompleted);

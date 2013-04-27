@@ -107,64 +107,64 @@
       </customBinding>
     </bindings>
     <client>
-      <endpoint address="http://172.16.1.93:8080/New/Services/HR/PersonnelService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/HR/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/System/FileUploadManager.svc"
+      <endpoint address="http://172.16.1.57/New/Services/System/FileUploadManager.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
         contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/fb/FBService.svc" binding="basicHttpBinding"
+      <endpoint address="http://172.16.1.57/New/Services/fb/FBService.svc" binding="basicHttpBinding"
         bindingConfiguration="BasicHttpBinding_FBService" contract="FBServiceWS.FBService"
         name="BasicHttpBinding_FBService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+      <endpoint address="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/HR/SalaryService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/HR/SalaryService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
         contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/HR/OrganizationService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/HR/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/System/PermissionService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/System/PermissionService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
         contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/HR/AttendanceService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/HR/AttendanceService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
         contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/HR/PerformanceService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/HR/PerformanceService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
         contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/SMTFlowDesigner/Service.svc"
+      <endpoint address="http://172.16.1.57/New/Services/SMTFlowDesigner/Service.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Service"
         contract="FlowDesignerWS.Service" name="CustomBinding_Service" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/HR/HrCommonService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/HR/HrCommonService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
         contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/MyRecord/PersonalRecordService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/MyRecord/PersonalRecordService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
         contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc"
+      <endpoint address="http://172.16.1.57/New/Services/FileUploadService/FileUpLoad.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
         contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
       <endpoint address="http://localhost:3938/SmtOACommonAdmin.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonAdmin"
         contract="SmtOACommonAdminService.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/OA/SmtOADocumentAdmin.svc"
+      <endpoint address="http://172.16.1.57/New/Services/OA/SmtOADocumentAdmin.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOADocumentAdmin"
         contract="SmtOADocumentAdminService.SmtOADocumentAdmin" name="CustomBinding_SmtOADocumentAdmin" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/OA/AgentServices.svc"
+      <endpoint address="http://172.16.1.57/New/Services/OA/AgentServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_AgentServices"
         contract="AgentChannel.AgentServices" name="CustomBinding_AgentServices" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/SMTFBAService/OaInterface.svc"
+      <endpoint address="http://172.16.1.57/New/Services/SMTFBAService/OaInterface.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_OaInterface"
         contract="TravelExpApplyMaster.OaInterface" name="BasicHttpBinding_OaInterface" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/OA/EngineServices.svc"
+      <endpoint address="http://172.16.1.57/New/Services/OA/EngineServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IApplicationService"
         contract="EngineServicesWS.IApplicationService" name="CustomBinding_IApplicationService" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/smtengine/EngineWcfGlobalFunction.svc"
+      <endpoint address="http://172.16.1.57/New/Services/smtengine/EngineWcfGlobalFunction.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="BasicHttpBinding_IEngineWcfGlobalFunction" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/PublicInterface/PublicService.svc"
+      <endpoint address="http://172.16.1.57/New/Services/PublicInterface/PublicService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
         contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
       <endpoint address="http://localhost:3938/SmtOACommonOffice.svc"

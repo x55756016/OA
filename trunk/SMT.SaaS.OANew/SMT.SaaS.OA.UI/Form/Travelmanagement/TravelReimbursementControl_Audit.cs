@@ -372,6 +372,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
 
         }
+
         public void OnSubmitCompleted(FrameworkUI.AuditControl.AuditEventArgs.AuditResult args)
         {
             Utility.InitFileLoad(FormTypes.Audit, uploadFile, TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID, false);
@@ -432,6 +433,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             return state;
         }
+
         #endregion
 
 

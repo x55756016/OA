@@ -248,46 +248,11 @@ namespace SMT.SaaS.OA.UI.UserControls
         #endregion
 
         #region 保存函数
-        private void Save()
-        {
-            RefreshUI(RefreshedTypes.ShowProgressBar);
-            SaveBtn = true;
-            try
-            {
-                if (Check())
-                {
-                    //textStandards.Text = string.Empty;//清空报销标准说明
-                    //字段赋值
-                    SetTraveReimbursementValue();
 
-                    if (TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0)
-                    {
-                        fbCtr.Order.ORDERID = TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID;
-                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit);//提交费用 
-                    }
-                    else
-                    {
-                        OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
-                    }
-                }
-                else
-                {
-                    needsubmit = false;
-                    //isSubmit = false;
-                    RefreshUI(RefreshedTypes.HideProgressBar);
-                }
-            }
-            catch (Exception ex)
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-        }
         /// <summary>
         /// 字段赋值
         /// </summary>
-        private void SetTraveReimbursementValue()
+        private void SetTraveAndFBChargeValue()
         {
             //计算出差时间
             TravelTime();
@@ -305,6 +270,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (fbCtr.TravelSubject != null)
                 {
                     fbCtr.TravelSubject.ApplyMoney = Convert.ToDecimal(this.txtSubTotal.Text);//将本次出差总费用给预算
+                    TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS += fbCtr.TravelSubject.ApplyMoney;
                 }
             }
             else
@@ -327,8 +293,11 @@ namespace SMT.SaaS.OA.UI.UserControls
             TravelReimbursement_Golbal.TEL = this.txtTELL.Text;//联系电话;
             TravelReimbursement_Golbal.CONTENT = this.txtReport.Text;//报告内容    
             TravelReimbursement_Golbal.THETOTALCOST = Convert.ToDecimal(txtSubTotal.Text);//本次差旅总费用
-            TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS = fbCtr.Order.TOTALMONEY;//总费用;
-            //TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS = decimal.Parse(txtChargeApplyTotal.Text);
+
+            if (fbCtr.Order.TOTALMONEY != null)
+            {   //总费用;
+                TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS += fbCtr.Order.TOTALMONEY;
+            }
             TravelReimbursement_Golbal.REIMBURSEMENTTIME = Convert.ToDateTime(ReimbursementTime.Text);
             TravelReimbursement_Golbal.REMARKS = this.txtRemark.Text;
             if (string.IsNullOrEmpty(TravelReimbursement_Golbal.POSTLEVEL))
@@ -357,6 +326,45 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
 
         }
+
+        private void Save()
+        {
+            RefreshUI(RefreshedTypes.ShowProgressBar);
+            SaveBtn = true;
+            try
+            {
+                if (Check())
+                {
+                    //textStandards.Text = string.Empty;//清空报销标准说明
+                    //字段赋值
+                    SetTraveAndFBChargeValue();
+
+                    if (TravelReimbursement_Golbal.CHECKSTATE=="0" 
+                        && TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0)
+                    {
+                        fbCtr.Order.ORDERID = TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID;
+                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit);//提交费用 
+                    }
+                    else
+                    {
+                        OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
+                    }
+                }
+                else
+                {
+                    needsubmit = false;
+                    //isSubmit = false;
+                    RefreshUI(RefreshedTypes.HideProgressBar);
+                }
+            }
+            catch (Exception ex)
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+        }
+        
 
         #endregion
 
@@ -546,22 +554,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                             ParentEntityBrowser.ParentWindow.Close();
                         }
                     }
-
-
-                    //if (e.UserState.ToString() == "Edit" && !isSubmit)
-                    //{
-                    //    isSubmit = false;
-                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "TRAVELREIMBURSEMENTPAGE"));
-                    //    if (GlobalFunction.IsSaveAndClose(refreshType))
-                    //    {
-                    //        RefreshUI(refreshType);
-                    //        ParentEntityBrowser.ParentWindow.Close();
-                    //    }
-                    //}
-                    //if (e.UserState.ToString() == "Audit")
-                    //{
-                    //    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
-                    //}
                     canSubmit = true;
 
                     RefreshUI(RefreshedTypes.AuditInfo);
@@ -572,7 +564,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                             entBrowser.ManualSubmit();
                             HideButtons();
-                            //OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
                         }
                         else
                         {
@@ -591,10 +582,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             //clickSubmit = false;
                         }
                     }
-
-                    //RefreshUI(RefreshedTypes.All);
                 }
-                //TrC.GetTravelReimbursementByIdAsync(travelReimbursementID);
             }
             catch (Exception ex)
             {
