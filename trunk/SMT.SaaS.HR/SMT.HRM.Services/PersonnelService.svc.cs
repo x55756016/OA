@@ -3182,7 +3182,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                Tracer.Debug("进入GetFlowUserByUserID：" + userID);
+                //Tracer.Debug("进入GetFlowUserByUserID：" + userID);
                 return bll.GetFlowUserByUserID(userID);
             }
         }
@@ -3198,7 +3198,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                Tracer.Debug("进入GetFlowUserByUserID：" + userID +"模块代码：" + modelCode);
+                //Tracer.Debug("进入GetFlowUserByUserID：" + userID +"模块代码：" + modelCode);
                 return bll.GetAgentUser(userID, modelCode);
             }
         }

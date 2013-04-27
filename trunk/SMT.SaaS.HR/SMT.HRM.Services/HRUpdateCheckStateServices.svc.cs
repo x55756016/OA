@@ -29,10 +29,18 @@ namespace SMT.HRM.Services
         public int UpdateCheckState(string strEntityName, string EntityKeyName, string EntityKeyValue, string CheckState)
         {
 
-            SMT.Foundation.Log.Tracer.Debug("手机审单调用了" + strEntityName + "表单键值：" + EntityKeyName);
-            SMT.Foundation.Log.Tracer.Debug("表单ID为：" + EntityKeyValue + System.DateTime.Now.ToString());
-            SMT.Foundation.Log.Tracer.Debug("审核状态为：" + CheckState);
-            return SMT.HRM.BLL.Utility.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
+            SMT.Foundation.Log.Tracer.Debug("______________HR UpdateCheckState开始： strEntityName：" + strEntityName
+                    + " EntityKeyName:" + EntityKeyName + " EntityKeyValue：" + EntityKeyValue
+                    + " CheckState:" + CheckState);
+
+            int i=0;
+            i=SMT.HRM.BLL.Utility.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
+
+            SMT.Foundation.Log.Tracer.Debug("______________UpdateCheckState成功： strEntityName：" + strEntityName
+                    + " EntityKeyName:" + EntityKeyName + " EntityKeyValue：" + EntityKeyValue
+                    + " CheckState:" + CheckState + " 受影响的记录数：" + i.ToString());
+
+            return i;
         }
         #endregion
         // 在此处添加更多操作并使用 [OperationContract] 标记它们

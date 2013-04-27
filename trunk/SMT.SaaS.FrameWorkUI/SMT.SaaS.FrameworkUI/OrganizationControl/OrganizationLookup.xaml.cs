@@ -153,7 +153,6 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
         }
         public bool MultiSelected;
 
-
         public string CurrentUserID
         {
             get

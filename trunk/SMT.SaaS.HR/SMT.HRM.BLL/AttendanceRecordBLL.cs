@@ -386,7 +386,8 @@ namespace SMT.HRM.BLL
                     }
                     catch (Exception ex)
                     {
-                        Tracer.Debug("删除员工" + entEmployee.EMPLOYEECNAME + "考勤初始化记录异常：" + ex.ToString());
+                        Tracer.Debug("删除员工" + entEmployee.EMPLOYEECNAME + "考勤初始化记录异常：" + " 考勤日期：" + entAttRd.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
+                            +" 异常原因：" +ex.ToString());
                         continue;
                     }
                 }

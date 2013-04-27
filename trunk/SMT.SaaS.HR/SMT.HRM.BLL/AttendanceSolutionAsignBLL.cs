@@ -1699,10 +1699,10 @@ namespace SMT.HRM.BLL
                                     {
                                         if (!string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
                                         {
-                                            Tracer.Debug("ATTENDANCESTATE不为空" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                            Tracer.Debug("更新考勤初始化记录，ATTENDANCESTATE考勤状态不为空，跳过，" + "，员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd"));
                                             continue;
                                         }
-                                        Tracer.Debug("开始修改员工T_HR_ATTENDANCERECORD记录,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEEENAME);
+                                        Tracer.Debug("更新考勤初始化记录，ATTENDANCESTATE考勤状态为空,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEEENAME);
                                         entUpdate.ATTENDANCESOLUTIONID = entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID;
                                         entUpdate.EMPLOYEEID = item_emp.EMPLOYEEID;
                                         entUpdate.EMPLOYEECODE = item_emp.EMPLOYEECODE;
