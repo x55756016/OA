@@ -683,6 +683,8 @@ namespace SMT.SaaS.OA.UI
                 toolBar.btnDelete.Visibility = Visibility.Collapsed;
             }
 
+          
+
             if (displayAuditButton)
             {
                 //审核
@@ -769,7 +771,6 @@ namespace SMT.SaaS.OA.UI
                 //toolBar.btnSumbitAudit.Visibility = Visibility.Collapsed;
                 toolBar.stpCheckState.Visibility = Visibility.Collapsed;
             }
-
 
         }
 
@@ -971,12 +972,19 @@ namespace SMT.SaaS.OA.UI
         private static string FormType;
 
         /// <summary>
-        /// 门户创建待审批的单据（通过引擎） 2010-6-24
+        /// 门户打开单据方法，通过引擎传入的ApplicationURL 
         /// </summary>
-        /// <param name="FormID"></param>
-        /// <param name="FormName"></param>
+        /// <param name="StrFormID">ApplicationOrder</param>
+        /// <param name="StrFormName">PageParameter</param>
+        /// <param name="StrFormType">Edit</param>
         public static void CreateFormFromEngine(string StrFormID, string StrFormName, string StrFormType)
         {
+            //<?xml version="1.0" encoding="utf-8" ?><System><AssemblyName>SMT.SaaS.OA.UI</AssemblyName>
+            //<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>
+            //<ProcessName>CreateFormFromEngine</ProcessName>
+            //<PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>
+            //<ApplicationOrder>84c9919b-3265-4e79-bf9a-f4afe4b8f0fe</ApplicationOrder>
+            //<FormTypes>Edit</FormTypes></System>";
             FormID = StrFormID;
             FormName = StrFormName;
             FormType = StrFormType;
@@ -1037,10 +1045,12 @@ namespace SMT.SaaS.OA.UI
 
 
         /// <summary>
-        /// 门户创建待审批的单据（通过引擎） 2010-6-24
+        /// 门户创建待审批的单据（通过引擎）IsKpi==true时 2010-6-24
         /// </summary>
-        /// <param name="FormID"></param>
-        /// <param name="FormName"></param>
+        /// <param name="StrFormID">formid</param>
+        /// <param name="StrFormName">formname</param>
+        /// <param name="StrFormType">formtype</param>
+        /// <param name="parent"></param>
         public static void CreateFormFromEngine(string StrFormID, string StrFormName, string StrFormType, Border parent)
         {
             try

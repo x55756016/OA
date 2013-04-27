@@ -28,7 +28,7 @@ namespace SMT.SaaS.OA.UI.UserControls
     {
 
         #region InitFBControl
-        private void InitFBControl()
+        private void InitFBControl(T_OA_TRAVELREIMBURSEMENT Travel)
         {
             InitFB = true;
             fbCtr.submitFBFormTypes = formType;//将FormType赋给FB
@@ -55,27 +55,21 @@ namespace SMT.SaaS.OA.UI.UserControls
             fbCtr.Order.CREATEPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
             fbCtr.Order.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
             fbCtr.Order.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-            if (businesstrip.Travelmanagement != null)//新增获取出差报告的时候用的是报告人的信息
+            if (Travel != null)//新增获取出差报告的时候用的是报告人的信息
             {
-                fbCtr.Order.OWNERCOMPANYID = businesstrip.Travelmanagement.OWNERCOMPANYID;//出差人所属公司ID
-                fbCtr.Order.OWNERCOMPANYNAME = companyName;//出差人所属公司名称
-                fbCtr.Order.OWNERDEPARTMENTID = businesstrip.Travelmanagement.OWNERDEPARTMENTID;//出差人所属部门ID
-                fbCtr.Order.OWNERDEPARTMENTNAME = depName;//出差人所属部门名称
-                fbCtr.Order.OWNERPOSTID = businesstrip.Travelmanagement.OWNERPOSTID;//出差人所属工岗位ID
-                fbCtr.Order.OWNERPOSTNAME = postName;//出差人所属岗位名称
-                fbCtr.Order.OWNERID = businesstrip.Travelmanagement.OWNERID;//出差人ID
-                fbCtr.Order.OWNERNAME = businesstrip.Travelmanagement.OWNERNAME;//出差人姓名
+                fbCtr.Order.OWNERCOMPANYID = Travel.OWNERCOMPANYID;//出差人所属公司ID
+                fbCtr.Order.OWNERCOMPANYNAME = Travel.OWNERCOMPANYNAME;//出差人所属公司名称
+                fbCtr.Order.OWNERDEPARTMENTID = Travel.OWNERDEPARTMENTID;//出差人所属部门ID
+                fbCtr.Order.OWNERDEPARTMENTNAME = Travel.OWNERDEPARTMENTNAME;//出差人所属部门名称
+                fbCtr.Order.OWNERPOSTID = Travel.OWNERPOSTID;//出差人所属工岗位ID
+                fbCtr.Order.OWNERPOSTNAME = Travel.OWNERPOSTNAME;//出差人所属岗位名称
+                fbCtr.Order.OWNERID = Travel.OWNERID;//出差人ID
+                fbCtr.Order.OWNERNAME = Travel.OWNERNAME;//出差人姓名
             }
             else//修改、查看、审核的时候获取的是报销人的信息
             {
-                fbCtr.Order.OWNERCOMPANYID = TravelReimbursement_Golbal.OWNERCOMPANYID;//出差人所属公司ID
-                fbCtr.Order.OWNERCOMPANYNAME = companyName;//出差人所属公司名称
-                fbCtr.Order.OWNERDEPARTMENTID = TravelReimbursement_Golbal.OWNERDEPARTMENTID;//出差人所属部门ID
-                fbCtr.Order.OWNERDEPARTMENTNAME = depName;//出差人所属部门名称
-                fbCtr.Order.OWNERPOSTID = TravelReimbursement_Golbal.OWNERPOSTID;//出差人所属工岗位ID
-                fbCtr.Order.OWNERPOSTNAME = postName;//出差人所属岗位名称
-                fbCtr.Order.OWNERID = TravelReimbursement_Golbal.OWNERID;//出差人ID
-                fbCtr.Order.OWNERNAME = TravelReimbursement_Golbal.OWNERNAME;//出差人姓名
+                MessageBox.Show("没有获取到出差报销人相关组织架构信息，请联系管理员！");
+                return;
             }
             fbCtr.Order.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
             fbCtr.Order.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
@@ -87,11 +81,11 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             else
             {
-                if (formType == FormTypes.New && businesstrip.Travelmanagement != null)
+                if (formType == FormTypes.New && Travel != null)
                 {
                     fbCtr.InitData();
                 }
-                else if (formType == FormTypes.Edit || formType == FormTypes.Resubmit && TravelReimbursement_Golbal != null)
+                else if (formType == FormTypes.Edit || formType == FormTypes.Resubmit && Travel != null)
                 {
                     fbCtr.InitData();
                 }

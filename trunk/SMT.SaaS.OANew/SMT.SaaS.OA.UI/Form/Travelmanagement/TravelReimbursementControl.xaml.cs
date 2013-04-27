@@ -31,7 +31,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         private PersonnelServiceClient HrPersonnelclient;
         private OaInterfaceClient OaInterfaceClient;//预算费用报销单号使用
         private bool isPageloadCompleted = false;//控制Tab切换时的数据加载 
-        private V_Travelmanagement businesstrip = new V_Travelmanagement();
+        //private V_Travelmanagement businesstrip = new V_Travelmanagement();
         private T_OA_TRAVELREIMBURSEMENT TravelReimbursement;
        
         private FormTypes formType;
@@ -246,7 +246,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                     if (InitFB == false)
                     {
-                        InitFBControl();
+                        InitFBControl(TravelReimbursement_Golbal);
                     }
                     //HrPersonnelclient.GetEmployeePostBriefByEmployeeIDAsync(TravelReimbursement.OWNERID);
                     postName = TravelReimbursement_Golbal.OWNERPOSTNAME;

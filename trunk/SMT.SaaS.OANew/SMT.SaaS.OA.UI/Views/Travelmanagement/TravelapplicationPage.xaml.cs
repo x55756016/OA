@@ -124,7 +124,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             //隐藏未使用按钮
             //FormToolBar1.btnSumbitAudit.Visibility = Visibility.Collapsed;//提交待审核
-            FormToolBar1.btnPrint.Visibility = Visibility.Collapsed;//打印
+            FormToolBar1.btnPrint.Visibility = Visibility.Collapsed;
             FormToolBar1.btnOutPDF.Visibility = Visibility.Collapsed;//导出pdf
             FormToolBar1.btnOutExcel.Visibility = Visibility.Collapsed;//导出excel
             FormToolBar1.stpCheckState.Visibility = Visibility.Visible;//检查审核状态
@@ -317,6 +317,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region 新增出差申请
         void btnNew_Click(object sender, RoutedEventArgs e)
         {
+
+            //Utility.CreateFormFromEngine("86dd2947-30e7-4a1e-b649-83ae194e32fb"
+            //    , "SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm", "Edit");
+            //return;
             //Utility.CreateFormFromEngine("a7eb1928-c4a9-442d-82a0-2d57ee4cd87a", "SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm", "VIEW"); return;
             BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.New, "");
             EntityBrowser browser = new EntityBrowser(AddWin);
