@@ -270,7 +270,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (fbCtr.TravelSubject != null)
                 {
                     fbCtr.TravelSubject.ApplyMoney = Convert.ToDecimal(this.txtSubTotal.Text);//将本次出差总费用给预算
-                    TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS += fbCtr.TravelSubject.ApplyMoney;
                 }
             }
             else
@@ -296,7 +295,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
             if (fbCtr.Order.TOTALMONEY != null)
             {   //总费用;
-                TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS += fbCtr.Order.TOTALMONEY;
+                TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS = fbCtr.Order.TOTALMONEY;
             }
             TravelReimbursement_Golbal.REIMBURSEMENTTIME = Convert.ToDateTime(ReimbursementTime.Text);
             TravelReimbursement_Golbal.REMARKS = this.txtRemark.Text;
@@ -339,7 +338,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     //字段赋值
                     SetTraveAndFBChargeValue();
 
-                    if (TravelReimbursement_Golbal.CHECKSTATE=="0" 
+                    if (TravelReimbursement_Golbal.CHECKSTATE=="0"
                         && TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0)
                     {
                         fbCtr.Order.ORDERID = TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID;
