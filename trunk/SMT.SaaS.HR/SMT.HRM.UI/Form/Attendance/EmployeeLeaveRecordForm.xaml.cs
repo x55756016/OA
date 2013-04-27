@@ -912,6 +912,7 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
+                RefreshUI(RefreshedTypes.HideProgressBar);
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
             }
         }
@@ -1340,59 +1341,63 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             try
             {
-               if (e.Error == null)
-               {
-                   SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW employeeView = e.Result;
-                   if (employeeView == null)
-                   {
-                       this.IsEnabled = false;
-                       return;
-                   }
+                if (e.Error == null)
+                {
+                    SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW employeeView = e.Result;
+                    if (employeeView == null)
+                    {
+                        this.IsEnabled = false;
+                        return;
+                    }
 
-                   //赋值
-                   tbEmpName.Text = employeeView.EMPLOYEECNAME;
-                   tbOrgName.Text = employeeView.POSTNAME + " - " + employeeView.DEPARTMENTNAME + " - " + employeeView.COMPANYNAME;
-                   if (!string.IsNullOrWhiteSpace(tbOrgName.Text))
-                   {
-                       tbEmpName.Text = tbEmpName.Text + "-" + tbOrgName.Text;
-                   }
+                    //赋值
+                    tbEmpName.Text = employeeView.EMPLOYEECNAME;
+                    tbOrgName.Text = employeeView.POSTNAME + " - " + employeeView.DEPARTMENTNAME + " - " + employeeView.COMPANYNAME;
+                    if (!string.IsNullOrWhiteSpace(tbOrgName.Text))
+                    {
+                        tbEmpName.Text = tbEmpName.Text + "-" + tbOrgName.Text;
+                    }
 
-                  
-                   tbEmpSex.Text = employeeView.SEX;
-                   tbEmpLevel.Text = employeeView.POSTLEVEL.ToString();
 
-                   LeaveRecord.EMPLOYEEID = employeeView.EMPLOYEEID;
-                   LeaveRecord.EMPLOYEECODE = employeeView.EMPLOYEECODE;
-                   LeaveRecord.EMPLOYEENAME = employeeView.EMPLOYEECNAME;
+                    tbEmpSex.Text = employeeView.SEX;
+                    tbEmpLevel.Text = employeeView.POSTLEVEL.ToString();
 
-                   string strEmployeeState = employeeView.EMPLOYEESTATE;
+                    LeaveRecord.EMPLOYEEID = employeeView.EMPLOYEEID;
+                    LeaveRecord.EMPLOYEECODE = employeeView.EMPLOYEECODE;
+                    LeaveRecord.EMPLOYEENAME = employeeView.EMPLOYEECNAME;
 
-                   if (strEmployeeState == Convert.ToInt32(EmployeeState.Dimission).ToString() && (FormType == FormTypes.New || FormType == FormTypes.Edit || FormType == FormTypes.Resubmit))
-                   {
-                       SetOnlyBrowse();
-                       return;
-                   }
+                    string strEmployeeState = employeeView.EMPLOYEESTATE;
 
-                   if (LeaveRecord.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString() && LeaveRecord.EMPLOYEEID != SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID)
-                   {
-                       SetOnlyBrowse();
-                       return;
-                   }
+                    if (strEmployeeState == Convert.ToInt32(EmployeeState.Dimission).ToString() && (FormType == FormTypes.New || FormType == FormTypes.Edit || FormType == FormTypes.Resubmit))
+                    {
+                        SetOnlyBrowse();
+                        return;
+                    }
 
-                   if (FormType != FormTypes.New)
-                   {
-                       RefreshUI(RefreshedTypes.AuditInfo);
-                   }
-                   SetToolBar();
-               }
-               else
-               {
-                   Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-               }
+                    if (LeaveRecord.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString() && LeaveRecord.EMPLOYEEID != SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID)
+                    {
+                        SetOnlyBrowse();
+                        return;
+                    }
+
+                    if (FormType != FormTypes.New)
+                    {
+                        RefreshUI(RefreshedTypes.AuditInfo);
+                    }
+                    SetToolBar();
+                }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                }
             }
             catch (Exception ex)
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message + ex.Message));
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
 

@@ -43,14 +43,14 @@ namespace SMT.HRM.UI.Views.Login
 
             this.Loaded += new RoutedEventHandler(Login_Loaded);
             //加载所有公司、部门、岗位信息
-            organClient.GetCompanyActivedCompleted += new EventHandler<GetCompanyActivedCompletedEventArgs>(organClient_GetCompanyActivedCompleted);
-            organClient.GetDepartmentActivedCompleted += new EventHandler<GetDepartmentActivedCompletedEventArgs>(organClient_GetDepartmentActivedCompleted);
-            organClient.GetPostActivedCompleted += new EventHandler<GetPostActivedCompletedEventArgs>(organClient_GetPostActivedCompleted);
+            //organClient.GetCompanyActivedCompleted += new EventHandler<GetCompanyActivedCompletedEventArgs>(organClient_GetCompanyActivedCompleted);
+            //organClient.GetDepartmentActivedCompleted += new EventHandler<GetDepartmentActivedCompletedEventArgs>(organClient_GetDepartmentActivedCompleted);
+            //organClient.GetPostActivedCompleted += new EventHandler<GetPostActivedCompletedEventArgs>(organClient_GetPostActivedCompleted);
             //organClient.GetDepartmentViewAsync("f12547ca-f2c5-44d5-aee1-f65cfb36761e", "3", "ContactDetailsView");
             //organClient.GetCompanyViewAsync("f12547ca-f2c5-44d5-aee1-f65cfb36761e", "3", "ContactDetailsView");
             //登录控件禁用  在加载完组织架构后 再激活
             this.OK.IsEnabled = true;
-            organClient.GetALLCompanyViewCompleted += new EventHandler<GetALLCompanyViewCompletedEventArgs>(organClient_GetALLCompanyViewCompleted);
+            //organClient.GetALLCompanyViewCompleted += new EventHandler<GetALLCompanyViewCompletedEventArgs>(organClient_GetALLCompanyViewCompleted);
             //organClient.GetALLCompanyViewAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
             //organClient.GetAllDepartmentViewAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
             //organClient.GetAllPostViewAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
@@ -151,73 +151,74 @@ namespace SMT.HRM.UI.Views.Login
             {
                 strOwnerId = Common.CurrentLoginUserInfo.EmployeeID;
             }
-            organClient.GetCompanyActivedAsync(strOwnerId);
+            LoadEnd(true);
+            //organClient.GetCompanyActivedAsync(strOwnerId);
             //organClient.GetALLCompanyViewAsync(strOwnerId);
         }
 
-        void organClient_GetPostActivedCompleted(object sender, GetPostActivedCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                if (e.Result != null)
-                {
-                    App.Current.Resources.Add("SYS_PostInfo", e.Result.ToList());
+        //void organClient_GetPostActivedCompleted(object sender, GetPostActivedCompletedEventArgs e)
+        //{
+        //    if (e.Error == null)
+        //    {
+        //        if (e.Result != null)
+        //        {
+        //            App.Current.Resources.Add("SYS_PostInfo", e.Result.ToList());
 
-                    LoadEnd(true);
-                }
-            }
-        }
+        //            LoadEnd(true);
+        //        }
+        //    }
+        //}
 
-        void organClient_GetDepartmentActivedCompleted(object sender, GetDepartmentActivedCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                if (e.Result != null)
-                {
-                    App.Current.Resources.Add("SYS_DepartmentInfo", e.Result.ToList());
+        //void organClient_GetDepartmentActivedCompleted(object sender, GetDepartmentActivedCompletedEventArgs e)
+        //{
+        //    if (e.Error == null)
+        //    {
+        //        if (e.Result != null)
+        //        {
+        //            App.Current.Resources.Add("SYS_DepartmentInfo", e.Result.ToList());
 
-                    string strOwnerId = string.Empty;
-                    if (Common.CurrentLoginUserInfo != null)
-                    {
-                        strOwnerId = Common.CurrentLoginUserInfo.EmployeeID;
-                    }
-                    organClient.GetPostActivedAsync(strOwnerId);
-                }
-            }
-        }
+        //            string strOwnerId = string.Empty;
+        //            if (Common.CurrentLoginUserInfo != null)
+        //            {
+        //                strOwnerId = Common.CurrentLoginUserInfo.EmployeeID;
+        //            }
+        //            organClient.GetPostActivedAsync(strOwnerId);
+        //        }
+        //    }
+        //}
 
-        void organClient_GetCompanyActivedCompleted(object sender, GetCompanyActivedCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                if (e.Result != null)
-                {
-                    App.Current.Resources.Add("SYS_CompanyInfo", e.Result.ToList());
+        //void organClient_GetCompanyActivedCompleted(object sender, GetCompanyActivedCompletedEventArgs e)
+        //{
+        //    if (e.Error == null)
+        //    {
+        //        if (e.Result != null)
+        //        {
+        //            App.Current.Resources.Add("SYS_CompanyInfo", e.Result.ToList());
 
-                    string strOwnerId = string.Empty;
-                    if (Common.CurrentLoginUserInfo != null)
-                    {
-                        strOwnerId = Common.CurrentLoginUserInfo.EmployeeID;
-                    }
-                    organClient.GetDepartmentActivedAsync(strOwnerId);
-                }
-            }
+        //            string strOwnerId = string.Empty;
+        //            if (Common.CurrentLoginUserInfo != null)
+        //            {
+        //                strOwnerId = Common.CurrentLoginUserInfo.EmployeeID;
+        //            }
+        //            organClient.GetDepartmentActivedAsync(strOwnerId);
+        //        }
+        //    }
 
-        }
+        //}
 
 
-        void organClient_GetALLCompanyViewCompleted(object sender, GetALLCompanyViewCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                string a = e.Error.ToString();
-            }
-            else
-            {
-                List<V_COMPANY> aa = e.Result.ToList();
-            }
-            //throw new NotImplementedException();
-        }
+        //void organClient_GetALLCompanyViewCompleted(object sender, GetALLCompanyViewCompletedEventArgs e)
+        //{
+        //    if (e.Error != null)
+        //    {
+        //        string a = e.Error.ToString();
+        //    }
+        //    else
+        //    {
+        //        List<V_COMPANY> aa = e.Result.ToList();
+        //    }
+        //    //throw new NotImplementedException();
+        //}
 
         #endregion
 
