@@ -2108,26 +2108,24 @@ namespace SMT.HRM.BLL
             DateTime dtStart = new DateTime(datLevestart.Year,datLevestart.Month,datLevestart.Day);
             DateTime dtEnd = new DateTime(dtLeveEnd.Year, dtLeveEnd.Month, dtLeveEnd.Day);
 
-            //DateTime.TryParse(datLevestart.ToString("yyyy-MM-dd"), out dtStart);
-            //DateTime.TryParse(dtLeveEnd.ToString("yyyy-MM-dd"), out dtEnd);
-            //T_HR_ATTENDANCERECORD.ATTENDANCEDATE为短日期格式 2013-4-19
             IQueryable<T_HR_ATTENDANCERECORD> entArs = from r in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                                        where r.EMPLOYEEID == EMPLOYEEID
                                                        && r.ATTENDANCEDATE >= dtStart
                                                        && r.ATTENDANCEDATE <= dtEnd
                                                        select r;
+            Tracer.Debug("获取到的考勤初始化记录数："+entArs.Count());
             if (entArs.Count() < 1)
             {
                 string dtInit = datLevestart.Year.ToString() + "-" + datLevestart.Month.ToString();
                 try
                 {
-                    Tracer.Debug(" 请假或出差消除异常没有查到考勤初始化数据，请假开始时间:" + dtStart.ToString("yyyy-MM-dd HH:mm:ss")
+                    Tracer.Debug("请假或出差消除异常没有查到考勤初始化数据，请假开始时间:" + dtStart.ToString("yyyy-MM-dd HH:mm:ss")
                              + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，开始初始化员工考勤：" + dtInit);
                     AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
                     //初始化该员工当月考勤记录
                     bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", EMPLOYEEID, dtInit);
 
-                    Tracer.Debug(" 请假或出差消除异常没有查到考勤初始化数据，初始化员工考勤成功，初始化月份：" + dtInit);
+                    Tracer.Debug("请假或出差消除异常没有查到考勤初始化数据，初始化员工考勤成功，初始化月份：" + dtInit);
                 }
                 catch (Exception ex)
                 {

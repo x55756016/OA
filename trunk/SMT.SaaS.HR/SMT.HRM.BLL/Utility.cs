@@ -81,10 +81,7 @@ namespace SMT.HRM.BLL
                     IOperate bll = (IOperate)Activator.CreateInstance(type);
                     //SMT.Foundation.Log.Tracer.Debug("UpdateCheckState start;" + bll.GetType().Name);
                     i = bll.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
-                    bll.Dispose();
-                    SMT.Foundation.Log.Tracer.Debug("UpdateCheckState成功： strEntityName：" + strEntityName
-                    +" EntityKeyName:"+EntityKeyName+ " EntityKeyValue：" + EntityKeyValue 
-                    +" CheckState:" + CheckState + " 受影响的记录数：" + i.ToString());
+                    bll.Dispose();                    
                     //SMT.Foundation.Log.Tracer.Debug("手机调用业务逻辑层 bll.Dispose();");
                 }
             }
