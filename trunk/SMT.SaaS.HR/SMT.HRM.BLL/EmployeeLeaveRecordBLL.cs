@@ -10,6 +10,7 @@ using SMT.HRM.CustomModel;
 using System.Data.Objects.DataClasses;
 using SMT.HRM.BLL.Common;
 using SMT.Foundation.Log;
+using System.Threading;
 namespace SMT.HRM.BLL
 {
     public class EmployeeLeaveRecordBLL : BaseBll<T_HR_EMPLOYEELEAVERECORD>, ILookupEntity, IOperate
@@ -922,15 +923,22 @@ namespace SMT.HRM.BLL
                     {
                         return "{REQUIREDFIELDS}";
                     }
-                    AbnormRecordBLL bll = new AbnormRecordBLL();
 
-                    Tracer.Debug(" 请假消除异常开始，请假开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                        + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss") );
+                    #region  启动处理考勤异常的线程
+
                     string attState = (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString();
-                    bll.DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATETIME.Value, ent.ENDDATETIME.Value, attState);
+                    Dictionary<string, object> d = new Dictionary<string, object>();
+                    d.Add("EMPLOYEEID", ent.EMPLOYEEID);
+                    d.Add("STARTDATETIME", ent.STARTDATETIME.Value);
+                    d.Add("ENDDATETIME", ent.ENDDATETIME.Value);
+                    d.Add("ATTSTATE", attState);
+                    Thread thread = new Thread(dealAttend);
+                    thread.Start(d);
 
-                    Tracer.Debug(" 请假消除异常结束，请假开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                       + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+                    Tracer.Debug("请假启动消除异常的线程，出差开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                            + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss") + "员工id：" + ent.EMPLOYEEID);
+
+                    #endregion
                 }
                 ent.CHECKSTATE = strCheckState;
                 ent.UPDATEDATE = DateTime.Now;
@@ -945,6 +953,25 @@ namespace SMT.HRM.BLL
             return strMsg;
         }
 
+        private void dealAttend(object obj)
+        {
+            Dictionary<string, object> parameterDic = (Dictionary<string, object>)obj;
+            string employeeid = parameterDic["EMPLOYEEID"].ToString();
+            DateTime STARTDATETIME = (DateTime)parameterDic["STARTDATETIME"];
+            DateTime ENDDATETIME = (DateTime)parameterDic["ENDDATETIME"];
+            string attState = parameterDic["ATTSTATE"].ToString();
+
+            using (AbnormRecordBLL bll = new AbnormRecordBLL())
+            {
+                Tracer.Debug(" 请假消除异常开始，请假开始时间:" + STARTDATETIME.ToString("yyyy-MM-dd HH:mm:ss")
+                    + " 结束时间：" + ENDDATETIME.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                bll.DealEmployeeAbnormRecord(employeeid, STARTDATETIME, ENDDATETIME, attState);
+
+                Tracer.Debug(" 请假消除异常结束，请假开始时间:" + STARTDATETIME.ToString("yyyy-MM-dd HH:mm:ss")
+                   + " 结束时间：" + ENDDATETIME.ToString("yyyy-MM-dd HH:mm:ss"));
+            }
+        }       
        
      
 
