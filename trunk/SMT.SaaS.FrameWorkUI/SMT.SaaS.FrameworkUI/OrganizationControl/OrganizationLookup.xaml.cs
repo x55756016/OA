@@ -123,7 +123,7 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 return selObjs;
             }
         }
-
+        SMTLoading loadbar = new SMTLoading();
 
         public event EventHandler SelectedClick;
 
@@ -327,6 +327,8 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
         /// <param name="e"></param>
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
+            PARENT.Children.Add(loadbar);
+            //loadbar.Stop();
             //清空
            // dgEmployeeList.ItemsSource = null;
             SelectedEmployees.Clear();
@@ -386,6 +388,7 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 if (statetmp.Value == "1")
                 {
                     clientPers.GetLeaveEmployeeViewsPagingCompleted += new EventHandler<PersonnelWS.GetLeaveEmployeeViewsPagingCompletedEventArgs>(clientPers_GetLeaveEmployeeViewsPagingCompleted);
+                    
                     clientPers.GetLeaveEmployeeViewsPagingAsync(pageIndex, pageSize, "EMPLOYEECNAME",
                 filter, paras, pageCount, sType, sValue, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
                 }
@@ -481,6 +484,7 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
         /// <param name="e"></param>
         void clientPers_GetEmployeeViewsPagingCompleted(object sender, PersonnelWS.GetEmployeeViewsPagingCompletedEventArgs e)
         {
+            loadbar.Stop();
             if (e.Error == null)
             {
                 dgEmployeeList.ItemsSource = e.Result;
@@ -494,6 +498,7 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
         /// <param name="e"></param>
         void clientPers_GetLeaveEmployeeViewsPagingCompleted(object sender, PersonnelWS.GetLeaveEmployeeViewsPagingCompletedEventArgs e)
         {
+            loadbar.Stop();
             if (e.Error == null)
             {
                 dgEmployeeList.ItemsSource = e.Result;

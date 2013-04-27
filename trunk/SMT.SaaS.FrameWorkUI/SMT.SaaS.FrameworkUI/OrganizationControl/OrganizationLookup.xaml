@@ -8,17 +8,18 @@
                       xmlns:orgControl="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationControl"
                       TitleContent="{Binding Converter={StaticResource ResourceConveter},Source=ORGANIZATION}"
                      >
-    <Grid x:Name="LayoutRoot" Margin="2" MinWidth="600" MinHeight="100" >
-        <Grid.RowDefinitions>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Margin="2" MinWidth="600" MinHeight="100" >
+                            <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
+                                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
             <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEECNAME}" Style="{StaticResource FrameGridTextBlock1}" Margin="10,6,0,0" Width="Auto"/>
             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmpName" Margin="5,0,0,0" Height="22" Width="120"/>
             <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEESTATE}" Style="{StaticResource FrameGridTextBlock1}" Margin="10,6,0,0" Width="Auto"/>
@@ -26,10 +27,10 @@
             <CheckBox Name="organizationHistory" Style="{StaticResource CheckBoxStyle}" Width="auto"  Height="20" HorizontalAlignment="Stretch" Checked="organizationHistory_Checked" Unchecked="organizationHistory_Unchecked"/>
             <Button x:Name="btnFind" Margin="20,0,0,0" Height="22" Width="70" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="btnFind_Click" Style="{StaticResource CommonButtonStyle}"/>
         </StackPanel>
-        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="1" Grid.Column="0" >
-            <orgControl:OrganizationTree x:Name="orgTree" />
-        </Border>
-        <data:DataGrid x:Name="dgEmployeeList" Grid.Row="1" Grid.Column="1"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
+            <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="1" Grid.Column="0" >
+                <orgControl:OrganizationTree x:Name="orgTree" />
+            </Border>
+                                                                            <data:DataGrid x:Name="dgEmployeeList" Grid.Row="1" Grid.Column="1"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
              LoadingRow="dgEmployeeList_LoadingRow" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
             <data:DataGrid.Columns>
                 <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
@@ -46,11 +47,12 @@
                 <data:DataGridTextColumn Header="EMPLOYEECODE" Binding="{Binding EMPLOYEECODE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"  Width="Auto"/>
             </data:DataGrid.Columns>
         </data:DataGrid>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
             <Button  x:Name="OKButton" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=OKBUTTON}" Click="OKButton_Click" Margin="5,0,5,0" />
             <Button  x:Name="CancelButton" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCELBUTTON}" Click="CancelButton_Click" Margin="5,0,5,0" />
             <Button  x:Name="btnRefresh" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=REFRESH}" Click="btnRefresh_Click"  Margin="5,0,5,0" HorizontalAlignment="Right"/>
         </StackPanel>
-        <TextBlock x:Name="tbSelectFlag" HorizontalAlignment="Center" Foreground="Red" Grid.Row="2"/>
+            <TextBlock x:Name="tbSelectFlag" HorizontalAlignment="Center" Foreground="Red" Grid.Row="2"/>
+        </Grid>
     </Grid>
 </swc:Window>
