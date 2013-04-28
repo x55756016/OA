@@ -120,7 +120,7 @@ namespace SMT.SaaS.FrameworkUI
 
             EntityEditor = editor;
             AddAuditControl();
-            GenerateEntityInfoCtr();
+            GenerateEntityTitle();
             //beyond 隐藏kpi
             AddKPIControl();
             //帮助注释掉
@@ -263,12 +263,12 @@ namespace SMT.SaaS.FrameworkUI
                     case RefreshedTypes.All:
                         GenerateLeftMenu();
                         GenerateToolBar();
-                        GenerateEntityInfoCtr();
+                        GenerateEntityTitle();
                         ReloadData();
                         break;
 
                     case RefreshedTypes.EntityInfo:
-                        GenerateEntityInfoCtr();
+                        GenerateEntityTitle();
                         break;
 
                     case RefreshedTypes.LeftMenu:
@@ -874,7 +874,7 @@ namespace SMT.SaaS.FrameworkUI
                 AuditCtrl.Submit(SMT.SaaS.FrameworkUI.AuditControl.AuditControl.AuditAction.Fail);
             }
         }
-        private void GenerateEntityInfoCtr()
+        private void GenerateEntityTitle()
         {
             if (EntityEditor is IEntityEditor)
             {
@@ -886,7 +886,7 @@ namespace SMT.SaaS.FrameworkUI
         {
             GenerateLeftMenu();
             GenerateToolBar();
-            GenerateEntityInfoCtr();
+            GenerateEntityTitle();
 
             if (FormType == FormTypes.New || FormType == FormTypes.Edit)
             {
