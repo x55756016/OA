@@ -971,9 +971,35 @@ namespace SMT.HRM.BLL
                 Tracer.Debug(" 请假消除异常结束，请假开始时间:" + STARTDATETIME.ToString("yyyy-MM-dd HH:mm:ss")
                    + " 结束时间：" + ENDDATETIME.ToString("yyyy-MM-dd HH:mm:ss"));
             }
-        }       
-       
-     
+        }
+
+
+        public void updateAllLeve()
+        {
+            DateTime dtStar=new DateTime(2013,4,1);
+            DateTime dtend=new DateTime(2013,5,1);
+            var q = from ent in dal.GetObjects<T_HR_EMPLOYEELEAVERECORD>()
+                    where ent.STARTDATETIME >= dtStar
+                    && ent.ENDDATETIME <= dtend
+                    && ent.CHECKSTATE=="2"
+                    select ent;
+            if (q.Count() > 0)
+            {
+                foreach (var item in q.ToList())
+                {
+                    try
+                    {
+                        AuditLeaveRecord(item.LEAVERECORDID, null, "2");
+                        SMT.Foundation.Log.Tracer.Debug(item.EMPLOYEENAME + item.STARTDATETIME + item.ENDDATETIME + " 成功");
+                    }
+                    catch (Exception ex)
+                    {
+                        SMT.Foundation.Log.Tracer.Debug(item.EMPLOYEENAME+item.STARTDATETIME+item.ENDDATETIME+ex.ToString());
+                        continue;
+                    }
+                }
+            }
+        }
 
         public int UpdateCheckState(string strEntityName, string EntityKeyName, string EntityKeyValue, string CheckState)
         {

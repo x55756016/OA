@@ -1417,7 +1417,9 @@ namespace SMT.HRM.BLL
                     && salaryAhive.CHECKSTATE == "2"
                     && employee.EMPLOYEESTATE != "2" //在职的
                     && salaryAhive.OTHERSUBJOIN <= year
-                    && salaryAhive.OTHERADDDEDUCT <= month
+                    && (salaryAhive.OTHERSUBJOIN < year
+                    || (salaryAhive.OTHERSUBJOIN == year
+                    && salaryAhive.OTHERADDDEDUCT <= month))
                     select salaryAhive;
 
             if (q.Count() > 0)
@@ -1476,7 +1478,9 @@ namespace SMT.HRM.BLL
                     && employee.EMPLOYEESTATE == "2"//已离职
                     && salaryAhive.PAYCOMPANY == strCompanyid
                     && salaryAhive.OTHERSUBJOIN <= year
-                    && salaryAhive.OTHERADDDEDUCT <= month
+                    && (salaryAhive.OTHERSUBJOIN < year
+                    || (salaryAhive.OTHERSUBJOIN == year
+                    && salaryAhive.OTHERADDDEDUCT <= month))
                     select salaryAhive;
 
             if (q.Count() > 0)
@@ -2311,21 +2315,42 @@ namespace SMT.HRM.BLL
                     && salaryAhive.PAYCOMPANY == companyid
                     && salaryAhive.CHECKSTATE == "2"    //终审通过的薪资档案
                     && employee.EMPLOYEESTATE != "2"    //员工还在职
-                    && salaryAhive.OTHERSUBJOIN<=year   //生效年份
-                    && salaryAhive.OTHERADDDEDUCT<=month//生效月份
+                    && (salaryAhive.OTHERSUBJOIN < year
+                    || (salaryAhive.OTHERSUBJOIN == year
+                    && salaryAhive.OTHERADDDEDUCT <= month))
                     select salaryAhive;
             if (q.Count() > 0)
             {
                 List<T_HR_SALARYARCHIVE> list = q.ToList();
-                var ents = list.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT).FirstOrDefault();
-                if (!string.IsNullOrEmpty(ents.BALANCEPOSTID))//如果薪资档案的结算岗位不为空且不等于现在的结算人主岗位，跳过
+
+
+                var ents = list.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT);
+
+                T_HR_SALARYARCHIVE salaryAhive = ents.FirstOrDefault();
+                //T_HR_SALARYARCHIVE salaryAhive = null;
+
+                //foreach (T_HR_SALARYARCHIVE item in ents)
+                //{
+                //    if (item.OTHERSUBJOIN < year)
+                //    {
+                //        salaryAhive = item;
+                //        break;
+                //    }
+                //    if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month)
+                //    {
+                //        salaryAhive = item;
+                //        break;
+                //    }
+                //}
+
+                if (!string.IsNullOrEmpty(salaryAhive.BALANCEPOSTID))//如果薪资档案的结算岗位不为空且不等于现在的结算人主岗位，跳过
                 {
-                    if (ents.BALANCEPOSTID != GenerateEmployeePostid)
+                    if (salaryAhive.BALANCEPOSTID != GenerateEmployeePostid)
                     {
                         return null;
                     }
                 }
-                return ents;
+                return salaryAhive;
             }
             return null;
         }
@@ -2439,13 +2464,42 @@ namespace SMT.HRM.BLL
                     where salaryAhive.PAYCOMPANY == PayCompanyID//指定的发薪机构的薪资档案
                     && salaryAhive.CHECKSTATE == "2"//薪资档案审核通过的
                     && employee.EMPLOYEESTATE != "2"//在职员工
-                    && salaryAhive.OTHERSUBJOIN <= year
-                    && salaryAhive.OTHERADDDEDUCT <= month
+                    && (salaryAhive.OTHERSUBJOIN < year
+                    ||(salaryAhive.OTHERSUBJOIN == year 
+                    && salaryAhive.OTHERADDDEDUCT <= month))
                     select salaryAhive;
+            
+
+
             int isalaryAchiveCount = q.Count();
             if (isalaryAchiveCount > 0)
             {
                 List<T_HR_SALARYARCHIVE> SalaryArchivelist = q.ToList();
+
+                //List<T_HR_SALARYARCHIVE> list = q.ToList();
+                //var ents = list.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT);
+                //T_HR_SALARYARCHIVE salaryAhive = null;
+                //foreach (T_HR_SALARYARCHIVE item in ents)
+                //{
+                //    if (item.OTHERSUBJOIN < year)
+                //    {
+                //        salaryAhive = item;
+                //        break;
+                //    }
+                //    if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month)
+                //    {
+                //        salaryAhive = item;
+                //        break;
+                //    }
+                //}
+                //if (!string.IsNullOrEmpty(salaryAhive.BALANCEPOSTID))//如果薪资档案的结算岗位不为空且不等于现在的结算人主岗位，跳过
+                //{
+                //    if (salaryAhive.BALANCEPOSTID != GenerateEmployeePostid)
+                //    {
+                //        salaryAhive= null;
+                //    }
+                //}
+
                 Tracer.Debug("获取到所有发薪机构 " + PayCompanyID + " 上的员工薪资档案，共 " + isalaryAchiveCount.ToString() + "条");
                 var employees = (from ent in SalaryArchivelist
                                                 select new { ent.EMPLOYEEID, ent.EMPLOYEENAME }).Distinct().ToList();
@@ -2472,21 +2526,6 @@ namespace SMT.HRM.BLL
                             }
                             GenerateEmployeeSalary(i,employeeSalaryArchive, strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), PayCompanyID);
                             i++;
-                            //foreach (var item in employeeSalaryArchivelist)
-                            //{
-                            //    if (item.OTHERSUBJOIN == int.Parse(year) && item.OTHERADDDEDUCT <= int.Parse(month) )
-                            //    {
-                            //        GenerateEmployeeSalary(employeeSalaryArchive, strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), PayCompanyID);
-                            //        break;
-                            //    }
-                            //    if (item.OTHERSUBJOIN < int.Parse(year))
-                            //    {
-                            //        GenerateEmployeeSalary(item, strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), PayCompanyID);
-                            //        break; ;
-                            //    }
-                            //    Tracer.Debug("根据发薪机构结算员工薪资，该员工在结算时间内无生效的薪资档案," + "员工姓名：" + employee.EMPLOYEENAME + ",员工id：" + employee.EMPLOYEEID + " 发薪结构：" + company.CNAME + " 发薪机构id" + PayCompanyID);
-
-                            //}
                         }
                         catch (Exception ex)
                         {
