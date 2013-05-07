@@ -600,20 +600,45 @@ namespace SMT.HRM.BLL
 
                 string strCheckStates = Convert.ToInt32(Common.CheckStates.Approved).ToString();
 
-                var ent = dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION").FirstOrDefault(s => s.OWNERCOMPANYID == strCompanyID && s.ASSIGNEDOBJECTID.Contains(strEmployeeID) && s.STARTDATE <= dtStart && s.ENDDATE > dtStart && s.CHECKSTATE == strCheckStates);
-                if (ent == null)
+                var ent = from en in dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION")
+                          where en.OWNERCOMPANYID == strCompanyID
+                          && strEmployeeID.Contains(en.ASSIGNEDOBJECTID)
+                          && en.STARTDATE <= dtStart &&
+                          en.ENDDATE >= dtStart
+                          && en.CHECKSTATE == strCheckStates
+                          select en; 
+                if (ent.FirstOrDefault() == null)
                 {
-                    ent = dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION").FirstOrDefault(s => s.OWNERCOMPANYID == strCompanyID && s.ASSIGNEDOBJECTID == strPostID && s.STARTDATE <= dtStart && s.ENDDATE > dtStart && s.CHECKSTATE == strCheckStates);
-                    if (ent == null)
+                    ent = from en in dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION")
+                          where en.OWNERCOMPANYID == strCompanyID
+                          && strPostID.Contains(en.ASSIGNEDOBJECTID)//linq反写，表示en.ASSIGNEDOBJECTID 包含strPostID
+                          && en.STARTDATE <= dtStart &&
+                          en.ENDDATE >= dtStart
+                          && en.CHECKSTATE == strCheckStates
+                          select en;
+                    if (ent.FirstOrDefault() == null)
                     {
-                        ent = dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION").FirstOrDefault(s => s.OWNERCOMPANYID == strCompanyID && s.ASSIGNEDOBJECTID == strDepartmentID && s.STARTDATE <= dtStart && s.ENDDATE > dtStart && s.CHECKSTATE == strCheckStates);
-                        if (ent == null)
+                        ent = from en in dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION")
+                              where en.OWNERCOMPANYID == strCompanyID
+                              && strDepartmentID.Contains(en.ASSIGNEDOBJECTID)
+                              && en.STARTDATE <= dtStart &&
+                              en.ENDDATE >= dtStart
+                              && en.CHECKSTATE == strCheckStates
+                              select en;
+
+                        if (ent.FirstOrDefault() == null)
                         {
-                            ent = dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION").FirstOrDefault(s => s.OWNERCOMPANYID == strCompanyID && s.ASSIGNEDOBJECTID == strCompanyID && s.STARTDATE <= dtStart && s.ENDDATE > dtStart && s.CHECKSTATE == strCheckStates);
+                            ent = from en in dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION")
+                                  where en.OWNERCOMPANYID == strCompanyID
+                                  && strCompanyID.Contains(en.ASSIGNEDOBJECTID)
+                                  && en.STARTDATE <= dtStart &&
+                                  en.ENDDATE >= dtStart
+                                  && en.CHECKSTATE == strCheckStates
+                                  select en;
                         }
                     }
                 }
-                return ent;
+                return ent.FirstOrDefault();
             }
             return null;
         }

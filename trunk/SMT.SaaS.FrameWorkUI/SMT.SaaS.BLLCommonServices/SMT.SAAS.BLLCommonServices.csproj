@@ -291,6 +291,9 @@
     <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction15.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction16.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction8.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -301,6 +304,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_FLOW_ENGINENOTES1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.UserInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FbDailyUpdateCheckStateWS\DailyUpdateCheckStateService.wsdl" />

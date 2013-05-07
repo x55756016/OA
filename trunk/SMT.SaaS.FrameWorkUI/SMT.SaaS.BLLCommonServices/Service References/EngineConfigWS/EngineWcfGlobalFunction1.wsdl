@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EngineWcfGlobalFunction" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EngineWcfGlobalFunction" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="WSHttpBinding_IEngineWcfGlobalFunction_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -12,11 +12,33 @@
       <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Engine.Services.BLL" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
+      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IEngineWcfGlobalFunction_DeleteTrigger_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrigger" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_DeleteTrigger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTriggerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_AddDoDask_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoDask" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_AddDoDask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoDaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_ReturnUserInfoDask_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnUserInfoDask" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_ReturnUserInfoDask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnUserInfoDaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_ApplicationMsgTriggerNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApplicationMsgTriggerNew" />
+  </wsdl:message>
   <wsdl:message name="IEngineWcfGlobalFunction_TaskCacheReflesh_InputMessage">
     <wsdl:part name="parameters" element="tns:TaskCacheReflesh" />
   </wsdl:message>
@@ -131,6 +153,12 @@
   <wsdl:message name="IEngineWcfGlobalFunction_ModelMsgClose_InputMessage">
     <wsdl:part name="parameters" element="tns:ModelMsgClose" />
   </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_ClosedDoTaskFromID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClosedDoTaskFromID" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_ClosedDoTaskFromID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClosedDoTaskFromIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IEngineWcfGlobalFunction_MsgClose_InputMessage">
     <wsdl:part name="parameters" element="tns:MsgClose" />
   </wsdl:message>
@@ -191,28 +219,46 @@
   <wsdl:message name="IEngineWcfGlobalFunction_TaskDeleteALL_InputMessage">
     <wsdl:part name="parameters" element="tns:TaskDeleteALL" />
   </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_SendTaskMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendTaskMessage" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_SendTaskMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendTaskMessageResponse" />
+  </wsdl:message>
   <wsdl:message name="IEngineWcfGlobalFunction_WFAddTimingTrigger_InputMessage">
     <wsdl:part name="parameters" element="tns:WFAddTimingTrigger" />
   </wsdl:message>
   <wsdl:message name="IEngineWcfGlobalFunction_WFAddTimingTrigger_OutputMessage">
     <wsdl:part name="parameters" element="tns:WFAddTimingTriggerResponse" />
   </wsdl:message>
-  <wsdl:message name="IEngineWcfGlobalFunction_DeleteTrigger_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteTrigger" />
+  <wsdl:message name="IEngineWcfGlobalFunction_AddTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTask" />
   </wsdl:message>
-  <wsdl:message name="IEngineWcfGlobalFunction_DeleteTrigger_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteTriggerResponse" />
+  <wsdl:message name="IEngineWcfGlobalFunction_AddTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTaskResponse" />
   </wsdl:message>
-  <wsdl:message name="IEngineWcfGlobalFunction_AddDoDask_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddDoDask" />
+  <wsdl:message name="IEngineWcfGlobalFunction_GetDoTaskEntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoTaskEntity" />
   </wsdl:message>
-  <wsdl:message name="IEngineWcfGlobalFunction_AddDoDask_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddDoDaskResponse" />
-  </wsdl:message>
-  <wsdl:message name="IEngineWcfGlobalFunction_ApplicationMsgTriggerNew_InputMessage">
-    <wsdl:part name="parameters" element="tns:ApplicationMsgTriggerNew" />
+  <wsdl:message name="IEngineWcfGlobalFunction_GetDoTaskEntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoTaskEntityResponse" />
   </wsdl:message>
   <wsdl:portType name="IEngineWcfGlobalFunction">
+    <wsdl:operation name="DeleteTrigger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTrigger" message="tns:IEngineWcfGlobalFunction_DeleteTrigger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTriggerResponse" message="tns:IEngineWcfGlobalFunction_DeleteTrigger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDoDask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDask" message="tns:IEngineWcfGlobalFunction_AddDoDask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDaskResponse" message="tns:IEngineWcfGlobalFunction_AddDoDask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnUserInfoDask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/ReturnUserInfoDask" message="tns:IEngineWcfGlobalFunction_ReturnUserInfoDask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/ReturnUserInfoDaskResponse" message="tns:IEngineWcfGlobalFunction_ReturnUserInfoDask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMsgTriggerNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/ApplicationMsgTriggerNew" message="tns:IEngineWcfGlobalFunction_ApplicationMsgTriggerNew_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="TaskCacheReflesh">
       <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/TaskCacheReflesh" message="tns:IEngineWcfGlobalFunction_TaskCacheReflesh_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/TaskCacheRefleshResponse" message="tns:IEngineWcfGlobalFunction_TaskCacheReflesh_OutputMessage" />
@@ -295,6 +341,10 @@
     <wsdl:operation name="ModelMsgClose">
       <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/ModelMsgClose" message="tns:IEngineWcfGlobalFunction_ModelMsgClose_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ClosedDoTaskFromID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/ClosedDoTaskFromID" message="tns:IEngineWcfGlobalFunction_ClosedDoTaskFromID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/ClosedDoTaskFromIDResponse" message="tns:IEngineWcfGlobalFunction_ClosedDoTaskFromID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="MsgClose">
       <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/MsgClose" message="tns:IEngineWcfGlobalFunction_MsgClose_InputMessage" />
     </wsdl:operation>
@@ -345,25 +395,59 @@
     <wsdl:operation name="TaskDeleteALL">
       <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/TaskDeleteALL" message="tns:IEngineWcfGlobalFunction_TaskDeleteALL_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SendTaskMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/SendTaskMessage" message="tns:IEngineWcfGlobalFunction_SendTaskMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/SendTaskMessageResponse" message="tns:IEngineWcfGlobalFunction_SendTaskMessage_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="WFAddTimingTrigger">
       <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/WFAddTimingTrigger" message="tns:IEngineWcfGlobalFunction_WFAddTimingTrigger_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/WFAddTimingTriggerResponse" message="tns:IEngineWcfGlobalFunction_WFAddTimingTrigger_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteTrigger">
-      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTrigger" message="tns:IEngineWcfGlobalFunction_DeleteTrigger_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTriggerResponse" message="tns:IEngineWcfGlobalFunction_DeleteTrigger_OutputMessage" />
+    <wsdl:operation name="AddTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/AddTask" message="tns:IEngineWcfGlobalFunction_AddTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/AddTaskResponse" message="tns:IEngineWcfGlobalFunction_AddTask_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddDoDask">
-      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDask" message="tns:IEngineWcfGlobalFunction_AddDoDask_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDaskResponse" message="tns:IEngineWcfGlobalFunction_AddDoDask_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ApplicationMsgTriggerNew">
-      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/ApplicationMsgTriggerNew" message="tns:IEngineWcfGlobalFunction_ApplicationMsgTriggerNew_InputMessage" />
+    <wsdl:operation name="GetDoTaskEntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskEntity" message="tns:IEngineWcfGlobalFunction_GetDoTaskEntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskEntityResponse" message="tns:IEngineWcfGlobalFunction_GetDoTaskEntity_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IEngineWcfGlobalFunction" type="tns:IEngineWcfGlobalFunction">
     <wsp:PolicyReference URI="#WSHttpBinding_IEngineWcfGlobalFunction_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteTrigger">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTrigger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoDask">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnUserInfoDask">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/ReturnUserInfoDask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMsgTriggerNew">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/ApplicationMsgTriggerNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="TaskCacheReflesh">
       <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/TaskCacheReflesh" style="document" />
       <wsdl:input>
@@ -544,6 +628,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="ClosedDoTaskFromID">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/ClosedDoTaskFromID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="MsgClose">
       <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/MsgClose" style="document" />
       <wsdl:input>
@@ -649,6 +742,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="SendTaskMessage">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/SendTaskMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="WFAddTimingTrigger">
       <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/WFAddTimingTrigger" style="document" />
       <wsdl:input>
@@ -658,8 +760,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteTrigger">
-      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTrigger" style="document" />
+    <wsdl:operation name="AddTask">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/AddTask" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -667,20 +769,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddDoDask">
-      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDask" style="document" />
+    <wsdl:operation name="GetDoTaskEntity">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskEntity" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ApplicationMsgTriggerNew">
-      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/ApplicationMsgTriggerNew" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="EngineWcfGlobalFunction">

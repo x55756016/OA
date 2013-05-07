@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6e80cfe3-af89-4387-a729-e8615aecf774" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AttendanceService.xsd" MetadataType="Schema" ID="cfc026f4-54ab-4e38-94d7-a9c068c15614" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd6" />
+    <MetadataFile FileName="AttendanceService1.xsd" MetadataType="Schema" ID="76c2c1ff-2bdd-4542-ad76-a08644bf6f4a" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AttendanceService2.xsd" MetadataType="Schema" ID="f6d9721f-36cf-46c3-a0ce-4597efef90ed" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd5" />
+    <MetadataFile FileName="AttendanceService.wsdl" MetadataType="Wsdl" ID="91a433eb-0c8a-4887-aab7-de716c1c2f52" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AttendanceService3.xsd" MetadataType="Schema" ID="5eab4108-f61b-4067-93c6-e99b748895a5" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd4" />
+    <MetadataFile FileName="AttendanceService4.xsd" MetadataType="Schema" ID="1d0fa3be-3be8-4808-9f1e-a50566a0c8b5" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AttendanceService5.xsd" MetadataType="Schema" ID="3e0a38a8-4b55-4fe2-958c-823936cb76dc" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd7" />
+    <MetadataFile FileName="AttendanceService1.wsdl" MetadataType="Wsdl" ID="89c97b25-e134-40b9-ac8e-d321c62147d9" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?wsdl" />
+    <MetadataFile FileName="AttendanceService6.xsd" MetadataType="Schema" ID="569afac0-4419-42b3-a7a1-73c5adaf0c8b" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AttendanceService.disco" MetadataType="Disco" ID="44dd19fa-a006-4b92-b7aa-5e5e5cfa69df" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?disco" />
+    <MetadataFile FileName="AttendanceService7.xsd" MetadataType="Schema" ID="b2e3f79a-bfa3-4501-a06c-144fbd06395f" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
