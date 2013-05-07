@@ -319,7 +319,7 @@ namespace SMT.HRM.BLL
 
                 string[] strs = entTempList.Select(c => c.FINGERPRINTID).ToArray();
                 string filter = string.Empty;
-                string strCheckAutoImportComps = "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716,72b3f128-6cf0-498c-8e70-89d0d66403f2,4da803fc-08ad-426b-82e2-f25f3192f438,bac05c76-0f5b-40ae-b73b-8be541ed35ed,142e5b31-4596-4a90-9be6-e422c9784810";
+                string strCheckAutoImportComps = "";
                 string strAutoImportCompIDs = System.Configuration.ConfigurationManager.AppSettings["AutoImportCompanys"];
 
                 if (!string.IsNullOrWhiteSpace(strAutoImportCompIDs))
@@ -437,7 +437,10 @@ namespace SMT.HRM.BLL
                     entClockInRd.PUNCHTIME = entTemp.PUNCHTIME;
 
                     var qc = from ar in dal.GetObjects<T_HR_EMPLOYEECLOCKINRECORD>()
-                             where ar.OWNERCOMPANYID == entClockInRd.OWNERCOMPANYID && ar.EMPLOYEEID == entClockInRd.EMPLOYEEID && ar.PUNCHDATE == entClockInRd.PUNCHDATE && ar.PUNCHTIME == entClockInRd.PUNCHTIME
+                             where ar.OWNERCOMPANYID == entClockInRd.OWNERCOMPANYID && ar.EMPLOYEEID 
+                             == entClockInRd.EMPLOYEEID 
+                             && ar.PUNCHDATE == entClockInRd.PUNCHDATE 
+                             && ar.PUNCHTIME == entClockInRd.PUNCHTIME
                              orderby ar.PUNCHDATE
                              select ar;
 

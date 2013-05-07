@@ -1877,7 +1877,7 @@ namespace SMT.HRM.BLL
                 {
                     if (!string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
                     {
-                        break;
+                        continue;
                     }
 
                     entUpdate.ATTENDANCESOLUTIONID = entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID;

@@ -1395,7 +1395,8 @@ namespace SMT.HRM.BLL
                     }
                     else
                     {
-                        Tracer.Debug("根据岗位生成员工月薪异常，异常员工id：" +objectID+ " 异常原因：无有效的薪资档案或员工状态异常");
+                        Tracer.Debug("根据组织架构生成员工月薪异常，异常员工id：" + objectID + " 异常原因：无有效的薪资档案或员工状态异常"
+                          + " 结算员工岗位id：" + GenerateEmployeePostid + " 考勤结算记录所属公司id（获取薪资档案的公司id）：" + strCompanyID);
                     }
                     break;
             }
@@ -1649,7 +1650,9 @@ namespace SMT.HRM.BLL
                     }
                     else
                     {
-                        Tracer.Debug("根据组织架构生成员工月薪异常，异常员工id：" + emp.EMPLOYEEID + " 异常原因：无有效的薪资档案或员工状态异常");
+                        Tracer.Debug("根据组织架构生成员工月薪异常，异常员工id：" + emp.EMPLOYEEID + " 异常原因：无有效的薪资档案或员工状态异常"
+                            + " 结算员工岗位id："+ GenerateEmployeePostid +" 考勤结算记录所属公司id（获取薪资档案的公司id）："+ emp.CompanyID +" 年"+ int.Parse(year) +
+                            " 月"+ int.Parse(month));
                     }
                 }
                 catch (Exception ex)

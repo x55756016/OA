@@ -546,7 +546,9 @@ namespace SMT.HRM.BLL
                 string strEmployeeID = entEmployee.EMPLOYEEID;
                 //获取导入打卡记录对应时间段的考勤记录，以便进行比对
                 AttendanceRecordBLL bllAttendanceRecord = new AttendanceRecordBLL();
-                IQueryable<T_HR_ATTENDANCERECORD> entAttRds = bllAttendanceRecord.GetAttendanceRecordByEmployeeIDAndDate(entEmployee.OWNERCOMPANYID, strEmployeeID, dtStart, dtEnd);
+                IQueryable<T_HR_ATTENDANCERECORD> entAttRds 
+                    = bllAttendanceRecord.GetAttendanceRecordByEmployeeIDAndDate(entEmployee.OWNERCOMPANYID
+                    , strEmployeeID, dtStart, dtEnd);
 
                 if (entAttRds.Count() == 0)
                 {
@@ -555,7 +557,10 @@ namespace SMT.HRM.BLL
 
                 string strSortKey = "PUNCHDATE";
                 ClockInRecordBLL bllClockInRecord = new ClockInRecordBLL();
-                IQueryable<T_HR_EMPLOYEECLOCKINRECORD> entClockInRecords = bllClockInRecord.GetAllClockInRdListByMultSearch(string.Empty, string.Empty, string.Empty, strEmployeeID, dtStart.ToString(), dtEnd.ToString(), strSortKey);
+                IQueryable<T_HR_EMPLOYEECLOCKINRECORD> entClockInRecords 
+                    = bllClockInRecord.GetAllClockInRdListByMultSearch(string.Empty
+                    , string.Empty, string.Empty, strEmployeeID, dtStart.ToString()
+                    , dtEnd.ToString(), strSortKey);
 
                 CheckAbnormRecord(entAttRds, entClockInRecords, ref strMsg, ref isAbnorm);
 

@@ -70,7 +70,9 @@ namespace SMT.HRM.BLL
         public IQueryable<T_HR_ATTENDANCERECORD> GetAttendanceRecordByEmployeeIDAndDate(string strCompanyID, string strEmployeeID, DateTime dtStart, DateTime dtEnd)
         {
             var q = from a in dal.GetObjects().Include("T_HR_SHIFTDEFINE")
-                    where a.OWNERCOMPANYID == strCompanyID && a.EMPLOYEEID == strEmployeeID && a.ATTENDANCEDATE >= dtStart && a.ATTENDANCEDATE <= dtEnd
+                    where a.OWNERCOMPANYID == strCompanyID 
+                    && a.EMPLOYEEID == strEmployeeID 
+                    && a.ATTENDANCEDATE >= dtStart && a.ATTENDANCEDATE <= dtEnd
                     select a;
             return q;
         }

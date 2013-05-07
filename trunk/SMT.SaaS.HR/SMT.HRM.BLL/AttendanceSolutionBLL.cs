@@ -32,7 +32,7 @@ namespace SMT.HRM.BLL
         public AttendanceSolutionBLL()
         { }
 
-        #region 获取数据
+        #region 获取数据吴鹏新增
         /// <summary>
         /// 根据考勤方案ID，当日的起止时间，获取当天的实际上下班时间（计算考勤异常时使用）
         /// </summary>
