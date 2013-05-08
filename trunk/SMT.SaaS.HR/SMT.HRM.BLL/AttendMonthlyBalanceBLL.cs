@@ -23,6 +23,7 @@ using System.Linq.Expressions;
 using SMT_HRM_EFModel;
 using SMT.HRM.DAL;
 using SMT.HRM.CustomModel;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -537,6 +538,12 @@ namespace SMT.HRM.BLL
                     {
                         strLine = TF.ReadFields();
                         string strFingerPrintId = strLine[0];
+                        Tracer.Debug("开始导入员工考勤月度结算结果，员工姓名：" + strLine[1] + " 员工指纹编码:" + strLine[0]);
+                        if (strLine.Length < 23)
+                        {
+                            Tracer.Debug("导入的数据少于23列，请检查导入模板，确保最后一列不为空");
+                            continue;
+                        }
                         if (string.IsNullOrWhiteSpace(strFingerPrintId))
                         {
                             Utility.SaveLog("执行ImportMonthlyBalance函数，检查第一列指纹编号的值发现为空。导入对象的类型为："
