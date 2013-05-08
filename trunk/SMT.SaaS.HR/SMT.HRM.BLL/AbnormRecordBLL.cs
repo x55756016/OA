@@ -741,6 +741,8 @@ namespace SMT.HRM.BLL
             //上下班时间未获取到，则比对终止，返回
             if(!bflag)
             {
+                Tracer.Debug("未获取到上下班时间，打卡记录导入未更改考勤初始化记录状态，员工：" 
+                    + entAttRd.EMPLOYEENAME +" 考勤时间"+ entAttRd.ATTENDANCEDATE.Value.ToShortDateString());
                 return;
             }
 
