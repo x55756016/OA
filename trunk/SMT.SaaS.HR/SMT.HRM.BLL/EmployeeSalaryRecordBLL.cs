@@ -2330,26 +2330,12 @@ namespace SMT.HRM.BLL
                 var ents = list.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT);
 
                 T_HR_SALARYARCHIVE salaryAhive = ents.FirstOrDefault();
-                //T_HR_SALARYARCHIVE salaryAhive = null;
-
-                //foreach (T_HR_SALARYARCHIVE item in ents)
-                //{
-                //    if (item.OTHERSUBJOIN < year)
-                //    {
-                //        salaryAhive = item;
-                //        break;
-                //    }
-                //    if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month)
-                //    {
-                //        salaryAhive = item;
-                //        break;
-                //    }
-                //}
 
                 if (!string.IsNullOrEmpty(salaryAhive.BALANCEPOSTID))//如果薪资档案的结算岗位不为空且不等于现在的结算人主岗位，跳过
                 {
                     if (salaryAhive.BALANCEPOSTID != GenerateEmployeePostid)
                     {
+                        Tracer.Debug("员工最新薪资档案获取到的结算岗位跟当前结算岗位不符，薪资档案获取为空，员工姓名：" + salaryAhive.EMPLOYEENAME);                                
                         return null;
                     }
                 }
@@ -2478,31 +2464,7 @@ namespace SMT.HRM.BLL
             if (isalaryAchiveCount > 0)
             {
                 List<T_HR_SALARYARCHIVE> SalaryArchivelist = q.ToList();
-
-                //List<T_HR_SALARYARCHIVE> list = q.ToList();
-                //var ents = list.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT);
-                //T_HR_SALARYARCHIVE salaryAhive = null;
-                //foreach (T_HR_SALARYARCHIVE item in ents)
-                //{
-                //    if (item.OTHERSUBJOIN < year)
-                //    {
-                //        salaryAhive = item;
-                //        break;
-                //    }
-                //    if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month)
-                //    {
-                //        salaryAhive = item;
-                //        break;
-                //    }
-                //}
-                //if (!string.IsNullOrEmpty(salaryAhive.BALANCEPOSTID))//如果薪资档案的结算岗位不为空且不等于现在的结算人主岗位，跳过
-                //{
-                //    if (salaryAhive.BALANCEPOSTID != GenerateEmployeePostid)
-                //    {
-                //        salaryAhive= null;
-                //    }
-                //}
-
+                
                 Tracer.Debug("获取到所有发薪机构 " + PayCompanyID + " 上的员工薪资档案，共 " + isalaryAchiveCount.ToString() + "条");
                 var employees = (from ent in SalaryArchivelist
                                                 select new { ent.EMPLOYEEID, ent.EMPLOYEENAME }).Distinct().ToList();
@@ -2511,6 +2473,12 @@ namespace SMT.HRM.BLL
                     {
                         try
                         {
+                            T_HR_SALARYARCHIVE entLast=GetEmployeeAcitiveSalaryArchive(employee.EMPLOYEEID,GenerateEmployeePostid,PayCompanyID,year,month);
+                            if (entLast==null)
+                            {
+                                Tracer.Debug("根据发薪机构结算员工薪资，该员工被跳过，因为该员工最新的薪资档案结算岗位不为空," + "员工姓名：" + employee.EMPLOYEENAME + ",员工id：" + employee.EMPLOYEEID + " 发薪结构：" + company.CNAME + " 发薪机构id" + PayCompanyID);
+                                continue;
+                            }
                             if (!checkEmployeeHaveMainPostInCompany(employee.EMPLOYEEID, PayCompanyID))
                             {
                                 Tracer.Debug("根据发薪机构结算员工薪资，该员工被跳过，因为该员工在发薪机构已经没有生效的主岗位,"+"员工姓名："+employee.EMPLOYEENAME+",员工id：" + employee.EMPLOYEEID + " 发薪结构：" + company.CNAME + " 发薪机构id" + PayCompanyID);
