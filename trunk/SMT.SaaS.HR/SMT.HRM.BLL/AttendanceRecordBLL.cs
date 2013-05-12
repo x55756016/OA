@@ -353,7 +353,7 @@ namespace SMT.HRM.BLL
         }
 
         /// <summary>
-        /// 删除单个指定员工的一段时间内未正式启用的考勤记录
+        /// 未正式启用的考勤记录
         /// </summary>
         /// <param name="entEmployees">员工集合</param>
         /// <param name="dtStart">上班起始日期</param>
@@ -384,7 +384,9 @@ namespace SMT.HRM.BLL
                 {
                     try
                     {
+                        if (!string.IsNullOrWhiteSpace(entAttRd.ATTENDANCESTATE)) continue;
                         dal.Delete(entAttRd);
+                        Tracer.Debug("删除未启用的员工初始化考勤记录：");
                     }
                     catch (Exception ex)
                     {

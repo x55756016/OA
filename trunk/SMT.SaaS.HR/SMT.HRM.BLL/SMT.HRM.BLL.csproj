@@ -70,9 +70,6 @@
     <Reference Include="SMT.Foundation.Log">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.BLLCommonServices">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SaaS.Globalization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313418dd5b9fe6fe, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.Globalization.dll</HintPath>
@@ -243,6 +240,10 @@
     <Compile Include="缓存 PostBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
+      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
+      <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
       <Project>{0E45B937-670F-49E1-8EF1-A4BD312B94DA}</Project>
       <Name>SMT.HRM.CustomModel</Name>

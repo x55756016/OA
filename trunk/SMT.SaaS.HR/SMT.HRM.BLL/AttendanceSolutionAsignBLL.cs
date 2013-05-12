@@ -1511,15 +1511,14 @@ namespace SMT.HRM.BLL
                         
                         try
                         {
-                            Tracer.Debug("删除员工考勤异常" + "，员工姓名"+item_emp.EMPLOYEEENAME);
+                            Tracer.Debug("删除未正式启用的考勤记录" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                             bllAttRd.DeleteUnEffectiveRecordByDate(entCompany, item_emp, dtStart, dtEnd, ref dtRes);
                         }
                         catch (Exception ex)
                         {
-                            Tracer.Debug("删除员工考勤异常出现问题:" + "，员工姓名" + item_emp.EMPLOYEEENAME + ex.ToString());
+                            Tracer.Debug("删除员工未正式启用的考勤记录出现问题:" + "，员工姓名" + item_emp.EMPLOYEEENAME + ex.ToString());
                             continue;
                         }
-                        Tracer.Debug("删除员工考勤异常完毕" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                         if (dtRes == dtCheck)
                         {
                             dtRes = dtStart;
@@ -1527,16 +1526,16 @@ namespace SMT.HRM.BLL
 
                         if (dtRes >= dtEnd)
                         {
-                            Tracer.Debug("dtRes >= dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                            Tracer.Debug("初始化员工考勤记录被跳过，dtRes >= dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                             continue;
                         }
-                        Tracer.Debug("员工状态：" + item_emp.EMPLOYEESTATE + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                        Tracer.Debug("初始化员工考勤记录：员工状态：" + item_emp.EMPLOYEESTATE + "，员工姓名" + item_emp.EMPLOYEEENAME);
                         if (item_emp.EMPLOYEESTATE == "0")
                         {
                             T_HR_EMPLOYEEENTRY entEntry = bllEntry.GetEmployeeEntryByEmployeeID(item_emp.EMPLOYEEID);
                             if (entEntry == null)
                             {
-                                Tracer.Debug("该员工入职为空" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过,该员工入职为空" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                                 continue;
                             }
 
@@ -1547,7 +1546,7 @@ namespace SMT.HRM.BLL
 
                             if (entEntry.ENTRYDATE.Value > dtEnd)
                             {
-                                Tracer.Debug("entEntry.ENTRYDATE.Value > dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过：entEntry.ENTRYDATE.Value > dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                                 continue;
                             }
                         }
@@ -1567,7 +1566,7 @@ namespace SMT.HRM.BLL
 
                             if (entEntry.ENTRYDATE.Value > dtEnd)
                             {
-                                Tracer.Debug("员工入职日期大于本月最后一天" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过,员工入职日期大于本月最后一天" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                                 continue;
                             }
                         }
@@ -1576,7 +1575,7 @@ namespace SMT.HRM.BLL
                             T_HR_LEFTOFFICECONFIRM entConfirm = bllConfirm.GetLeftOfficeConfirmByEmployeeId(item_emp.EMPLOYEEID);
                             if (entConfirm.STOPPAYMENTDATE !=null && entConfirm.STOPPAYMENTDATE.Value < dtStart)
                             {
-                                Tracer.Debug("entConfirm.STOPPAYMENTDATE !=null && entConfirm.STOPPAYMENTDATE.Value < dtStart" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过,entConfirm.STOPPAYMENTDATE !=null && entConfirm.STOPPAYMENTDATE.Value < dtStart" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                                 continue;
                             }
 
@@ -1587,7 +1586,7 @@ namespace SMT.HRM.BLL
 
                             if (entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value < dtStart)
                             {
-                                Tracer.Debug("entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value < dtStart" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过,entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value < dtStart" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                                 continue;
                             }
                         }

@@ -22,6 +22,7 @@ using System.Data;
 using SMT.SaaS.BLLCommonServices.PermissionWS;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -165,7 +166,7 @@ namespace SMT.HRM.BLL
         #region 操作
 
         /// <summary>
-        /// 新增员工加班信息
+        /// 新增员工打卡信息
         /// </summary>
         /// <param name="entClockInRd"></param>
         /// <returns></returns>
@@ -191,6 +192,33 @@ namespace SMT.HRM.BLL
                 dalClockInRecord.Add(entTemp);
 
                 strMsg = "{SAVESUCCESSED}";
+
+                #region 判断是否已经初始化考勤记录，没有就初始化整月数据
+                IQueryable<T_HR_ATTENDANCERECORD> entArs = from att in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+                                                           where att.EMPLOYEEID == entTemp.EMPLOYEEID
+                                                            && att.ATTENDANCEDATE == entTemp.PUNCHDATE
+                                                           select att;               
+                if (entArs.Count() < 1)
+                {                    
+                    string dtInit = entTemp.PUNCHDATE.Value.Year.ToString() + "-" + entTemp.PUNCHDATE.Value.Month.ToString();
+                    Tracer.Debug("打卡记录导入发现没有考勤初始化记录，开始初始化考勤记录，员工姓名" + entTemp.EMPLOYEENAME + " 初始化年月"
+                        + dtInit + " 员工id：" + entTemp.EMPLOYEEID);
+                    try
+                    {
+                        AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
+                        //初始化该员工当月考勤记录
+                        bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", entTemp.EMPLOYEEID, dtInit);
+
+                        Tracer.Debug("打卡记录导入没有查到考勤初始化数据，初始化员工考勤成功，初始化月份：" + dtInit);
+                       
+                    }
+                    catch (Exception ex)
+                    {
+                        Tracer.Debug("打卡记录导入初始化考勤失败：月份：" + dtInit + " 姓名："+
+                            entTemp.EMPLOYEENAME +" 员工id："+ entTemp.EMPLOYEEID + "失败原因：" + ex.ToString());                      
+                    }
+                }
+                #endregion
 
             }
             catch (Exception ex)
