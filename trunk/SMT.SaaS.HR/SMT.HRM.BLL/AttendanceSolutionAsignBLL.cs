@@ -1511,12 +1511,11 @@ namespace SMT.HRM.BLL
                         
                         try
                         {
-                            Tracer.Debug("删除未正式启用的考勤记录" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                             bllAttRd.DeleteUnEffectiveRecordByDate(entCompany, item_emp, dtStart, dtEnd, ref dtRes);
                         }
                         catch (Exception ex)
                         {
-                            Tracer.Debug("删除员工未正式启用的考勤记录出现问题:" + "，员工姓名" + item_emp.EMPLOYEEENAME + ex.ToString());
+                            Tracer.Debug("初始化考勤删除员工未正式启用的考勤记录出现问题:" + "，员工姓名" + item_emp.EMPLOYEEENAME + ex.ToString());
                             continue;
                         }
                         if (dtRes == dtCheck)

@@ -385,8 +385,9 @@ namespace SMT.HRM.BLL
                     try
                     {
                         if (!string.IsNullOrWhiteSpace(entAttRd.ATTENDANCESTATE)) continue;
+
+                        Tracer.Debug("初始化考勤删除未启用的员工初始化考勤记录，员工姓名：" + entAttRd.EMPLOYEENAME + " 时间：" + entAttRd.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd"));
                         dal.Delete(entAttRd);
-                        Tracer.Debug("删除未启用的员工初始化考勤记录：");
                     }
                     catch (Exception ex)
                     {
