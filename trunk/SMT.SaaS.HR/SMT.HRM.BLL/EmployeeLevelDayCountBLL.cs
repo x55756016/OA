@@ -1564,9 +1564,10 @@ namespace SMT.HRM.BLL
                     DateTime dtEfficDate = DateTime.Parse(DateTime.Now.ToString("yyyy") + "-1-1");
 
                     var q = from l in dal.GetObjects()
-                            where l.VACATIONTYPE == strVacType && l.OWNERCOMPANYID == entAttSolAsign.OWNERCOMPANYID
-                                && l.EMPLOYEEID == entEmployee.EMPLOYEEID && l.OWNERCOMPANYID == entAttSolAsign.OWNERCOMPANYID
-                                && l.LEAVETYPESETID == entAttendFreeLeave.T_HR_LEAVETYPESET.LEAVETYPESETID
+                            where l.VACATIONTYPE == strVacType 
+                            && l.OWNERCOMPANYID == entAttSolAsign.OWNERCOMPANYID
+                            && l.EMPLOYEEID == entEmployee.EMPLOYEEID 
+                            && l.LEAVETYPESETID == entAttendFreeLeave.T_HR_LEAVETYPESET.LEAVETYPESETID
                             select l;
 
                     q = q.Where(t => t.TERMINATEDATE >= dtEfficDate);
@@ -1604,9 +1605,31 @@ namespace SMT.HRM.BLL
                     entAdd.VACATIONTYPE = strVacType;
 
                     entAdd.REMARK = string.Empty;
-                    entAdd.OWNERPOSTID = entAttSolAsign.OWNERPOSTID;
-                    entAdd.OWNERDEPARTMENTID = entAttSolAsign.OWNERDEPARTMENTID;
-                    entAdd.OWNERCOMPANYID = entAttSolAsign.OWNERCOMPANYID;
+
+                    //获取员工当前主岗位
+
+                    var entEmployeePost = from ent in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE")
+                                          join post in dal.GetObjects<T_HR_POST>() on ent.T_HR_POST.POSTID equals post.POSTID
+                                          join dep in dal.GetObjects<T_HR_DEPARTMENT>() on post.T_HR_DEPARTMENT.DEPARTMENTID equals dep.DEPARTMENTID
+                                          where ent.T_HR_EMPLOYEE.EMPLOYEEID == entEmployee.EMPLOYEEID
+                                            && ent.ISAGENCY == "0"
+                                            && ent.CHECKSTATE == "2"
+                                            && ent.EDITSTATE == "1"
+                                            orderby ent.UPDATEDATE descending
+                                            select new {ent,post,dep};
+                    var ep =entEmployeePost.FirstOrDefault();
+                    if (ep != null)
+                    {
+                        entAdd.OWNERPOSTID = ep.post.POSTID;
+                        entAdd.OWNERDEPARTMENTID = ep.dep.DEPARTMENTID;
+                        entAdd.OWNERCOMPANYID = ep.post.COMPANYID;
+                    }
+                    else
+                    {
+                        entAdd.OWNERPOSTID = entAttSolAsign.OWNERPOSTID;
+                        entAdd.OWNERDEPARTMENTID = entAttSolAsign.OWNERDEPARTMENTID;
+                        entAdd.OWNERCOMPANYID = entAttSolAsign.OWNERCOMPANYID;
+                    }                   
                     entAdd.OWNERID = entAttSolAsign.OWNERID;
 
                     entAdd.CREATEPOSTID = entAttSolAsign.CREATEPOSTID;
@@ -1653,6 +1676,7 @@ namespace SMT.HRM.BLL
         /// <param name="totalDays"></param>
         private void GetEmployeeAnnualLeaveDays(string AttSolAsignId,string EMPLOYEEID, DateTime dtEntryDate, decimal dMaxLeaveDays, ref decimal totalDays, string ownerCompanyid)
         {
+            totalDays = 0;
             //DateTime dtYearStartDate = DateTime.Parse(dtEntryDate.ToString("yyyy") + "-1-1");
             DateTime thisYearFirstDay = DateTime.Parse((DateTime.Now.Year.ToString() + "-1-1").ToString()); 
             //DateTime dtLastYearEndDate = DateTime.Parse(DateTime.Now.AddYears(-1).ToString("yyyy") + "-12-31");
@@ -1726,7 +1750,7 @@ namespace SMT.HRM.BLL
                 //得到工作时间
                 decimal workTimes = needTimeSpan.Days / 365;
                 Tracer.Debug("生成员工带薪年假：计算得出该员工工作年限" + workTimes);
-                if (workTimes >= 1 && workTimes < 10)
+                if (workTimes >= 0 && workTimes < 10)
                 {
                     totalDays = 5;
                     Tracer.Debug("生成员工带薪年假：5天");
@@ -1753,46 +1777,46 @@ namespace SMT.HRM.BLL
                     Tracer.Debug("员工入职刚满一年：生成年假天数：" + totalDays);
                 }
 
-                var allday = from ent in dal.GetObjects<T_HR_EMPLOYEELEAVERECORD>()
-                        join levType in dal.GetObjects<T_HR_LEAVETYPESET>() 
-                        on ent.T_HR_LEAVETYPESET.LEAVETYPESETID equals levType.LEAVETYPESETID
-                        where ent.EMPLOYEEID == EMPLOYEEID
-                        && ent.OWNERCOMPANYID == ownerCompanyid
-                        && ent.T_HR_LEAVETYPESET.LEAVETYPEVALUE=="4"//年假
-                        && ent.CHECKSTATE=="2"
-                        && ent.STARTDATETIME >= thisYearFirstDay
-                       select ent;
-                if (allday.Count() > 0)
-                {
-                    try
-                    {
-                        var AttSolution = from v in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
-                                          where v.ATTENDANCESOLUTIONASIGNID == AttSolAsignId
-                                          select v.T_HR_ATTENDANCESOLUTION;
-                        if (AttSolution.Count() > 0)
-                        {
-                            foreach (var item in allday)
-                            {
-                                if (item.LEAVEDAYS != null && item.LEAVEDAYS > 0)
-                                {
-                                    totalDays = totalDays - item.LEAVEDAYS.Value;
-                                    Tracer.Debug("生成年假总天数减去已请年假：" + item.LEAVEDAYS.Value+" 天");
-                                }
-                                if (item.LEAVEHOURS != null && item.LEAVEHOURS > 0)
-                                {
-                                    totalDays = (totalDays * AttSolution.FirstOrDefault().WORKTIMEPERDAY.Value
-                                        - item.LEAVEHOURS.Value) / AttSolution.FirstOrDefault().WORKTIMEPERDAY.Value;
-                                    Tracer.Debug("生成年假总天数减去已请年假：" + item.LEAVEHOURS.Value + " 小时");
-                                }
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Tracer.Debug("生成带薪年假扣减已请天数异常：" + ex.ToString());
-                        totalDays = 0;
-                    }
-                }
+                //var allday = from ent in dal.GetObjects<T_HR_EMPLOYEELEAVERECORD>()
+                //        join levType in dal.GetObjects<T_HR_LEAVETYPESET>() 
+                //        on ent.T_HR_LEAVETYPESET.LEAVETYPESETID equals levType.LEAVETYPESETID
+                //        where ent.EMPLOYEEID == EMPLOYEEID
+                //        && ent.OWNERCOMPANYID == ownerCompanyid
+                //        && ent.T_HR_LEAVETYPESET.LEAVETYPEVALUE=="4"//年假
+                //        && ent.CHECKSTATE=="2"
+                //        && ent.STARTDATETIME >= thisYearFirstDay
+                //       select ent;
+                //if (allday.Count() > 0)
+                //{
+                //    try
+                //    {
+                //        var AttSolution = from v in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
+                //                          where v.ATTENDANCESOLUTIONASIGNID == AttSolAsignId
+                //                          select v.T_HR_ATTENDANCESOLUTION;
+                //        if (AttSolution.Count() > 0)
+                //        {
+                //            foreach (var item in allday)
+                //            {
+                //                if (item.LEAVEDAYS != null && item.LEAVEDAYS > 0)
+                //                {
+                //                    totalDays = totalDays - item.LEAVEDAYS.Value;
+                //                    Tracer.Debug("生成年假总天数减去已请年假：" + item.LEAVEDAYS.Value+" 天");
+                //                }
+                //                if (item.LEAVEHOURS != null && item.LEAVEHOURS > 0)
+                //                {
+                //                    totalDays = (totalDays * AttSolution.FirstOrDefault().WORKTIMEPERDAY.Value
+                //                        - item.LEAVEHOURS.Value) / AttSolution.FirstOrDefault().WORKTIMEPERDAY.Value;
+                //                    Tracer.Debug("生成年假总天数减去已请年假：" + item.LEAVEHOURS.Value + " 小时");
+                //                }
+                //            }
+                //        }
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        Tracer.Debug("生成带薪年假扣减已请天数异常：" + ex.ToString());
+                //        totalDays = 0;
+                //    }
+                //}
 
 
 
