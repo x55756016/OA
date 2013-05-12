@@ -23,6 +23,7 @@ using System.Linq.Expressions;
 using SMT_HRM_EFModel;
 using SMT.HRM.DAL;
 using SMT.HRM.CustomModel;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -349,82 +350,91 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public List<V_EMPLOYEELEAVE> GetEmployeeLeaveByEmployeeID(string employeeID, DateTime date)
         {
-            //获取员工组织架构
-            EmployeeBLL employeeBll = new EmployeeBLL();
-            V_EMPLOYEEPOST employeePost = employeeBll.GetEmployeeDetailByID(employeeID);
-            //获取员工的入职信息
-            EmployeeEntryBLL entryBll = new EmployeeEntryBLL();
-            T_HR_EMPLOYEEENTRY entry = entryBll.GetEmployeeEntryByEmployeeID(employeeID);
-            DateTime entryDate = entry.ENTRYDATE.Value;
-            int m = Utility.DateDiff(entryDate, date, "M");
-            string departmentID = employeePost.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
-            string comparyID = employeePost.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
-
             List<V_EMPLOYEELEAVE> leaveList = new List<V_EMPLOYEELEAVE>();
-            var ent = from a in dal.GetObjects().Include("T_HR_LEAVETYPESET")
-                      join al in dal.GetObjects<T_HR_ATTENDFREELEAVE>().Include("T_HR_ATTENDANCESOLUTION").Include("T_HR_LEAVETYPESET") on a.T_HR_LEAVETYPESET.LEAVETYPESETID equals al.T_HR_LEAVETYPESET.LEAVETYPESETID
-                      join ad in dal.GetObjects<T_HR_ATTENDANCESOLUTION>() on al.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID equals ad.ATTENDANCESOLUTIONID
-                      join at in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>() on ad.ATTENDANCESOLUTIONID equals at.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID
-                      where (at.ASSIGNEDOBJECTID == departmentID || at.ASSIGNEDOBJECTID == comparyID)
-                      && a.MINIMONTH <= m
-                      && a.MAXMONTH >= m
-                      select new V_EMPLOYEELEAVE()
+            try
+            {
+                //获取员工组织架构
+                EmployeeBLL employeeBll = new EmployeeBLL();
+                V_EMPLOYEEPOST employeePost = employeeBll.GetEmployeeDetailByID(employeeID);
+                //获取员工的入职信息
+                EmployeeEntryBLL entryBll = new EmployeeEntryBLL();
+                T_HR_EMPLOYEEENTRY entry = entryBll.GetEmployeeEntryByEmployeeID(employeeID);
+                DateTime entryDate = entry.ENTRYDATE.Value;
+                int m = Utility.DateDiff(entryDate, date, "M");
+                string departmentID = employeePost.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
+                string comparyID = employeePost.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
+
+               
+                var ent = from a in dal.GetObjects().Include("T_HR_LEAVETYPESET")
+                          join al in dal.GetObjects<T_HR_ATTENDFREELEAVE>().Include("T_HR_ATTENDANCESOLUTION").Include("T_HR_LEAVETYPESET") on a.T_HR_LEAVETYPESET.LEAVETYPESETID equals al.T_HR_LEAVETYPESET.LEAVETYPESETID
+                          join ad in dal.GetObjects<T_HR_ATTENDANCESOLUTION>() on al.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID equals ad.ATTENDANCESOLUTIONID
+                          join at in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>() on ad.ATTENDANCESOLUTIONID equals at.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID
+                          where (at.ASSIGNEDOBJECTID == departmentID || at.ASSIGNEDOBJECTID == comparyID)
+                          && a.MINIMONTH <= m
+                          && a.MAXMONTH >= m
+                          select new V_EMPLOYEELEAVE()
+                          {
+                              EmployeeID = employeeID,
+                              EmployeeCode = employeePost.T_HR_EMPLOYEE.EMPLOYEECODE,
+                              EmployeeName = employeePost.T_HR_EMPLOYEE.EMPLOYEECNAME,
+                              LeaveTypeName = a.T_HR_LEAVETYPESET.LEAVETYPENAME,
+                              LeaveTypeSetID = a.T_HR_LEAVETYPESET.LEAVETYPESETID,
+                              MaxDays = a.T_HR_LEAVETYPESET.MAXDAYS.Value,
+                              FineType = a.T_HR_LEAVETYPESET.FINETYPE,
+                              IsPerfectAttendanceFactor = a.ISPERFECTATTENDANCEFACTOR,
+                              LeaveDays = a.LEAVEDAYS.Value
+                          };
+                leaveList = ent.Count() > 0 ? ent.ToList() : null;
+
+                //获取年度考勤结算日
+                AttendanceSolutionAsignBLL bll = new AttendanceSolutionAsignBLL();
+                var tempEnt = bll.GetAttendanceSolutionAsignByEmployeeID(employeeID);
+                string strDate = tempEnt.T_HR_ATTENDANCESOLUTION.YEARLYBALANCEDATE;
+                string strType = tempEnt.T_HR_ATTENDANCESOLUTION.YEARLYBALANCETYPE; //结算方式
+                //获取加班调休假的天数
+                EmployeeLevelDayCountBLL leaveDaybll = new EmployeeLevelDayCountBLL();
+                AdjustLeaveBLL adjustbll = new AdjustLeaveBLL();
+                decimal leaveDays = leaveDaybll.GetLevelDayCountByEmployeeID(employeeID, date, strDate);
+
+                V_EMPLOYEELEAVE leave = new V_EMPLOYEELEAVE();
+                ent = from a in dal.GetObjects<T_HR_LEAVETYPESET>()
+                      where !string.IsNullOrEmpty(a.LEAVETYPEVALUE)
+                      select new V_EMPLOYEELEAVE
                       {
                           EmployeeID = employeeID,
                           EmployeeCode = employeePost.T_HR_EMPLOYEE.EMPLOYEECODE,
                           EmployeeName = employeePost.T_HR_EMPLOYEE.EMPLOYEECNAME,
-                          LeaveTypeName = a.T_HR_LEAVETYPESET.LEAVETYPENAME,
-                          LeaveTypeSetID = a.T_HR_LEAVETYPESET.LEAVETYPESETID,
-                          MaxDays = a.T_HR_LEAVETYPESET.MAXDAYS.Value,
-                          FineType = a.T_HR_LEAVETYPESET.FINETYPE,
-                          IsPerfectAttendanceFactor = a.ISPERFECTATTENDANCEFACTOR,
-                          LeaveDays = a.LEAVEDAYS.Value
+                          LeaveTypeName = a.LEAVETYPENAME,
+                          LeaveTypeSetID = a.LEAVETYPESETID,
+                          MaxDays = a.MAXDAYS.Value,
+                          FineType = a.FINETYPE,
+                          LeaveDays = leaveDays
                       };
-            leaveList = ent.Count() > 0 ? ent.ToList() : null;
-
-            //获取年度考勤结算日
-            AttendanceSolutionAsignBLL bll = new AttendanceSolutionAsignBLL();
-            var tempEnt = bll.GetAttendanceSolutionAsignByEmployeeID(employeeID);
-            string strDate = tempEnt.T_HR_ATTENDANCESOLUTION.YEARLYBALANCEDATE;
-            string strType = tempEnt.T_HR_ATTENDANCESOLUTION.YEARLYBALANCETYPE; //结算方式
-            //获取加班调休假的天数
-            EmployeeLevelDayCountBLL leaveDaybll = new EmployeeLevelDayCountBLL();
-            AdjustLeaveBLL adjustbll = new AdjustLeaveBLL();
-            decimal leaveDays = leaveDaybll.GetLevelDayCountByEmployeeID(employeeID, date, strDate);
-
-            V_EMPLOYEELEAVE leave = new V_EMPLOYEELEAVE();
-            ent = from a in dal.GetObjects<T_HR_LEAVETYPESET>()
-                  where !string.IsNullOrEmpty(a.LEAVETYPEVALUE)
-                  select new V_EMPLOYEELEAVE
-                  {
-                      EmployeeID = employeeID,
-                      EmployeeCode = employeePost.T_HR_EMPLOYEE.EMPLOYEECODE,
-                      EmployeeName = employeePost.T_HR_EMPLOYEE.EMPLOYEECNAME,
-                      LeaveTypeName = a.LEAVETYPENAME,
-                      LeaveTypeSetID = a.LEAVETYPESETID,
-                      MaxDays = a.MAXDAYS.Value,
-                      FineType = a.FINETYPE,
-                      LeaveDays = leaveDays
-                  };
-            leave = ent.Count() > 0 ? ent.FirstOrDefault() : null;
-            if (leave != null)
-            {
-                leaveList.Add(leave);
-            }
-            //获取已休天数,并算出可休假天数
-            foreach (var obj in leaveList)
-            {
-                //剩余可休假为累计的情况
-                if (strType == "1")
+                leave = ent.Count() > 0 ? ent.FirstOrDefault() : null;
+                if (leave != null)
                 {
-                    //往年可休假的总数
-                    decimal leaveHistoryDays = leaveDaybll.GetLevelDayCountHistoryByEmployeeID(employeeID, date, strDate);
-                    //往年已休假的总数
-                    decimal UsedUpDays = adjustbll.GetUseUpHistory(obj.LeaveTypeSetID, obj.EmployeeID, date, strDate);
-                    obj.LeaveDays += leaveHistoryDays - UsedUpDays;
+                    leaveList.Add(leave);
                 }
-                obj.UsedLeaveDays = adjustbll.GetUseUp(obj.LeaveTypeSetID, obj.EmployeeID, date, strDate);
-                obj.UseableLeaveDays = obj.LeaveDays - obj.UsedLeaveDays;
+                //获取已休天数,并算出可休假天数
+                foreach (var obj in leaveList)
+                {
+                    //剩余可休假为累计的情况
+                    if (strType == "1")
+                    {
+                        //往年可休假的总数
+                        decimal leaveHistoryDays = leaveDaybll.GetLevelDayCountHistoryByEmployeeID(employeeID, date, strDate);
+                        //往年已休假的总数
+                        decimal UsedUpDays = adjustbll.GetUseUpHistory(obj.LeaveTypeSetID, obj.EmployeeID, date, strDate);
+                        obj.LeaveDays += leaveHistoryDays - UsedUpDays;
+                    }
+                    obj.UsedLeaveDays = adjustbll.GetUseUp(obj.LeaveTypeSetID, obj.EmployeeID, date, strDate);
+                    obj.UseableLeaveDays = obj.LeaveDays - obj.UsedLeaveDays;
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
             }
             return leaveList;
         }
