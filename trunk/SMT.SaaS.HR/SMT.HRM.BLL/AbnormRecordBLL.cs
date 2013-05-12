@@ -24,6 +24,7 @@ using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using SMT.HRM.CustomModel.Reports;
 using SMT.Foundation.Log;
 using SMT.HRM.BLL.Common;
+using System.Threading;
 
 namespace SMT.HRM.BLL
 {
@@ -552,6 +553,7 @@ namespace SMT.HRM.BLL
 
                 if (entAttRds.Count() == 0)
                 {
+                    Tracer.Debug("导入打卡记录没有找到初始化考勤记录，未修改考勤初始化记录状态。");
                     continue;
                 }
 
@@ -661,14 +663,6 @@ namespace SMT.HRM.BLL
                         continue;
                     }
 
-
-                    //考勤记录的考勤状态只有为空时，才可以检查是否存在考勤异常，并对异常进行记录
-                    if (!string.IsNullOrWhiteSpace(item.ATTENDANCESTATE))
-                    {
-                        CheckAttendStateWithSpecialCase(item, entClockInRds, ref strMsg, ref bIsAbnorm);
-                        continue;
-                    }
-
                     string strAbnormCategory = string.Empty;
 
                     //检查第一段工作期，打卡情况
@@ -704,6 +698,12 @@ namespace SMT.HRM.BLL
                     }
 
                     bllAttendanceRecord.ModifyAttRd(item);
+
+                    //检查是否有出差及请假
+                    if (!string.IsNullOrWhiteSpace(item.ATTENDANCESTATE))
+                    {
+                        CheckEvectionRecordAndLeaveRecordAttendState(item, entClockInRds, ref strMsg, ref bIsAbnorm);
+                    }
                 }
 
                 strMsg = "{SAVESUCCESSED}";
@@ -716,130 +716,62 @@ namespace SMT.HRM.BLL
         }
 
         /// <summary>
-        /// 检查员工在一天内是否出现多个考勤状态的情况
+        /// 检查员工请假出差情况
         /// </summary>
         /// <param name="entAttRd">当天的考勤初始化记录</param>
         /// <param name="entClockInRds">打卡原始记录</param>
         /// <param name="strMsg">处理结果的消息</param>
         /// <param name="bIsAbnorm">是否出现考勤异常的标志(true/false)</param>
-        private void CheckAttendStateWithSpecialCase(T_HR_ATTENDANCERECORD entAttRd, IQueryable<T_HR_EMPLOYEECLOCKINRECORD> entClockInRds, ref string strMsg, ref bool bIsAbnorm)
+        private void CheckEvectionRecordAndLeaveRecordAttendState(T_HR_ATTENDANCERECORD entAttRd, IQueryable<T_HR_EMPLOYEECLOCKINRECORD> entClockInRds, ref string strMsg, ref bool bIsAbnorm)
         {
-            bool bflag = false;
-
-            //获取请假记录使用的起止时间
-            DateTime dtStartDate = entAttRd.ATTENDANCEDATE.Value;
-            DateTime dtEndDate = entAttRd.ATTENDANCEDATE.Value.AddDays(1).AddSeconds(-1);
-
-            //检查出差、请假记录使用的的上班时间（校验比对当前出差，请假是否为全天）
-            DateTime dtCheckStart = DateTime.Parse(dtStartDate.ToString("yyyy-MM-dd"));
-            DateTime dtCheckEnd = DateTime.Parse(dtStartDate.ToString("yyyy-MM-dd"));
-
-            //获取当天的正常上下班时间
-            AttendanceSolutionBLL bllAttSol = new AttendanceSolutionBLL();
-            bflag = bllAttSol.GetAttendDateWorkTime(entAttRd.ATTENDANCESOLUTIONID, ref dtCheckStart, ref dtCheckEnd);
-
-            //上下班时间未获取到，则比对终止，返回
-            if(!bflag)
+            try
             {
-                Tracer.Debug("未获取到上下班时间，打卡记录导入未更改考勤初始化记录状态，员工：" 
-                    + entAttRd.EMPLOYEENAME +" 考勤时间"+ entAttRd.ATTENDANCEDATE.Value.ToShortDateString());
-                return;
-            }
+                //查询出差记录，检查当天存在出差情况
+                EmployeeEvectionRecordBLL bllEvectionRd = new EmployeeEvectionRecordBLL();
+                T_HR_EMPLOYEEEVECTIONRECORD entity = bllEvectionRd.GetEmployeeEvectionRdByEmployeeIdAndDate(entAttRd.EMPLOYEEID, entAttRd.ATTENDANCEDATE);
 
-            //查询出差记录，检查当天存在出差情况
-            EmployeeEvectionRecordBLL bllEvectionRd = new EmployeeEvectionRecordBLL();
-            T_HR_EMPLOYEEEVECTIONRECORD entEvectionRd = bllEvectionRd.GetEmployeeEvectionRdByEmployeeIdAndDate(entAttRd.EMPLOYEEID, entAttRd.ATTENDANCEDATE);
-
-            //如果有出差记录，就判断出差是否为全天
-            if (entEvectionRd != null)
-            {
-                //如果为全天，则不再进行考勤异常检查
-                if(entEvectionRd.STARTDATE <= dtCheckStart && entEvectionRd.ENDDATE >= dtCheckEnd)
+                //如果有出差记录，就判断出差是否为全天
+                if (entity != null)
                 {
-                    return;
+                    #region  启动处理考勤异常的线程
+
+                    string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
+
+                    Tracer.Debug(" 出差消除异常开始，出差开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                      + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                    DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, attState);
+
+                    Tracer.Debug(" 出差消除异常结束，出差开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                       + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                    #endregion
                 }
-            }
 
-            //查询请假记录，检查当天存在请假情况
-            EmployeeLeaveRecordBLL bllLeaveRd = new EmployeeLeaveRecordBLL();
-            IQueryable<T_HR_EMPLOYEELEAVERECORD> entLeaveRds = bllLeaveRd.GetEmployeeLeaveRdListByEmployeeIDAndDate(entAttRd.EMPLOYEEID, dtStartDate, dtEndDate, "2");
+                //查询请假记录，检查当天存在请假情况
+                EmployeeLeaveRecordBLL bllLeaveRd = new EmployeeLeaveRecordBLL();
+                IQueryable<T_HR_EMPLOYEELEAVERECORD> entLeaveRds = bllLeaveRd.GetEmployeeLeaveRdListByEmployeeIDAndDate(entAttRd.EMPLOYEEID, dtStartDate, dtEndDate, "2");
 
-            if (entLeaveRds != null)
-            {
-                //当天不存在出差和请假记录时，就不需要重复进行检查了，直接中断返回
-                if (bflag)
+                List<T_HR_EMPLOYEELEAVERECORD> entLeaveRdList = entLeaveRds.ToList();
+                if (entLeaveRdList.Count() > 0)
                 {
-                    return;
-                }
-            }
-
-            List<T_HR_EMPLOYEELEAVERECORD> entLeaveRdList = entLeaveRds.ToList();
-            if (entLeaveRdList.Count() > 0)
-            {
-                foreach (T_HR_EMPLOYEELEAVERECORD item in entLeaveRdList)
-                {
-                    if (item.STARTDATETIME <= dtCheckStart && item.ENDDATETIME >= dtCheckEnd)
+                    foreach (T_HR_EMPLOYEELEAVERECORD ent in entLeaveRdList)
                     {
-                        bflag = true;
-                        break;
+                        string attState = (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString();
+
+                        Tracer.Debug(" 请假消除异常开始，请假开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                       + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                        DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATETIME.Value, ent.ENDDATETIME.Value, attState);
+
+                        Tracer.Debug(" 请假消除异常结束，请假开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                           + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss"));
                     }
                 }
             }
-
-            if (bflag)
+            catch (Exception ex)
             {
-                return;
-            }
-            
-            string strNeedCard = string.Empty, strNeedOffCard = string.Empty, strStartAttendPeriod = string.Empty, strOffAttendPeriod = string.Empty, strAbnormCategory = string.Empty;
-            strNeedCard = entAttRd.T_HR_SHIFTDEFINE.NEEDFIRSTCARD;
-            strNeedOffCard = entAttRd.T_HR_SHIFTDEFINE.NEEDFIRSTOFFCARD;
-            strStartAttendPeriod = GetAttendPeriod(entAttRd.T_HR_SHIFTDEFINE.FIRSTSTARTTIME);
-            strOffAttendPeriod = GetAttendPeriod(entAttRd.T_HR_SHIFTDEFINE.FIRSTENDTIME);
-
-            string strAttStartTime = string.Empty, strAttEndTime = string.Empty, strAttCardStartTime = string.Empty;
-            string strAttCardEndTime = string.Empty, strAttOffCardStartTime = string.Empty, strAttOffCardEndTime = string.Empty;
-
-            if (!string.IsNullOrEmpty(entAttRd.T_HR_SHIFTDEFINE.FIRSTSTARTTIME))
-            {
-                strAttStartTime = entAttRd.ATTENDANCEDATE.Value.ToString("yyyy-MM-d") + " " + DateTime.Parse(entAttRd.T_HR_SHIFTDEFINE.FIRSTSTARTTIME).ToString("HH:mm");
-            }
-
-            if (!string.IsNullOrEmpty(entAttRd.T_HR_SHIFTDEFINE.FIRSTENDTIME))
-            {
-                strAttEndTime = entAttRd.ATTENDANCEDATE.Value.ToString("yyyy-MM-d") + " " + DateTime.Parse(entAttRd.T_HR_SHIFTDEFINE.FIRSTENDTIME).ToString("HH:mm");
-            }
-
-            if (!string.IsNullOrEmpty(entAttRd.T_HR_SHIFTDEFINE.FIRSTCARDSTARTTIME))
-            {
-                strAttCardStartTime = entAttRd.ATTENDANCEDATE.Value.ToString("yyyy-MM-d") + " " + DateTime.Parse(entAttRd.T_HR_SHIFTDEFINE.FIRSTCARDSTARTTIME).ToString("HH:mm");
-            }
-
-            if (!string.IsNullOrEmpty(entAttRd.T_HR_SHIFTDEFINE.FIRSTCARDENDTIME))
-            {
-                strAttCardEndTime = entAttRd.ATTENDANCEDATE.Value.ToString("yyyy-MM-d") + " " + DateTime.Parse(entAttRd.T_HR_SHIFTDEFINE.FIRSTCARDENDTIME).ToString("HH:mm");
-            }
-
-            if (!string.IsNullOrEmpty(entAttRd.T_HR_SHIFTDEFINE.FIRSTOFFCARDSTARTTIME))
-            {
-                strAttOffCardStartTime = entAttRd.ATTENDANCEDATE.Value.ToString("yyyy-MM-d") + " " + DateTime.Parse(entAttRd.T_HR_SHIFTDEFINE.FIRSTOFFCARDSTARTTIME).ToString("HH:mm");
-            }
-
-            if (!string.IsNullOrEmpty(entAttRd.T_HR_SHIFTDEFINE.FIRSTOFFCARDENDTIME))
-            {
-                strAttOffCardEndTime = entAttRd.ATTENDANCEDATE.Value.ToString("yyyy-MM-d") + " " + DateTime.Parse(entAttRd.T_HR_SHIFTDEFINE.FIRSTOFFCARDENDTIME).ToString("HH:mm");
-            }
-
-            CheckAbnormRecordWithShiftDefine(entAttRd, entClockInRds, strStartAttendPeriod, strOffAttendPeriod, strAttStartTime, strAttEndTime,
-                strAttCardStartTime, strAttCardEndTime, strAttOffCardStartTime, strAttOffCardEndTime, strNeedCard, strNeedOffCard, ref strAbnormCategory);
-
-            if (!string.IsNullOrEmpty(strAbnormCategory))
-            {
-                bIsAbnorm = true;
-
-                entAttRd.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixLeveAbnormal) + 1).ToString();
-                AttendanceRecordBLL bllAttendanceRecord = new AttendanceRecordBLL();
-                bllAttendanceRecord.ModifyAttRd(entAttRd);
+                Tracer.Debug("员工打卡记录导入检查员工请假出差情况异常："+ex.ToString());
             }
 
             strMsg = "{SAVESUCCESSED}";

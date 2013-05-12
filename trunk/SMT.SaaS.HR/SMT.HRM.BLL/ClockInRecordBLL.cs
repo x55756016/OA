@@ -181,18 +181,6 @@ namespace SMT.HRM.BLL
                     return "{REQUIREDFIELDS}";
                 }
 
-                ClockInRecordDAL dalClockInRecord = new ClockInRecordDAL();
-                flag = dalClockInRecord.IsExistsRd(entTemp.FINGERPRINTID, entTemp.PUNCHDATE, entTemp.PUNCHTIME);
-
-                if (flag)
-                {
-                    return "{ALREADYEXISTSRECORD}";
-                }
-
-                dalClockInRecord.Add(entTemp);
-
-                strMsg = "{SAVESUCCESSED}";
-
                 #region 判断是否已经初始化考勤记录，没有就初始化整月数据
                 IQueryable<T_HR_ATTENDANCERECORD> entArs = from att in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                                            where att.EMPLOYEEID == entTemp.EMPLOYEEID
@@ -219,6 +207,19 @@ namespace SMT.HRM.BLL
                     }
                 }
                 #endregion
+
+                ClockInRecordDAL dalClockInRecord = new ClockInRecordDAL();
+                flag = dalClockInRecord.IsExistsRd(entTemp.FINGERPRINTID, entTemp.PUNCHDATE, entTemp.PUNCHTIME);
+
+                if (flag)
+                {
+                    return "{ALREADYEXISTSRECORD}";
+                }
+
+                dalClockInRecord.Add(entTemp);
+
+                strMsg = "{SAVESUCCESSED}";
+
 
             }
             catch (Exception ex)
