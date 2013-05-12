@@ -233,29 +233,37 @@ namespace SMT.HRM.BLL
         public V_EMPLOYEELEAVERECORD GetEmployeeLeaveRecordByID(string strID)
         {
             V_EMPLOYEELEAVERECORD entity = new V_EMPLOYEELEAVERECORD();
-            AttendanceSolutionAsignBLL asignBll = new AttendanceSolutionAsignBLL();
-            FreeLeaveDaySetBLL bll = new FreeLeaveDaySetBLL();
-            //根据请假记录ID获取请假记录信息
-            entity.EmployeeLeaveRecord = dal.GetObjects().Include("T_HR_LEAVETYPESET").FirstOrDefault(s => s.LEAVERECORDID == strID);
-
-            //根据请假记录ID获取请假调休记录信息
-            var ent = from a in dal.GetObjects<T_HR_ADJUSTLEAVE>()
-                      where a.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strID
-                      select a;
-            entity.AdjustLeave = ent.Count() > 0 ? ent.ToList() : null;
-            if (entity.EmployeeLeaveRecord != null)
+            try
             {
-                entity.EmployeeLeave = bll.GetFreeLeaveDaySetByEmployeeID(entity.EmployeeLeaveRecord.EMPLOYEEID);
-                //每天工作时长
-                var temp = asignBll.GetAttendanceSolutionAsignByEmployeeID(entity.EmployeeLeaveRecord.EMPLOYEEID);
-                if (temp != null)
+
+                AttendanceSolutionAsignBLL asignBll = new AttendanceSolutionAsignBLL();
+                FreeLeaveDaySetBLL bll = new FreeLeaveDaySetBLL();
+                //根据请假记录ID获取请假记录信息
+                entity.EmployeeLeaveRecord = dal.GetObjects().Include("T_HR_LEAVETYPESET").FirstOrDefault(s => s.LEAVERECORDID == strID);
+
+                //根据请假记录ID获取请假调休记录信息
+                var ent = from a in dal.GetObjects<T_HR_ADJUSTLEAVE>()
+                          where a.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strID
+                          select a;
+                entity.AdjustLeave = ent.Count() > 0 ? ent.ToList() : null;
+                if (entity.EmployeeLeaveRecord != null)
                 {
-                    entity.WorkTimePerDay = temp.T_HR_ATTENDANCESOLUTION.WORKTIMEPERDAY.Value;
+                    entity.EmployeeLeave = bll.GetFreeLeaveDaySetByEmployeeID(entity.EmployeeLeaveRecord.EMPLOYEEID);
+                    //每天工作时长
+                    var temp = asignBll.GetAttendanceSolutionAsignByEmployeeID(entity.EmployeeLeaveRecord.EMPLOYEEID);
+                    if (temp != null)
+                    {
+                        entity.WorkTimePerDay = temp.T_HR_ATTENDANCESOLUTION.WORKTIMEPERDAY.Value;
+                    }
+                    else
+                    {
+                        entity.WorkTimePerDay = 0;
+                    }
                 }
-                else
-                {
-                    entity.WorkTimePerDay = 0;
-                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("GetEmployeeLeaveRecordByID异常："+ex.ToString());
             }
             return entity;
         }
