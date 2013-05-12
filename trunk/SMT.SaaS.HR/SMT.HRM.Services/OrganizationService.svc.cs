@@ -388,15 +388,23 @@ namespace SMT.HRM.Services
         {
             using (CompanyBLL bll = new CompanyBLL())
             {
-                IQueryable<T_HR_COMPANY> ents = bll.CompanyPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, checkState);
-                if (ents != null)
+                try
                 {
-                    return ents.Count() > 0 ? ents.ToList() : null;
+                    IQueryable<T_HR_COMPANY> ents = bll.CompanyPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, checkState);
+                    if (ents != null)
+                    {
+                        return ents.Count() > 0 ? ents.ToList() : null;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    return null;
+                    Tracer.Debug(ex.ToString());
                 }
+                return null;
             }
             // return ents.Count() > 0 ? ents.ToList() : null;
         }
