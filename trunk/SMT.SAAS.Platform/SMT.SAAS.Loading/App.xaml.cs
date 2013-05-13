@@ -30,6 +30,21 @@ namespace SMT.SAAS.Platform
         {
             try
             {
+                if (!string.IsNullOrEmpty(e.InitParams["PhoneDownloadUrl"]))
+                {
+                    string PhoneDownloadUrl = e.InitParams["PhoneDownloadUrl"];
+                    Application.Current.Resources.Add("PhoneDownloadUrl", PhoneDownloadUrl);
+                }
+                if (!string.IsNullOrEmpty(e.InitParams["IMDownloadUrl"]))
+                {
+                    string IMDownloadUrl = e.InitParams["IMDownloadUrl"];
+                    Application.Current.Resources.Add("IMDownloadUrl", IMDownloadUrl);
+                }
+                if (!string.IsNullOrEmpty(e.InitParams["UpdateVersionUrl"]))
+                {
+                    string UpdateVersionUrl = e.InitParams["UpdateVersionUrl"];
+                    Application.Current.Resources.Add("UpdateVersionUrl", UpdateVersionUrl);
+                }
                 //读取系统初始参数，此参数为服务地址   
                 if (string.IsNullOrEmpty(SMT.SAAS.Main.CurrentContext.Common.HostAddress))
                 {

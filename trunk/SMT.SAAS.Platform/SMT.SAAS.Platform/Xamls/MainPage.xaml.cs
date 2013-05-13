@@ -905,23 +905,8 @@ namespace SMT.SAAS.Platform.Xamls
 
         #endregion
 
-        private static string versionID = Guid.NewGuid().ToString();
-        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            string strHost = SMT.SAAS.Main.CurrentContext.Common.HostAddress.ToString().Split('/')[0];
-            string strUrl = "http://" + strHost + "/" + "imprint.html";
-            HtmlWindow wd = HtmlPage.Window;
-            Uri uri = new Uri(strUrl);
-            wd.Navigate(uri, "_bank", "directories=no,fullscreen=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=no,toolbar=no");
-            //System.Windows.Controls.Window.Show("版本信息", "", versionID, true, true, new MainPagePart.VersionInfo(), null);
-        }
+        #region 弹出新闻
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
-        {
-            HtmlWindow wd = HtmlPage.Window;
-            Uri uri = new Uri("http://portal.smt-online.net/old/");
-            wd.Navigate(uri, "_bank");
-        }
         void _waitPopupTimer_Tick(object sender, EventArgs e)
         {
             _waitPopupTimer.Tick -= _waitPopupTimer_Tick;
@@ -956,11 +941,53 @@ namespace SMT.SAAS.Platform.Xamls
                 AppSettings.Add(POPUPKEY, true);
             }
         }
+        #endregion
 
+        #region 平台状态栏：包括即时通讯，手机版，版本更新文件地址
+        private static string versionID = Guid.NewGuid().ToString();
+        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            string strHost = SMT.SAAS.Main.CurrentContext.Common.HostAddress.ToString().Split('/')[0];
+            string strUrl = "http://" + strHost + "/" + "imprint.html";
+            HtmlWindow wd = HtmlPage.Window;
+            Uri uri = new Uri(strUrl);
+            string url = string.Empty;
+            if (System.Windows.Application.Current.Resources.Contains("UpdateVersionUrl"))
+            {
+                url = System.Windows.Application.Current.Resources["UpdateVersionUrl"].ToString();
+                uri = new Uri(url);
+            }
+
+            wd.Navigate(uri, "_bank", "directories=no,fullscreen=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=no,toolbar=no");
+            //System.Windows.Controls.Window.Show("版本信息", "", versionID, true, true, new MainPagePart.VersionInfo(), null);
+        }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            HtmlWindow wd = HtmlPage.Window;
+            Uri uri = new Uri("http://portal.smt-online.net/old/");
+
+            string url = string.Empty;
+            if (System.Windows.Application.Current.Resources.Contains("IMDownloadUrl"))
+            {
+                url = System.Windows.Application.Current.Resources["IMDownloadUrl"].ToString();
+                uri = new Uri(url);
+            }
+
+            wd.Navigate(uri, "_bank");
+        }
         private void hyPhoneClient_Click(object sender, RoutedEventArgs e)
         {
             HtmlWindow wd = HtmlPage.Window;
             Uri uri = new Uri("http://3g.smt-online.net/portal/");
+
+            string url = string.Empty;
+            if (System.Windows.Application.Current.Resources.Contains("PhoneDownloadUrl"))
+            {
+                url = System.Windows.Application.Current.Resources["PhoneDownloadUrl"].ToString();
+                uri = new Uri(url);
+            }
+            
             wd.Navigate(uri, "_bank");
 
         }
@@ -969,8 +996,15 @@ namespace SMT.SAAS.Platform.Xamls
         {
             HtmlWindow wd = HtmlPage.Window;
             Uri uri = new Uri("http://smtonlineim.sinomaster.com/download.htm");
+            string url = string.Empty;
+            if (System.Windows.Application.Current.Resources.Contains("IMDownloadUrl"))
+            {
+                url = System.Windows.Application.Current.Resources["IMDownloadUrl"].ToString();
+                uri = new Uri(url);
+            }
             wd.Navigate(uri, "_bank");
-        }        
+        }
+        #endregion
     }
 
     public class OnSelectionBoxClosedArgs : EventArgs

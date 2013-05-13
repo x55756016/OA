@@ -39,9 +39,9 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Image Grid.Column="0"
-                       Width="190"
-                       Height="40"
-                       Margin="8,0,0,0"
+                       Width="300"
+                       Height="48"
+                       Margin="0,0,0,0"
                        HorizontalAlignment="Left"
                        Source="/Images/logo.png"
                        Stretch="None" />
@@ -174,7 +174,6 @@
                 <HyperlinkButton x:Name="hyIMClient"
                                  Grid.Row="1"
                                  Grid.Column="1"
-                                 Visibility="Collapsed"
                                  Margin="10,5,260,0"
                                  HorizontalAlignment="Right"
                                  Click="hyIMClient_Click"
