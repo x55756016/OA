@@ -140,7 +140,7 @@ namespace SMT.HRM.BLL
                 EntityRelation.Add("T_HR_SALARYSOLUTION", "SalarySolutionBLL");
                 EntityRelation.Add("T_HR_SALARYSOLUTIONASSIGN", "SalarySolutionAssignBLL");
                 EntityRelation.Add("T_HR_SALARYRECORDBATCH", "SalaryRecordBatchBLL");
-
+                EntityRelation.Add("T_HR_SALARYSYSTEM", typeof(SalarySystemBLL).Name);
             }
         }
         /// <summary>

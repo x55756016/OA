@@ -13,7 +13,7 @@ using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 
 namespace SMT.HRM.BLL
 {
-    public class SalarySystemBLL : BaseBll<T_HR_SALARYSYSTEM>, ILookupEntity
+    public class SalarySystemBLL : BaseBll<T_HR_SALARYSYSTEM>, ILookupEntity, IOperate
     {
         /// <summary>
         /// 新增
@@ -202,6 +202,33 @@ namespace SMT.HRM.BLL
 
             ents = Utility.Pager<T_HR_SALARYSYSTEM>(ents, pageIndex, pageSize, ref pageCount);
             return ents.Count() > 0 ? ents.ToArray() : null;
+        }
+
+        public int UpdateCheckState(string strEntityName, string EntityKeyName, string EntityKeyValue, string CheckState)
+        {
+            try
+            {
+                int i = 0;
+                string strMsg = string.Empty;
+                var ent = from a in dal.GetTable()
+                          where a.SALARYSYSTEMID == EntityKeyValue
+                          select a;
+                if (ent.Count() > 0)
+                {
+                    T_HR_SALARYSYSTEM tmpEnt = ent.FirstOrDefault();
+                    tmpEnt.CHECKSTATE = CheckState;
+                    tmpEnt.UPDATEDATE = DateTime.Now;
+                    //Utility.CloneEntity<T_HR_SALARYSYSTEM>(obj, tmpEnt);
+                    i=dal.Update(tmpEnt);
+                    // BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSYSTEM>(obj);
+                }
+                return i;
+            }
+            catch (Exception e)
+            {
+                SMT.Foundation.Log.Tracer.Debug("FormID:" + EntityKeyValue + " UpdateCheckState:" + e.Message);
+                return 0;
+            }
         }
     }
 }
