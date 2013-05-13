@@ -1480,7 +1480,7 @@ namespace SMT.HRM.BLL
                 }
 
                 int iTotalDay = 0;
-                DateTime dtCheck = new DateTime();
+                //DateTime dtCheck = new DateTime();
                 DateTime dtStart = DateTime.Parse(dtAsignDate.ToString("yyyy-MM") + "-1");
 
                 //DateTime dtStart = DateTime.Parse("2012-10-1");
@@ -1490,7 +1490,7 @@ namespace SMT.HRM.BLL
                     dtStart = entTemp.STARTDATE.Value;
                 }
 
-                DateTime dtEnd = dtStart.AddMonths(1).AddDays(-1);
+                DateTime dtInitAttandRecordEndDate = dtStart.AddMonths(1).AddDays(-1);
 
                 AttendanceRecordBLL bllAttRd = new AttendanceRecordBLL();
                 EmployeeLevelDayCountBLL bllLevelDayCount = new EmployeeLevelDayCountBLL();
@@ -1507,25 +1507,26 @@ namespace SMT.HRM.BLL
                     {
                         T_HR_EMPLOYEE item_emp = entEmployees[n];
 
-                        DateTime dtRes = new DateTime();
-                        
-                        try
-                        {
-                            bllAttRd.DeleteUnEffectiveRecordByDate(entCompany, item_emp, dtStart, dtEnd, ref dtRes);
-                        }
-                        catch (Exception ex)
-                        {
-                            Tracer.Debug("初始化考勤删除员工未正式启用的考勤记录出现问题:" + "，员工姓名" + item_emp.EMPLOYEEENAME + ex.ToString());
-                            continue;
-                        }
-                        if (dtRes == dtCheck)
-                        {
-                            dtRes = dtStart;
-                        }
+                        DateTime dtInitAttandRecordStartDate = new DateTime();
 
-                        if (dtRes >= dtEnd)
+                        //try
+                        //{
+                        //    bllAttRd.DeleteUnEffectiveRecordByDate(entCompany, item_emp, dtStart, dtEnd, ref dtRes);
+                        //}
+                        //catch (Exception ex)
+                        //{
+                        //    Tracer.Debug("初始化考勤删除员工未正式启用的考勤记录出现问题:" + "，员工姓名" + item_emp.EMPLOYEEENAME + ex.ToString());
+                        //    continue;
+                        //}
+                        //if (dtRes == dtCheck)
+                        //{
+                        //dtRes = dtStart;
+                        //}
+                        dtInitAttandRecordStartDate = dtStart;
+
+                        if (dtInitAttandRecordStartDate >= dtInitAttandRecordEndDate)
                         {
-                            Tracer.Debug("初始化员工考勤记录被跳过，dtRes >= dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                            Tracer.Debug("初始化员工考勤记录被跳过，dtInitAttandRecordStartDate >= dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                             continue;
                         }
                         Tracer.Debug("初始化员工考勤记录：员工状态：" + item_emp.EMPLOYEESTATE + "，员工姓名" + item_emp.EMPLOYEEENAME);
@@ -1538,12 +1539,12 @@ namespace SMT.HRM.BLL
                                 continue;
                             }
 
-                            if (entEntry.ENTRYDATE.Value > dtRes && entEntry.ENTRYDATE.Value < dtEnd)
+                            if (entEntry.ENTRYDATE.Value > dtInitAttandRecordStartDate && entEntry.ENTRYDATE.Value < dtInitAttandRecordEndDate)
                             {
-                                dtRes = entEntry.ENTRYDATE.Value;
+                                dtInitAttandRecordStartDate = entEntry.ENTRYDATE.Value;
                             }
 
-                            if (entEntry.ENTRYDATE.Value > dtEnd)
+                            if (entEntry.ENTRYDATE.Value > dtInitAttandRecordEndDate)
                             {
                                 Tracer.Debug("初始化员工考勤记录被跳过：entEntry.ENTRYDATE.Value > dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                                 continue;
@@ -1558,12 +1559,12 @@ namespace SMT.HRM.BLL
                                 continue;
                             }
 
-                            if (entEntry.ENTRYDATE.Value > dtRes && entEntry.ENTRYDATE.Value < dtEnd)
+                            if (entEntry.ENTRYDATE.Value > dtInitAttandRecordStartDate && entEntry.ENTRYDATE.Value < dtInitAttandRecordEndDate)
                             {
-                                dtRes = entEntry.ENTRYDATE.Value;
+                                dtInitAttandRecordStartDate = entEntry.ENTRYDATE.Value;
                             }
 
-                            if (entEntry.ENTRYDATE.Value > dtEnd)
+                            if (entEntry.ENTRYDATE.Value > dtInitAttandRecordEndDate)
                             {
                                 Tracer.Debug("初始化员工考勤记录被跳过,员工入职日期大于本月最后一天" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                                 continue;
@@ -1578,9 +1579,9 @@ namespace SMT.HRM.BLL
                                 continue;
                             }
 
-                            if (entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value > dtStart && entConfirm.STOPPAYMENTDATE.Value < dtEnd)
+                            if (entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value > dtStart && entConfirm.STOPPAYMENTDATE.Value < dtInitAttandRecordEndDate)
                             {
-                                dtEnd = entConfirm.STOPPAYMENTDATE.Value;
+                                dtInitAttandRecordEndDate = entConfirm.STOPPAYMENTDATE.Value;
                             }
 
                             if (entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value < dtStart)
@@ -1590,7 +1591,7 @@ namespace SMT.HRM.BLL
                             }
                         }
 
-                        TimeSpan ts = dtEnd.Subtract(dtRes);
+                        TimeSpan ts = dtInitAttandRecordEndDate.Subtract(dtInitAttandRecordStartDate);
                         iTotalDay = ts.Days;
 
                         T_HR_SCHEDULINGTEMPLATEMASTER entTemplateMaster = entTemplateDetails[0].T_HR_SCHEDULINGTEMPLATEMASTER;
@@ -1616,7 +1617,7 @@ namespace SMT.HRM.BLL
                         string strVacDayType = (Convert.ToInt32(Common.OutPlanDaysType.Vacation) + 1).ToString();
                         string strWorkDayType = (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString();
                         IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
-                        IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType && s.STARTDATE >= dtRes && s.ENDDATE <= dtEnd);
+                        IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType && s.STARTDATE >= dtInitAttandRecordStartDate && s.ENDDATE <= dtInitAttandRecordEndDate);
 
                         CreateOutPlanWorkDay(entCompany, item_emp, entTemp, entTemplateDetails, entWorkDays);
                         int addCount = 0;
@@ -1629,7 +1630,7 @@ namespace SMT.HRM.BLL
                                 try
                                 {
                                     int m = (i * iCircleDay) + j;
-                                    DateTime dtCurDate = dtRes.AddDays(m);
+                                    DateTime dtCurDate = dtInitAttandRecordStartDate.AddDays(m);
 
                                     if (dtCurDate > entTemp.ENDDATE.Value)
                                     {
@@ -1720,6 +1721,8 @@ namespace SMT.HRM.BLL
                                     }
                                     else
                                     {
+                                        continue;//如果存在直接跳过
+
                                         if (!string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
                                         {
                                             Tracer.Debug("更新考勤初始化记录，ATTENDANCESTATE考勤状态不为空，跳过，" + "，员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd"));
@@ -1776,7 +1779,7 @@ namespace SMT.HRM.BLL
                         //bllLevelDayCount.CalculateEmployeeLevelDayCount(entTemp, item_emp, strOperationType);
                         //int saveCount=dal.SaveContextChanges();
                         Tracer.Debug(n + "生成员工：" + item_emp.EMPLOYEECNAME + " 考勤记录成功,开始日期" + dtStart.ToString("yyyy-MM-dd") + "结束日期：" 
-                            + dtEnd.ToString("yyyy-MM-dd") + "共新增考勤记录" + addCount.ToString() + " 更新记录条数：" + updateCount);
+                            + dtInitAttandRecordEndDate.ToString("yyyy-MM-dd") + "共新增考勤记录" + addCount.ToString() + " 更新记录条数：" + updateCount);
                     }
                     catch (Exception ex)
                     {
@@ -1784,7 +1787,7 @@ namespace SMT.HRM.BLL
                         continue;
                     }
                 }
-                Tracer.Debug("生成所有员工考勤记录成功,开始日期" + dtStart.ToString("yyyy-MM-dd") + "结束日期：" + dtEnd.ToString("yyyy-MM-dd"));
+                Tracer.Debug("生成所有员工考勤记录成功,开始日期" + dtStart.ToString("yyyy-MM-dd") + "结束日期：" + dtInitAttandRecordEndDate.ToString("yyyy-MM-dd"));
                 strRes = "{SAVESUCCESSED}";
             }
             catch (Exception ex)

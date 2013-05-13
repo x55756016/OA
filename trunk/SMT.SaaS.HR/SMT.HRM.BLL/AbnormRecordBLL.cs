@@ -699,7 +699,7 @@ namespace SMT.HRM.BLL
 
                     bllAttendanceRecord.ModifyAttRd(item);
 
-                    //检查是否有出差及请假
+                    //检查是否有出差及请假并确认一次状态
                     if (!string.IsNullOrWhiteSpace(item.ATTENDANCESTATE))
                     {
                         CheckEvectionRecordAndLeaveRecordAttendState(item, entClockInRds, ref strMsg, ref bIsAbnorm);
@@ -726,6 +726,11 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                //获取请假记录使用的起止时间
+                DateTime dtStartDate = entAttRd.ATTENDANCEDATE.Value;
+                DateTime dtEndDate = entAttRd.ATTENDANCEDATE.Value.AddDays(1).AddSeconds(-1);
+
+
                 //查询出差记录，检查当天存在出差情况
                 EmployeeEvectionRecordBLL bllEvectionRd = new EmployeeEvectionRecordBLL();
                 T_HR_EMPLOYEEEVECTIONRECORD entity = bllEvectionRd.GetEmployeeEvectionRdByEmployeeIdAndDate(entAttRd.EMPLOYEEID, entAttRd.ATTENDANCEDATE);

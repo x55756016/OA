@@ -180,11 +180,16 @@ namespace SMT.HRM.BLL
                 {
                     return "{REQUIREDFIELDS}";
                 }
-
+                if (entTemp.PUNCHDATE.Value.Year < DateTime.Now.Year)
+                {
+                    Tracer.Debug("导入的打卡记录非今年记录，跳过。");
+                    return "{REQUIREDFIELDS}";
+                }
                 #region 判断是否已经初始化考勤记录，没有就初始化整月数据
+                DateTime dt = new DateTime(entTemp.PUNCHDATE.Value.Year, entTemp.PUNCHDATE.Value.Month, entTemp.PUNCHDATE.Value.Day);
                 IQueryable<T_HR_ATTENDANCERECORD> entArs = from att in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                                            where att.EMPLOYEEID == entTemp.EMPLOYEEID
-                                                            && att.ATTENDANCEDATE == entTemp.PUNCHDATE
+                                                            && att.ATTENDANCEDATE == dt
                                                            select att;               
                 if (entArs.Count() < 1)
                 {                    
@@ -869,16 +874,28 @@ namespace SMT.HRM.BLL
 
                 TF.Delimiters = new string[] { "," }; //设置分隔符
                 string[] strLine;
+                int readLine = 0;
                 while (!TF.EndOfData)
                 {
                     try
                     {
+                        if (readLine == 0)
+                        {
+                            readLine++;
+                            continue;//首行跳过
+                        }
+                        readLine++;
                         strLine = TF.ReadFields();
                         string strDeptName = strLine[1];
                         string strEmployeeName = strLine[1];
                         string strFingerPrintID = strLine[2];
                         string strPunchDate = strLine[3];
                         string strClockID = strLine[4];
+
+                        Tracer.Debug("导入csv打卡记录第 " + readLine + " 行数据，员工姓名："
+                            + strEmployeeName + " 指纹编码：" + strFingerPrintID
+                            + " 打卡时间：" + strPunchDate
+                            + " 打卡类型：" + strClockID);
 
                         if (string.IsNullOrEmpty(strFingerPrintID))
                         {
