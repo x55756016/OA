@@ -17,6 +17,7 @@ using SMT.SaaS.BLLCommonServices.FlowWFService;
 using SMT.HRM.CustomModel;
 using System.Configuration;
 using System.Web;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.Services
 {
@@ -3186,6 +3187,7 @@ namespace SMT.HRM.Services
         {
             using (SalarySolutionItemBLL bll = new SalarySolutionItemBLL())
             {
+                Tracer.Debug("薪资方案完毕添加薪资方案薪资项开始");
                 return bll.SalarySolutionItemsAdd(filter, para, solutionID, userID);
             }
         }

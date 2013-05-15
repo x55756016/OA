@@ -1506,7 +1506,7 @@ namespace SMT.HRM.BLL
                                 continue;
                             }
                         }
-                        GenerateEmployeeSalary(i,q.FirstOrDefault(), strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), strCompanyid);
+                        GenerateEmployeeSalary(i, salaryArchive, strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), strCompanyid);
                         i++;
                     }
                     catch (Exception ex)
@@ -1688,7 +1688,7 @@ namespace SMT.HRM.BLL
             T_HR_ATTENDMONTHLYBALANCE attendMonthlyBalance = new T_HR_ATTENDMONTHLYBALANCE();
             T_HR_EMPLOYEE emp = GetEmployeeInfor(employeeID);
 
-            Tracer.Debug("**********************开始生成第" + index.ToString() + " 条薪资，员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪");
+            Tracer.Debug("**********************开始生成第" + index.ToString() + " 条薪资，员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪，薪资档案id：" + SalaryArchive.SALARYARCHIVEID);
 
             #region ---NewItemCode新生成薪资的代码
             
@@ -1696,11 +1696,10 @@ namespace SMT.HRM.BLL
             T_HR_EMPLOYEESALARYRECORD record = (from r in dal.GetTable()
                                                 where r.EMPLOYEEID == employeeID 
                                                 && r.SALARYMONTH == month && r.SALARYYEAR == year 
-                                                && r.OWNERCOMPANYID == GenerateCompanyid
                                                 select r).FirstOrDefault();
             if (record != null)
             {
-                if (record.PAYCONFIRM == "2" || record.CHECKSTATE == "2")
+                if (record.PAYCONFIRM == "2" || record.CHECKSTATE == "2" || record.CHECKSTATE == "1")
                 {
                     return 0;
                 }

@@ -12,6 +12,7 @@ using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
 using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 using SMT.HRM.BLL.Report;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -1112,6 +1113,7 @@ namespace SMT.HRM.BLL
                 //dal.CommitTransaction();有错误是回滚而不是提交
                 dal.RollbackTransaction();
                 ex.Message.ToString();
+                Tracer.Debug(ex.ToString());
                 //throw ex;
             }
         }
@@ -1523,6 +1525,10 @@ namespace SMT.HRM.BLL
             SalaryArchiveItemBLL bll = new SalaryArchiveItemBLL();
             standerItems = GetstandardItemByStandardID(archive.T_HR_SALARYSTANDARD.SALARYSTANDARDID);
             // salaryItems = GetSalaryItemSetByItems(standerItems);
+            if (standerItems.Count() < 1)
+            {
+                Tracer.Debug("未生成薪资标准薪资项，无法新建薪资档案T_HR_SALARYSTANDARD T_HR_SALARYSTANDARDITEM");
+            }
             foreach (var item in standerItems)
             {
                 T_HR_SALARYARCHIVEITEM archiveitem = new T_HR_SALARYARCHIVEITEM();

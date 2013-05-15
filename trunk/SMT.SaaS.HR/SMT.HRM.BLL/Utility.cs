@@ -684,6 +684,7 @@ namespace SMT.HRM.BLL
 
         public static void SendEngineEventTriggerData(IList<object> paras)
         {
+            try{
             StringBuilder strRes = new StringBuilder();
             EngineWS.T_WF_TIMINGTRIGGERACTIVITY trigger = new EngineWS.T_WF_TIMINGTRIGGERACTIVITY();
             trigger.TRIGGERID = System.Guid.NewGuid().ToString();
@@ -708,36 +709,42 @@ namespace SMT.HRM.BLL
             trigger.TRIGGERTYPE = "user";
             
 
-            //strRes.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
-            //strRes.Append("<System>");
-            //strRes.Append("<CompanyCode>" + paras[0].ToString() + "</CompanyCode>");
-            //strRes.Append("<SystemCode>" + paras[1].ToString() + "</SystemCode>");
-            //strRes.Append("<ModelCode>" + paras[2].ToString() + "</ModelCode>");
-            //strRes.Append("<ApplicationOrderCode>" + paras[3].ToString() + "</ApplicationOrderCode>");
-            ////strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
-            //if(paras[4].ToString().IndexOf(':')<0)
-            //    strRes.Append("<TaskStartDate>" + paras[4].ToString()+" 8:00:00" + "</TaskStartDate>");
-            //else
-            //    strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
-            ////strRes.Append("<TaskStartDate>" + Convert.ToDateTime("2012/12/6 16:40:26").ToString() + "</TaskStartDate>");
-            //strRes.Append("<TaskStartTime>" + paras[5].ToString() + "</TaskStartTime>");
-            //strRes.Append("<ProcessCycle>" + paras[6].ToString() + "</ProcessCycle>");
-            //strRes.Append("<ReceiveUser>" + paras[7].ToString() + "</ReceiveUser>");
-            //strRes.Append("<MessageBody>" + paras[8].ToString() + "</MessageBody>");
-            //strRes.Append("<MsgLinkUrl>" + paras[9].ToString() + "</MsgLinkUrl>");
-            //strRes.Append("<ProcessWcfUrl>" + "EngineTriggerService.svc" + "</ProcessWcfUrl>");
-            //strRes.Append("<WcfFuncName>" + paras[11].ToString() + "</WcfFuncName>");
-            //strRes.Append("<WcfFuncParamter>" + paras[12].ToString() + "</WcfFuncParamter>");
-            //strRes.Append("<WcfParamSplitChar>" + paras[13].ToString() + "</WcfParamSplitChar>");
-            //strRes.Append("<WcfBinding>" + paras[14].ToString() + "</WcfBinding>");
-            //strRes.Append("</System>");
+            strRes.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+            strRes.Append("<System>");
+            strRes.Append("<CompanyCode>" + paras[0].ToString() + "</CompanyCode>");
+            strRes.Append("<SystemCode>" + paras[1].ToString() + "</SystemCode>");
+            strRes.Append("<ModelCode>" + paras[2].ToString() + "</ModelCode>");
+            strRes.Append("<ApplicationOrderCode>" + paras[3].ToString() + "</ApplicationOrderCode>");
+            //strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
+            if(paras[4].ToString().IndexOf(':')<0)
+                strRes.Append("<TaskStartDate>" + paras[4].ToString()+" 8:00:00" + "</TaskStartDate>");
+            else
+                strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
+            //strRes.Append("<TaskStartDate>" + Convert.ToDateTime("2012/12/6 16:40:26").ToString() + "</TaskStartDate>");
+            strRes.Append("<TaskStartTime>" + paras[5].ToString() + "</TaskStartTime>");
+            strRes.Append("<ProcessCycle>" + paras[6].ToString() + "</ProcessCycle>");
+            strRes.Append("<ReceiveUser>" + paras[7].ToString() + "</ReceiveUser>");
+            strRes.Append("<MessageBody>" + paras[8].ToString() + "</MessageBody>");
+            strRes.Append("<MsgLinkUrl>" + paras[9].ToString() + "</MsgLinkUrl>");
+            strRes.Append("<ProcessWcfUrl>" + "EngineTriggerService.svc" + "</ProcessWcfUrl>");
+            strRes.Append("<WcfFuncName>" + paras[11].ToString() + "</WcfFuncName>");
+            strRes.Append("<WcfFuncParamter>" + paras[12].ToString() + "</WcfFuncParamter>");
+            strRes.Append("<WcfParamSplitChar>" + paras[13].ToString() + "</WcfParamSplitChar>");
+            strRes.Append("<WcfBinding>" + paras[14].ToString() + "</WcfBinding>");
+            strRes.Append("</System>");
 
             //return strRes.ToString();
-            SMT.Foundation.Log.Tracer.Debug("发出合同提醒定时触发数据:\r\n"+strRes.ToString());
+            //SMT.Foundation.Log.Tracer.Debug("发出合同提醒定时触发数据:\r\n"+strRes.ToString());
             EngineWS.EngineWcfGlobalFunctionClient EngineClient = new EngineWS.EngineWcfGlobalFunctionClient();
             //EngineClient.SaveEventData(strRes.ToString());
+            SMT.Foundation.Log.Tracer.Debug("发出合同提醒定时触发数据,调用方法：" + EngineClient.Endpoint.Address.ToString()
+                + "WFAddTimingTrigger:" + strRes.ToString());
             EngineClient.WFAddTimingTrigger(trigger);
             //EngineClient.WFAddTimingTrigger(trigger);
+            }catch(Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
         }
 
         /// <summary>

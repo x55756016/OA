@@ -34,20 +34,6 @@ namespace SMT.HRM.BLL
 
             SetOrganizationFilter(ref filterString, ref queryParas, userid, "T_HR_SALARYITEM");
 
-            #region----
-            //SetFilterWithflow("SALARYITEMID", "T_HR_SALARYITEM", userid, ref strCheckState, ref filterString, ref queryParas);
-
-            //if (!string.IsNullOrEmpty(strCheckState))
-            //{
-            //    if (!string.IsNullOrEmpty(filterString))
-            //    {
-            //        filterString += " AND";
-            //    }
-
-            //    filterString += " CHECKSTATE == @" + queryParas.Count();
-            //    queryParas.Add(strCheckState);
-            //}
-            #endregion
 
             IQueryable<T_HR_SALARYITEM> ents = dal.GetObjects<T_HR_SALARYITEM>();
 

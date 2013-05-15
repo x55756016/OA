@@ -37,6 +37,19 @@ namespace SMT.HRM.BLL
 
                 dal.Add(ent);
 
+                var q = from entitem in dal.GetObjects<T_HR_SALARYITEM>()
+                        where entitem.OWNERCOMPANYID == ent.OWNERCOMPANYID
+                        select entitem;
+                if(q.Count()>0)
+                {
+                  List<T_HR_SALARYITEM> items=q.ToList();
+                  //foreach (var item in items)
+                  //{
+                  //    T_HR_SALARYSOLUTIONITEM si = new T_HR_SALARYSOLUTIONITEM();
+                  //    si.ORDERNUMBER=item.o
+                  //}
+                }
+
                 BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(obj);
             }
             catch (Exception ex)

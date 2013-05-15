@@ -10,6 +10,7 @@ using System.Collections;
 using System.Linq.Expressions;
 using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -345,6 +346,7 @@ namespace SMT.HRM.BLL
                                   select ac;
                 if (tmpArchives.Count() > 0)
                 {
+                    Tracer.Debug("方案已经在使用中，无法重新生成薪资标准");
                     return "SALARYSOLUTIONINUSED";
                 }
 

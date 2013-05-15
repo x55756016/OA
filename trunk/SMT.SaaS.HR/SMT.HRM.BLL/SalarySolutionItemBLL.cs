@@ -170,18 +170,34 @@ namespace SMT.HRM.BLL
             try
             {
                 SalaryItemSetBLL setbll = new SalaryItemSetBLL();
+                var q = from solution in dal.GetObjects<T_HR_SALARYSOLUTION>()
+                        where solution.SALARYSOLUTIONID == solutionID
+                        select solution;
+                if (q.Count() > 0)
+                {
+                }
+                else
+                {
+                    strMsg = "ADDSOLUTIONFIRST";
+                    SMT.Foundation.Log.Tracer.Debug("薪资方案薪资项目添加失败，找不到薪资方案");
+                    return strMsg;
+                }
+
+                //var solution = from b in dal.GetObjects<T_HR_SALARYSOLUTION>()
+                //               where b.SALARYSOLUTIONID == solutionID
+                //               select b;
+                //if (solution.Count() <= 0)
+                //{
+                //    return "ADDSOLUTIONFIRST";
+                //}
+
+
                 //临时注掉  全部采用集团的薪资项
                 //  List<T_HR_SALARYITEM> itemSets = setbll.GetSalaryItemSetByFilter(filter, para, userID);
                 var itemSets = from c in dal.GetObjects<T_HR_SALARYITEM>()
-                               where c.CREATECOMPANYID == "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716"
+                               where c.OWNERCOMPANYID == q.FirstOrDefault().OWNERCOMPANYID
                                select c;
-                var solution = from b in dal.GetObjects<T_HR_SALARYSOLUTION>()
-                               where b.SALARYSOLUTIONID == solutionID
-                               select b;
-                if (solution.Count() <= 0)
-                {
-                    return "ADDSOLUTIONFIRST";
-                }
+               
 
                 foreach (var item in itemSets)
                 {

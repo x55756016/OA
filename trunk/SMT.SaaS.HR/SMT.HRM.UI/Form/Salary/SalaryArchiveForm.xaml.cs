@@ -781,53 +781,60 @@ namespace SMT.HRM.UI.Form.Salary
         }
         public void SetFlowRecordEntity(SMT.SaaS.FrameworkUI.AuditControl.Flow_FlowRecord_T entity)
         {
-            EntityBrowser browser = this.FindParentByType<EntityBrowser>();
-            browser.AuditCtrl.Auditing += new EventHandler<SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs>(AuditCtrl_Auditing);
-            // Utility.SetAuditEntity(entity, "T_HR_SALARYARCHIVE", SalaryArchive.SALARYARCHIVEID);
-            if (!string.IsNullOrEmpty(SalaryArchive.EMPLOYEENAME))
+            try
             {
-                Dictionary<string, string> para = new Dictionary<string, string>();
-                para.Add("EMPLOYEECNAME", SalaryArchive.EMPLOYEENAME);
-                para.Add("EMPLOYEEID", SalaryArchive.EMPLOYEEID);
-                para.Add("POSTLEVEL", PostLevel);
-                para.Add("EFFECTIVETIME", SalaryArchive.OTHERSUBJOIN == null ? "" : (SalaryArchive.OTHERSUBJOIN.ToString() + "年" + SalaryArchive.OTHERADDDEDUCT.ToString() + "月"));
+                EntityBrowser browser = this.FindParentByType<EntityBrowser>();
+                browser.AuditCtrl.Auditing += new EventHandler<SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs>(AuditCtrl_Auditing);
+                // Utility.SetAuditEntity(entity, "T_HR_SALARYARCHIVE", SalaryArchive.SALARYARCHIVEID);
+                if (!string.IsNullOrEmpty(SalaryArchive.EMPLOYEENAME))
+                {
+                    Dictionary<string, string> para = new Dictionary<string, string>();
+                    para.Add("EMPLOYEECNAME", SalaryArchive.EMPLOYEENAME);
+                    para.Add("EMPLOYEEID", SalaryArchive.EMPLOYEEID);
+                    para.Add("POSTLEVEL", PostLevel);
+                    para.Add("EFFECTIVETIME", SalaryArchive.OTHERSUBJOIN == null ? "" : (SalaryArchive.OTHERSUBJOIN.ToString() + "年" + SalaryArchive.OTHERADDDEDUCT.ToString() + "月"));
 
-                entity.SystemCode = "HR";
-                string strXmlObjectSource = string.Empty;
-                //strXmlObjectSource = Utility.ObjListToXml<T_HR_SALARYARCHIVE>(SalaryArchive, "HR");
-                //Utility.SetAuditEntity(entity, "T_HR_SALARYARCHIVE", SalaryArchive.SALARYARCHIVEID, strXmlObjectSource, SalaryArchive.EMPLOYEEID);
-                //   strXmlObjectSource = Utility.ObjListToXml<T_HR_SALARYARCHIVE>(SalaryArchive, para, "HR", para2, null);
-                if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
-                    strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, SalaryArchive);
+                    entity.SystemCode = "HR";
+                    string strXmlObjectSource = string.Empty;
+                    //strXmlObjectSource = Utility.ObjListToXml<T_HR_SALARYARCHIVE>(SalaryArchive, "HR");
+                    //Utility.SetAuditEntity(entity, "T_HR_SALARYARCHIVE", SalaryArchive.SALARYARCHIVEID, strXmlObjectSource, SalaryArchive.EMPLOYEEID);
+                    //   strXmlObjectSource = Utility.ObjListToXml<T_HR_SALARYARCHIVE>(SalaryArchive, para, "HR", para2, null);
+                    if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
+                        strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, SalaryArchive);
 
-                Dictionary<string, string> paraIDs = new Dictionary<string, string>();
-                if (!string.IsNullOrEmpty(SalaryArchive.PAYCOMPANY)
-                    && SalaryArchive.PAYCOMPANY != SalaryArchive.OWNERCOMPANYID)
-                {
-                    paraIDs.Add("CreateUserID", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
-                    // paraIDs.Add("CreatePostID", SalaryArchive.OWNERPOSTID);
-                    paraIDs.Add("CreatePostID", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID);
-                    //  paraIDs.Add("CreateDepartmentID", SalaryArchive.OWNERDEPARTMENTID);
-                    paraIDs.Add("CreateDepartmentID", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID);
-                    paraIDs.Add("CreateCompanyID", SalaryArchive.PAYCOMPANY);
+                    Dictionary<string, string> paraIDs = new Dictionary<string, string>();
+                    if (!string.IsNullOrEmpty(SalaryArchive.PAYCOMPANY)
+                        && SalaryArchive.PAYCOMPANY != SalaryArchive.OWNERCOMPANYID)
+                    {
+                        paraIDs.Add("CreateUserID", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
+                        // paraIDs.Add("CreatePostID", SalaryArchive.OWNERPOSTID);
+                        paraIDs.Add("CreatePostID", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID);
+                        //  paraIDs.Add("CreateDepartmentID", SalaryArchive.OWNERDEPARTMENTID);
+                        paraIDs.Add("CreateDepartmentID", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID);
+                        paraIDs.Add("CreateCompanyID", SalaryArchive.PAYCOMPANY);
+                    }
+                    else
+                    {
+                        paraIDs.Add("CreateUserID", SalaryArchive.EMPLOYEEID);
+                        // paraIDs.Add("CreatePostID", SalaryArchive.OWNERPOSTID);
+                        paraIDs.Add("CreatePostID", createPostID);
+                        //  paraIDs.Add("CreateDepartmentID", SalaryArchive.OWNERDEPARTMENTID);
+                        paraIDs.Add("CreateDepartmentID", createDepartmentID);
+                        paraIDs.Add("CreateCompanyID", SalaryArchive.OWNERCOMPANYID);
+                    }
+                    if (SalaryArchive.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
+                    {
+                        Utility.SetAuditEntity(entity, "T_HR_SALARYARCHIVE", SalaryArchive.SALARYARCHIVEID, strXmlObjectSource, paraIDs);
+                    }
+                    else
+                    {
+                        Utility.SetAuditEntity(entity, "T_HR_SALARYARCHIVE", SalaryArchive.SALARYARCHIVEID, strXmlObjectSource);
+                    }
                 }
-                else
-                {
-                    paraIDs.Add("CreateUserID", SalaryArchive.EMPLOYEEID);
-                    // paraIDs.Add("CreatePostID", SalaryArchive.OWNERPOSTID);
-                    paraIDs.Add("CreatePostID", createPostID);
-                    //  paraIDs.Add("CreateDepartmentID", SalaryArchive.OWNERDEPARTMENTID);
-                    paraIDs.Add("CreateDepartmentID", createDepartmentID);
-                    paraIDs.Add("CreateCompanyID", SalaryArchive.OWNERCOMPANYID);
-                }
-                if (SalaryArchive.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
-                {
-                    Utility.SetAuditEntity(entity, "T_HR_SALARYARCHIVE", SalaryArchive.SALARYARCHIVEID, strXmlObjectSource, paraIDs);
-                }
-                else
-                {
-                    Utility.SetAuditEntity(entity, "T_HR_SALARYARCHIVE", SalaryArchive.SALARYARCHIVEID, strXmlObjectSource);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
 
         }
@@ -1057,7 +1064,8 @@ namespace SMT.HRM.UI.Form.Salary
                     }
                     else
                     {
-                        fullName = employeeTmp.EMPLOYEECNAME + " - " + postName + " - " + GetFullOrgName(deptId);
+                        //fullName = employeeTmp.EMPLOYEECNAME + " - " + postName + " - " + GetFullOrgName(deptId);
+                        fullName = employeeTmp.EMPLOYEECNAME + " - " + postName + " - " + corp.CNAME;
                     }
                     lkEmployee.TxtLookUp.Text = fullName;
                     if (lkSalarySolution.DataContext as T_HR_SALARYSOLUTION != null)
