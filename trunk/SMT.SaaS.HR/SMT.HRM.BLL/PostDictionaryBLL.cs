@@ -234,11 +234,11 @@ namespace SMT.HRM.BLL
                 {
                     if (CheckState == Convert.ToInt32(CheckStates.Approved).ToString())
                     {
-                       
+                        postdic.EDITSTATE = ((int)EditStates.Actived).ToString();
                     }
                     if (CheckState == Convert.ToInt32(CheckStates.UnApproved).ToString())
                     {
-                       
+                        postdic.EDITSTATE = ((int)EditStates.UnActived).ToString();
                     }
                     postdic.CHECKSTATE = CheckState;
                     postdic.UPDATEDATE = System.DateTime.Now;
