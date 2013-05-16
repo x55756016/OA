@@ -278,28 +278,7 @@ namespace SMT.HRM.UI.Views.Attendance
             loadbar.Stop();
         }
 
-        /// <summary>
-        /// 获取导出数据流
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void clientAtt_OutClockInRdListByMultSearchCompleted(object sender, OutClockInRdListByMultSearchCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                if (!string.IsNullOrEmpty(e.strMsg))
-                {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.strMsg));
-                    return;
-                }
-
-                byExport = e.Result;
-            }
-            else
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-        }
+        
 
        
 
@@ -408,24 +387,60 @@ namespace SMT.HRM.UI.Views.Attendance
             CheckInputFilter(ref strEmployeeID, ref strPunchDateFrom, ref strPunchDateTo, ref strTimeFrom, ref strTimeTo);
 
             string sType = treeOrganization.sType, sValue = treeOrganization.sValue;
-            clientAtt.OutClockInRdListByMultSearchAsync(sType, sValue, strOwnerID, strEmployeeID, strPunchDateFrom, strPunchDateTo, strSortKey);
 
             if (byExport == null)
             {
-                return;
+                MessageBox.Show("由于silverlight安全限制，请等待返回数据后再次点击导出Excel");
+                clientAtt.OutClockInRdListByMultSearchAsync(sType, sValue, strOwnerID, strEmployeeID, strPunchDateFrom, strPunchDateTo, strSortKey);
+
+                loadbar.Start();
             }
-
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "MS Excel Files|*.xls";
-            dialog.FilterIndex = 1;
-
-            bool? result = dialog.ShowDialog();
-            if (result == true)
+            else
             {
-                using (Stream stream = dialog.OpenFile())
+                if (byExport.Count() > 0)
                 {
-                    stream.Write(byExport, 0, byExport.Length);
+                    SaveFileDialog dialog = new SaveFileDialog();
+                    dialog.Filter = "MS Excel Files|*.xls";
+                    dialog.FilterIndex = 1;
+
+                    bool? result = dialog.ShowDialog();
+                    if (result == true)
+                    {
+                        using (Stream stream = dialog.OpenFile())
+                        {
+                            stream.Write(byExport, 0, byExport.Length);
+                        }
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("未获取到任何数据。");
+                }
+            }
+           
+        }
+        /// <summary>
+        /// 获取导出数据流
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void clientAtt_OutClockInRdListByMultSearchCompleted(object sender, OutClockInRdListByMultSearchCompletedEventArgs e)
+        {
+            loadbar.Stop();
+            if (e.Error == null)
+            {
+                if (!string.IsNullOrEmpty(e.strMsg))
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.strMsg));
+                    return;
+                }
+
+                byExport = e.Result;
+                
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
             }
         }
         #endregion
