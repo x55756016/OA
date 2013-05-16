@@ -1337,7 +1337,7 @@ namespace SMT.HRM.BLL
                                                            ent.PUNCHTIME
                                                        };
 
-            var entList = entResult.Distinct().ToList();
+            var entList = entResult.Distinct().OrderBy(c=>c.PUNCHDATE).ToList();
 
             for (int i = 0; i < entList.Count(); i++)
             {
