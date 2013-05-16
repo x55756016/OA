@@ -1328,9 +1328,18 @@ namespace SMT.HRM.BLL
         {
             dt.Rows.Clear();
 
-            List<T_HR_EMPLOYEECLOCKINRECORD> entList = ents.ToList();
+            var entResult = from ent in ents
+                                                       select new
+                                                       {
+                                                           ent.EMPLOYEENAME,
+                                                           ent.FINGERPRINTID,
+                                                           ent.PUNCHDATE,
+                                                           ent.PUNCHTIME
+                                                       };
 
-            for (int i = 0; i < ents.Count(); i++)
+            var entList = entResult.Distinct().ToList();
+
+            for (int i = 0; i < entList.Count(); i++)
             {
                 DataRow row = dt.NewRow();
                 for (int n = 0; n < dt.Columns.Count; n++)
