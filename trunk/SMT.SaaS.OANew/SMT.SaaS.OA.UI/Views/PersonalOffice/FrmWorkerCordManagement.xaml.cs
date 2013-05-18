@@ -87,6 +87,10 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         void FrmWorkerCordManagement_Loaded(object sender, RoutedEventArgs e)
         {
             GetEntityLogo("T_OA_WORKRECORD");
+            List<string> listSearch = new List<string>();
+            listSearch.Add("最近一周记录");
+            listSearch.Add("最近一个月记录");
+            dateTimeSearch.ItemsSource = listSearch;
         }
         private void dg_LoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -339,6 +343,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         private string orderString = "UPDATEDATE desc"; //排序字段
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            //dateTimeSearch.ItemsSource = null;
             StringBuilder sbFilter = new StringBuilder();  //查询过滤条件 
             paras = new ObservableCollection<object>();
             if (!string.IsNullOrEmpty(dpDate.Text))
@@ -400,6 +405,59 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
 
         private void dataPager_Click(object sender, RoutedEventArgs e)
         {
+            ShowWorkerCordList(dataPager.PageIndex, filterString, paras);
+        }
+
+        
+        /// <summary>
+        /// 根据一个星期或是一个月进行查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dateTimeSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox dateTimeSearch = Utility.FindChildControl<ComboBox>(controlsToolkitTUV, "dateTimeSearch");
+            DateTime dpEndDate = DateTime.Now.AddHours(23).AddMinutes(59);
+            StringBuilder sbFilter = new StringBuilder();  //查询过滤条件 
+            paras = new ObservableCollection<object>();
+
+            if (dateTimeSearch != null)
+            {
+                if (dateTimeSearch.SelectedItem != null)
+                {
+                    string strName = dateTimeSearch.SelectedItem as string;
+
+                    if (strName == "最近一周记录")
+                    {
+                        if (sbFilter.Length != 0)
+                        {
+                            sbFilter.Append(" and ");
+                        }
+                        sbFilter.Append("PLANTIME>=@" + paras.Count().ToString());
+                        DateTime dpStart = dpEndDate.AddDays(-7);//一个星期前开始
+                        paras.Add(dpStart);
+                        sbFilter.Append(" and ");
+                        sbFilter.Append(" PLANTIME <=@" + paras.Count().ToString());
+                        paras.Add(dpEndDate);
+                        filterString = sbFilter.ToString();
+                    }
+                    else if (strName == "最近一个月记录")
+                    {
+                        if (sbFilter.Length != 0)
+                        {
+                            sbFilter.Append(" and ");
+                        }
+                        sbFilter.Append("PLANTIME>=@" + paras.Count().ToString());
+                        DateTime dpStart = dpEndDate.AddMonths(-1);//一个月前开始
+                        paras.Add(dpStart);
+                        sbFilter.Append(" and ");
+                        sbFilter.Append(" PLANTIME <=@" + paras.Count().ToString());
+                        paras.Add(dpEndDate);
+                        filterString = sbFilter.ToString();
+                    }
+
+                }
+            }
             ShowWorkerCordList(dataPager.PageIndex, filterString, paras);
         }
     }

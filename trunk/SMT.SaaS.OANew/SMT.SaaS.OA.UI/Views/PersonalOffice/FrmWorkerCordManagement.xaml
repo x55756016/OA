@@ -35,6 +35,7 @@
                     <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpEndDate" Margin="0,0,0,0" Height="22" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center">
                     </controls:DatePicker>
                     <Button x:Name="btnSearch" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Click="btnSearch_Click" Style="{StaticResource CommonButtonStyle}" VerticalAlignment="Center" />
+                    <ComboBox x:Name="dateTimeSearch" Margin="10,0,0,0" VerticalAlignment="Center"   SelectionChanged="dateTimeSearch_SelectionChanged"></ComboBox>
                 </StackPanel>
             </controlsToolkit:Expander>
             <smt:FormToolBar x:Name="ToolBar" Grid.Row="2"/> 

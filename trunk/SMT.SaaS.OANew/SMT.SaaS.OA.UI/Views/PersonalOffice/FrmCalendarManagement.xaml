@@ -62,6 +62,7 @@
                     <controls:DatePicker x:Name="EndDate" Style="{StaticResource DatePickerStyle}" Width="100" Margin="0,0,10,0"></controls:DatePicker>
                     <Button x:Name="btnSearch" Style="{StaticResource CommonButtonStyle}" Grid.Row="1" Grid.Column="4" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Click="btnSearch_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" />
                     <Button x:Name="btnShowAll" Style="{StaticResource CommonButtonStyle}" Grid.Row="1" Grid.Column="5" Content="{Binding Converter={StaticResource ResourceConveter}, Source=ShowAll}" Click="btnShowAll_Click" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                    <ComboBox x:Name="dateTimeSearch" Margin="10,0,0,0" VerticalAlignment="Center"   SelectionChanged="dateTimeSearch_SelectionChanged"></ComboBox>
                 </StackPanel>
             </controlsToolkit:Expander>
             <smt:FormToolBar x:Name="ToolBar" Grid.Row="2"/>
