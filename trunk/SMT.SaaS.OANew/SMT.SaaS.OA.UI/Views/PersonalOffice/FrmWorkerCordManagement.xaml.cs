@@ -38,7 +38,9 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             PARENT.Children.Add(loadbar);
             ToolBar.btnOutExcel.Click += new RoutedEventHandler(btnOutExcel_Click);
             ToolBar.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
+
             ShowWorkerCordList(dataPager.PageIndex, filterString, paras);
+
             this.Loaded += new RoutedEventHandler(FrmWorkerCordManagement_Loaded);
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
         }
@@ -91,6 +93,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             listSearch.Add("最近一周记录");
             listSearch.Add("最近一个月记录");
             dateTimeSearch.ItemsSource = listSearch;
+            dateTimeSearch.SelectedIndex = 0;
         }
         private void dg_LoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -398,6 +401,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
 
         private void btnShowAll_Click(object sender, RoutedEventArgs e)
         {
+            dpEndDate.Text = string.Empty;
+            dpDate.Text = string.Empty;
             filterString = null;
             paras = null;
             ShowWorkerCordList(dataPager.PageIndex, filterString, paras);
@@ -417,7 +422,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         private void dateTimeSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox dateTimeSearch = Utility.FindChildControl<ComboBox>(controlsToolkitTUV, "dateTimeSearch");
-            DateTime dpEndDate = DateTime.Now.AddHours(23).AddMinutes(59);
+            filterString = null;
+            DateTime dpEnd = DateTime.Now.AddHours(23).AddMinutes(59);
             StringBuilder sbFilter = new StringBuilder();  //查询过滤条件 
             paras = new ObservableCollection<object>();
 
@@ -429,34 +435,55 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
 
                     if (strName == "最近一周记录")
                     {
+                        dpDate.Text = DateTime.Now.AddDays(-7).ToShortDateString();
+                        dpEndDate.Text = DateTime.Now.ToShortDateString();
                         if (sbFilter.Length != 0)
                         {
                             sbFilter.Append(" and ");
                         }
                         sbFilter.Append("PLANTIME>=@" + paras.Count().ToString());
-                        DateTime dpStart = dpEndDate.AddDays(-7);//一个星期前开始
+                        DateTime dpStart = dpEnd.AddDays(-7);//一个星期前开始
                         paras.Add(dpStart);
                         sbFilter.Append(" and ");
                         sbFilter.Append(" PLANTIME <=@" + paras.Count().ToString());
-                        paras.Add(dpEndDate);
+                        paras.Add(dpEnd);
                         filterString = sbFilter.ToString();
                     }
                     else if (strName == "最近一个月记录")
                     {
+                        dpDate.Text = DateTime.Now.AddMonths(-1).ToShortDateString();
+                        dpEndDate.Text = DateTime.Now.ToShortDateString();
                         if (sbFilter.Length != 0)
                         {
                             sbFilter.Append(" and ");
                         }
                         sbFilter.Append("PLANTIME>=@" + paras.Count().ToString());
-                        DateTime dpStart = dpEndDate.AddMonths(-1);//一个月前开始
+                        DateTime dpStart = dpEnd.AddMonths(-1);//一个月前开始
                         paras.Add(dpStart);
                         sbFilter.Append(" and ");
                         sbFilter.Append(" PLANTIME <=@" + paras.Count().ToString());
-                        paras.Add(dpEndDate);
+                        paras.Add(dpEnd);
                         filterString = sbFilter.ToString();
                     }
 
                 }
+            }
+            else
+            {
+                dpDate.Text = DateTime.Now.AddDays(-7).ToShortDateString();
+                dpEndDate.Text = DateTime.Now.ToShortDateString();
+                paras = new ObservableCollection<object>();
+                if (sbFilter.Length != 0)
+                {
+                    sbFilter.Append(" and ");
+                }
+                sbFilter.Append("PLANTIME >= @" + paras.Count().ToString());
+                DateTime dpStart = dpEnd.AddDays(-7);//一个星期前开始
+                paras.Add(dpStart);
+                sbFilter.Append(" and ");
+                sbFilter.Append(" PLANTIME <= @" + paras.Count().ToString());
+                paras.Add(dpEnd);
+                filterString = sbFilter.ToString();
             }
             ShowWorkerCordList(dataPager.PageIndex, filterString, paras);
         }

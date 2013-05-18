@@ -62,6 +62,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             listSearch.Add("最近一周记录");
             listSearch.Add("最近一个月记录");
             dateTimeSearch.ItemsSource = listSearch;
+            dateTimeSearch.SelectedIndex = 0;
         }
         private void dg_LoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -423,6 +424,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
 
         private void btnShowAll_Click(object sender, RoutedEventArgs e)
         {
+            cndDateCanlendar.Text = string.Empty;
+            EndDate.Text = string.Empty;
             filterString = null;
             searchParas = null;
             GetCalendarListSelectDate(System.DateTime.Now, dataPager.PageIndex, filterString, searchParas, "CREATEDATE descending");
@@ -465,7 +468,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             DateTime dpEndDate = DateTime.Now.AddHours(23).AddMinutes(59);
             System.Text.StringBuilder sbFilter = new System.Text.StringBuilder();  //查询过滤条件 
             searchParas = new ObservableCollection<object>();
-
+            filterString = null;
             if (dateTimeSearch != null)
             {
                 if (dateTimeSearch.SelectedItem != null)
@@ -474,6 +477,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
 
                     if (strName == "最近一周记录")
                     {
+                        cndDateCanlendar.Text = DateTime.Now.AddDays(-7).ToShortDateString();//开始时间
+                        EndDate.Text = DateTime.Now.ToShortDateString();//结束时间
                         if (sbFilter.Length != 0)
                         {
                             sbFilter.Append(" and ");
@@ -488,6 +493,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                     }
                     else if (strName == "最近一个月记录")
                     {
+                        cndDateCanlendar.Text = DateTime.Now.AddMonths(-1).ToShortDateString();//开始时间
+                        EndDate.Text = DateTime.Now.ToShortDateString();//结束时间
                         if (sbFilter.Length != 0)
                         {
                             sbFilter.Append(" and ");
@@ -502,6 +509,22 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                     }
 
                 }
+            }
+            else
+            {
+                cndDateCanlendar.Text = DateTime.Now.AddDays(-7).ToShortDateString();//开始时间
+                EndDate.Text = DateTime.Now.ToShortDateString();//结束时间
+                DateTime dpStart = dpEndDate.AddDays(-7);//一个星期前开始 开始时间
+                if (sbFilter.Length != 0)
+                {
+                    sbFilter.Append(" and ");
+                }
+                sbFilter.Append("PLANTIME>=@" + searchParas.Count().ToString());
+                searchParas.Add(dpStart);
+                sbFilter.Append(" and ");
+                sbFilter.Append(" PLANTIME <=@" + searchParas.Count().ToString());
+                searchParas.Add(dpEndDate);
+                filterString = sbFilter.ToString();
             }
             GetCalendarListSelectDate(System.DateTime.Now, dataPager.PageIndex, filterString, searchParas, "CREATEDATE descending");
         }
