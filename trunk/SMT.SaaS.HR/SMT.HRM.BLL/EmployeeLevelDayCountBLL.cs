@@ -1771,10 +1771,13 @@ namespace SMT.HRM.BLL
                 #endregion
                 //如果是第二年在职，年假按一下方式计算
                 if (entryYear >= 1 && entryYear < 2)
-                { 
-                    //满一年，基础年假为5天(此标准仅适用于中国)
-                    totalDays = decimal.Round(totalDays * (12 - dtEntryDate.Month) / 12);
-                    Tracer.Debug("员工入职刚满一年：生成年假天数：" + totalDays);
+                {
+                    if (DateTime.Now.Year == dtEntryDate.Year + 1)
+                    {
+                        //满一年，基础年假为5天(此标准仅适用于中国)
+                        totalDays = decimal.Round(totalDays * (12 - dtEntryDate.Month) / 12);
+                        Tracer.Debug("员工入职刚满一年：生成年假天数：" + totalDays);
+                    }
                 }
 
                 //var allday = from ent in dal.GetObjects<T_HR_EMPLOYEELEAVERECORD>()
