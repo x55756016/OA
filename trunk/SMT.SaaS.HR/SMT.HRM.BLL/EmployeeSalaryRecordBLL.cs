@@ -2308,13 +2308,12 @@ namespace SMT.HRM.BLL
         /// <param name="year">结算年份</param>
         /// <param name="month">结算月份</param>
         /// <returns></returns>
-        private T_HR_SALARYARCHIVE GetEmployeeAcitiveSalaryArchive(string employeeid,string GenerateEmployeePostid, string companyid, int year, int month)
+        private T_HR_SALARYARCHIVE GetEmployeeAcitiveSalaryArchive(string employeeid,string GenerateEmployeePostid, string payCompanyid, int year, int month)
         {
             var q = from employee in dal.GetObjects<T_HR_EMPLOYEE>().Include("T_HR_SALARYARCHIVE")
                     join salaryAhive in dal.GetTable<T_HR_SALARYARCHIVE>()
                         on employee.EMPLOYEEID equals salaryAhive.EMPLOYEEID
-                    where salaryAhive.EMPLOYEEID == employeeid
-                    && salaryAhive.PAYCOMPANY == companyid
+                    where salaryAhive.EMPLOYEEID == employeeid                   
                     && salaryAhive.CHECKSTATE == "2"    //终审通过的薪资档案
                     && employee.EMPLOYEESTATE != "2"    //员工还在职
                     && (salaryAhive.OTHERSUBJOIN < year
@@ -2324,23 +2323,37 @@ namespace SMT.HRM.BLL
             if (q.Count() > 0)
             {
                 List<T_HR_SALARYARCHIVE> list = q.ToList();
-
-
                 var ents = list.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT);
-
+                //获取该员工最新的一条生效的薪资档案。
                 T_HR_SALARYARCHIVE salaryAhive = ents.FirstOrDefault();
 
+                //如果最新薪资档案的发薪机构不为空且不等于当前结算的机构，那么跳过去
+                if(!string.IsNullOrEmpty(salaryAhive.PAYCOMPANY))
+                {
+                    if(salaryAhive.PAYCOMPANY != payCompanyid)
+                    {
+                        Tracer.Debug("员工最新薪资档案获取到的发薪机构跟当前结算机构不符，薪资档案获取为空，员工姓名：" + salaryAhive.EMPLOYEENAME
+                            + " 结算年份：" + year + " 结算月份：" + month);
+                        return null;
+                    }
+                }
                 if (!string.IsNullOrEmpty(salaryAhive.BALANCEPOSTID))//如果薪资档案的结算岗位不为空且不等于现在的结算人主岗位，跳过
                 {
                     if (salaryAhive.BALANCEPOSTID != GenerateEmployeePostid)
                     {
-                        Tracer.Debug("员工最新薪资档案获取到的结算岗位跟当前结算岗位不符，薪资档案获取为空，员工姓名：" + salaryAhive.EMPLOYEENAME);                                
+                        Tracer.Debug("员工最新薪资档案获取到的结算岗位跟当前结算岗位不符，薪资档案获取为空，员工姓名：" + salaryAhive.EMPLOYEENAME
+                            + " 结算年份：" + year+ " 结算月份：" + month);
                         return null;
                     }
                 }
                 return salaryAhive;
             }
-            return null;
+            else
+            {
+                Tracer.Debug("无有效的薪资档案，员工id：" + employeeid + " 结算年份：" + year
+                    + " 结算月份：" + month);
+                return null;
+            }
         }
 
         /// <summary>
@@ -2456,8 +2469,6 @@ namespace SMT.HRM.BLL
                     ||(salaryAhive.OTHERSUBJOIN == year 
                     && salaryAhive.OTHERADDDEDUCT <= month))
                     select salaryAhive;
-            
-
 
             int isalaryAchiveCount = q.Count();
             if (isalaryAchiveCount > 0)
