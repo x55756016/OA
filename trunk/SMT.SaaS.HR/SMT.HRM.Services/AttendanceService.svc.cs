@@ -17,6 +17,7 @@ using System.Xml;
 using System.Configuration;
 using System.Web;
 using SMT.HRM.CustomModel.Reports;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.Services
 {
@@ -333,10 +334,19 @@ namespace SMT.HRM.Services
         [OperationContract]
         public byte[] OutClockInRdListByMultSearch(string sType, string sValue, string strOwnerID, string strEmployeeID, string strPunchDateFrom, string strPunchDateTo, string strSortKey, out string strMsg)
         {
-            using (ClockInRecordBLL bllClockInRecord = new ClockInRecordBLL())
+            try
             {
-                byte[] byVac = bllClockInRecord.OutClockInRdListByMultSearch(sType, sValue, strOwnerID, strEmployeeID, strPunchDateFrom, strPunchDateTo, strSortKey, out strMsg);
-                return byVac;
+                using (ClockInRecordBLL bllClockInRecord = new ClockInRecordBLL())
+                {
+                    byte[] byVac = bllClockInRecord.OutClockInRdListByMultSearch(sType, sValue, strOwnerID, strEmployeeID, strPunchDateFrom, strPunchDateTo, strSortKey, out strMsg);
+                    return byVac;
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+                strMsg = ex.ToString();
+                return null;
             }
         }
         #endregion
