@@ -825,7 +825,7 @@ namespace SMT.HRM.BLL
                 PropertyInfo[] propinfos = objtype.GetProperties();
                 foreach (PropertyInfo propinfo in propinfos)
                 {
-                    if (propinfo.Name.ToUpper() != "CHECKSTATE")
+                    if (propinfo.Name.ToUpper() != "CHECKSTATE" && propinfo.Name.ToUpper() != "ACTUALLYPAY")
                     {
                         sb.AppendLine("<Attribute Name=\"" + propinfo.Name + "\" Description=\"" + "" + "\" DataType=\"" + GetDataTypeName(propinfo.PropertyType) + "\" DataValue=\"" + propinfo.GetValue(objectdata, null) + "\"/>");
                     }
