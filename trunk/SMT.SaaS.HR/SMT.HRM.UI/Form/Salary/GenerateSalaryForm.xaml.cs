@@ -385,7 +385,7 @@ namespace SMT.HRM.UI.Form.Salary
                     Dictionary<string, string> GeneratePrameter = new Dictionary<string, string>();
                     GeneratePrameter.Add("GernerateType", GernerateType.ToString());
                     GeneratePrameter.Add("GenerateEmployeePostid", ((T_HR_POST)ent).POSTID);
-                    GeneratePrameter.Add("GenerateCompanyid", ((T_HR_POST)ent).COMPANYID);
+                    GeneratePrameter.Add("GenerateCompanyid", ((T_HR_POST)ent).T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID);
                     client.SalaryRecordAccountCheckAsync(GeneratePrameter, 4, ((T_HR_POST)ent).POSTID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor(), ent);
                 }
                 else
