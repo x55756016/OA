@@ -1444,7 +1444,8 @@ namespace SMT.HRM.BLL
         {
             string strRes = string.Empty;
             try
-            {
+            {              
+
                 decimal dWorkMode = entTemp.T_HR_ATTENDANCESOLUTION.WORKMODE.Value;
                 string strAttendanceSolutionID = entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID;
 
@@ -1506,22 +1507,19 @@ namespace SMT.HRM.BLL
                     try
                     {
                         T_HR_EMPLOYEE item_emp = entEmployees[n];
-
                         DateTime dtInitAttandRecordStartDate = new DateTime();
+                        //如果是免打卡的用户，在这里还是需要初始化，因为结算的时候需要计算出勤天数
+                        //if (!entTemp.T_HR_ATTENDANCESOLUTIONReference.IsLoaded)
+                        //{
+                        //    entTemp.T_HR_ATTENDANCESOLUTIONReference.Load();
+                        //}
+                        //if (entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//考勤方案设置为不考勤
+                        //{
+                        //    return "初始化员工考勤记录被跳过,考勤方案设置为不考勤，员工姓名：" 
+                        //        + entEmployees.FirstOrDefault().EMPLOYEEENAME
+                        //        + " 考勤方案名：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME;
+                        //}
 
-                        //try
-                        //{
-                        //    bllAttRd.DeleteUnEffectiveRecordByDate(entCompany, item_emp, dtStart, dtEnd, ref dtRes);
-                        //}
-                        //catch (Exception ex)
-                        //{
-                        //    Tracer.Debug("初始化考勤删除员工未正式启用的考勤记录出现问题:" + "，员工姓名" + item_emp.EMPLOYEEENAME + ex.ToString());
-                        //    continue;
-                        //}
-                        //if (dtRes == dtCheck)
-                        //{
-                        //dtRes = dtStart;
-                        //}
                         dtInitAttandRecordStartDate = dtStart;
 
                         if (dtInitAttandRecordStartDate >= dtInitAttandRecordEndDate)
