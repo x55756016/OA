@@ -77,7 +77,7 @@ namespace SMT.HRM.BLL
         //                userMsg.UserID = employeesalary.EMPLOYEEID;
         //                List[0] = userMsg;
         //                string appXML = Utility.ObjListToXml(employeesalary, "HR", submitName);
-        //                if(!string.IsNullOrEmpty(appXML))
+        //                if (!string.IsNullOrEmpty(appXML))
         //                {
         //                    Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEESALARYRECORD", appXML,
         //                    EngineWS.MsgType.Msg);
@@ -85,7 +85,7 @@ namespace SMT.HRM.BLL
         //            }
         //            catch (Exception ex)
         //            {
-        //                Utility.SaveLog("向员工" + employeesalary.EMPLOYEENAME + "发送薪资发放确认提醒的消息及邮件失败！错误信息为：" + ex.ToString()); 
+        //                Utility.SaveLog("向员工" + employeesalary.EMPLOYEENAME + "发送薪资发放确认提醒的消息及邮件失败！错误信息为：" + ex.ToString());
         //                continue;
         //            }
         //            Utility.SaveLog("向员工" + employeesalary.EMPLOYEENAME + "发送薪资发放确认提醒的消息及邮件成功！");
@@ -93,7 +93,7 @@ namespace SMT.HRM.BLL
         //    }
         //    catch (Exception ex)
         //    {
-        //        Utility.SaveLog("向员工发送薪资发放确认提醒的消息及邮件失败！错误信息为：" + ex.ToString()); 
+        //        Utility.SaveLog("向员工发送薪资发放确认提醒的消息及邮件失败！错误信息为：" + ex.ToString());
         //    }
         //}
         /// <summary>
