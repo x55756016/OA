@@ -50,7 +50,7 @@ namespace SMT.HRM.BLL
                   //}
                 }
 
-                BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(obj);
+                BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(ent);
             }
             catch (Exception ex)
             {
