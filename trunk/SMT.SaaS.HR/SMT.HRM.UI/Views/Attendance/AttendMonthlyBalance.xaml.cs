@@ -717,6 +717,9 @@ namespace SMT.HRM.UI.Views.Attendance
 
         void btnNew_Click(object sender, RoutedEventArgs e)
         {
+            //Utility.CreateFormFromEngine("AE26CCEE-C974-486C-8978-173479579E05", "SMT.HRM.UI.Form.Attendance.AttendMonthlyBalanceAudit", "Audit");
+
+            //return;
             CalculateEmployeeAttendanceMonthlyForm form = new CalculateEmployeeAttendanceMonthlyForm();
             EntityBrowser entBrowser = new EntityBrowser(form);
             form.MinWidth = 580;

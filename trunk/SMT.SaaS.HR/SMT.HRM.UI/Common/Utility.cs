@@ -1756,6 +1756,45 @@ namespace SMT.HRM.UI
 
         #endregion
 
+        #region 模拟平台在待办任务中点击新建按钮事件
+        /// <summary>
+        /// 模拟平台在待办任务中点击新建按钮事件
+        /// </summary>
+        /// <param name="FormType"></param>
+        /// <param name="InitParams"></param>
+        public static void OpenNewTask(string FormType, Dictionary<string, string> InitParams)
+        {
+            Type moduleType = null;
+
+            object instance = null;
+            try
+            {
+                moduleType = Type.GetType(FormType);
+                instance = Activator.CreateInstance(moduleType);
+                if (InitParams != null && instance != null)
+                {
+                    foreach (var item in InitParams)
+                    {
+                        PropertyInfo property = instance.GetType().GetProperty(item.Key);
+                        property.SetValue(instance, item.Value, null);
+                    }
+                }
+                if (moduleType != null && instance != null)
+                {
+                    SMT.SaaS.FrameworkUI.EntityBrowser browser = new SaaS.FrameworkUI.EntityBrowser(instance);
+
+                    browser.Show<string>(DialogMode.Default, Common.ParentLayoutRoot, "", (result) => { }, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("新建任务打开异常,请查看系统日志！");
+                //Logging.Logger.Current.Log("10000", "Platform", "新建任务", "新建任务打开异常", ex, Logging.Category.Exception, Logging.Priority.High);
+            }
+        }
+
+        #endregion
+
     }
 
 

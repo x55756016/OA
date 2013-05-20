@@ -248,7 +248,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                                 txtCol.Binding = new Binding("SUM");
                                 txtCol.Width = DataGridLength.SizeToCells;
                                 txtCol.MinWidth = 100;
-                                txtCol.MaxWidth = 100;
+                                txtCol.MaxWidth = 550;
                                 DtGriddy.Columns.Add(txtCol);
                                 getItemID.Add(it.SALARYITEMID);
                             }

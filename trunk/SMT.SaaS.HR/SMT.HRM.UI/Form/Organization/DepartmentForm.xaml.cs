@@ -576,7 +576,7 @@ namespace SMT.HRM.UI.Form
                     }
                 }
             }
-            return Utility.GetResourceStr("DEPARTMENTINFO");
+            return "部门信息";//Utility.GetResourceStr("DEPARTMENTINFO");
         }
         public string GetStatus()
         {

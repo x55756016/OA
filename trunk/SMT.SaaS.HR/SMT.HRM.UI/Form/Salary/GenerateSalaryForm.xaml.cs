@@ -306,7 +306,7 @@ namespace SMT.HRM.UI.Form.Salary
                 GeneratePrameter.Add("GenerateEmployeePostid", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID);
                 
                 if (ent is T_HR_COMPANY)
-                {
+                {   
                     GeneratePrameter.Add("GenerateCompanyid", ((T_HR_COMPANY)ent).COMPANYID);
                     client.SalaryRecordAccountCheckAsync(GeneratePrameter,0, ((T_HR_COMPANY)ent).COMPANYID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor(), ent);
 
@@ -318,8 +318,8 @@ namespace SMT.HRM.UI.Form.Salary
 
                 }
                 else if (ent is T_HR_POST)
-                {
-                    GeneratePrameter.Add("GenerateCompanyid", ((T_HR_POST)ent).COMPANYID);
+                {                   
+                    GeneratePrameter.Add("GenerateCompanyid", ((T_HR_POST)ent).T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID);
                     client.SalaryRecordAccountCheckAsync(GeneratePrameter,2, ((T_HR_POST)ent).POSTID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor());
 
                 }
@@ -362,6 +362,15 @@ namespace SMT.HRM.UI.Form.Salary
                     GeneratePrameter.Add("GernerateType", GernerateType.ToString());
                     GeneratePrameter.Add("GenerateEmployeePostid", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID);
                     GeneratePrameter.Add("GenerateCompanyid", ((T_HR_EMPLOYEE)ent).OWNERCOMPANYID);
+                    if (string.IsNullOrEmpty(GeneratePrameter["GernerateType"])
+                       || string.IsNullOrEmpty(GeneratePrameter["GenerateEmployeePostid"])
+                       || string.IsNullOrEmpty(GeneratePrameter["GenerateCompanyid"]))
+                    {
+                        MessageBox.Show("结算薪资参数异常，请联系管理员，GernerateType" + GeneratePrameter["GernerateType"]
+                            + "GenerateEmployeePostid" + GeneratePrameter["GenerateEmployeePostid"]
+                        + "GenerateCompanyid" + GeneratePrameter["GenerateCompanyid"]);
+                        return;
+                    }
                     client.SalaryRecordAccountCheckAsync(GeneratePrameter, 3, strOrgId, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor());
 
                 }
@@ -386,6 +395,15 @@ namespace SMT.HRM.UI.Form.Salary
                     GeneratePrameter.Add("GernerateType", GernerateType.ToString());
                     GeneratePrameter.Add("GenerateEmployeePostid", ((T_HR_POST)ent).POSTID);
                     GeneratePrameter.Add("GenerateCompanyid", ((T_HR_POST)ent).T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID);
+                    if (string.IsNullOrEmpty(GeneratePrameter["GernerateType"])
+                        ||string.IsNullOrEmpty(GeneratePrameter["GenerateEmployeePostid"])
+                        ||string.IsNullOrEmpty(GeneratePrameter["GenerateCompanyid"]))
+                    {
+                        MessageBox.Show("结算薪资参数异常，请联系管理员，GernerateType" + GeneratePrameter["GernerateType"]
+                            +"GenerateEmployeePostid"+GeneratePrameter["GenerateEmployeePostid"]
+                        + "GenerateCompanyid" + GeneratePrameter["GenerateCompanyid"]);
+                        return;
+                    }
                     client.SalaryRecordAccountCheckAsync(GeneratePrameter, 4, ((T_HR_POST)ent).POSTID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor(), ent);
                 }
                 else

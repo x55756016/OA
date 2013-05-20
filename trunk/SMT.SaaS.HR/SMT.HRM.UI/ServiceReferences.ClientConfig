@@ -91,9 +91,15 @@
       <endpoint address="http://localhost:12168/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+      
       <endpoint address="http://localhost:12168/SalaryService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
         contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
+
+      <endpoint address="http://172.16.1.93:8080/New/Services/HR/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+      
       <endpoint address="http://172.16.1.93:8080/New/Services/smtflow/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
@@ -109,9 +115,7 @@
       <endpoint address="http://172.16.1.93:8080/New/Services/HR/HrCommonService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
         contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
-      <endpoint address="http://localhost:12168/OrganizationService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
-        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+      
       <endpoint address="http://172.16.1.93:8080/New/Services/HR/PerformanceService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
         contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
