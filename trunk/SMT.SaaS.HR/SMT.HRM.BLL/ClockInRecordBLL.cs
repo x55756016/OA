@@ -187,12 +187,14 @@ namespace SMT.HRM.BLL
                 }
                 #region 判断是否已经初始化考勤记录，没有就初始化整月数据
                 DateTime dt = new DateTime(entTemp.PUNCHDATE.Value.Year, entTemp.PUNCHDATE.Value.Month, entTemp.PUNCHDATE.Value.Day);
+                Tracer.Debug("导入CSV打卡记录开始判断是否已有考勤初始化记录，员工id：" + entTemp.EMPLOYEEID
+                    + " 查询的日期：" + dt.ToShortDateString());
                 IQueryable<T_HR_ATTENDANCERECORD> entArs = from att in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                                            where att.EMPLOYEEID == entTemp.EMPLOYEEID
                                                             && att.ATTENDANCEDATE == dt
-                                                           select att;               
+                                                           select att;
                 if (entArs.Count() < 1)
-                {                    
+                {
                     string dtInit = entTemp.PUNCHDATE.Value.Year.ToString() + "-" + entTemp.PUNCHDATE.Value.Month.ToString();
                     Tracer.Debug("打卡记录导入发现没有考勤初始化记录，开始初始化考勤记录，员工姓名" + entTemp.EMPLOYEENAME + " 初始化年月"
                         + dtInit + " 员工id：" + entTemp.EMPLOYEEID);
@@ -203,13 +205,18 @@ namespace SMT.HRM.BLL
                         bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", entTemp.EMPLOYEEID, dtInit);
 
                         Tracer.Debug("打卡记录导入没有查到考勤初始化数据，初始化员工考勤成功，初始化月份：" + dtInit);
-                       
+
                     }
                     catch (Exception ex)
                     {
-                        Tracer.Debug("打卡记录导入初始化考勤失败：月份：" + dtInit + " 姓名："+
-                            entTemp.EMPLOYEENAME +" 员工id："+ entTemp.EMPLOYEEID + "失败原因：" + ex.ToString());                      
+                        Tracer.Debug("打卡记录导入初始化考勤失败：月份：" + dtInit + " 姓名：" +
+                            entTemp.EMPLOYEENAME + " 员工id：" + entTemp.EMPLOYEEID + "失败原因：" + ex.ToString());
                     }
+                }
+                else
+                {
+                    Tracer.Debug("导入CSV打卡记录开始已有考勤初始化记录,直接导入打卡记录，员工id：" + entTemp.EMPLOYEEID
+                   + " 查询的日期：" + dt.ToShortDateString());
                 }
                 #endregion
 
@@ -953,6 +960,7 @@ namespace SMT.HRM.BLL
                         T_HR_EMPLOYEECLOCKINRECORD entUpdate = qc.FirstOrDefault();
                         if (entUpdate != null)
                         {
+                            Tracer.Debug("通过CSV导入打卡记录被跳过，系统里已存在此记录：" + entTemp.EMPLOYEENAME + entTemp.PUNCHDATE.Value.ToShortDateString());
                             continue;
                         }
 
