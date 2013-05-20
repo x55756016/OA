@@ -1063,6 +1063,21 @@ namespace SMT.HRM.Services
             int GernerateType=int.Parse(GeneratePrameter["GernerateType"]);
             string GenerateEmployeePostid = GeneratePrameter["GenerateEmployeePostid"];
             string GenerateCompanyid = GeneratePrameter["GenerateCompanyid"];
+
+            if (string.IsNullOrEmpty(GernerateType.ToString())
+                      || string.IsNullOrEmpty(GenerateEmployeePostid)
+                      || string.IsNullOrEmpty(GenerateCompanyid))
+            {
+                string message = "结算薪资参数异常，请联系管理员，GernerateType" + GeneratePrameter["GernerateType"]
+                    + "GenerateEmployeePostid" + GeneratePrameter["GenerateEmployeePostid"]
+                + "GenerateCompanyid" + GeneratePrameter["GenerateCompanyid"];
+                Dictionary<object, object> GetInfor = new Dictionary<object, object>();
+                GetInfor.Add("结算薪资错误", message);
+                Tracer.Debug(message);
+
+                return GetInfor;
+            }
+
             using (EmployeeSalaryRecordBLL bll = new EmployeeSalaryRecordBLL())
             {
                 return bll.SalaryRecordAccount(GernerateType, GenerateEmployeePostid, GenerateCompanyid,objectType, objectID, year, month, construes, false);
