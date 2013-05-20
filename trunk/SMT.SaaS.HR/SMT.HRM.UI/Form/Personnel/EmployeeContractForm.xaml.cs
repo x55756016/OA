@@ -50,6 +50,7 @@ namespace SMT.HRM.UI.Form.Personnel
         /// </summary>
         public EmployeeContractForm()
         {
+            InitializeComponent();
             if (Application.Current.Resources["CustomDateConverter"] == null)
             {
                 Application.Current.Resources.Add("CustomDateConverter", new CustomDateConverter());
