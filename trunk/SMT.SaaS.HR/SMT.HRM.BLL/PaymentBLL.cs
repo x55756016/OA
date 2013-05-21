@@ -17,6 +17,7 @@ using SMT.HRM.BLL.Common;
 using System.Text;
 using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using SMT.Foundation.Log;
+using System.Threading;
 namespace SMT.HRM.BLL
 {
     public class PaymentBLL : BaseBll<V_PAYMENT>
@@ -106,22 +107,48 @@ namespace SMT.HRM.BLL
             {
                 EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
                 List<EngineWS.CustomUserMsg> listUserMsg = new List<EngineWS.CustomUserMsg>();
-                foreach (var item in employeesalaryList)
+                //foreach (var item in employeesalaryList)
+                //{
+                //    EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+                //    userMsg.UserID = item.EMPLOYEEID + "|" + Guid.NewGuid().ToString();
+                //    userMsg.FormID = Utility.ObjListToXml(item, "HR", string.Empty);
+                //    listUserMsg.Add(userMsg);
+                //}
+                for (int i = 0; i < employeesalaryList.Count; i++)
                 {
                     EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-                    userMsg.UserID = item.EMPLOYEEID + "|" + Guid.NewGuid().ToString();
-                    userMsg.FormID = Utility.ObjListToXml(item, "HR", string.Empty);
+                    userMsg.UserID = employeesalaryList[i].EMPLOYEEID + "|" + Guid.NewGuid().ToString();
+                    userMsg.FormID = Utility.ObjListToXml(employeesalaryList[i], "HR", string.Empty);
                     listUserMsg.Add(userMsg);
+
+                    if (i>=50 && i % 50 == 0)
+                    {
+                        string strMsg = Client.SendTaskMessage(listUserMsg.ToArray(), "HR", "T_HR_EMPLOYEESALARYRECORD");//批量发送消息
+                        if (strMsg == "1")
+                        {
+                            Utility.SaveLog("发送薪资发放确认提醒的消息及邮件成功！循环到：" + i);
+                        }
+                        else
+                        {
+                            Utility.SaveLog("发送薪资发放确认提醒的消息及邮件失败！循环到：" + i);
+                        }
+                        listUserMsg.Clear();
+                        Thread.Sleep(10000);
+                    }
+                    if (i>50 && i ==employeesalaryList.Count-1)
+                    {
+                        string strMsg = Client.SendTaskMessage(listUserMsg.ToArray(), "HR", "T_HR_EMPLOYEESALARYRECORD");//批量发送消息
+                        if (strMsg == "1")
+                        {
+                            Utility.SaveLog("发送薪资发放确认提醒的消息及邮件成功！循环到：" + i);
+                        }
+                        else
+                        {
+                            Utility.SaveLog("发送薪资发放确认提醒的消息及邮件失败！循环到：" + i);
+                        }
+                    }
                 }
-                string strMsg = Client.SendTaskMessage(listUserMsg.ToArray(), "HR", "T_HR_EMPLOYEESALARYRECORD");//批量发送消息
-                if (strMsg == "1")
-                {
-                    Utility.SaveLog("发送薪资发放确认提醒的消息及邮件成功！");
-                }
-                else
-                {
-                    Utility.SaveLog("发送薪资发放确认提醒的消息及邮件失败！");
-                }
+               
             }
             catch (Exception ex)
             {
