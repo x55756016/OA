@@ -1719,6 +1719,7 @@ namespace SMT.HRM.BLL
                                     }
                                     else
                                     {
+                                        Tracer.Debug("初始化考勤记录已存在，跳过，" + " 员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd"));
                                         continue;//如果存在直接跳过
 
                                         if (!string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
@@ -1895,10 +1896,14 @@ namespace SMT.HRM.BLL
                     entAttRd.CREATEDEPARTMENTID = entTemp.CREATEDEPARTMENTID;
                     entAttRd.CREATEPOSTID = entTemp.CREATEPOSTID;
 
-                    dal.AddToContext(entAttRd);
+                    dal.Add(entAttRd);
+                    Tracer.Debug("初始化设置的例外工作日考勤记录新增记录，" + " 员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + dtCurDate.ToString("yyyy-MM-dd"));
+                    
                 }
                 else
                 {
+                    Tracer.Debug("初始化设置的例外工作日考勤记录已存在，跳过，" + " 员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + dtCurDate.ToString("yyyy-MM-dd"));
+                    continue;//如果存在直接跳过
                     if (!string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
                     {
                         continue;
