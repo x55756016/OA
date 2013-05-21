@@ -1504,21 +1504,23 @@ namespace SMT.HRM.BLL
                 Tracer.Debug("开始生成员工考勤初始化记录,总员工数："+entEmployees.Count());
                 for (int n = 0; n < entEmployees.Count(); n++)
                 {
+                    bool AttendNoCheck = false;
                     try
                     {
                         T_HR_EMPLOYEE item_emp = entEmployees[n];
                         DateTime dtInitAttandRecordStartDate = new DateTime();
                         //如果是免打卡的用户，在这里还是需要初始化，因为结算的时候需要计算出勤天数
-                        //if (!entTemp.T_HR_ATTENDANCESOLUTIONReference.IsLoaded)
-                        //{
-                        //    entTemp.T_HR_ATTENDANCESOLUTIONReference.Load();
-                        //}
-                        //if (entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//考勤方案设置为不考勤
-                        //{
-                        //    return "初始化员工考勤记录被跳过,考勤方案设置为不考勤，员工姓名：" 
-                        //        + entEmployees.FirstOrDefault().EMPLOYEEENAME
-                        //        + " 考勤方案名：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME;
-                        //}
+                        if (!entTemp.T_HR_ATTENDANCESOLUTIONReference.IsLoaded)
+                        {
+                            entTemp.T_HR_ATTENDANCESOLUTIONReference.Load();
+                        }
+                        if (entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//考勤方案设置为不考勤
+                        {
+                            AttendNoCheck = true;
+                            //return "初始化员工考勤记录被跳过,考勤方案设置为不考勤，员工姓名："
+                            //    + entEmployees.FirstOrDefault().EMPLOYEEENAME
+                            //    + " 考勤方案名：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME;
+                        }
 
                         dtInitAttandRecordStartDate = dtStart;
 
@@ -1617,7 +1619,7 @@ namespace SMT.HRM.BLL
                         IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
                         IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType && s.STARTDATE >= dtInitAttandRecordStartDate && s.ENDDATE <= dtInitAttandRecordEndDate);
 
-                        CreateOutPlanWorkDay(entCompany, item_emp, entTemp, entTemplateDetails, entWorkDays);
+                        CreateOutPlanWorkDay(entCompany, item_emp, entTemp, entTemplateDetails, entWorkDays, AttendNoCheck);
                         int addCount = 0;
                         int updateCount = 0;
                         for (int i = 0; i < iPeriod; i++)
@@ -1715,6 +1717,7 @@ namespace SMT.HRM.BLL
                                         entAttRd.CREATEDEPARTMENTID = entTemp.CREATEDEPARTMENTID;
                                         entAttRd.CREATEPOSTID = entTemp.CREATEPOSTID;
 
+                                        if (AttendNoCheck) entAttRd.ATTENDANCESTATE = "1";//免打卡员工
                                         addCount+=dal.Add(entAttRd);
                                     }
                                     else
@@ -1807,7 +1810,7 @@ namespace SMT.HRM.BLL
         /// <param name="entTemplateDetails">作息方案</param>
         /// <param name="entWorkDays">调剂工作日</param>
         private void CreateOutPlanWorkDay(T_HR_COMPANY entCompany, T_HR_EMPLOYEE item_emp, T_HR_ATTENDANCESOLUTIONASIGN entTemp,
-            List<T_HR_SCHEDULINGTEMPLATEDETAIL> entTemplateDetails, IQueryable<T_HR_OUTPLANDAYS> entWorkDays)
+            List<T_HR_SCHEDULINGTEMPLATEDETAIL> entTemplateDetails, IQueryable<T_HR_OUTPLANDAYS> entWorkDays, bool AttendNoCheck)
         {
             if (entWorkDays == null)
             {
@@ -1895,7 +1898,7 @@ namespace SMT.HRM.BLL
                     entAttRd.CREATECOMPANYID = entTemp.CREATECOMPANYID;
                     entAttRd.CREATEDEPARTMENTID = entTemp.CREATEDEPARTMENTID;
                     entAttRd.CREATEPOSTID = entTemp.CREATEPOSTID;
-
+                    if (AttendNoCheck) entAttRd.ATTENDANCESTATE = "1";//免打卡员工
                     dal.Add(entAttRd);
                     Tracer.Debug("初始化设置的例外工作日考勤记录新增记录，" + " 员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + dtCurDate.ToString("yyyy-MM-dd"));
                     
