@@ -423,7 +423,7 @@ namespace SMT.HRM.BLL
                 Utility.RefreshEntity(ent);
 
                 dalOutPlanDays.Add(ent);
-
+                        
                 strMsg = "{SAVESUCCESSED}";
 
             }
