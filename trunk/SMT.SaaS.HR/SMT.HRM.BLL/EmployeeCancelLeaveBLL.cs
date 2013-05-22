@@ -447,7 +447,7 @@ namespace SMT.HRM.BLL
                     var ent = dal.GetObjects().FirstOrDefault(s => s.CANCELLEAVEID == id);
                     if (ent != null)
                     {
-                        dal.DeleteFromContext(ent);
+                        Delete(ent);
                     }
 
                     //根据id删除代办信息

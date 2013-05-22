@@ -132,8 +132,9 @@ namespace SMT.HRM.BLL
                         }
                         dal.SaveContextChanges();
                     }
-                    dal.DeleteFromContext(ent);
-                    BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(ent);
+                    //dal.DeleteFromContext(ent);
+                    Delete(ent);
+                    //BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(ent);
                 }
 
                 //TODO:删除项目所包含的明细

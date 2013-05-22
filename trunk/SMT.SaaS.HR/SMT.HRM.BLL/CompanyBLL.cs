@@ -90,6 +90,11 @@ namespace SMT.HRM.BLL
             return ent;
         }
 
+        /// <summary>
+        /// 获取员工主岗位所在公司
+        /// </summary>
+        /// <param name="strEmployeeID"></param>
+        /// <returns></returns>
         public T_HR_COMPANY GetCompanyByEmployeeID(string strEmployeeID)
         {
             IQueryable<T_HR_COMPANY> ents = from c in dal.GetObjects()
@@ -98,6 +103,9 @@ namespace SMT.HRM.BLL
                                             join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST") on p.POSTID equals ep.T_HR_POST.POSTID
                                             join e in dal.GetObjects<T_HR_EMPLOYEE>() on ep.T_HR_EMPLOYEE.EMPLOYEEID equals e.EMPLOYEEID
                                             where e.EMPLOYEEID == strEmployeeID
+                                            && ep.ISAGENCY=="0"
+                                            && ep.EDITSTATE=="1"
+                                            && ep.CHECKSTATE=="2"
                                             select c;
 
             T_HR_COMPANY ent = new T_HR_COMPANY();

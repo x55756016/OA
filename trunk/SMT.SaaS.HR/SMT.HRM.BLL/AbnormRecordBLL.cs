@@ -2107,7 +2107,7 @@ namespace SMT.HRM.BLL
                 i = entAbnormRecords.Count();
                 if (i == 0)
                 {
-                    Tracer.Debug(" 请假消除异常跳过，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
+                    Tracer.Debug("员工： " + item.EMPLOYEENAME + " 请假消除异常跳过，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
                             + "，没有查到异常记录，异常类型" + strAbnormCategory);
                     item.ATTENDANCESTATE = attState;
                     item.UPDATEDATE = DateTime.Now;
@@ -2117,7 +2117,7 @@ namespace SMT.HRM.BLL
                 }
                 try
                 {
-                    Tracer.Debug(" 请假或出差消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                    Tracer.Debug("员工： " + item.EMPLOYEENAME + " 请假或出差消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
                          + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，共检测到异常记录数共：" + i + "条记录" 
                          + "类型6为请假，4为出差：" + attState);
                     Dictionary<AttendPeriod, AttendanceState> thisDayAttendState = new Dictionary<AttendPeriod, AttendanceState>();//考勤时间段1上午，2中午，3下午 考勤异常状态 1 缺勤 2 请假
