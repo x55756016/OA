@@ -398,19 +398,20 @@ namespace SMT.SaaS.OA.BLL
                     Record.OWNERDEPARTMENTID = travel.OWNERDEPARTMENTID;
                     Record.OWNERPOSTID = travel.OWNERPOSTID;
                     Record.OWNERID = travel.OWNERID;
+
                     Record.CREATECOMPANYID = travel.OWNERCOMPANYID;
                     Record.CREATEDATE = System.DateTime.Now;
                     Record.CREATEDEPARTMENTID = travel.OWNERDEPARTMENTID;
                     Record.CREATEPOSTID = travel.OWNERPOSTID;
                     Record.CREATEUSERID = travel.OWNERID;
-                    Record.REMARK = "出差申请自动产生";
+                    Record.REMARK = "出差申请同步考勤生成";
 
                     Record.SUBSIDYTYPE = "1";//出差类型
                     Record.SUBSIDYVALUE = travel.CHARGEMONEY;//补助金额
                     Record.TOTALDAYS = string.IsNullOrEmpty(item.BUSINESSDAYS) ? 0 : Convert.ToDecimal(item.BUSINESSDAYS);//
 
                     Record.UPDATEDATE = DateTime.Now;
-                    Record.UPDATEUSERID = travel.OWNERID;
+                    Record.UPDATEUSERID = travel.UPDATEUSERID;
                     //StrMessage = "出差申请开始调用考勤数据" + ListRecord.Count();
                     //如果出差明细大于1
                     if (ListDetals.Count() > 1)
@@ -445,7 +446,7 @@ namespace SMT.SaaS.OA.BLL
 
                             Client.AddEmployeeEvectionRdList(ListRecord.ToArray());
 
-                            StrMessage = "出差申请同步考勤数据成功，出差申请开始时间："
+                            StrMessage =travel.OWNERNAME+ " 的出差申请同步考勤数据成功，出差申请开始时间："
                                         + ListRecord[0].STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
                                         + " 结束时间:" + ListRecord[0].ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -454,7 +455,7 @@ namespace SMT.SaaS.OA.BLL
                     }
                     catch (Exception ex)
                     {
-                        SMT.Foundation.Log.Tracer.Debug("出差申请同步考勤数据出错::" + ex.Message.ToString());
+                        SMT.Foundation.Log.Tracer.Debug(travel.OWNERNAME + " 的出差申请同步考勤数据出错::" + ex.Message.ToString());
                     }
 
                 }
@@ -462,7 +463,7 @@ namespace SMT.SaaS.OA.BLL
             }
             catch (Exception ex)
             {
-                StrMessage = "出差申请生成考勤数据出错" + ex.ToString();
+                StrMessage = travel.OWNERNAME + " 的出差申请生成考勤数据出错" + ex.ToString();
                 SMT.Foundation.Log.Tracer.Debug(StrMessage);
             }
         }
