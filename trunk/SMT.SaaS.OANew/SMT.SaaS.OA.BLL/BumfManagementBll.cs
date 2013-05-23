@@ -2266,7 +2266,7 @@ namespace SMT.SaaS.OA.BLL
                 string[] senddocArray = new string[1];
                 senddocArray[0] = docId;
                 //ewClient.CloseDoTask(senddocArray, "T_OA_SENDDOC", receiveUser);
-                ewClient.TaskDeleteALL("OA", docId);
+                ewClient.TaskDeleteALL("OA", docId, receiveUser);
             }
         }
 
