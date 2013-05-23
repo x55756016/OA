@@ -30,6 +30,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region InitFBControl
         private void InitFBControl(T_OA_TRAVELREIMBURSEMENT Travel)
         {
+            if(OpenFrom=="FromMVC")return;//从mvc打卡，不使用预算科目
             InitFB = true;
             fbCtr.submitFBFormTypes = formType;//将FormType赋给FB
             //fbCtr.SetRemarkVisiblity(Visibility.Collapsed);//隐藏预算控件中的备注
@@ -94,6 +95,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         void fbCtr_InitDataComplete(object sender, FrameworkUI.FBControls.ChargeApplyControl.InitDataCompletedArgs e)
         {
+            if (OpenFrom == "FromMVC") return;
             if (e.Message != null && e.Message.Count() > 0)
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Message[0]);

@@ -1185,6 +1185,80 @@ namespace SMT.SaaS.OA.UI
             }
         }
 
+
+        /// <summary>
+        /// MVC工作计划创建出差报销
+        /// </summary>
+        /// <param name="FormID"></param>
+        /// <param name="FormName"></param>
+        public static void CreateFormFromMVC(string StrFormID, string StrFormName, string StrFormType)
+        {
+            //<?xml version="1.0" encoding="utf-8" ?><System><AssemblyName>SMT.SaaS.OA.UI</AssemblyName>
+            //<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>
+            //<ProcessName>CreateFormFromEngine</ProcessName>
+            //<PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>
+            //<ApplicationOrder>84c9919b-3265-4e79-bf9a-f4afe4b8f0fe</ApplicationOrder>
+            //<FormTypes>Edit</FormTypes></System>";
+            FormID = StrFormID;
+            FormName = StrFormName;
+            FormType = StrFormType;
+
+            ChecResource();
+            FormTypes CurrentAction = FormTypes.Audit;
+            if (!string.IsNullOrEmpty(FormType))
+            {
+                switch (FormType.ToUpper())
+                {
+                    case "AUDIT":
+                        CurrentAction = FormTypes.Audit;
+                        break;
+                    case "ADD":
+                        CurrentAction = FormTypes.New;
+                        break;
+                    case "EDIT":
+                        CurrentAction = FormTypes.Edit;
+                        break;
+                    case "VIEW":
+                        CurrentAction = FormTypes.Browse;
+                        break;
+                    case "RESUBMIT":
+                        CurrentAction = FormTypes.Resubmit;
+                        break;
+
+                }
+            }
+
+            Type t = Type.GetType(FormName);
+            Object[] parameters = new Object[3];    // 定义构造函数需要的参数
+            parameters[0] = CurrentAction;
+            parameters[1] = FormID;
+            parameters[2] = "FromMVC";
+
+            object form = Activator.CreateInstance(t, parameters);
+            if (form != null)
+            {
+                EntityBrowser entBrowser = new EntityBrowser(form);
+                entBrowser.FormType = CurrentAction;
+                if (FormName == "SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm"
+                    && CurrentAction != FormTypes.Resubmit)
+                {
+                    entBrowser.EntityBrowseToolBar.MaxHeight = 0;
+                }
+                entBrowser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { }, true, FormID);
+                //MessageBox.Show(entBrowser.FormType.ToString()+"  "+ FormName+" id:"+FormID);
+                if (FormName == "SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm")
+                {
+                    WindowsManager.MaxWindow(entBrowser.ParentWindow);
+                }
+                else
+                {
+                    //entBrowser.ParentWindow.Height = 900;
+                    //entBrowser.ParentWindow.Width = 900;
+                }
+            }
+        }
+
+
         private static void ChecResource()
         {
             if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
@@ -2044,6 +2118,24 @@ namespace SMT.SaaS.OA.UI
         }
 
         #endregion
+
+        /// <summary>
+        /// 在平台日志框上写日志
+        /// </summary>
+        /// <param name="message"></param>
+        public static void SetLog(string message)
+        {
+            SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(message);
+        }
+        /// <summary>
+        /// 在平台上写日志并显示日志框
+        /// </summary>
+        /// <param name="message"></param>
+        public static void SetLogAndShowLog(string message)
+        {
+            SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(message);
+            SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+        }
 
     }
 

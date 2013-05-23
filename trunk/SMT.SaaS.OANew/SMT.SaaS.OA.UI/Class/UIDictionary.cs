@@ -292,6 +292,8 @@ namespace SMT.SaaS.OA.UI
 
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(TravelapplicationPage), new List<string> { "CHECKSTATE", "CITY", "CHECKSTATE" }));
 
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(AreaSort), new List<string> { "CITY" }));
+
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(TravelRequestForm), new List<string> { "CHECKSTATE", "VICHILESTANDARD", "VICHILELEVEL", "PROVINCE", "CITY" }));
 
             //dicts.Add(new KeyValuePair<Type, List<string>>(typeof(TravelReimbursementPage), new List<string> { "CHECKSTATE", "CITY", "VICHILESTANDARD", "VICHILELEVEL" }));

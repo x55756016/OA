@@ -33,6 +33,24 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             //dataPager.PageIndexChanged += new EventHandler<EventArgs>(dataPager_PageIndexChanged);
             PARENT.Children.Add(loadbar);
             ToolBar.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
+            #region 初始值设置
+            searchParas = new ObservableCollection<object>();
+            DateTime dpEndDate = DateTime.Now.AddHours(23).AddMinutes(59);
+            System.Text.StringBuilder sbFilter = new System.Text.StringBuilder();  //查询过滤条件 
+            cndDateCanlendar.Text = DateTime.Now.AddDays(-7).ToShortDateString();//开始时间
+            EndDate.Text = DateTime.Now.ToShortDateString();//结束时间
+            DateTime dpStart = dpEndDate.AddDays(-7);//一个星期前开始 开始时间
+            if (sbFilter.Length != 0)
+            {
+                sbFilter.Append(" and ");
+            }
+            sbFilter.Append("PLANTIME>=@" + searchParas.Count().ToString());
+            searchParas.Add(dpStart);
+            sbFilter.Append(" and ");
+            sbFilter.Append(" PLANTIME <=@" + searchParas.Count().ToString());
+            searchParas.Add(dpEndDate);
+            filterString = sbFilter.ToString();
+            #endregion
             GetCalendarListSelectDate(System.DateTime.Now, dataPager.PageIndex, filterString, searchParas, "CREATEDATE descending");
             this.Loaded += new RoutedEventHandler(FrmCalendarManagement_Loaded);
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
@@ -390,6 +408,16 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("PERIODSTARTDATECANNOTBEEMPTY"));
                 return;
             }
+            //创建者
+            if (!string.IsNullOrEmpty(txtOwnerName.Text))
+            {
+                if (sbFilter.Length != 0)
+                {
+                    sbFilter.Append(" and ");
+                }
+                sbFilter.Append("CREATEUSERNAME==@" + searchParas.Count().ToString());
+                searchParas.Add(txtOwnerName.Text);
+            }
             if (cmbStyle.SelectedIndex > -1)
             {
                 string alarmFlag = null;
@@ -426,6 +454,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         {
             cndDateCanlendar.Text = string.Empty;
             EndDate.Text = string.Empty;
+            txtOwnerName.Text = string.Empty;
             filterString = null;
             searchParas = null;
             GetCalendarListSelectDate(System.DateTime.Now, dataPager.PageIndex, filterString, searchParas, "CREATEDATE descending");
@@ -465,7 +494,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         private void dateTimeSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox dateTimeSearch = Utility.FindChildControl<ComboBox>(controlsToolkitTUV, "dateTimeSearch");
-            DateTime dpEndDate = DateTime.Now.AddHours(23).AddMinutes(59);
+            DateTime dpEndDate = DateTime.Now;
             System.Text.StringBuilder sbFilter = new System.Text.StringBuilder();  //查询过滤条件 
             searchParas = new ObservableCollection<object>();
             filterString = null;
@@ -484,7 +513,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                             sbFilter.Append(" and ");
                         }
                         sbFilter.Append("PLANTIME>=@" + searchParas.Count().ToString());
-                        DateTime dpStart = dpEndDate.AddDays(-7);//一个星期前开始
+                        DateTime dpStart = dpEndDate.AddDays(-7).AddHours(23).AddMinutes(-58);//一个星期前开始
                         searchParas.Add(dpStart);
                         sbFilter.Append(" and ");
                         sbFilter.Append(" PLANTIME <=@" + searchParas.Count().ToString());
@@ -500,14 +529,13 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                             sbFilter.Append(" and ");
                         }
                         sbFilter.Append("PLANTIME>=@" + searchParas.Count().ToString());
-                        DateTime dpStart = dpEndDate.AddMonths(-1);//一个月前开始
+                        DateTime dpStart = dpEndDate.AddMonths(-1).AddHours(-23).AddMinutes(-58);//一个月前开始
                         searchParas.Add(dpStart);
                         sbFilter.Append(" and ");
                         sbFilter.Append(" PLANTIME <=@" + searchParas.Count().ToString());
                         searchParas.Add(dpEndDate);
                         filterString = sbFilter.ToString();
                     }
-
                 }
             }
             else
@@ -524,9 +552,60 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                 sbFilter.Append(" and ");
                 sbFilter.Append(" PLANTIME <=@" + searchParas.Count().ToString());
                 searchParas.Add(dpEndDate);
-                filterString = sbFilter.ToString();
+                //filterString = sbFilter.ToString();
             }
+            //创建者
+            if (!string.IsNullOrEmpty(txtOwnerName.Text))
+            {
+                if (sbFilter.Length != 0)
+                {
+                    sbFilter.Append(" and ");
+                }
+                sbFilter.Append("CREATEUSERNAME==@" + searchParas.Count().ToString());
+                searchParas.Add(txtOwnerName.Text);
+            }
+            if (cmbStyle.SelectedIndex > -1)
+            {
+                string alarmFlag = null;
+                switch (cmbStyle.SelectedIndex)
+                {
+                    case 0:
+                        alarmFlag = "NOTHING";//一次提醒
+                        break;
+                    case 1:
+                        alarmFlag = "DAY";//每天提醒
+                        break;
+                    case 2:
+                        alarmFlag = "WEEK";//每周提醒
+                        break;
+                    case 3:
+                        alarmFlag = "MONTH";//每月提醒
+                        break;
+                    case 4:
+                        alarmFlag = "YEAR";//每年提醒
+                        break;
+                }
+                if (sbFilter.Length != 0)
+                {
+                    sbFilter.Append(" and ");
+                }
+                sbFilter.Append("REPARTREMINDER==@" + searchParas.Count().ToString());
+                searchParas.Add(alarmFlag);
+            }
+            filterString = sbFilter.ToString();
             GetCalendarListSelectDate(System.DateTime.Now, dataPager.PageIndex, filterString, searchParas, "CREATEDATE descending");
+        }
+
+        /// <summary>
+        /// 重置，清空
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            txtOwnerName.Text = string.Empty;
+            cndDateCanlendar.Text = string.Empty;
+            EndDate.Text = string.Empty;
         }
 
     }

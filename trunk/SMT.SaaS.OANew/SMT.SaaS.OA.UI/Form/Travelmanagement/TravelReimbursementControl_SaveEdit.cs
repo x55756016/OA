@@ -226,11 +226,14 @@ namespace SMT.SaaS.OA.UI.UserControls
                 this.txtRemark.Focus();
                 return false;
             }
-            if (string.IsNullOrEmpty(txtPAYMENTINFO.Text))//支付信息
+            if (OpenFrom != "FromMVC")
             {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "支付信息不能为空，请重新填写", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return false;
+                if (string.IsNullOrEmpty(txtPAYMENTINFO.Text))//支付信息
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "支付信息不能为空，请重新填写", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return false;
+                }
             }
 
             List<SMT.SaaS.FrameworkUI.Validator.ValidatorBase> validators = Group1.ValidateAll();
@@ -338,15 +341,23 @@ namespace SMT.SaaS.OA.UI.UserControls
                     //字段赋值
                     SetTraveAndFBChargeValue();
 
-                    if (TravelReimbursement_Golbal.CHECKSTATE=="0"
-                        && TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0)
+                    if (OpenFrom == "FromMVC")
                     {
-                        fbCtr.Order.ORDERID = TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID;
-                        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit);//提交费用 
+                        OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
                     }
                     else
                     {
-                        OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
+
+                        if (TravelReimbursement_Golbal.CHECKSTATE == "0"
+                            && TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS > 0)
+                        {
+                            fbCtr.Order.ORDERID = TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID;
+                            fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit);//提交费用 
+                        }
+                        else
+                        {
+                            OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
+                        }
                     }
                 }
                 else

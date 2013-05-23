@@ -1053,30 +1053,38 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         /// <returns></returns>
         private T_OA_TAKETHESTANDARDTRANSPORT GetVehicleTypeValue(string TraveToolType)
         {
-            if (string.IsNullOrEmpty(TraveToolType))
+            try
             {
-                var q = from ent in transportToolStand
-                        where ent.ENDPOSTLEVEL.Contains(Master_Golbal.POSTLEVEL)
-                        select ent;
-                q = q.OrderBy(n => n.TYPEOFTRAVELTOOLS);
-                if (q.Count() > 0)
+                if (string.IsNullOrEmpty(TraveToolType))
                 {
-                    return q.FirstOrDefault();
+                    var q = from ent in transportToolStand
+                            where ent.ENDPOSTLEVEL.Contains(Master_Golbal.POSTLEVEL)
+                            select ent;
+                    q = q.OrderBy(n => n.TYPEOFTRAVELTOOLS);
+                    if (q.Count() > 0)
+                    {
+                        return q.FirstOrDefault();
+                    }
                 }
-            }
-            else
-            {
-                var q = from ent in transportToolStand
-                        where ent.ENDPOSTLEVEL.Contains(Master_Golbal.POSTLEVEL) && ent.TYPEOFTRAVELTOOLS == TraveToolType
-                        orderby ent.TAKETHETOOLLEVEL ascending
-                        select ent;
+                else
+                {
+                    var q = from ent in transportToolStand
+                            where ent.ENDPOSTLEVEL.Contains(Master_Golbal.POSTLEVEL) && ent.TYPEOFTRAVELTOOLS == TraveToolType
+                            orderby ent.TAKETHETOOLLEVEL ascending
+                            select ent;
 
-                if (q.Count() > 0)
-                {
-                    return q.FirstOrDefault();
+                    if (q.Count() > 0)
+                    {
+                        return q.FirstOrDefault();
+                    }
                 }
+                return null;
             }
-            return null;
+            catch (Exception ex)
+            {
+                Utility.SetLogAndShowLog(ex.ToString());
+                return new T_OA_TAKETHESTANDARDTRANSPORT();
+            }
         }
 
         /// <summary>

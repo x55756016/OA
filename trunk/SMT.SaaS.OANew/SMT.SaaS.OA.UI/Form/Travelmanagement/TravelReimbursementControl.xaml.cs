@@ -21,12 +21,14 @@ using SMT.SaaS.OA.UI.TravelExpApplyMaster;
 using SMT.Saas.Tools.FBServiceWS;
 using SMT.SAAS.Platform.Logging;
 using SMT.SaaS.MobileXml;
+using System.Windows.Browser;
 
 namespace SMT.SaaS.OA.UI.UserControls
 {
     public partial class TravelReimbursementControl : BaseForm, IClient, IEntityEditor, IAudit
     {
         #region 全局变量
+        public string OpenFrom = string.Empty;
         private SmtOAPersonOfficeClient OaPersonOfficeClient;
         //private PersonnelServiceClient HrPersonnelclient;
         private OaInterfaceClient OaInterfaceClient;//预算费用报销单号使用
@@ -182,6 +184,18 @@ namespace SMT.SaaS.OA.UI.UserControls
                     OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
                     Utility.InitFileLoad("TravelReimbursement", travelReimbursementID, formType, uploadFile);
                 }
+            }
+            if (OpenFrom == "FromMVC")
+            {
+                fbCtr.Visibility = Visibility.Collapsed;
+                lblFees.Visibility = Visibility.Collapsed;
+                fbChkBox.Visibility = Visibility.Collapsed;
+                this.FormToolBar1.Visibility = Visibility.Collapsed;
+                hide();
+                //RegisterOnBeforeUnload();
+                //HtmlPage.RegisterScriptableObject 方法 
+                //注册托管对象以便用于通过 JavaScript 代码的可脚本化访问。
+                HtmlPage.RegisterScriptableObject("TravelReimbursement", this);
             }
         }
 

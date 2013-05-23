@@ -38,7 +38,24 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             PARENT.Children.Add(loadbar);
             ToolBar.btnOutExcel.Click += new RoutedEventHandler(btnOutExcel_Click);
             ToolBar.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
-
+            #region 初始值设置
+            DateTime dpEnd = DateTime.Now.AddHours(23).AddMinutes(59);
+            StringBuilder sbFilter = new StringBuilder();  //查询过滤条件 
+            dpDate.Text = DateTime.Now.AddDays(-7).ToShortDateString();
+            dpEndDate.Text = DateTime.Now.ToShortDateString();
+            paras = new ObservableCollection<object>();
+            if (sbFilter.Length != 0)
+            {
+                sbFilter.Append(" and ");
+            }
+            sbFilter.Append("PLANTIME >= @" + paras.Count().ToString());
+            DateTime dpStart = dpEnd.AddDays(-7);//一个星期前开始
+            paras.Add(dpStart);
+            sbFilter.Append(" and ");
+            sbFilter.Append(" PLANTIME <= @" + paras.Count().ToString());
+            paras.Add(dpEnd);
+            filterString = sbFilter.ToString();
+            #endregion
             ShowWorkerCordList(dataPager.PageIndex, filterString, paras);
 
             this.Loaded += new RoutedEventHandler(FrmWorkerCordManagement_Loaded);
@@ -423,7 +440,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         {
             ComboBox dateTimeSearch = Utility.FindChildControl<ComboBox>(controlsToolkitTUV, "dateTimeSearch");
             filterString = null;
-            DateTime dpEnd = DateTime.Now.AddHours(23).AddMinutes(59);
+            DateTime dpEnd = DateTime.Now;
             StringBuilder sbFilter = new StringBuilder();  //查询过滤条件 
             paras = new ObservableCollection<object>();
 
@@ -442,7 +459,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                             sbFilter.Append(" and ");
                         }
                         sbFilter.Append("PLANTIME>=@" + paras.Count().ToString());
-                        DateTime dpStart = dpEnd.AddDays(-7);//一个星期前开始
+                        DateTime dpStart = dpEnd.AddDays(-7).AddHours(23).AddMinutes(-58);//一个星期前开始
                         paras.Add(dpStart);
                         sbFilter.Append(" and ");
                         sbFilter.Append(" PLANTIME <=@" + paras.Count().ToString());
@@ -458,7 +475,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                             sbFilter.Append(" and ");
                         }
                         sbFilter.Append("PLANTIME>=@" + paras.Count().ToString());
-                        DateTime dpStart = dpEnd.AddMonths(-1);//一个月前开始
+                        DateTime dpStart = dpEnd.AddMonths(-1).AddHours(-23).AddMinutes(-58);//一个月前开始
                         paras.Add(dpStart);
                         sbFilter.Append(" and ");
                         sbFilter.Append(" PLANTIME <=@" + paras.Count().ToString());
@@ -472,7 +489,6 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             {
                 dpDate.Text = DateTime.Now.AddDays(-7).ToShortDateString();
                 dpEndDate.Text = DateTime.Now.ToShortDateString();
-                paras = new ObservableCollection<object>();
                 if (sbFilter.Length != 0)
                 {
                     sbFilter.Append(" and ");
@@ -486,6 +502,17 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                 filterString = sbFilter.ToString();
             }
             ShowWorkerCordList(dataPager.PageIndex, filterString, paras);
+        }
+
+        /// <summary>
+        /// 重置，情况
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            dpDate.Text = string.Empty;
+            dpEndDate.Text = string.Empty;
         }
     }
 }

@@ -88,6 +88,7 @@ namespace SMT.SaaS.OA.BLL
                 string businesstripId = AddTravelReimbursement.T_OA_BUSINESSTRIP.BUSINESSTRIPID;
                 Tracer.Debug("添加出差申请ID为" + AddTravelReimbursement.T_OA_BUSINESSTRIP.BUSINESSTRIPID + "的出差报销" + AddTravelReimbursement.TRAVELREIMBURSEMENTID);
                 AddTravelReimbursement.CREATEDATE = DateTime.Now;
+                AddTravelReimbursement.UPDATEDATE = DateTime.Now;
                 Utility.RefreshEntity(AddTravelReimbursement);
 
                 bool isExist = CheckTravelReimbursementByBusinesstrip(businesstripId);
@@ -95,8 +96,6 @@ namespace SMT.SaaS.OA.BLL
                 if (!isExist)
                 {
                     travelAdd = Add(AddTravelReimbursement);
-
-
                     //再添加子表数据
                     foreach (var addDetails in portDetail)
                     {
