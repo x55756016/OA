@@ -739,16 +739,9 @@ namespace SMT.HRM.BLL
                 if (entity != null)
                 {
                     #region  启动处理考勤异常的线程
-
-                    string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
-
-                    Tracer.Debug(" 出差消除异常开始，出差开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                      + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-
+                    //出差消除异常
+                    string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();                    
                     DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, attState);
-
-                    Tracer.Debug(" 出差消除异常结束，出差开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                       + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss"));
 
                     #endregion
                 }
@@ -762,15 +755,9 @@ namespace SMT.HRM.BLL
                 {
                     foreach (T_HR_EMPLOYEELEAVERECORD ent in entLeaveRdList)
                     {
+                        //请假消除异常
                         string attState = (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString();
-
-                        Tracer.Debug(" 请假消除异常开始，请假开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                       + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-
                         DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATETIME.Value, ent.ENDDATETIME.Value, attState);
-
-                        Tracer.Debug(" 请假消除异常结束，请假开始时间:" + ent.STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                           + " 结束时间：" + ent.ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm:ss"));
                     }
                 }
             }
@@ -2049,12 +2036,29 @@ namespace SMT.HRM.BLL
         /// <param name="dtLeveEnd">结束时间长日期格式2013/2/16 8:30:00</param>
         public void DealEmployeeAbnormRecord(string EMPLOYEEID, DateTime datLevestart, DateTime dtLeveEnd, string attState)
         {
+            var emp = (from em in dal.GetObjects<T_HR_EMPLOYEE>()
+                      where em.EMPLOYEEID == EMPLOYEEID
+                      select em.EMPLOYEEENAME).FirstOrDefault();
+
+            string dealType ="员工：" +emp+" 请假消除异常,"+ "时间区间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                    + "----" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss");
+
+            if (attState == (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString())
+            {
+                dealType = "员工：" + emp + " 出差消除异常," + "时间区间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                    + "----" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss");
+            }
+
+            Tracer.Debug(dealType+" 开始");
+
             DateTime dtStart = new DateTime(datLevestart.Year,datLevestart.Month,datLevestart.Day);
             DateTime dtEnd = new DateTime(dtLeveEnd.Year, dtLeveEnd.Month, dtLeveEnd.Day);
 
             DateTime dtAtt = new DateTime();
             int iDate = 0;
-           
+
+
+            #region 判断是否要初始化考勤
             while (dtAtt<dtEnd)
             {
                 dtAtt = dtStart.AddDays(iDate);
@@ -2065,27 +2069,27 @@ namespace SMT.HRM.BLL
                                                            select r;               
                 if (entArs.Count() < 1)
                 {
-                    Tracer.Debug("没有考勤初始化记录，开始初始化考勤记录：" + dtAtt.ToString("yyyy-MM-dd"));
                     string dtInit = datLevestart.Year.ToString() + "-" + datLevestart.Month.ToString();
                     try
                     {
-                        Tracer.Debug("请假或出差消除异常没有查到考勤初始化数据，请假开始时间:" + dtStart.ToString("yyyy-MM-dd HH:mm:ss")
-                                 + " 结束时间：" + dtEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，开始初始化员工考勤：" + dtInit);
+                        Tracer.Debug(dealType+" 没有查到考勤初始化数据，开始初始化员工考勤：" + dtInit);
                         AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
                         //初始化该员工当月考勤记录
                         bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", EMPLOYEEID, dtInit);
                         
-                        Tracer.Debug("请假或出差消除异常没有查到考勤初始化数据，初始化员工考勤成功，初始化月份：" + dtInit);
+                        Tracer.Debug(dealType+" 初始化员工考勤成功，初始化月份：" + dtInit);
                         break;
                     }
                     catch (Exception ex)
                     {
-                        Tracer.Debug(" 请假或出差消除异常初始化考勤失败：月份：" + dtInit + "失败原因：" + ex.ToString());
+                        Tracer.Debug(dealType+" 初始化考勤失败：月份：" + dtInit + "失败原因：" + ex.ToString());
                         return;
                     }
                 }
             }
+            #endregion
 
+            #region 循环检查考勤初始化记录状态
 
             IQueryable<T_HR_ATTENDANCERECORD>  entAttAll = from r in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                                             where r.EMPLOYEEID == EMPLOYEEID
@@ -2107,33 +2111,34 @@ namespace SMT.HRM.BLL
                 i = entAbnormRecords.Count();
                 if (i == 0)
                 {
-                    Tracer.Debug("员工： " + item.EMPLOYEENAME + " 请假消除异常跳过，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
-                            + "，没有查到异常记录，异常类型" + strAbnormCategory);
+                    Tracer.Debug(dealType+" ，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
+                            + "，没有查到异常记录，修改考勤记录状态为：" + attState);
                     item.ATTENDANCESTATE = attState;
                     item.UPDATEDATE = DateTime.Now;
-                    item.REMARK = "请假或出差修改考勤状态";
+                    item.REMARK = dealType;
                     dal.Update(item);
                     continue;
                 }
                 try
                 {
-                    Tracer.Debug("员工： " + item.EMPLOYEENAME + " 请假或出差消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
-                         + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "，共检测到异常记录数共：" + i + "条记录" 
+                    Tracer.Debug(dealType + " 日期："+item.ATTENDANCEDATE.Value.ToShortDateString() + "，共检测到异常记录数共：" + i + "条记录" 
                          + "类型6为请假，4为出差：" + attState);
+
+                    #region 修改考勤记录状态
                     Dictionary<AttendPeriod, AttendanceState> thisDayAttendState = new Dictionary<AttendPeriod, AttendanceState>();//考勤时间段1上午，2中午，3下午 考勤异常状态 1 缺勤 2 请假
                     foreach (T_HR_EMPLOYEEABNORMRECORD AbnormRecorditem in entAbnormRecords.ToList())
                     {
                         //需根据请假时间判断是否要删除掉考勤异常
                         //DateTime datLevestart = entLeaveRecord.STARTDATETIME.Value;//长日期格式2013/2/16 8:30:00
                         //DateTime datLeveEnd = entLeaveRecord.ENDDATETIME.Value;//长日期格式2013/2/16 8:30:00
-
                         DateTime dtDateAbnorm = AbnormRecorditem.ABNORMALDATE.Value;//短日期格式2013/3/8
+
+                        #region 检查上班时间并修改考勤记录状态
                         var q = (from entsf in dal.GetObjects<T_HR_SHIFTDEFINE>()
                                  join ab in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                     on entsf.SHIFTDEFINEID equals ab.T_HR_SHIFTDEFINE.SHIFTDEFINEID
                                  where ab.ATTENDANCERECORDID == AbnormRecorditem.T_HR_ATTENDANCERECORD.ATTENDANCERECORDID
-                                 select entsf)
-                                 ;
+                                 select entsf);
                         if (q.Count() > 0)
                         {
                             T_HR_SHIFTDEFINE defineTime = q.FirstOrDefault();
@@ -2278,6 +2283,7 @@ namespace SMT.HRM.BLL
                         {
                             Tracer.Debug("请假消除异常，通过异常记录获取到考勤初始化记录但通过考勤初始化记录获取的考勤班次定义T_HR_SHIFTDEFINE为空");
                         }
+                        #endregion
                     }
                     if (thisDayAttendState.Count() > 0)//如果当天存在异常或请假情况
                     {   //如果当天存在请假，同时也存在异常
@@ -2292,7 +2298,7 @@ namespace SMT.HRM.BLL
                                 item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixTravelAbnormal) + 1).ToString();
                             }
                             item.UPDATEDATE = DateTime.Now;
-                            item.REMARK = "请假或出差修改考勤状态";
+                            item.REMARK = dealType;
                             dal.Update(item);
                         }
                         else if (thisDayAttendState.Values.Contains(AttendanceState.Leave) && !thisDayAttendState.Values.Contains(AttendanceState.Abnormal))
@@ -2302,17 +2308,21 @@ namespace SMT.HRM.BLL
                             bllSignInRd.ClearNoSignInRecord("T_HR_EMPLOYEEABNORMRECORD", item.EMPLOYEEID, entAbnormRecords);
                             item.ATTENDANCESTATE = attState;
                             item.UPDATEDATE = DateTime.Now;
-                            item.REMARK = "请假或出差修改考勤状态";
+                            item.REMARK = dealType;
                             dal.Update(item);
                         }
                     }
+                    #endregion
 
                 }
                 catch (Exception ex)
                 {
-                    Tracer.Debug("DealAbnormRecord 异常：" + ex.ToString());
+                    Tracer.Debug(dealType+" 异常：" + ex.ToString());
                 }
             }//for each T_HR_ATTENDANCERECORD End
+            #endregion
+
+            Tracer.Debug(dealType + " 结束!");
         }
 
 
