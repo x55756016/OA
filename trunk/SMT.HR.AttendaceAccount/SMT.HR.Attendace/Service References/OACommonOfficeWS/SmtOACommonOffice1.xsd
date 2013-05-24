@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+  <xs:complexType name="ArrayOfV_BumfCompanySendDoc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_BumfCompanySendDoc" nillable="true" type="tns:V_BumfCompanySendDoc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_BumfCompanySendDoc" nillable="true" type="tns:ArrayOfV_BumfCompanySendDoc" />
+  <xs:complexType name="V_BumfCompanySendDoc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OACompanySendDoc" nillable="true" type="q1:T_OA_SENDDOC" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="distrbuteuser" nillable="true" type="q2:T_OA_DISTRIBUTEUSER" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="doctype" nillable="true" type="q3:T_OA_SENDDOCTYPE" />
+      <xs:element minOccurs="0" name="flowApp" nillable="true" type="tns:V_FlowAPP" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="senddoc" nillable="true" type="q4:T_OA_SENDDOC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_BumfCompanySendDoc" nillable="true" type="tns:V_BumfCompanySendDoc" />
+  <xs:complexType name="V_FlowAPP">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EditUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EditUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_FlowAPP" nillable="true" type="tns:V_FlowAPP" />
+  <xs:complexType name="ArrayOfV_CompanyDocNum">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_CompanyDocNum" nillable="true" type="tns:V_CompanyDocNum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_CompanyDocNum" nillable="true" type="tns:ArrayOfV_CompanyDocNum" />
+  <xs:complexType name="V_CompanyDocNum">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_CompanyDocNum" nillable="true" type="tns:V_CompanyDocNum" />
+  <xs:complexType name="ArrayOfV_MyMeetingInfosManagement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_MyMeetingInfosManagement" nillable="true" type="tns:V_MyMeetingInfosManagement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_MyMeetingInfosManagement" nillable="true" type="tns:ArrayOfV_MyMeetingInfosManagement" />
+  <xs:complexType name="V_MyMeetingInfosManagement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OAMeetingContentT" nillable="true" type="q5:T_OA_MEETINGCONTENT" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OAMeetingInfoT" nillable="true" type="q6:T_OA_MEETINGINFO" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OAMeetingStaffT" nillable="true" type="q7:T_OA_MEETINGSTAFF" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingroom" nillable="true" type="q8:T_OA_MEETINGROOM" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingtype" nillable="true" type="q9:T_OA_MEETINGTYPE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_MyMeetingInfosManagement" nillable="true" type="tns:V_MyMeetingInfosManagement" />
+  <xs:complexType name="ArrayOfV_MeetingRoomApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_MeetingRoomApp" nillable="true" type="tns:V_MeetingRoomApp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_MeetingRoomApp" nillable="true" type="tns:ArrayOfV_MeetingRoomApp" />
+  <xs:complexType name="V_MeetingRoomApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flowApp" nillable="true" type="tns:V_FlowAPP" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="room" nillable="true" type="q10:T_OA_MEETINGROOM" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="roomapp" nillable="true" type="q11:T_OA_MEETINGROOMAPP" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_MeetingRoomApp" nillable="true" type="tns:V_MeetingRoomApp" />
+  <xs:complexType name="V_MeetingInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flowApp" nillable="true" type="tns:V_FlowAPP" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetinginfo" nillable="true" type="q12:T_OA_MEETINGINFO" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingmessage" nillable="true" type="q13:T_OA_MEETINGMESSAGE" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingroom" nillable="true" type="q14:T_OA_MEETINGROOM" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="meetingtype" nillable="true" type="q15:T_OA_MEETINGTYPE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_MeetingInfo" nillable="true" type="tns:V_MeetingInfo" />
+  <xs:complexType name="ArrayOfV_MeetingInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_MeetingInfo" nillable="true" type="tns:V_MeetingInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_MeetingInfo" nillable="true" type="tns:ArrayOfV_MeetingInfo" />
+</xs:schema>

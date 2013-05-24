@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C3AA11D5-F525-4FB9-9274-60F8C5F4B69C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AttendaceAccount</RootNamespace>
+    <AssemblyName>协同办公工具</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SmtPortalSetup.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient">
+      <HintPath>C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Data.OracleClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Employee.cs" />
+    <Compile Include="Form_First.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_First.Designer.cs">
+      <DependentUpon>Form_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OA\SendDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OA\SendDoc.Designer.cs">
+      <DependentUpon>SendDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OracleHelp.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Form_Second.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Second.Designer.cs">
+      <DependentUpon>Form_Second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendEmploee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendEmploee.Designer.cs">
+      <DependentUpon>AttendEmploee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AttendWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="AttendEmploeeBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendEmploeeBalance.Designer.cs">
+      <DependentUpon>AttendEmploeeBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendCompany.Designer.cs">
+      <DependentUpon>AttendCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryBalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryBalanceForm.Designer.cs">
+      <DependentUpon>SalaryBalanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OACommonOfficeWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OrgWs\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SalaryWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="打卡机导入打卡记录\AttendLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="打卡机导入打卡记录\AttendLog.Designer.cs">
+      <DependentUpon>AttendLog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form_First.resx">
+      <DependentUpon>Form_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OA\SendDoc.resx">
+      <DependentUpon>SendDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Form_Second.resx">
+      <DependentUpon>Form_Second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendEmploee.resx">
+      <DependentUpon>AttendEmploee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendEmploeeBalance.resx">
+      <DependentUpon>AttendEmploeeBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendCompany.resx">
+      <DependentUpon>AttendCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryBalanceForm.resx">
+      <DependentUpon>SalaryBalanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="打卡机导入打卡记录\AttendLog.resx">
+      <DependentUpon>AttendLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.AbnormalAttendanceeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_LEAVETYPESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.T_HR_VACATIONSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_ADJUSTLEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_ATTENDANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_EmpLeaveRdInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_EMPLOYEELEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_LandDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_LandStatistic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService.wsdl" />
+    <None Include="Service References\AttendWS\AttendanceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService1.wsdl" />
+    <None Include="Service References\AttendWS\AttendanceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendWS\AttendanceService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_AGENTDATESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_AGENTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_DISTRIBUTEUSER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_GRADED.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_MEETINGCONTENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_MEETINGINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_MEETINGMESSAGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_MEETINGROOM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_MEETINGROOMAPP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_MEETINGSTAFF.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_MEETINGTEMPLATE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_MEETINGTYPE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_PRIORITIES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_SENDDOC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_SENDDOCTEMPLATE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_SENDDOCTYPE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.V_BumfCompanySendDoc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.V_CompanyDocNum.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.V_MeetingInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.V_MeetingRoomApp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.V_MyMeetingInfosManagement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice.wsdl" />
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice1.wsdl" />
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_COMPANY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_COMPANYHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_DEPARTMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_DEPARTMENTDICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_DEPARTMENTHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_POST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_POSTDICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_POSTHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.V_ATTENDANCEDEDUCTMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.V_COMPANY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.V_DEPARTMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.V_DEPARTMENTSWITHCOMPANY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.V_POST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.V_RELATIONPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWs\OrganizationService.wsdl" />
+    <None Include="Service References\OrgWs\OrganizationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWs\OrganizationService1.wsdl" />
+    <None Include="Service References\OrgWs\OrganizationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWs\OrganizationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWs\OrganizationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWs\OrganizationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWs\OrganizationService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWs\OrganizationService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWs\OrganizationService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.DataSetData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_AREAALLOWANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_AREACITY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_AREADIFFERENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_CUSTOMGUERDON.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_CUSTOMGUERDONRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_CUSTOMGUERDONSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_EMPLOYEEADDSUM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_EMPLOYEESALARYRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_PERFORMANCEREWARDRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_PERFORMANCEREWARDSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_POSTLEVELDISTINCTION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYARCHIVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYLEVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYRECORDBATCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYSOLUTION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYSOLUTIONASSIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYSOLUTIONITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYSTANDARD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYSTANDARDITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYSYSTEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SALARYTAXES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.T_HR_SYSTEMSETTING.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_CUSTOMGUERDON.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_CUSTOMGUERDONARCHIVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_CUSTOMGUERDONARCHIVEHIS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_EmployeeAddsumView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_EmployeeDeductionMoney.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_EMPLOYEESALARYRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_EMPLOYEESALARYRECORDITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_MonthDeductionTax.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_PAYMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_RESIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_RETURNFBI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_SALARYARCHIVEITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_SALARYARCHIVEMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_SALARYARCHIVES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_salaryRecordDetailView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_SALARYSOLUTIONASSIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_SALARYSOLUTIONITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_SALARYSTANDARDITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\AttendaceAccount.SalaryWS.V_SalarySummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService2.wsdl" />
+    <None Include="Service References\SalaryWS\SalaryService21.wsdl" />
+    <None Include="Service References\SalaryWS\SalaryService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService81.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService82.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService83.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService84.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService85.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService86.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService87.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AttendWS\AttendanceService.disco" />
+    <None Include="Service References\AttendWS\configuration91.svcinfo" />
+    <None Include="Service References\AttendWS\configuration.svcinfo" />
+    <None Include="Service References\AttendWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SalaryWS\configuration91.svcinfo" />
+    <None Include="Service References\SalaryWS\configuration.svcinfo" />
+    <None Include="Service References\SalaryWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService1.disco" />
+    <None Include="Resources\top550.jpg" />
+    <None Include="Service References\OrgWs\OrganizationService.disco" />
+    <None Include="Service References\OrgWs\configuration91.svcinfo" />
+    <None Include="Service References\OrgWs\configuration.svcinfo" />
+    <None Include="Service References\OrgWs\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice.disco" />
+    <None Include="Service References\OACommonOfficeWS\configuration91.svcinfo" />
+    <None Include="Service References\OACommonOfficeWS\configuration.svcinfo" />
+    <None Include="Service References\OACommonOfficeWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SmtPortalSetup.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dll\ICSharpCode.SharpZipLib.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AttendWS\" />
+    <WCFMetadataStorage Include="Service References\OACommonOfficeWS\" />
+    <WCFMetadataStorage Include="Service References\OrgWs\" />
+    <WCFMetadataStorage Include="Service References\SalaryWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="zkemkeeper">
+      <Guid>{FE9DED34-E159-408E-8490-B720A5E632C7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d33587db-13fc-4121-944d-efbc377753db" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12168/SalaryService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SalaryService8.xsd" MetadataType="Schema" ID="2b2fa7c7-256b-47e0-858f-e47ed0b8642f" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SalaryService81.xsd" MetadataType="Schema" ID="0b72c67f-8938-4082-8ffa-d2755a637ba9" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SalaryService82.xsd" MetadataType="Schema" ID="39a8a4fc-9b90-460a-9c28-f4c3b51b18da" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SalaryService2.wsdl" MetadataType="Wsdl" ID="1a8a6418-17a2-4fa9-9d48-ff2c5dd3add9" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SalaryService21.wsdl" MetadataType="Wsdl" ID="ce62d887-1e37-4ff4-b78f-c7c2ab4e485b" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?wsdl" />
+    <MetadataFile FileName="SalaryService1.disco" MetadataType="Disco" ID="891c3ebe-aa10-47f6-a0e8-14878df78b62" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?disco" />
+    <MetadataFile FileName="SalaryService83.xsd" MetadataType="Schema" ID="de207f3a-e539-4d49-a746-9419925a11dd" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?xsd=xsd6" />
+    <MetadataFile FileName="SalaryService84.xsd" MetadataType="Schema" ID="73ac4ff9-16da-4a1b-8774-0ba234e5a7d0" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?xsd=xsd7" />
+    <MetadataFile FileName="SalaryService85.xsd" MetadataType="Schema" ID="94fee727-fd08-44f6-8732-540640469a13" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SalaryService86.xsd" MetadataType="Schema" ID="548ff6a8-aaff-4253-a5c8-1072aa79f93c" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SalaryService87.xsd" MetadataType="Schema" ID="e9663025-4c1b-4b78-98f7-c7cc1d41bd12" SourceId="1" SourceUrl="http://localhost:12168/SalaryService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

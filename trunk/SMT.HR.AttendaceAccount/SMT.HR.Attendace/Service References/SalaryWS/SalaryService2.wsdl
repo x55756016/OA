@@ -1,0 +1,2317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SalaryService_PerformanceRewardRecordAdd_InputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardRecordAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardRecordAdd_OutputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardRecordAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardRecordDelete_InputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardRecordDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardRecordDelete_OutputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardRecordDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPerformaceRewardByID_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformaceRewardByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPerformaceRewardByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformaceRewardByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPerformanceRewardRecordWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceRewardRecordWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPerformanceRewardRecordWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceRewardRecordWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionStandardAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionStandardAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionStandardAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionStandardAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionStandardDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionStandardDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionStandardDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionStandardDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionStandardWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionStandardWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionStandardWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionStandardWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSetPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSetPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSets_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSets" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSets_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryItemSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryItemSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryItemSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryItemSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FormulaTemplateAdd_InputMessage">
+    <wsdl:part name="parameters" element="FormulaTemplateAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FormulaTemplateAdd_OutputMessage">
+    <wsdl:part name="parameters" element="FormulaTemplateAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryItemSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalaryItemSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryItemSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryItemSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryItemSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalaryItemSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryItemSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryItemSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSetByStandardID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetByStandardID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSetByStandardID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetByStandardIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSetName_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetName" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemSetName_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemSetNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CheckCalItem_InputMessage">
+    <wsdl:part name="parameters" element="CheckCalItem" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CheckCalItem_OutputMessage">
+    <wsdl:part name="parameters" element="CheckCalItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExecuteSalaryItemSql_InputMessage">
+    <wsdl:part name="parameters" element="ExecuteSalaryItemSql" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExecuteSalaryItemSql_OutputMessage">
+    <wsdl:part name="parameters" element="ExecuteSalaryItemSqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItemPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItemPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItemsViewByStandarID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemsViewByStandarID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItemsViewByStandarID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemsViewByStandarIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItems_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItems" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItems_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardItemAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardItemAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardItemAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardItemAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardItemUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardItemUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardItemUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardItemUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardItemDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardItemDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardItemDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardItemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItemByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItemByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItemsByStandardID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemsByStandardID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardItemsByStandardID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardItemsByStandardIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeSalaryRecordItemByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSalaryRecordItemByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeSalaryRecordItemByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSalaryRecordItemByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordItemDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordItemDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordItemDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordItemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryItemByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryItemByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CheckSalaryTaxes_InputMessage">
+    <wsdl:part name="parameters" element="CheckSalaryTaxes" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CheckSalaryTaxes_OutputMessage">
+    <wsdl:part name="parameters" element="CheckSalaryTaxesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryTaxesBySolutionID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryTaxesBySolutionID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryTaxesBySolutionID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryTaxesBySolutionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryTaxesAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryTaxesAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryTaxesAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryTaxesAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryTaxesUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalaryTaxesUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryTaxesUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryTaxesUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryTaxesDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalaryTaxesDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryTaxesDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryTaxesDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryTaxesWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryTaxesWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryTaxesWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryTaxesWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionItemsBySolutionID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionItemsBySolutionID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionItemsBySolutionID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionItemsBySolutionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionItemAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionItemAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionItemAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionItemAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionItemsAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionItemsAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionItemsAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionItemsAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionItemsDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionItemsDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionItemsDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionItemsDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionItemBysolutionItemID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionItemBysolutionItemID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionItemBysolutionItemID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionItemBysolutionItemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionItemUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionItemUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionItemUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionItemUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionItemsWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionItemsWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionItemsWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionItemsWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySystemByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySystemByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySystemByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySystemByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySystemAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalarySystemAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySystemAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySystemAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySystemUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalarySystemUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySystemUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySystemUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySystemDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalarySystemDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySystemDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySystemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySystemWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySystemWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySystemWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySystemWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_LoginCheck_InputMessage">
+    <wsdl:part name="parameters" element="LoginCheck" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_LoginCheck_OutputMessage">
+    <wsdl:part name="parameters" element="LoginCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryPassword_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryPassword" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryPassword_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AddSystemParamSet_InputMessage">
+    <wsdl:part name="parameters" element="AddSystemParamSet" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AddSystemParamSet_OutputMessage">
+    <wsdl:part name="parameters" element="AddSystemParamSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSystemParamSet_InputMessage">
+    <wsdl:part name="parameters" element="GetSystemParamSet" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSystemParamSet_OutputMessage">
+    <wsdl:part name="parameters" element="GetSystemParamSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSystemParamSetByType_InputMessage">
+    <wsdl:part name="parameters" element="GetSystemParamSetByType" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSystemParamSetByType_OutputMessage">
+    <wsdl:part name="parameters" element="GetSystemParamSetByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSystemParamSetPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSystemParamSetPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSystemParamSetPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSystemParamSetPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SystemParamSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SystemParamSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SystemParamSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SystemParamSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SystemParamSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="SystemParamSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SystemParamSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SystemParamSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AddSalaryPassword_InputMessage">
+    <wsdl:part name="parameters" element="AddSalaryPassword" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AddSalaryPassword_OutputMessage">
+    <wsdl:part name="parameters" element="AddSalaryPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetMonthDeductionTaxs_InputMessage">
+    <wsdl:part name="parameters" element="GetMonthDeductionTaxs" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetMonthDeductionTaxs_OutputMessage">
+    <wsdl:part name="parameters" element="GetMonthDeductionTaxsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeDeductionMoney_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDeductionMoney" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeDeductionMoney_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDeductionMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySummary_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySummary" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySummary_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CreateEmployeeSalaryArchiveItems_InputMessage">
+    <wsdl:part name="parameters" element="CreateEmployeeSalaryArchiveItems" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CreateEmployeeSalaryArchiveItems_OutputMessage">
+    <wsdl:part name="parameters" element="CreateEmployeeSalaryArchiveItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportEmployeePensionReports_InputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeePensionReports" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportEmployeePensionReports_OutputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeePensionReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PayRemindByOrgID_InputMessage">
+    <wsdl:part name="parameters" element="PayRemindByOrgID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PayRemindByOrgID_OutputMessage">
+    <wsdl:part name="parameters" element="PayRemindByOrgIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AssignPersonMoney_InputMessage">
+    <wsdl:part name="parameters" element="AssignPersonMoney" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AssignPersonMoney_OutputMessage">
+    <wsdl:part name="parameters" element="AssignPersonMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryRecordBatchByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryRecordBatchByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryRecordBatchByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryRecordBatchByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CheckSalaryAuditState_InputMessage">
+    <wsdl:part name="parameters" element="CheckSalaryAuditState" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CheckSalaryAuditState_OutputMessage">
+    <wsdl:part name="parameters" element="CheckSalaryAuditStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordBatchAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordBatchAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordBatchAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordBatchAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordBatchUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordBatchUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordBatchUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordBatchUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordBatchDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordBatchDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordBatchDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordBatchDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumADD_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumADD" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumADD_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumADDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetResign_InputMessage">
+    <wsdl:part name="parameters" element="GetResign" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetResign_OutputMessage">
+    <wsdl:part name="parameters" element="GetResignResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumLotsofADD_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumLotsofADD" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumLotsofADD_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumLotsofADDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumByEmployeeIDDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumByEmployeeIDDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumByEmployeeIDDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumByEmployeeIDDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumViewByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumViewByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumViewByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumViewByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumAuditPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumAuditPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumAuditPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumAuditPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumBatchByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumBatchByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeAddSumBatchByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAddSumBatchByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumBatchAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumBatchAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumBatchAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumBatchAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumBatchUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumBatchUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumBatchUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumBatchUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumBatchDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumBatchDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeAddSumBatchDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddSumBatchDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonSetPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonSetPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonSetPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonSetPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonSetByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonSetName_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonSetName" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonSetName_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonSetNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonAdd_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonAdd_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonDelete_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonDelete_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdon_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdon" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdon_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonByID_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonRecordPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonRecordPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeCustomRecordOne_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeCustomRecordOne" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeCustomRecordOne_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeCustomRecordOneResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecord_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecord" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecord_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecordAccount_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordAccount" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecordAccount_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecordAdd_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecordAdd_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecordDelete_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonRecordDelete_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonRecordDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPerformanceRewardSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceRewardSetByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPerformanceRewardSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceRewardSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPerformanceRewardSetWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceRewardSetWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPerformanceRewardSetWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceRewardSetWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonArchiveWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonArchiveWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonArchiveWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonArchiveWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonArchiveByArchiveID_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonArchiveByArchiveID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonArchiveByArchiveID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonArchiveByArchiveIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonArchiveAdd_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonArchiveAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonArchiveAdd_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonArchiveAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonArchiveUpdate_InputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonArchiveUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CustomGuerdonArchiveUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="CustomGuerdonArchiveUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PaymentUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PaymentUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PaymentUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PaymentUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PaymentConfirmUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PaymentConfirmUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PaymentConfirmUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PaymentConfirmUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryRecordOne_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryRecordOne" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryRecordOne_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryRecordOneResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SaveFile_InputMessage">
+    <wsdl:part name="parameters" element="SaveFile" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SaveFile_OutputMessage">
+    <wsdl:part name="parameters" element="SaveFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ImportExcel_InputMessage">
+    <wsdl:part name="parameters" element="ImportExcel" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ImportExcel_OutputMessage">
+    <wsdl:part name="parameters" element="ImportExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ReadExcel_InputMessage">
+    <wsdl:part name="parameters" element="ReadExcel" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ReadExcel_OutputMessage">
+    <wsdl:part name="parameters" element="ReadExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportExcelAll_InputMessage">
+    <wsdl:part name="parameters" element="ExportExcelAll" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportExcelAll_OutputMessage">
+    <wsdl:part name="parameters" element="ExportExcelAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportExcel_InputMessage">
+    <wsdl:part name="parameters" element="ExportExcel" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportExcel_OutputMessage">
+    <wsdl:part name="parameters" element="ExportExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportSalaryExcel_InputMessage">
+    <wsdl:part name="parameters" element="ExportSalaryExcel" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportSalaryExcel_OutputMessage">
+    <wsdl:part name="parameters" element="ExportSalaryExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportSalarySummary_InputMessage">
+    <wsdl:part name="parameters" element="ExportSalarySummary" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportSalarySummary_OutputMessage">
+    <wsdl:part name="parameters" element="ExportSalarySummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportEmployeeDeductionMoney_InputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeDeductionMoney" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportEmployeeDeductionMoney_OutputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeDeductionMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportMonthDeductionTaxs_InputMessage">
+    <wsdl:part name="parameters" element="ExportMonthDeductionTaxs" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportMonthDeductionTaxs_OutputMessage">
+    <wsdl:part name="parameters" element="ExportMonthDeductionTaxsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPaymentPagings_InputMessage">
+    <wsdl:part name="parameters" element="GetPaymentPagings" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPaymentPagings_OutputMessage">
+    <wsdl:part name="parameters" element="GetPaymentPagingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPaymentPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetPaymentPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPaymentPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetPaymentPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaAllowanceADD_InputMessage">
+    <wsdl:part name="parameters" element="AreaAllowanceADD" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaAllowanceADD_OutputMessage">
+    <wsdl:part name="parameters" element="AreaAllowanceADDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaAllowanceUpdate_InputMessage">
+    <wsdl:part name="parameters" element="AreaAllowanceUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaAllowanceUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="AreaAllowanceUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaAllowance_InputMessage">
+    <wsdl:part name="parameters" element="AreaAllowance" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaAllowance_OutputMessage">
+    <wsdl:part name="parameters" element="AreaAllowanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaAllowanceDelete_InputMessage">
+    <wsdl:part name="parameters" element="AreaAllowanceDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaAllowanceDelete_OutputMessage">
+    <wsdl:part name="parameters" element="AreaAllowanceDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaAllowanceByAreaID_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaAllowanceByAreaID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaAllowanceByAreaID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaAllowanceByAreaIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaAllowanceByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaAllowanceByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaAllowanceByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaAllowanceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaCategory_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaCategory" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaCategory_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaCityByCategory_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaCityByCategory" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaCityByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaCityByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityAdd_InputMessage">
+    <wsdl:part name="parameters" element="AreaCityAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityAdd_OutputMessage">
+    <wsdl:part name="parameters" element="AreaCityAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityCheck_InputMessage">
+    <wsdl:part name="parameters" element="AreaCityCheck" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityCheck_OutputMessage">
+    <wsdl:part name="parameters" element="AreaCityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityByCategoryDelete_InputMessage">
+    <wsdl:part name="parameters" element="AreaCityByCategoryDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityByCategoryDelete_OutputMessage">
+    <wsdl:part name="parameters" element="AreaCityByCategoryDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityLotsofAdd_InputMessage">
+    <wsdl:part name="parameters" element="AreaCityLotsofAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityLotsofAdd_OutputMessage">
+    <wsdl:part name="parameters" element="AreaCityLotsofAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityDelete_InputMessage">
+    <wsdl:part name="parameters" element="AreaCityDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCityDelete_OutputMessage">
+    <wsdl:part name="parameters" element="AreaCityDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaCategoryByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaCategoryByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaCategoryByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaCategoryByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCategoryUpdate_InputMessage">
+    <wsdl:part name="parameters" element="AreaCategoryUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCategoryUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="AreaCategoryUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCategoryADD_InputMessage">
+    <wsdl:part name="parameters" element="AreaCategoryADD" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCategoryADD_OutputMessage">
+    <wsdl:part name="parameters" element="AreaCategoryADDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCategoryDelete_InputMessage">
+    <wsdl:part name="parameters" element="AreaCategoryDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AreaCategoryDelete_OutputMessage">
+    <wsdl:part name="parameters" element="AreaCategoryDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaAllowanceWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaAllowanceWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaAllowanceWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaAllowanceWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaCityWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaCityWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaCityWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaCityWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionSameSearch_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionSameSearch" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionSameSearch_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionSameSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionEngineXml_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionEngineXml" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionEngineXml_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionEngineXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_TimingPay_InputMessage">
+    <wsdl:part name="parameters" element="TimingPay" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_TimingPay_OutputMessage">
+    <wsdl:part name="parameters" element="TimingPayResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CreateSalaryStandBatch_InputMessage">
+    <wsdl:part name="parameters" element="CreateSalaryStandBatch" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CreateSalaryStandBatch_OutputMessage">
+    <wsdl:part name="parameters" element="CreateSalaryStandBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetStandardByEmployeeIDAndSolutionID_InputMessage">
+    <wsdl:part name="parameters" element="GetStandardByEmployeeIDAndSolutionID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetStandardByEmployeeIDAndSolutionID_OutputMessage">
+    <wsdl:part name="parameters" element="GetStandardByEmployeeIDAndSolutionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetStandardByEmployeeIDAndSolutionIDAndSalarylevel_InputMessage">
+    <wsdl:part name="parameters" element="GetStandardByEmployeeIDAndSolutionIDAndSalarylevel" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetStandardByEmployeeIDAndSolutionIDAndSalarylevel_OutputMessage">
+    <wsdl:part name="parameters" element="GetStandardByEmployeeIDAndSolutionIDAndSalarylevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AddSalaryStanderAndItems_InputMessage">
+    <wsdl:part name="parameters" element="AddSalaryStanderAndItems" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AddSalaryStanderAndItems_OutputMessage">
+    <wsdl:part name="parameters" element="AddSalaryStanderAndItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryStandardDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryStandardDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryStandardPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryStandardPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAllPostLevelDistinction_InputMessage">
+    <wsdl:part name="parameters" element="GetAllPostLevelDistinction" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAllPostLevelDistinction_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllPostLevelDistinctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPostLevelDistinctionBySystemID_InputMessage">
+    <wsdl:part name="parameters" element="GetPostLevelDistinctionBySystemID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPostLevelDistinctionBySystemID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPostLevelDistinctionBySystemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPostLevelDistinctionByID_InputMessage">
+    <wsdl:part name="parameters" element="GetPostLevelDistinctionByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetPostLevelDistinctionByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPostLevelDistinctionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PostLevelDistinctionUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PostLevelDistinctionUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PostLevelDistinctionUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PostLevelDistinctionUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PostLevelDistinctionADD_InputMessage">
+    <wsdl:part name="parameters" element="PostLevelDistinctionADD" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PostLevelDistinctionADD_OutputMessage">
+    <wsdl:part name="parameters" element="PostLevelDistinctionADDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAllSalaryLevel_InputMessage">
+    <wsdl:part name="parameters" element="GetAllSalaryLevel" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAllSalaryLevel_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllSalaryLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryLevelBySystemID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryLevelBySystemID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryLevelBySystemID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryLevelBySystemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryLevelByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryLevelByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryLevelByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryLevelByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryLevelUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalaryLevelUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryLevelUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryLevelUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryLevelADD_InputMessage">
+    <wsdl:part name="parameters" element="SalaryLevelADD" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryLevelADD_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryLevelADDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GenerateSalaryLevel_InputMessage">
+    <wsdl:part name="parameters" element="GenerateSalaryLevel" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GenerateSalaryLevel_OutputMessage">
+    <wsdl:part name="parameters" element="GenerateSalaryLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryLevelPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryLevelPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryLevelPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryLevelPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionAssignPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionAssignPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionAssignPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionAssignPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionAssignAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionAssignAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionAssignAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionAssignAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionAssignUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionAssignUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionAssignUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionAssignUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionAssignByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionAssignByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionAssignByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionAssignByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionAssignViewByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionAssignViewByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalarySolutionAssignViewByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalarySolutionAssignViewByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionAssignDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionAssignDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalarySolutionAssignDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalarySolutionAssignDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveItemAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveItemAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveItemAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveItemAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CreateSalaryArchive_InputMessage">
+    <wsdl:part name="parameters" element="CreateSalaryArchive" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CreateSalaryArchive_OutputMessage">
+    <wsdl:part name="parameters" element="CreateSalaryArchiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetFixSalary_InputMessage">
+    <wsdl:part name="parameters" element="GetFixSalary" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetFixSalary_OutputMessage">
+    <wsdl:part name="parameters" element="GetFixSalaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetOldFixSalary_InputMessage">
+    <wsdl:part name="parameters" element="GetOldFixSalary" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetOldFixSalary_OutputMessage">
+    <wsdl:part name="parameters" element="GetOldFixSalaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveUpdateByEmployee_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveUpdateByEmployee" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveUpdateByEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveUpdateByEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveDeleteByMonth_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveDeleteByMonth" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveDeleteByMonth_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveDeleteByMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveDeleteByExpired_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveDeleteByExpired" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveDeleteByExpired_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveDeleteByExpiredResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveItemDelete_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveItemDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveItemDelete_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveItemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveItemUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveItemUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveItemUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveItemUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchivePaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchivePaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchivePaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchivePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveItemPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveItemPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveItemPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveItemPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveItemsByArchiveIDs_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveItemsByArchiveIDs" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveItemsByArchiveIDs_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveItemsByArchiveIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveItemViewByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveItemViewByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveItemViewByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveItemViewByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchivehisWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchivehisWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchivehisWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchivehisWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveHisAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveHisAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveHisAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveHisAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveHisItemAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveHisItemAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveHisItemAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveHisItemAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveHisItemsAdd_InputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveHisItemsAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryArchiveHisItemsAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryArchiveHisItemsAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveHisItemByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveHisItemByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryArchiveHisItemByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryArchiveHisItemByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonArchiveHisWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonArchiveHisWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetCustomGuerdonArchiveHisWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetCustomGuerdonArchiveHisWithPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryContrast_InputMessage">
+    <wsdl:part name="parameters" element="SalaryContrast" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryContrast_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryContrastResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryContrastAll_InputMessage">
+    <wsdl:part name="parameters" element="SalaryContrastAll" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryContrastAll_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryContrastAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeSalaryRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSalaryRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeSalaryRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSalaryRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordOrItemDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordOrItemDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordOrItemDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordOrItemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordDelete" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_EmployeeSalaryRecordDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSalaryRecordDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeSalaryRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSalaryRecordPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetEmployeeSalaryRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSalaryRecordPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GenerateSalaryRecord_InputMessage">
+    <wsdl:part name="parameters" element="GenerateSalaryRecord" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GenerateSalaryRecord_OutputMessage">
+    <wsdl:part name="parameters" element="GenerateSalaryRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordAccountCheck_InputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordAccountCheck" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordAccountCheck_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordAccountCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordAccount_InputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordAccount" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_SalaryRecordAccount_OutputMessage">
+    <wsdl:part name="parameters" element="SalaryRecordAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FBStatistics_InputMessage">
+    <wsdl:part name="parameters" element="FBStatistics" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FBStatistics_OutputMessage">
+    <wsdl:part name="parameters" element="FBStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FBStatisticsMass_InputMessage">
+    <wsdl:part name="parameters" element="FBStatisticsMass" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FBStatisticsMass_OutputMessage">
+    <wsdl:part name="parameters" element="FBStatisticsMassResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FBStatisticsMassByChoose_InputMessage">
+    <wsdl:part name="parameters" element="FBStatisticsMassByChoose" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FBStatisticsMassByChoose_OutputMessage">
+    <wsdl:part name="parameters" element="FBStatisticsMassByChooseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAutoEmployeeSalaryRecordPagings_InputMessage">
+    <wsdl:part name="parameters" element="GetAutoEmployeeSalaryRecordPagings" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAutoEmployeeSalaryRecordPagings_OutputMessage">
+    <wsdl:part name="parameters" element="GetAutoEmployeeSalaryRecordPagingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetMenuSignAutoEmployeeSalaryRecordPagings_InputMessage">
+    <wsdl:part name="parameters" element="GetMenuSignAutoEmployeeSalaryRecordPagings" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetMenuSignAutoEmployeeSalaryRecordPagings_OutputMessage">
+    <wsdl:part name="parameters" element="GetMenuSignAutoEmployeeSalaryRecordPagingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AutoCalItem_InputMessage">
+    <wsdl:part name="parameters" element="AutoCalItem" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_AutoCalItem_OutputMessage">
+    <wsdl:part name="parameters" element="AutoCalItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FilterStandard_InputMessage">
+    <wsdl:part name="parameters" element="FilterStandard" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_FilterStandard_OutputMessage">
+    <wsdl:part name="parameters" element="FilterStandardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_UndoRepayment_InputMessage">
+    <wsdl:part name="parameters" element="UndoRepayment" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_UndoRepayment_OutputMessage">
+    <wsdl:part name="parameters" element="UndoRepaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_UndoRepaymentMass_InputMessage">
+    <wsdl:part name="parameters" element="UndoRepaymentMass" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_UndoRepaymentMass_OutputMessage">
+    <wsdl:part name="parameters" element="UndoRepaymentMassResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryRecordAuditPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryRecordAuditPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryRecordAuditPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryRecordAuditPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetMassAuditSalaryRecordPagings_InputMessage">
+    <wsdl:part name="parameters" element="GetMassAuditSalaryRecordPagings" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetMassAuditSalaryRecordPagings_OutputMessage">
+    <wsdl:part name="parameters" element="GetMassAuditSalaryRecordPagingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAuditSalaryRecordsPagings_InputMessage">
+    <wsdl:part name="parameters" element="GetAuditSalaryRecordsPagings" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAuditSalaryRecordsPagings_OutputMessage">
+    <wsdl:part name="parameters" element="GetAuditSalaryRecordsPagingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAuditSalaryRecords_InputMessage">
+    <wsdl:part name="parameters" element="GetAuditSalaryRecords" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAuditSalaryRecords_OutputMessage">
+    <wsdl:part name="parameters" element="GetAuditSalaryRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryRecordAuditSum_InputMessage">
+    <wsdl:part name="parameters" element="GetSalaryRecordAuditSum" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetSalaryRecordAuditSum_OutputMessage">
+    <wsdl:part name="parameters" element="GetSalaryRecordAuditSumResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SalaryService">
+    <wsdl:operation name="PerformanceRewardRecordAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardRecordAdd" message="SalaryService_PerformanceRewardRecordAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardRecordAddResponse" message="SalaryService_PerformanceRewardRecordAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformanceRewardRecordUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardRecordUpdate" message="SalaryService_PerformanceRewardRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardRecordUpdateResponse" message="SalaryService_PerformanceRewardRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformanceRewardRecordDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardRecordDelete" message="SalaryService_PerformanceRewardRecordDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardRecordDeleteResponse" message="SalaryService_PerformanceRewardRecordDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformaceRewardByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetPerformaceRewardByID" message="SalaryService_GetPerformaceRewardByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetPerformaceRewardByIDResponse" message="SalaryService_GetPerformaceRewardByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceRewardRecordWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetPerformanceRewardRecordWithPaging" message="SalaryService_GetPerformanceRewardRecordWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetPerformanceRewardRecordWithPagingResponse" message="SalaryService_GetPerformanceRewardRecordWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionStandardAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionStandardAdd" message="SalaryService_SalarySolutionStandardAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionStandardAddResponse" message="SalaryService_SalarySolutionStandardAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionStandardDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionStandardDelete" message="SalaryService_SalarySolutionStandardDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionStandardDeleteResponse" message="SalaryService_SalarySolutionStandardDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionStandardWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionStandardWithPaging" message="SalaryService_GetSalarySolutionStandardWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionStandardWithPagingResponse" message="SalaryService_GetSalarySolutionStandardWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSetPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryItemSetPaging" message="SalaryService_GetSalaryItemSetPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryItemSetPagingResponse" message="SalaryService_GetSalaryItemSetPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSets">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryItemSets" message="SalaryService_GetSalaryItemSets_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryItemSetsResponse" message="SalaryService_GetSalaryItemSets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryItemSetAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryItemSetAdd" message="SalaryService_SalaryItemSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryItemSetAddResponse" message="SalaryService_SalaryItemSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FormulaTemplateAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/FormulaTemplateAdd" message="SalaryService_FormulaTemplateAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/FormulaTemplateAddResponse" message="SalaryService_FormulaTemplateAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryItemSetUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryItemSetUpdate" message="SalaryService_SalaryItemSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryItemSetUpdateResponse" message="SalaryService_SalaryItemSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryItemSetDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryItemSetDelete" message="SalaryService_SalaryItemSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryItemSetDeleteResponse" message="SalaryService_SalaryItemSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSetByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryItemSetByID" message="SalaryService_GetSalaryItemSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryItemSetByIDResponse" message="SalaryService_GetSalaryItemSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSetByStandardID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryItemSetByStandardID" message="SalaryService_GetSalaryItemSetByStandardID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryItemSetByStandardIDResponse" message="SalaryService_GetSalaryItemSetByStandardID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSetName">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryItemSetName" message="SalaryService_GetSalaryItemSetName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryItemSetNameResponse" message="SalaryService_GetSalaryItemSetName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCalItem">
+      <wsdl:input wsaw:Action="urn:SalaryService/CheckCalItem" message="SalaryService_CheckCalItem_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CheckCalItemResponse" message="SalaryService_CheckCalItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSalaryItemSql">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExecuteSalaryItemSql" message="SalaryService_ExecuteSalaryItemSql_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExecuteSalaryItemSqlResponse" message="SalaryService_ExecuteSalaryItemSql_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardItemPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryStandardItemPaging" message="SalaryService_GetSalaryStandardItemPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryStandardItemPagingResponse" message="SalaryService_GetSalaryStandardItemPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardItemsViewByStandarID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryStandardItemsViewByStandarID" message="SalaryService_GetSalaryStandardItemsViewByStandarID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryStandardItemsViewByStandarIDResponse" message="SalaryService_GetSalaryStandardItemsViewByStandarID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardItems">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryStandardItems" message="SalaryService_GetSalaryStandardItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryStandardItemsResponse" message="SalaryService_GetSalaryStandardItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryStandardItemAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryStandardItemAdd" message="SalaryService_SalaryStandardItemAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryStandardItemAddResponse" message="SalaryService_SalaryStandardItemAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryStandardItemUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryStandardItemUpdate" message="SalaryService_SalaryStandardItemUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryStandardItemUpdateResponse" message="SalaryService_SalaryStandardItemUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryStandardItemDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryStandardItemDelete" message="SalaryService_SalaryStandardItemDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryStandardItemDeleteResponse" message="SalaryService_SalaryStandardItemDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardItemByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryStandardItemByID" message="SalaryService_GetSalaryStandardItemByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryStandardItemByIDResponse" message="SalaryService_GetSalaryStandardItemByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardItemsByStandardID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryStandardItemsByStandardID" message="SalaryService_GetSalaryStandardItemsByStandardID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryStandardItemsByStandardIDResponse" message="SalaryService_GetSalaryStandardItemsByStandardID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSalaryRecordItemByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeSalaryRecordItemByID" message="SalaryService_GetEmployeeSalaryRecordItemByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeSalaryRecordItemByIDResponse" message="SalaryService_GetEmployeeSalaryRecordItemByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSalaryRecordItemDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeSalaryRecordItemDelete" message="SalaryService_EmployeeSalaryRecordItemDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeSalaryRecordItemDeleteResponse" message="SalaryService_EmployeeSalaryRecordItemDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryItemByID" message="SalaryService_GetSalaryItemByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryItemByIDResponse" message="SalaryService_GetSalaryItemByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSalaryTaxes">
+      <wsdl:input wsaw:Action="urn:SalaryService/CheckSalaryTaxes" message="SalaryService_CheckSalaryTaxes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CheckSalaryTaxesResponse" message="SalaryService_CheckSalaryTaxes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryTaxesBySolutionID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryTaxesBySolutionID" message="SalaryService_GetSalaryTaxesBySolutionID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryTaxesBySolutionIDResponse" message="SalaryService_GetSalaryTaxesBySolutionID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryTaxesAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryTaxesAdd" message="SalaryService_SalaryTaxesAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryTaxesAddResponse" message="SalaryService_SalaryTaxesAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryTaxesUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryTaxesUpdate" message="SalaryService_SalaryTaxesUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryTaxesUpdateResponse" message="SalaryService_SalaryTaxesUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryTaxesDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryTaxesDelete" message="SalaryService_SalaryTaxesDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryTaxesDeleteResponse" message="SalaryService_SalaryTaxesDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryTaxesWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryTaxesWithPaging" message="SalaryService_GetSalaryTaxesWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryTaxesWithPagingResponse" message="SalaryService_GetSalaryTaxesWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionItemsBySolutionID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionItemsBySolutionID" message="SalaryService_GetSalarySolutionItemsBySolutionID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionItemsBySolutionIDResponse" message="SalaryService_GetSalarySolutionItemsBySolutionID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionItemAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionItemAdd" message="SalaryService_SalarySolutionItemAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionItemAddResponse" message="SalaryService_SalarySolutionItemAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionItemsAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionItemsAdd" message="SalaryService_SalarySolutionItemsAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionItemsAddResponse" message="SalaryService_SalarySolutionItemsAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionItemsDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionItemsDelete" message="SalaryService_SalarySolutionItemsDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionItemsDeleteResponse" message="SalaryService_SalarySolutionItemsDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionItemBysolutionItemID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionItemBysolutionItemID" message="SalaryService_GetSalarySolutionItemBysolutionItemID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionItemBysolutionItemIDResponse" message="SalaryService_GetSalarySolutionItemBysolutionItemID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionItemUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionItemUpdate" message="SalaryService_SalarySolutionItemUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionItemUpdateResponse" message="SalaryService_SalarySolutionItemUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionItemsWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionItemsWithPaging" message="SalaryService_GetSalarySolutionItemsWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionItemsWithPagingResponse" message="SalaryService_GetSalarySolutionItemsWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySystemByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySystemByID" message="SalaryService_GetSalarySystemByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySystemByIDResponse" message="SalaryService_GetSalarySystemByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySystemAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySystemAdd" message="SalaryService_SalarySystemAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySystemAddResponse" message="SalaryService_SalarySystemAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySystemUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySystemUpdate" message="SalaryService_SalarySystemUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySystemUpdateResponse" message="SalaryService_SalarySystemUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySystemDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySystemDelete" message="SalaryService_SalarySystemDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySystemDeleteResponse" message="SalaryService_SalarySystemDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySystemWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySystemWithPaging" message="SalaryService_GetSalarySystemWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySystemWithPagingResponse" message="SalaryService_GetSalarySystemWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <wsdl:input wsaw:Action="urn:SalaryService/LoginCheck" message="SalaryService_LoginCheck_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/LoginCheckResponse" message="SalaryService_LoginCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryPassword">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryPassword" message="SalaryService_GetSalaryPassword_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryPasswordResponse" message="SalaryService_GetSalaryPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSystemParamSet">
+      <wsdl:input wsaw:Action="urn:SalaryService/AddSystemParamSet" message="SalaryService_AddSystemParamSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AddSystemParamSetResponse" message="SalaryService_AddSystemParamSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemParamSet">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSystemParamSet" message="SalaryService_GetSystemParamSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSystemParamSetResponse" message="SalaryService_GetSystemParamSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemParamSetByType">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSystemParamSetByType" message="SalaryService_GetSystemParamSetByType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSystemParamSetByTypeResponse" message="SalaryService_GetSystemParamSetByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemParamSetPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSystemParamSetPaging" message="SalaryService_GetSystemParamSetPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSystemParamSetPagingResponse" message="SalaryService_GetSystemParamSetPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SystemParamSetUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SystemParamSetUpdate" message="SalaryService_SystemParamSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SystemParamSetUpdateResponse" message="SalaryService_SystemParamSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SystemParamSetDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SystemParamSetDelete" message="SalaryService_SystemParamSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SystemParamSetDeleteResponse" message="SalaryService_SystemParamSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSalaryPassword">
+      <wsdl:input wsaw:Action="urn:SalaryService/AddSalaryPassword" message="SalaryService_AddSalaryPassword_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AddSalaryPasswordResponse" message="SalaryService_AddSalaryPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthDeductionTaxs">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetMonthDeductionTaxs" message="SalaryService_GetMonthDeductionTaxs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetMonthDeductionTaxsResponse" message="SalaryService_GetMonthDeductionTaxs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDeductionMoney">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeDeductionMoney" message="SalaryService_GetEmployeeDeductionMoney_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeDeductionMoneyResponse" message="SalaryService_GetEmployeeDeductionMoney_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySummary">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySummary" message="SalaryService_GetSalarySummary_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySummaryResponse" message="SalaryService_GetSalarySummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmployeeSalaryArchiveItems">
+      <wsdl:input wsaw:Action="urn:SalaryService/CreateEmployeeSalaryArchiveItems" message="SalaryService_CreateEmployeeSalaryArchiveItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CreateEmployeeSalaryArchiveItemsResponse" message="SalaryService_CreateEmployeeSalaryArchiveItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeePensionReports">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExportEmployeePensionReports" message="SalaryService_ExportEmployeePensionReports_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExportEmployeePensionReportsResponse" message="SalaryService_ExportEmployeePensionReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PayRemindByOrgID">
+      <wsdl:input wsaw:Action="urn:SalaryService/PayRemindByOrgID" message="SalaryService_PayRemindByOrgID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PayRemindByOrgIDResponse" message="SalaryService_PayRemindByOrgID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignPersonMoney">
+      <wsdl:input wsaw:Action="urn:SalaryService/AssignPersonMoney" message="SalaryService_AssignPersonMoney_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AssignPersonMoneyResponse" message="SalaryService_AssignPersonMoney_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryRecordBatchByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryRecordBatchByID" message="SalaryService_GetSalaryRecordBatchByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryRecordBatchByIDResponse" message="SalaryService_GetSalaryRecordBatchByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSalaryAuditState">
+      <wsdl:input wsaw:Action="urn:SalaryService/CheckSalaryAuditState" message="SalaryService_CheckSalaryAuditState_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CheckSalaryAuditStateResponse" message="SalaryService_CheckSalaryAuditState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryRecordBatchAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryRecordBatchAdd" message="SalaryService_SalaryRecordBatchAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryRecordBatchAddResponse" message="SalaryService_SalaryRecordBatchAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryRecordBatchUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryRecordBatchUpdate" message="SalaryService_SalaryRecordBatchUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryRecordBatchUpdateResponse" message="SalaryService_SalaryRecordBatchUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryRecordBatchDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryRecordBatchDelete" message="SalaryService_SalaryRecordBatchDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryRecordBatchDeleteResponse" message="SalaryService_SalaryRecordBatchDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddSumADD">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumADD" message="SalaryService_EmployeeAddSumADD_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeAddSumADDResponse" message="SalaryService_EmployeeAddSumADD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResign">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetResign" message="SalaryService_GetResign_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetResignResponse" message="SalaryService_GetResign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddSumLotsofADD">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumLotsofADD" message="SalaryService_EmployeeAddSumLotsofADD_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeAddSumLotsofADDResponse" message="SalaryService_EmployeeAddSumLotsofADD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddSumUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumUpdate" message="SalaryService_EmployeeAddSumUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeAddSumUpdateResponse" message="SalaryService_EmployeeAddSumUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddSumDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumDelete" message="SalaryService_EmployeeAddSumDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeAddSumDeleteResponse" message="SalaryService_EmployeeAddSumDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddSumByEmployeeIDDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumByEmployeeIDDelete" message="SalaryService_EmployeeAddSumByEmployeeIDDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeAddSumByEmployeeIDDeleteResponse" message="SalaryService_EmployeeAddSumByEmployeeIDDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAddSumByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeAddSumByID" message="SalaryService_GetEmployeeAddSumByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeAddSumByIDResponse" message="SalaryService_GetEmployeeAddSumByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAddSumViewByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeAddSumViewByID" message="SalaryService_GetEmployeeAddSumViewByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeAddSumViewByIDResponse" message="SalaryService_GetEmployeeAddSumViewByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAddSumWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeAddSumWithPaging" message="SalaryService_GetEmployeeAddSumWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeAddSumWithPagingResponse" message="SalaryService_GetEmployeeAddSumWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAddSumAuditPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeAddSumAuditPaging" message="SalaryService_GetEmployeeAddSumAuditPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeAddSumAuditPagingResponse" message="SalaryService_GetEmployeeAddSumAuditPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAddSumBatchByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeAddSumBatchByID" message="SalaryService_GetEmployeeAddSumBatchByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeAddSumBatchByIDResponse" message="SalaryService_GetEmployeeAddSumBatchByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddSumBatchAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumBatchAdd" message="SalaryService_EmployeeAddSumBatchAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeAddSumBatchAddResponse" message="SalaryService_EmployeeAddSumBatchAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddSumBatchUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumBatchUpdate" message="SalaryService_EmployeeAddSumBatchUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeAddSumBatchUpdateResponse" message="SalaryService_EmployeeAddSumBatchUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddSumBatchDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumBatchDelete" message="SalaryService_EmployeeAddSumBatchDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeAddSumBatchDeleteResponse" message="SalaryService_EmployeeAddSumBatchDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonSetPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonSetPaging" message="SalaryService_GetCustomGuerdonSetPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonSetPagingResponse" message="SalaryService_GetCustomGuerdonSetPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonSetAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonSetAdd" message="SalaryService_CustomGuerdonSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonSetAddResponse" message="SalaryService_CustomGuerdonSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonSetUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonSetUpdate" message="SalaryService_CustomGuerdonSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonSetUpdateResponse" message="SalaryService_CustomGuerdonSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonSetDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonSetDelete" message="SalaryService_CustomGuerdonSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonSetDeleteResponse" message="SalaryService_CustomGuerdonSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonSetByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonSetByID" message="SalaryService_GetCustomGuerdonSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonSetByIDResponse" message="SalaryService_GetCustomGuerdonSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonSetName">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonSetName" message="SalaryService_GetCustomGuerdonSetName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonSetNameResponse" message="SalaryService_GetCustomGuerdonSetName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonPaging" message="SalaryService_GetCustomGuerdonPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonPagingResponse" message="SalaryService_GetCustomGuerdonPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonAdd" message="SalaryService_CustomGuerdonAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonAddResponse" message="SalaryService_CustomGuerdonAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonDelete" message="SalaryService_CustomGuerdonDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonDeleteResponse" message="SalaryService_CustomGuerdonDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdon">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdon" message="SalaryService_GetCustomGuerdon_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonResponse" message="SalaryService_GetCustomGuerdon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonByID" message="SalaryService_GetCustomGuerdonByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonByIDResponse" message="SalaryService_GetCustomGuerdonByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonRecordPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonRecordPaging" message="SalaryService_GetCustomGuerdonRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonRecordPagingResponse" message="SalaryService_GetCustomGuerdonRecordPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeCustomRecordOne">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeCustomRecordOne" message="SalaryService_GetEmployeeCustomRecordOne_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeCustomRecordOneResponse" message="SalaryService_GetEmployeeCustomRecordOne_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonRecord">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonRecord" message="SalaryService_CustomGuerdonRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonRecordResponse" message="SalaryService_CustomGuerdonRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonRecordAccount">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonRecordAccount" message="SalaryService_CustomGuerdonRecordAccount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonRecordAccountResponse" message="SalaryService_CustomGuerdonRecordAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonRecordAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonRecordAdd" message="SalaryService_CustomGuerdonRecordAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonRecordAddResponse" message="SalaryService_CustomGuerdonRecordAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonRecordUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonRecordUpdate" message="SalaryService_CustomGuerdonRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonRecordUpdateResponse" message="SalaryService_CustomGuerdonRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonRecordDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonRecordDelete" message="SalaryService_CustomGuerdonRecordDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonRecordDeleteResponse" message="SalaryService_CustomGuerdonRecordDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonRecordByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonRecordByID" message="SalaryService_GetCustomGuerdonRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonRecordByIDResponse" message="SalaryService_GetCustomGuerdonRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformanceRewardSetAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardSetAdd" message="SalaryService_PerformanceRewardSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardSetAddResponse" message="SalaryService_PerformanceRewardSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformanceRewardSetUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardSetUpdate" message="SalaryService_PerformanceRewardSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardSetUpdateResponse" message="SalaryService_PerformanceRewardSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformanceRewardSetDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardSetDelete" message="SalaryService_PerformanceRewardSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardSetDeleteResponse" message="SalaryService_PerformanceRewardSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceRewardSetByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetPerformanceRewardSetByID" message="SalaryService_GetPerformanceRewardSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetPerformanceRewardSetByIDResponse" message="SalaryService_GetPerformanceRewardSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceRewardSetWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetPerformanceRewardSetWithPaging" message="SalaryService_GetPerformanceRewardSetWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetPerformanceRewardSetWithPagingResponse" message="SalaryService_GetPerformanceRewardSetWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonArchiveWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonArchiveWithPaging" message="SalaryService_GetCustomGuerdonArchiveWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonArchiveWithPagingResponse" message="SalaryService_GetCustomGuerdonArchiveWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonArchiveByArchiveID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonArchiveByArchiveID" message="SalaryService_GetCustomGuerdonArchiveByArchiveID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonArchiveByArchiveIDResponse" message="SalaryService_GetCustomGuerdonArchiveByArchiveID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonArchiveAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonArchiveAdd" message="SalaryService_CustomGuerdonArchiveAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonArchiveAddResponse" message="SalaryService_CustomGuerdonArchiveAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonArchiveUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/CustomGuerdonArchiveUpdate" message="SalaryService_CustomGuerdonArchiveUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CustomGuerdonArchiveUpdateResponse" message="SalaryService_CustomGuerdonArchiveUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/PaymentUpdate" message="SalaryService_PaymentUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PaymentUpdateResponse" message="SalaryService_PaymentUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentConfirmUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/PaymentConfirmUpdate" message="SalaryService_PaymentConfirmUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PaymentConfirmUpdateResponse" message="SalaryService_PaymentConfirmUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryRecordOne">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryRecordOne" message="SalaryService_GetSalaryRecordOne_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryRecordOneResponse" message="SalaryService_GetSalaryRecordOne_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <wsdl:input wsaw:Action="urn:SalaryService/SaveFile" message="SalaryService_SaveFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SaveFileResponse" message="SalaryService_SaveFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportExcel">
+      <wsdl:input wsaw:Action="urn:SalaryService/ImportExcel" message="SalaryService_ImportExcel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ImportExcelResponse" message="SalaryService_ImportExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadExcel">
+      <wsdl:input wsaw:Action="urn:SalaryService/ReadExcel" message="SalaryService_ReadExcel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ReadExcelResponse" message="SalaryService_ReadExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportExcelAll">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExportExcelAll" message="SalaryService_ExportExcelAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExportExcelAllResponse" message="SalaryService_ExportExcelAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportExcel">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExportExcel" message="SalaryService_ExportExcel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExportExcelResponse" message="SalaryService_ExportExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSalaryExcel">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExportSalaryExcel" message="SalaryService_ExportSalaryExcel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExportSalaryExcelResponse" message="SalaryService_ExportSalaryExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSalarySummary">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExportSalarySummary" message="SalaryService_ExportSalarySummary_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExportSalarySummaryResponse" message="SalaryService_ExportSalarySummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeDeductionMoney">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExportEmployeeDeductionMoney" message="SalaryService_ExportEmployeeDeductionMoney_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExportEmployeeDeductionMoneyResponse" message="SalaryService_ExportEmployeeDeductionMoney_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportMonthDeductionTaxs">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExportMonthDeductionTaxs" message="SalaryService_ExportMonthDeductionTaxs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExportMonthDeductionTaxsResponse" message="SalaryService_ExportMonthDeductionTaxs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentPagings">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetPaymentPagings" message="SalaryService_GetPaymentPagings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetPaymentPagingsResponse" message="SalaryService_GetPaymentPagings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetPaymentPaging" message="SalaryService_GetPaymentPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetPaymentPagingResponse" message="SalaryService_GetPaymentPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaAllowanceADD">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaAllowanceADD" message="SalaryService_AreaAllowanceADD_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaAllowanceADDResponse" message="SalaryService_AreaAllowanceADD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaAllowanceUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaAllowanceUpdate" message="SalaryService_AreaAllowanceUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaAllowanceUpdateResponse" message="SalaryService_AreaAllowanceUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaAllowance">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaAllowance" message="SalaryService_AreaAllowance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaAllowanceResponse" message="SalaryService_AreaAllowance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaAllowanceDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaAllowanceDelete" message="SalaryService_AreaAllowanceDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaAllowanceDeleteResponse" message="SalaryService_AreaAllowanceDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaAllowanceByAreaID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaAllowanceByAreaID" message="SalaryService_GetAreaAllowanceByAreaID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaAllowanceByAreaIDResponse" message="SalaryService_GetAreaAllowanceByAreaID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaAllowanceByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaAllowanceByID" message="SalaryService_GetAreaAllowanceByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaAllowanceByIDResponse" message="SalaryService_GetAreaAllowanceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCategory">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaCategory" message="SalaryService_GetAreaCategory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaCategoryResponse" message="SalaryService_GetAreaCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCityByCategory">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaCityByCategory" message="SalaryService_GetAreaCityByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaCityByCategoryResponse" message="SalaryService_GetAreaCityByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaCityAdd" message="SalaryService_AreaCityAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaCityAddResponse" message="SalaryService_AreaCityAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityCheck">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaCityCheck" message="SalaryService_AreaCityCheck_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaCityCheckResponse" message="SalaryService_AreaCityCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityByCategoryDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaCityByCategoryDelete" message="SalaryService_AreaCityByCategoryDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaCityByCategoryDeleteResponse" message="SalaryService_AreaCityByCategoryDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityLotsofAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaCityLotsofAdd" message="SalaryService_AreaCityLotsofAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaCityLotsofAddResponse" message="SalaryService_AreaCityLotsofAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaCityDelete" message="SalaryService_AreaCityDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaCityDeleteResponse" message="SalaryService_AreaCityDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCategoryByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaCategoryByID" message="SalaryService_GetAreaCategoryByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaCategoryByIDResponse" message="SalaryService_GetAreaCategoryByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaCategoryUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaCategoryUpdate" message="SalaryService_AreaCategoryUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaCategoryUpdateResponse" message="SalaryService_AreaCategoryUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaCategoryADD">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaCategoryADD" message="SalaryService_AreaCategoryADD_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaCategoryADDResponse" message="SalaryService_AreaCategoryADD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaCategoryDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/AreaCategoryDelete" message="SalaryService_AreaCategoryDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AreaCategoryDeleteResponse" message="SalaryService_AreaCategoryDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaAllowanceWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaAllowanceWithPaging" message="SalaryService_GetAreaAllowanceWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaAllowanceWithPagingResponse" message="SalaryService_GetAreaAllowanceWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCityWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaCityWithPaging" message="SalaryService_GetAreaCityWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaCityWithPagingResponse" message="SalaryService_GetAreaCityWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaWithPaging" message="SalaryService_GetAreaWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaWithPagingResponse" message="SalaryService_GetAreaWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionAdd" message="SalaryService_SalarySolutionAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionAddResponse" message="SalaryService_SalarySolutionAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionSameSearch">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionSameSearch" message="SalaryService_SalarySolutionSameSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionSameSearchResponse" message="SalaryService_SalarySolutionSameSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionUpdate" message="SalaryService_SalarySolutionUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionUpdateResponse" message="SalaryService_SalarySolutionUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionByID" message="SalaryService_GetSalarySolutionByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionByIDResponse" message="SalaryService_GetSalarySolutionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionDelete" message="SalaryService_SalarySolutionDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionDeleteResponse" message="SalaryService_SalarySolutionDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionPaging" message="SalaryService_GetSalarySolutionPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionPagingResponse" message="SalaryService_GetSalarySolutionPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionEngineXml">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionEngineXml" message="SalaryService_GetSalarySolutionEngineXml_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionEngineXmlResponse" message="SalaryService_GetSalarySolutionEngineXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TimingPay">
+      <wsdl:input wsaw:Action="urn:SalaryService/TimingPay" message="SalaryService_TimingPay_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/TimingPayResponse" message="SalaryService_TimingPay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSalaryStandBatch">
+      <wsdl:input wsaw:Action="urn:SalaryService/CreateSalaryStandBatch" message="SalaryService_CreateSalaryStandBatch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CreateSalaryStandBatchResponse" message="SalaryService_CreateSalaryStandBatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStandardByEmployeeIDAndSolutionID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetStandardByEmployeeIDAndSolutionID" message="SalaryService_GetStandardByEmployeeIDAndSolutionID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetStandardByEmployeeIDAndSolutionIDResponse" message="SalaryService_GetStandardByEmployeeIDAndSolutionID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStandardByEmployeeIDAndSolutionIDAndSalarylevel">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetStandardByEmployeeIDAndSolutionIDAndSalarylevel" message="SalaryService_GetStandardByEmployeeIDAndSolutionIDAndSalarylevel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetStandardByEmployeeIDAndSolutionIDAndSalarylevelResponse" message="SalaryService_GetStandardByEmployeeIDAndSolutionIDAndSalarylevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryStandardAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryStandardAdd" message="SalaryService_SalaryStandardAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryStandardAddResponse" message="SalaryService_SalaryStandardAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSalaryStanderAndItems">
+      <wsdl:input wsaw:Action="urn:SalaryService/AddSalaryStanderAndItems" message="SalaryService_AddSalaryStanderAndItems_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AddSalaryStanderAndItemsResponse" message="SalaryService_AddSalaryStanderAndItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryStandardUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryStandardUpdate" message="SalaryService_SalaryStandardUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryStandardUpdateResponse" message="SalaryService_SalaryStandardUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryStandardByID" message="SalaryService_GetSalaryStandardByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryStandardByIDResponse" message="SalaryService_GetSalaryStandardByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryStandardDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryStandardDelete" message="SalaryService_SalaryStandardDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryStandardDeleteResponse" message="SalaryService_SalaryStandardDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryStandardPaging" message="SalaryService_GetSalaryStandardPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryStandardPagingResponse" message="SalaryService_GetSalaryStandardPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPostLevelDistinction">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAllPostLevelDistinction" message="SalaryService_GetAllPostLevelDistinction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAllPostLevelDistinctionResponse" message="SalaryService_GetAllPostLevelDistinction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostLevelDistinctionBySystemID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetPostLevelDistinctionBySystemID" message="SalaryService_GetPostLevelDistinctionBySystemID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetPostLevelDistinctionBySystemIDResponse" message="SalaryService_GetPostLevelDistinctionBySystemID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostLevelDistinctionByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetPostLevelDistinctionByID" message="SalaryService_GetPostLevelDistinctionByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetPostLevelDistinctionByIDResponse" message="SalaryService_GetPostLevelDistinctionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostLevelDistinctionUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/PostLevelDistinctionUpdate" message="SalaryService_PostLevelDistinctionUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PostLevelDistinctionUpdateResponse" message="SalaryService_PostLevelDistinctionUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostLevelDistinctionADD">
+      <wsdl:input wsaw:Action="urn:SalaryService/PostLevelDistinctionADD" message="SalaryService_PostLevelDistinctionADD_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PostLevelDistinctionADDResponse" message="SalaryService_PostLevelDistinctionADD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSalaryLevel">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAllSalaryLevel" message="SalaryService_GetAllSalaryLevel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAllSalaryLevelResponse" message="SalaryService_GetAllSalaryLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryLevelBySystemID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryLevelBySystemID" message="SalaryService_GetSalaryLevelBySystemID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryLevelBySystemIDResponse" message="SalaryService_GetSalaryLevelBySystemID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryLevelByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryLevelByID" message="SalaryService_GetSalaryLevelByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryLevelByIDResponse" message="SalaryService_GetSalaryLevelByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryLevelUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryLevelUpdate" message="SalaryService_SalaryLevelUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryLevelUpdateResponse" message="SalaryService_SalaryLevelUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryLevelADD">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryLevelADD" message="SalaryService_SalaryLevelADD_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryLevelADDResponse" message="SalaryService_SalaryLevelADD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateSalaryLevel">
+      <wsdl:input wsaw:Action="urn:SalaryService/GenerateSalaryLevel" message="SalaryService_GenerateSalaryLevel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GenerateSalaryLevelResponse" message="SalaryService_GenerateSalaryLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryLevelPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryLevelPaging" message="SalaryService_GetSalaryLevelPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryLevelPagingResponse" message="SalaryService_GetSalaryLevelPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionAssignPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionAssignPaging" message="SalaryService_GetSalarySolutionAssignPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionAssignPagingResponse" message="SalaryService_GetSalarySolutionAssignPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionAssignAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionAssignAdd" message="SalaryService_SalarySolutionAssignAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionAssignAddResponse" message="SalaryService_SalarySolutionAssignAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionAssignUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionAssignUpdate" message="SalaryService_SalarySolutionAssignUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionAssignUpdateResponse" message="SalaryService_SalarySolutionAssignUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionAssignByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionAssignByID" message="SalaryService_GetSalarySolutionAssignByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionAssignByIDResponse" message="SalaryService_GetSalarySolutionAssignByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionAssignViewByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalarySolutionAssignViewByID" message="SalaryService_GetSalarySolutionAssignViewByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalarySolutionAssignViewByIDResponse" message="SalaryService_GetSalarySolutionAssignViewByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionAssignDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionAssignDelete" message="SalaryService_SalarySolutionAssignDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionAssignDeleteResponse" message="SalaryService_SalarySolutionAssignDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveAdd" message="SalaryService_SalaryArchiveAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveAddResponse" message="SalaryService_SalaryArchiveAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveItemAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveItemAdd" message="SalaryService_SalaryArchiveItemAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveItemAddResponse" message="SalaryService_SalaryArchiveItemAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSalaryArchive">
+      <wsdl:input wsaw:Action="urn:SalaryService/CreateSalaryArchive" message="SalaryService_CreateSalaryArchive_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CreateSalaryArchiveResponse" message="SalaryService_CreateSalaryArchive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFixSalary">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetFixSalary" message="SalaryService_GetFixSalary_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetFixSalaryResponse" message="SalaryService_GetFixSalary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOldFixSalary">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetOldFixSalary" message="SalaryService_GetOldFixSalary_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetOldFixSalaryResponse" message="SalaryService_GetOldFixSalary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveUpdate" message="SalaryService_SalaryArchiveUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveUpdateResponse" message="SalaryService_SalaryArchiveUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveUpdateByEmployee">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveUpdateByEmployee" message="SalaryService_SalaryArchiveUpdateByEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveUpdateByEmployeeResponse" message="SalaryService_SalaryArchiveUpdateByEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchiveByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchiveByID" message="SalaryService_GetSalaryArchiveByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchiveByIDResponse" message="SalaryService_GetSalaryArchiveByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchiveMasterByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchiveMasterByID" message="SalaryService_GetSalaryArchiveMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchiveMasterByIDResponse" message="SalaryService_GetSalaryArchiveMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchiveByEmployeeID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchiveByEmployeeID" message="SalaryService_GetSalaryArchiveByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchiveByEmployeeIDResponse" message="SalaryService_GetSalaryArchiveByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveDelete" message="SalaryService_SalaryArchiveDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveDeleteResponse" message="SalaryService_SalaryArchiveDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveDeleteByMonth">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveDeleteByMonth" message="SalaryService_SalaryArchiveDeleteByMonth_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveDeleteByMonthResponse" message="SalaryService_SalaryArchiveDeleteByMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveDeleteByExpired">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveDeleteByExpired" message="SalaryService_SalaryArchiveDeleteByExpired_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveDeleteByExpiredResponse" message="SalaryService_SalaryArchiveDeleteByExpired_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveItemDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveItemDelete" message="SalaryService_SalaryArchiveItemDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveItemDeleteResponse" message="SalaryService_SalaryArchiveItemDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveItemUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveItemUpdate" message="SalaryService_SalaryArchiveItemUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveItemUpdateResponse" message="SalaryService_SalaryArchiveItemUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchivePaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchivePaging" message="SalaryService_GetSalaryArchivePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchivePagingResponse" message="SalaryService_GetSalaryArchivePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchiveItemPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchiveItemPaging" message="SalaryService_GetSalaryArchiveItemPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchiveItemPagingResponse" message="SalaryService_GetSalaryArchiveItemPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchiveItemsByArchiveIDs">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchiveItemsByArchiveIDs" message="SalaryService_GetSalaryArchiveItemsByArchiveIDs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchiveItemsByArchiveIDsResponse" message="SalaryService_GetSalaryArchiveItemsByArchiveIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchiveItemViewByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchiveItemViewByID" message="SalaryService_GetSalaryArchiveItemViewByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchiveItemViewByIDResponse" message="SalaryService_GetSalaryArchiveItemViewByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchivehisWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchivehisWithPaging" message="SalaryService_GetSalaryArchivehisWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchivehisWithPagingResponse" message="SalaryService_GetSalaryArchivehisWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveHisAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveHisAdd" message="SalaryService_SalaryArchiveHisAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveHisAddResponse" message="SalaryService_SalaryArchiveHisAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveHisItemAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveHisItemAdd" message="SalaryService_SalaryArchiveHisItemAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveHisItemAddResponse" message="SalaryService_SalaryArchiveHisItemAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryArchiveHisItemsAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveHisItemsAdd" message="SalaryService_SalaryArchiveHisItemsAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryArchiveHisItemsAddResponse" message="SalaryService_SalaryArchiveHisItemsAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchiveHisItemByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryArchiveHisItemByID" message="SalaryService_GetSalaryArchiveHisItemByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryArchiveHisItemByIDResponse" message="SalaryService_GetSalaryArchiveHisItemByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonArchiveHisWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetCustomGuerdonArchiveHisWithPaging" message="SalaryService_GetCustomGuerdonArchiveHisWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetCustomGuerdonArchiveHisWithPagingResponse" message="SalaryService_GetCustomGuerdonArchiveHisWithPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSalaryRecordAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeSalaryRecordAdd" message="SalaryService_EmployeeSalaryRecordAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeSalaryRecordAddResponse" message="SalaryService_EmployeeSalaryRecordAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryContrast">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryContrast" message="SalaryService_SalaryContrast_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryContrastResponse" message="SalaryService_SalaryContrast_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryContrastAll">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryContrastAll" message="SalaryService_SalaryContrastAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryContrastAllResponse" message="SalaryService_SalaryContrastAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSalaryRecordUpdate">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeSalaryRecordUpdate" message="SalaryService_EmployeeSalaryRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeSalaryRecordUpdateResponse" message="SalaryService_EmployeeSalaryRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSalaryRecordByID">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeSalaryRecordByID" message="SalaryService_GetEmployeeSalaryRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeSalaryRecordByIDResponse" message="SalaryService_GetEmployeeSalaryRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSalaryRecordOrItemDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeSalaryRecordOrItemDelete" message="SalaryService_EmployeeSalaryRecordOrItemDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeSalaryRecordOrItemDeleteResponse" message="SalaryService_EmployeeSalaryRecordOrItemDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSalaryRecordDelete">
+      <wsdl:input wsaw:Action="urn:SalaryService/EmployeeSalaryRecordDelete" message="SalaryService_EmployeeSalaryRecordDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/EmployeeSalaryRecordDeleteResponse" message="SalaryService_EmployeeSalaryRecordDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSalaryRecordPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetEmployeeSalaryRecordPaging" message="SalaryService_GetEmployeeSalaryRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetEmployeeSalaryRecordPagingResponse" message="SalaryService_GetEmployeeSalaryRecordPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateSalaryRecord">
+      <wsdl:input wsaw:Action="urn:SalaryService/GenerateSalaryRecord" message="SalaryService_GenerateSalaryRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GenerateSalaryRecordResponse" message="SalaryService_GenerateSalaryRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryRecordAccountCheck">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryRecordAccountCheck" message="SalaryService_SalaryRecordAccountCheck_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryRecordAccountCheckResponse" message="SalaryService_SalaryRecordAccountCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SalaryRecordAccount">
+      <wsdl:input wsaw:Action="urn:SalaryService/SalaryRecordAccount" message="SalaryService_SalaryRecordAccount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/SalaryRecordAccountResponse" message="SalaryService_SalaryRecordAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FBStatistics">
+      <wsdl:input wsaw:Action="urn:SalaryService/FBStatistics" message="SalaryService_FBStatistics_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/FBStatisticsResponse" message="SalaryService_FBStatistics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FBStatisticsMass">
+      <wsdl:input wsaw:Action="urn:SalaryService/FBStatisticsMass" message="SalaryService_FBStatisticsMass_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/FBStatisticsMassResponse" message="SalaryService_FBStatisticsMass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FBStatisticsMassByChoose">
+      <wsdl:input wsaw:Action="urn:SalaryService/FBStatisticsMassByChoose" message="SalaryService_FBStatisticsMassByChoose_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/FBStatisticsMassByChooseResponse" message="SalaryService_FBStatisticsMassByChoose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAutoEmployeeSalaryRecordPagings">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAutoEmployeeSalaryRecordPagings" message="SalaryService_GetAutoEmployeeSalaryRecordPagings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAutoEmployeeSalaryRecordPagingsResponse" message="SalaryService_GetAutoEmployeeSalaryRecordPagings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuSignAutoEmployeeSalaryRecordPagings">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetMenuSignAutoEmployeeSalaryRecordPagings" message="SalaryService_GetMenuSignAutoEmployeeSalaryRecordPagings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetMenuSignAutoEmployeeSalaryRecordPagingsResponse" message="SalaryService_GetMenuSignAutoEmployeeSalaryRecordPagings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoCalItem">
+      <wsdl:input wsaw:Action="urn:SalaryService/AutoCalItem" message="SalaryService_AutoCalItem_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/AutoCalItemResponse" message="SalaryService_AutoCalItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterStandard">
+      <wsdl:input wsaw:Action="urn:SalaryService/FilterStandard" message="SalaryService_FilterStandard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/FilterStandardResponse" message="SalaryService_FilterStandard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoRepayment">
+      <wsdl:input wsaw:Action="urn:SalaryService/UndoRepayment" message="SalaryService_UndoRepayment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/UndoRepaymentResponse" message="SalaryService_UndoRepayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndoRepaymentMass">
+      <wsdl:input wsaw:Action="urn:SalaryService/UndoRepaymentMass" message="SalaryService_UndoRepaymentMass_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/UndoRepaymentMassResponse" message="SalaryService_UndoRepaymentMass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryRecordAuditPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryRecordAuditPaging" message="SalaryService_GetSalaryRecordAuditPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryRecordAuditPagingResponse" message="SalaryService_GetSalaryRecordAuditPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMassAuditSalaryRecordPagings">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetMassAuditSalaryRecordPagings" message="SalaryService_GetMassAuditSalaryRecordPagings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetMassAuditSalaryRecordPagingsResponse" message="SalaryService_GetMassAuditSalaryRecordPagings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditSalaryRecordsPagings">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAuditSalaryRecordsPagings" message="SalaryService_GetAuditSalaryRecordsPagings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAuditSalaryRecordsPagingsResponse" message="SalaryService_GetAuditSalaryRecordsPagings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditSalaryRecords">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAuditSalaryRecords" message="SalaryService_GetAuditSalaryRecords_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAuditSalaryRecordsResponse" message="SalaryService_GetAuditSalaryRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryRecordAuditSum">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryRecordAuditSum" message="SalaryService_GetSalaryRecordAuditSum_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryRecordAuditSumResponse" message="SalaryService_GetSalaryRecordAuditSum_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,1528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingType_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingType_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeById_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeById_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeNameInfosToCombox_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeNameInfosToCombox" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeNameInfosToCombox_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeNameInfosToComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeTemplateInfoByID_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeTemplateInfoByID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeTemplateInfoByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeTemplateInfoByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetTypeTemplateInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetTypeTemplateInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetTypeTemplateInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetTypeTemplateInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchDelMeetingTypeTemplateInfos_InputMessage">
+    <wsdl:part name="parameters" element="BatchDelMeetingTypeTemplateInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchDelMeetingTypeTemplateInfos_OutputMessage">
+    <wsdl:part name="parameters" element="BatchDelMeetingTypeTemplateInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeTemplateNameInfosByMeetingType_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeTemplateNameInfosByMeetingType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeTemplateNameInfosByMeetingType_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeTemplateNameInfosByMeetingTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintTypeTemplateInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetintTypeTemplateInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintTypeTemplateInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetintTypeTemplateInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeTemplateAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeTemplateAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeTemplateAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeTemplateAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingTypeTemplate_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingTypeTemplate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingTypeTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingTypeTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeTemplateDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeTemplateDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeTemplateDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeTemplateDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeTemplateUpdate_InputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeTemplateUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeTemplateUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeTemplateUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeTemplateSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeTemplateSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeTemplateSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeTemplateSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateName_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateName" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateName_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingContentAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingContentAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingContentAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingContentAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchAddMeetingContentInfos_InputMessage">
+    <wsdl:part name="parameters" element="BatchAddMeetingContentInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchAddMeetingContentInfos_OutputMessage">
+    <wsdl:part name="parameters" element="BatchAddMeetingContentInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingContentInfo_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingContentInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingContentInfo_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingContentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingContentDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingContentDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingContentDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingContentDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingContentInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="MeetingContentInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingContentInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingContentInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingContentSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingContentSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingContentSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingContentSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingContentInfosByMeetngInfoID_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingContentInfosByMeetngInfoID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingContentInfosByMeetngInfoID_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingContentInfosByMeetngInfoIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeAdd_InputMessage">
+    <wsdl:part name="parameters" element="DocTypeAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="DocTypeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistDocTypeInfo_InputMessage">
+    <wsdl:part name="parameters" element="IsExistDocTypeInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistDocTypeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistDocTypeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="DocTypeBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="DocTypeBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="DocTypeInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="DocTypeInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeNameInfosToCombox_InputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeNameInfosToCombox" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeNameInfosToCombox_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeNameInfosToComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocPriorityAdd_InputMessage">
+    <wsdl:part name="parameters" element="DocPriorityAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocPriorityAdd_OutputMessage">
+    <wsdl:part name="parameters" element="DocPriorityAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistDocPriorityInfo_InputMessage">
+    <wsdl:part name="parameters" element="IsExistDocPriorityInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistDocPriorityInfo_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistDocPriorityInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocPriorityBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="DocPriorityBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocPriorityBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="DocPriorityBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocPriorityInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="DocPriorityInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocPriorityInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="DocPriorityInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocPrioritySingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetDocPrioritySingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocPrioritySingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocPrioritySingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocPrioritiesInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetDocPrioritiesInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocPrioritiesInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocPrioritiesInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocPriorityInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetDocPriorityInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocPriorityInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocPriorityInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetProritityNameInfosToCombox_InputMessage">
+    <wsdl:part name="parameters" element="GetProritityNameInfosToCombox" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetProritityNameInfosToCombox_OutputMessage">
+    <wsdl:part name="parameters" element="GetProritityNameInfosToComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GradeAdd_InputMessage">
+    <wsdl:part name="parameters" element="GradeAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GradeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="GradeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistGradeInfo_InputMessage">
+    <wsdl:part name="parameters" element="IsExistGradeInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistGradeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistGradeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GradeBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="GradeBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GradeBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="GradeBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GradeInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="GradeInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GradeInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="GradeInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetGradeSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetGradeSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetGradeSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetGradeSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetGradeInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetGradeInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetGradeInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetGradeInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetGradeInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetGradeInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetGradeInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetGradeInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocGradeNameInfosToCombox_InputMessage">
+    <wsdl:part name="parameters" element="GetDocGradeNameInfosToCombox" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocGradeNameInfosToCombox_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocGradeNameInfosToComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeTemplateAdd_InputMessage">
+    <wsdl:part name="parameters" element="DocTypeTemplateAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeTemplateAdd_OutputMessage">
+    <wsdl:part name="parameters" element="DocTypeTemplateAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistDocTypeTemplateInfo_InputMessage">
+    <wsdl:part name="parameters" element="IsExistDocTypeTemplateInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistDocTypeTemplateInfo_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistDocTypeTemplateInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeTemplateBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="DocTypeTemplateBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeTemplateBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="DocTypeTemplateBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeTemplateInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="DocTypeTemplateInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocTypeTemplateInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="DocTypeTemplateInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeTemplateSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeTemplateSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeTemplateSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeTemplateSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeTemplateContentByDocType_InputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeTemplateContentByDocType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeTemplateContentByDocType_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeTemplateContentByDocTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeTemplateInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeTemplateInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeTemplateInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeTemplateInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeTemplateInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeTemplateInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocTypeTemplateInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocTypeTemplateInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SendDocAdd_InputMessage">
+    <wsdl:part name="parameters" element="SendDocAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SendDocAdd_OutputMessage">
+    <wsdl:part name="parameters" element="SendDocAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistSendDocInfo_InputMessage">
+    <wsdl:part name="parameters" element="IsExistSendDocInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistSendDocInfo_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistSendDocInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SendDocBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="SendDocBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SendDocBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="SendDocBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SendDocInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="SendDocInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SendDocInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="SendDocInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSendDocSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetSendDocSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSendDocSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetSendDocSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSendDocInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetSendDocInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSendDocInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetSendDocInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDistrbutedSendDocInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetDistrbutedSendDocInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDistrbutedSendDocInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetDistrbutedSendDocInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSavedSendDocInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetSavedSendDocInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSavedSendDocInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetSavedSendDocInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSendDocInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetSendDocInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSendDocInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetSendDocInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDistrbutedSendDoc_InputMessage">
+    <wsdl:part name="parameters" element="GetDistrbutedSendDoc" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDistrbutedSendDoc_OutputMessage">
+    <wsdl:part name="parameters" element="GetDistrbutedSendDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSendDocInfosListByWorkFlow_InputMessage">
+    <wsdl:part name="parameters" element="GetSendDocInfosListByWorkFlow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetSendDocInfosListByWorkFlow_OutputMessage">
+    <wsdl:part name="parameters" element="GetSendDocInfosListByWorkFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetBumfDocInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetBumfDocInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetBumfDocInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetBumfDocInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMYSendDocInfosList_InputMessage">
+    <wsdl:part name="parameters" element="GetMYSendDocInfosList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMYSendDocInfosList_OutputMessage">
+    <wsdl:part name="parameters" element="GetMYSendDocInfosListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SubmitCompanyDocFlow_InputMessage">
+    <wsdl:part name="parameters" element="SubmitCompanyDocFlow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SubmitCompanyDocFlow_OutputMessage">
+    <wsdl:part name="parameters" element="SubmitCompanyDocFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SubmitUpdateFlowComment1_InputMessage">
+    <wsdl:part name="parameters" element="SubmitUpdateFlowComment1" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SubmitUpdateFlowComment1_OutputMessage">
+    <wsdl:part name="parameters" element="SubmitUpdateFlowComment1Response" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteAdd_InputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteAdd_OutputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteBatchAdd_InputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteBatchAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteBatchAdd_OutputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteBatchAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchAddCompanyDocDistrbute_InputMessage">
+    <wsdl:part name="parameters" element="BatchAddCompanyDocDistrbute" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchAddCompanyDocDistrbute_OutputMessage">
+    <wsdl:part name="parameters" element="BatchAddCompanyDocDistrbuteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchAddCompanyDocDistrbuteForNew_InputMessage">
+    <wsdl:part name="parameters" element="BatchAddCompanyDocDistrbuteForNew" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchAddCompanyDocDistrbuteForNew_OutputMessage">
+    <wsdl:part name="parameters" element="BatchAddCompanyDocDistrbuteForNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_CloseDocTask_InputMessage">
+    <wsdl:part name="parameters" element="CloseDocTask" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_CloseDocTask_OutputMessage">
+    <wsdl:part name="parameters" element="CloseDocTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteInfoUpdateByBatch_InputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteInfoUpdateByBatch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DocDistrbuteInfoUpdateByBatch_OutputMessage">
+    <wsdl:part name="parameters" element="DocDistrbuteInfoUpdateByBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocDistrbuteSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetDocDistrbuteSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocDistrbuteSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocDistrbuteSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocDistrbuteInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetDocDistrbuteInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocDistrbuteInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocDistrbuteInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocDistrbuteInfosByFormID_InputMessage">
+    <wsdl:part name="parameters" element="GetDocDistrbuteInfosByFormID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetDocDistrbuteInfosByFormID_OutputMessage">
+    <wsdl:part name="parameters" element="GetDocDistrbuteInfosByFormIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetCompanyDocNumsByUserid_InputMessage">
+    <wsdl:part name="parameters" element="GetCompanyDocNumsByUserid" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetCompanyDocNumsByUserid_OutputMessage">
+    <wsdl:part name="parameters" element="GetCompanyDocNumsByUseridResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_AgentSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="AgentSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_AgentSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="AgentSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DeleteAgentSet_InputMessage">
+    <wsdl:part name="parameters" element="DeleteAgentSet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DeleteAgentSet_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteAgentSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_UpdateAgentSet_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAgentSet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_UpdateAgentSet_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAgentSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAgentSetListById_InputMessage">
+    <wsdl:part name="parameters" element="GetAgentSetListById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAgentSetListById_OutputMessage">
+    <wsdl:part name="parameters" element="GetAgentSetListByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAgentSetBysId_InputMessage">
+    <wsdl:part name="parameters" element="GetAgentSetBysId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAgentSetBysId_OutputMessage">
+    <wsdl:part name="parameters" element="GetAgentSetBysIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_AgentDataSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="AgentDataSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_AgentDataSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="AgentDataSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistAgent_InputMessage">
+    <wsdl:part name="parameters" element="IsExistAgent" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistAgent_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistAgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DeleteAgentDataSet_InputMessage">
+    <wsdl:part name="parameters" element="DeleteAgentDataSet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DeleteAgentDataSet_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteAgentDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_UpdateAgentDataSet_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAgentDataSet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_UpdateAgentDataSet_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAgentDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAgentDataSetListById_InputMessage">
+    <wsdl:part name="parameters" element="GetAgentDataSetListById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAgentDataSetListById_OutputMessage">
+    <wsdl:part name="parameters" element="GetAgentDataSetListByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAgentDataSetBysId_InputMessage">
+    <wsdl:part name="parameters" element="GetAgentDataSetBysId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAgentDataSetBysId_OutputMessage">
+    <wsdl:part name="parameters" element="GetAgentDataSetBysIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomInfoByID_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomInfoByID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomInfoByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomInfoByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomdAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomdAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomdAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomdAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomdDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomdDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomdDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomdDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchDelMeetingRoomdInfos_InputMessage">
+    <wsdl:part name="parameters" element="BatchDelMeetingRoomdInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchDelMeetingRoomdInfos_OutputMessage">
+    <wsdl:part name="parameters" element="BatchDelMeetingRoomdInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomUpdate_InputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingRoom_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingRoom" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingRoom_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomById_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomById_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomNameInfosToCombox_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomNameInfosToCombox" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomNameInfosToCombox_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomNameInfosToComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintRoomInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetintRoomInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintRoomInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetintRoomInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomTreeInfosByCompanyID_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomTreeInfosByCompanyID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomTreeInfosByCompanyID_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomTreeInfosByCompanyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTimeChangeAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingTimeChangeAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTimeChangeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingTimeChangeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingTimeChange_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingTimeChange" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingTimeChange_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingTimeChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingStaffInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingStaffInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingStaffInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingStaffInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchAddMeetingStaffInfos_InputMessage">
+    <wsdl:part name="parameters" element="BatchAddMeetingStaffInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_BatchAddMeetingStaffInfos_OutputMessage">
+    <wsdl:part name="parameters" element="BatchAddMeetingStaffInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_UpdateMeetingStaffsByEmcce_InputMessage">
+    <wsdl:part name="parameters" element="UpdateMeetingStaffsByEmcce" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_UpdateMeetingStaffsByEmcce_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateMeetingStaffsByEmcceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingStaffInfoByAdd_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingStaffInfoByAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingStaffInfoByAdd_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingStaffInfoByAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingStaffInfoDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingStaffInfoDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingStaffInfoDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingStaffInfoDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingStaffUpdateInfos_InputMessage">
+    <wsdl:part name="parameters" element="MeetingStaffUpdateInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingStaffUpdateInfos_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingStaffUpdateInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAllMeetingStaffInfosByMeetingInfoID_InputMessage">
+    <wsdl:part name="parameters" element="GetAllMeetingStaffInfosByMeetingInfoID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetAllMeetingStaffInfosByMeetingInfoID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllMeetingStaffInfosByMeetingInfoIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingStaffByMeetingInfoIdEmcee_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingStaffByMeetingInfoIdEmcee" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingStaffByMeetingInfoIdEmcee_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingStaffByMeetingInfoIdEmceeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomTimeChangeAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomTimeChangeAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomTimeChangeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomTimeChangeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingRoomTimeChange_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingRoomTimeChange" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingRoomTimeChange_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingRoomTimeChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomAppInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomAppInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomAppInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomAppInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingRoomAppInfoByAdd_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingRoomAppInfoByAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingRoomAppInfoByAdd_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingRoomAppInfoByAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingRoomJustUsing_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingRoomJustUsing" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingRoomJustUsing_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingRoomJustUsingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomAppInfoDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomAppInfoDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomAppInfoDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomAppInfoDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomAppBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomAppBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomAppBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomAppBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomAppUpdate_InputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomAppUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingRoomAppUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingRoomAppUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomAppSingleInfoByAppId_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomAppSingleInfoByAppId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomAppSingleInfoByAppId_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomAppSingleInfoByAppIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomAppInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomAppInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomAppInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomAppInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomAppBySelectRooms_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomAppBySelectRooms" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomAppBySelectRooms_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomAppBySelectRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomAppInfosByFlow_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomAppInfosByFlow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingRoomAppInfosByFlow_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingRoomAppInfosByFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintRoomAppInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetintRoomAppInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintRoomAppInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetintRoomAppInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingInfoByAdd_InputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingInfoByAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_IsExistMeetingInfoByAdd_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistMeetingInfoByAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoUpdateByForm_InputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoUpdateByForm" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoUpdateByForm_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoUpdateByFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingInfoBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingInfoBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingInfoSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingInfoSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingInfoSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingInfoSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingMessageByID_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingMessageByID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingMessageByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingMessageByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintInfosListByTitleTimeSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetintInfosListByTitleTimeSearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintInfosListByTitleTimeSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetintInfosListByTitleTimeSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMyMeetingInfosManagement_InputMessage">
+    <wsdl:part name="parameters" element="GetMyMeetingInfosManagement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMyMeetingInfosManagement_OutputMessage">
+    <wsdl:part name="parameters" element="GetMyMeetingInfosManagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMyEmceeMeetingInfosManagement_InputMessage">
+    <wsdl:part name="parameters" element="GetMyEmceeMeetingInfosManagement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMyEmceeMeetingInfosManagement_OutputMessage">
+    <wsdl:part name="parameters" element="GetMyEmceeMeetingInfosManagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_UpdateMeetingNoticeInfo_InputMessage">
+    <wsdl:part name="parameters" element="UpdateMeetingNoticeInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_UpdateMeetingNoticeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateMeetingNoticeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetFlowIdByKey_InputMessage">
+    <wsdl:part name="parameters" element="GetFlowIdByKey" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetFlowIdByKey_OutputMessage">
+    <wsdl:part name="parameters" element="GetFlowIdByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingNoticeByNoticeID_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingNoticeByNoticeID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingNoticeByNoticeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingNoticeByNoticeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingInfoListByFlow_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingInfoListByFlow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingInfoListByFlow_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingInfoListByFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SubmitFlow_InputMessage">
+    <wsdl:part name="parameters" element="SubmitFlow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SubmitFlow_OutputMessage">
+    <wsdl:part name="parameters" element="SubmitFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SubmitComment_InputMessage">
+    <wsdl:part name="parameters" element="SubmitComment" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_SubmitComment_OutputMessage">
+    <wsdl:part name="parameters" element="SubmitCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeInfoByID_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeInfoByID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeInfoByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeInfoByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetingTypeInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetingTypeInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintTypeInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetMeetintTypeInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_GetMeetintTypeInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetMeetintTypeInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeAdd_InputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonOffice_MeetingTypeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="MeetingTypeAddResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SmtOACommonOffice">
+    <wsdl:operation name="MeetingTypeDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingTypeDel" message="SmtOACommonOffice_MeetingTypeDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingTypeDelResponse" message="SmtOACommonOffice_MeetingTypeDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingTypeBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingTypeBatchDel" message="SmtOACommonOffice_MeetingTypeBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingTypeBatchDelResponse" message="SmtOACommonOffice_MeetingTypeBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingTypeUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingTypeUpdate" message="SmtOACommonOffice_MeetingTypeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingTypeUpdateResponse" message="SmtOACommonOffice_MeetingTypeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingType">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingType" message="SmtOACommonOffice_IsExistMeetingType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingTypeResponse" message="SmtOACommonOffice_IsExistMeetingType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeById" message="SmtOACommonOffice_GetMeetingTypeById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeByIdResponse" message="SmtOACommonOffice_GetMeetingTypeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeSingleInfoById" message="SmtOACommonOffice_GetMeetingTypeSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeSingleInfoByIdResponse" message="SmtOACommonOffice_GetMeetingTypeSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeNameInfosToCombox">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeNameInfosToCombox" message="SmtOACommonOffice_GetMeetingTypeNameInfosToCombox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeNameInfosToComboxResponse" message="SmtOACommonOffice_GetMeetingTypeNameInfosToCombox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeTemplateInfoByID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeTemplateInfoByID" message="SmtOACommonOffice_GetMeetingTypeTemplateInfoByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeTemplateInfoByIDResponse" message="SmtOACommonOffice_GetMeetingTypeTemplateInfoByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeTemplateInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetTypeTemplateInfos" message="SmtOACommonOffice_GetTypeTemplateInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetTypeTemplateInfosResponse" message="SmtOACommonOffice_GetTypeTemplateInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchDelMeetingTypeTemplateInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/BatchDelMeetingTypeTemplateInfos" message="SmtOACommonOffice_BatchDelMeetingTypeTemplateInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/BatchDelMeetingTypeTemplateInfosResponse" message="SmtOACommonOffice_BatchDelMeetingTypeTemplateInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeTemplateNameInfosByMeetingType">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeTemplateNameInfosByMeetingType" message="SmtOACommonOffice_GetMeetingTypeTemplateNameInfosByMeetingType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeTemplateNameInfosByMeetingTypeResponse" message="SmtOACommonOffice_GetMeetingTypeTemplateNameInfosByMeetingType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetintTypeTemplateInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetintTypeTemplateInfosListBySearch" message="SmtOACommonOffice_GetMeetintTypeTemplateInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetintTypeTemplateInfosListBySearchResponse" message="SmtOACommonOffice_GetMeetintTypeTemplateInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingTypeTemplateAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingTypeTemplateAdd" message="SmtOACommonOffice_MeetingTypeTemplateAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingTypeTemplateAddResponse" message="SmtOACommonOffice_MeetingTypeTemplateAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingTypeTemplate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingTypeTemplate" message="SmtOACommonOffice_IsExistMeetingTypeTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingTypeTemplateResponse" message="SmtOACommonOffice_IsExistMeetingTypeTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingTypeTemplateDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingTypeTemplateDel" message="SmtOACommonOffice_MeetingTypeTemplateDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingTypeTemplateDelResponse" message="SmtOACommonOffice_MeetingTypeTemplateDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingTypeTemplateUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingTypeTemplateUpdate" message="SmtOACommonOffice_MeetingTypeTemplateUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingTypeTemplateUpdateResponse" message="SmtOACommonOffice_MeetingTypeTemplateUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeTemplateSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeTemplateSingleInfoById" message="SmtOACommonOffice_GetMeetingTypeTemplateSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeTemplateSingleInfoByIdResponse" message="SmtOACommonOffice_GetMeetingTypeTemplateSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateName">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateName" message="SmtOACommonOffice_GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateNameResponse" message="SmtOACommonOffice_GetMeetingTypeTemplateContentInfoByMeetingTypeAndTemplateName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingContentAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingContentAdd" message="SmtOACommonOffice_MeetingContentAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingContentAddResponse" message="SmtOACommonOffice_MeetingContentAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddMeetingContentInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/BatchAddMeetingContentInfos" message="SmtOACommonOffice_BatchAddMeetingContentInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/BatchAddMeetingContentInfosResponse" message="SmtOACommonOffice_BatchAddMeetingContentInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingContentInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingContentInfo" message="SmtOACommonOffice_IsExistMeetingContentInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingContentInfoResponse" message="SmtOACommonOffice_IsExistMeetingContentInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingContentDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingContentDel" message="SmtOACommonOffice_MeetingContentDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingContentDelResponse" message="SmtOACommonOffice_MeetingContentDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingContentInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingContentInfoUpdate" message="SmtOACommonOffice_MeetingContentInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingContentInfoUpdateResponse" message="SmtOACommonOffice_MeetingContentInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingContentSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingContentSingleInfoById" message="SmtOACommonOffice_GetMeetingContentSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingContentSingleInfoByIdResponse" message="SmtOACommonOffice_GetMeetingContentSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingContentInfosByMeetngInfoID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingContentInfosByMeetngInfoID" message="SmtOACommonOffice_GetMeetingContentInfosByMeetngInfoID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingContentInfosByMeetngInfoIDResponse" message="SmtOACommonOffice_GetMeetingContentInfosByMeetngInfoID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocTypeAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocTypeAdd" message="SmtOACommonOffice_DocTypeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocTypeAddResponse" message="SmtOACommonOffice_DocTypeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistDocTypeInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistDocTypeInfo" message="SmtOACommonOffice_IsExistDocTypeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistDocTypeInfoResponse" message="SmtOACommonOffice_IsExistDocTypeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocTypeBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocTypeBatchDel" message="SmtOACommonOffice_DocTypeBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocTypeBatchDelResponse" message="SmtOACommonOffice_DocTypeBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocTypeInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocTypeInfoUpdate" message="SmtOACommonOffice_DocTypeInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocTypeInfoUpdateResponse" message="SmtOACommonOffice_DocTypeInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocTypeSingleInfoById" message="SmtOACommonOffice_GetDocTypeSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocTypeSingleInfoByIdResponse" message="SmtOACommonOffice_GetDocTypeSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocTypeInfos" message="SmtOACommonOffice_GetDocTypeInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocTypeInfosResponse" message="SmtOACommonOffice_GetDocTypeInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocTypeInfosListBySearch" message="SmtOACommonOffice_GetDocTypeInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocTypeInfosListBySearchResponse" message="SmtOACommonOffice_GetDocTypeInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeNameInfosToCombox">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocTypeNameInfosToCombox" message="SmtOACommonOffice_GetDocTypeNameInfosToCombox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocTypeNameInfosToComboxResponse" message="SmtOACommonOffice_GetDocTypeNameInfosToCombox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocPriorityAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocPriorityAdd" message="SmtOACommonOffice_DocPriorityAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocPriorityAddResponse" message="SmtOACommonOffice_DocPriorityAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistDocPriorityInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistDocPriorityInfo" message="SmtOACommonOffice_IsExistDocPriorityInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistDocPriorityInfoResponse" message="SmtOACommonOffice_IsExistDocPriorityInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocPriorityBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocPriorityBatchDel" message="SmtOACommonOffice_DocPriorityBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocPriorityBatchDelResponse" message="SmtOACommonOffice_DocPriorityBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocPriorityInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocPriorityInfoUpdate" message="SmtOACommonOffice_DocPriorityInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocPriorityInfoUpdateResponse" message="SmtOACommonOffice_DocPriorityInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocPrioritySingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocPrioritySingleInfoById" message="SmtOACommonOffice_GetDocPrioritySingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocPrioritySingleInfoByIdResponse" message="SmtOACommonOffice_GetDocPrioritySingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocPrioritiesInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocPrioritiesInfos" message="SmtOACommonOffice_GetDocPrioritiesInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocPrioritiesInfosResponse" message="SmtOACommonOffice_GetDocPrioritiesInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocPriorityInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocPriorityInfosListBySearch" message="SmtOACommonOffice_GetDocPriorityInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocPriorityInfosListBySearchResponse" message="SmtOACommonOffice_GetDocPriorityInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProritityNameInfosToCombox">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetProritityNameInfosToCombox" message="SmtOACommonOffice_GetProritityNameInfosToCombox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetProritityNameInfosToComboxResponse" message="SmtOACommonOffice_GetProritityNameInfosToCombox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GradeAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GradeAdd" message="SmtOACommonOffice_GradeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GradeAddResponse" message="SmtOACommonOffice_GradeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistGradeInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistGradeInfo" message="SmtOACommonOffice_IsExistGradeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistGradeInfoResponse" message="SmtOACommonOffice_IsExistGradeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GradeBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GradeBatchDel" message="SmtOACommonOffice_GradeBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GradeBatchDelResponse" message="SmtOACommonOffice_GradeBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GradeInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GradeInfoUpdate" message="SmtOACommonOffice_GradeInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GradeInfoUpdateResponse" message="SmtOACommonOffice_GradeInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGradeSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetGradeSingleInfoById" message="SmtOACommonOffice_GetGradeSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetGradeSingleInfoByIdResponse" message="SmtOACommonOffice_GetGradeSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGradeInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetGradeInfos" message="SmtOACommonOffice_GetGradeInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetGradeInfosResponse" message="SmtOACommonOffice_GetGradeInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGradeInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetGradeInfosListBySearch" message="SmtOACommonOffice_GetGradeInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetGradeInfosListBySearchResponse" message="SmtOACommonOffice_GetGradeInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocGradeNameInfosToCombox">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocGradeNameInfosToCombox" message="SmtOACommonOffice_GetDocGradeNameInfosToCombox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocGradeNameInfosToComboxResponse" message="SmtOACommonOffice_GetDocGradeNameInfosToCombox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocTypeTemplateAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocTypeTemplateAdd" message="SmtOACommonOffice_DocTypeTemplateAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocTypeTemplateAddResponse" message="SmtOACommonOffice_DocTypeTemplateAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistDocTypeTemplateInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistDocTypeTemplateInfo" message="SmtOACommonOffice_IsExistDocTypeTemplateInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistDocTypeTemplateInfoResponse" message="SmtOACommonOffice_IsExistDocTypeTemplateInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocTypeTemplateBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocTypeTemplateBatchDel" message="SmtOACommonOffice_DocTypeTemplateBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocTypeTemplateBatchDelResponse" message="SmtOACommonOffice_DocTypeTemplateBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocTypeTemplateInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocTypeTemplateInfoUpdate" message="SmtOACommonOffice_DocTypeTemplateInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocTypeTemplateInfoUpdateResponse" message="SmtOACommonOffice_DocTypeTemplateInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeTemplateSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocTypeTemplateSingleInfoById" message="SmtOACommonOffice_GetDocTypeTemplateSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocTypeTemplateSingleInfoByIdResponse" message="SmtOACommonOffice_GetDocTypeTemplateSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeTemplateContentByDocType">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocTypeTemplateContentByDocType" message="SmtOACommonOffice_GetDocTypeTemplateContentByDocType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocTypeTemplateContentByDocTypeResponse" message="SmtOACommonOffice_GetDocTypeTemplateContentByDocType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeTemplateInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocTypeTemplateInfos" message="SmtOACommonOffice_GetDocTypeTemplateInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocTypeTemplateInfosResponse" message="SmtOACommonOffice_GetDocTypeTemplateInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeTemplateInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocTypeTemplateInfosListBySearch" message="SmtOACommonOffice_GetDocTypeTemplateInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocTypeTemplateInfosListBySearchResponse" message="SmtOACommonOffice_GetDocTypeTemplateInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDocAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/SendDocAdd" message="SmtOACommonOffice_SendDocAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/SendDocAddResponse" message="SmtOACommonOffice_SendDocAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistSendDocInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistSendDocInfo" message="SmtOACommonOffice_IsExistSendDocInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistSendDocInfoResponse" message="SmtOACommonOffice_IsExistSendDocInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDocBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/SendDocBatchDel" message="SmtOACommonOffice_SendDocBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/SendDocBatchDelResponse" message="SmtOACommonOffice_SendDocBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDocInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/SendDocInfoUpdate" message="SmtOACommonOffice_SendDocInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/SendDocInfoUpdateResponse" message="SmtOACommonOffice_SendDocInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendDocSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetSendDocSingleInfoById" message="SmtOACommonOffice_GetSendDocSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetSendDocSingleInfoByIdResponse" message="SmtOACommonOffice_GetSendDocSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendDocInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetSendDocInfos" message="SmtOACommonOffice_GetSendDocInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetSendDocInfosResponse" message="SmtOACommonOffice_GetSendDocInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrbutedSendDocInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDistrbutedSendDocInfos" message="SmtOACommonOffice_GetDistrbutedSendDocInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDistrbutedSendDocInfosResponse" message="SmtOACommonOffice_GetDistrbutedSendDocInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSavedSendDocInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetSavedSendDocInfos" message="SmtOACommonOffice_GetSavedSendDocInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetSavedSendDocInfosResponse" message="SmtOACommonOffice_GetSavedSendDocInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendDocInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetSendDocInfosListBySearch" message="SmtOACommonOffice_GetSendDocInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetSendDocInfosListBySearchResponse" message="SmtOACommonOffice_GetSendDocInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrbutedSendDoc">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDistrbutedSendDoc" message="SmtOACommonOffice_GetDistrbutedSendDoc_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDistrbutedSendDocResponse" message="SmtOACommonOffice_GetDistrbutedSendDoc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendDocInfosListByWorkFlow">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetSendDocInfosListByWorkFlow" message="SmtOACommonOffice_GetSendDocInfosListByWorkFlow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetSendDocInfosListByWorkFlowResponse" message="SmtOACommonOffice_GetSendDocInfosListByWorkFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBumfDocInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetBumfDocInfo" message="SmtOACommonOffice_GetBumfDocInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetBumfDocInfoResponse" message="SmtOACommonOffice_GetBumfDocInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMYSendDocInfosList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMYSendDocInfosList" message="SmtOACommonOffice_GetMYSendDocInfosList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMYSendDocInfosListResponse" message="SmtOACommonOffice_GetMYSendDocInfosList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitCompanyDocFlow">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/SubmitCompanyDocFlow" message="SmtOACommonOffice_SubmitCompanyDocFlow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/SubmitCompanyDocFlowResponse" message="SmtOACommonOffice_SubmitCompanyDocFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitUpdateFlowComment1">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/SubmitUpdateFlowComment1" message="SmtOACommonOffice_SubmitUpdateFlowComment1_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/SubmitUpdateFlowComment1Response" message="SmtOACommonOffice_SubmitUpdateFlowComment1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocDistrbuteAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteAdd" message="SmtOACommonOffice_DocDistrbuteAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteAddResponse" message="SmtOACommonOffice_DocDistrbuteAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocDistrbuteBatchAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteBatchAdd" message="SmtOACommonOffice_DocDistrbuteBatchAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteBatchAddResponse" message="SmtOACommonOffice_DocDistrbuteBatchAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddCompanyDocDistrbute">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/BatchAddCompanyDocDistrbute" message="SmtOACommonOffice_BatchAddCompanyDocDistrbute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/BatchAddCompanyDocDistrbuteResponse" message="SmtOACommonOffice_BatchAddCompanyDocDistrbute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddCompanyDocDistrbuteForNew">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/BatchAddCompanyDocDistrbuteForNew" message="SmtOACommonOffice_BatchAddCompanyDocDistrbuteForNew_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/BatchAddCompanyDocDistrbuteForNewResponse" message="SmtOACommonOffice_BatchAddCompanyDocDistrbuteForNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseDocTask">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/CloseDocTask" message="SmtOACommonOffice_CloseDocTask_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/CloseDocTaskResponse" message="SmtOACommonOffice_CloseDocTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocDistrbuteBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteBatchDel" message="SmtOACommonOffice_DocDistrbuteBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteBatchDelResponse" message="SmtOACommonOffice_DocDistrbuteBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocDistrbuteInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteInfoUpdate" message="SmtOACommonOffice_DocDistrbuteInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteInfoUpdateResponse" message="SmtOACommonOffice_DocDistrbuteInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DocDistrbuteInfoUpdateByBatch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteInfoUpdateByBatch" message="SmtOACommonOffice_DocDistrbuteInfoUpdateByBatch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DocDistrbuteInfoUpdateByBatchResponse" message="SmtOACommonOffice_DocDistrbuteInfoUpdateByBatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocDistrbuteSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocDistrbuteSingleInfoById" message="SmtOACommonOffice_GetDocDistrbuteSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocDistrbuteSingleInfoByIdResponse" message="SmtOACommonOffice_GetDocDistrbuteSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocDistrbuteInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocDistrbuteInfos" message="SmtOACommonOffice_GetDocDistrbuteInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocDistrbuteInfosResponse" message="SmtOACommonOffice_GetDocDistrbuteInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocDistrbuteInfosByFormID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetDocDistrbuteInfosByFormID" message="SmtOACommonOffice_GetDocDistrbuteInfosByFormID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetDocDistrbuteInfosByFormIDResponse" message="SmtOACommonOffice_GetDocDistrbuteInfosByFormID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyDocNumsByUserid">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetCompanyDocNumsByUserid" message="SmtOACommonOffice_GetCompanyDocNumsByUserid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetCompanyDocNumsByUseridResponse" message="SmtOACommonOffice_GetCompanyDocNumsByUserid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgentSetAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/AgentSetAdd" message="SmtOACommonOffice_AgentSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/AgentSetAddResponse" message="SmtOACommonOffice_AgentSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAgentSet">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DeleteAgentSet" message="SmtOACommonOffice_DeleteAgentSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DeleteAgentSetResponse" message="SmtOACommonOffice_DeleteAgentSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentSet">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/UpdateAgentSet" message="SmtOACommonOffice_UpdateAgentSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/UpdateAgentSetResponse" message="SmtOACommonOffice_UpdateAgentSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentSetListById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetAgentSetListById" message="SmtOACommonOffice_GetAgentSetListById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetAgentSetListByIdResponse" message="SmtOACommonOffice_GetAgentSetListById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentSetBysId">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetAgentSetBysId" message="SmtOACommonOffice_GetAgentSetBysId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetAgentSetBysIdResponse" message="SmtOACommonOffice_GetAgentSetBysId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgentDataSetAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/AgentDataSetAdd" message="SmtOACommonOffice_AgentDataSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/AgentDataSetAddResponse" message="SmtOACommonOffice_AgentDataSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistAgent">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistAgent" message="SmtOACommonOffice_IsExistAgent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistAgentResponse" message="SmtOACommonOffice_IsExistAgent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAgentDataSet">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DeleteAgentDataSet" message="SmtOACommonOffice_DeleteAgentDataSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DeleteAgentDataSetResponse" message="SmtOACommonOffice_DeleteAgentDataSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentDataSet">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/UpdateAgentDataSet" message="SmtOACommonOffice_UpdateAgentDataSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/UpdateAgentDataSetResponse" message="SmtOACommonOffice_UpdateAgentDataSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentDataSetListById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetAgentDataSetListById" message="SmtOACommonOffice_GetAgentDataSetListById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetAgentDataSetListByIdResponse" message="SmtOACommonOffice_GetAgentDataSetListById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentDataSetBysId">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetAgentDataSetBysId" message="SmtOACommonOffice_GetAgentDataSetBysId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetAgentDataSetBysIdResponse" message="SmtOACommonOffice_GetAgentDataSetBysId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/DoWork" message="SmtOACommonOffice_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/DoWorkResponse" message="SmtOACommonOffice_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomInfoByID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomInfoByID" message="SmtOACommonOffice_GetMeetingRoomInfoByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomInfoByIDResponse" message="SmtOACommonOffice_GetMeetingRoomInfoByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomInfos" message="SmtOACommonOffice_GetMeetingRoomInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomInfosResponse" message="SmtOACommonOffice_GetMeetingRoomInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingRoomdAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingRoomdAdd" message="SmtOACommonOffice_MeetingRoomdAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingRoomdAddResponse" message="SmtOACommonOffice_MeetingRoomdAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingRoomdDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingRoomdDel" message="SmtOACommonOffice_MeetingRoomdDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingRoomdDelResponse" message="SmtOACommonOffice_MeetingRoomdDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchDelMeetingRoomdInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/BatchDelMeetingRoomdInfos" message="SmtOACommonOffice_BatchDelMeetingRoomdInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/BatchDelMeetingRoomdInfosResponse" message="SmtOACommonOffice_BatchDelMeetingRoomdInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingRoomUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingRoomUpdate" message="SmtOACommonOffice_MeetingRoomUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingRoomUpdateResponse" message="SmtOACommonOffice_MeetingRoomUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingRoom">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingRoom" message="SmtOACommonOffice_IsExistMeetingRoom_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingRoomResponse" message="SmtOACommonOffice_IsExistMeetingRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomById" message="SmtOACommonOffice_GetMeetingRoomById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomByIdResponse" message="SmtOACommonOffice_GetMeetingRoomById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomNameInfosToCombox">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomNameInfosToCombox" message="SmtOACommonOffice_GetMeetingRoomNameInfosToCombox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomNameInfosToComboxResponse" message="SmtOACommonOffice_GetMeetingRoomNameInfosToCombox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetintRoomInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetintRoomInfosListBySearch" message="SmtOACommonOffice_GetMeetintRoomInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetintRoomInfosListBySearchResponse" message="SmtOACommonOffice_GetMeetintRoomInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomTreeInfosByCompanyID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomTreeInfosByCompanyID" message="SmtOACommonOffice_GetMeetingRoomTreeInfosByCompanyID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomTreeInfosByCompanyIDResponse" message="SmtOACommonOffice_GetMeetingRoomTreeInfosByCompanyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingTimeChangeAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingTimeChangeAdd" message="SmtOACommonOffice_MeetingTimeChangeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingTimeChangeAddResponse" message="SmtOACommonOffice_MeetingTimeChangeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingTimeChange">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingTimeChange" message="SmtOACommonOffice_IsExistMeetingTimeChange_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingTimeChangeResponse" message="SmtOACommonOffice_IsExistMeetingTimeChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingStaffInfoAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingStaffInfoAdd" message="SmtOACommonOffice_MeetingStaffInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingStaffInfoAddResponse" message="SmtOACommonOffice_MeetingStaffInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddMeetingStaffInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/BatchAddMeetingStaffInfos" message="SmtOACommonOffice_BatchAddMeetingStaffInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/BatchAddMeetingStaffInfosResponse" message="SmtOACommonOffice_BatchAddMeetingStaffInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeetingStaffsByEmcce">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/UpdateMeetingStaffsByEmcce" message="SmtOACommonOffice_UpdateMeetingStaffsByEmcce_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/UpdateMeetingStaffsByEmcceResponse" message="SmtOACommonOffice_UpdateMeetingStaffsByEmcce_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingStaffInfoByAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingStaffInfoByAdd" message="SmtOACommonOffice_IsExistMeetingStaffInfoByAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingStaffInfoByAddResponse" message="SmtOACommonOffice_IsExistMeetingStaffInfoByAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingStaffInfoDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingStaffInfoDel" message="SmtOACommonOffice_MeetingStaffInfoDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingStaffInfoDelResponse" message="SmtOACommonOffice_MeetingStaffInfoDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingStaffUpdateInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingStaffUpdateInfos" message="SmtOACommonOffice_MeetingStaffUpdateInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingStaffUpdateInfosResponse" message="SmtOACommonOffice_MeetingStaffUpdateInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMeetingStaffInfosByMeetingInfoID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetAllMeetingStaffInfosByMeetingInfoID" message="SmtOACommonOffice_GetAllMeetingStaffInfosByMeetingInfoID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetAllMeetingStaffInfosByMeetingInfoIDResponse" message="SmtOACommonOffice_GetAllMeetingStaffInfosByMeetingInfoID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingStaffByMeetingInfoIdEmcee">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingStaffByMeetingInfoIdEmcee" message="SmtOACommonOffice_GetMeetingStaffByMeetingInfoIdEmcee_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingStaffByMeetingInfoIdEmceeResponse" message="SmtOACommonOffice_GetMeetingStaffByMeetingInfoIdEmcee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingRoomTimeChangeAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingRoomTimeChangeAdd" message="SmtOACommonOffice_MeetingRoomTimeChangeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingRoomTimeChangeAddResponse" message="SmtOACommonOffice_MeetingRoomTimeChangeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingRoomTimeChange">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingRoomTimeChange" message="SmtOACommonOffice_IsExistMeetingRoomTimeChange_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingRoomTimeChangeResponse" message="SmtOACommonOffice_IsExistMeetingRoomTimeChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingRoomAppInfoAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingRoomAppInfoAdd" message="SmtOACommonOffice_MeetingRoomAppInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingRoomAppInfoAddResponse" message="SmtOACommonOffice_MeetingRoomAppInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingRoomAppInfoByAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingRoomAppInfoByAdd" message="SmtOACommonOffice_IsExistMeetingRoomAppInfoByAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingRoomAppInfoByAddResponse" message="SmtOACommonOffice_IsExistMeetingRoomAppInfoByAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingRoomJustUsing">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingRoomJustUsing" message="SmtOACommonOffice_IsExistMeetingRoomJustUsing_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingRoomJustUsingResponse" message="SmtOACommonOffice_IsExistMeetingRoomJustUsing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingRoomAppInfoDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingRoomAppInfoDel" message="SmtOACommonOffice_MeetingRoomAppInfoDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingRoomAppInfoDelResponse" message="SmtOACommonOffice_MeetingRoomAppInfoDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingRoomAppBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingRoomAppBatchDel" message="SmtOACommonOffice_MeetingRoomAppBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingRoomAppBatchDelResponse" message="SmtOACommonOffice_MeetingRoomAppBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingRoomAppUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingRoomAppUpdate" message="SmtOACommonOffice_MeetingRoomAppUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingRoomAppUpdateResponse" message="SmtOACommonOffice_MeetingRoomAppUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomAppSingleInfoByAppId">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomAppSingleInfoByAppId" message="SmtOACommonOffice_GetMeetingRoomAppSingleInfoByAppId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomAppSingleInfoByAppIdResponse" message="SmtOACommonOffice_GetMeetingRoomAppSingleInfoByAppId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomAppInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomAppInfos" message="SmtOACommonOffice_GetMeetingRoomAppInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomAppInfosResponse" message="SmtOACommonOffice_GetMeetingRoomAppInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomAppBySelectRooms">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomAppBySelectRooms" message="SmtOACommonOffice_GetMeetingRoomAppBySelectRooms_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomAppBySelectRoomsResponse" message="SmtOACommonOffice_GetMeetingRoomAppBySelectRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingRoomAppInfosByFlow">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomAppInfosByFlow" message="SmtOACommonOffice_GetMeetingRoomAppInfosByFlow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingRoomAppInfosByFlowResponse" message="SmtOACommonOffice_GetMeetingRoomAppInfosByFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetintRoomAppInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetintRoomAppInfosListBySearch" message="SmtOACommonOffice_GetMeetintRoomAppInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetintRoomAppInfosListBySearchResponse" message="SmtOACommonOffice_GetMeetintRoomAppInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingInfoAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingInfoAdd" message="SmtOACommonOffice_MeetingInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingInfoAddResponse" message="SmtOACommonOffice_MeetingInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistMeetingInfoByAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingInfoByAdd" message="SmtOACommonOffice_IsExistMeetingInfoByAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/IsExistMeetingInfoByAddResponse" message="SmtOACommonOffice_IsExistMeetingInfoByAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingInfoDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingInfoDel" message="SmtOACommonOffice_MeetingInfoDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingInfoDelResponse" message="SmtOACommonOffice_MeetingInfoDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingInfoUpdateByForm">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingInfoUpdateByForm" message="SmtOACommonOffice_MeetingInfoUpdateByForm_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingInfoUpdateByFormResponse" message="SmtOACommonOffice_MeetingInfoUpdateByForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingInfoUpdate" message="SmtOACommonOffice_MeetingInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingInfoUpdateResponse" message="SmtOACommonOffice_MeetingInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingInfoBatchDel">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingInfoBatchDel" message="SmtOACommonOffice_MeetingInfoBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingInfoBatchDelResponse" message="SmtOACommonOffice_MeetingInfoBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingInfoSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingInfoSingleInfoById" message="SmtOACommonOffice_GetMeetingInfoSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingInfoSingleInfoByIdResponse" message="SmtOACommonOffice_GetMeetingInfoSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingMessageByID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingMessageByID" message="SmtOACommonOffice_GetMeetingMessageByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingMessageByIDResponse" message="SmtOACommonOffice_GetMeetingMessageByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetintInfosListByTitleTimeSearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetintInfosListByTitleTimeSearch" message="SmtOACommonOffice_GetMeetintInfosListByTitleTimeSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetintInfosListByTitleTimeSearchResponse" message="SmtOACommonOffice_GetMeetintInfosListByTitleTimeSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyMeetingInfosManagement">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMyMeetingInfosManagement" message="SmtOACommonOffice_GetMyMeetingInfosManagement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMyMeetingInfosManagementResponse" message="SmtOACommonOffice_GetMyMeetingInfosManagement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEmceeMeetingInfosManagement">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMyEmceeMeetingInfosManagement" message="SmtOACommonOffice_GetMyEmceeMeetingInfosManagement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMyEmceeMeetingInfosManagementResponse" message="SmtOACommonOffice_GetMyEmceeMeetingInfosManagement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeetingNoticeInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/UpdateMeetingNoticeInfo" message="SmtOACommonOffice_UpdateMeetingNoticeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/UpdateMeetingNoticeInfoResponse" message="SmtOACommonOffice_UpdateMeetingNoticeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowIdByKey">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetFlowIdByKey" message="SmtOACommonOffice_GetFlowIdByKey_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetFlowIdByKeyResponse" message="SmtOACommonOffice_GetFlowIdByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingNoticeByNoticeID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingNoticeByNoticeID" message="SmtOACommonOffice_GetMeetingNoticeByNoticeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingNoticeByNoticeIDResponse" message="SmtOACommonOffice_GetMeetingNoticeByNoticeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingInfoListByFlow">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingInfoListByFlow" message="SmtOACommonOffice_GetMeetingInfoListByFlow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingInfoListByFlowResponse" message="SmtOACommonOffice_GetMeetingInfoListByFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFlow">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/SubmitFlow" message="SmtOACommonOffice_SubmitFlow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/SubmitFlowResponse" message="SmtOACommonOffice_SubmitFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitComment">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/SubmitComment" message="SmtOACommonOffice_SubmitComment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/SubmitCommentResponse" message="SmtOACommonOffice_SubmitComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeInfoByID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeInfoByID" message="SmtOACommonOffice_GetMeetingTypeInfoByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeInfoByIDResponse" message="SmtOACommonOffice_GetMeetingTypeInfoByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingTypeInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeInfos" message="SmtOACommonOffice_GetMeetingTypeInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetingTypeInfosResponse" message="SmtOACommonOffice_GetMeetingTypeInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetintTypeInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/GetMeetintTypeInfosListBySearch" message="SmtOACommonOffice_GetMeetintTypeInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/GetMeetintTypeInfosListBySearchResponse" message="SmtOACommonOffice_GetMeetintTypeInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MeetingTypeAdd">
+      <wsdl:input wsaw:Action="urn:SmtOACommonOffice/MeetingTypeAdd" message="SmtOACommonOffice_MeetingTypeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonOffice/MeetingTypeAddResponse" message="SmtOACommonOffice_MeetingTypeAdd_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
