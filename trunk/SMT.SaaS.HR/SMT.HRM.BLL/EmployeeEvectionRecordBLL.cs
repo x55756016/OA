@@ -203,14 +203,9 @@ namespace SMT.HRM.BLL
             string attState = parameterDic["ATTSTATE"].ToString();
 
             using (AbnormRecordBLL bll = new AbnormRecordBLL())
-            {
-                Tracer.Debug(" 出差消除异常开始，出差开始时间:" + STARTDATETIME.ToString("yyyy-MM-dd HH:mm:ss")
-                    + " 结束时间：" + ENDDATETIME.ToString("yyyy-MM-dd HH:mm:ss"));
-
+            {   
+                //出差消除异常
                 bll.DealEmployeeAbnormRecord(employeeid, STARTDATETIME, ENDDATETIME, attState);
-
-                Tracer.Debug(" 出差消除异常结束，出差开始时间:" + STARTDATETIME.ToString("yyyy-MM-dd HH:mm:ss")
-                   + " 结束时间：" + ENDDATETIME.ToString("yyyy-MM-dd HH:mm:ss"));
             }
         }       
 
