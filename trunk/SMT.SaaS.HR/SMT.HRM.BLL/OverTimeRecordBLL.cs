@@ -19,6 +19,7 @@ using System.Linq.Expressions;
 using SMT.HRM.CustomModel;
 using SMT_HRM_EFModel;
 using SMT.HRM.DAL;
+using SMT.Foundation.Log;
 
 
 namespace SMT.HRM.BLL
@@ -278,7 +279,7 @@ namespace SMT.HRM.BLL
                 {
                     return "{SAVESUCCESSED}";
                 }
-
+                Tracer.Debug("加班生产调休假开始，员工姓名：" + entOTRd.EMPLOYEENAME);
                 string strEmployeeID = entOTRd.EMPLOYEEID;
                 DateTime dtEfficDate = DateTime.Parse(entOTRd.ENDDATE.Value.AddDays(1).ToString("yyyy-MM-dd"));   //员工可休假记录生效日期为加班完结后的次日
 
@@ -327,6 +328,15 @@ namespace SMT.HRM.BLL
                     EmployeeLevelDayCountBLL bllLevelDayCount = new EmployeeLevelDayCountBLL();
                     T_HR_EMPLOYEELEVELDAYCOUNT entLevelDayCount = new T_HR_EMPLOYEELEVELDAYCOUNT();
 
+                    var q = from ent in dal.GetObjects<T_HR_EMPLOYEELEVELDAYCOUNT>()
+                            where ent.REMARK == entOTRd.OVERTIMERECORDID
+                            select ent;
+                    if (q.Count() > 0)
+                    {
+                        Tracer.Debug("加班生成调休已生成过调休假：加班记录主键id：" + entOTRd.OVERTIMERECORDID);
+                        return "{SAVESUCCESSED}";
+                    }
+
                     entLevelDayCount.RECORDID = System.Guid.NewGuid().ToString().ToUpper();
                     entLevelDayCount.EMPLOYEEID = entOTRd.EMPLOYEEID;
                     entLevelDayCount.EMPLOYEENAME = entOTRd.EMPLOYEENAME;
@@ -348,7 +358,7 @@ namespace SMT.HRM.BLL
                         entLevelDayCount.TERMINATEDATE = dtEfficDate.AddDays(iAdjustExpiredValue);
                     }
 
-                    entLevelDayCount.REMARK = string.Empty;
+                    entLevelDayCount.REMARK = entOTRd.OVERTIMERECORDID;
 
                     //权限
                     entLevelDayCount.OWNERCOMPANYID = entOTRd.OWNERCOMPANYID;

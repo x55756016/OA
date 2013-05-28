@@ -21,7 +21,7 @@ namespace SMT.ImportClockInRdCustomServies
 {
     public partial class ImportRdService : ServiceBase
     {
-        AttendanceServiceClient clientAtt = new AttendanceServiceClient();
+        AttendanceServiceClient clientAtt;
         List<string> strImportIPs = new List<string>();
         List<string> strImportCompanys = new List<string>();
         List<string> strImportCheck = new List<string>();
@@ -62,6 +62,8 @@ namespace SMT.ImportClockInRdCustomServies
 
         private void ImportRd()
         {
+            if (clientAtt==null) clientAtt = new AttendanceServiceClient();
+
             DateTime dtCur = DateTime.Now;
             string strElapsedHour = ConfigurationManager.AppSettings["ElapsedHour"].ToString();
 
@@ -273,5 +275,14 @@ namespace SMT.ImportClockInRdCustomServies
                 }
             }
         }
+    }
+
+    public class CompanyImportFlag
+    {
+        public DateTime Importdate;
+        public string Companyid = string.Empty;
+        public string CompanyName = string.Empty;
+        bool IsImported = false;
+
     }
 }

@@ -971,13 +971,8 @@ namespace SMT.HRM.BLL
 
             using (AbnormRecordBLL bll = new AbnormRecordBLL())
             {
-                Tracer.Debug(" 请假消除异常开始，请假开始时间:" + STARTDATETIME.ToString("yyyy-MM-dd HH:mm:ss")
-                    + " 结束时间：" + ENDDATETIME.ToString("yyyy-MM-dd HH:mm:ss"));
-
+                //请假消除异常
                 bll.DealEmployeeAbnormRecord(employeeid, STARTDATETIME, ENDDATETIME, attState);
-
-                Tracer.Debug(" 请假消除异常结束，请假开始时间:" + STARTDATETIME.ToString("yyyy-MM-dd HH:mm:ss")
-                   + " 结束时间：" + ENDDATETIME.ToString("yyyy-MM-dd HH:mm:ss"));
             }
         }
 

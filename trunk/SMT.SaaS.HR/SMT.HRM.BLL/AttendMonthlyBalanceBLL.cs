@@ -2708,7 +2708,7 @@ namespace SMT.HRM.BLL
             {
                 string strAttState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
                 //考勤结算时计算同时存在考勤异常和出差天数
-                string strAttendStateMix = (Convert.ToInt32(Common.AttendanceState.MixLeveAbnormal) + 1).ToString();
+                string strAttendStateMix = (Convert.ToInt32(Common.AttendanceState.MixTravelAbnormal) + 1).ToString();
                 IQueryable<T_HR_ATTENDANCERECORD> entAttRdTemps = from r in entAttRds
                                                                   where r.ATTENDANCESTATE == strAttState
                                                                   || r.ATTENDANCESTATE == strAttendStateMix

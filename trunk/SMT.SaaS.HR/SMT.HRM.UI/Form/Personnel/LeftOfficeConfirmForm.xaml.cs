@@ -191,6 +191,7 @@ namespace SMT.HRM.UI.Form.Personnel
             }
             else
             {
+                this.dpConfirmDate.Text = DateTime.Now.ToString("yyyy-mm-dd");                
                 if (string.IsNullOrEmpty(conformID))
                 {
                     LeftOfficeConfirm = new T_HR_LEFTOFFICECONFIRM();

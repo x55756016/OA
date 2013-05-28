@@ -488,35 +488,35 @@ namespace SMT.HRM.BLL.Common
     public enum AttendanceState
     {
         /// <summary>
-        /// 正常
+        /// 正常实际枚举值加1
         /// </summary>
         Regular,
         /// <summary>
-        /// 考勤异常
+        /// 考勤异常实际枚举值加1=2
         /// </summary>
         Abnormal,
         /// <summary>
-        /// 旷工
+        /// 旷工实际枚举值加1=3
         /// </summary>
         SkipWork,
         /// <summary>
-        /// 出差
+        /// 出差实际枚举值加1=4
         /// </summary>
         Travel,
         /// <summary>
-        /// 休息
+        /// 休息实际枚举值加1=5
         /// </summary>
         Rest,
         /// <summary>
-        /// 请假
+        /// 请假实际枚举值加1=6
         /// </summary>
         Leave,
         /// <summary>
-        /// 混合状态(针对一天内同时出现请假，考勤异常)
+        /// 混合状态(针对一天内同时出现请假，考勤异常)实际枚举值加1=7
         /// </summary>
         MixLeveAbnormal,
         /// <summary>
-        /// 混合状态(针对一天内同时出现出差，考勤异常)
+        /// 混合状态(针对一天内同时出现出差，考勤异常)实际枚举值加1=8
         /// </summary>
         MixTravelAbnormal
     }

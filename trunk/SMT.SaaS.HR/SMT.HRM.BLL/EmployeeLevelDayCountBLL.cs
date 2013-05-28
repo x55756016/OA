@@ -768,6 +768,17 @@ namespace SMT.HRM.BLL
                 decimal dYearDays = 0, dLeavelDayCount = 0, dUsedLeavelDays = 0, dUsedYearDays = 0;
                 decimal dUseLeavelDay = 0, dUseYearDays = 0;
 
+
+                if (!entLastAttSolAsign.T_HR_ATTENDANCESOLUTIONReference.IsLoaded)
+                {
+                    entLastAttSolAsign.T_HR_ATTENDANCESOLUTIONReference.Load();
+                }
+                if (entLastAttSolAsign.T_HR_ATTENDANCESOLUTION == null)
+                {
+                    Tracer.Debug("考勤方案应用的考勤方案为空");
+                    throw (new Exception("考勤方案应用的考勤方案为空"));
+                }
+
                 T_HR_ATTENDANCESOLUTION entAttSol = entLastAttSolAsign.T_HR_ATTENDANCESOLUTION;
 
                 if (entAttSol != null)
@@ -1039,7 +1050,7 @@ namespace SMT.HRM.BLL
                     return "{ALREADYEXISTSRECORD}";
                 }
 
-                dalEmployeeleveldaycount.Add(entTemp);
+                int i= dalEmployeeleveldaycount.Add(entTemp);
 
                 strMsg = "{SAVESUCCESSED}";
 
