@@ -2504,10 +2504,10 @@ namespace SMT.SaaS.OA.BLL
                     {
                         IntK++;
                         var tempEnt = dal.GetObjects().FirstOrDefault(s => s.FORMID == obj.FORMID && s.MODELNAME == obj.MODELNAME
-                                           && s.VIEWER == obj.VIEWER && s.VIEWTYPE == obj.VIEWTYPE && s.CREATEUSERID == obj.CREATEUSERID);
+                                           && s.VIEWER == obj.VIEWER && s.VIEWTYPE == obj.VIEWTYPE);
                         if (tempEnt != null)
                         {
-                            //StrReturn = "REPETITION"; //{0}已存在，保存失败！                    
+                            Tracer.Debug("此公文已发送过，被跳过，公文名：" + doc.SENDDOCTITLE);                
                             continue;
                         }
                         else
