@@ -618,85 +618,89 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         private void ComVechileType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TravelDictionaryComboBox vechiletype = sender as TravelDictionaryComboBox;
-            if (vechiletype.SelectedIndex >= 0)
+            try
             {
-                var thd = transportToolStand.FirstOrDefault();
-                thd = this.GetVehicleTypeValue("");
-                T_SYS_DICTIONARY VechileTypeObj = vechiletype.SelectedItem as T_SYS_DICTIONARY;
-                if (DaGrs.SelectedItem != null)
+                TravelDictionaryComboBox vechiletype = sender as TravelDictionaryComboBox;
+                if (vechiletype.SelectedIndex >= 0)
                 {
-                    if (DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem) != null)
-                    {
-                        TravelDictionaryComboBox ComLevel = DaGrs.Columns[5].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
-
-                        var ListObj = from ent in ListVechileLevel
-                                      where ent.T_SYS_DICTIONARY2.DICTIONARYID == VechileTypeObj.DICTIONARYID
-                                      orderby ent.DICTIONARYVALUE descending
-                                      select ent;
-                        if (ListObj.Count() > 0)
-                        {
-                            ComLevel.ItemsSource = ListObj;
-                            ComLevel.SelectedIndex = 0;
-                        }
-                    }
-                }
-                //if (employeepost != null)
-                //{
-                if (!string.IsNullOrEmpty(Master_Golbal.POSTLEVEL))
-                {
+                    var thd = transportToolStand.FirstOrDefault();
+                    thd = this.GetVehicleTypeValue("");
+                    if (thd == null) return;
+                    T_SYS_DICTIONARY VechileTypeObj = vechiletype.SelectedItem as T_SYS_DICTIONARY;
                     if (DaGrs.SelectedItem != null)
                     {
                         if (DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem) != null)
                         {
                             TravelDictionaryComboBox ComLevel = DaGrs.Columns[5].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
-                            TravelDictionaryComboBox ComType = DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileType") as TravelDictionaryComboBox;
-                            T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
-                            T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
-                            level = ComLevel.SelectedItem as T_SYS_DICTIONARY;
-                            type = ComType.SelectedItem as T_SYS_DICTIONARY;
 
-                            if (transportToolStand.Count() > 0)
+                            var ListObj = from ent in ListVechileLevel
+                                          where ent.T_SYS_DICTIONARY2.DICTIONARYID == VechileTypeObj.DICTIONARYID
+                                          orderby ent.DICTIONARYVALUE descending
+                                          select ent;
+                            if (ListObj.Count() > 0)
                             {
-                                if (thd != null)
+                                ComLevel.ItemsSource = ListObj;
+                                ComLevel.SelectedIndex = 0;
+                            }
+                        }
+                    }
+                    //if (employeepost != null)
+                    //{
+                    if (!string.IsNullOrEmpty(Master_Golbal.POSTLEVEL))
+                    {
+                        if (DaGrs.SelectedItem != null)
+                        {
+                            if (DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem) != null)
+                            {
+                                TravelDictionaryComboBox ComLevel = DaGrs.Columns[5].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
+                                TravelDictionaryComboBox ComType = DaGrs.Columns[4].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileType") as TravelDictionaryComboBox;
+                                T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
+                                T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
+                                level = ComLevel.SelectedItem as T_SYS_DICTIONARY;
+                                type = ComType.SelectedItem as T_SYS_DICTIONARY;
+
+                                if (transportToolStand.Count() > 0)
                                 {
-                                    if (type != null)
+                                    if (thd != null)
                                     {
-                                        if (thd.TYPEOFTRAVELTOOLS.ToInt32() <= type.DICTIONARYVALUE)
+                                        if (type != null)
                                         {
-                                            if (tempcomTypeBorderBrush != null)
+                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() <= type.DICTIONARYVALUE)
                                             {
-                                                ComType.BorderBrush = tempcomTypeBorderBrush;
+                                                if (tempcomTypeBorderBrush != null)
+                                                {
+                                                    ComType.BorderBrush = tempcomTypeBorderBrush;
+                                                }
+                                                if (tempcomTypeForeBrush != null)
+                                                {
+                                                    ComType.Foreground = tempcomTypeForeBrush;
+                                                }
+                                                if (tempcomLevelForeBrush != null)
+                                                {
+                                                    ComLevel.Foreground = tempcomLevelForeBrush;
+                                                }
+                                                if (tempcomLevelBorderBrush != null)
+                                                {
+                                                    ComLevel.BorderBrush = tempcomLevelBorderBrush;
+                                                }
                                             }
-                                            if (tempcomTypeForeBrush != null)
+                                            else
                                             {
-                                                ComType.Foreground = tempcomTypeForeBrush;
-                                            }
-                                            if (tempcomLevelForeBrush != null)
-                                            {
-                                                ComLevel.Foreground = tempcomLevelForeBrush;
-                                            }
-                                            if (tempcomLevelBorderBrush != null)
-                                            {
-                                                ComLevel.BorderBrush = tempcomLevelBorderBrush;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() > type.DICTIONARYVALUE && thd.TAKETHETOOLLEVEL.ToInt32() > level.DICTIONARYVALUE)
-                                            {
-                                                ComType.BorderBrush = new SolidColorBrush(Colors.Red);
-                                                ComType.Foreground = new SolidColorBrush(Colors.Red);
-                                                ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
-                                                ComLevel.Foreground = new SolidColorBrush(Colors.Red);
-                                                return;
-                                            }
-                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() > type.DICTIONARYVALUE)
-                                            {
-                                                ComType.BorderBrush = new SolidColorBrush(Colors.Red);
-                                                ComType.Foreground = new SolidColorBrush(Colors.Red);
-                                                ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
-                                                ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                                if (thd.TYPEOFTRAVELTOOLS.ToInt32() > type.DICTIONARYVALUE && thd.TAKETHETOOLLEVEL.ToInt32() > level.DICTIONARYVALUE)
+                                                {
+                                                    ComType.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                    ComType.Foreground = new SolidColorBrush(Colors.Red);
+                                                    ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                    ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                                    return;
+                                                }
+                                                if (thd.TYPEOFTRAVELTOOLS.ToInt32() > type.DICTIONARYVALUE)
+                                                {
+                                                    ComType.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                    ComType.Foreground = new SolidColorBrush(Colors.Red);
+                                                    ComLevel.BorderBrush = new SolidColorBrush(Colors.Red);
+                                                    ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                                }
                                             }
                                         }
                                     }
@@ -704,8 +708,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             }
                         }
                     }
+                    //}
                 }
-                //}
+            }
+            catch (Exception ex)
+            {
+                Utility.SetLogAndShowLog(ex.ToString());
             }
         }
 
@@ -1053,6 +1061,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         /// <returns></returns>
         private T_OA_TAKETHESTANDARDTRANSPORT GetVehicleTypeValue(string TraveToolType)
         {
+            //MessageBox.Show(TraveToolType);
             try
             {
                 if (string.IsNullOrEmpty(TraveToolType))
@@ -1082,8 +1091,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             catch (Exception ex)
             {
+                //MessageBox.Show(ex.ToString());
                 Utility.SetLogAndShowLog(ex.ToString());
-                return new T_OA_TAKETHESTANDARDTRANSPORT();
+                return null;
             }
         }
 
