@@ -687,7 +687,7 @@ namespace SMT.SaaS.OA.BLL
                             = new AttendanceWS.AttendanceServiceClient();                       
                         Client.AddEmployeeEvectionRdList(ListRecord.ToArray());
 
-                        StrMessage = "出差报销同步考勤数据成功，出差报销开始时间："
+                        StrMessage = travel.CLAIMSWERENAME +" 的出差报销同步考勤数据成功，出差报销开始时间："
                             + ListRecord[0].STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
                             + " 结束时间:" + ListRecord[0].ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss");
                         SMT.Foundation.Log.Tracer.Debug(StrMessage);
@@ -695,13 +695,13 @@ namespace SMT.SaaS.OA.BLL
                 }
                 catch (Exception ex)
                 {
-                    StrMessage = "出差报销同步考勤数据出错:" + ListRecord.Count() + ex.Message.ToString();
+                    StrMessage = travel.CLAIMSWERENAME +" 的出差报销同步考勤数据出错:" + ListRecord.Count() + ex.Message.ToString();
                     SMT.Foundation.Log.Tracer.Debug(StrMessage);
                 }
             }
             catch (Exception ex)
             {
-                StrMessage = "出差报销生成考勤数据出错" + ex.ToString();
+                StrMessage = travel.CLAIMSWERENAME+" 的出差报销生成考勤数据出错" + ex.ToString();
                 SMT.Foundation.Log.Tracer.Debug(StrMessage);
             }
         }
