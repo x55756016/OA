@@ -40,12 +40,15 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 验证
         private bool Check()
         {
-            string StrStartDt = "";
-            string EndDt = "";
-            string StrStartTime = "";
-            string StrEndTime = "";
+            string StrStartDt = string.Empty;
+            string EndDt = string.Empty;
+            string StrStartTime = string.Empty;
+            string StrEndTime = string.Empty;
             bool checkPrivate = false;
             bool checkMeet = false;
+            ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+
+            #region 出差时间验证
             foreach (object obje in DaGrs.ItemsSource)
             {
                 SearchCity myCitys = DaGrs.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
@@ -84,31 +87,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发时间不能大于等于到达时间", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
                 }
-            }
-            //add by luojie
-            //当没有报销金额时弹出提醒
-            decimal totalFee = Convert.ToDecimal(txtChargeApplyTotal.Text);
-            if (totalFee <= 0 && (!checkMeet && !checkPrivate))
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出差报销费用不能为零，请填写报销费用!"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return false;
-            }
-
-            List<string> checkCity = new List<string>();
-
-            ObservableCollection<T_OA_REIMBURSEMENTDETAIL> entBusinessTripDetails = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-            int foreachCount = 0;
-            foreach (Object obje in DaGrs.ItemsSource)//判断所选的出发城市是否与目标城市相同
-            {
-                foreachCount++;
-                string cityCheck = string.Empty;
 
                 DateTimePicker dpStartTime = DaGrs.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
                 DateTimePicker dpEndTime = DaGrs.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
-                SearchCity myCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
-                SearchCity myCitys = DaGrs.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
-                TravelDictionaryComboBox ComVechile = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
-
                 if (dpStartTime.Value != null)
                 {
                     TimeSpan tsStart = new TimeSpan(dpStartTime.Value.Value.Hour);
@@ -156,7 +137,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                 T_OA_REIMBURSEMENTDETAIL entDetail = obje as T_OA_REIMBURSEMENTDETAIL;
 
-                var queryData = from c in entBusinessTripDetails
+                var queryData = from c in TripDetails
                                 where c.STARTDATE > dpStartTime.Value && c.ENDDATE > dpEndTime.Value && c.REIMBURSEMENTDETAILID != entDetail.REIMBURSEMENTDETAILID
                                 orderby c.STARTDATE
                                 select c;
@@ -170,55 +151,57 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                 }
 
-                if (string.IsNullOrEmpty(myCity.TxtSelectedCity.Text))//判断出发城市
+
+                TravelDictionaryComboBox ComVechile = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                if (ComVechile.SelectedIndex <= 0)//交通工具类型
                 {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "DEPARTURECITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return false;
-                }
-                else
-                {
-                    cityCheck = myCity.TxtSelectedCity.Text.Trim();
-                }
-                checkCity.Add(cityCheck);
-                if (string.IsNullOrEmpty(myCitys.TxtSelectedCity.Text))//判断目标城市
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "ARRIVALCITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "TYPEOFTRAVELTOOLS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
                 }
 
-                //检测出发城市是否重复
-                if (foreachCount > 1)
+                TravelDictionaryComboBox ComVechileLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                if (ComVechileLevel.SelectedIndex < 0)//交通工具级别
                 {
-                    if (cityCheck == checkCity[0])
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("THESAMECANNOTAPPEAR", "INITIALDEPARTURECITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        return false;
-                    }
-                }
-                if (myCity.TxtSelectedCity.Text != null)
-                {
-                    if (myCity.TxtSelectedCity.Text == myCitys.TxtSelectedCity.Text)//出发城市不能与目标城市相同
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("NOTTHESAMEASTHETARGECITY", "DEPARTURECITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        return false;
-                    }
-                }
-                if (myCitys.TxtSelectedCity.Text != null)
-                {
-                    if (myCitys.TxtSelectedCity.Text == myCity.TxtSelectedCity.Text)//目标城市不能与出发城市相同
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("NOTTHESAMEASTHETARGECITY", "DEPARTURECITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        return false;
-                    }
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"),"交通工具级别不能为空", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return false;
                 }
 
-                //if (ComVechile.SelectedIndex <= 0)//交通工具类型
-                //{
-                //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "TYPEOFTRAVELTOOLS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                //    return false;
-                //}
             }
+            #endregion
+            
+            #region "判断出差开始城市是否用重复"           
+            for (int i = 0; i < TripDetails.Count; i++)
+            {
 
+                if (string.IsNullOrEmpty(TripDetails[i].DEPCITY.Trim()) || string.IsNullOrEmpty(TripDetails[i].DESTCITY.Trim()))
+                {
+                    //出发城市为空
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发或到达城市不能为空！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return false;
+                }
+                if (TripDetails.Count > 1)
+                {
+                    //如果上下两条出差记录城市一样
+                    if (i < TripDetails.Count - 1 && TripDetails[i].DEPCITY == TripDetails[i + 1].DEPCITY)
+                    {
+                        //出发城市与开始城市不能相同
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        return false;
+                    }
+                    if (i > 0)
+                    {
+                        if (TripDetails[i].DEPCITY == TripDetails[i].DESTCITY)
+                        {
+                            //出发城市与开始城市不能相同
+                            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发到达城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                            return false;
+                        }
+                    }
+                }
+            }
+            #endregion  
+
+            #region 出差报销其他验证
             if (string.IsNullOrEmpty(this.txtReport.Text.Trim()))//报告内容
             {
                 RefreshUI(RefreshedTypes.HideProgressBar);
@@ -235,6 +218,14 @@ namespace SMT.SaaS.OA.UI.UserControls
                     return false;
                 }
             }
+            //add by luojie
+            //当没有报销金额时弹出提醒
+            decimal totalFee = Convert.ToDecimal(txtChargeApplyTotal.Text);
+            if (totalFee <= 0 && (!checkMeet && !checkPrivate))
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出差报销费用不能为零，请填写报销费用!"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return false;
+            }
 
             List<SMT.SaaS.FrameworkUI.Validator.ValidatorBase> validators = Group1.ValidateAll();
             if (validators.Count > 0)
@@ -246,6 +237,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
                 RefreshUI(RefreshedTypes.HideProgressBar);
             }
+            #endregion
+                      
             return true;
         }
         #endregion
@@ -340,7 +333,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     //textStandards.Text = string.Empty;//清空报销标准说明
                     //字段赋值
                     SetTraveAndFBChargeValue();
-
+                    TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL = null;//清空主表明细记录，以免保存时异常（子表字段为空）
                     if (OpenFrom == "FromMVC")
                     {
                         OaPersonOfficeClient.UpdateTravelReimbursementAsync(TravelReimbursement_Golbal, TravelDetailList_Golbal, formType.ToString(), "Edit");
