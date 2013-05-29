@@ -1,0 +1,1741 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FB>
+  <Orders>
+    <Order Name="费用报销申请单"  Type="T_FB_CHARGEAPPLYMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="更新时间" PropertyName="Entity.UPDATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的报销申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_CHARGEAPPLYMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_CHARGEAPPLYMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有报销申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" Requited="false" IsReadOnly="true" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="付款类型" Name="payType" PropertyName="Entity.PAYTYPE" CType="2" Requited="true">
+              <ReferencedData Type="PayTypeData" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="外部单据" Name="ModelCode" PropertyName="Entity.T_FB_EXTENSIONALORDER" CType="8" Requited="false">
+              <ReferencedData Type="ExtensionalOrderData">
+                <Parameters>
+                  <Parameter Name="OrderID">{Entity.T_FB_EXTENSIONALORDER.ORDERID}</Parameter>
+                  <Parameter Name="ModelCode">{Entity.T_FB_EXTENSIONALORDER.Type.Modecoeld}</Parameter>
+                </Parameters>
+              </ReferencedData>
+            </DataFieldItem>
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="费用总额度" Name="TOTALMONEY" PropertyName="Entity.TOTALMONEY" CType="1" IsReadOnly="true" />
+            <DataFieldItem PropertyDisplayName="预算月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请人" Name="OwnerID" PropertyName="Entity.OWNERID" CType="3" Requited="true" >
+              <ReferencedData Type="EmployeerData" DefaultValue="{LoginUser}" TextPath="Entity.OWNERNAME" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="借款单" Name="BorrowApply" PropertyName="Entity.T_FB_BORROWAPPLYMASTER" CType="3" Requited="false">
+              <ReferencedData Type="BorrowOrderData">
+                <Parameters>
+                  <Parameter Name="OWNERID">{Entity.OWNERID}</Parameter>
+                  <Parameter Name="OWNERPOSTID">{Entity.OWNERPOSTID}</Parameter>
+                  <Parameter Name="CHECKSTATES">2</Parameter>
+                </Parameters>
+              </ReferencedData>
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="支付信息" Name="PaymentInfo" PropertyName="Entity.PAYMENTINFO" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="2" />
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_CHARGEAPPLYDETAIL" ShowToolBar="true">
+          <GridItems>
+            <GridItem PropertyDisplayName="序列号" PropertyName="Entity.SERIALNUMBER" Width="40" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="费用类型" PropertyName="Entity.CHARGETYPE" Width="100" IsReadOnly="true">
+              <ReferencedData Type="BudgetChargeTypeData" />
+            </GridItem>
+            <GridItem PropertyDisplayName="借款金额" PropertyName="Entity.T_FB_BORROWAPPLYDETAIL.UNREPAYMONEY" Width="75" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.UableMoneyName" Width="75" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="摘要" PropertyName="Entity.REMARK" Width="200" IsReadOnly="false" MaxLength="200" />
+            <GridItem PropertyDisplayName="报销金额" PropertyName="Entity.CHARGEMONEY" Width="75" IsReadOnly="false" />
+          </GridItems>
+          <Parameters>
+            <Parameter Name="OWNERID">{Entity.OWNERID}</Parameter>
+            <Parameter Name="OWNERPOSTID">{Entity.OWNERPOSTID}</Parameter>
+          </Parameters>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="ChargeApplyMaster" Type="T_FB_CHARGEAPPLYMASTER" KeyName="CHARGEAPPLYMASTERID" CodeName="CHARGEAPPLYMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_CHARGEAPPLYDETAIL" Type="T_FB_CHARGEAPPLYDETAIL">
+            <Entity Name="T_FB_CHARGEAPPLYDETAIL" Type="T_FB_CHARGEAPPLYDETAIL" KeyName="CHARGEAPPLYDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_CHARGEAPPLYDETAIL" PropertyName="T_FB_CHARGEAPPLYMASTER.CHARGEAPPLYMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="差旅报销申请单"  Type="T_FB_TRAVELEXPAPPLYMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="更新时间" PropertyName="Entity.UPDATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的报销申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_TRAVELEXPAPPLYMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_TRAVELEXPAPPLYMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有报销申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请人" Name="OwnerID" PropertyName="Entity.OWNERID" CType="3" Requited="true" >
+              <ReferencedData Type="EmployeerData" DefaultValue="{LoginUser}" TextPath="Entity.OWNERNAME"/>
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="付款类型" Name="payType" PropertyName="Entity.PAYTYPE" CType="2" Requited="true">
+              <ReferencedData Type="PayTypeData" />
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000"  />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_TRAVELEXPAPPLYDETAIL">
+          <GridItems>
+            <GridItem PropertyDisplayName="月" PropertyName="Entity.MONTH" Width="45" IsReadOnly="false" />
+            <GridItem PropertyDisplayName="日" PropertyName="Entity.DAY" Width="45" IsReadOnly="false" />
+            <GridItem PropertyDisplayName="起讫地点" PropertyName="Entity.REMARK" Width="300" IsReadOnly="false" />
+            <GridItem PropertyDisplayName="天数" PropertyName="Entity.TOTALDAY" Width="45" IsReadOnly="false" MaxLength="200" />
+            <GridItem PropertyDisplayName="费用类型" PropertyName="Entity.CHARGETYPE" Width="75" IsReadOnly="true">
+              <ReferencedData Type="BudgetChargeTypeData" />
+            </GridItem>
+            <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.USABLEMONEY" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="申请报销费用" PropertyName="Entity.TOTALCHARGE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="审定费用" PropertyName="Entity.AUDITCHARGEMONEY" Width="100" IsReadOnly="true" />
+          </GridItems>
+          <RowDetailTemplate>
+            <DataPanel Type ="DataPanelTwoSide">
+              <LeftPanel />
+              <RightPanel>
+                <DataFieldItem PropertyDisplayName="机票费" Name="AIRFARE" PropertyName="Entity.AIRFARE" CType="1" Requited="false" />
+                <DataFieldItem PropertyDisplayName="车船费" Name="CARFARE" PropertyName="Entity.CARFARE" CType="1" Requited="false" />
+                <DataFieldItem PropertyDisplayName="住宿费" Name="LODGINGEXPENSES" PropertyName="Entity.LODGINGEXPENSES" CType="1" Requited="false" />
+                <DataFieldItem PropertyDisplayName="出差补助" Name="TRAVELLINGALLOWANCE" PropertyName="Entity.TRAVELLINGALLOWANCE" CType="1" Requited="false" />
+                <DataFieldItem PropertyDisplayName="住宿节约补助" Name="LODGESAVINGEXPENSES" PropertyName="Entity.LODGESAVINGEXPENSES" CType="1" Requited="false" />
+                <DataFieldItem PropertyDisplayName="其他" Name="OTHERCHARGE" PropertyName="Entity.OTHERCHARGE" CType="1" Requited="false" />
+              </RightPanel>
+            </DataPanel>
+          </RowDetailTemplate>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="TravelExpApplyMaster" Type="T_FB_TRAVELEXPAPPLYMASTER" KeyName="TRAVELEXPAPPLYMASTERID" CodeName="TRAVELEXPAPPLYMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_TRAVELEXPAPPLYDETAIL" Type="T_FB_TRAVELEXPAPPLYDETAIL" PropertyName="Entity.T_FB_TRAVELEXPAPPLYDETAIL">
+            <Entity Name="TravelExpApplyDetail" Type="T_FB_TRAVELEXPAPPLYDETAIL" KeyName="TRAVELEXPAPPLYDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_TRAVELEXPAPPLYDETAIL" PropertyName="T_FB_TRAVELEXPAPPLYMASTER.TRAVELEXPAPPLYMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="借款申请单"  Type="T_FB_BORROWAPPLYMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="更新时间" PropertyName="Entity.UPDATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的报销申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_BORROWAPPLYMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_BORROWAPPLYMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有报销申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请人" Name="OwnerID" PropertyName="Entity.OWNERID" CType="3" Requited="true" >
+              <ReferencedData Type="EmployeerData" DefaultValue="{LoginUser}" TextPath="Entity.OWNERNAME"/>
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="还款日期" Name="RepayDate" PropertyName="Entity.PLANREPAYDATE" CType="5" Requited="false" />
+            <DataFieldItem PropertyDisplayName="借款类型" Name="payType" PropertyName="Entity.REPAYTYPE" CType="2" Requited="true">
+              <ReferencedData Type="BorrowTypeData" />
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_BORROWAPPLYDETAIL" ShowToolBar="true">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="费用类型" PropertyName="Entity.CHARGETYPE" Width="75" IsReadOnly="true">
+              <ReferencedData Type="BudgetChargeTypeData" />
+            </GridItem>
+            <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.UableMoneyName" Width="75" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="摘要" PropertyName="Entity.REMARK" Width="200" IsReadOnly="false" MaxLength="200" />
+            <GridItem PropertyDisplayName="借款金额" PropertyName="Entity.BORROWMONEY" Width="75" IsReadOnly="false" />
+          </GridItems>
+          <Parameters>
+            <Parameter Name="OWNERID">{Entity.OWNERID}</Parameter>
+            <Parameter Name="OWNERPOSTID">{Entity.OWNERPOSTID}</Parameter>
+
+          </Parameters>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_BORROWAPPLYMASTER" Type="T_FB_BORROWAPPLYMASTER" KeyName="BORROWAPPLYMASTERID" CodeName="BORROWAPPLYMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_BORROWAPPLYDETAIL" Type="T_FB_BORROWAPPLYDETAIL">
+            <Entity Name="T_FB_BORROWAPPLYDETAIL" Type="T_FB_BORROWAPPLYDETAIL" KeyName="BORROWAPPLYDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+        </ReferencedDatas>
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="还款申请单"  Type="T_FB_REPAYAPPLYMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="更新时间" PropertyName="Entity.UPDATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的报销申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_REPAYAPPLYMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_REPAYAPPLYMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有报销申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="借款单" Name="BorrowApply" PropertyName="Entity.T_FB_BORROWAPPLYMASTER" CType="3" Requited="false">
+              <ReferencedData Type="BorrowOrderData">
+                <Parameters>
+                  <Parameter Name="OWNERID">{Entity.OWNERID}</Parameter>
+                  <Parameter Name="OWNERDEPARTMENTID">{Entity.OWNERDEPARTMENTID}</Parameter>
+                  <Parameter Name="OWNERPOSTID">{Entity.OWNERPOSTID}</Parameter>
+                  <Parameter Name="CHECKSTATES">2</Parameter>
+                </Parameters>
+              </ReferencedData>
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="还款人公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="还款人部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="还款人" Name="OwnerID" PropertyName="Entity.OWNERID" CType="3" Requited="true" >
+              <ReferencedData Type="EmployeerData" DefaultValue="{LoginUser}" TextPath="Entity.OWNERNAME"/>
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="还款类型" Name="RepayType" PropertyName="Entity.REPAYTYPE" CType="2" Requited="true">
+              <ReferencedData Type="RepayTypeData" />
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_REPAYAPPLYDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="借款金额" PropertyName="Entity.T_FB_BORROWAPPLYDETAIL.UNREPAYMONEY" Width="75" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="摘要" PropertyName="Entity.REMARK" Width="200" IsReadOnly="false" MaxLength="200" />
+            <GridItem PropertyDisplayName="还款金额" PropertyName="Entity.REPAYMONEY" Width="75" IsReadOnly="false" />
+          </GridItems>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_REPAYAPPLYMASTER" Type="T_FB_REPAYAPPLYMASTER" KeyName="REPAYAPPLYMASTERID" CodeName="REPAYAPPLYCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_REPAYAPPLYDETAIL" Type="T_FB_REPAYAPPLYDETAIL">
+            <Entity Name="T_FB_REPAYAPPLYDETAIL" Type="T_FB_REPAYAPPLYDETAIL" KeyName="REPAYAPPLYDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="单据审核"  Type="AuditOrder" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据类型" PropertyName="OrderTypeName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+      </View>
+    </Order>
+
+    <Order Name="年度预算申请"  Type="T_FB_COMPANYBUDGETAPPLYMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="预算年份" PropertyName="Entity.BUDGETYEAR" Width="75" IsReadOnly="true">
+            <ReferencedData Type="YearItem" />
+          </GridItem>
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+
+          <GridItem PropertyDisplayName="生效状态" PropertyName="Entity.ISVALID" Width="75" IsReadOnly="true" >
+            <ReferencedData Type="BudgetSumStatesData" />
+          </GridItem>
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的年度预算申请">
+            <QueryExpression RelationType="And" QueryType="T_FB_COMPANYBUDGETAPPLYMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_COMPANYBUDGETAPPLYMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有年度预算申请">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算年份" Name="BudgetYear" PropertyName="Entity.BUDGETYEAR" CType="2" Requited="true">
+              <ReferencedData Type="YearItem" />
+            </DataFieldItem>
+
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" IsReadOnly="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTID" CType="3" Requited="true">
+              <ReferencedData Type="DepartmentData" DefaultValue="{LoginUser.Department}" />
+            </DataFieldItem>
+
+            <DataFieldItem PropertyDisplayName="生效状态" PropertyName="Entity.ISVALID" CType="0" IsReadOnly="true" >
+              <ReferencedData Type="BudgetSumStatesData" />
+            </DataFieldItem>
+
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_COMPANYBUDGETAPPLYDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="85" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="150" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="上年发生" PropertyName="Entity.LASTBUDGETMONEY" Width="100" DataType="decimal"  IsReadOnly="true"  TipText="费用报销数（已终审）" />
+            <GridItem PropertyDisplayName="预算金额" PropertyName="Entity.BUDGETMONEY" Width="100" DataType="decimal"  IsReadOnly="false" />
+            <GridItem PropertyDisplayName="备注" PropertyName="Entity.REMARK" Width="200" IsReadOnly="false" />
+
+          </GridItems>
+
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="合计" Name="budgetmoney" PropertyName="Entity.BUDGETMONEY" DataType="decimal"  CType="1" Requited="true" IsReadOnly="true" />
+          </LeftPanel>
+          <RightPanel>            
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type="DataPanelUpload" ModelName="T_FB_COMPANYBUDGETAPPLYMASTER" IDPropertyName="Entity.COMPANYBUDGETAPPLYMASTERID" Name="附件" />
+      </Form>
+      <OrderEntity>
+        <Entity Name="ChargeApplyMaster" Type="T_FB_COMPANYBUDGETAPPLYMASTER" KeyName="COMPANYBUDGETAPPLYMASTERID" CodeName="COMPANYBUDGETAPPLYMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_COMPANYBUDGETAPPLYDETAIL" Type="T_FB_COMPANYBUDGETAPPLYDETAIL">
+            <Entity Name="T_FB_COMPANYBUDGETAPPLYDETAIL" Type="T_FB_COMPANYBUDGETAPPLYDETAIL" KeyName="COMPANYBUDGETAPPLYDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_COMPANYBUDGETAPPLYDETAIL" PropertyName="T_FB_COMPANYBUDGETAPPLYMASTER.COMPANYBUDGETMODMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+          <OrderDetailEntity Name="T_FB_COMPANYBUDGETDEPTDETAIL" Type="T_FB_COMPANYBUDGETDEPTDETAIL">
+            <Entity Name="T_FB_COMPANYBUDGETDEPTDETAIL" Type="T_FB_COMPANYBUDGETDEPTDETAIL" KeyName="COMPANYBUDGETDEPTDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_COMPANYBUDGETDEPTDETAIL" PropertyName="T_FB_COMPANYBUDGETAPPLYMASTER.COMPANYBUDGETAPPLYMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="年度预算汇总申请单"  Type="T_FB_COMPANYBUDGETSUMMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <!--<GridItem PropertyDisplayName="预算年份" PropertyName="Entity.BUDGETYEAR" Width="75" IsReadOnly="true">
+            <ReferencedData Type="YearItem" />
+          </GridItem>-->
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="预算年份" PropertyName="Entity.BUDGETYEAR" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的年度汇总申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_COMPANYBUDGETSUMMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_COMPANYBUDGETSUMMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有月度汇总申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算年份" Name="BudgetaryMonth" PropertyName="Entity.BUDGETYEAR" CType="0" Requited="false" >
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYID" CType="2" Requited="true" >
+              <ReferencedData Type="CompanyData" DefaultValue="{LoginUser.Company}" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="预算总额" Name="budgetmoney" PropertyName="Entity.BUDGETMONEY" DataType="decimal"  CType="1" Requited="true" IsReadOnly="true" />
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5"  ShowToolBar="false" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_COMPANYBUDGETSUMDETAIL" ShowToolBar="true">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="85" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="300" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="公司" PropertyName="Entity.T_FB_COMPANYBUDGETAPPLYMASTER.OWNERCOMPANYNAME" Width="150" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="部门" PropertyName="Entity.T_FB_COMPANYBUDGETAPPLYMASTER.OWNERDEPARTMENTNAME" Width="150" DataType="decimal"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="预算总额" PropertyName="Entity.BUDGETMONEY" Width="100" DataType="decimal"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="年度预算编号" PropertyName="Entity.T_FB_COMPANYBUDGETAPPLYMASTER.COMPANYBUDGETAPPLYMASTERCODE" Width="300" IsReadOnly="true" />
+
+          </GridItems>
+          <RowDetailTemplate>
+            <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_COMPANYBUDGETAPPLYDETAIL" ShowToolBar="false">
+              <GridItems>
+                <GridItem PropertyDisplayName="公司" PropertyName="Entity.T_FB_COMPANYBUDGETAPPLYMASTER.OWNERCOMPANYNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="部门" PropertyName="Entity.T_FB_COMPANYBUDGETAPPLYMASTER.OWNERDEPARTMENTNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="科目" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="200" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="预算资金" PropertyName="Entity.BUDGETMONEY" Width="100" DataType="decimal"  IsReadOnly="true" />
+                <GridItem PropertyDisplayName="备注" PropertyName="Entity.REMARK" Width="250" IsReadOnly="true" />
+              </GridItems>
+            </DataPanel>
+          </RowDetailTemplate>
+        </DataPanel>
+
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type="DataPanelUpload" ModelName="T_FB_COMPANYBUDGETSUMMASTER" IDPropertyName="Entity.COMPANYBUDGETSUMMASTERID" Name="附件" />
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_COMPANYBUDGETSUMMASTER" Type="T_FB_COMPANYBUDGETSUMMASTER" KeyName="COMPANYBUDGETSUMMASTERID" CodeName="COMPANYBUDGETSUMMASTERCODE"></Entity>
+        <OrderDetailEntities>
+
+          <OrderDetailEntity Name="T_FB_COMPANYBUDGETSUMDETAIL" Type="T_FB_COMPANYBUDGETSUMDETAIL">
+            <Entity Name="T_FB_COMPANYBUDGETSUMDETAIL" Type="T_FB_COMPANYBUDGETSUMDETAIL" KeyName="COMPANYBUDGETSUMDETAILID"></Entity>
+          </OrderDetailEntity>
+
+          <OrderDetailEntity Name="T_FB_COMPANYBUDGETAPPLYDETAIL" Type="T_FB_COMPANYBUDGETAPPLYDETAIL">
+            <Entity Name="T_FB_COMPANYBUDGETAPPLYDETAIL" Type="T_FB_COMPANYBUDGETAPPLYDETAIL" KeyName="COMPANYBUDGETAPPLYDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="年度预算增补申请"  Type="T_FB_COMPANYBUDGETMODMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="预算年份" PropertyName="Entity.BUDGETYEAR" Width="75" IsReadOnly="true">
+            <ReferencedData Type="YearItem" />
+          </GridItem>
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的年度预算增补申请">
+            <QueryExpression RelationType="And" QueryType="T_FB_COMPANYBUDGETMODMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_COMPANYBUDGETMODMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有年度预算增补申请">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算年份" Name="BudgetYear" PropertyName="Entity.BUDGETYEAR" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" IsReadOnly="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTID" CType="3" Requited="true">
+              <ReferencedData Type="DepartmentData" DefaultValue="{LoginUser.Department}" />
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_COMPANYBUDGETMODDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="年度结余" PropertyName="Entity.USABLEMONEY" Width="100" TipText="年度预算数 + 年度预算增补数 - 月度预算数 - 月度预算增补数" DataType="decimal"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="预算金额" PropertyName="Entity.BUDGETMONEY" Width="100" DataType="decimal"   IsReadOnly="false" />
+            <GridItem PropertyDisplayName="备注" PropertyName="Entity.REMARK" Width="300" IsReadOnly="false" />
+          </GridItems>
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="合计" Name="budgetmoney" PropertyName="Entity.BUDGETMONEY" CType="1" DataType="decimal"  Requited="true" IsReadOnly="true" />
+          </LeftPanel>
+          <RightPanel>
+            
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type="DataPanelUpload" ModelName="T_FB_COMPANYBUDGETMODMASTER" IDPropertyName="Entity.COMPANYBUDGETMODMASTERID" Name="附件" />
+        
+      </Form>
+      <OrderEntity>
+        <Entity Name="ChargeApplyMaster" Type="T_FB_COMPANYBUDGETMODMASTER" KeyName="COMPANYBUDGETMODMASTERID" CodeName="COMPANYBUDGETMODMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_COMPANYBUDGETMODDETAIL" Type="T_FB_COMPANYBUDGETMODDETAIL">
+            <Entity Name=" T_FB_COMPANYBUDGETMODDETAIL" Type="T_FB_COMPANYBUDGETMODDETAIL" KeyName="COMPANYBUDGETMODDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_COMPANYBUDGETMODDETAIL" PropertyName="T_FB_COMPANYBUDGETMODMASTER.COMPANYBUDGETMODMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="年度预算调拨申请单"  Type="T_FB_COMPANYTRANSFERMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据类型" PropertyName="OrderTypeName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的年度预算调拨申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_COMPANYTRANSFERMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_COMPANYTRANSFERMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有年度预算调拨申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算年份" Name="BudgetYear" PropertyName="Entity.BUDGETYEAR" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="调出单位" Name="transferfrom" PropertyName="Entity.TRANSFERFROM" CType="3" Requited="true" >
+              <ReferencedData Type="DepartmentData"  DefaultValue="{LoginUser.Department}"/>
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="调入单位" Name="transferto" PropertyName="Entity.TRANSFERTO" CType="3" Requited="true" >
+              <ReferencedData Type="DepartmentData"  />
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_COMPANYTRANSFERDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.USABLEMONEY" Width="300" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="调拨金额" PropertyName="Entity.TRANSFERMONEY" Width="300" IsReadOnly="false" />
+          </GridItems>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_COMPANYTRANSFERMASTER" Type="T_FB_COMPANYTRANSFERMASTER" KeyName="COMPANYTRANSFERMASTERID" CodeName="COMPANYTRANSFERMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_COMPANYTRANSFERDETAIL" Type="T_FB_COMPANYTRANSFERDETAIL">
+            <Entity Name="T_FB_COMPANYTRANSFERDETAIL" Type="T_FB_COMPANYTRANSFERDETAIL" KeyName="COMPANYTRANSFERDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="月度预算申请单"  Type="T_FB_DEPTBUDGETAPPLYMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="预算月份" PropertyName="Entity.BudgetMonthName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="生效状态" PropertyName="Entity.ISVALID" Width="75" IsReadOnly="true" >
+            <ReferencedData Type="BudgetSumStatesData" />
+          </GridItem>
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true"  />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的月度预算申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_DEPTBUDGETAPPLYMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_DEPTBUDGETAPPLYMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有月度预算申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" TipText="申请公司" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTID" CType="3" Requited="true">
+              <ReferencedData Type="DepartmentData" DefaultValue="{LoginUser.Department}" />
+            </DataFieldItem>
+
+            <DataFieldItem PropertyDisplayName="生效状态" PropertyName="Entity.ISVALID" CType="0" IsReadOnly="true" >
+              <ReferencedData Type="BudgetSumStatesData" />
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_DEPTBUDGETAPPLYDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="85" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="上期发生" PropertyName="Entity.LASTACTUALBUDGETMONEY" Width="75" IsReadOnly="true" DataType="decimal"  TipText="费用报销数（上期已终审）" />
+            <GridItem PropertyDisplayName="年度结余" PropertyName="Entity.UableMoneyName" Width="75" IsReadOnly="true" DataType="decimal" TipText="年度预算数 + 年度预算增补数 - 月度预算数 - 月度预算增补数" />
+            <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.BEGINNINGBUDGETBALANCE" Width="75" IsReadOnly="true" DataType="decimal" TipText="月度预算数 + 月度预算增补数 - 费用报销数（已终审）- 费用报销数（审核中）"/>
+            <GridItem PropertyDisplayName="预算金额" PropertyName="Entity.TOTALBUDGETMONEY" Width="75" IsReadOnly="false" DataType="decimal" />
+            <GridItem PropertyDisplayName="备注" PropertyName="Entity.REMARK" Width="200" IsReadOnly="false" />
+
+          </GridItems>
+          <RowDetailTemplate>
+            <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_PERSONBUDGETAPPLYDETAIL" ShowToolBar="false">
+              <GridItems>
+                <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="申请人岗位" PropertyName="Entity.OWNERPOSTNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.LIMITBUDGETMONEY" Width="100" DataType="decimal"  IsReadOnly="true" />
+                <GridItem PropertyDisplayName="预算资金" PropertyName="Entity.BUDGETMONEY" Width="100" DataType="decimal"  IsReadOnly="false" />
+              </GridItems>
+            </DataPanel>
+          </RowDetailTemplate>
+        </DataPanel>
+
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="合计" Name="budgetmoney" PropertyName="Entity.BUDGETMONEY" CType="1"   Requited="true" IsReadOnly="true" DataType="decimal" />
+          </LeftPanel>
+          <RightPanel>
+            
+          </RightPanel>
+        </DataPanel>
+
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type="DataPanelUpload" ModelName="T_FB_DEPTBUDGETAPPLYMASTER" IDPropertyName="Entity.DEPTBUDGETAPPLYMASTERID" Name="附件" />
+      </Form>
+      <OrderEntity>
+        <Entity Name="ChargeApplyMaster" Type="T_FB_DEPTBUDGETAPPLYMASTER" KeyName="DEPTBUDGETAPPLYMASTERID" CodeName="DEPTBUDGETAPPLYMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_DEPTBUDGETAPPLYDETAIL" Type="T_FB_DEPTBUDGETAPPLYDETAIL">
+            <Entity Name="T_FB_DEPTBUDGETAPPLYDETAIL" Type="T_FB_DEPTBUDGETAPPLYDETAIL" KeyName="CHARGEAPPLYDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_DEPTBUDGETAPPLYDETAIL" PropertyName="T_FB_DEPTBUDGETAPPLYMASTER.DEPTBUDGETAPPLYMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+          <OrderDetailEntity Name="T_FB_PERSONBUDGETAPPLYDETAIL" Type="T_FB_PERSONBUDGETAPPLYDETAIL">
+            <Entity Name="T_FB_PERSONBUDGETAPPLYDETAIL" Type="T_FB_PERSONBUDGETAPPLYDETAIL" KeyName="PERSONBUDGETAPPLYDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="月度预算汇总申请单"  Type="T_FB_DEPTBUDGETSUMMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="预算月份" PropertyName="Entity.BudgetMonthName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的月度汇总申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_DEPTBUDGETSUMMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_DEPTBUDGETSUMMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有月度汇总申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYID" CType="2" Requited="true" >
+              <ReferencedData Type="CompanyData" DefaultValue="{LoginUser.Company}" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="预算总额" Name="budgetmoney" PropertyName="Entity.BUDGETMONEY" CType="1" DataType="decimal"  Requited="true" IsReadOnly="true" />
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5"  ShowToolBar="false" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_DEPTBUDGETSUMDETAIL" ShowToolBar="true">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="85" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="300" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="公司" PropertyName="Entity.T_FB_DEPTBUDGETAPPLYMASTER.OWNERCOMPANYNAME" Width="150" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="部门" PropertyName="Entity.T_FB_DEPTBUDGETAPPLYMASTER.OWNERDEPARTMENTNAME" Width="150" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="预算总额" PropertyName="Entity.BUDGETMONEY" Width="300" DataType="decimal"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="月度预算编号" PropertyName="Entity.T_FB_DEPTBUDGETAPPLYMASTER.DEPTBUDGETAPPLYMASTERCODE" Width="300" IsReadOnly="true" />
+
+          </GridItems>
+          <RowDetailTemplate>
+            <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_DEPTBUDGETAPPLYDETAIL" ShowToolBar="false">
+              <GridItems>
+                <GridItem PropertyDisplayName="公司" PropertyName="Entity.T_FB_DEPTBUDGETAPPLYMASTER.OWNERCOMPANYNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="部门" PropertyName="Entity.T_FB_DEPTBUDGETAPPLYMASTER.OWNERDEPARTMENTNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="科目" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME." Width="200" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.UableMoneyName" Width="100"  DataType="decimal" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="预算资金" PropertyName="Entity.TOTALBUDGETMONEY" Width="100" DataType="decimal"  IsReadOnly="true" />
+                <GridItem PropertyDisplayName="备注" PropertyName="Entity.REMARK" Width="250" IsReadOnly="true" />
+              </GridItems>
+            </DataPanel>
+          </RowDetailTemplate>
+        </DataPanel>
+
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type="DataPanelUpload" ModelName="T_FB_DEPTBUDGETSUMMASTER" IDPropertyName="Entity.DEPTBUDGETSUMMASTERID" Name="附件" />
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_DEPTBUDGETSUMMASTER" Type="T_FB_DEPTBUDGETSUMMASTER" KeyName="DEPTBUDGETSUMMASTERID" CodeName="DEPTBUDGETSUMMASTERCODE"></Entity>
+        <OrderDetailEntities>
+
+          <OrderDetailEntity Name="T_FB_DEPTBUDGETSUMDETAIL" Type="T_FB_DEPTBUDGETSUMDETAIL">
+            <Entity Name="T_FB_DEPTBUDGETSUMDETAIL" Type="T_FB_DEPTBUDGETSUMDETAIL" KeyName="DEPTBUDGETSUMDETAILID"></Entity>
+          </OrderDetailEntity>
+
+          <OrderDetailEntity Name="T_FB_DEPTBUDGETAPPLYDETAIL" Type="T_FB_DEPTBUDGETAPPLYDETAIL">
+            <Entity Name="T_FB_DEPTBUDGETAPPLYDETAIL" Type="T_FB_DEPTBUDGETAPPLYDETAIL" KeyName="DEPTBUDGETAPPLYDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="月度预算增补申请单"  Type="T_FB_DEPTBUDGETADDMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="预算月份" PropertyName="Entity.BudgetMonthName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的月度预算增补申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_DEPTBUDGETADDMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_DEPTBUDGETADDMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有月度预算增补申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTID" CType="3" Requited="true">
+              <ReferencedData Type="DepartmentData" DefaultValue="{LoginUser.Department}" />
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_DEPTBUDGETADDDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="年度结余" PropertyName="Entity.UableMoneyName" Width="75" DataType="decimal" TipText="年度预算数 + 年度预算增补数 - 月度预算数 - 月度预算增补数"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.AUDITBUDGETMONEY" Width="75" DataType="decimal" TipText="月度预算数 + 月度预算增补数  - 费用报销数（已终审）- 费用报销数（审核中）"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="预算金额" PropertyName="Entity.TOTALBUDGETMONEY" Width="75" DataType="decimal"   IsReadOnly="false" />  
+            <GridItem PropertyDisplayName="备注" PropertyName="Entity.REMARK" Width="300" IsReadOnly="false" />
+          </GridItems>
+          <RowDetailTemplate>
+            <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_PERSONBUDGETADDDETAIL" ShowToolBar="false">
+              <GridItems>
+                <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="申请人岗位" PropertyName="Entity.OWNERPOSTNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.LIMITBUDGETMONEY" Width="100" DataType="decimal"   IsReadOnly="true" />
+                <GridItem PropertyDisplayName="预算金额" PropertyName="Entity.BUDGETMONEY" Width="100" DataType="decimal"   IsReadOnly="false" />
+
+              </GridItems>
+            </DataPanel>
+          </RowDetailTemplate>
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="合计" Name="budgetmoney" PropertyName="Entity.BUDGETCHARGE" CType="1" DataType="decimal"  Requited="true" IsReadOnly="true" />
+          </LeftPanel>
+          <RightPanel>
+            
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type="DataPanelUpload" ModelName="T_FB_DEPTBUDGETADDMASTER" IDPropertyName="Entity.DEPTBUDGETADDMASTERID" Name="附件" />
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_DEPTBUDGETADDMASTER" Type="T_FB_DEPTBUDGETADDMASTER" KeyName="DEPTBUDGETADDMASTERID" CodeName="DEPTBUDGETADDMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_DEPTBUDGETADDDETAIL" Type="T_FB_DEPTBUDGETADDDETAIL">
+            <Entity Name="T_FB_DEPTBUDGETADDDETAIL" Type="T_FB_DEPTBUDGETADDDETAIL" KeyName="DEPTBUDGETADDDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_DEPTBUDGETADDDETAIL" PropertyName="T_FB_DEPTBUDGETADDMASTER.DEPTBUDGETAPPLYMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+          <OrderDetailEntity Name="T_FB_PERSONBUDGETADDDETAIL" Type="T_FB_PERSONBUDGETADDDETAIL">
+            <Entity Name="T_FB_PERSONBUDGETADDDETAIL" Type="T_FB_PERSONBUDGETADDDETAIL" KeyName="PERSONBUDGETADDDETAILID"></Entity>
+          </OrderDetailEntity>
+
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="月度预算部门分配申请"  Type="T_FB_DEPTTRANSFERMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="预算月份" PropertyName="Entity.BudgetMonthName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的月度预算调拨申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_TRANSFERAPPLYMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_TRANSFERAPPLYMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有月度预算调拨申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="分配部门" Name="transferfrom" PropertyName="Entity.TRANSFERFROM" CType="3" Requited="true" >
+              <ReferencedData Type="DepartmentData" DefaultValue="{LoginUser.Department}"  />
+            </DataFieldItem>
+            
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_DEPTTRANSFERDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="200" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="部门可用结余" PropertyName="Entity.USABLEMONEY" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="已分配金额" PropertyName="Entity.TRANSFERMONEY" Width="100" IsReadOnly="true" />
+
+          </GridItems>
+          <RowDetailTemplate>
+            <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_PERSONTRANSFERDETAIL" ShowToolBar="false">
+              <GridItems>
+                <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="申请人岗位" PropertyName="Entity.OWNERPOSTNAME" Width="100" IsReadOnly="true" />
+                <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.LIMITBUDGETMONEY" Width="100" DataType="decimal"   IsReadOnly="true" />
+                <GridItem PropertyDisplayName="分配金额" PropertyName="Entity.BUDGETMONEY" Width="100" DataType="decimal"   IsReadOnly="false" />
+                <GridItem PropertyDisplayName="备注" PropertyName="Entity.REMARK" Width="300" IsReadOnly="false" />
+              </GridItems>
+            </DataPanel>
+          </RowDetailTemplate>
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="合计" Name="budgetmoney" PropertyName="Entity.TRANSFERMONEY" CType="1" DataType="decimal"  Requited="true" IsReadOnly="true" />
+          </LeftPanel>
+          <RightPanel>
+
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type="DataPanelUpload" ModelName="T_FB_DEPTTRANSFERMASTER" IDPropertyName="Entity.DEPTTRANSFERMASTERID" Name="附件" />
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_DEPTTRANSFERMASTER" Type="T_FB_DEPTTRANSFERMASTER" KeyName="DEPTTRANSFERMASTERID" CodeName="DEPTTRANSFERMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_DEPTTRANSFERDETAIL" Type="T_FB_DEPTTRANSFERDETAIL">
+            <Entity Name="T_FB_DEPTTRANSFERDETAIL" Type="T_FB_DEPTTRANSFERDETAIL" KeyName="DEPTTRANSFERDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_TRANSFERAPPLYDETAIL" PropertyName="T_FB_TRANSFERAPPLYMASTER.COMPANYBUDGETMODMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+          <OrderDetailEntity Name="T_FB_PERSONTRANSFERDETAIL" Type="T_FB_PERSONTRANSFERDETAIL">
+            <Entity Name="T_FB_PERSONTRANSFERDETAIL" Type="T_FB_PERSONTRANSFERDETAIL" KeyName="PERSONTRANSFERDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="预算汇总设置"  Type="T_FB_SUMSETTINGSMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="汇总公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="180" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="汇总部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="汇总人" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="备注" PropertyName="Entity.REMARK" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="预算汇总设置">
+            <QueryExpression RelationType="And" QueryType="T_FB_SUMSETTINGSMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_SUMSETTINGSMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有预算汇总设置">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="汇总人" Name="OwnerID" PropertyName="Entity.OWNERID" CType="3" Requited="true" >
+              <ReferencedData Type="EmployeerData" TextPath="Entity.OWNERNAME"/>
+            </DataFieldItem>
+          </LeftPanel>
+          <RightPanel>
+
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" Height="50" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5"  ShowToolBar="false" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_SUMSETTINGSDETAIL" ShowToolBar="true">
+          <GridItems>
+            <GridItem PropertyDisplayName="公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="180" IsReadOnly="true" />
+          </GridItems>
+        </DataPanel>
+        <DataPanel Type ="DataPanelGrid" Name="DetailRemark"/>
+      </Form>
+      <OrderEntity>
+        <Entity Name="SumSettingsMaster" Type="T_FB_SUMSETTINGSMASTER" KeyName="SUMSETTINGSMASTERID"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_SUMSETTINGSDETAIL" Type="T_FB_SUMSETTINGSDETAIL">
+            <Entity Name="T_FB_SUMSETTINGSDETAIL" Type="T_FB_SUMSETTINGSDETAIL" KeyName="SUMSETTINGSDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="个人经费下拨申请单"  Type="T_FB_PERSONMONEYASSIGNMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="预算月份" PropertyName="Entity.BudgetMonthName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="下拨公司" PropertyName="Entity.ASSIGNCOMPANYNAME" Width="180" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的个人经费下拨申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_PERSONMONEYASSIGNMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_PERSONMONEYASSIGNMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有个人经费下拨申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="下拨月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="下拨公司" Name="AssignCompanyID" PropertyName="Entity.AssignCompany" CType="3" Requited="true" >
+              <ReferencedData Type="MyOrgObjectData" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请人" Name="OwnerID" PropertyName="Entity.OWNERID" CType="3" Requited="true" >
+              <ReferencedData Type="EmployeerData" DefaultValue="{LoginUser}" TextPath="Entity.OWNERNAME"/>
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="下拨总金额" Name="BUDGETMONEY" PropertyName="Entity.BUDGETMONEY" CType="1" DataType="decimal"  Requited="false" IsReadOnly="true" />
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5"  ShowToolBar="false" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_PERSONMONEYASSIGNDETAIL" ShowToolBar="true">
+          <GridItems>
+            <GridItem PropertyDisplayName="序列号" PropertyName="Entity.RowIndex" Width="50" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="180" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="120" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="岗位" PropertyName="Entity.OWNERPOSTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="职员" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="本月下拨经费" PropertyName="Entity.BUDGETMONEY" Width="80" DataType="decimal"  IsReadOnly="false" />
+            <GridItem PropertyDisplayName="下拨额度参考" PropertyName="Entity.SUGGESTBUDGETMONEY" Width="80" DataType="decimal"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="提示" PropertyName="Entity.POSTINFO" Width="200" IsReadOnly="true" MaxLength="200" />
+            <GridItem PropertyDisplayName="摘要" PropertyName="Entity.REMARK" Width="200" IsReadOnly="false" MaxLength="200" />
+          </GridItems>
+        </DataPanel>
+
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type="DataPanelUpload" ModelName="T_FB_PERSONMONEYASSIGNMASTER" IDPropertyName="Entity.PERSONMONEYASSIGNMASTERID" Name="附件" />
+      </Form>
+      <OrderEntity>
+        <Entity Name="PersonBudgetApplyMaster" Type="T_FB_PERSONMONEYASSIGNMASTER" KeyName="PERSONMONEYASSIGNMASTERID" CodeName="PERSONMONEYASSIGNMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_PERSONMONEYASSIGNDETAIL" Type="T_FB_PERSONMONEYASSIGNDETAIL">
+            <Entity Name="T_FB_PERSONMONEYASSIGNDETAIL" Type="T_FB_PERSONMONEYASSIGNDETAIL" KeyName="PERSONMONEYASSIGNDETAILID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="个人月度预算申请单"  Type="T_FB_PERSONBUDGETAPPLYMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据类型" PropertyName="OrderTypeName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的个人月度预算申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_PERSONBUDGETAPPLYMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_PERSONBUDGETAPPLYMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有个人月度预算申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请人" Name="OwnerID" PropertyName="Entity.OWNERID" CType="3" Requited="true" >
+              <ReferencedData Type="EmployeerData" DefaultValue="{LoginUser}" TextPath="Entity.OWNERNAME"/>
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5"  ShowToolBar="false" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_PERSONBUDGETAPPLYDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.USABLEMONEY" Width="75" DataType="decimal"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="费用预算" PropertyName="Entity.BUDGETMONEY" Width="100" DataType="decimal"  IsReadOnly="false" />
+          </GridItems>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="PersonBudgetApplyMaster" Type="T_FB_PERSONBUDGETAPPLYMASTER" KeyName="PERSONBUDGETAPPLYMASTERID" CodeName="PERSONBUDGETAPPLYMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_PERSONBUDGETAPPLYDETAIL" Type="T_FB_PERSONBUDGETAPPLYDETAIL">
+            <Entity Name="T_FB_PERSONBUDGETAPPLYDETAIL" Type="T_FB_PERSONBUDGETAPPLYDETAIL" KeyName="PERSONBUDGETAPPLYDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_PERSONBUDGETAPPLYDETAIL" PropertyName="T_FB_PERSONBUDGETAPPLYMASTER.PERSONBUDGETAPPLYMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="个人月度增补申请单"  Type="T_FB_PERSONBUDGETADDMASTER" >
+      <View>
+        <GridItems DefaultQuery="">
+          <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据类型" PropertyName="OrderTypeName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERID" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+          <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+        </GridItems>
+        <QueryList>
+          <Query  Code="MyOrder" Name="我的个人月度增补申请单">
+            <QueryExpression RelationType="And" QueryType="T_FB_PERSONBUDGETADDMASTER" PropertyName="Entity.CREATEUSERID" PropertyValue="{LoginUser.Value}" Operation="And">
+              <RelatedExpression  RelationType="And" QueryType="T_FB_PERSONBUDGETADDMASTER" PropertyName="Entity.OWNERID" PropertyValue="{LoginUser.Value}" Operation="And" />
+            </QueryExpression>
+          </Query>
+          <Query Code="AllOrder" Name="所有个人月度增补申请单">
+          </Query>
+        </QueryList>
+      </View>
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="单据类型" Name="OrderTypeName" PropertyName="OrderTypeName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="单据编号" Name="OrderCode" PropertyName="OrderCode" CType="1" IsReadOnly="true" Requited="false" />
+            <DataFieldItem PropertyDisplayName="状态" Name="OrderStates" PropertyName="Entity.CHECKSTATES" CType="0" Requited="false" >
+              <ReferencedData Type="OrderStatusData" DefaultValue="0" />
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="预算月份" Name="BudgetaryMonth" PropertyName="Entity.BudgetMonthName" CType="0" Requited="false" />
+            <DataFieldItem PropertyDisplayName="申请公司" Name="OwnerCompanyID" PropertyName="Entity.OWNERCOMPANYNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请部门" Name="OwnerDepartmentID" PropertyName="Entity.OWNERDEPARTMENTNAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="申请人" Name="OwnerID" PropertyName="Entity.OWNERID" CType="3" Requited="true" >
+              <ReferencedData Type="EmployeerData" DefaultValue="{LoginUser}" TextPath="Entity.OWNERNAME"/>
+            </DataFieldItem>
+          </RightPanel>
+        </DataPanel>
+        <DataPanel Type ="DataPanel">
+          <DataFieldItem PropertyDisplayName="备注" Name="Remark" PropertyName="Entity.REMARK" CType="4" Requited="false" MaxLength="2000" />
+        </DataPanel>
+        <DataPanel Type ="DataPanelSplit" Height="5"  ShowToolBar="false" />
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_PERSONBUDGETADDDETAIL" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.USABLEMONEY" Width="100" DataType="decimal"  IsReadOnly="true" />
+            <GridItem PropertyDisplayName="费用预算" PropertyName="Entity.BUDGETMONEY" Width="100"  DataType="decimal" IsReadOnly="false" />
+          </GridItems>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="PersonBudgetApplyMaster" Type="T_FB_PERSONBUDGETADDMASTER" KeyName="PERSONBUDGETADDMASTERID" CodeName="PERSONBUDGETADDMASTERCODE"></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_PERSONBUDGETADDDETAIL" Type="T_FB_PERSONBUDGETADDDETAIL">
+            <Entity Name="T_FB_PERSONBUDGETADDDETAIL" Type="T_FB_PERSONBUDGETADDDETAIL" KeyName="PERSONBUDGETADDDETAILID"></Entity>
+            <QueryExpression QueryType="T_FB_PERSONBUDGETADDDETAIL" PropertyName="T_FB_PERSONBUDGETADDMASTER.PERSONBUDGETADDMASTERID" PropertyValue="{OrderID}" Operation="And" />
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="预算科目字典"  Type="T_FB_SUBJECT" >
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="科目编号" Name="SUBJECTCODE" PropertyName="Entity.SUBJECTCODE" CType="1" Requited="true" />\
+            <DataFieldItem PropertyDisplayName="科目名称" Name="SUBJECTNAME" PropertyName="Entity.SUBJECTNAME" CType="1" Requited="true" />
+            <DataFieldItem PropertyDisplayName="科目类型" Name="SUBJECTTYPENAME" PropertyName="Entity.T_FB_SUBJECTTYPE.SUBJECTTYPENAME" CType="0" Requited="true" />
+            <DataFieldItem PropertyDisplayName="上级科目" Name="ParentSUBJECTNAME" PropertyName="Entity.T_FB_SUBJECT2.SUBJECTNAME" CType="0" Requited="true" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </RightPanel>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_SUBJECT" Type="T_FB_SUBJECT" KeyName="SUBJECTID" CodeName="SUBJECTCODE"></Entity>
+        <OrderDetailEntities>
+
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="预算科目类型"  Type="T_FB_SUBJECTTYPE" >
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="类别名称" Name="SubjectTypeName" PropertyName="Entity.SUBJECTTYPENAME" CType="1" Requited="true" />
+          </LeftPanel>
+          <RightPanel>
+            <DataFieldItem PropertyDisplayName="创建人" Name="CreateUserID" PropertyName="Entity.CREATEUSERNAME" CType="0" Requited="false">
+
+            </DataFieldItem>
+            <DataFieldItem PropertyDisplayName="创建时间" Name="CreateDate" PropertyName="Entity.CREATEDATE" CType="0" Requited="false" />
+          </RightPanel>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_SUBJECTTYPE" Type="T_FB_SUBJECTTYPE" KeyName="SUBJECTTYPEID" ></Entity>
+        <OrderDetailEntities>
+
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="公司预算科目维护"  Type="VirtualCompany" >
+      <Form>
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_SUBJECTCOMPANY" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编码" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="80" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="150" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目分配" PropertyName="Entity.EDITSTATES" Width="60" IsReadOnly="false" CType="6" >
+              <ReferencedData Type="System.Boolean" DefaultValue="0"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="是否启用" PropertyName="Entity.ACTIVED" Width="60" IsReadOnly="false" CType="6" >
+              <ReferencedData Type="System.Boolean" DefaultValue="0"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="年度受控" PropertyName="Entity.ISYEARBUDGET" Width="60" IsReadOnly="false" CType="6" TipText="月度预算受年度预算控制">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="月度受控" PropertyName="Entity.ISMONTHLIMIT" Width="60" IsReadOnly="false" CType="6" TipText="费用报销受月度预算控制">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="分配个人" PropertyName="Entity.ISPERSON" Width="60" IsReadOnly="false" CType="6"  TipText="该预算项目可分配至部门内各岗位员工">
+              <ReferencedData Type="System.Boolean" DefaultValue="0"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="月度结余可滚动" PropertyName="Entity.CONTROLTYPE" Width="100" IsReadOnly="true" CType="6">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+          </GridItems>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="VirtualCompany" Type="VirtualCompany" KeyName="CompanyID" ></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_SUBJECTCOMPANY" Type="T_FB_SUBJECTCOMPANY">
+            <Entity Name="T_FB_SUBJECTCOMPANY" Type="T_FB_SUBJECTCOMPANY" KeyName="SUBJECTCOMPANYID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    
+    <Order Name="部门预算科目维护"  Type="VirtualDepartment" >
+      <Form>
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_SUBJECTDEPTMENT" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编码" PropertyName="Entity.T_FB_SUBJECTCOMPANY.T_FB_SUBJECT.SUBJECTCODE" Width="80" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECTCOMPANY.T_FB_SUBJECT.SUBJECTNAME" Width="150" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="是否启用" PropertyName="Entity.ACTIVED" Width="60" IsReadOnly="false" CType="6" >
+              <ReferencedData Type="System.Boolean" DefaultValue="0"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="年度受控" PropertyName="Entity.T_FB_SUBJECTCOMPANY.ISYEARBUDGET" Width="60" IsReadOnly="true" CType="6" TipText="月度预算受年度预算控制">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="月度受控" PropertyName="Entity.T_FB_SUBJECTCOMPANY.ISMONTHLIMIT" Width="60" IsReadOnly="true" CType="6" TipText="费用报销受月度预算控制">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="分配个人" PropertyName="Entity.ISPERSON" Width="60" IsReadOnly="false" CType="6" TipText="该预算项目可分配至部门内各岗位员工">
+              <ReferencedData Type="System.Boolean" DefaultValue="0"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="月度结余可滚动" PropertyName="Entity.T_FB_SUBJECTCOMPANY.CONTROLTYPE" Width="100" IsReadOnly="true"  CType="6">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+          </GridItems>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="VirtualDepartment" Type="VirtualDepartment" KeyName="ID" ></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_SUBJECTDEPTMENT" Type="T_FB_SUBJECTDEPTMENT">
+            <Entity Name="T_FB_SUBJECTDEPTMENT" Type="T_FB_SUBJECTDEPTMENT" KeyName="SUBJECTDEPTMENTID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="岗位科目维护"  Type="VirtualPost" >
+      <Form>
+        <DataPanel Type ="OrderGrid" OrderDetailEntity="T_FB_SUBJECTPOST" ShowToolBar="false">
+          <GridItems>
+            <GridItem PropertyDisplayName="科目编码" PropertyName="Entity.T_FB_SUBJECTDEPTMENT.T_FB_SUBJECTCOMPANY.T_FB_SUBJECT.SUBJECTCODE" Width="80" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECTDEPTMENT.T_FB_SUBJECT.SUBJECTNAME" Width="150" IsReadOnly="true" />
+            <GridItem PropertyDisplayName="是否启用" PropertyName="Entity.ACTIVED" Width="60" IsReadOnly="false" CType="6" >
+              <ReferencedData Type="System.Boolean" DefaultValue="0"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="年度受控" PropertyName="Entity.T_FB_SUBJECTDEPTMENT.T_FB_SUBJECTCOMPANY.ISYEARBUDGET" Width="60" IsReadOnly="true" CType="6" TipText="月度预算受年度预算控制">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="月度受控" PropertyName="Entity.T_FB_SUBJECTDEPTMENT.T_FB_SUBJECTCOMPANY.ISMONTHLIMIT" Width="60" IsReadOnly="true" CType="6" TipText="费用报销受月度预算控制">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="分配个人" PropertyName="Entity.ISPERSON" Width="60" IsReadOnly="false" CType="6" TipText="该预算项目可分配至部门内各岗位员工">
+              <ReferencedData Type="System.Boolean" DefaultValue="0"/>
+            </GridItem>
+            <GridItem PropertyDisplayName="月度结余可滚动" PropertyName="Entity.T_FB_SUBJECTDEPTMENT.T_FB_SUBJECTCOMPANY.CONTROLTYPE" Width="100" IsReadOnly="true"  CType="6">
+              <ReferencedData Type="System.Boolean" DefaultValue="1"/>
+            </GridItem>
+           </GridItems>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="VirtualPost" Type="VirtualPost" KeyName="ID" ></Entity>
+        <OrderDetailEntities>
+          <OrderDetailEntity Name="T_FB_SUBJECTPOST" Type="T_FB_SUBJECTPOST">
+            <Entity Name="T_FB_SUBJECTPOST" Type="T_FB_SUBJECTPOST" KeyName="SUBJECTPOSTID"></Entity>
+          </OrderDetailEntity>
+        </OrderDetailEntities>
+        <ReferencedDatas>
+
+        </ReferencedDatas>
+
+      </OrderEntity>
+
+    </Order>
+
+    <Order Name="系统维护"  Type="T_FB_SYSTEMSETTINGS" >
+      <Form>
+        <DataPanel Type ="DataPanelSplit" Height="5" />
+        <DataPanel Type ="DataPanelTwoSide">
+          <LeftPanel>
+            <DataFieldItem PropertyDisplayName="差旅费科目" Name="tranverlsubjectid" PropertyName="Entity.TRANVERLSUBJECTID" CType="1" Requited="true" />
+            <DataFieldItem PropertyDisplayName="招待费科目" Name="entertrainmentsubjectid" PropertyName="Entity.ENTERTAINMENTLSUBJECTID" CType="1" Requited="true" />
+            <DataFieldItem PropertyDisplayName="工资科目" Name="salarysubjectid" PropertyName="Entity.SALARYSUBJECTID" CType="1" Requited="true" />
+            <DataFieldItem PropertyDisplayName="活动经费科目" Name="moneyassignsubjectid" PropertyName="Entity.MONEYASSIGNSUBJECTID" CType="1" Requited="true" />
+            <DataFieldItem PropertyDisplayName="预算月度结算日期" Name="checkDay" PropertyName="Entity.CHECKDATE" CType="7" Requited="true" />
+          </LeftPanel>
+          <RightPanel>
+          </RightPanel>
+        </DataPanel>
+      </Form>
+      <OrderEntity>
+        <Entity Name="T_FB_SYSTEMSETTINGS" Type="T_FB_SYSTEMSETTINGS" KeyName="SYSTEMSETTINGSID" ></Entity>
+      </OrderEntity>
+
+    </Order>
+  </Orders>
+
+  <Selectors>
+    <Selector Name="SelectedSubject" Type="T_FB_BUDGETACCOUNT" >
+      <GridItems>
+        <GridItem PropertyDisplayName="" PropertyName="Actived" Width="50" CType="6" />
+        <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="预算项目" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="150" IsReadOnly="true"/>
+        <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.USABLEMONEY" Width="75" DataType="decimal"  IsReadOnly="true"/>
+        <GridItem PropertyDisplayName="已用金额" PropertyName="Entity.USEDMONEY" Width="75" DataType="decimal"  IsReadOnly="true"/>
+        <GridItem PropertyDisplayName="费用类型" PropertyName="Entity.BUDGETYPE" Width="75" IsReadOnly="true"/>
+      </GridItems>
+    </Selector>
+
+    <Selector Name="SelectedSubject" Type="T_FB_CHARGEAPPLYDETAIL" ReferencedDataType="T_FB_CHARGEAPPLYDETAIL">
+      <GridItems>
+        <GridItem PropertyDisplayName="" PropertyName="Actived" Width="50" CType="6" IsReadOnly="false"  />
+        <GridItem PropertyDisplayName="费用类型" PropertyName="Entity.CHARGETYPE" Width="75" IsReadOnly="true">
+          <ReferencedData Type="BudgetChargeTypeData" />
+        </GridItem>
+        <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="预算项目" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="150" IsReadOnly="true"/>
+        <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.UableMoneyName" Width="75" DataType="decimal"  IsReadOnly="true"/>
+
+      </GridItems>
+    </Selector>
+
+    <Selector Name="SelectedSubject" Type="T_FB_BORROWAPPLYDETAIL" ReferencedDataType="T_FB_BORROWAPPLYDETAIL">
+      <GridItems>
+        <GridItem PropertyDisplayName="" PropertyName="Actived" Width="50" CType="6" IsReadOnly="false"/>
+        <GridItem PropertyDisplayName="费用类型" PropertyName="Entity.CHARGETYPE" Width="75" IsReadOnly="true">
+          <ReferencedData Type="BudgetChargeTypeData" />
+        </GridItem>
+        <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="预算项目" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="150" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.UableMoneyName" Width="75" DataType="decimal"  IsReadOnly="true" />
+
+      </GridItems>
+    </Selector>
+
+    <Selector Name="SelectedSubject" Type="T_FB_REPAYAPPLYDETAIL" ReferencedDataType="T_FB_REPAYAPPLYDETAIL">
+      <GridItems>
+        <GridItem PropertyDisplayName="" PropertyName="Actived" Width="50" CType="6" IsReadOnly="false" />
+        <GridItem PropertyDisplayName="费用类型" PropertyName="Entity.CHARGETYPE" Width="75" IsReadOnly="true">
+          <ReferencedData Type="BudgetChargeTypeData" />
+        </GridItem>
+        <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="100" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="预算项目" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="150" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="可用结余" PropertyName="Entity.USABLEMONEY" Width="75" DataType="decimal"  IsReadOnly="true" />
+
+      </GridItems>
+    </Selector>
+
+    <Selector Name="SelectedSubject" Type="T_FB_BORROWAPPLYMASTER" ReferencedDataType="BorrowOrderData">
+      <GridItems>
+        <GridItem PropertyDisplayName="" PropertyName="Actived" Width="50" CType="6" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="借款单号"     PropertyName="Entity.BORROWAPPLYMASTERCODE" Width="150" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="借款人"     PropertyName="Entity.OWNERNAME" Width="75"  IsReadOnly="true" />
+        <GridItem PropertyDisplayName="相关单据类型" PropertyName="Entity.T_FB_EXTENSIONALORDER.T_FB_EXTENSIONALTYPE.EXTENSIONALTYPENAME" Width="150" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="相关单据ID" PropertyName="Entity.T_FB_EXTENSIONALORDER.EXTENSIONALORDERID" Width="75" IsReadOnly="true" />
+      </GridItems>
+    </Selector>
+
+    <Selector Name="QueryBudgetAccount" Type="T_FB_BUDGETACCOUNT" >
+      <GridItems>
+        <GridItem PropertyDisplayName="员工姓名" PropertyName="Entity.OWNERID" Width="75"/>
+        <GridItem PropertyDisplayName="岗位" PropertyName="Entity.PostInfo" Width="100"/>
+        <GridItem PropertyDisplayName="科目编号" PropertyName="Entity.T_FB_SUBJECT.SUBJECTCODE" Width="75" />
+        <GridItem PropertyDisplayName="科目名称" PropertyName="Entity.T_FB_SUBJECT.SUBJECTNAME" Width="100"/>
+        <GridItem PropertyDisplayName="预算类型" PropertyName="Entity.ACCOUNTOBJECTTYPE" Width="75">
+          <ReferencedData Type="BudgetTypeData" />
+        </GridItem>
+        <GridItem PropertyDisplayName="月度结余" PropertyName="Entity.ACTUALMONEY" DataType="decimal"  Width="90"/>
+        <GridItem PropertyDisplayName="月度可用结余" PropertyName="Entity.USABLEMONEY" DataType="decimal"  Width="90"/>
+
+      </GridItems>
+    </Selector>
+
+    <Selector Name="QueryOrder" Type="T_FB_BUDGETACCOUNT" >
+      <GridItems>
+        <GridItem PropertyDisplayName="单据编号" PropertyName="OrderCode" Width="150" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="单据类型" PropertyName="OrderTypeName" Width="75" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="单据状态" PropertyName="OrderStatesName" Width="75" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="申请人" PropertyName="Entity.OWNERNAME" Width="75" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="申请部门" PropertyName="Entity.OWNERDEPARTMENTNAME" Width="75" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="申请公司" PropertyName="Entity.OWNERCOMPANYNAME" Width="120" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="创建人" PropertyName="Entity.CREATEUSERNAME" Width="75" IsReadOnly="true" />
+        <GridItem PropertyDisplayName="创建时间" PropertyName="Entity.CREATEDATE" Width="200" IsReadOnly="true" />
+      </GridItems>
+    </Selector>
+  </Selectors>
+</FB>

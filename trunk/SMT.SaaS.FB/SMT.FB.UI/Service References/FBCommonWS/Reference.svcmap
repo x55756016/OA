@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fadc5e6a-3a41-41e2-b8d1-3bd0ee5be529" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.ComponentModel.DataAnnotations" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Net" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.Windows" />
+      <ReferencedAssembly AssemblyName="System.Windows.Browser" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.DataForm.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Layout.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Navigation" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Data" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+      <ReferencedAssembly AssemblyName="System.Xml.Serialization" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12169/FBCommonService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FBCommonService1.disco" MetadataType="Disco" ID="0f638156-f70a-4606-a643-60b118745ce8" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?disco" />
+    <MetadataFile FileName="FBCommonService9.xsd" MetadataType="Schema" ID="d804ed33-fcfb-42b9-877d-7060d4b45a3a" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd4" />
+    <MetadataFile FileName="FBCommonService91.xsd" MetadataType="Schema" ID="64e0e302-60d1-45b1-a711-272750354a80" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd6" />
+    <MetadataFile FileName="FBCommonService92.xsd" MetadataType="Schema" ID="c14e993f-344d-4e12-a15a-6c2fcc654d40" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd7" />
+    <MetadataFile FileName="FBCommonService93.xsd" MetadataType="Schema" ID="7cf0c342-1c9e-4f56-9326-fea35d5d7b00" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd5" />
+    <MetadataFile FileName="FBCommonService94.xsd" MetadataType="Schema" ID="19dd53cc-a10e-4866-848c-126af190b50b" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FBCommonService95.xsd" MetadataType="Schema" ID="5a6340c8-c65e-4b6a-a907-d1243f962120" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FBCommonService96.xsd" MetadataType="Schema" ID="ca1c11fb-f4dc-4849-a990-a48ea5b7e2d6" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FBCommonService1.wsdl" MetadataType="Wsdl" ID="8605310c-ae80-4641-94cf-6b8f88bf2d6f" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?wsdl" />
+    <MetadataFile FileName="FBCommonService97.xsd" MetadataType="Schema" ID="60c52eb3-87ec-48a4-83c1-ccc3737e851e" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FBCommonService98.xsd" MetadataType="Schema" ID="bd2fb2ff-7c93-4dde-817c-21f6cf9827f4" SourceId="1" SourceUrl="http://localhost:12169/FBCommonService.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

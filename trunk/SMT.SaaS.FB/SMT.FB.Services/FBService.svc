@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SMT.FB.Services.FBService" CodeBehind="FBService.svc.cs" %>

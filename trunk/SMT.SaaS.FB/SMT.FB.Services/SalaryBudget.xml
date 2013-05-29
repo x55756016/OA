@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SalaryBudget Year="2010" Month="4">
+    <Company CompanyID="504a6c8f-733a-4b75-8e59-b4d64647fd4e">
+        <Department DepartmentID="aaaa6c8f-733a-4b75-8e59-b4d64647fd4e" Salary="503232.12" />
+        <Department DepartmentID="aaaa6c8f-7323a-4b75-8e59-b4d64647fd4e" Salary="501132.00" />
+    </Company>
+</SalaryBudget>

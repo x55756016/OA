@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="SMT.FB.UI.Test.DGRowDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0" Padding="0">
+        <StackPanel x:Name="LayoutRoot" Background="White" Margin="5">
+            <StackPanel Margin="0,0,0,5">
+                <StackPanel Orientation="Horizontal">
+                    <Border BorderBrush="Black" BorderThickness="1" Padding="3" Width="180">
+                        <StackPanel>
+                            <TextBlock Text="Row Details Visibility" FontSize="12"/>
+                            <ComboBox SelectionChanged="cbRowDetailsVis_SelectionChanged">
+                                <ComboBoxItem Content="Selected Row (Default)" IsSelected="True" />
+                                <ComboBoxItem Content="All"/>
+                                <ComboBoxItem Content="None"/>
+                            </ComboBox>
+                            <CheckBox Content="Freeze Row Details" Margin="0,3,0,0"
+                              Checked="cbFreezeRowDetails_Changed" 
+                              Unchecked="cbFreezeRowDetails_Changed" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+            <data:DataGrid x:Name="dataGrid1" Height="400" IsReadOnly="True" >
+                <data:DataGrid.RowDetailsTemplate>
+                    <!-- Begin row details section. -->
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1" Background="Tan">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <!-- Controls are bound to Task properties. -->
+                                        <TextBlock FontSize="16" Foreground="MidnightBlue" Text="{Binding Name}" 
+                                           Margin="0,0,10,0" VerticalAlignment="Bottom" />
+                                        <TextBlock FontSize="12" Text="Due Date: " VerticalAlignment="Bottom"/>
+                                        <controls:DatePicker SelectedDate="{Binding DueDate, Mode=TwoWay}" VerticalAlignment="Bottom" />
+                                        <TextBlock FontSize="12" Text="    Complete:" VerticalAlignment="Bottom" />
+                                        <CheckBox IsChecked="{Binding Complete, Mode=TwoWay}" 
+                                              VerticalAlignment="Center" />
+                                    </StackPanel>
+                                    <TextBlock FontSize="12" Text="Notes: " />
+                                    <TextBox FontSize="12" Text="{Binding Notes, Mode=TwoWay}" 
+                                         Width="420" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                    <!-- End row details section. -->
+                </data:DataGrid.RowDetailsTemplate>
+            </data:DataGrid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

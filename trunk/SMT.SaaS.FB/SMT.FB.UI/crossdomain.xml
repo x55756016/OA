@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cross-domain-policy>
+    <allow-access-from domain="http://www.lishewen.com.cn/" />
+    <allow-access-from domain="*.lishewen.com.cn" />
+    <allow-access-from domain="222.217.221.16" />
+</cross-domain-policy>

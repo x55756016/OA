@@ -1,0 +1,100 @@
+﻿<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBinding_PersonnelService" receiveTimeout="01:30:00"
+          sendTimeout="00:30:00" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FBCommonService" openTimeout="01:30:00"
+          receiveTimeout="01:30:00" sendTimeout="00:10:00" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FBService" receiveTimeout="00:30:00"
+          sendTimeout="00:30:00" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPersonalRecordService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FileUploadManager" closeTimeout="00:01:00"
+          openTimeout="00:01:00" sendTimeout="00:01:00" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647" textEncoding="utf-8">
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+      <customBinding>
+        <binding name="CustomBinding_HrCommonService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IService">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IService1">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_OrganizationService" receiveTimeout="00:30:00"
+          sendTimeout="00:30:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PermissionService" receiveTimeout="00:30:00"
+          sendTimeout="00:30:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_FBService" receiveTimeout="00:30:00"
+          sendTimeout="00:30:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PerformanceService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IUploadService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+      </customBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://10.10.0.95/New/Services/HR/HrCommonService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
+        contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
+      <endpoint address="http://10.10.0.95/New/Services/HR/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+      <endpoint address="http://10.10.0.95/New/Services/HR/PersonnelService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+        contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+      <endpoint address="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IService1"
+        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+      <endpoint address="http://10.10.0.95/New/Services/System/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://10.10.0.95/New/Services/HR/PerformanceService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
+        contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
+      <endpoint address="http://10.10.0.95/New/Services/Main/PersonalRecordService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
+        contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
+      <endpoint address="http://10.10.0.95/New/Services/FileUploadService/FileUpLoad.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
+        contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService1" />
+      <endpoint address="http://localhost:12169/FBService.svc" binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_FBService" contract="FBServiceWS.FBService"
+        name="BasicHttpBinding_FBService" />
+      <endpoint address="http://localhost:12169/FBCommonService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBCommonService"
+        contract="FBCommonWS.FBCommonService" name="BasicHttpBinding_FBCommonService" />
+    </client>    
+  </system.serviceModel>
+</configuration>
+

@@ -1,0 +1,29 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:local="clr-namespace:SMT.FB.UI"
+	x:Class="SMT.FB.UI.FieldForm2"
+	d:DesignWidth="640" d:DesignHeight="480">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid Margin="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="15"/>
+				<ColumnDefinition Width="0.5*"/>
+			</Grid.ColumnDefinitions>
+			<local:FieldForm Margin="0" UseLayoutRounding="True" Grid.Column="0" x:Name="LeftForm">
+				<local:FieldForm.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+				</local:FieldForm.RowDefinitions>
+				
+			</local:FieldForm>
+			<local:FieldForm Margin="0" Grid.Column="2" x:Name="RightForm"/>
+		</Grid>
+	</Grid>
+</UserControl>

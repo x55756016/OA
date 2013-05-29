@@ -1,0 +1,13 @@
+﻿<localViews:FBBasePage x:Class="SMT.FB.UI.Views.OrderView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:local="clr-namespace:SMT.FB.UI.Common" 
+           xmlns:localViews="clr-namespace:SMT.FB.UI.Views"
+           Title="OrderView Page">
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{StaticResource BlueShine2}">
+    </Grid>
+</localViews:FBBasePage>

@@ -1,0 +1,16 @@
+﻿<navigation:Page 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	x:Class="SMT.FB.UI.Index" 
+	Title="首页"
+	d:DesignWidth="640" d:DesignHeight="480">
+	
+	<Grid x:Name="LayoutRoot" >
+		<TextBlock Height="35" Margin="296,42,0,0" VerticalAlignment="Top" Text="欢迎页面" TextWrapping="Wrap" Foreground="#FFFEFEFE" FontSize="24" Width="Auto" FontWeight="Bold" HorizontalAlignment="Left" TextAlignment="Center"/>
+		<TextBlock Margin="59,96,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="537" Height="323" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontWeight="Bold" TextAlignment="Center"><Run Text="欢迎使用XXX信息系统。"/><LineBreak/><Run Text=""/></TextBlock>
+	</Grid>
+</navigation:Page>

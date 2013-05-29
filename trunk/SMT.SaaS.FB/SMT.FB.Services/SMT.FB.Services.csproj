@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{04344C11-F088-4C2E-8395-91D74CB33204}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.FB.Services</RootNamespace>
+    <AssemblyName>SMT.FB.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UIDebug|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UI|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\SMT.FB.Services.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMT.Foundation.Core">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Log">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Smt.Global.IContract">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\Smt.Global.IContract.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clientaccesspolicy.xml" />
+    <Content Include="FBCommonService.svc" />
+    <Content Include="FBExtensionalService.svc" />
+    <Content Include="FBService.svc" />
+    <Content Include="FB_UI_Config.xml" />
+    <Content Include="OaService.svc" />
+    <Content Include="ReDoForm.aspx" />
+    <Content Include="SalaryBudget.xml" />
+    <Content Include="SMT.FB.Services.Publish.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SubjectRectify.aspx" />
+    <Content Include="SubjectRectifyNext.aspx" />
+    <Content Include="test.aspx" />
+    <Content Include="Test2.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\T_FB_BORROWAPPLYMASTER.xml" />
+    <Content Include="xml\T_FB_CHARGEAPPLYMASTER.xml" />
+    <Content Include="xml\T_FB_COMPANYBUDGETAPPLYMASTER.xml" />
+    <Content Include="xml\T_FB_COMPANYBUDGETMODMASTER.xml" />
+    <Content Include="xml\T_FB_COMPANYBUDGETSUMMASTER.XML" />
+    <Content Include="xml\T_FB_COMPANYTRANSFERMASTER.xml" />
+    <Content Include="xml\T_FB_DEPTBUDGETADDMASTER.xml" />
+    <Content Include="xml\T_FB_DEPTBUDGETAPPLYMASTER.xml" />
+    <Content Include="xml\T_FB_DEPTBUDGETSUMMASTER.XML" />
+    <Content Include="xml\T_FB_DEPTTRANSFERMASTER.xml" />
+    <Content Include="xml\T_FB_PERSONMONEYASSIGNMASTER.xml" />
+    <Content Include="xml\T_FB_REPAYAPPLYMASTER.xml" />
+    <Content Include="xml\T_FB_TRAVELEXPAPPLYMASTER.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="FBCommonService.svc.cs">
+      <DependentUpon>FBCommonService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="FBExtensionalService.svc.cs">
+      <DependentUpon>FBExtensionalService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="FBService.svc.cs">
+      <DependentUpon>FBService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="FBServiceBase.cs" />
+    <Compile Include="IOaService.cs" />
+    <Compile Include="OaService.svc.cs">
+      <DependentUpon>OaService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReDoForm.aspx.cs">
+      <DependentUpon>ReDoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReDoForm.aspx.designer.cs">
+      <DependentUpon>ReDoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectRectify.aspx.cs">
+      <DependentUpon>SubjectRectify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubjectRectify.aspx.designer.cs">
+      <DependentUpon>SubjectRectify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectRectifyNext.aspx.cs">
+      <DependentUpon>SubjectRectifyNext.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubjectRectifyNext.aspx.designer.cs">
+      <DependentUpon>SubjectRectifyNext.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test2.aspx.cs">
+      <DependentUpon>Test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test2.aspx.designer.cs">
+      <DependentUpon>Test2.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMT.FB.BLL\SMT.FB.BLL.csproj">
+      <Project>{08A41840-AC4A-4D1E-8CF5-881E968B44AF}</Project>
+      <Name>SMT.FB.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.FB.DAL\SMT.FB.DAL.csproj">
+      <Project>{3526EE5B-5BDE-4D92-8C7E-BF2DB4DE983C}</Project>
+      <Name>SMT.FB.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT_FB_EFModel\SMT_FB_EFModel.csproj">
+      <Project>{764CEDC0-CAC5-4252-AE43-D2F2E9763F5F}</Project>
+      <Name>SMT_FB_EFModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>12169</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

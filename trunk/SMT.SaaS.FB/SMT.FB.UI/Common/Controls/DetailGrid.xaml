@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SMT.FB.UI.Common.Controls.DetailGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:local="clr-namespace:SMT.FB.UI.Common.Controls"    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    >
+    <UserControl.Resources>
+        <DataTemplate x:Key="GroupHeadTemplate">
+            <StackPanel>
+                <Image x:Name="typeIcon" Source="/SMT.SaaS.FrameworkUI;component/Images/FB/T_FB_SUBJECTTYPE.png" Height="16" Width="16" />
+                <TextBlock Margin="5,0,0,0" Text="{Binding}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+         
+        <StackPanel x:Name="P1" VerticalAlignment="Top" Grid.Row="0">
+            <Border  Style="{StaticResource ButtonToolBarBorder}" Height="26">
+                <StackPanel x:Name="P11" VerticalAlignment="Top" Grid.Row="0" Margin="0,-2,0,0">
+                    <smtx:ToolBar x:Name="deatilGridBar" />
+                </StackPanel >
+            </Border>
+        </StackPanel >
+        <local:AutoDataGrid x:Name="ADGrid"  MinHeight="100" MinWidth="180" MaxHeight="500" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" >
+
+        </local:AutoDataGrid>
+    </Grid>
+</UserControl>

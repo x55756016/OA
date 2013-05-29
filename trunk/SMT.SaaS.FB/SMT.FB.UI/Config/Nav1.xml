@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Navgations>
+  <Nav name="系统管理"  Content="" NavUri="" Source="/SMT.SaaS.FrameworkUI;Component/Images/bar_bottom_ico_service.png">
+    <Nav name="管理员设置"  Content="" NavUri="/TestUsersView" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="TreeFormPage"  Content="" NavUri="/TreeFormPage" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="GridFormPage"  Content="" NavUri="/GridFormPage" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="GridPageForm"  Content="" NavUri="/GridPageForm" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="TreeFormGrid"  Content="" NavUri="/TreeFormGrid" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="TreeGridForm"  Content="" NavUri="/TreeGridForm" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="TreeGridMaster"  Content="" NavUri="/TreeGridMaster" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+  </Nav>
+  <Nav name="部门管理"  Content="" NavUri="" Source="/SMT.SaaS.FrameworkUI;Component/Images/bar_bottom_ico_service.png">
+    <Nav name="人事部"  Content="" NavUri="" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="账务部"  Content="" NavUri="" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="技术部"  Content="" NavUri="" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+    <Nav name="业务部"  Content="" NavUri="" Source="/SMT.SaaS.FrameworkUI;Component/Images/ico_16_1038.png"></Nav>
+  </Nav>
+  <Nav name="员工管理"  Content="" NavUri="">
+    <Nav name="所有员工"  Content="" NavUri=""></Nav>
+    <Nav name="人才库"  Content="" NavUri=""></Nav>
+    <Nav name="经理"  Content="" NavUri=""></Nav>
+    <Nav name="职员"  Content="" NavUri=""></Nav>
+  </Nav>
+  <Nav name="会议室管理"  Content="" NavUri="">
+    <Nav name="所有会议室"  Content="" NavUri=""></Nav>
+    <Nav name="已预订会议室"  Content="" NavUri=""></Nav>
+    <Nav name="正在开会"  Content="" NavUri=""></Nav>
+    <Nav name="空会议室"  Content="" NavUri=""></Nav>
+    <Nav name="关于"  Content="" NavUri=""></Nav>
+  </Nav>
+  <Nav name="皮肤设置"  Content="" NavUri="">
+    <Nav name="默认皮肤"  Content="" NavUri=""></Nav>
+    <Nav name="天蓝色"  Content="" NavUri=""></Nav>
+    <Nav name="正在调协"  Content="" NavUri=""></Nav>
+  </Nav>
+</Navgations>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>FB</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="部门预算分配申请" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г" />
+    <ParaStr>
+      <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+      <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+      <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+      <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+      <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_DEPTTRANSFERMASTER" />
+    </ParaStr>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.FB.UI</AssemblyName>
+    <PublicClass>SMT.FB.UI.Common.CommonFunction</PublicClass>
+    <ProcessName>ShowAuditForm</ProcessName>
+    <PageParameter>T_FB_DEPTTRANSFERMASTER</PageParameter>
+    <ApplicationOrder>{DEPTTRANSFERMASTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen> 
+  <Object Name="T_FB_DEPTTRANSFERMASTER" Description="月度预算调拨申请" Key="DEPTTRANSFERMASTERID" id="">    
+    <Attribute Name="OrderTypeName" LableResourceID="OrderTypeName" Description="单据类型" DataType="string" DataValue="月度预算调拨申请"  DataText="月度预算调拨申请"/>
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提单人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPTTRANSFERMASTERID" LableResourceID="DEPTTRANSFERMASTERID" Description="单据ID" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="DEPTTRANSFERMASTERCODE" LableResourceID="DEPTTRANSFERMASTERCODE" Description="单据编号" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="BUDGETARYMONTH" LableResourceID="BUDGETARYMONTH" Description="预算月份" DataType="DateTime" DataValue="" DataText=""/>    
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="状态" DataType="decimal" DataValue="" DataText=""/>
+    <Attribute Name="TRANSFERFROM" LableResourceID="TRANSFERFROM" Description="分配部门" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="申请人ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""/>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="TOTAL" LableResourceID="TOTAL" Description="合计" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="AttachMent" LableResourceID="AttachMent" Description="附件" DataType="attachmentlist" DataValue="" DataText="" />
+    <ObjectList Name="T_FB_DEPTTRANSFERDETAILList" LableResourceID="T_FB_DEPTTRANSFERDETAILList" Description="部门月度调拨申请明细" DataText="" >
+      <Object Name="T_FB_DEPTTRANSFERDETAIL" LableResourceID="T_FB_DEPTTRANSFERDETAIL" Description="部门月度调拨申请明细" Key="DEPTTRANSFERDETAILID" id="">
+        <Attribute Name="DEPTTRANSFERDETAILID" LableResourceID="DEPTTRANSFERDETAILID" Description="预算调拨单申请单明细ID" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="T_FB_SUBJECT.SUBJECTCODE" LableResourceID="SUBJECTCODE" Description="科目编号" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="T_FB_SUBJECT.SUBJECTNAME" LableResourceID="SUBJECTNAME" Description="科目名称" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="USABLEMONEY" LableResourceID="USABLEMONEY" Description="可用额度" DataType="decimal" DataValue="" DataText=""/>
+        <Attribute Name="TRANSFERMONEY" LableResourceID="TRANSFERMONEY" Description="调拨金额" DataType="decimal" DataValue="" DataText=""/>        
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

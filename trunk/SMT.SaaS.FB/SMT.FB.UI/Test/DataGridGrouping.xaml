@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="SMT.FB.UI.Test.DataGridGrouping"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="600" Height="500">
+    <Grid x:Name="LayoutRoot" Background="White" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <data:DataGrid x:Name="dataGrid1">
+            <data:DataGrid.RowGroupHeaderStyles>
+                <!-- Style for groups at top level -->
+                <Style TargetType="data:DataGridRowGroupHeader">
+                    <Setter Property="PropertyNameVisibility" Value="Collapsed" />
+                    <Setter Property="Background" Value="#FF112255" />
+                    <Setter Property="Foreground" Value="#FFEEEEEE" />
+                    <Setter Property="SublevelIndent" Value="15" />
+                </Style>
+                <!-- Style for groups under the top level -->
+                <Style TargetType="data:DataGridRowGroupHeader">
+                    <Setter Property="Background" Value="#44225566" />
+                </Style>
+            </data:DataGrid.RowGroupHeaderStyles>
+        </data:DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Filter Completed Tasks " />
+            <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+            <Button Content="Expand All Groups" Margin="10,0,0,0" Click="ExpandButton_Click" />
+            <Button Content="Collapse All Groups" Margin="5,0,0,0" Click="CollapseButton_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

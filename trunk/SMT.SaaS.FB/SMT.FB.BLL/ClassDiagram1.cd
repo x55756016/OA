@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SMT.FB.BLL.AuditBLL" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAggEQJIALCQIQAIAAEAAIAAECAAkAAAACAIEgCECCA=</HashCode>
+      <FileName>AuditBLL.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.BLL.V_SubjectCompanySum" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuditBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.V_SubjectDeptSum" Collapsed="true">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>AuditBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.BaseBLL" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gE4AAIABICCAAQIAAAIBDAAABIEAAAAAAIIABBAAISA=</HashCode>
+      <FileName>BaseBll.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.BLL.BudgetAccountBBLException" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BudgetAccountBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.BudgetAccountBLL" Collapsed="true">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KQZMAQyXMKiKBBaLEbBIYyCGJLREFIMn7wDQIIDHDGQ=</HashCode>
+      <FileName>BudgetAccountBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.BudgetSumBLL" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAYCAAAAAACAAQAAAAABQAAAAAEIAAAAACAACAAAAA=</HashCode>
+      <FileName>BudgetSumBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.LockManager" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAACAAAAAAAAAAAEACAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.ListExtension" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.EntityInfoExtension" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.FBBLLException" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.AuditResult" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.EntityInfo" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAQAAACAAQAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.FieldInfo" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.EngineX" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EngineExtension\EngineX.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.ExtensionOrderBLL" Collapsed="true">
+    <Position X="2.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ExtensionOrderBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.FBCommonBLL" Collapsed="true">
+    <Position X="2.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FBCommonBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.FBEntityBLL" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICAAAAACAAEAYACEIAAAAAAAABAAAAEAAAAQBAACAA=</HashCode>
+      <FileName>FBEntityBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.OrganizationBLL" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACgAAAAAQAAAAEAAAAAAAABAAAAAAAAAgAACAQE=</HashCode>
+      <FileName>OrganizationBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.QueryEntityBLL" Collapsed="true">
+    <Position X="2.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>QueryEntityBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.SaveEntityBLL" Collapsed="true">
+    <Position X="2.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAACAQAAAAAAAAA=</HashCode>
+      <FileName>SaveEntityBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.SubjectBLL" Collapsed="true">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>pYhE0QgMgoEAIYSCAIAAEBSECAEFBESCAAABQABACEI=</HashCode>
+      <FileName>SubjectBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.SystemBLL" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAAAAEAkAOAAAIQwAAAAAAAAAAAAAAAAABEAIAAAAAA=</HashCode>
+      <FileName>SystemBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FBEntityBLL.BLL.OrderCodeBLL" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>OrderCodeBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.XmlHelper" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAIAAAAAAAAAAAAABAAAAAAEAAAAAAQAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.NullableExtension" Collapsed="true">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAAAAAAAgAACAAAAAAAAAAAAAABAAAAAACA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.QueryExpressionExtension" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.FBEntityExtesion" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAqA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.BLL.EntityObjectExtension" Collapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAgAIAAAAgAAAAAAABCAEAAAEAgAAAAAAAAAIAQ=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="SMT.FB.BLL.FieldName" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAQCCAAAAAIJAIAAAEAAAAAAAABABgAAAA=</HashCode>
+      <FileName>Enum.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="SMT.FB.BLL.AccountErrorCode" Collapsed="true">
+    <Position X="8" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAQAAIAAAAAAAAAAAIACAAAAAAAAEEAAA=</HashCode>
+      <FileName>BudgetAccountBLL.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.BLL.CompareResult" Collapsed="true">
+    <Position X="13.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAgAAAAAAAAAAAAAAAQAAAAAEAAAA=</HashCode>
+      <FileName>Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.BLL.SumValid" Collapsed="true">
+    <Position X="9.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.BLL.CheckStates" Collapsed="true">
+    <Position X="11.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAIAAAAAAAAAAAQAAEAAAAiAAAAAAAAAAA=</HashCode>
+      <FileName>Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.BLL.EditStates" Collapsed="true">
+    <Position X="15" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gACAAAAAACAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.BLL.ChargeType" Collapsed="true">
+    <Position X="9.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.BLL.FBEntityStates" Collapsed="true">
+    <Position X="8" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAABAAEEAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="宋体" Size="9" />
+</ClassDiagram>

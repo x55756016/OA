@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:12169/FBCommonService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+  <xs:import schemaLocation="http://localhost:12169/FBCommonService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FB.BLL" />
+  <xs:element name="GetFBEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="qp" nillable="true" type="q1:QueryExpression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFBEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="GetFBEntityResult" nillable="true" type="q2:FBEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryFBEntities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="qe" nillable="true" type="q3:QueryExpression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryFBEntitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="QueryFBEntitiesResult" nillable="true" type="q4:ArrayOfFBEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Query">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="qe" nillable="true" type="q5:QueryExpression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="QueryResult" nillable="true" type="q6:QueryResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="fbEntity" nillable="true" type="q7:FBEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="SaveResult" nillable="true" type="q8:SaveResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="fbEntityList" nillable="true" type="q9:ArrayOfFBEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveListResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditFBEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" minOccurs="0" name="fbEntity" nillable="true" type="q10:FBEntity" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.FB.BLL" minOccurs="0" name="checkStates" type="q11:CheckStates" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditFBEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT.FB.BLL" minOccurs="0" name="AuditFBEntityResult" nillable="true" type="q12:AuditResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

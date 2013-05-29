@@ -1,0 +1,32 @@
+﻿<local:FBBaseControl x:Class="SMT.FB.UI.Form.FBPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="clr-namespace:SMT.FB.UI.Common"
+    xmlns:localControl="clr-namespace:SMT.FB.UI.Common.Controls"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    >
+    <Grid x:Name="LayoutRoot" Background="White">
+        <TextBlock x:Name="tbMessage" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="Red" Margin="0,0,10,0" />
+        <controls:TabControl x:Name="tabMain" Grid.Row="1"  Margin="0" >
+            <controls:TabItem x:Name="General" Header="基本信息" >
+                <Grid x:Name="gdForm">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <local:EditForm x:Name="editForm" Grid.Row="0"></local:EditForm>
+                    <Grid x:Name="PnlAudit" Grid.Row="1" Visibility="Collapsed">
+                        
+                        <controlsToolkit:Expander x:Name="expander" Style="{StaticResource ExpanderStyle}" BorderThickness="0"  Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITINFO}" VerticalAlignment="top" Background="Transparent" IsExpanded="True" Padding="0,0,2,8">
+                            <localControl:AuditControlFB x:Name="auditControl"></localControl:AuditControlFB>
+                        </controlsToolkit:Expander>
+                        
+                    </Grid>
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</local:FBBaseControl>

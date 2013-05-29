@@ -1,0 +1,32 @@
+﻿<localViews:FBBasePage x:Class="SMT.FB.UI.Views.SystemManagement.SystemSetting" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+           xmlns:local="clr-namespace:SMT.FB.UI.Common"
+           xmlns:localViews="clr-namespace:SMT.FB.UI.Views"
+           xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           Title="SystemSetting Page">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="P1" VerticalAlignment="Top" Grid.Row="0">
+            <smtx:FormTitle x:Name="FormTitleName" VerticalAlignment="Top"></smtx:FormTitle>
+            <smtx:ToolBar x:Name="tooBarTop" />
+        </StackPanel >
+        <controls:TabControl x:Name="tabMain" Grid.Row="1"  Margin="0" >
+            <controls:TabItem x:Name="General" Header="系统设置" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                <local:EditForm x:Name="editForm"></local:EditForm>
+            </controls:TabItem>
+
+        </controls:TabControl>
+
+    </Grid>
+</localViews:FBBasePage>

@@ -1,0 +1,36 @@
+﻿<localViews:FBBasePage x:Class="SMT.FB.UI.Views.AuditOrder"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+           xmlns:local="clr-namespace:SMT.FB.UI.Common.Controls"  
+           xmlns:localViews="clr-namespace:SMT.FB.UI.Views">
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{StaticResource BlueShine2}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="P1" VerticalAlignment="Top" Grid.Row="0">
+            <smtx:FormTitle x:Name="FormTitleName" VerticalAlignment="Top"></smtx:FormTitle>
+            <smtx:FormToolBar x:Name="tooBarTop" />
+        </StackPanel >
+        <local:AutoDataGrid x:Name="ADtGrid"  MinHeight="100" MinWidth="180" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1"  />
+        <StackPanel x:Name="P3" VerticalAlignment="Bottom" Grid.Row="2">
+            <Border  BorderBrush="Black"  Height="25" VerticalAlignment="Bottom" Margin="0 0 0 0">
+                <StackPanel  VerticalAlignment="bottom" Background="Black" >
+                    <data:DataPager x:Name="dataPager" DisplayMode="FirstLastPreviousNextNumeric" 
+                    Source="{Binding}" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" 
+                    AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" 
+                    IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" />
+
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+
+    </Grid>
+</localViews:FBBasePage>

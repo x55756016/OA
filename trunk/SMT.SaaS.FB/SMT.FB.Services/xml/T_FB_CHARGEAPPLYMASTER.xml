@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>FB</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="T_FB_CHARGEAPPLYMASTER" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г" />
+    <ParaStr>
+      <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+      <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+      <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+      <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+      <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_CHARGEAPPLYMASTER" />
+    </ParaStr>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.FBAnalysis.UI</AssemblyName>
+    <PublicClass>SMT.FBAnalysis.UI.Common.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.FBAnalysis.UI.Form.ChargeApplyForm</PageParameter>
+    <ApplicationOrder>{CHARGEAPPLYMASTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_FB_CHARGEAPPLYMASTER" Description="个人费用报销" Key="CHARGEAPPLYMASTERID" id="">
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL" Description="岗位级别" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHARGEAPPLYMASTERID" LableResourceID="CHARGEAPPLYMASTERID" Description="费用申请单ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHARGEAPPLYMASTERCODE" LableResourceID="INVOICESCODE" Description="单据编号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BUDGETARYMONTH" LableResourceID="BUDGETARYMONTH" Description="预算月份" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PAYTYPE" LableResourceID="PAYKIND" Description="付款类型" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TOTALMONEY" LableResourceID="TOTAL" Description="合计" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REPAYMENT" LableResourceID="REPAYTOTAL" Description="冲借款合计" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EDITSTATES" LableResourceID="EDITSTATES" Description="状态" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERNAMEVD" Description="申请人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="申请人岗位" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="申请人部门" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="申请人公司" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERNAME" LableResourceID="UPDATEUSERNAME" Description="修改人名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="申请人名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTNAME" LableResourceID="OWNERPOSTNAME" Description="申请人岗位名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="申请人公司名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="申请人部门名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTNAME" LableResourceID="CREATEPOSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYNAME" LableResourceID="CREATECOMPANYNAME" Description="公司名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTNAME" LableResourceID="CREATEDEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="RECEIVER" LableResourceID="RECEIVER" Description="收款人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BANK" LableResourceID="BANK" Description="开户银行" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BANKACCOUT" LableResourceID="BANKACCOUT" Description="银行帐号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PAYTARGET" LableResourceID="PAYTARGET" Description="1 : 付本人 2 : 付其帐号" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PAYMENTINFO" LableResourceID="PAYMENTINFO" Description="支付信息" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BORROWAPPLYMASTERID" LableResourceID="LOANINVOICES" Description="借款单" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="AttachMent"  LableResourceID="ATTACHMENT" Description="附件" DataType="attachmentlist" DataText="" DataValue="" />
+    <ObjectList Name="T_FB_CHARGEAPPLYDETAILList" LableResourceID="T_FB_CHARGEAPPLYDETAILList" Description="个人费用报销明细" DataText="" >
+      <Object Name="T_FB_CHARGEAPPLYDETAIL" Description="个人费用报销明细" Key="CHARGEAPPLYDETAILID" id="">
+        <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="CHARGEAPPLYDETAILID" LableResourceID="CHARGEAPPLYDETAILID" Description="费用申请单明细ID" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="SERIALNUMBER" LableResourceID="SERIALNUMBER" Description="编号" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="CHARGETYPE" LableResourceID="CHARGETYPE" Description="费用类型" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="USABLEMONEY" LableResourceID="USABLEMONEY" Description="可用结余" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="REPAYMONEY" LableResourceID="REPAYMONEY" Description="还款金额" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="BORROWMONEY" LableResourceID="BORROWCOUNT" Description="借款金额" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="REMARK" LableResourceID="BORROWREMARK" Description="摘要" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="CHARGEMONEY" LableResourceID="CHARGECOUNT" Description="报销金额" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+        <Attribute Name="SUBJECTID" LableResourceID="SUBJECTID" Description="科目ID" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="SUBJECTCODE" LableResourceID="SUBJECTCODE" Description="科目编号" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="SUBJECTNAME" LableResourceID="SUBJECTNAME" Description="科目名称" DataType="string" DataValue="" DataText=""></Attribute>
+      </Object>
+    </ObjectList>
+    <ObjectList Name="T_FB_CHARGEAPPLYREPAYDETAILList" LableResourceID="T_FB_CHARGEAPPLYREPAYDETAILList" Description="个人费用报销冲借款明细" DataText="" >
+      <Object Name="T_FB_CHARGEAPPLYREPAYDETAIL" Description="个人费用报销冲借款明细" Key="CHARGEAPPLYDETAILID" id="">
+        <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="CHARGEAPPLYREPAYDETAILID" LableResourceID="CHARGEAPPLYREPAYDETAILID" Description="冲借款费用申请单明细ID" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="REPAYTYPE" LableResourceID="BORRTYPE" Description="借款项目" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="REMARK" LableResourceID="BORROWREMARK" Description="摘要" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="BORROWMONEY" LableResourceID="BORRBALAN" Description="借款余额" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="REPAYMONEY" LableResourceID="REPAYMONEY" Description="冲借款金额" DataType="decimal" DataValue="" DataText=""></Attribute>
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+      </Object>
+    </ObjectList>
+  </Object>
+</System>
