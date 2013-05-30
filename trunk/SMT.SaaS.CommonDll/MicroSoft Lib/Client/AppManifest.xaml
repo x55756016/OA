@@ -1,0 +1,83 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="SMT.SAAS.Platform" EntryPointType="SMT.SAAS.Platform.App" RuntimeVersion="4.0.60310.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="SMT.SAAS.Platform" Source="SMT.SAAS.Platform.dll" />
+    <AssemblyPart x:Name="FJ.Core" Source="FJ.Core.dll" />
+    <AssemblyPart x:Name="Microsoft.Expression.Interactions" Source="Microsoft.Expression.Interactions.dll" />
+    <AssemblyPart x:Name="Microsoft.Expression.Prototyping.Interactivity" Source="Microsoft.Expression.Prototyping.Interactivity.dll" />
+    <AssemblyPart x:Name="silverPDF" Source="silverPDF.dll" />
+    <AssemblyPart x:Name="SLVisifire.Charts" Source="SLVisifire.Charts.dll" />
+    <AssemblyPart x:Name="SMT.Extensions" Source="SMT.Extensions.dll" />
+    <AssemblyPart x:Name="SMT.FileUpLoad" Source="SMT.FileUpLoad.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.AnimationEngine" Source="SMT.SAAS.AnimationEngine.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Application" Source="SMT.SAAS.Application.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Behaviors" Source="SMT.SAAS.Behaviors.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.ClientServices" Source="SMT.SAAS.ClientServices.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.ClientUtility" Source="SMT.SAAS.ClientUtility.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.CommonReportsModel" Source="SMT.SAAS.CommonReportsModel.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Controls.Toolkit" Source="SMT.SAAS.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Controls.Toolkit.Windows" Source="SMT.SAAS.Controls.Toolkit.Windows.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Extensions" Source="SMT.SAAS.Extensions.dll" />
+    <AssemblyPart x:Name="SMT.SaaS.FrameworkUI.RichNotepad" Source="SMT.SaaS.FrameworkUI.RichNotepad.dll" />
+    <AssemblyPart x:Name="SMT.SaaS.Globalization" Source="SMT.SaaS.Globalization.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Images" Source="SMT.SAAS.Images.dll" />
+    <AssemblyPart x:Name="SMT.SaaS.LocalData" Source="SMT.SaaS.LocalData.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Main.CurrentContext" Source="SMT.SAAS.Main.CurrentContext.dll" />
+    <AssemblyPart x:Name="SMT.SaaS.MoblieXml" Source="SMT.SaaS.MoblieXml.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Platform.Application" Source="SMT.SAAS.Platform.Application.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Platform.Controls" Source="SMT.SAAS.Platform.Controls.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Platform.Core" Source="SMT.SAAS.Platform.Core.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Platform.Model" Source="SMT.SAAS.Platform.Model.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Platform.ViewModel" Source="SMT.SAAS.Platform.ViewModel.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Platform.WebParts" Source="SMT.SAAS.Platform.WebParts.dll" />
+    <AssemblyPart x:Name="SMT.SaaS.PublicControls" Source="SMT.SaaS.PublicControls.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Resource" Source="SMT.SAAS.Resource.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Themes" Source="SMT.SAAS.Themes.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Utility" Source="SMT.SAAS.Utility.dll" />
+    <AssemblyPart x:Name="SMT.SaaS.Window" Source="SMT.SaaS.Window.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Toolkit.Internals" Source="System.Windows.Controls.Toolkit.Internals.dll" />
+    <AssemblyPart x:Name="Wintellect.Sterling" Source="Wintellect.Sterling.dll" />
+    <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
+    <AssemblyPart x:Name="SMT.SAAS.Platform.Client" Source="SMT.SAAS.Platform.Client.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.Extensions" Source="System.ServiceModel.Extensions.dll" />
+    <AssemblyPart x:Name="SMT.SaaS.DatePager" Source="SMT.SaaS.DatePager.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.PollingDuplex" Source="System.ServiceModel.PollingDuplex.dll" />
+    <AssemblyPart x:Name="System.Windows.Interactivity" Source="System.Windows.Interactivity.dll" />
+    <AssemblyPart Source="zh-Hans/System.Xml.Linq.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.ServiceModel.Extensions.resources.dll" />
+    <AssemblyPart Source="zh-Hans/System.ServiceModel.PollingDuplex.resources.dll" />
+  </Deployment.Parts>
+  <Deployment.ExternalParts>
+    <ExtensionPart Source="System.ComponentModel.Composition.zip" />
+    <ExtensionPart Source="System.ComponentModel.Composition.Initialization.zip" />
+    <ExtensionPart Source="System.ComponentModel.DataAnnotations.zip" />
+    <ExtensionPart Source="System.Windows.Controls.Data.DataForm.Toolkit.zip" />
+    <ExtensionPart Source="System.Windows.Controls.Data.zip" />
+    <ExtensionPart Source="System.Windows.Controls.Data.Input.zip" />
+    <ExtensionPart Source="System.Windows.Controls.DataVisualization.Toolkit.zip" />
+    <ExtensionPart Source="System.Windows.Controls.zip" />
+    <ExtensionPart Source="System.Windows.Controls.Input.zip" />
+    <ExtensionPart Source="System.Windows.Controls.Input.Toolkit.zip" />
+    <ExtensionPart Source="System.Windows.Controls.Layout.Toolkit.zip" />
+    <ExtensionPart Source="System.Windows.Controls.Navigation.zip" />
+    <ExtensionPart Source="System.Windows.Controls.Toolkit.zip" />
+    <ExtensionPart Source="System.Windows.Data.zip" />
+    <ExtensionPart Source="SMT.Saas.Tools.zip" />
+    <ExtensionPart Source="SMT.SaaS.FrameworkUI.zip" />
+    <ExtensionPart Source="Telerik.Windows.Controls.Data.zip" />
+    <ExtensionPart Source="Telerik.Windows.Controls.zip" />
+    <ExtensionPart Source="Telerik.Windows.Controls.GridView.zip" />
+    <ExtensionPart Source="Telerik.Windows.Controls.Input.zip" />
+    <ExtensionPart Source="Telerik.Windows.Controls.Navigation.zip" />
+    <ExtensionPart Source="Telerik.Windows.Controls.RibbonBar.zip" />
+    <ExtensionPart Source="Telerik.Windows.Controls.RichTextBoxUI.zip" />
+    <ExtensionPart Source="Telerik.Windows.Data.zip" />
+    <ExtensionPart Source="Telerik.Windows.Documents.zip" />
+    <ExtensionPart Source="Telerik.Windows.Documents.FormatProviders.Html.zip" />
+    <ExtensionPart Source="Telerik.Windows.Documents.FormatProviders.OpenXml.zip" />
+    <ExtensionPart Source="Telerik.Windows.Documents.FormatProviders.Pdf.zip" />
+    <ExtensionPart Source="Telerik.Windows.Documents.FormatProviders.Xaml.zip" />
+    <ExtensionPart Source="Telerik.Windows.Documents.Proofing.Dictionaries.En-US.zip" />
+    <ExtensionPart Source="Telerik.Windows.Themes.Summer.zip" />
+    <ExtensionPart Source="System.Xml.Serialization.zip" />
+  </Deployment.ExternalParts>
+</Deployment>
