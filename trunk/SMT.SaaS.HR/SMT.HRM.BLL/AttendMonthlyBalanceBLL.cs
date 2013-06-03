@@ -647,7 +647,11 @@ namespace SMT.HRM.BLL
                         {
                             entTemp.REMARK = strLine[22];
                         }
-                        AddMonthlyBalance(entTemp);
+                        bool flag = this.IsExitEmployeeMonthlyBalance(entCurrEmp.EMPLOYEEID, dBalanceYear, dBalanceMonth);
+                        if (!flag)//返回false，即没有该员工该月审核中月度考勤才进行添加
+                        {
+                            AddMonthlyBalance(entTemp);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -662,6 +666,36 @@ namespace SMT.HRM.BLL
             {
                 strMsg = "打卡记录导入失败";
                 Utility.SaveLog(ex.ToString());
+            }
+        }
+
+
+        /// <summary>
+        /// 判断员工在该月是否已经有审核中的月度考勤
+        /// </summary>
+        /// <param name="employeeID">员工ID</param>
+        /// <param name="year">考勤结算年份</param>
+        /// <param name="month">考勤结算月份</param>
+        /// <returns>存在返回true</returns>
+        private bool IsExitEmployeeMonthlyBalance(string employeeID, decimal year, decimal month)
+        {
+            try
+            {
+                bool isExit = false;
+                var employee = from a in dal.GetObjects()
+                               where a.EMPLOYEEID == employeeID && a.BALANCEYEAR == year && a.BALANCEMONTH == month && a.CHECKSTATE == "1"
+                               select a;
+                if (employee.Count() > 0)
+                {
+                    isExit = true;
+                    Utility.SaveLog("员工ID： " + employeeID + " 的员工没有生成月度考勤结算，因为该员工有在审核中的考勤数据" + DateTime.Now.ToString());
+                }
+                return isExit;
+            }
+            catch (Exception ex)
+            {
+                Utility.SaveLog(ex.ToString());
+                return false;
             }
         }
 
