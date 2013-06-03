@@ -2622,15 +2622,29 @@ namespace SMT.FB.BLL
             List<T_FB_BUDGETACCOUNT> result = new List<T_FB_BUDGETACCOUNT>();
 
             // 如果科目报销不受月度预算控制时，可用额度为999999.
-            var views = from item in resultTemp
-                        join itemCom in this.GetTable<T_FB_SUBJECTCOMPANY>()
+            //var views = from item in resultTemp
+            //            join itemCom in this.GetTable<T_FB_SUBJECTCOMPANY>()
                          
-                        on new { item.T_FB_SUBJECT.SUBJECTID, item.OWNERCOMPANYID } equals new { itemCom.T_FB_SUBJECT.SUBJECTID, itemCom.OWNERCOMPANYID }
-                        select new { item, itemCom, item.T_FB_SUBJECT };
+            //            on new { item.T_FB_SUBJECT.SUBJECTID, item.OWNERCOMPANYID } equals new { itemCom.T_FB_SUBJECT.SUBJECTID, itemCom.OWNERCOMPANYID }
+            //            select new { item, itemCom, item.T_FB_SUBJECT };
 
             foreach (var view in resultTemp)
             {
-               
+
+                var itemCompanySet = from item in this.GetTable<T_FB_SUBJECTCOMPANY>()
+                        where item.T_FB_SUBJECT.SUBJECTID == view.T_FB_SUBJECT.SUBJECTID
+                            && item.OWNERCOMPANYID == view.OWNERCOMPANYID
+                        select item;
+                //去除不受控
+                if (itemCompanySet.Count() > 0)
+                {
+                    if (!itemCompanySet.FirstOrDefault().ISMONTHLIMIT.Equal(1))
+                    {
+                        view.USABLEMONEY = Max_Charge;
+                    }
+                }
+
+
                 var q = from ent in qSubjectPost
                         where ent.T_FB_SUBJECT.SUBJECTID == view.T_FB_SUBJECT.SUBJECTID
                         && ent.OWNERPOSTID == qePost.PropertyValue
@@ -2671,11 +2685,7 @@ namespace SMT.FB.BLL
                             if (view.ACCOUNTOBJECTTYPE.Value == 3) continue;
                         }
                     }
-                    //去除不受控
-                    //if (!view.itemCom.ISMONTHLIMIT.Equal(1))
-                    //{
-                    //    view.item.USABLEMONEY = Max_Charge;
-                    //}
+                
                     //判断使用个人还是公共费用
                     
                     if (view.T_FB_SUBJECT.SUBJECTID == "00161652-e3bf-4e9f-9a57-a9e1ff8cef74")//业务差旅费
