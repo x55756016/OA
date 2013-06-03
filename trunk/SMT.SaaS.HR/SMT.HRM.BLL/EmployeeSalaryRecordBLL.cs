@@ -1457,6 +1457,10 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         private void GenerateLeftOfficeEmployeeSalary(string leftemployeeid, string strBalanceEmployeeID,string GenerateEmployeePostid, int year, int month,string strCompanyid)
         {
+            var emp = (from ent in dal.GetObjects<T_HR_EMPLOYEE>()
+                           where ent.EMPLOYEEID == leftemployeeid
+                           select ent).FirstOrDefault();
+            Tracer.Debug("开始结算离职人员薪资，结算年月："+year+"-"+month+"：员工id：" + leftemployeeid + "，员工姓名：" + emp.EMPLOYEECNAME + " 员工状态(2为已离职)：" + emp.EMPLOYEESTATE);
             //查询在职的结算岗位为指定岗位的员工及员工薪资档案
             var q = from employee in dal.GetObjects<T_HR_EMPLOYEE>().Include("T_HR_SALARYARCHIVE")
                     join salaryAhive in dal.GetTable<T_HR_SALARYARCHIVE>()
@@ -1477,7 +1481,7 @@ namespace SMT.HRM.BLL
 
                 List<T_HR_SALARYARCHIVE> salarylist = q.ToList();
                 var employees = (from ent in salarylist
-                                            select new { ent.EMPLOYEEID, ent.EMPLOYEENAME }).Distinct().ToList();
+                                 select new { ent.EMPLOYEEID, ent.EMPLOYEENAME }).Distinct().ToList();
                 int i = 1;
                 foreach (var employee in employees)
                 {
@@ -1502,6 +1506,10 @@ namespace SMT.HRM.BLL
                         continue;
                     }
                 }
+            }
+            else
+            {
+                Tracer.Debug("开始结算离职人员薪资：员工id：" + leftemployeeid + "未获取到薪资档案，跳过，发薪机构：" + strCompanyid);
             }
         }
         
