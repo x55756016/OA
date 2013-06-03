@@ -435,7 +435,7 @@ SelectedValue="{Binding REGRESIDENCETYPE, Mode=TwoWay}"
 
                         <!--RTX-->
                         <TextBlock   Grid.Row="3" Grid.Column="0"
-            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=RTX}" HorizontalAlignment="Left" />
+            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=IM}" HorizontalAlignment="Left" />
 
                         <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtOtherCommunicate"   Text="{Binding OTHERCOMMUNICATE, Mode=TwoWay}"  MaxLength="50"
                                     Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" />
