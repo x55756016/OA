@@ -22,14 +22,18 @@ namespace SMT.FB.BLL
         /// 实体与xml的集合类
         /// </summary>
         public static Dictionary<string, XElement> dictXML_XE = null;
+
         public const string NAME_AUDITEDBY = "AuditedBy";
         FlowWFService.ServiceClient flowSerivice = new FlowWFService.ServiceClient();
-
-        /// <summary>
-        /// 提交审核
-        /// </summary>
-        /// <param name="fbEntity"></param>
-        /// <returns></returns>
+        public void Open()
+        {
+        }
+        public void Close()
+        {
+        }
+        public void RollBack()
+        {
+        }
         public FlowWFService.DataResult Audit(FBEntity fbEntity)
         {
             VirtualAudit auditEntity = fbEntity.Entity as VirtualAudit;
@@ -42,7 +46,7 @@ namespace SMT.FB.BLL
 
             //string xml = GetAuditXml(fbEntity);
             string xml = GetAuditXmlForMobile(fbEntity);
-           
+            //Tracer.Debug(xml);
 
             FlowWFService.SubmitData AuditSubmitData = new FlowWFService.SubmitData();
             AuditSubmitData.FormID = auditEntity.FormID;
@@ -108,11 +112,15 @@ namespace SMT.FB.BLL
                 //Tracer.Debug(xml);
             }
             return ar;
-           
         }
 
         public string GetAuditXml(FBEntity fbEntity)
         {
+
+            //            string xml = @"<?xml version=""1.0"" encoding=""utf-8""?><System><Name>FB</Name><Object Name=""{0}"" Description=""{0}"">
+            //                             <Attribute  Name=""{1}"" Description=""{1}"" DataType=""NVARCHAR2"" DataValue=""{2}""></Attribute>
+            //                           </Object></System>";
+
             string xml = @"<?xml version=""1.0"" encoding=""utf-8""?><System><Name>FB</Name>{0}</System>";
             VirtualAudit auditEntity = fbEntity.Entity as VirtualAudit;
             List<EntityInfo> Modules = SubjectBLL.FBCommonEntityList;
@@ -187,6 +195,7 @@ namespace SMT.FB.BLL
                     item.Attribute("DataValue").SetValue(AttValue);
                 });
                 #endregion
+
 
                 return string.Format(xml, xe.ToString());
             }
@@ -652,13 +661,9 @@ namespace SMT.FB.BLL
 
                 if (listGrandson.Count() > 0)
                 {
+                    //三级节点
                     ResetAndFillDataThirdNode(xe, listChildEnts, listGrandson);
                 }
-            }
-            else
-            {
-                Tracer.Debug(@"预算单据提交审核生成元数据被跳过，不支持此单据生成元数据，因为生成的元数据文件太大，
-                    导致无法提交流程：" + entityInfo.EntityCode);
             }
 
             StrSource = string.Format(xml, xeCSys.ToString(), xeMsg.ToString(), xe.ToString());
@@ -746,7 +751,27 @@ namespace SMT.FB.BLL
             }
 
             CreateNewNode(xFirst, listChild, listGrandSon, listChildEnts.Count());
-            FillData(listChild, listChildEnts);
+            try
+            {
+                var tempEntity = listChildEnts.FirstOrDefault();
+                if (tempEntity.GetType().ToString() == "SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL")
+                {
+                    listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                }
+                else
+                {
+                    listChildEnts = listChildEnts.OrderBy(item => ((SMT.FB.BLL.V_SubjectDeptSum)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
+            finally
+            {
+                FillData(listChild, listChildEnts);
+            }
+           
         }
 
         /// <summary>
