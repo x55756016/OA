@@ -75,7 +75,9 @@
                         <data:DataGridTemplateColumn Header="DETAILREASON" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                             <data:DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox Style="{StaticResource TextBoxStyle}" Width="180" Text="{Binding DETAILREASON,Mode=TwoWay}"></TextBox>
+                                    <TextBox Style="{StaticResource TextBoxStyle}" Width="180" Text="{Binding DETAILREASON,Mode=TwoWay}" HorizontalAlignment="Stretch" AcceptsReturn="True"
+            					HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap"></TextBox>
+                                   
                                 </DataTemplate>
                             </data:DataGridTemplateColumn.CellTemplate>
                         </data:DataGridTemplateColumn>

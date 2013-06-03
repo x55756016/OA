@@ -332,9 +332,6 @@ namespace SMT.HRM.UI.Form.Attendance
             perClient.GetEmpOrgInfoByIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmpOrgInfoByIDCompletedEventArgs>(perClient_GetEmpOrgInfoByIDCompleted);
         }
 
-       
-
-
 
         /// <summary>
         /// 页面数据初始化
