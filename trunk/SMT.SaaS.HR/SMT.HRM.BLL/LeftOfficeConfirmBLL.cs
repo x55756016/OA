@@ -648,17 +648,18 @@ namespace SMT.HRM.BLL
                 //                    select ent;
                     //if (Entoffice.Count() > 0)
                     //{
-                    var entposts = from ent in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_POST")
+                    var employeePosts = from ent in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_POST")
                                             //where ent.EMPLOYEEPOSTID == Entoffice.FirstOrDefault().T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
                                         where ent.EMPLOYEEPOSTID == ents.FirstOrDefault().EMPLOYEEPOSTID
                                             select ent;
 
-                    if (entposts.Count() > 0)
+                    if (employeePosts.Count() > 0)
                     {
-                        string postid = entposts.FirstOrDefault().T_HR_POST.POSTID;
+                        var entpost=employeePosts.FirstOrDefault();
+
+                        string postid = entpost.T_HR_POST.POSTID;
                         var entdeparts = from ent in dal.GetObjects<T_HR_POST>().Include("T_HR_DEPARTMENT").Include("T_HR_POSTDICTIONARY")
-                                            where ent.POSTID == postid
-                                             
+                                            where ent.POSTID == postid                                             
                                             select ent;
                             
                         if (entdeparts.Count() > 0)
@@ -678,8 +679,13 @@ namespace SMT.HRM.BLL
                                 {
                                     StrMessage += "员工离职时获取岗位字典为空";
                                 }
-                                StrMessage = IMCient.EmployeeLeave(leftOffice.EMPLOYEEID, entdeparts.FirstOrDefault().T_HR_DEPARTMENT.DEPARTMENTID, StrPostID,EmployeeType.MainPost);
-
+                                EmployeeType postType = EmployeeType.VicePost;
+                                if (entpost.ISAGENCY == "0")//主岗位
+                                {
+                                    postType = EmployeeType.MainPost;
+                                }
+                                StrMessage = IMCient.EmployeeLeave(leftOffice.EMPLOYEEID, entdeparts.FirstOrDefault().T_HR_DEPARTMENT.DEPARTMENTID, StrPostID, postType);
+                                
                             }
                             SMT.Foundation.Log.Tracer.Debug("员工离职确认调用即时通讯时返回结果为：" + StrMessage);
                         }
