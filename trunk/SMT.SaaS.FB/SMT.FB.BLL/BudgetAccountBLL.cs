@@ -16,6 +16,7 @@ using FlowWFService = SMT.SaaS.BLLCommonServices.FlowWFService;
 using System.Data.Objects;
 using System.Xml.Linq;
 using SMT.Foundation.Log;
+using System.Configuration;
 
 namespace SMT.FB.BLL
 {
@@ -500,7 +501,7 @@ namespace SMT.FB.BLL
 
                 SumValid va = statesNew == CheckStates.Approved ? SumValid.Valid : SumValid.NotValid;
                 string valid = ((int)va).ToString();
-                item.T_FB_DEPTBUDGETAPPLYMASTER.ISVALID = valid;
+                item.T_FB_DEPTBUDGETAPPLYMASTER.ISVALID = valid;//未汇总
                 BassBllSave(item.T_FB_DEPTBUDGETAPPLYMASTER, FBEntityState.Modified);
                 UpdateBudgetAccount(item.T_FB_DEPTBUDGETAPPLYMASTER, statesNew, false);
             }
@@ -2074,7 +2075,7 @@ namespace SMT.FB.BLL
             }
             catch (Exception ex)
             {
-                SystemBLL.Debug(ex.ToString());
+                SystemBLL.Debug("月结产生错误，时间 " + DateTime.Now.ToString() + ex.ToString());
                 settig.LASTCHECKDATE = dtOld;
                 RollbackTransaction();
                 throw ex;
@@ -2154,7 +2155,7 @@ namespace SMT.FB.BLL
         /// 结算当前月份的预算总帐,
         /// 此处结算，没有考虑审核中的单据情况，默认没有这样的单据存在
         /// </summary>
-        /// <param name="date">预算月份</param>
+        /// <param name="date">预算月份(当前时间的上一月)</param>
         public void CloseBudgetPreMonth(DateTime date)
         {
             QueryExpression qeBudgetYear = QueryExpression.Equal("BUDGETYEAR", date.Year.ToString());
@@ -2220,11 +2221,19 @@ namespace SMT.FB.BLL
             BudgetCheck(listAccountData, listYear);
 
             // 刷新预算总帐
+            //假定时间为2013年6月1号
+            //accountData上月预算，即计算之前显示能用的费用（数据库里面数据为2013年5月的部门（2）个人（3）的预算费用）
+            //accountDatanext为所做的预算（数据库里面数据为2013年6月的部门（21）个人（22）的预算费用）
+            //accountCurrent感觉貌似没用，因为这个时候数据库里面应该没有结算时月份的有效的数据（数据库里面数据为2013年6月的部门（2）个人（3）的预算费用）
             RefechBudgetAccount(accountData, accountDatanext, accountCurrent);
 
 
         }
-
+        /// <summary>
+        /// 得到当年的年度预算
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public IQueryable<T_FB_BUDGETACCOUNT> GetBudgetYear(DateTime date)
         {
             QueryExpression qeBudgetYear = QueryExpression.Equal("BUDGETYEAR", date.Year.ToString());
@@ -2303,145 +2312,201 @@ namespace SMT.FB.BLL
             });
         }
 
-
+        /// <summary>
+        /// 刷新预算总帐（关键函数）假定时间为2013年6月1号
+        /// </summary>
+        /// <param name="accountData">上月预算，即计算之前显示能用的费用（数据库里面数据为2013年5月的部门（2）个人（3）的预算费用 ）</param>
+        /// <param name="accountDatanext">所做的预算（数据库里面数据为2013年6月的部门（21）个人（22）的预算费用）</param>
+        /// <param name="accountDataCurrent">感觉貌似没用，因为这个时候数据库里面应该没有结算时月份的有效的数据（数据库里面数据为2013年6月的部门（2）个人（3）的预算费用）</param>
         private void RefechBudgetAccount(IQueryable<T_FB_BUDGETACCOUNT> accountData, IQueryable<T_FB_BUDGETACCOUNT> accountDatanext, IQueryable<T_FB_BUDGETACCOUNT> accountDataCurrent)
         {
-
-            var T_FB_SUBJECTCOMPANYs = this.GetTable<T_FB_SUBJECTCOMPANY>();
-            var accountUpdates = from account in accountData
-                                 join subjectCom in T_FB_SUBJECTCOMPANYs
-                                 on new { account.T_FB_SUBJECT.SUBJECTID, account.OWNERCOMPANYID }
-                                 equals
-                                    new { subjectCom.T_FB_SUBJECT.SUBJECTID, subjectCom.OWNERCOMPANYID }
-                                 select new { BudgetAccount = account, ControlType = subjectCom.CONTROLTYPE, SubjectID = account.T_FB_SUBJECT.SUBJECTID };
-
-            var accountNexts = (from item in accountDatanext
-                                select new AccountCheckItem { T_FB_BUDGETACCOUNT = item, SUBJECTID = item.T_FB_SUBJECT.SUBJECTID });
-
-            var accountCurrents = (from item in accountDataCurrent
-                                   select new AccountCheckItem { T_FB_BUDGETACCOUNT = item, SUBJECTID = item.T_FB_SUBJECT.SUBJECTID });
-
-            // 存放已处理的数据
-            List<AccountCheckItem> listTemp = new List<AccountCheckItem>();
-
-            #region 处理上个月的总帐数据，或累加下个月或清零
-            var localListAccountNext = accountNexts.ToList();
-            var localaccountUpdates = accountUpdates.ToList();
-            var localListAccountCur = accountCurrents.ToList();
-
-            foreach (var accountUpdate in localaccountUpdates)
+            try
             {
-                ControlType cType = (ControlType)(accountUpdate.ControlType.Value);
-                T_FB_BUDGETACCOUNT account = accountUpdate.BudgetAccount;
-                switch (cType)
+                var T_FB_SUBJECTCOMPANYs = this.GetTable<T_FB_SUBJECTCOMPANY>();
+                var accountUpdates = from account in accountData
+                                     join subjectCom in T_FB_SUBJECTCOMPANYs
+                                     on new { account.T_FB_SUBJECT.SUBJECTID, account.OWNERCOMPANYID }
+                                     equals
+                                        new { subjectCom.T_FB_SUBJECT.SUBJECTID, subjectCom.OWNERCOMPANYID }
+                                     select new { BudgetAccount = account, ControlType = subjectCom.CONTROLTYPE, SubjectID = account.T_FB_SUBJECT.SUBJECTID };
+
+                var accountNexts = (from item in accountDatanext
+                                    select new AccountCheckItem { T_FB_BUDGETACCOUNT = item, SUBJECTID = item.T_FB_SUBJECT.SUBJECTID });
+
+                var accountCurrents = (from item in accountDataCurrent
+                                       select new AccountCheckItem { T_FB_BUDGETACCOUNT = item, SUBJECTID = item.T_FB_SUBJECT.SUBJECTID });
+
+                // 存放已处理的数据
+                List<AccountCheckItem> listTemp = new List<AccountCheckItem>();
+
+                #region 处理上个月的总帐数据，或累加下个月或清零
+                var localListAccountNext = accountNexts.ToList();//月度预算
+                var localaccountUpdates = accountUpdates.ToList();//上月预算
+                var localListAccountCur = accountCurrents.ToList();//当前月预算
+
+                WriteLog("开始预算结算,总记录：" + localaccountUpdates.Count);
+                foreach (var accountUpdate in localaccountUpdates)
                 {
-                    case ControlType.LimitMonth: // 不跨月
-                        account.USABLEMONEY = 0;
-                        break;
-                    case ControlType.LimitYear:  // 不跨年
-
-                        // 如果是跨年了
-                        if (System.DateTime.Now.Year > account.BUDGETYEAR)
-                        {
+                  
+                    ControlType cType = (ControlType)(accountUpdate.ControlType.Value);
+                    T_FB_BUDGETACCOUNT account = accountUpdate.BudgetAccount;
+                    WriteLog("开始预算结算：科目id:" + accountUpdate.SubjectID + "预算控制类型（1 : 不那跨年使用; 2 不能跨月使用:  ; 3: 无限制 ; 4: 殊年结）：" + accountUpdate.ControlType.Value);
+                    switch (cType)
+                    {
+                        case ControlType.LimitMonth: // 不跨月
                             account.USABLEMONEY = 0;
-                            account.ACTUALMONEY = 0;
-                        }
-                        break;
-                    case ControlType.Special:
-                        // 跨年了，而且月份达到指定的月份
-                        if ((System.DateTime.Now.Year > account.BUDGETYEAR) && (System.DateTime.Now.Month >= SYSTEM_SPECIAL_MONTH))
-                        {
-                            account.USABLEMONEY = 0;
-                            account.ACTUALMONEY = 0;
-                        }
-                        break;
-                }
-                account.BUDGETMONEY = 0;
-                account.PAIEDMONEY = 0;
+                            break;
+                        case ControlType.LimitYear:  // 不跨年
 
-                #region 存在下个月的预算
-                decimal atype = account.ACCOUNTOBJECTTYPE.Add(19).Value;
-                var findItems = (from item in localListAccountNext
-                                 where item.SUBJECTID == accountUpdate.SubjectID
-                                 && item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE.Value == atype
-                                 && ((item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Personnext && item.T_FB_BUDGETACCOUNT.OWNERID == account.OWNERID)
-                                       || (item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Deptnext))
-                                 select item);
-                var accountNextItem = findItems.FirstOrDefault();
+                            // 如果是跨年了
+                            if (System.DateTime.Now.Year > account.BUDGETYEAR)
+                            {
+                                account.USABLEMONEY = 0;
+                                account.ACTUALMONEY = 0;
+                            }
+                            break;
+                        case ControlType.Special:
+                            // 跨年了，而且月份达到指定的月份
+                            if ((System.DateTime.Now.Year > account.BUDGETYEAR) && (System.DateTime.Now.Month >= SYSTEM_SPECIAL_MONTH))
+                            {
+                                account.USABLEMONEY = 0;
+                                account.ACTUALMONEY = 0;
+                            }
+                            break;
+                    }
+                    account.BUDGETMONEY = 0;
+                    account.PAIEDMONEY = 0;
 
-                //存在，则修改当前总账数目，不存在，则修改类型
-                if (accountNextItem != null)
-                {
-                    var accountNext = accountNextItem.T_FB_BUDGETACCOUNT;
-                    account.USABLEMONEY = account.USABLEMONEY + accountNext.USABLEMONEY;
-                    account.BUDGETMONEY = accountNext.BUDGETMONEY;
-                    account.PAIEDMONEY = accountNext.PAIEDMONEY;
-                    account.ACTUALMONEY = account.ACTUALMONEY + accountNext.ACTUALMONEY;
-                    this.DeleteObject(accountNext);
-                    localListAccountNext.Remove(accountNextItem);
+                    #region 存在下个月的预算 这里进行查找预算的时候，最好的应该是要根据预算科目，公司ID，部门ID，和岗位ID，因为不加这些条件，那么找出来的记录很有可能是另外一个公司部门的数据，分配到个人的也一样
+
+                    //decimal atype = account.ACCOUNTOBJECTTYPE.Add(19).Value;
+                    //var findItems = (from item in localListAccountNext
+                    //                 where item.SUBJECTID == accountUpdate.SubjectID
+                    //                 && item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE.Value == atype
+                    //                 && ((item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Personnext && item.T_FB_BUDGETACCOUNT.OWNERID == account.OWNERID)
+                    //                       || (item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Deptnext))
+                    //                 select item);
+
+                    decimal atype = account.ACCOUNTOBJECTTYPE.Add(19).Value;
+                    string updateCompanyID = account.OWNERCOMPANYID;
+                    string updateDeptID = account.OWNERDEPARTMENTID;
+                    string updatePostID = account.OWNERPOSTID;
+
+                    var findItems = (from item in localListAccountNext
+                                     where item.SUBJECTID == accountUpdate.SubjectID//科目ID
+                                     && item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE.Value == atype//预算类型（部门或个人）
+                                     && item.T_FB_BUDGETACCOUNT.OWNERCOMPANYID == updateCompanyID//公司ID
+                                     && ((item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Personnext && item.T_FB_BUDGETACCOUNT.OWNERID == account.OWNERID && item.T_FB_BUDGETACCOUNT.OWNERPOSTID == updatePostID)//个人预算时要判断岗位ID和个人ID
+                                          || (item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Deptnext) && item.T_FB_BUDGETACCOUNT.OWNERDEPARTMENTID == updateDeptID)//部门预算要判断部门ID
+                                     select item);
+
+                    var accountNextItem = findItems.FirstOrDefault();
+                    WriteLog("找到需要更新的预算总数量为（正确的应该最多一条数据）：" + findItems.Count());
+                    //存在，则修改当前总账数目，不存在，则修改类型
+                    if (accountNextItem != null)
+                    {
+                        var accountNext = accountNextItem.T_FB_BUDGETACCOUNT;
+                        account.USABLEMONEY = account.USABLEMONEY + accountNext.USABLEMONEY;
+                        account.BUDGETMONEY = accountNext.BUDGETMONEY;
+                        account.PAIEDMONEY = accountNext.PAIEDMONEY;
+                        account.ACTUALMONEY = account.ACTUALMONEY + accountNext.ACTUALMONEY;
+                        this.DeleteObject(accountNext);
+                        localListAccountNext.Remove(accountNextItem);
+                    }
+                    #endregion
+
+                    account.BUDGETMONTH = System.DateTime.Now.Month;
+                    account.BUDGETYEAR = System.DateTime.Now.Year;
+                    account.UPDATEDATE = System.DateTime.Now;
+                    account.UPDATEUSERID = SYSTEM_USER_ID;
+
+                    //  this.Save(account, FBEntityState.Modified);
+                    this.Attach(account);
+                    listTemp.Add(new AccountCheckItem() { T_FB_BUDGETACCOUNT = account, SUBJECTID = accountUpdate.SubjectID });
+
                 }
                 #endregion
 
-                account.BUDGETMONTH = System.DateTime.Now.Month;
-                account.BUDGETYEAR = System.DateTime.Now.Year;
-                account.UPDATEDATE = System.DateTime.Now;
-                account.UPDATEUSERID = SYSTEM_USER_ID;
-
-                //  this.Save(account, FBEntityState.Modified);
-                this.Attach(account);
-                listTemp.Add(new AccountCheckItem() { T_FB_BUDGETACCOUNT = account, SUBJECTID = accountUpdate.SubjectID });
-
-            }
-            #endregion
-
-            #region 处理下个月的预算数据，变为当前月的标识
-            foreach (var item in localListAccountNext)
-            {
-                var accountNext = item.T_FB_BUDGETACCOUNT;
-                accountNext.ACCOUNTOBJECTTYPE = accountNext.ACCOUNTOBJECTTYPE.Add(-19);
-                accountNext.UPDATEDATE = System.DateTime.Now;
-                accountNext.UPDATEUSERID = SYSTEM_USER_ID;
-                // this.Save(accountNext, FBEntityState.Modified);
-                this.Attach(accountNext);
-                listTemp.Add(item);
-            }
-            #endregion
-
-            #region 处理已存在当前月的数据
-            foreach (var accountUpdate in listTemp)
-            {
-                //var accountCur = item.T_FB_BUDGETACCOUNT;
-                //var itemFind = listTemp.FirstOrDefault(itemTemp =>
-                //    {
-                //        itemTemp.
-                //    });
-
-                var account = accountUpdate.T_FB_BUDGETACCOUNT;
-                #region 存在下个月的预算
-                var findItems = (from item in localListAccountCur
-                                 where item.SUBJECTID == accountUpdate.SUBJECTID
-                                 && item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE.Value == account.ACCOUNTOBJECTTYPE.Value
-                                 && ((item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Person && item.T_FB_BUDGETACCOUNT.OWNERID == account.OWNERID)
-                                       || (item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Deaprtment))
-                                 select item);
-                var accountNextItem = findItems.FirstOrDefault();
-
-                //存在，则修改当前总账数目，不存在，则修改类型
-                if (accountNextItem != null)
+                #region 处理下个月的预算数据，变为当前月的标识，这里还存在的数据则为新增加的预算信息，如果上面更新上月预算查找到错误数据删掉了这里的新增的部门或个人预算，那么预算将没有新的预算费用
+                foreach (var item in localListAccountNext)
                 {
-                    var accountNext = accountNextItem.T_FB_BUDGETACCOUNT;
-                    account.USABLEMONEY = account.USABLEMONEY + accountNext.USABLEMONEY;
-                    account.BUDGETMONEY = accountNext.BUDGETMONEY;
-                    account.PAIEDMONEY = accountNext.PAIEDMONEY;
-                    account.ACTUALMONEY = account.ACTUALMONEY + accountNext.ACTUALMONEY;
-                    this.DeleteObject(accountNext);
-                    localListAccountCur.Remove(accountNextItem);
+                    var accountNext = item.T_FB_BUDGETACCOUNT;
+                    accountNext.ACCOUNTOBJECTTYPE = accountNext.ACCOUNTOBJECTTYPE.Add(-19);
+                    accountNext.UPDATEDATE = System.DateTime.Now;
+                    accountNext.UPDATEUSERID = SYSTEM_USER_ID;
+                    // this.Save(accountNext, FBEntityState.Modified);
+                    this.Attach(accountNext);
+                    listTemp.Add(item);
+                }
+                #endregion
+
+                #region 处理已存在当前月的数据，这里localListAccountCur为月结时的当月预算，一般没有值
+                foreach (var accountUpdate in listTemp)
+                {
+                    //var accountCur = item.T_FB_BUDGETACCOUNT;
+                    //var itemFind = listTemp.FirstOrDefault(itemTemp =>
+                    //    {
+                    //        itemTemp.
+                    //    });
+
+                    var account = accountUpdate.T_FB_BUDGETACCOUNT;
+                    #region 存在下个月的预算
+                    //var findItems = (from item in localListAccountCur
+                    //                where item.SUBJECTID == accountUpdate.SUBJECTID
+                    //                && item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE.Value == account.ACCOUNTOBJECTTYPE.Value
+                    //                && ((item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Person && item.T_FB_BUDGETACCOUNT.OWNERID == account.OWNERID)
+                    //                      || (item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Deaprtment))
+                    //                select item);
+
+                    var findItems = (from item in localListAccountCur
+                                     where item.SUBJECTID == accountUpdate.SUBJECTID
+                                     && item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE.Value == account.ACCOUNTOBJECTTYPE.Value
+                                     && item.T_FB_BUDGETACCOUNT.OWNERCOMPANYID == account.OWNERCOMPANYID
+                                     && ((item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Person && item.T_FB_BUDGETACCOUNT.OWNERID == account.OWNERID && item.T_FB_BUDGETACCOUNT.OWNERPOSTID == account.OWNERPOSTID)
+                                           || (item.T_FB_BUDGETACCOUNT.ACCOUNTOBJECTTYPE == (int)AccountObjectType.Deaprtment) && item.T_FB_BUDGETACCOUNT.OWNERDEPARTMENTID == account.OWNERDEPARTMENTID)
+                                     select item);
+
+                    var accountNextItem = findItems.FirstOrDefault();
+
+                    //存在，则修改当前总账数目，不存在，则修改类型
+                    if (accountNextItem != null)
+                    {
+                        var accountNext = accountNextItem.T_FB_BUDGETACCOUNT;
+                        account.USABLEMONEY = account.USABLEMONEY + accountNext.USABLEMONEY;
+                        account.BUDGETMONEY = accountNext.BUDGETMONEY;
+                        account.PAIEDMONEY = accountNext.PAIEDMONEY;
+                        account.ACTUALMONEY = account.ACTUALMONEY + accountNext.ACTUALMONEY;
+                        this.DeleteObject(accountNext);
+                        localListAccountCur.Remove(accountNextItem);
+                    }
+                    #endregion
                 }
                 #endregion
             }
-            #endregion
+            catch (Exception ex)
+            {
+                Tracer.Debug("月结产生错误，时间 " + DateTime.Now.ToString() + ex.Message);
+            }
+
+          
         }
 
+        public void WriteLog(string msg)
+        {
+            try
+            {
+                string value = ConfigurationManager.AppSettings["DebugMode"];
+                if (value == "true")
+                {
+                    Tracer.Debug(msg);
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
+
+        }
 
         #endregion
 
@@ -3770,21 +3835,14 @@ namespace SMT.FB.BLL
             List<FBEntity> listResult = new List<FBEntity>();
             listCompany.ForEach(company =>
             {
-                try
-                {
-                    List<FBEntity> listsc = GetSubjectCompany(company, listSubject);
-                    RelationManyEntity rme = new RelationManyEntity();
-                    rme.EntityType = "T_FB_SUBJECTCOMPANY";
-                    rme.FBEntities = listsc;
-                    FBEntity fbEntity = company.ToFBEntity();
-                    fbEntity.CollectionEntity.Add(rme);
-                    fbEntity.OrderDetailBy<T_FB_SUBJECTCOMPANY>(item => item.T_FB_SUBJECT.SUBJECTCODE);
-                    listResult.Add(fbEntity);
-                }
-                catch (Exception ex)
-                {
-                    Tracer.Debug(ex.ToString());
-                }
+                List<FBEntity> listsc = GetSubjectCompany(company, listSubject);
+                RelationManyEntity rme = new RelationManyEntity();
+                rme.EntityType = "T_FB_SUBJECTCOMPANY";
+                rme.FBEntities = listsc;
+                FBEntity fbEntity = company.ToFBEntity();
+                fbEntity.CollectionEntity.Add(rme);
+                fbEntity.OrderDetailBy<T_FB_SUBJECTCOMPANY>(item => item.T_FB_SUBJECT.SUBJECTCODE);
+                listResult.Add(fbEntity);
             });
 
             return listResult;
@@ -4271,7 +4329,7 @@ namespace SMT.FB.BLL
                             detail.BUDGETMONEY = entLastMonthDetail.BUDGETMONEY;
                             detail.SUGGESTBUDGETMONEY = entLastMonthDetail.SUGGESTBUDGETMONEY;
                             detail.POSTINFO = entLastMonthDetail.POSTINFO;
-                            detail.REMARK = "此记录从上月下拨记录带出，请确认是否下拨";
+
                             detail.OWNERID = entLastMonthDetail.OWNERID;
                             detail.OWNERNAME = entLastMonthDetail.OWNERNAME;
                             detail.OWNERPOSTID = entLastMonthDetail.OWNERPOSTID;
