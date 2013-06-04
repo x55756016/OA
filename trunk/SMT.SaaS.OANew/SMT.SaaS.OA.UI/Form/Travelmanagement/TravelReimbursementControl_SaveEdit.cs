@@ -173,7 +173,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             for (int i = 0; i < TripDetails.Count; i++)
             {
 
-                if (string.IsNullOrEmpty(TripDetails[i].DEPCITY.Trim()) || string.IsNullOrEmpty(TripDetails[i].DESTCITY.Trim()))
+                if (string.IsNullOrEmpty(TripDetails[i].DEPCITY) || string.IsNullOrEmpty(TripDetails[i].DESTCITY))
                 {
                     //出发城市为空
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发或到达城市不能为空！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
@@ -197,7 +197,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             return false;
                         }
                     }
-                }
+                }             
             }
             #endregion  
 
@@ -333,6 +333,38 @@ namespace SMT.SaaS.OA.UI.UserControls
                     //textStandards.Text = string.Empty;//清空报销标准说明
                     //字段赋值
                     SetTraveAndFBChargeValue();
+
+
+                    #region "判断回程住宿费"
+                    
+                    for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
+                    {
+                        if (TravelDetailList_Golbal.Count > 1 && i == TravelDetailList_Golbal.Count - 1)
+                        {
+                            if (TravelDetailList_Golbal[i].ACCOMMODATION != null)
+                            {
+                                if (TravelDetailList_Golbal[i].ACCOMMODATION.Value > 0)
+                                {
+                                    //回程无住宿费
+                                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "回程无住宿费，请重新填写！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                                    //TravelDetailList_Golbal[i].ACCOMMODATION = 0;
+                                    //只有这样能获取到Textbox
+                                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                                    TextBox textAccommodation = DaGrs.Columns[9].GetCellContent(TripDetails[i]).FindName("txtACCOMMODATION") as TextBox;
+                                   
+                                    textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
+                                    textAccommodation.IsReadOnly = false;
+                                    textAccommodation.IsEnabled = true;
+                                    textAccommodation.Focus();
+                                    RefreshUI(RefreshedTypes.HideProgressBar);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    #endregion  
+
+
                     TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL = null;//清空主表明细记录，以免保存时异常（子表字段为空）
                     if (OpenFrom == "FromMVC")
                     {
