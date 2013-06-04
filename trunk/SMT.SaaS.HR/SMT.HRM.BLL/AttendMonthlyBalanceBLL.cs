@@ -1515,10 +1515,19 @@ namespace SMT.HRM.BLL
                     entAttendMonthlyBalance.CHECKSTATE = Convert.ToInt32(Common.CheckStates.UnSubmit).ToString();
                     entAttendMonthlyBalance.EDITSTATE = Convert.ToInt32(Common.EditStates.UnActived).ToString();
 
-                    string strMsg = AddMonthlyBalance(entAttendMonthlyBalance);
-                    if (strMsg == "{ALREADYEXISTSRECORD}")
+                    //string strMsg = AddMonthlyBalance(entAttendMonthlyBalance);
+                    //if (strMsg == "{ALREADYEXISTSRECORD}")
+                    //{
+                    //    ModifyMonthlyBalance(entAttendMonthlyBalance);
+                    //}
+                    bool flag = this.IsExitEmployeeMonthlyBalance(entAttendMonthlyBalance.EMPLOYEEID, dtStart.Year, dtStart.Month);
+                    if (!flag)//返回false，即没有该员工该月审核中月度考勤才进行添加
                     {
-                        ModifyMonthlyBalance(entAttendMonthlyBalance);
+                        string strMsg = AddMonthlyBalance(entAttendMonthlyBalance);
+                        if (strMsg == "{ALREADYEXISTSRECORD}")
+                        {
+                            ModifyMonthlyBalance(entAttendMonthlyBalance);
+                        }
                     }
                 }
             }
