@@ -96,7 +96,13 @@ namespace SmtPortalSetUp
             GeneratePrameter.Add("GenerateCompanyid", GlobalParameters.employeeMasterCompanyid);
 
             string strGenerInfo=GetCreateInfor();
-            salaryClient.SalaryRecordAccountCheck(GeneratePrameter, int.Parse(txtOrgType.Text), TxtGenerID.Text, year, month, strGenerInfo);
+            string objectid = TxtGenerID.Text;
+            int objectType = int.Parse(txtOrgType.Text);
+            if (objectType == 4)//离职薪资
+            {
+                objectid = TxtEmployeeid.Text;
+            }
+            salaryClient.SalaryRecordAccountCheck(GeneratePrameter, objectType, objectid, year, month, strGenerInfo);
             txtMessagebox.Text = "结算完成！"+ System.Environment.NewLine +txtMessagebox.Text;
             //GetEmployeeBlance();
         }

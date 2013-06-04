@@ -89,8 +89,8 @@ namespace SmtPortalSetUp
         private void btnSelect_Click(object sender, EventArgs e)
         {
             txtMessagebox.Text = "开始结算" + System.Environment.NewLine + txtMessagebox.Text;
-            int year=int.Parse(GlobalParameters.StartDate.Substring(0, 4));
-            int month = int.Parse(GlobalParameters.StartDate.Substring(5, 2));
+            int year=int.Parse(txtStartDate.Text.Substring(0, 4));
+            int month = int.Parse(txtStartDate.Text.Substring(5, 2));
             AttendanceServiceClient AttRdSvc = new AttendanceServiceClient();
             AttRdSvc.CalculateEmployeeAttendanceMonthlyByEmployeeID(year + "-" + month, GlobalParameters.employeeid);
             txtMessagebox.Text = "结算完成！"+ System.Environment.NewLine +txtMessagebox.Text;
@@ -99,10 +99,11 @@ namespace SmtPortalSetUp
 
         private void GetEmployeeBlance()
         {
-            int year = int.Parse(GlobalParameters.StartDate.Substring(0, 4));
-            int month = int.Parse(GlobalParameters.StartDate.Substring(5, 2));
+            int year = int.Parse(txtStartDate.Text.Substring(0, 4));
+            int month = int.Parse(txtStartDate.Text.Substring(5, 2));
             string sql = @"select 
-                            t.EMPLOYEENAME
+                            c.cname 考勤记录所属公司
+                            ,t.EMPLOYEENAME
                             ,t.BALANCEYEAR
                             ,t.BALANCEMONTH
                             ,t.BALANCEDATE 结算日期
@@ -136,6 +137,8 @@ namespace SmtPortalSetUp
                             ,t.CHECKSTATE 审核状态
                             ,t.MONTHLYBALANCEID 主键
                             from smthrm.T_HR_ATTENDMONTHLYBALANCE t
+                            inner join smthrm.t_hr_company c
+                            on t.ownercompanyid=c.companyid
                             where t.employeename='" + GlobalParameters.employeeName + @"'
                             and t.balanceyear=" + year + @"
                             and t.balancemonth=" + month;

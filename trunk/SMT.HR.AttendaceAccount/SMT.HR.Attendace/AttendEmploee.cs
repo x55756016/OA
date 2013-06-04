@@ -91,6 +91,7 @@ namespace SmtPortalSetUp
                             from(
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
                             ,case when s.workdaytype='1' then '按当月实际工作日' else '固定方式'end 工作方式,s.workdays 固定方式下总天数
+ ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'个人' Asingtype
                             ,s.attendancesolutionid
@@ -106,6 +107,7 @@ namespace SmtPortalSetUp
                             --查询员工主岗位上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
                             ,case when s.workdaytype='1' then '按当月实际工作日' else '固定方式'end 工作方式,s.workdays 固定方式下总天数
+ ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'岗位' Asingtype
                             ,s.attendancesolutionid
@@ -137,6 +139,7 @@ namespace SmtPortalSetUp
                             --查询员工主岗位部门上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
                             ,case when s.workdaytype='1' then '按当月实际工作日' else '固定方式'end 工作方式,s.workdays 固定方式下总天数
+ ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'部门' Asingtype
                             ,s.attendancesolutionid
@@ -167,6 +170,7 @@ namespace SmtPortalSetUp
                             --查询员工主岗位公司上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
                             ,case when s.workdaytype='1' then '按当月实际工作日' else '固定方式'end 工作方式,s.workdays 固定方式下总天数
+ ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'公司' Asingtype
                             ,s.attendancesolutionid
@@ -831,11 +835,11 @@ namespace SmtPortalSetUp
             //查询休假记录来源
             string sql = @"select t.recordid,t.employeename,b.leavetypename,t.days,
                             t.efficdate,t.terminatedate,p.cname,p.departmentname,p.postname,
-                            t.remark,t.createuserid,t.createdate 
+                            t.remark,t.createuserid,t.createdate,t.ownercompanyid
                             from smthrm.T_HR_EMPLOYEELEVELDAYCOUNT t
                             inner join smthrm.T_HR_LEAVETYPESET b on t.leavetypesetid=b.leavetypesetid
                             inner join smthrm.v_oragnization p on t.ownerpostid=p.postid
-                            where  b.leavetypesetid='" +leavetypesetid+@"'
+                            where  b.leavetypesetid='" + leavetypesetid+@"'
                             and t.employeeid='" + GlobalParameters.employeeid + @"'
                             and t.ownercompanyid='" + GlobalParameters.employeeMasterCompanyid + @"'
                             and t.terminatedate>to_date('" + (DateTime.Now.Year-1)+"-01-01" + @"','yyyy-MM-dd')";
@@ -853,12 +857,14 @@ namespace SmtPortalSetUp
 
             //查询请假记录
             sql = @"--请假记录
-                            select t.employeename,t.totalhours,t.startdatetime,t.enddatetime,s.leavetypename,t.checkstate,t.employeename,t.updatedate,t.employeeid 
+                            select t.employeename,t.totalhours,t.startdatetime,t.enddatetime
+                            ,s.leavetypename,t.checkstate,t.updatedate
+                            ,t.employeeid,t.ownercompanyid,t.leaverecordid 
                             from smthrm.T_HR_EmployeeLeaveRecord t
                             inner join smthrm.t_hr_leavetypeset s on t.leavetypesetid=s.leavetypesetid
-                            where s.leavetypesetid='"+leavetypesetid+@"'
+                            where s.leavetypesetid='" + leavetypesetid+@"'
                             and t.employeeid='" + GlobalParameters.employeeid + @"'
-                            and t.ownercompanyid='" + GlobalParameters.employeeMasterCompanyid + @"'
+                            --and t.ownercompanyid='" + GlobalParameters.employeeMasterCompanyid + @"'
                             and t.startdatetime>=to_date('"+txtVacationStart.Text+@"','yyyy-MM-dd')
                             order by t.enddatetime desc";
             OracleHelp.Connect();
@@ -872,6 +878,7 @@ namespace SmtPortalSetUp
             {
                 txtMessagebox.Text = "查询休假记录完成，共：0条数据" + System.Environment.NewLine + txtMessagebox.Text;
             }
+            //txtVacationTotolDay.Text=decimal.Parse(txtVacationTotolDay.Text)-
             OracleHelp.close();
             
         }
