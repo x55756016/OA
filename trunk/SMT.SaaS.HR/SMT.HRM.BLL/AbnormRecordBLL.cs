@@ -663,6 +663,9 @@ namespace SMT.HRM.BLL
                         continue;
                     }
 
+                    if (item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") == "2013-06-21")
+                    {
+                    }
                     string strAbnormCategory = string.Empty;
 
                     //检查第一段工作期，打卡情况
@@ -697,6 +700,9 @@ namespace SMT.HRM.BLL
                         }
                     }
 
+                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查异常完成，员工姓名：" + item.EMPLOYEENAME
+                        + ",打卡记录导入 修改的状态为：" + item.ATTENDANCESTATE);
+                    item.REMARK = "打卡记录导入检查考勤状态";
                     bllAttendanceRecord.ModifyAttRd(item);
 
                     //检查是否有出差及请假并确认一次状态
@@ -2111,7 +2117,7 @@ namespace SMT.HRM.BLL
                 i = entAbnormRecords.Count();
                 if (i == 0)
                 {
-                    Tracer.Debug(dealType+" ，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
+                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")+" "+dealType + " ，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
                             + "，没有查到异常记录，修改考勤记录状态为：" + attState);
                     item.ATTENDANCESTATE = attState;
                     item.UPDATEDATE = DateTime.Now;
@@ -2121,7 +2127,7 @@ namespace SMT.HRM.BLL
                 }
                 try
                 {
-                    Tracer.Debug(dealType + " 日期："+item.ATTENDANCEDATE.Value.ToShortDateString() + "，共检测到异常记录数共：" + i + "条记录" 
+                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + dealType + " 日期：" + item.ATTENDANCEDATE.Value.ToShortDateString() + "，共检测到异常记录数共：" + i + "条记录" 
                          + "类型6为请假，4为出差：" + attState);
 
                     #region 修改考勤记录状态
@@ -2146,7 +2152,7 @@ namespace SMT.HRM.BLL
                             {
                                 if (!string.IsNullOrEmpty(defineTime.NEEDFIRSTCARD) && defineTime.NEEDFIRSTCARD == "2")//以集团打卡举例，第一段上班打卡8:30
                                 {
-                                    Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡");
+                                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡");
                                     if (!string.IsNullOrEmpty(defineTime.FIRSTSTARTTIME))
                                     {
                                         //定义的开始上班时间8:30
@@ -2162,7 +2168,7 @@ namespace SMT.HRM.BLL
                                             if (datLevestart <= ShiftstartDateAndTime
                                                 && dtLeveEnd >= FirstEndDateAndTime)
                                             {
-                                                Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡时间被请假时间覆盖，消除异常"
+                                                Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡时间被请假时间覆盖，消除异常"
                                                     + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
                                             + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             ShiftstartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + FirstEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -2180,12 +2186,12 @@ namespace SMT.HRM.BLL
                                         }
                                         else
                                         {
-                                            Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡，但班次定义中的FIRSTSTARTTIME为空");
+                                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡，但班次定义中的FIRSTSTARTTIME为空");
                                         }
                                     }
                                     else
                                     {
-                                        Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡，但班次定义中的FIRSTSTARTTIME为空");
+                                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡，但班次定义中的FIRSTSTARTTIME为空");
                                     }
                                 }
                             }
@@ -2193,7 +2199,7 @@ namespace SMT.HRM.BLL
                             {
                                 if (!string.IsNullOrEmpty(defineTime.NEEDSECONDCARD) && defineTime.NEEDSECONDCARD == "2")//以集团打卡举例，第二段上班打卡13:30
                                 {
-                                    Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡");
+                                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡");
                                     if (!string.IsNullOrEmpty(defineTime.SECONDSTARTTIME))
                                     {
                                         DateTime SecondStartTime = DateTime.Parse(defineTime.SECONDSTARTTIME);
@@ -2206,7 +2212,7 @@ namespace SMT.HRM.BLL
                                             if (datLevestart <= SecondStartDateAndTime
                                                 && dtLeveEnd >= SecondStartDateAndTime)
                                             {
-                                                Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡时间被请假时间覆盖，消除异常"
+                                                Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡时间被请假时间覆盖，消除异常"
                                                     + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
                                             + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             SecondStartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + SencondEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -2224,12 +2230,12 @@ namespace SMT.HRM.BLL
                                         }
                                         else
                                         {
-                                            Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡，但班次定义中的SECONDENDTIME为空");
+                                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡，但班次定义中的SECONDENDTIME为空");
                                         }
                                     }
                                     else
                                     {
-                                        Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡，但班次定义中的SECONDSTARTTIME为空");
+                                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡，但班次定义中的SECONDSTARTTIME为空");
                                     }
                                 }
                             }
@@ -2237,7 +2243,7 @@ namespace SMT.HRM.BLL
                             {
                                 if (!string.IsNullOrEmpty(defineTime.NEEDSECONDOFFCARD) && defineTime.NEEDSECONDOFFCARD == "2")//以集团打卡举例，第二段下班打卡17:30
                                 {
-                                    Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡");
+                                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡");
                                     if (!string.IsNullOrEmpty(defineTime.SECONDSTARTTIME))
                                     {
                                         DateTime SecondStartTime = DateTime.Parse(defineTime.SECONDSTARTTIME);
@@ -2251,7 +2257,7 @@ namespace SMT.HRM.BLL
                                             if (datLevestart <= SecondStartDateAndTime
                                                 && dtLeveEnd >= SencondEndDateAndTime)
                                             {
-                                                Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡时间被请假时间覆盖，消除异常"
+                                                Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡时间被请假时间覆盖，消除异常"
                                                      + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
                                             + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             SecondStartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + SencondEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -2269,19 +2275,19 @@ namespace SMT.HRM.BLL
                                         }
                                         else
                                         {
-                                            Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡，但班次定义中的SECONDENDTIME为空");
+                                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡，但班次定义中的SECONDENDTIME为空");
                                         }
                                     }
                                     else
                                     {
-                                        Tracer.Debug("考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡，但班次定义中的SECONDSTARTTIME为空");
+                                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡，但班次定义中的SECONDSTARTTIME为空");
                                     }
                                 }
                             }
                         }
                         else
                         {
-                            Tracer.Debug("请假消除异常，通过异常记录获取到考勤初始化记录但通过考勤初始化记录获取的考勤班次定义T_HR_SHIFTDEFINE为空");
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "请假消除异常，通过异常记录获取到考勤初始化记录但通过考勤初始化记录获取的考勤班次定义T_HR_SHIFTDEFINE为空");
                         }
                         #endregion
                     }
@@ -2300,6 +2306,8 @@ namespace SMT.HRM.BLL
                             item.UPDATEDATE = DateTime.Now;
                             item.REMARK = dealType;
                             dal.Update(item);
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查请假出差修改状态完成，员工姓名：" + item.EMPLOYEENAME
+                            + ",修改的状态为：" + item.ATTENDANCESTATE);
                         }
                         else if (thisDayAttendState.Values.Contains(AttendanceState.Leave) && !thisDayAttendState.Values.Contains(AttendanceState.Abnormal))
                         {
@@ -2310,6 +2318,8 @@ namespace SMT.HRM.BLL
                             item.UPDATEDATE = DateTime.Now;
                             item.REMARK = dealType;
                             dal.Update(item);
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查请假出差修改状态完成，员工姓名：" + item.EMPLOYEENAME
+                            + ",修改的状态为：" + item.ATTENDANCESTATE);
                         }
                     }
                     #endregion
@@ -2317,7 +2327,7 @@ namespace SMT.HRM.BLL
                 }
                 catch (Exception ex)
                 {
-                    Tracer.Debug(dealType+" 异常：" + ex.ToString());
+                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + dealType + " 异常：" + ex.ToString());
                 }
             }//for each T_HR_ATTENDANCERECORD End
             #endregion

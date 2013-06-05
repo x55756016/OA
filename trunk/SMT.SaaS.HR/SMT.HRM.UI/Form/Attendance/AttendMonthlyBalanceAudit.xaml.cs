@@ -294,11 +294,6 @@ namespace SMT.HRM.UI.Form.Attendance
                             BindGrid();
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("提交人岗位跟结算人岗位相同，不能审核。");
-                        RefreshUI(RefreshedTypes.HideProgressBar);
-                    }
                 }
             }
             else
@@ -758,6 +753,9 @@ namespace SMT.HRM.UI.Form.Attendance
                         break;
                 }
             }
+            RefreshUI(RefreshedTypes.HideProgressBar);
+            RefreshUI(RefreshedTypes.AuditInfo);
+            RefreshUI(RefreshedTypes.All);
         }
 
         public string GetAuditState()

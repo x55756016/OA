@@ -1503,8 +1503,8 @@ namespace SMT.HRM.UI
                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("HR ShowForm" + e.UserState.ToString());
                 }
 
-
-                ShowForm(e.UserState.ToString());
+                ShowForm(Convert.ToString(e.UserState));
+                
             }
         }
 
