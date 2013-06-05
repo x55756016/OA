@@ -90,7 +90,7 @@ namespace SmtPortalSetUp
                             select * 
                             from(
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
-                            ,case when s.workdaytype='1' then '按当月实际工作日' else '固定方式'end 工作方式,s.workdays 固定方式下总天数
+                            ,case when s.workdaytype='1' then '固定方式' else '按当月实际工作日'end 工作方式,s.workdays 固定方式下总天数
  ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'个人' Asingtype
@@ -106,7 +106,7 @@ namespace SmtPortalSetUp
 
                             --查询员工主岗位上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
-                            ,case when s.workdaytype='1' then '按当月实际工作日' else '固定方式'end 工作方式,s.workdays 固定方式下总天数
+                            ,case when s.workdaytype='1' then '固定方式' else '按当月实际工作日' end 工作方式,s.workdays 固定方式下总天数
  ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'岗位' Asingtype
@@ -138,7 +138,7 @@ namespace SmtPortalSetUp
 
                             --查询员工主岗位部门上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
-                            ,case when s.workdaytype='1' then '按当月实际工作日' else '固定方式'end 工作方式,s.workdays 固定方式下总天数
+                            ,case when s.workdaytype='1' then '固定方式' else '按当月实际工作日' end 工作方式,s.workdays 固定方式下总天数
  ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'部门' Asingtype
@@ -169,7 +169,7 @@ namespace SmtPortalSetUp
 
                             --查询员工主岗位公司上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
-                            ,case when s.workdaytype='1' then '按当月实际工作日' else '固定方式'end 工作方式,s.workdays 固定方式下总天数
+                            ,case when s.workdaytype='1' then '固定方式' else '按当月实际工作日' end 工作方式,s.workdays 固定方式下总天数
  ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'公司' Asingtype
@@ -1282,8 +1282,8 @@ namespace SmtPortalSetUp
         /// </summary>
         private void GetEmployeeEvection()
         {
-            string sql = @"select t.employeename,t.startdate,t.enddate,t.starttime,t.endtime,t.totaldays,t.employeename,t.evectionreason 
-                        ,t.evectionrecordid
+            string sql = @"select t.employeename,t.startdate,t.enddate,t.starttime,t.endtime,t.totaldays,t.checkstate,t.evectionreason 
+                        ,t.evectionrecordid,t.createdate,t.updatedate
                         from smthrm.T_HR_EmployeeEvectionRecord t
                         where t.employeeid='" + GlobalParameters.employeeid + @"'
                         and t.startdate>=to_date('" + GlobalParameters.StartDate + @"','yyyy-mm-dd')
