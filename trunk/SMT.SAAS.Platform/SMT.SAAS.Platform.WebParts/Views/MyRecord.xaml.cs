@@ -346,6 +346,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
         {
             loadbar.Start();
             _currentXmlObj = strConfig;
+            SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("strConfig:" + strConfig);
             ayTools.BeginRun();
         }
 
@@ -465,15 +466,18 @@ namespace SMT.SAAS.Platform.WebParts.Views
                     Type type = Type.GetType(typeString.ToString());
                     //Border borderPanel = new Border();
                     Type[] types = new Type[] { typeof(string), typeof(string), typeof(string) };
-
                     MethodInfo method = type.GetMethod(ProcessName, types);
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("开始调用业务系统打开单据方法,typeString:"
+                    +typeString+"ProcessName:" + ProcessName
+                        + "types:" + types);
+                    SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                     method.Invoke(null, BindingFlags.Static | BindingFlags.InvokeMethod, null, new object[] { ApplicationOrder, PageParameter, FormType }, null);
 
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("我的单据打开异常,请查看系统日志！");
+                MessageBox.Show("我的单据打开异常,请查看系统日志！"+ex.ToString());
                 Logging.Logger.Current.Log("10000", "Platform", "我的单据", "我的单据打开异常", ex, Logging.Category.Exception, Logging.Priority.High);
 
             }

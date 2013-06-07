@@ -190,19 +190,23 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
 
             Application.Current.Resources.Add("username", strUserName);
 
-            List<string> strMvcSource = new List<string>();
-            strMvcSource.Add(strmoduleid);
-            strMvcSource.Add(stropttype);
-            strMvcSource.Add(strmessageid);
-            strMvcSource.Add(strconfig);
+            List<string> MvcSourcelist = new List<string>();
+            MvcSourcelist.Add(strmoduleid);
+            MvcSourcelist.Add(stropttype);
+            MvcSourcelist.Add(strmessageid);
+            MvcSourcelist.Add(strconfig);
 
             if (Application.Current.Resources["MvcOpenRecordSource"] != null)
             {
                 Application.Current.Resources.Remove("MvcOpenRecordSource");
             }
 
-            Application.Current.Resources.Add("MvcOpenRecordSource", strMvcSource);
-
+            Application.Current.Resources.Add("MvcOpenRecordSource", MvcSourcelist);
+            foreach (var q in MvcSourcelist)
+            {
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("MvcOpenRecordSource:" + q);
+            }
+            SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
             if (IosManager.CheckeSpace())
             {
                 CheckLoginUser();
@@ -221,6 +225,13 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
         {
             try
             {
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("strModuleid:" + strModuleid
+                    +System.Environment.NewLine+ "strOptType:" + strOptType
+                     + System.Environment.NewLine + "strMessageid:" + strMessageid
+                      + System.Environment.NewLine + "strConfig:" + strConfig);
+              
+                SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+
                 if (!IosManager.CheckeSpace())
                 {
                     MessageBox.Show("未增加独立存储空间，请关闭当前页面，重新登录！");
@@ -244,7 +255,8 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                 Type t = uMainPage.GetType();
 
                 MethodInfo m = t.GetMethod("OpenModuleWithMVC");
-
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("开始调用："+t.Name+" OpenModuleWithMVC:");
+              
                 m.Invoke(uMainPage, new object[4] { strModuleid, strOptType, strMessageid, strConfig });
             }
             catch (Exception ex)
@@ -300,6 +312,16 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                 if (string.IsNullOrWhiteSpace(strUid) || string.IsNullOrWhiteSpace(strUserName))
                 {
                     txtUserMsg.Text = "警告！用户信息异常，不能执行当前的操作请求。";
+                    if (string.IsNullOrWhiteSpace(strUid))
+                    {
+                        AppContext.SystemMessage("传入的用户CurrentSysUserID为空");
+                        AppContext.ShowSystemMessageText();
+                    }
+                    if (string.IsNullOrWhiteSpace(strUserName))
+                    {
+                        AppContext.SystemMessage("传入的用户username为空");
+                        AppContext.ShowSystemMessageText();
+                    }
                     return;
                 }
 

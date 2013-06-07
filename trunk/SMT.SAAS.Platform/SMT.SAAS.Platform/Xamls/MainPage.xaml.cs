@@ -726,6 +726,8 @@ namespace SMT.SAAS.Platform.Xamls
             }
             catch (Exception ex)
             {
+                AppContext.SystemMessage(string.Format("打开模块'{0}'产生异常！", description)+ex.ToString());
+                AppContext.ShowSystemMessageText();
                 if (_mainMenu != null)
                 {
                     _mainMenu.Stop();
@@ -769,6 +771,8 @@ namespace SMT.SAAS.Platform.Xamls
             else
             {
                 string message = string.Format("打开模块'{0}'失败,请联系管理员！", e.ModuleInfo.Description);
+                AppContext.SystemMessage(message);
+                AppContext.ShowSystemMessageText();
                 MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);
             }
         }

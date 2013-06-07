@@ -92,6 +92,9 @@
     <Reference Include="Microsoft.Expression.Prototyping.Interactivity">
       <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\MicroSoft Lib\Client\Microsoft.Expression.Prototyping.Interactivity.dll</HintPath>
     </Reference>
+    <Reference Include="SMT.Extensions">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="SMT.FileUpLoad">
       <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.FileUpLoad.dll</HintPath>
     </Reference>
@@ -101,6 +104,12 @@
     </Reference>
     <Reference Include="SMT.SAAS.Behaviors">
       <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientServices">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientUtility">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.CommonReportsModel">
       <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.CommonReportsModel.dll</HintPath>
@@ -137,9 +146,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Themes.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.Saas.Tools">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.Saas.Tools.dll</HintPath>
-    </Reference>
+    <Reference Include="SMT.Saas.Tools, Version=1.1.1.1220, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="SMT.SAAS.Utility">
       <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Utility.dll</HintPath>
     </Reference>

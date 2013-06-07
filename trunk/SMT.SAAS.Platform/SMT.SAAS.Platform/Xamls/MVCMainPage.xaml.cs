@@ -524,6 +524,8 @@ namespace SMT.SAAS.Platform.Xamls
             }
             catch (Exception ex)
             {
+                AppContext.SystemMessage(string.Format("打开模块'{0}'产生异常！", description) + ex.ToString());
+                AppContext.ShowSystemMessageText();
                 if (_mainMenu != null)
                 {
                     _mainMenu.Stop();
@@ -567,6 +569,8 @@ namespace SMT.SAAS.Platform.Xamls
             else
             {
                 string message = string.Format("打开模块'{0}'失败,请联系管理员！", e.ModuleInfo.Description);
+                AppContext.SystemMessage(message);
+                AppContext.ShowSystemMessageText();
                 MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);
             }
         }
@@ -630,6 +634,11 @@ namespace SMT.SAAS.Platform.Xamls
         [ScriptableMember]
         public void OpenModuleWithMVC(string strModuleid, string strOptType, string strMessageid, string strConfig)
         {
+            AppContext.SystemMessage("strModuleid:" + strModuleid
+                + "strOptType:" + strOptType
+                   + "strMessageid:" + strMessageid
+                      + "strConfig:" + strConfig);
+            AppContext.ShowSystemMessageText();
             if (string.IsNullOrWhiteSpace(strOptType))
             {
                 return;
@@ -679,6 +688,7 @@ namespace SMT.SAAS.Platform.Xamls
             }
 
             SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager(strMessageid, "open");
+            pendingTaskView.isMyrecord = false;
             if (ViewModel.Context.MainPanel != null)
             {
                 if (ViewModel.Context.MainPanel.DefaultContent != null)
@@ -704,8 +714,24 @@ namespace SMT.SAAS.Platform.Xamls
                 return;
             }
 
-            SMT.SAAS.Platform.WebParts.Views.MyRecord myRecordView = new WebParts.Views.MyRecord();
-            myRecordView.ShowMyRecord(strConfig);
+            //SMT.SAAS.Platform.WebParts.Views.MyRecord myRecordView = new WebParts.Views.MyRecord();
+            //myRecordView.ShowMyRecord(strConfig);
+
+            SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager("", "open");
+            pendingTaskView.isMyrecord = true;
+            pendingTaskView.applicationUrl = strConfig;
+            if (ViewModel.Context.MainPanel != null)
+            {
+                if (ViewModel.Context.MainPanel.DefaultContent != null)
+                {
+                    IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
+                    if (webpart != null)
+                        webpart.Stop();
+
+                }
+                ViewModel.Context.MainPanel.Navigation(pendingTaskView, "我的单据");
+
+            }
         }
 
         /// <summary>
@@ -749,5 +775,6 @@ namespace SMT.SAAS.Platform.Xamls
             }
         }
         #endregion
+
     }
 }

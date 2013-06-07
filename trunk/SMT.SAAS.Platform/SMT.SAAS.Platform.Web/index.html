@@ -69,12 +69,38 @@
             //获取SilverLight插件中 以创建的对象
             var plugin = document.getElementById("SMTPlatform");
             //执行SilverLight项目中已经注册的可被Javascript调用的方法
-            plugin.content.MvcToSl.StartSilverlight("4185C4FC-7FA0-424c-89D3-BA6C63A0D537", "Module", null, null, "60fb9c33-2810-45f0-90c8-c0d02528ce78", "duchunlei");
+            var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>	<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter><ApplicationOrder>a096c077-6c54-4548-9ccb-684147956416</ApplicationOrder>	<FormTypes>Edit</FormTypes></System>";
+            //t_sys_user sysuserid
+            plugin.content.MvcToSl.StartSilverlight("出差管理", "Task", "da3ab1d4-478d-4689-83d0-2e097b897f83", strConfig, "39e1cd45-5b9f-4958-b0fd-0bec222d22b5", "smtwangl");
+        }
+
+        function openDoTaskForm() {
+            //获取SilverLight插件中 以创建的对象
+            var plugin = document.getElementById("SMTPlatform");
+            //执行SilverLight项目中已经注册的可被Javascript调用的方法
+
+            plugin.content.MvcToSl.OpenModuleWithMVC("", "Task", "3c6dbd23-3d8e-4fe9-b9b9-3726e93cc03b", "3c6dbd23-3d8e-4fe9-b9b9-3726e93cc03b");
+        }
+
+        function openMyRecord() {
+            //获取SilverLight插件中 以创建的对象
+            var plugin = document.getElementById("SMTPlatform");
+            //执行SilverLight项目中已经注册的可被Javascript调用的方法
+            var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>	<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>	<ProcessName>CreateFormFromMVC</ProcessName>	<PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>a096c077-6c54-4548-9ccb-684147956416</ApplicationOrder>	<FormTypes>Edit</FormTypes></System>";
+            strConfig="<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.HRM.UI</AssemblyName><PublicClass>SMT.HRM.UI.Utility</PublicClass><ProcessName>CreateFormFromEngine</ProcessName><PageParameter>SMT.HRM.UI.Form.Attendance.TerminateLeaveForm</PageParameter><ApplicationOrder>5c4546ce-cca3-4808-855e-84e69c94a452</ApplicationOrder><FormTypes>Resubmit</FormTypes></System>"
+            //t_sys_user sysuserid
+            plugin.content.MvcToSl.OpenModuleWithMVC("", "RECORD", strConfig, strConfig);
         }
     </script>
 </head>
 <body onload="SetFocus()">
-    <input type="button" onclick="buttonClick();" value="调用SilverLight方法" />
+    <input type="button" onclick="buttonClick();" value="调用SilverLight初始化方法" />
+    
+    <input type="button" onclick="openDoTaskForm();" value="调用silverlight打开待办任务方法" />
+
+     <input type="button" onclick="openMyRecord();" value="调用silverlight打开我的单据方法" />
+
+
     <div id="silverlightControlHost" style="width:100%;">
         <object id="SMTPlatform" data="data:application/x-silverlight-2," type="application/x-silverlight-2"
             width="100%" height="100%" name="SilverlightHost">
@@ -83,7 +109,7 @@
             <param name="background" value="white" />
             <param name="minRuntimeVersion" value="4.0.50917.0" />
             <param name="initparams" 
-            value="p1=l1.smtsoft.net,p2=.New.Services
+            value="p1=10.10.0.93:8080,p2=.New.Services
             ,PhoneDownloadUrl=http://l13g.smtsoft.net/download
             ,IMDownloadUrl=http://smtim.smtsoft.net/download/SMTIM.exe
             ,UpdateVersionUrl=http://l1.smtsoft.net/imprint.html" />
