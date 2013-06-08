@@ -72,7 +72,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
         void PendingTask_Loaded(object sender, RoutedEventArgs e)
         {
-            AppContext.ShowSystemMessageText();
+            //AppContext.ShowSystemMessageText();
             if (isMyrecord == false)
             {
                 AppContext.SystemMessage("PendingTask_Loaded 开始打开待办任务");               
@@ -293,7 +293,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
                                 throw new Exception(string.Format("未找到匹配的公共方法，请检测是否存在方法签名为{0}(string,string,string,Border);的公共方法", ProcessName));
                             SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("开始调用业务系统打开单据方法,typeString:"
                             + typeString + "ProcessName:" + ProcessName+ "types:" + types);
-                            SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                            //SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                             method.Invoke(null, BindingFlags.Static | BindingFlags.InvokeMethod, null, new object[] { ApplicationOrder, PageParameter, FormType, borTaskContent }, null);
 
                         }
