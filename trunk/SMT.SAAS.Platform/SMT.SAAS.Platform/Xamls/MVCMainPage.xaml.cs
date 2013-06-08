@@ -93,6 +93,7 @@ namespace SMT.SAAS.Platform.Xamls
             _services.OnGetMenuPermissionCompleted += new EventHandler(_services_OnGetMenuPermissionCompleted);
             ViewModel.Context.Managed.OnLoadModuleCompleted += new EventHandler<ViewModel.LoadModuleEventArgs>(Managed_OnLoadModuleCompleted);
             vm.InitCompleted += new EventHandler(vm_InitCompleted);
+
             ayTools.BeginRun();
 
             if (System.Windows.Application.Current.Resources["CurrentSysUserID"] != null && System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
@@ -605,6 +606,18 @@ namespace SMT.SAAS.Platform.Xamls
             {
                 strMvcSource = System.Windows.Application.Current.Resources["MvcOpenRecordSource"] as List<string>;
             }
+
+            bool isFirst = false;
+            if (System.Windows.Application.Current.Resources["isFirstOpen"] != null)
+            {
+                isFirst = (bool)System.Windows.Application.Current.Resources["isFirstOpen"];
+            }
+            if (isFirst)
+            {
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+                return;
+            }
+
 
             if (strMvcSource == null)
             {
