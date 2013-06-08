@@ -651,7 +651,7 @@ namespace SMT.SAAS.Platform.Xamls
                 + "strOptType:" + strOptType
                    + "strMessageid:" + strMessageid
                       + "strConfig:" + strConfig);
-            AppContext.ShowSystemMessageText();
+            //AppContext.ShowSystemMessageText();
             if (string.IsNullOrWhiteSpace(strOptType))
             {
                 return;
