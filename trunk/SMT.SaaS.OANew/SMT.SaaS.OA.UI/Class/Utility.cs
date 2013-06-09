@@ -507,13 +507,32 @@ namespace SMT.SaaS.OA.UI
         }
         public static string GetMododuelName(string ModeCode)
         {
+
             List<SMT.Saas.Tools.FlowDesignerWS.FLOW_MODELDEFINE_T> dictc = Application.Current.Resources["FLOW_MODELDEFINE_T"] as List<SMT.Saas.Tools.FlowDesignerWS.FLOW_MODELDEFINE_T>;
             if (dictc == null)
+            {
+                ServiceClient FlowDesigner = new ServiceClient();
+                FlowDesigner.GetModelNameInfosComboxCompleted += (o, e) =>
+                {
+                    List<FLOW_MODELDEFINE_T> dicts = new List<FLOW_MODELDEFINE_T>();
+                    dicts = e.Result == null ? null : e.Result.ToList();
+                    if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
+                    {
+                        Application.Current.Resources.Add("FLOW_MODELDEFINE_T", dicts);
+                    }
+                };
+                //TODO: 获取模块
+                FlowDesigner.GetModelNameInfosComboxAsync();
+
                 return ModeCode;
-            var objc = from a in dictc
-                       where a.MODELCODE == ModeCode
-                       select a.DESCRIPTION;
-            return objc.Count() > 0 ? objc.FirstOrDefault() : ModeCode;
+            }
+            else
+            {
+                var objc = from a in dictc
+                           where a.MODELCODE == ModeCode
+                           select a.DESCRIPTION;
+                return objc.Count() > 0 ? objc.FirstOrDefault() : ModeCode;
+            }
         }
         public static string GetPostLevle(string postLevle)
         {
@@ -1261,10 +1280,10 @@ namespace SMT.SaaS.OA.UI
 
         private static void ChecResource()
         {
-            if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
-            {
-                Utility.LoadDictss();
-            }
+            //if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
+            //{
+            //    Utility.LoadDictss();
+            //}
             if (!Application.Current.Resources.Contains("CustomDateConverter"))
             {
                 Application.Current.Resources.Add("CustomDateConverter", new SMT.SaaS.OA.UI.CustomDateConverter());
@@ -1601,17 +1620,17 @@ namespace SMT.SaaS.OA.UI
         public static void LoadDictss()
         {
             ServiceClient FlowDesigner = new ServiceClient();
-            FlowDesigner.GetModelNameInfosComboxCompleted += (o, e) =>
-            {
-                List<FLOW_MODELDEFINE_T> dicts = new List<FLOW_MODELDEFINE_T>();
-                dicts = e.Result == null ? null : e.Result.ToList();
-                if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
-                {
-                    Application.Current.Resources.Add("FLOW_MODELDEFINE_T", dicts);
-                }
-            };
+            //FlowDesigner.GetModelNameInfosComboxCompleted += (o, e) =>
+            //{
+            //    List<FLOW_MODELDEFINE_T> dicts = new List<FLOW_MODELDEFINE_T>();
+            //    dicts = e.Result == null ? null : e.Result.ToList();
+            //    if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
+            //    {
+            //        Application.Current.Resources.Add("FLOW_MODELDEFINE_T", dicts);
+            //    }
+            //};
             //TODO: 获取模块
-            FlowDesigner.GetModelNameInfosComboxAsync();
+            //FlowDesigner.GetModelNameInfosComboxAsync();
         }
 
         public static void DataRowAddRowNo(object sender, DataGridRowEventArgs e)
