@@ -45,6 +45,12 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                //读取配置文件查找下拨人，薪资审核通过也是这个下拨人ID
+                string strAssignOwnerID = System.Configuration.ConfigurationManager.AppSettings["PersonMoneyAssignOwner"];
+                if (!string.IsNullOrEmpty(strAssignOwnerID))
+                {
+                    obj.ASSIGNERID = strAssignOwnerID;
+                }
                 var ent = from a in dal.GetTable()
                           where a.CUSTOMGUERDONARCHIVEID == obj.CUSTOMGUERDONARCHIVEID
                           select a;

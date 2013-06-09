@@ -1881,7 +1881,12 @@ namespace SMT.HRM.BLL
                     Tracer.Debug("生成员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月"
                           + "的月薪，record 不为 null");
                     isNew = false;
-                    if (record.CHECKSTATE == ((int)CheckStates.Approved).ToString() || record.CHECKSTATE == ((int)CheckStates.Approving).ToString()) return 0;
+                    if (record.CHECKSTATE == ((int)CheckStates.Approved).ToString() || record.CHECKSTATE == ((int)CheckStates.Approving).ToString())
+                    {
+                        Tracer.Debug("生成员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月"
+                            + "的月薪，已提交审核，跳过");
+                        return 0;
+                    }
                 }
 
                 #region ---薪资计算 NEWCAL
@@ -1916,7 +1921,9 @@ namespace SMT.HRM.BLL
                         var tempSalaryItem = ent.salaryItem;
                         DateTime st = System.DateTime.Now;
                         SMT.Foundation.Log.Tracer.Debug("姓名：" + emp.EMPLOYEECNAME+" 薪资项："+tempSalaryItem.SALARYITEMNAME + ":");
-
+                        if (tempSalaryItem.SALARYITEMNAME == "假期其它扣款")
+                        {
+                        }
                         //"1、手工录入 ；2、薪资档案中输入；3、计算公式；"
                         if (tempSalaryItem.CALCULATORTYPE == "2" && tempSalaryItem.GUERDONSUM == 0)
                         {

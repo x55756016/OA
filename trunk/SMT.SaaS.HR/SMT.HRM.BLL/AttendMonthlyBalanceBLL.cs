@@ -3245,7 +3245,8 @@ namespace SMT.HRM.BLL
                         s.Append("<td class=\"x1282\"></td>");
                     }
 
-                    s.Append("<td class=\"x1282\">" + Collects[i].NEEDATTENDDAYS + "</td>");
+                    //s.Append("<td class=\"x1282\">" + Collects[i].NEEDATTENDDAYS + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].REALNEEDATTENDDAYS + "</td>");//应出勤天数，注释的为原来的                    
                     s.Append("<td class=\"x1282\">" + Collects[i].REALATTENDDAYS + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].FORGETCARDTIMES + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].LATETIMES + "</td>");

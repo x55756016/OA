@@ -2542,7 +2542,7 @@ namespace SMT.HRM.BLL
                                d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID equals cd.DEPARTMENTDICTIONARYID
                            join cm in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals cm.COMPANYID
                            where o.EDITSTATE == "1" && (o.EMPLOYEESTATE == "0" || o.EMPLOYEESTATE == "1" || o.EMPLOYEESTATE == "3") && ep.CHECKSTATE == "2"
-                           && ep.EDITSTATE == "1" && ep.ISAGENCY=="0"  && o.OWNERCOMPANYID == strCompantID
+                           && ep.EDITSTATE == "1" && o.OWNERCOMPANYID == strCompantID orderby ep.POSTLEVEL
                            select new V_EMPLOYEEFUNDS
                            {
                                EMPLOYEEID = o.EMPLOYEEID,
