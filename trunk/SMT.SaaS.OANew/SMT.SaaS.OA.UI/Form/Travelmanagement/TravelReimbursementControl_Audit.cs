@@ -85,7 +85,8 @@ namespace SMT.SaaS.OA.UI.UserControls
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "PAYMENTINFO", fbCtr.Order.PAYMENTINFO, string.Empty));//支付信息
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "PAYTARGET", ExtTotal, string.Empty));//小计
             StrPayInfo = txtPAYMENTINFO.Text.ToString();
-            AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "PAYMENTINFO", StrPayInfo, string.Empty));//支付信息
+            AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "PAYMENTINFO", StrPayInfo, string.Empty));//支付信息 
+            AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "TRAVLEAREAALLOWANCE", textStandards.Text, string.Empty));//报销标准
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "AttachMent", TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID, TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID));//附件
 
             if (!string.IsNullOrEmpty(TravelReimbursement_Golbal.NOBUDGETCLAIMS))//报销单号
