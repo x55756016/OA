@@ -24,10 +24,10 @@ namespace SMT.SaaS.OA.UI
         private void CheckResourceConverter()
         {
 
-            if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
-            {
-                Utility.LoadDictss();
-            }
+            //if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
+            //{
+            //    Utility.LoadDictss();
+            //}
 
             if (Application.Current.Resources["GridHeaderConverter"] == null)
             {

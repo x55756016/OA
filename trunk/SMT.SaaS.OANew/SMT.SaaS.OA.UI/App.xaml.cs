@@ -188,17 +188,17 @@ namespace SMT.SaaS.OA.UI
         protected void LoadDictss()
         {
             ServiceClient FlowDesigner = new ServiceClient();
-            FlowDesigner.GetModelNameInfosComboxCompleted += (o, e) =>
-            {
-                List<FLOW_MODELDEFINE_T> dicts = new List<FLOW_MODELDEFINE_T>();
-                dicts = e.Result == null ? null : e.Result.ToList();
-                if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
-                {
-                    Application.Current.Resources.Add("FLOW_MODELDEFINE_T", dicts);
-                }
-            };
-            //TODO: 获取模块
-            FlowDesigner.GetModelNameInfosComboxAsync();
+            //FlowDesigner.GetModelNameInfosComboxCompleted += (o, e) =>
+            //{
+            //    List<FLOW_MODELDEFINE_T> dicts = new List<FLOW_MODELDEFINE_T>();
+            //    dicts = e.Result == null ? null : e.Result.ToList();
+            //    if (Application.Current.Resources["FLOW_MODELDEFINE_T"] == null)
+            //    {
+            //        Application.Current.Resources.Add("FLOW_MODELDEFINE_T", dicts);
+            //    }
+            //};
+            ////TODO: 获取模块
+            //FlowDesigner.GetModelNameInfosComboxAsync();
         }
 
         public static void Navigation(UserControl newPage)
