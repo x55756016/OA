@@ -615,6 +615,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         string result = BusinessDays.ToString(); //计算本次出差的总时间,超过24小时天数加1
                         travelReimbursement.COMPUTINGTIME = result;//总时间
                         Button btn = e.UserState as Button;
+                        travelReimbursement.T_OA_REIMBURSEMENTDETAIL = null;//清空子表，以免增加多余子表数据
                         Travelmanagement.TravelReimbursementAddAsync(travelReimbursement, TrDetail_Gloabal, btn);//保存出差报销
                     }
                 }
