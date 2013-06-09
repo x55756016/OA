@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>OA</Name>
+	<Object Name="Test" Description="测试单">
+		<Attribute Name="UserID" Description="员工号" DataType="string" DataValue=""></Attribute>
+		<Attribute  Name="UserName" Description="员工姓名" DataType="string" DataValue=""></Attribute>
+		<Attribute  Name="Price" Description="费用" DataType="decimal" DataValue=""></Attribute>
+	</Object>
+</System>

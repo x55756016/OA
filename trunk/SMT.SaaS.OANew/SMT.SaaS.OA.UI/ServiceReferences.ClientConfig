@@ -183,14 +183,16 @@
         contract="AgentChannel.AgentServices" name="CustomBinding_AgentServices" />
       
       
-      <endpoint address="http://10.10.0.93:8080/New/Services/OA/SmtOACommonOffice.svc"
+      <endpoint address="http://localhost:3938/SmtOACommonOffice.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonOffice"
         contract="SmtOACommonOfficeService.SmtOACommonOffice" name="CustomBinding_SmtOACommonOffice" />
       
-      
-      <endpoint address="http://10.10.0.93:8080/New/Services/OA/SmtOAPersonOffice.svc"
+       <endpoint address="http://localhost:3938/SmtOAPersonOffice.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
         contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />
+      <!--<endpoint address="http://10.10.0.93:8080/New/Services/OA/SmtOAPersonOffice.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
+        contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />-->
     </client>
   </system.serviceModel>
 </configuration>

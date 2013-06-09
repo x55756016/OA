@@ -42,7 +42,7 @@
     <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
     <Attribute Name="CONTENT" LableResourceID="CONTENT" Description="内容" DataType="RTF" DataValue="" DataText=""></Attribute>
     <Attribute Name="AttachMent" LableResourceID="AttachMent" Description="附件" DataType="attachmentlist" DataValue="" DataText="" />
-    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL" Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL" Description="岗位级别" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="TYPEAPPROVAL" LableResourceID="TYPEAPPROVAL" Description="一级事项类型" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="TYPEAPPROVALONE" LableResourceID="TYPEAPPROVALONE" Description="二级事项类型" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="TYPEAPPROVALTWO" LableResourceID="TYPEAPPROVALTWO" Description="三级事项类型" DataType="string" DataValue="" DataText=""></Attribute>
