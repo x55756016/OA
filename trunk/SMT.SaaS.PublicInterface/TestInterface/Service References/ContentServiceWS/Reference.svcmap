@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a9613428-33cd-44ab-af8b-1ea1410f5469" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:10007/ContentService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContentService.wsdl" MetadataType="Wsdl" ID="dd3a7454-5d8f-4613-920d-6f2953ca1925" SourceId="1" SourceUrl="http://localhost:10007/ContentService.svc?wsdl" />
+    <MetadataFile FileName="ContentService.xsd" MetadataType="Schema" ID="9b153d3f-ac7c-406c-8010-45596f44c6dd" SourceId="1" SourceUrl="http://localhost:10007/ContentService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContentService1.xsd" MetadataType="Schema" ID="feabdd2c-cae9-4a83-ae3d-a3724803f85f" SourceId="1" SourceUrl="http://localhost:10007/ContentService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContentService.disco" MetadataType="Disco" ID="041ee71c-267b-481b-82ed-f350f82bee93" SourceId="1" SourceUrl="http://localhost:10007/ContentService.svc?disco" />
+    <MetadataFile FileName="ContentService2.xsd" MetadataType="Schema" ID="c6624c7e-46ca-471c-b260-13a980a2e13d" SourceId="1" SourceUrl="http://localhost:10007/ContentService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
