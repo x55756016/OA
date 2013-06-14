@@ -4098,40 +4098,50 @@ namespace SMT.FB.BLL
         #region 活动经费
         public T_FB_PERSONMONEYASSIGNMASTER CreatePersonMoneyAssignInfo(string ASSIGNCOMPANYID, string OWNERID)
         {
+
             T_FB_PERSONMONEYASSIGNMASTER master = GetPersonMoneyAssign(ASSIGNCOMPANYID, OWNERID);
-
-            if (master == null)
+            try
             {
-                return null;
-            }
+                if (master == null)
+                {
+                    SystemBLL.Debug("活动经费下拨申请单失败，公司ID： " + ASSIGNCOMPANYID + "没有下拨人数据");
+                    return null;
+                }
 
-            if (master.T_FB_PERSONMONEYASSIGNDETAIL == null)
+                if (master.T_FB_PERSONMONEYASSIGNDETAIL == null)
+                {
+                    SystemBLL.Debug("活动经费下拨申请单失败，公司ID： " + ASSIGNCOMPANYID + "没有下拨人数据");
+                    return null;
+                }
+
+                if (master.T_FB_PERSONMONEYASSIGNDETAIL.Count() == 0)
+                {
+                    SystemBLL.Debug("活动经费下拨申请单失败，公司ID： " + ASSIGNCOMPANYID + "没有下拨人数据");
+                    return null;
+                }
+
+                FBEntity fbEntity = new FBEntity();
+                fbEntity.Entity = master;
+                fbEntity.FBEntityState = FBEntityState.Added;
+                SaveFBEntityDefault(fbEntity);
+                string strCustomMsgBody = "您收到了[" + master.ASSIGNCOMPANYNAME + "]的活动经费下拨申请单，请及时处理！";
+
+                EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
+                EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+                userMsg.FormID = master.PERSONMONEYASSIGNMASTERID;
+                userMsg.UserID = master.OWNERID;
+                EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
+                List[0] = userMsg;
+                string submitName = master.OWNERNAME;
+                Client.ApplicationMsgTriggerCustom(List, "FB", "T_FB_PERSONMONEYASSIGNMASTER", ObjListToXml(master, "FB", submitName), EngineWS.MsgType.Task, strCustomMsgBody);
+
+                return master;
+            }
+            catch (Exception ex)
             {
-                return null;
+                SystemBLL.Debug("活动经费下拨申请单失败，公司ID： " + ASSIGNCOMPANYID + ex.Message.ToString());
+                return master;
             }
-
-            if (master.T_FB_PERSONMONEYASSIGNDETAIL.Count() == 0)
-            {
-                return null;
-            }
-
-            FBEntity fbEntity = new FBEntity();
-            fbEntity.Entity = master;
-            fbEntity.FBEntityState = FBEntityState.Added;
-            SaveFBEntityDefault(fbEntity);
-
-            string strCustomMsgBody = "您收到了[" + master.ASSIGNCOMPANYNAME + "]的活动经费下拨申请单，请及时处理！";
-
-            EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
-            EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-            userMsg.FormID = master.PERSONMONEYASSIGNMASTERID;
-            userMsg.UserID = master.OWNERID;
-            EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
-            List[0] = userMsg;
-            string submitName = master.OWNERNAME;
-            Client.ApplicationMsgTriggerCustom(List, "FB", "T_FB_PERSONMONEYASSIGNMASTER", ObjListToXml(master, "FB", submitName), EngineWS.MsgType.Task, strCustomMsgBody);
-
-            return master;
         }
 
         public T_FB_PERSONMONEYASSIGNMASTER GetPersonMoneyAssign(string ASSIGNCOMPANYID, string OWNERID)

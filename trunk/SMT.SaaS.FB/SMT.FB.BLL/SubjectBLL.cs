@@ -7,6 +7,7 @@ using SMT_FB_EFModel;
 using System.Data.Objects.DataClasses;
 using System.Reflection;
 using System.Xml.Linq;
+using SMT.Foundation.Log;
 
 namespace SMT.FB.BLL
 {
@@ -2622,26 +2623,33 @@ namespace SMT.FB.BLL
             List<T_FB_BUDGETACCOUNT> result = new List<T_FB_BUDGETACCOUNT>();
 
             // 如果科目报销不受月度预算控制时，可用额度为999999.
-            //var views = from item in resultTemp
-            //            join itemCom in this.GetTable<T_FB_SUBJECTCOMPANY>()
-                         
-            //            on new { item.T_FB_SUBJECT.SUBJECTID, item.OWNERCOMPANYID } equals new { itemCom.T_FB_SUBJECT.SUBJECTID, itemCom.OWNERCOMPANYID }
-            //            select new { item, itemCom, item.T_FB_SUBJECT };
+            var views = from item in resultTemp
+                        join itemCom in this.GetTable<T_FB_SUBJECTCOMPANY>()
+
+                        on new { item.T_FB_SUBJECT.SUBJECTID, item.OWNERCOMPANYID } equals new { itemCom.T_FB_SUBJECT.SUBJECTID, itemCom.OWNERCOMPANYID }
+                        select new { item, itemCom, item.T_FB_SUBJECT };
 
             foreach (var view in resultTemp)
             {
 
-                var itemCompanySet = from item in this.GetTable<T_FB_SUBJECTCOMPANY>()
-                        where item.T_FB_SUBJECT.SUBJECTID == view.T_FB_SUBJECT.SUBJECTID
-                            && item.OWNERCOMPANYID == view.OWNERCOMPANYID
-                        select item;
-                //去除不受控
-                if (itemCompanySet.Count() > 0)
+                try
                 {
-                    if (!itemCompanySet.FirstOrDefault().ISMONTHLIMIT.Equal(1))
+                    var itemCompanySet = from item in this.GetTable<T_FB_SUBJECTCOMPANY>()
+                                         where item.T_FB_SUBJECT.SUBJECTID == view.T_FB_SUBJECT.SUBJECTID
+                                             && item.OWNERCOMPANYID == view.OWNERCOMPANYID
+                                         select item;
+                    //去除不受控
+                    if (itemCompanySet.Count() > 0)
                     {
-                        view.USABLEMONEY = Max_Charge;
+                        if (!itemCompanySet.FirstOrDefault().ISMONTHLIMIT.Equal(1))
+                        {
+                            view.USABLEMONEY = Max_Charge;
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    Tracer.Debug("GetBUDGETACCOUNTPerson查询公司科目设置异常：" + ex.ToString());
                 }
 
 

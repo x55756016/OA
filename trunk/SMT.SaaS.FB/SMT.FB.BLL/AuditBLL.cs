@@ -503,7 +503,7 @@ namespace SMT.FB.BLL
             }
 
             SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient psl = new SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient();
-            
+
 
             foreach (XElement item in list)
             {
@@ -578,7 +578,7 @@ namespace SMT.FB.BLL
                     if (string.IsNullOrWhiteSpace(strCurrEmployeeName))
                     {
                         if (objOWNERID != null)
-                        {                            
+                        {
                             SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE epd = psl.GetEmployeeByID(objOWNERID.ToString());
                             if (epd != null)
                             {
@@ -635,7 +635,7 @@ namespace SMT.FB.BLL
                 else if (AttName == "TRANSFERTO")
                 {
                     AttValue = GetTransferDepartemntName(ent, AttName);
-                }           
+                }
                 else
                 {
                     object objValue = ent.GetValue(AttName);
@@ -653,20 +653,86 @@ namespace SMT.FB.BLL
             };
             #endregion 填充XML一级节点
 
-            if (entityInfo.EntityCode != "T_FB_COMPANYBUDGETSUMMASTER" && entityInfo.EntityCode != "T_FB_DEPTBUDGETSUMMASTER")
+            //预算都要重做了，还有什么改的必要，搁浅中
+            //if (entityInfo.EntityCode == "T_FB_COMPANYBUDGETSUMMASTER" && entityInfo.EntityCode == "T_FB_DEPTBUDGETSUMMASTER")
+            //{
+            //    //存在不用汇总时生成xml文件的公司ID
+            //    string strCompanyID = System.Configuration.ConfigurationManager.AppSettings["NotSummasterCompanyID"];
+            //    if (strCompanyID.Contains(((SMT_FB_EFModel.T_FB_DEPTBUDGETSUMMASTER)(ent)).OWNERCOMPANYID))
+            //    {
+
+            //    }
+            //}
+            #region try-catch的try
+            try
             {
-                //填充二级节点
-                List<EntityObject> listChildEnts = new List<EntityObject>();
-                ResetAndFillDataSecondNode(ent, xe, listChild, listGrandson, ref listChildEnts);
-
-                if (listGrandson.Count() > 0)
+                ///没有心情想好点写，就这样写
+                //年度汇总
+                if (entityInfo.EntityCode == "T_FB_COMPANYBUDGETSUMMASTER")
                 {
-                    //三级节点
-                    ResetAndFillDataThirdNode(xe, listChildEnts, listGrandson);
-                }
-            }
+                    string strCompanyID = ((SMT_FB_EFModel.T_FB_COMPANYBUDGETSUMMASTER)(ent)).OWNERCOMPANYID;
+                    if (strCompanyID != "7a613fc2-4431-4a46-ae01-232222e9fcb5")//物流公司
+                    {
+                        //填充二级节点
+                        List<EntityObject> listChildEnts = new List<EntityObject>();
+                        ResetAndFillDataSecondNode(ent, xe, listChild, listGrandson, ref listChildEnts);
 
-            StrSource = string.Format(xml, xeCSys.ToString(), xeMsg.ToString(), xe.ToString());
+                        if (listGrandson.Count() > 0)
+                        {
+                            //三级节点
+                            ResetAndFillDataThirdNode(xe, listChildEnts, listGrandson);
+                        }
+                    }
+                }
+                //月度汇总
+                else if (entityInfo.EntityCode == "T_FB_DEPTBUDGETSUMMASTER")
+                {
+                    string strCompanyID = ((SMT_FB_EFModel.T_FB_DEPTBUDGETSUMMASTER)(ent)).OWNERCOMPANYID;
+                    if (strCompanyID != "7a613fc2-4431-4a46-ae01-232222e9fcb5")//物流公司
+                    {
+                        //填充二级节点
+                        List<EntityObject> listChildEnts = new List<EntityObject>();
+                        ResetAndFillDataSecondNode(ent, xe, listChild, listGrandson, ref listChildEnts);
+
+                        if (listGrandson.Count() > 0)
+                        {
+                            //三级节点
+                            ResetAndFillDataThirdNode(xe, listChildEnts, listGrandson);
+                        }
+                    }
+                }
+                else if(entityInfo.EntityCode != "T_FB_COMPANYBUDGETSUMMASTER" && entityInfo.EntityCode != "T_FB_DEPTBUDGETSUMMASTER")
+                {
+                    //填充二级节点
+                    List<EntityObject> listChildEnts = new List<EntityObject>();
+                    ResetAndFillDataSecondNode(ent, xe, listChild, listGrandson, ref listChildEnts);
+
+                    if (listGrandson.Count() > 0)
+                    {
+                        //三级节点
+                        ResetAndFillDataThirdNode(xe, listChildEnts, listGrandson);
+                    }
+                }
+
+                StrSource = string.Format(xml, xeCSys.ToString(), xeMsg.ToString(), xe.ToString());
+            }
+            #endregion
+            catch (Exception ex)
+            {
+                if (entityInfo.EntityCode != "T_FB_COMPANYBUDGETSUMMASTER" && entityInfo.EntityCode != "T_FB_DEPTBUDGETSUMMASTER")
+                {
+                    //填充二级节点
+                    List<EntityObject> listChildEnts = new List<EntityObject>();
+                    ResetAndFillDataSecondNode(ent, xe, listChild, listGrandson, ref listChildEnts);
+
+                    if (listGrandson.Count() > 0)
+                    {
+                        //三级节点
+                        ResetAndFillDataThirdNode(xe, listChildEnts, listGrandson);
+                    }
+                }
+                StrSource = string.Format(xml, xeCSys.ToString(), xeMsg.ToString(), xe.ToString());
+            }
             return StrSource;
         }
 
@@ -757,6 +823,10 @@ namespace SMT.FB.BLL
                 if (tempEntity.GetType().ToString() == "SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL")
                 {
                     listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                }
+                else if (tempEntity.GetType().ToString() == "SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL")
+                {
+                    listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
                 }
                 else
                 {

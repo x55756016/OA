@@ -136,6 +136,36 @@ namespace SMT.FB.BLL
             string codePropertyName = orderCode.FIELDNAME;
             entity.SetValue(codePropertyName, code);
             
+            //开始更新元数据单号
+            string Formid = string.Empty;
+            try
+            {
+                  switch (tablename)
+                    {
+
+                        case "T_FB_EXTENSIONALORDER":
+                            T_FB_EXTENSIONALORDER item = (T_FB_EXTENSIONALORDER)entity;
+                            Formid = item.ORDERID;
+                            break;
+                        default:
+                            Formid =entity.EntityKey.EntityKeyValues[0].Value.ToString();
+                            break;
+                    }
+
+                SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
+                    new SaaS.BLLCommonServices.FlowWFService.ServiceClient();
+                Tracer.Debug(Formid);
+                string xml=string.Empty;
+                xml=client.GetMetadataByFormid(Formid);
+                Tracer.Debug(xml);
+                xml=xml.Replace("自动生成", code);
+                Tracer.Debug("替换单号后的XML:"+xml);
+                client.UpdateMetadataByFormid(Formid, xml);
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
         }
 
         public static string GetTableName(EntityObject entity)
