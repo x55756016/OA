@@ -308,400 +308,400 @@
       </customBinding>
     </bindings>
     <client>
-      <endpoint address="http://10.10.0.93:8080/New/services/HR/PersonnelService.svc"
+      <endpoint address="http://10.10.0.95/New/services/HR/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/HR/OrganizationService.svc"
+      <endpoint address="http://10.10.0.95/New/services/HR/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/HR/TestUsersService.svc"
+      <endpoint address="http://10.10.0.95/New/services/HR/TestUsersService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_TestUsersService"
         contract="TestUsersWS.TestUsersService" name="CustomBinding_TestUsersService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/HR/HrCommonService.svc"
+      <endpoint address="http://10.10.0.95/New/services/HR/HrCommonService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
         contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/HR/SalaryService.svc"
+      <endpoint address="http://10.10.0.95/New/services/HR/SalaryService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
         contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/HR/AttendanceService.svc"
+      <endpoint address="http://10.10.0.95/New/services/HR/AttendanceService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
         contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/HR/PerformanceService.svc"
+      <endpoint address="http://10.10.0.95/New/services/HR/PerformanceService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
         contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/HR/UserLoginService.svc"
+      <endpoint address="http://10.10.0.95/New/services/HR/UserLoginService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_UserLoginService"
         contract="MainLoginWS.UserLoginService" name="BasicHttpBinding_UserLoginService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/System/FileUploadManager.svc"
+      <endpoint address="http://10.10.0.95/New/services/System/FileUploadManager.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
         contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
-      <endpoint address="http://10.10.0.93:8080/New/services/System/PermissionService.svc"
+      <endpoint address="http://10.10.0.95/New/services/System/PermissionService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
         contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/OA/ContractManagementServiceFrom.svc"
+      <endpoint address="http://10.10.0.95/New/services/OA/ContractManagementServiceFrom.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ContractManagementServiceFrom"
         contract="ContractAppWS.ContractManagementServiceFrom" name="CustomBinding_ContractManagementServiceFrom" />
-      <endpoint address="http://10.10.0.93:8080/New/services/OA/WelfareStandardService.svc"
+      <endpoint address="http://10.10.0.95/New/services/OA/WelfareStandardService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_WelfareStandardService"
         contract="WelfareStandardWS.WelfareStandardService" name="CustomBinding_WelfareStandardService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/OA/SmtOACommonOffice.svc"
+      <endpoint address="http://10.10.0.95/New/services/OA/SmtOACommonOffice.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonOffice"
         contract="SmtOACommonOfficeService.SmtOACommonOffice" name="CustomBinding_SmtOACommonOffice" />
-      <endpoint address="http://10.10.0.93:8080/New/services/OA/SmtOAPersonOffice.svc"
+      <endpoint address="http://10.10.0.95/New/services/OA/SmtOAPersonOffice.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
         contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />
-      <endpoint address="http://10.10.0.93:8080/New/services/OA/SmtOADocumentAdmin.svc"
+      <endpoint address="http://10.10.0.95/New/services/OA/SmtOADocumentAdmin.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOADocumentAdmin"
         contract="SmtOADocumentAdminWS.SmtOADocumentAdmin" name="CustomBinding_SmtOADocumentAdmin" />
-      <endpoint address="http://10.10.0.93:8080/New/services/OA/SmtOADocumentAdmin.svc"
+      <endpoint address="http://10.10.0.95/New/services/OA/SmtOADocumentAdmin.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_AdminServiceSmtOADocumentAdmin"
         contract="SmtOADocumentAdminService.SmtOADocumentAdmin" name="CustomBinding_AdminServiceSmtOADocumentAdmin" />
-      <endpoint address="http://10.10.0.93:8080/New/services/OA/AgentServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/OA/AgentServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_AgentServices"
         contract="AgentChannel.AgentServices" name="CustomBinding_AgentServices" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMTFBAService/OaInterface.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMTFBAService/OaInterface.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_OaInterface"
         contract="TravelExpApplyMaster.OaInterface" name="BasicHttpBinding_OaInterface" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMTFlow/SMT.FlowWFService.Service.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMTFlow/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/System/PermissionService.svc"
+      <endpoint address="http://10.10.0.95/New/services/System/PermissionService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
         contract="PermissionService.PermissionService" name="CustomBinding_PermissionService1" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FB/FBCommonService.svc"
+      <endpoint address="http://10.10.0.95/New/services/FB/FBCommonService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBCommonService"
         contract="FBCommonWS.FBCommonService" name="BasicHttpBinding_FBCommonService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FB/FBService.svc"
+      <endpoint address="http://10.10.0.95/New/services/FB/FBService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
         contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMTFlowDesigner/Service.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMTFlowDesigner/Service.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Service"
         contract="FlowDesignerService.Service" name="CustomBinding_Service" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EngineConfig/FlowXmlServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/EngineConfig/FlowXmlServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IFlowXmlService"
         contract="FlowXmlService.IFlowXmlService" name="CustomBinding_IFlowXmlService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EngineConfig/EGPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/EngineConfig/EGPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IFlowTrigger"
         contract="EGServices.IFlowTrigger" name="CustomBinding_IFlowTrigger" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EngineConfig/EGPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/EngineConfig/EGPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IMsgBodyDefine"
         contract="EGServices.IMsgBodyDefine" name="CustomBinding_IMsgBodyDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EngineConfig/EGPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/EngineConfig/EGPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IFlowProcessDefine"
         contract="EGServices.IFlowProcessDefine" name="CustomBinding_IFlowProcessDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ISaleOfAssets"
         contract="FAMPerCellServices.ISaleOfAssets" name="CustomBinding_ISaleOfAssets" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IAssetsAdJustMent"
         contract="FAMPerCellServices.IAssetsAdJustMent" name="CustomBinding_IAssetsAdJustMent" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IAssstPurchase"
         contract="FAMPerCellServices.IAssstPurchase" name="CustomBinding_IAssstPurchase" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IFixedAsset"
         contract="FAMPerCellServices.IFixedAsset" name="CustomBinding_IFixedAsset" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IAssetsMaintain"
         contract="FAMPerCellServices.IAssetsMaintain" name="CustomBinding_IAssetsMaintain" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ILossOnAassets"
         contract="FAMPerCellServices.ILossOnAassets" name="CustomBinding_ILossOnAassets" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/SuppliesServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/SuppliesServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ICategoryMaster"
         contract="SuppliesPerCellServices.ICategoryMaster" name="CustomBinding_ICategoryMaster" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/SuppliesServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/SuppliesServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IOfficeSupplies"
         contract="SuppliesPerCellServices.IOfficeSupplies" name="CustomBinding_IOfficeSupplies" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/SuppliesServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/SuppliesServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ISuppliesHandle"
         contract="SuppliesPerCellServices.ISuppliesHandle" name="CustomBinding_ISuppliesHandle" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/SuppliesServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/SuppliesServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ISuppliesTransaction"
         contract="SuppliesPerCellServices.ISuppliesTransaction" name="CustomBinding_ISuppliesTransaction" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMSingleService.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMSingleService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IAssetsCategoryTree"
         contract="FAMSingleService.IAssetsCategoryTree" name="CustomBinding_IAssetsCategoryTree" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMSingleService.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMSingleService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IAssetsPrefix"
         contract="FAMSingleService.IAssetsPrefix" name="CustomBinding_IAssetsPrefix" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/FAMSingleService.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/FAMSingleService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ICateDictionary"
         contract="FAMSingleService.ICateDictionary" name="CustomBinding_ICateDictionary" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/TaskPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/TaskPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ITaskParticipants"
         contract="TaskPerCellServices.ITaskParticipants" name="CustomBinding_ITaskParticipants" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/TaskPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/TaskPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ITaskType"
         contract="TaskPerCellServices.ITaskType" name="CustomBinding_ITaskType" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/TaskPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/TaskPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ITaskDetail"
         contract="TaskPerCellServices.ITaskDetail" name="CustomBinding_ITaskDetail" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/TaskPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/TaskPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ITaskMain"
         contract="TaskPerCellServices.ITaskMain" name="CustomBinding_ITaskMain" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/TaskPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/TaskPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ITaskReport"
         contract="TaskPerCellServices.ITaskReport" name="CustomBinding_ITaskReport" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/TaskPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/TaskPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBindingTask_IFlowTrigger"
         contract="TaskPerCellServices.IFlowTrigger" name="CustomBindingTask_IFlowTrigger" />
-      <endpoint address="http://10.10.0.93:8080/New/services/FAM/TaskPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/FAM/TaskPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IKpiSetting"
         contract="TaskPerCellServices.IKpiSetting" name="CustomBinding_IKpiSetting" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EngineConfig/EGPerCellServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/EngineConfig/EGPerCellServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ICustomFlowDefine"
         contract="EGServices.ICustomFlowDefine" name="CustomBinding_ICustomFlowDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+      <endpoint address="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMTFlowDesigner/Service.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMTFlowDesigner/Service.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Service1"
         contract="FlowDesignerWS.Service" name="CustomBinding_Service1" />
-      <endpoint address="http://10.10.0.93:8080/New/services/TM/TMCommonService.svc"
+      <endpoint address="http://10.10.0.95/New/services/TM/TMCommonService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_TMCommonService"
         contract="TMCommonWS.TMCommonService" name="BasicHttpBinding_TMCommonService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EDM/SmtEDMCommonService.svc"
+      <endpoint address="http://10.10.0.95/New/services/EDM/SmtEDMCommonService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SmtEDMBaseData.SmtEDMCommonService" name="BasicHttpBinding_SmtEDMCommonService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EDM/SmtEDMStockService.svc"
+      <endpoint address="http://10.10.0.95/New/services/EDM/SmtEDMStockService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SmtEDMStock.SmtEDMStockService" name="BasicHttpBinding_SmtEDMStockService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EDM/SmtEDMBaseDataService.svc"
+      <endpoint address="http://10.10.0.95/New/services/EDM/SmtEDMBaseDataService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SmtEDMBaseData.SmtEDMBaseDataService" name="BasicHttpBinding_Common" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EDM/SmtEDMBuyService.svc"
+      <endpoint address="http://10.10.0.95/New/services/EDM/SmtEDMBuyService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SmtEDMBuy.SmtEDMBuyService" name="BasicHttpBinding_SmtEDMBuyService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EDM/SmtEDMCommonService.svc"
+      <endpoint address="http://10.10.0.95/New/services/EDM/SmtEDMCommonService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SmtEDMCommon.SmtEDMCommonService" name="BasicHttpBinding_SmtEDMCommonService1" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EDM/SmtEDMSellService.svc"
+      <endpoint address="http://10.10.0.95/New/services/EDM/SmtEDMSellService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SmtEDMSell.SmtEDMSellService" name="BasicHttpBinding_SmtEDMSellService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EDM/SmtEDMSuppliersService.svc"
+      <endpoint address="http://10.10.0.95/New/services/EDM/SmtEDMSuppliersService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SmtEDMSuppliers.SmtEDMSuppliersService" name="BasicHttpBinding_SmtEDMSuppliersService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IExamPaper" name="BasicHttpBinding_IExamPaper" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IExamPaperType" name="BasicHttpBinding_IExamPaperType" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IQuestionAndType" name="BasicHttpBinding_IQuestionAndType" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IQuestion" name="BasicHttpBinding_IQuestion" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IExamQuestion" name="BasicHttpBinding_IExamQuestion" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IQuestionList" name="BasicHttpBinding_IQuestionList" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IExamQuestionOption" name="BasicHttpBinding_IExamQuestionOption" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IQuestionType" name="BasicHttpBinding_IQuestionType" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IGrade" name="BasicHttpBinding_IGrade" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IScoreReport" name="BasicHttpBinding_IScoreReport" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc "
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc "
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IExam" name="BasicHttpBinding_IExam" />
-      <endpoint address=" http://10.10.0.93:8080/New/services/EM/EMTrainService.svc"
+      <endpoint address=" http://10.10.0.95/New/services/EM/EMTrainService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEMExam.IEMTrainService" name="BasicHttpBinding_IEMTrainService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/EM/SMTEMService.svc"
+      <endpoint address="http://10.10.0.95/New/services/EM/SMTEMService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTEM.IExamTask" name="BasicHttpBinding_IExamTask" />
-      <endpoint address="http://10.10.0.93:8080/New/services/TM/SMTMTrainingImplemetaionService.svc"
+      <endpoint address="http://10.10.0.95/New/services/TM/SMTMTrainingImplemetaionService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Common"
         contract="SMTMTrainingImplemetaion.SMTMTrainingImplemetaionService"
         name="CustomBinding_SMTMTrainingImplemetaionService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/TM/SMTTMTrainingSummaryService.svc"
+      <endpoint address="http://10.10.0.95/New/services/TM/SMTTMTrainingSummaryService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Common"
         contract="SMTTMTrainingSummary.SMTTMTrainingSummaryService"
         name="CustomBinding_SMTTMTrainingSummaryService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/TM/SMTTMTrainingPlanService.svc"
+      <endpoint address="http://10.10.0.95/New/services/TM/SMTTMTrainingPlanService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTTMTrainingPlan.SMTTMTrainingPlanService" name="BasicHttpBinding_SMTTMTrainingPlanService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/TM/SMTTMSystemSetupService.svc"
+      <endpoint address="http://10.10.0.95/New/services/TM/SMTTMSystemSetupService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTTMSystem.SMTTMSystemSetupService" name="BasicHttpBinding_SMTTMSystemSetupService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/TM/SMTTMTrainingResourceService.svc"
+      <endpoint address="http://10.10.0.95/New/services/TM/SMTTMTrainingResourceService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTTMTrainingResource.SMTTMTrainingResourceService"
         name="BasicHttpBinding_SMTTMTrainingResourceService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/TM/SMTTMTrainingReportService.svc"
+      <endpoint address="http://10.10.0.95/New/services/TM/SMTTMTrainingReportService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTTMTrainingReport.SMTTMTrainingReportService" name="BasicHttpBinding_SMTTMTrainingReportService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/RM/RequireServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/RM/RequireServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="ReqServices.RequireServices" name="BasicHttpBinding_RequireServices2" />
-      <endpoint address="http://10.10.0.93:8080/New/services/RM/InterViewServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/RM/InterViewServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="InterViewServices.InterViewServices" name="BasicHttpBinding_InterViewServices" />
-      <endpoint address="http://10.10.0.93:8080/New/services/RM/ResumeService.svc"
+      <endpoint address="http://10.10.0.95/New/services/RM/ResumeService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="ResumeService.ResumeService" name="BasicHttpBinding_ResumeService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/Main/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/Main/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
         contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />
-      <endpoint address="http://10.10.0.93:8080/New/services/MyRecord/PersonalRecordService.svc"
+      <endpoint address="http://10.10.0.95/New/services/MyRecord/PersonalRecordService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
         contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMTFBAService/FBAnalysisService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMTFBAService/FBAnalysisService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="FBAnalysisWS.FBAnalysisService" name="BasicHttpBinding_FBAnalysisService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMTFBAService/DailyManagementServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMTFBAService/DailyManagementServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Common"
         contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
-      <endpoint address="http://10.10.0.93:8080/New/services/PublicInterface/PublicService.svc"
+      <endpoint address="http://10.10.0.95/New/services/PublicInterface/PublicService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Users" name="BasicHttpBinding_ISMS_Users" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_UserPay" name="BasicHttpBinding_ISMS_UserPay" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Supplier" name="BasicHttpBinding_ISMS_Supplier" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Keywords" name="BasicHttpBinding_ISMS_Keywords" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Reprots" name="BasicHttpBinding_ISMS_Reprots" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_ReceiveMessage" name="BasicHttpBinding_ISMS_ReceiveMessage" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_HL95" name="BasicHttpBinding_ISMS_HL95" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_SendRoute" name="BasicHttpBinding_ISMS_SendRoute" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Procurement" name="BasicHttpBinding_ISMS_Procurement" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Log" name="BasicHttpBinding_ISMS_Log" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Type" name="BasicHttpBinding_ISMS_Type" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Power" name="BasicHttpBinding_ISMS_Power" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Excel" name="BasicHttpBinding_ISMS_Excel" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_UserType" name="BasicHttpBinding_ISMS_UserType" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_EUCP" name="BasicHttpBinding_ISMS_EUCP" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_UserInfo" name="BasicHttpBinding_ISMS_UserInfo" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_ROLE" name="BasicHttpBinding_ISMS_ROLE" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_UserAccount" name="BasicHttpBinding_ISMS_UserAccount" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_SendMessage" name="BasicHttpBinding_ISMS_SendMessage" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Template" name="BasicHttpBinding_ISMS_Template" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_IntegralChange" name="BasicHttpBinding_ISMS_IntegralChange" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_339" name="BasicHttpBinding_ISMS_339" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Setmeal" name="BasicHttpBinding_ISMS_Setmeal" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Integral" name="BasicHttpBinding_ISMS_Integral" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_FixedTimeSend" name="BasicHttpBinding_ISMS_FixedTimeSend" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_UserAllot" name="BasicHttpBinding_ISMS_UserAllot" />
-      <endpoint address="http://10.10.0.93:8080/New/services/SMS/SMTSMSService.svc"
+      <endpoint address="http://10.10.0.95/New/services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_SystemsConfig" name="BasicHttpBinding_ISMS_SystemsConfig" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IFlowDefine" name="BasicHttpBinding_IFlowDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.ICuostomFlowsDefine" name="BasicHttpBinding_ICuostomFlowsDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IFlowEvent" name="BasicHttpBinding_IFlowEvent" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IFlowCategory" name="BasicHttpBinding_IFlowCategory" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IEngine" name="BasicHttpBinding_IEngine" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IFlowXmlDefine" name="BasicHttpBinding_IFlowXmlDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IFlowTrigger" name="BasicHttpBinding_IFlowTrigger" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.ITriggerDefine" name="BasicHttpBinding_ITriggerDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IFlow_ModelDefine" name="BasicHttpBinding_IFlow_ModelDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/Services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IMessageBodyDefine" name="BasicHttpBinding_IMessageBodyDefine" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/Services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IDoTaskRule" name="BasicHttpBinding_IDoTaskRule" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/Services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.ITimingTrigger" name="BasicHttpBinding_ITimingTrigger" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc"
+      <endpoint address="http://10.10.0.95/New/Services/WFServices/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="PlatformService.IDefaultMessage" name="BasicHttpBinding_IDefaultMessage" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/hr/UserLoginService.svc"
+      <endpoint address="http://10.10.0.95/New/Services/hr/UserLoginService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_UserLoginService"
         contract="UserLoginWS.UserLoginService" name="CustomBinding_UserLoginService" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/OA/SmtOACommonAdmin.svc"
+      <endpoint address="http://10.10.0.95/New/Services/OA/SmtOACommonAdmin.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonAdmin"
         contract="OACommonAdminWS.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/HR/EmployeeInfoService.svc"
+      <endpoint address="http://10.10.0.95/New/Services/HR/EmployeeInfoService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_EmployeeInfoService"
         contract="EmployeeInfoWS.EmployeeInfoService" name="CustomBinding_EmployeeInfoService" />
-      <endpoint address="http://10.10.0.93:8080/new/Services/FileUploadService/FileUpLoad.svc"
+      <endpoint address="http://10.10.0.95/new/Services/FileUploadService/FileUpLoad.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
         contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
-      <endpoint address="http://10.10.0.93:8080/new/Services/FileUploadService/FileUpLoad.svc"
+      <endpoint address="http://10.10.0.95/new/Services/FileUploadService/FileUpLoad.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IUploadService1"
         contract="UploadService.IUploadService" name="CustomBinding_IUploadService1" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/System/MainUIServices.svc"
+      <endpoint address="http://10.10.0.95/New/Services/System/MainUIServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_MainUIServices"
         contract="MainUIWS.MainUIServices" name="CustomBinding_MainUIServices" />
     </client>

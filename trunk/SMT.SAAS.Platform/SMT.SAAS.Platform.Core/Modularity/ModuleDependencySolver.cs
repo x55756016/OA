@@ -91,23 +91,29 @@ namespace SMT.SAAS.Platform.Core.Modularity
         public string[] Solve()
         {
             List<string> skip = new List<string>();
-            while (skip.Count < dependencyMatrix.Count)
+            try
             {
-                List<string> leaves = this.FindLeaves(skip);
-                if (leaves.Count == 0 && skip.Count < dependencyMatrix.Count)
+                while (skip.Count < dependencyMatrix.Count)
                 {
-                    throw new CyclicDependencyFoundException(Resources.CyclicDependencyFound);
+                    List<string> leaves = this.FindLeaves(skip);
+                    if (leaves.Count == 0 && skip.Count < dependencyMatrix.Count)
+                    {
+                        throw new CyclicDependencyFoundException(Resources.CyclicDependencyFound);
+                    }
+                    skip.AddRange(leaves);
                 }
-                skip.AddRange(leaves);
-            }
-            skip.Reverse();
+                skip.Reverse();
 
-            if (skip.Count > knownModules.Count)
+                if (skip.Count > knownModules.Count)
+                {
+                    string moduleNames = this.FindMissingModules(skip);
+                    throw new ModularityException(moduleNames, String.Format(CultureInfo.CurrentCulture,
+                                                                Resources.DependencyOnMissingModule,
+                                                                moduleNames));
+                }
+            }
+            catch (Exception ex)
             {
-                string moduleNames = this.FindMissingModules(skip);
-                throw new ModularityException(moduleNames, String.Format(CultureInfo.CurrentCulture,
-                                                            Resources.DependencyOnMissingModule,
-                                                            moduleNames));
             }
 
             return skip.ToArray();

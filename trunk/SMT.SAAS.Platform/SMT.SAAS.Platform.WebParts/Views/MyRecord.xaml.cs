@@ -470,7 +470,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("开始调用业务系统打开单据方法,typeString:"
                     +typeString+"ProcessName:" + ProcessName
                         + "types:" + types);
-                    SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                    //SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                     method.Invoke(null, BindingFlags.Static | BindingFlags.InvokeMethod, null, new object[] { ApplicationOrder, PageParameter, FormType }, null);
 
                 }

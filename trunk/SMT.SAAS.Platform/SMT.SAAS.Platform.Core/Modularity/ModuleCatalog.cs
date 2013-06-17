@@ -447,6 +447,11 @@ namespace SMT.SAAS.Platform.Core.Modularity
             var moduleNames = modules.Select(m => m.ModuleName).ToList();
             foreach (ModuleInfo moduleInfo in modules)
             {
+                if (moduleInfo.ModuleType != null &&
+                    moduleInfo.ModuleType.ToLower().Contains("mvc"))
+                {
+                    continue;
+                }
                 if (moduleInfo.DependsOn != null && moduleInfo.DependsOn.Except(moduleNames).Any())
                 {
                     throw new ModularityException(

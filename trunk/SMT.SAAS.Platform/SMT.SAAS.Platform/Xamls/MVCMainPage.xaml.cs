@@ -189,6 +189,7 @@ namespace SMT.SAAS.Platform.Xamls
 
                 WorkHost.Navigation(workitem, titel);
                 Common.AppContext.IsMenuOpen = _fromMenu;
+                loading.Stop();
             }
             catch (Exception ex)
             {
@@ -574,6 +575,7 @@ namespace SMT.SAAS.Platform.Xamls
                 AppContext.ShowSystemMessageText();
                 MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);
             }
+            loading.Stop();
         }
         #endregion
 
@@ -651,6 +653,7 @@ namespace SMT.SAAS.Platform.Xamls
                 + "strOptType:" + strOptType
                    + "strMessageid:" + strMessageid
                       + "strConfig:" + strConfig);
+            loading.Start();
             //AppContext.ShowSystemMessageText();
             if (string.IsNullOrWhiteSpace(strOptType))
             {
@@ -714,6 +717,7 @@ namespace SMT.SAAS.Platform.Xamls
                 ViewModel.Context.MainPanel.Navigation(pendingTaskView, "待办任务");
 
             }
+            loading.Stop();
         }
 
         /// <summary>
@@ -745,6 +749,7 @@ namespace SMT.SAAS.Platform.Xamls
                 ViewModel.Context.MainPanel.Navigation(pendingTaskView, "我的单据");
 
             }
+            loading.Stop();
         }
 
         /// <summary>

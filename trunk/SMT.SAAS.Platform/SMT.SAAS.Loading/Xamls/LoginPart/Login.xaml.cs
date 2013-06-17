@@ -213,7 +213,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             {
                 SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("MvcOpenRecordSource:" + q);
             }
-            SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+            //SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
             if (IosManager.CheckeSpace())
             {
                 CheckLoginUser();
