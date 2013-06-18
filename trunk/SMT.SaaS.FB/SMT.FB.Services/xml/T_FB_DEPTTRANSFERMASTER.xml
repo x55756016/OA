@@ -24,7 +24,7 @@
     <ApplicationOrder>{DEPTTRANSFERMASTERID}</ApplicationOrder>
     <FormTypes>Audit</FormTypes>
   </MsgOpen> 
-  <Object Name="T_FB_DEPTTRANSFERMASTER" Description="月度预算调拨申请" Key="DEPTTRANSFERMASTERID" id="">    
+  <Object Name="T_FB_DEPTTRANSFERMASTER" Description="部门预算分配申请" Key="DEPTTRANSFERMASTERID" id="">    
     <Attribute Name="OrderTypeName" LableResourceID="OrderTypeName" Description="单据类型" DataType="string" DataValue="部门预算分配申请"  DataText="部门预算分配申请"/>
     <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提单人" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
