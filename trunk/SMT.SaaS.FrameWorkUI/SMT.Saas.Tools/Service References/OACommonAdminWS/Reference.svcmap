@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="be5aa6cc-3ef4-4fd6-87f5-917b555b87f1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SmtOACommonAdmin.disco" MetadataType="Disco" ID="8cc89def-35e8-496a-afdd-7786750b17de" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?disco" />
+    <MetadataFile FileName="SmtOACommonAdmin.xsd" MetadataType="Schema" ID="f7d20c25-a0ee-48bc-ac20-13c509f73c86" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd2" />
+    <MetadataFile FileName="SmtOACommonAdmin.wsdl" MetadataType="Wsdl" ID="cfffc758-a0cb-46b9-8d25-b6e2d6507571" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?wsdl" />
+    <MetadataFile FileName="SmtOACommonAdmin1.xsd" MetadataType="Schema" ID="3fa509ae-a12e-42dc-a0ab-6b33ef9dc4d2" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd6" />
+    <MetadataFile FileName="SmtOACommonAdmin2.xsd" MetadataType="Schema" ID="a6b4a8fd-c4e3-416d-adbe-550bca49ea7e" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd1" />
+    <MetadataFile FileName="SmtOACommonAdmin3.xsd" MetadataType="Schema" ID="cc9082e8-b523-4716-83d2-c38554b8e116" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd8" />
+    <MetadataFile FileName="SmtOACommonAdmin4.xsd" MetadataType="Schema" ID="4a22affd-cb3f-4b44-bfec-8f3d0f9c9c06" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd3" />
+    <MetadataFile FileName="SmtOACommonAdmin5.xsd" MetadataType="Schema" ID="6c37449e-e60c-483b-ab54-8883a2f66d49" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd5" />
+    <MetadataFile FileName="SmtOACommonAdmin6.xsd" MetadataType="Schema" ID="e7f48620-8427-4c4b-b17d-21e8dd7436ba" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd4" />
+    <MetadataFile FileName="SmtOACommonAdmin1.wsdl" MetadataType="Wsdl" ID="a2af3a81-56e0-4f77-a063-f8f2677072ff" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SmtOACommonAdmin7.xsd" MetadataType="Schema" ID="df97cea3-c2a9-4dda-8138-a47bd8502cf7" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd7" />
+    <MetadataFile FileName="SmtOACommonAdmin8.xsd" MetadataType="Schema" ID="84640d57-e3b5-466e-b891-d4af962dcb31" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

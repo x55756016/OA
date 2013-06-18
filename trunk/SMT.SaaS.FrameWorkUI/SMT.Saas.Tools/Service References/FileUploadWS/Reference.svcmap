@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="12324b43-ba39-430f-8404-0fc93c4f3984" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FileUploadManager.disco" MetadataType="Disco" ID="8946ddde-1cef-4db5-83af-16255a444532" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?disco" />
+    <MetadataFile FileName="FileUploadManager.wsdl" MetadataType="Wsdl" ID="8f7c88e0-e342-4498-8b52-86a977310dd5" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?wsdl" />
+    <MetadataFile FileName="FileUploadManager.xsd" MetadataType="Schema" ID="16067e26-e21f-4777-8f47-d2e402008bb8" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="FileUploadManager1.wsdl" MetadataType="Wsdl" ID="6079be6e-d85c-4de3-9766-a553be5f8f83" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="FileUploadManager1.xsd" MetadataType="Schema" ID="5df30ce4-10c0-4e6a-b6bd-72a91bfee4d5" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="FileUploadManager2.xsd" MetadataType="Schema" ID="2a94d3bf-070b-4ff2-aee9-7a3927b06c84" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="FileUploadManager3.xsd" MetadataType="Schema" ID="071ae8bf-0d33-4cd2-bbea-62e46f5b65b4" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="FileUploadManager4.xsd" MetadataType="Schema" ID="741304bd-1708-42e3-9f08-04c82e6b1b2f" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd5" />
+    <MetadataFile FileName="FileUploadManager5.xsd" MetadataType="Schema" ID="57c01418-f31e-495d-919e-7886fa02fe1a" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

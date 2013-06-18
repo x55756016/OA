@@ -117,9 +117,6 @@
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.FrameworkUI">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SaaS.FrameworkUI.RichNotepad">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.RichNotepad.dll</HintPath>
     </Reference>
@@ -3130,6 +3127,10 @@
     <WCFMetadataStorage Include="Service References\TravelExpApplyMaster\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
+      <Project>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</Project>
+      <Name>SMT.SAAS.FrameworkUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
       <Project>{4B5991D6-D3C6-4BCF-B788-95AFC5323523}</Project>
       <Name>SMT.SAAS.Main.CurrentContext</Name>

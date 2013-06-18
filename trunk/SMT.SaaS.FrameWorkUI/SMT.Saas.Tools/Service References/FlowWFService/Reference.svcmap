@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9602e803-4f35-4382-b0cd-57d16234c4e1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SMT9.xsd" MetadataType="Schema" ID="8747e4f8-8262-4264-a778-06116fce302c" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="SMT2.disco" MetadataType="Disco" ID="904c32dc-73ac-4014-b086-52040bbecc27" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?disco" />
+    <MetadataFile FileName="SMT10.xsd" MetadataType="Schema" ID="3a51908c-e1af-449e-9b08-bb8b489ec5d3" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd8" />
+    <MetadataFile FileName="SMT11.xsd" MetadataType="Schema" ID="86f98534-f12c-4080-8836-288fb556be48" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd6" />
+    <MetadataFile FileName="SMT12.xsd" MetadataType="Schema" ID="5ad97d6d-359c-42db-b5d1-7723b28aafcd" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="SMT13.xsd" MetadataType="Schema" ID="8c94fc6a-bfb9-4953-9182-62bdb2105207" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service2.wsdl" MetadataType="Wsdl" ID="8090d6fa-48ad-46eb-bce6-b38bc02c4b25" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?wsdl" />
+    <MetadataFile FileName="SMT14.xsd" MetadataType="Schema" ID="a770304b-f3d7-4042-b50f-35c19b62793b" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd7" />
+    <MetadataFile FileName="SMT15.xsd" MetadataType="Schema" ID="4fd14cc5-42b3-4d0e-b3c2-b8b4acd2ea08" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="SMT16.xsd" MetadataType="Schema" ID="3c4a273e-3868-417f-85e8-4aeea65f7bfb" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="SMT17.xsd" MetadataType="Schema" ID="4affc5c1-c789-4737-afe1-85f11bcdc223" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

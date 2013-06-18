@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.FrameworkUI", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.Main.CurrentContext", "..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj", "{4B5991D6-D3C6-4BCF-B788-95AFC5323523}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.Saas.Tools", "..\SMT.SaaS.FrameWorkUI\SMT.Saas.Tools\SMT.Saas.Tools.csproj", "{9484C541-B0A2-437A-8C6F-0BFD7E13934E}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = SMT.SaaS.OA.vsmdi
@@ -77,6 +79,10 @@ Global
 		{4B5991D6-D3C6-4BCF-B788-95AFC5323523}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B5991D6-D3C6-4BCF-B788-95AFC5323523}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B5991D6-D3C6-4BCF-B788-95AFC5323523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +93,7 @@ Global
 		{6673751A-D03D-4D7A-ACF3-F363469B73AE} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
 		{9A42135A-11F2-4210-A41B-3AC06AC0D835} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
 		{4B5991D6-D3C6-4BCF-B788-95AFC5323523} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E} = {F998EBE3-7DAC-420B-8811-02AA650FA12C}
 	EndGlobalSection
 	GlobalSection(PowerDesigner) = preSolution
 		HasSWS = 1

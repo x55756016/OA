@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PublicService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/PublicInterface/PublicService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/PublicInterface/PublicService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/PublicInterface/PublicService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.PublicInterface.BLL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPublicService_GetBusinessObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBusinessObject" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_GetBusinessObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBusinessObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_GetContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContent" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_GetContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_DeleteContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContent" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_DeleteContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_UpdateContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContent" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_UpdateContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_AddContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddContent" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_AddContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_IsExits_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExits" />
+  </wsdl:message>
+  <wsdl:message name="IPublicService_IsExits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExitsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPublicService">
+    <wsdl:operation name="GetBusinessObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicService/GetBusinessObject" message="tns:IPublicService_GetBusinessObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicService/GetBusinessObjectResponse" message="tns:IPublicService_GetBusinessObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicService/GetContent" message="tns:IPublicService_GetContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicService/GetContentResponse" message="tns:IPublicService_GetContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicService/DeleteContent" message="tns:IPublicService_DeleteContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicService/DeleteContentResponse" message="tns:IPublicService_DeleteContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicService/UpdateContent" message="tns:IPublicService_UpdateContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicService/UpdateContentResponse" message="tns:IPublicService_UpdateContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicService/AddContent" message="tns:IPublicService_AddContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicService/AddContentResponse" message="tns:IPublicService_AddContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicService/IsExits" message="tns:IPublicService_IsExits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicService/IsExitsResponse" message="tns:IPublicService_IsExits_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPublicService" type="tns:IPublicService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBusinessObject">
+      <soap:operation soapAction="http://tempuri.org/IPublicService/GetBusinessObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContent">
+      <soap:operation soapAction="http://tempuri.org/IPublicService/GetContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContent">
+      <soap:operation soapAction="http://tempuri.org/IPublicService/DeleteContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContent">
+      <soap:operation soapAction="http://tempuri.org/IPublicService/UpdateContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContent">
+      <soap:operation soapAction="http://tempuri.org/IPublicService/AddContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExits">
+      <soap:operation soapAction="http://tempuri.org/IPublicService/IsExits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PublicService">
+    <wsdl:port name="BasicHttpBinding_IPublicService" binding="tns:BasicHttpBinding_IPublicService">
+      <soap:address location="http://portal.smt-online.net/New/Services/PublicInterface/PublicService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -69,7 +69,6 @@ namespace SMT.SaaS.FrameworkUI
 
         public EntityBrowser(object editor)
         {
-
             BtnSaveSubmit.Click += new RoutedEventHandler(btnSubmit_Click);
             HrCommws = new Saas.Tools.HrCommonServiceWS.HrCommonServiceClient();
             Orgws = new Saas.Tools.OrganizationWS.OrganizationServiceClient();
@@ -128,6 +127,9 @@ namespace SMT.SaaS.FrameworkUI
             //{
             //    toolBar1.ButtonHelp.Click += new RoutedEventHandler(ButtonHelp_Click);
             //}
+
+            SVShowContent.Width = ParentWindow.ActualWidth;
+            SVShowContent.Height = ParentWindow.ActualHeight - toolBar1.ActualHeight - AuditCtrl.ActualHeight; 
         }
         /// <summary>
         /// xiedx

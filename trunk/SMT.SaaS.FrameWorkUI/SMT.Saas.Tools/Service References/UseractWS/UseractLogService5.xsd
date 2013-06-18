@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1604/UseractLogService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="T_SYS_USERACTLOG">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CLIENTBROWSER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLIENTHOSTADDRESS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLIENTNETRUNTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLIENTOS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLIENTOSLANGUAGE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENTITYMENU" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGCONTEXT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SERVERNETRUNTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SERVEROS" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_SYS_USERACTLOG" nillable="true" type="tns:T_SYS_USERACTLOG" />
+  <xs:complexType name="ArrayOfT_SYS_USERACTLOG">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_USERACTLOG" nillable="true" type="tns:T_SYS_USERACTLOG" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_SYS_USERACTLOG" nillable="true" type="tns:ArrayOfT_SYS_USERACTLOG" />
+</xs:schema>

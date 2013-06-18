@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+  <xs:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="EntityObject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:StructuralObject">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q1:EntityKey" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityObject" nillable="true" type="tns:EntityObject" />
+  <xs:complexType name="StructuralObject">
+    <xs:sequence />
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="StructuralObject" nillable="true" type="tns:StructuralObject" />
+  <xs:complexType name="EntityReferenceOfT_FB_BORROWAPPLYMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_BORROWAPPLYMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_BORROWAPPLYMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_BORROWAPPLYMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReference">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RelatedEnd">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q2:EntityKey" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReference" nillable="true" type="tns:EntityReference" />
+  <xs:complexType name="RelatedEnd">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="RelatedEnd" nillable="true" type="tns:RelatedEnd" />
+  <xs:complexType name="EntityReferenceOfT_FB_BORROWAPPLYDETAILZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_BORROWAPPLYDETAIL" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_BORROWAPPLYDETAILZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_BORROWAPPLYDETAILZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_CHARGEAPPLYMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_CHARGEAPPLYMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_CHARGEAPPLYMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_CHARGEAPPLYMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_SUBJECTZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_SUBJECT" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_COMPANYBUDGETAPPLYMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_COMPANYBUDGETAPPLYMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_COMPANYBUDGETAPPLYMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_COMPANYBUDGETAPPLYMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_COMPANYBUDGETSUMMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_COMPANYBUDGETSUMMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_COMPANYBUDGETSUMMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_COMPANYBUDGETSUMMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_COMPANYBUDGETMODMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_COMPANYBUDGETMODMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_COMPANYBUDGETMODMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_COMPANYBUDGETMODMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_COMPANYTRANSFERMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_COMPANYTRANSFERMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_COMPANYTRANSFERMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_COMPANYTRANSFERMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_DEPTBUDGETADDMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_DEPTBUDGETADDMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_DEPTBUDGETADDMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_DEPTBUDGETADDMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_DEPTBUDGETADDDETAILZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_DEPTBUDGETADDDETAIL" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_DEPTBUDGETADDDETAILZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_DEPTBUDGETADDDETAILZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_DEPTBUDGETAPPLYMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_DEPTBUDGETAPPLYMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_DEPTBUDGETAPPLYMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_DEPTBUDGETAPPLYMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_DEPTBUDGETSUMMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_DEPTBUDGETSUMMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_DEPTBUDGETSUMMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_DEPTBUDGETSUMMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_DEPTBUDGETAPPLYDETAILZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_DEPTBUDGETAPPLYDETAIL" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_DEPTBUDGETAPPLYDETAILZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_DEPTBUDGETAPPLYDETAILZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_DEPTTRANSFERMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_DEPTTRANSFERMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_DEPTTRANSFERMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_DEPTTRANSFERMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_DEPTTRANSFERDETAILZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_DEPTTRANSFERDETAIL" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_DEPTTRANSFERDETAILZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_DEPTTRANSFERDETAILZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_EXTENSIONALTYPEZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_EXTENSIONALTYPE" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_EXTENSIONALTYPEZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_EXTENSIONALTYPEZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_EXTENSIONALORDER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_REPAYAPPLYMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_REPAYAPPLYMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_REPAYAPPLYMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_REPAYAPPLYMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_TRAVELEXPAPPLYMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_TRAVELEXPAPPLYMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_TRAVELEXPAPPLYMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_TRAVELEXPAPPLYMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_PERSONMONEYASSIGNMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_PERSONMONEYASSIGNMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_PERSONMONEYASSIGNMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_PERSONMONEYASSIGNMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_SUBJECTCOMPANYZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_SUBJECTCOMPANY" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_SUBJECTCOMPANYZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_SUBJECTCOMPANYZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_SUBJECTDEPTMENTZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_SUBJECTDEPTMENT" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_SUBJECTDEPTMENTZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_SUBJECTDEPTMENTZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_SUBJECTTYPEZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_SUBJECTTYPE" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_SUBJECTTYPEZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_SUBJECTTYPEZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_FB_SUMSETTINGSMASTERZ5CrhPbu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_FB_SUMSETTINGSMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_FB_SUMSETTINGSMASTERZ5CrhPbu" nillable="true" type="tns:EntityReferenceOfT_FB_SUMSETTINGSMASTERZ5CrhPbu" />
+  <xs:complexType name="EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_SYS_ENTITYMENU" Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv" nillable="true" type="tns:EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv" />
+  <xs:complexType name="EntityReferenceOfT_SYS_PERMISSIONCIR1sILv">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_SYS_PERMISSION" Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_SYS_PERMISSIONCIR1sILv" nillable="true" type="tns:EntityReferenceOfT_SYS_PERMISSIONCIR1sILv" />
+  <xs:complexType name="EntityReferenceOfT_SYS_ROLECIR1sILv">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_SYS_ROLE" Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_SYS_ROLECIR1sILv" nillable="true" type="tns:EntityReferenceOfT_SYS_ROLECIR1sILv" />
+  <xs:complexType name="EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_SYS_ROLEENTITYMENU" Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv" nillable="true" type="tns:EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv" />
+  <xs:complexType name="EntityReferenceOfT_SYS_USERCIR1sILv">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_SYS_USER" Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_SYS_USERCIR1sILv" nillable="true" type="tns:EntityReferenceOfT_SYS_USERCIR1sILv" />
+  <xs:complexType name="EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_ASSESSMENTFORMMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_CHECKPOINTSET" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_CHECKPROJECTSET" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_EMPLOYEELmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_EMPLOYEE" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_EMPLOYEEPOST" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_LEFTOFFICE" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_COMPANYLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_COMPANY" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_COMPANYLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_COMPANYLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_DEPARTMENTDICTIONARY" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_POSTDICTIONARY" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_DEPARTMENT" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_POSTLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_POST" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_POSTLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_POSTLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_PENSIONMASTER" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_RESUMELmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_RESUME" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_RESUMELmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_RESUMELmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_EMPLOYEECHECK" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo" />
+  <xs:complexType name="EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="T_HR_EMPLOYEEPOSTCHANGE" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityReference">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo" nillable="true" type="tns:EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo" />
+</xs:schema>

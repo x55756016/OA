@@ -9,15 +9,15 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_AddConsultation_InputMessage">
@@ -104,6 +104,30 @@
   <wsdl:message name="IService_GetFlowBranch_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetFlowBranchResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_IsFreeFlowAndIsCancel_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsFreeFlowAndIsCancel" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsFreeFlowAndIsCancel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsFreeFlowAndIsCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetModelFlowRelationInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelFlowRelationInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetModelFlowRelationInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelFlowRelationInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMetadataByFormid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetadataByFormid" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMetadataByFormid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetadataByFormidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateMetadataByFormid_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMetadataByFormid" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateMetadataByFormid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMetadataByFormidResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="AddConsultation">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddConsultation" message="tns:IService_AddConsultation_InputMessage" />
@@ -160,6 +184,22 @@
     <wsdl:operation name="GetFlowBranch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetFlowBranch" message="tns:IService_GetFlowBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetFlowBranchResponse" message="tns:IService_GetFlowBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFreeFlowAndIsCancel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/IsFreeFlowAndIsCancel" message="tns:IService_IsFreeFlowAndIsCancel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/IsFreeFlowAndIsCancelResponse" message="tns:IService_IsFreeFlowAndIsCancel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelFlowRelationInfosListBySearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetModelFlowRelationInfosListBySearch" message="tns:IService_GetModelFlowRelationInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetModelFlowRelationInfosListBySearchResponse" message="tns:IService_GetModelFlowRelationInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetadataByFormid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetMetadataByFormid" message="tns:IService_GetMetadataByFormid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetMetadataByFormidResponse" message="tns:IService_GetMetadataByFormid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMetadataByFormid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateMetadataByFormid" message="tns:IService_UpdateMetadataByFormid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateMetadataByFormidResponse" message="tns:IService_UpdateMetadataByFormid_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IService" type="tns:IService">
@@ -291,12 +331,48 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IsFreeFlowAndIsCancel">
+      <soap12:operation soapAction="http://tempuri.org/IService/IsFreeFlowAndIsCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelFlowRelationInfosListBySearch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetModelFlowRelationInfosListBySearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetadataByFormid">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetMetadataByFormid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMetadataByFormid">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateMetadataByFormid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="WSHttpBinding_IService" binding="tns:WSHttpBinding_IService">
-      <soap12:address location="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc" />
+      <soap12:address location="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc</wsa10:Address>
+        <wsa10:Address>http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>

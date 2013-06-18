@@ -1,0 +1,169 @@
+﻿<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBinding_PersonnelService" receiveTimeout="00:10:00"
+          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_SalaryService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FileUploadManager" closeTimeout="00:01:00"
+          openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647"
+          textEncoding="utf-8">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FBService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_AttendanceService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPersonalRecordService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FileUploadManager1" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+      <customBinding>
+        <binding name="CustomBinding_OrganizationService">
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_Service">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IService">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_UseractLogService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PerformanceService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PermissionService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_FileUploadManager">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PermissionService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_OrganizationService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_HrCommonService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_DailyManagementServices">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_TravrlPrintServices">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOACommonAdmin">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IUploadService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IEngineWcfGlobalFunction">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+      </customBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/System/FileUploadManager.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
+        contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
+      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/System/UseractLogService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_UseractLogService"
+        contract="UseractWS.UseractLogService" name="CustomBinding_UseractLogService" />
+      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/AttendanceService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
+        contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
+      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/PerformanceService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
+        contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
+      <endpoint address="http://localhost:12168/HrCommonService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
+        contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
+      <endpoint address="http://localhost:3938/TravrlPrintServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_TravrlPrintServices"
+        contract="TravelPrintWS.TravrlPrintServices" name="CustomBinding_TravrlPrintServices" />
+      <endpoint address="http://localhost:12168/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService1"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService1" />
+      <endpoint address="http://localhost:23938/FBService.svc" binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_FBService" contract="FBServiceWS.FBService"
+        name="BasicHttpBinding_FBService" />
+      <endpoint address="http://portal.smt-online.net/New/Services/SMTFlowDesigner/Service.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_Service"
+        contract="FlowDesignerWS.Service" name="CustomBinding_Service" />
+      <endpoint address="http://portal.smt-online.net/New/Services/PublicInterface/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+      <endpoint address="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
+        contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
+      <endpoint address="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
+        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+      <endpoint address="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonAdmin"
+        contract="OACommonAdminWS.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />
+      <endpoint address="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager1"
+        contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager1" />
+      <endpoint address="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
+        contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
+      <endpoint address="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_DailyManagementServices"
+        contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
+      <endpoint address="http://172.16.1.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
+        contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
+      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/SalaryService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
+        contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
+      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/PersonnelService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+        contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+      <endpoint address="http://localhost:1604/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+    </client>
+
+  </system.serviceModel>
+</configuration>

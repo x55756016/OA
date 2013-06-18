@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.FlowDesigner.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.FlowDesigner.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT.FlowDesigner.Service.FlowCondition" />
+  <xs:complexType name="ArrayOfWFBOSystem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WFBOSystem" nillable="true" type="tns:WFBOSystem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWFBOSystem" nillable="true" type="tns:ArrayOfWFBOSystem" />
+  <xs:complexType name="WFBOSystem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectFolder" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="WFBOSystem" nillable="true" type="tns:WFBOSystem" />
+  <xs:complexType name="ArrayOfWFBOObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WFBOObject" nillable="true" type="tns:WFBOObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWFBOObject" nillable="true" type="tns:ArrayOfWFBOObject" />
+  <xs:complexType name="WFBOObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="WFBOObject" nillable="true" type="tns:WFBOObject" />
+  <xs:complexType name="ArrayOfWFBOAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WFBOAttribute" nillable="true" type="tns:WFBOAttribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWFBOAttribute" nillable="true" type="tns:ArrayOfWFBOAttribute" />
+  <xs:complexType name="WFBOAttribute">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.FlowDesigner.Service.FlowCondition" minOccurs="0" name="AttributeConfig" nillable="true" type="q1:AttributeConfig" />
+      <xs:element minOccurs="0" name="DataType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="WFBOAttribute" nillable="true" type="tns:WFBOAttribute" />
+</xs:schema>

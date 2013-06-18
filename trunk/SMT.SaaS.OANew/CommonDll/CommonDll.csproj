@@ -124,7 +124,9 @@
     <Content Include="Document\oaEngine\T_OA_SATISFACTIONREQUIRE.xml" />
     <Content Include="Document\oaEngine\T_OA_SENDDOC.xml" />
     <Content Include="Document\oaEngine\T_OA_SENDDOCPUBLISH.xml" />
-    <Content Include="Document\oaEngine\T_OA_TRAVELREIMBURSEMENT.xml" />
+    <Content Include="Document\oaEngine\T_OA_TRAVELREIMBURSEMENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Document\oaEngine\T_OA_VEHICLEDISPATCH.xml" />
     <Content Include="Document\oaEngine\T_OA_VEHICLEDISPATCHRECORD.xml" />
     <Content Include="Document\oaEngine\T_OA_VEHICLEUSEAPP.xml" />

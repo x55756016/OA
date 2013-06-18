@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FileUploadManager_Get_ParentID_InputMessage">
+    <wsdl:part name="parameters" element="Get_ParentID" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Get_ParentID_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ParentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Add_InputMessage">
+    <wsdl:part name="parameters" element="Add" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Add_OutputMessage">
+    <wsdl:part name="parameters" element="AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Delete_InputMessage">
+    <wsdl:part name="parameters" element="Delete" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Del_InputMessage">
+    <wsdl:part name="parameters" element="Del" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Del_OutputMessage">
+    <wsdl:part name="parameters" element="DelResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_DelTB_InputMessage">
+    <wsdl:part name="parameters" element="DelTB" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_DelTB_OutputMessage">
+    <wsdl:part name="parameters" element="DelTBResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_DelTB_ParentID_InputMessage">
+    <wsdl:part name="parameters" element="DelTB_ParentID" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_DelTB_ParentID_OutputMessage">
+    <wsdl:part name="parameters" element="DelTB_ParentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Upd_InputMessage">
+    <wsdl:part name="parameters" element="Upd" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Upd_OutputMessage">
+    <wsdl:part name="parameters" element="UpdResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_FileUpLoad_InputMessage">
+    <wsdl:part name="parameters" element="FileUpLoad" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_FileUpLoad_OutputMessage">
+    <wsdl:part name="parameters" element="FileUpLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_AddFile_InputMessage">
+    <wsdl:part name="parameters" element="AddFile" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_AddFile_OutputMessage">
+    <wsdl:part name="parameters" element="AddFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_CancelUpload_InputMessage">
+    <wsdl:part name="parameters" element="CancelUpload" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_CancelUpload_OutputMessage">
+    <wsdl:part name="parameters" element="CancelUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_DeleteUploadedFile_InputMessage">
+    <wsdl:part name="parameters" element="DeleteUploadedFile" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_DeleteUploadedFile_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteUploadedFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Del_FileAndID_InputMessage">
+    <wsdl:part name="parameters" element="Del_FileAndID" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Del_FileAndID_OutputMessage">
+    <wsdl:part name="parameters" element="Del_FileAndIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_FinishedFileUpload_InputMessage">
+    <wsdl:part name="parameters" element="FinishedFileUpload" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_FinishedFileUpload_OutputMessage">
+    <wsdl:part name="parameters" element="FinishedFileUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Download_InputMessage">
+    <wsdl:part name="parameters" element="Download" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Download_OutputMessage">
+    <wsdl:part name="parameters" element="DownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Download_va_InputMessage">
+    <wsdl:part name="parameters" element="Download_va" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadManager_Download_va_OutputMessage">
+    <wsdl:part name="parameters" element="Download_vaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FileUploadManager">
+    <wsdl:operation name="Get_ParentID">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/Get_ParentID" message="FileUploadManager_Get_ParentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/Get_ParentIDResponse" message="FileUploadManager_Get_ParentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/Add" message="FileUploadManager_Add_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/AddResponse" message="FileUploadManager_Add_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/Delete" message="FileUploadManager_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/DeleteResponse" message="FileUploadManager_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Del">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/Del" message="FileUploadManager_Del_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/DelResponse" message="FileUploadManager_Del_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelTB">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/DelTB" message="FileUploadManager_DelTB_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/DelTBResponse" message="FileUploadManager_DelTB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelTB_ParentID">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/DelTB_ParentID" message="FileUploadManager_DelTB_ParentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/DelTB_ParentIDResponse" message="FileUploadManager_DelTB_ParentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Upd">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/Upd" message="FileUploadManager_Upd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/UpdResponse" message="FileUploadManager_Upd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FileUpLoad">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/FileUpLoad" message="FileUploadManager_FileUpLoad_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/FileUpLoadResponse" message="FileUploadManager_FileUpLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFile">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/AddFile" message="FileUploadManager_AddFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/AddFileResponse" message="FileUploadManager_AddFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelUpload">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/CancelUpload" message="FileUploadManager_CancelUpload_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/CancelUploadResponse" message="FileUploadManager_CancelUpload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUploadedFile">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/DeleteUploadedFile" message="FileUploadManager_DeleteUploadedFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/DeleteUploadedFileResponse" message="FileUploadManager_DeleteUploadedFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Del_FileAndID">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/Del_FileAndID" message="FileUploadManager_Del_FileAndID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/Del_FileAndIDResponse" message="FileUploadManager_Del_FileAndID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishedFileUpload">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/FinishedFileUpload" message="FileUploadManager_FinishedFileUpload_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/FinishedFileUploadResponse" message="FileUploadManager_FinishedFileUpload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/Download" message="FileUploadManager_Download_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/DownloadResponse" message="FileUploadManager_Download_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Download_va">
+      <wsdl:input wsaw:Action="urn:FileUploadManager/Download_va" message="FileUploadManager_Download_va_InputMessage" />
+      <wsdl:output wsaw:Action="urn:FileUploadManager/Download_vaResponse" message="FileUploadManager_Download_va_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

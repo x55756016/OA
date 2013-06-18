@@ -380,37 +380,40 @@
     <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_FLOWRECORDMASTER_T.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_MODELFLOWRELATION_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.TaskInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.T_WF_PERSONALRECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FlowWFService\SMT10.xsd">
+    <None Include="Service References\FlowWFService\SMT.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT11.xsd">
+    <None Include="Service References\FlowWFService\SMT1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT12.xsd">
+    <None Include="Service References\FlowWFService\SMT2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT13.xsd">
+    <None Include="Service References\FlowWFService\SMT3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT14.xsd">
+    <None Include="Service References\FlowWFService\SMT4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT15.xsd">
+    <None Include="Service References\FlowWFService\SMT5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT16.xsd">
+    <None Include="Service References\FlowWFService\SMT6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT7.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\FlowWFService\SMT8.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FlowWFService\SMT9.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\GSCommonWS\GSCommonServices.wsdl" />
@@ -1575,7 +1578,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\FlowWFService\SMT1.disco" />
     <None Include="Service References\EDMUpdateCheckStateWS\configuration91.svcinfo" />
     <None Include="Service References\EDMUpdateCheckStateWS\configuration.svcinfo" />
     <None Include="Service References\EDMUpdateCheckStateWS\Reference.svcmap">
@@ -1621,6 +1623,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\FlowWFService\SMT.disco" />
     <Content Include="Service References\PersonalRecordWS\PersonalRecordService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

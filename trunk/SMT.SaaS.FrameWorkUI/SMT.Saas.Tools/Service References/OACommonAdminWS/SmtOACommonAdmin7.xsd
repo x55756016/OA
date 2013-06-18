@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+  <xs:complexType name="ArrayOfV_HouseInfoTree">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_HouseInfoTree" nillable="true" type="tns:V_HouseInfoTree" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_HouseInfoTree" nillable="true" type="tns:ArrayOfV_HouseInfoTree" />
+  <xs:complexType name="V_HouseInfoTree">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FLOOR" type="xs:decimal" />
+      <xs:element minOccurs="0" name="HOUSENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPTOWN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_HouseInfoTree" nillable="true" type="tns:V_HouseInfoTree" />
+  <xs:complexType name="ArrayOfV_HouseHirer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_HouseHirer" nillable="true" type="tns:V_HouseHirer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_HouseHirer" nillable="true" type="tns:ArrayOfV_HouseHirer" />
+  <xs:complexType name="V_HouseHirer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="houseInfo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseInfoObj" nillable="true" type="q1:T_OA_HOUSEINFO" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseObj" nillable="true" type="q2:T_OA_HIREAPP" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_HouseHirer" nillable="true" type="tns:V_HouseHirer" />
+  <xs:complexType name="ArrayOfV_HouseHireApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_HouseHireApp" nillable="true" type="tns:V_HouseHireApp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_HouseHireApp" nillable="true" type="tns:ArrayOfV_HouseHireApp" />
+  <xs:complexType name="V_HouseHireApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseAppObj" nillable="true" type="q3:T_OA_HIREAPP" />
+      <xs:element minOccurs="0" name="houseInfo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseInfoObj" nillable="true" type="q4:T_OA_HOUSEINFO" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseListObj" nillable="true" type="q5:T_OA_HOUSELIST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_HouseHireApp" nillable="true" type="tns:V_HouseHireApp" />
+  <xs:complexType name="ArrayOfV_HouseHireList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_HouseHireList" nillable="true" type="tns:V_HouseHireList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_HouseHireList" nillable="true" type="tns:ArrayOfV_HouseHireList" />
+  <xs:complexType name="V_HouseHireList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="distrbuteObj" nillable="true" type="q6:T_OA_DISTRIBUTEUSER" />
+      <xs:element minOccurs="0" name="houseInfo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseInfoObj" nillable="true" type="q7:T_OA_HOUSEINFO" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseIssueObj" nillable="true" type="q8:T_OA_HOUSEINFOISSUANCE" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houselistObj" nillable="true" type="q9:T_OA_HOUSELIST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_HouseHireList" nillable="true" type="tns:V_HouseHireList" />
+  <xs:complexType name="ArrayOfV_HireRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_HireRecord" nillable="true" type="tns:V_HireRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_HireRecord" nillable="true" type="tns:ArrayOfV_HireRecord" />
+  <xs:complexType name="V_HireRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="HouseRecordObj" nillable="true" type="q10:T_OA_HIRERECORD" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseAppObj" nillable="true" type="q11:T_OA_HIREAPP" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseInfoObj" nillable="true" type="q12:T_OA_HOUSEINFO" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="houseListObj" nillable="true" type="q13:T_OA_HOUSELIST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_HireRecord" nillable="true" type="tns:V_HireRecord" />
+</xs:schema>

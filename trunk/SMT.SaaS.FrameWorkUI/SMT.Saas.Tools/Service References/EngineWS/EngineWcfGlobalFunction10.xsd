@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EngineDataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EngineDataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfT_FLOW_ENGINEMSGLIST">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FLOW_ENGINEMSGLIST" nillable="true" type="tns:T_FLOW_ENGINEMSGLIST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FLOW_ENGINEMSGLIST" nillable="true" type="tns:ArrayOfT_FLOW_ENGINEMSGLIST" />
+  <xs:complexType name="T_FLOW_ENGINEMSGLIST">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPFIELDVALUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPLICATIONCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPLICATIONURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPXML" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BEFOREPROCESSDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="COMPANYCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATETIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENGINECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWXML" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISALARM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAILSTATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGEBODY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGESTATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OPERATIONDATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OPERATIONTIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OPERATIONUSER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ORDERNODECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECEIVEDATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECEIVETIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECEIVEUSER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RTXSTATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SYSTEMNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TEMPFIELD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPDATETIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_FLOW_ENGINEMSGLIST" nillable="true" type="tns:T_FLOW_ENGINEMSGLIST" />
+</xs:schema>

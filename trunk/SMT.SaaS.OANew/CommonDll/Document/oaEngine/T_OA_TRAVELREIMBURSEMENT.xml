@@ -59,8 +59,8 @@
     <Attribute Name="NOBUDGETCLAIMS" LableResourceID="NOBUDGETCLAIMS" Description="报销单号" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="TRAVLEAREAALLOWANCE" LableResourceID="TRAVLEAREAALLOWANCE" Description="报销标准" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="AttachMent" LableResourceID="AttachMent" Description="附件" DataType="attachmentlist" DataValue="" DataText="" />
-    <ObjectList Name="BUSINESSREPORTDETAILDetailList" LableResourceID="BUSINESSREPORTDETAILDetailList" Description="出差报告明细" DataText="">
-      <Object Name="T_OA_REIMBURSEMENTDETAIL" LableResourceID="REIMBURSEMENTDETAIL" Description="出差报告明细" Key="REIMBURSEMENTDETAILID" id="">
+    <ObjectList Name="BUSINESSREPORTDETAILDetailList" LableResourceID="BUSINESSREPORTDETAILDetailList" Description="行程明细" DataText="">
+      <Object Name="T_OA_REIMBURSEMENTDETAIL" LableResourceID="REIMBURSEMENTDETAIL" Description="行程明细" Key="REIMBURSEMENTDETAILID" id="">
         <Attribute Name="REIMBURSEMENTDETAILID" LableResourceID="REIMBURSEMENTDETAILID" Description="出差报销字表ID" DataType="string" DataValue="" DataText=""></Attribute>
         <Attribute Name="STARTDATE" LableResourceID="DEPARTURETIME" Description="出发时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
         <Attribute Name="ENDDATE" LableResourceID="KPIRECEIVEDATE" Description="到达时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
@@ -83,10 +83,10 @@
         <Attribute Name="COMPANYCAR" LableResourceID="COMPANYCAR" Description="公司派车" DataType="string" DataValue="" DataText=""></Attribute>
       </Object>      
     </ObjectList>
-    <ObjectList Name="EXTENSIONORDERDETAILList" LableResourceID="EXTENSIONORDERDETAILList" Description="出差报销明细" DataText="">
+    <ObjectList Name="EXTENSIONORDERDETAILList" LableResourceID="EXTENSIONORDERDETAILList" Description="报销明细" DataText="">
       <Attribute Name="FBREMARK" LableResourceID="FBREMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
       <Attribute Name="EXTENSIONTYPE" LableResourceID="EXTENSIONTYPE" Description="付款类型" DataType="string" DataValue="" DataText=""></Attribute>
-      <Object Name="T_FB_EXTENSIONORDERDETAIL" LableResourceID="EXTENSIONORDERDETAIL" Description="出差报销明细" Key="EXTENSIONORDERDETAILID" id="">
+      <Object Name="T_FB_EXTENSIONORDERDETAIL" LableResourceID="EXTENSIONORDERDETAIL" Description="报销明细" Key="EXTENSIONORDERDETAILID" id="">
         <Attribute Name="EXTENSIONORDERDETAILID" LableResourceID="EXTENSIONORDERDETAILID" Description="报销明细表ID" DataType="string" DataValue="" DataText=""></Attribute>
         <Attribute Name="CHARGETYPE" LableResourceID="CHARGETYPE" Description="报销类型" DataType="string" DataValue="" DataText=""></Attribute>
         <Attribute Name="SUBJECTCODE" LableResourceID="SUBJECTCODE" Description="科目编号" DataType="string" DataValue="" DataText=""></Attribute>

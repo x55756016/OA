@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="74829a75-6a11-430c-aa8d-2514f21cda41" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3938/TravrlPrintServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TravrlPrintServices.wsdl" MetadataType="Wsdl" ID="c213400b-17ba-446e-9e69-ccc509101746" SourceId="1" SourceUrl="http://localhost:3938/TravrlPrintServices.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="TravrlPrintServices.xsd" MetadataType="Schema" ID="480c9570-7eef-470a-9adc-d8edd8008a8f" SourceId="1" SourceUrl="http://localhost:3938/TravrlPrintServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="TravrlPrintServices1.wsdl" MetadataType="Wsdl" ID="10c58de9-3592-4ace-8ed5-ae05f7d6b3bc" SourceId="1" SourceUrl="http://localhost:3938/TravrlPrintServices.svc?wsdl" />
+    <MetadataFile FileName="TravrlPrintServices1.xsd" MetadataType="Schema" ID="c6859397-1d83-4992-8a55-548b2b63cd49" SourceId="1" SourceUrl="http://localhost:3938/TravrlPrintServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="TravrlPrintServices2.xsd" MetadataType="Schema" ID="e4fc7cda-f9c1-4f98-b86e-8a4faf551b61" SourceId="1" SourceUrl="http://localhost:3938/TravrlPrintServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="TravrlPrintServices3.xsd" MetadataType="Schema" ID="9a922098-20dc-428e-a08a-c3e4d085307c" SourceId="1" SourceUrl="http://localhost:3938/TravrlPrintServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="TravrlPrintServices.disco" MetadataType="Disco" ID="4c4eaf36-d53f-45e1-8941-59bacc328da3" SourceId="1" SourceUrl="http://localhost:3938/TravrlPrintServices.svc?disco" />
+    <MetadataFile FileName="TravrlPrintServices4.xsd" MetadataType="Schema" ID="0fc9b3c6-507f-49fc-a755-012f3fd55636" SourceId="1" SourceUrl="http://localhost:3938/TravrlPrintServices.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

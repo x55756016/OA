@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3938/TravrlPrintServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOfT_OA_REIMBURSEMENTDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_REIMBURSEMENTDETAIL" nillable="true" type="tns:T_OA_REIMBURSEMENTDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_OA_REIMBURSEMENTDETAIL" nillable="true" type="tns:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+  <xs:complexType name="T_OA_REIMBURSEMENTDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACCOMMODATION" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUSINESSDAYS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYCAR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GOOUTTOMEET" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MEALSUBSIDIES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OTHERCOSTS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PRIVATEAFFAIR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REIMBURSEMENTDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TAKETHETOOLLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THENUMBEROFNIGHTS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSPORTATIONSUBSIDIES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRANSPORTCOSTS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TYPEOFTRAVELTOOLS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:T_OA_TRAVELREIMBURSEMENT" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELREIMBURSEMENTReference" nillable="true" type="q1:EntityReferenceOfT_OA_TRAVELREIMBURSEMENTUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_REIMBURSEMENTDETAIL" nillable="true" type="tns:T_OA_REIMBURSEMENTDETAIL" />
+  <xs:complexType name="T_OA_TRAVELREIMBURSEMENT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLAIMSWERE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLAIMSWERENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPUTINGTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NOBUDGETCLAIMS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REIMBURSEMENTOFCOSTS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REIMBURSEMENTTIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="REMARKS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THETOTALCOST" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRAVELREIMBURSEMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIP" nillable="true" type="tns:T_OA_BUSINESSTRIP" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIPReference" nillable="true" type="q2:EntityReferenceOfT_OA_BUSINESSTRIPUlJdEHjk" />
+          <xs:element minOccurs="0" name="T_OA_REIMBURSEMENTDETAIL" nillable="true" type="tns:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:T_OA_TRAVELREIMBURSEMENT" />
+  <xs:complexType name="T_OA_BUSINESSTRIP">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUSINESSTRIPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHARGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ISAGENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARKS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIPDETAIL" nillable="true" type="tns:ArrayOfT_OA_BUSINESSTRIPDETAIL" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:ArrayOfT_OA_TRAVELREIMBURSEMENT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_BUSINESSTRIP" nillable="true" type="tns:T_OA_BUSINESSTRIP" />
+  <xs:complexType name="ArrayOfT_OA_BUSINESSTRIPDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_BUSINESSTRIPDETAIL" nillable="true" type="tns:T_OA_BUSINESSTRIPDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_OA_BUSINESSTRIPDETAIL" nillable="true" type="tns:ArrayOfT_OA_BUSINESSTRIPDETAIL" />
+  <xs:complexType name="T_OA_BUSINESSTRIPDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUSINESSDAYS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BUSINESSTRIPDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYCAR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GOOUTTOMEET" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PRIVATEAFFAIR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TAKETHETOOLLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEOFTRAVELTOOLS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIP" nillable="true" type="tns:T_OA_BUSINESSTRIP" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIPReference" nillable="true" type="q4:EntityReferenceOfT_OA_BUSINESSTRIPUlJdEHjk" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_BUSINESSTRIPDETAIL" nillable="true" type="tns:T_OA_BUSINESSTRIPDETAIL" />
+  <xs:complexType name="ArrayOfT_OA_TRAVELREIMBURSEMENT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:T_OA_TRAVELREIMBURSEMENT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:ArrayOfT_OA_TRAVELREIMBURSEMENT" />
+</xs:schema>

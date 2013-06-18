@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.FlowDesigner.ViewModel" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.FlowDesigner.Service" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.FlowDesigner.Service.FlowCondition" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Service_GetModuleDefinition_InputMessage">
+    <wsdl:part name="parameters" element="GetModuleDefinition" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModuleDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="GetModuleDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModuleDefinitionById_InputMessage">
+    <wsdl:part name="parameters" element="GetModuleDefinitionById" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModuleDefinitionById_OutputMessage">
+    <wsdl:part name="parameters" element="GetModuleDefinitionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_IsExistModuleDefinition_InputMessage">
+    <wsdl:part name="parameters" element="IsExistModuleDefinition" />
+  </wsdl:message>
+  <wsdl:message name="Service_IsExistModuleDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistModuleDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_UpdateModuleDefinition_InputMessage">
+    <wsdl:part name="parameters" element="UpdateModuleDefinition" />
+  </wsdl:message>
+  <wsdl:message name="Service_UpdateModuleDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateModuleDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_DeleteModuleDefinition_InputMessage">
+    <wsdl:part name="parameters" element="DeleteModuleDefinition" />
+  </wsdl:message>
+  <wsdl:message name="Service_DeleteModuleDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteModuleDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_ModuleDefinitionAdd_InputMessage">
+    <wsdl:part name="parameters" element="ModuleDefinitionAdd" />
+  </wsdl:message>
+  <wsdl:message name="Service_ModuleDefinitionAdd_OutputMessage">
+    <wsdl:part name="parameters" element="ModuleDefinitionAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelDefineInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetModelDefineInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelDefineInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetModelDefineInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelDefineInfosListByName_InputMessage">
+    <wsdl:part name="parameters" element="GetModelDefineInfosListByName" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelDefineInfosListByName_OutputMessage">
+    <wsdl:part name="parameters" element="GetModelDefineInfosListByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModuleRelation_InputMessage">
+    <wsdl:part name="parameters" element="GetModuleRelation" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModuleRelation_OutputMessage">
+    <wsdl:part name="parameters" element="GetModuleRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModuleRelationById_InputMessage">
+    <wsdl:part name="parameters" element="GetModuleRelationById" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModuleRelationById_OutputMessage">
+    <wsdl:part name="parameters" element="GetModuleRelationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_IsExistModuleRelation_InputMessage">
+    <wsdl:part name="parameters" element="IsExistModuleRelation" />
+  </wsdl:message>
+  <wsdl:message name="Service_IsExistModuleRelation_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistModuleRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_UpdateModuleRelation_InputMessage">
+    <wsdl:part name="parameters" element="UpdateModuleRelation" />
+  </wsdl:message>
+  <wsdl:message name="Service_UpdateModuleRelation_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateModuleRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_DeleteModuleRelation_InputMessage">
+    <wsdl:part name="parameters" element="DeleteModuleRelation" />
+  </wsdl:message>
+  <wsdl:message name="Service_DeleteModuleRelation_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteModuleRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_ModuleRelationAdd_InputMessage">
+    <wsdl:part name="parameters" element="ModuleRelationAdd" />
+  </wsdl:message>
+  <wsdl:message name="Service_ModuleRelationAdd_OutputMessage">
+    <wsdl:part name="parameters" element="ModuleRelationAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelFlowRelationInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetModelFlowRelationInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelFlowRelationInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetModelFlowRelationInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelFlowRelation_InputMessage">
+    <wsdl:part name="parameters" element="GetModelFlowRelation" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelFlowRelation_OutputMessage">
+    <wsdl:part name="parameters" element="GetModelFlowRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelFlowRelationByID_InputMessage">
+    <wsdl:part name="parameters" element="GetModelFlowRelationByID" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelFlowRelationByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetModelFlowRelationByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelNameInfosCombox_InputMessage">
+    <wsdl:part name="parameters" element="GetModelNameInfosCombox" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetModelNameInfosCombox_OutputMessage">
+    <wsdl:part name="parameters" element="GetModelNameInfosComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetFlowModelNameInfosCombox_InputMessage">
+    <wsdl:part name="parameters" element="GetFlowModelNameInfosCombox" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetFlowModelNameInfosCombox_OutputMessage">
+    <wsdl:part name="parameters" element="GetFlowModelNameInfosComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetFlowDefine_InputMessage">
+    <wsdl:part name="parameters" element="GetFlowDefine" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetFlowDefine_OutputMessage">
+    <wsdl:part name="parameters" element="GetFlowDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetFlowDefineV_InputMessage">
+    <wsdl:part name="parameters" element="GetFlowDefineV" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetFlowDefineV_OutputMessage">
+    <wsdl:part name="parameters" element="GetFlowDefineVResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetFlowDefineByFlowCode_InputMessage">
+    <wsdl:part name="parameters" element="GetFlowDefineByFlowCode" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetFlowDefineByFlowCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetFlowDefineByFlowCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetSingleFlowDefineByFlowCode_InputMessage">
+    <wsdl:part name="parameters" element="GetSingleFlowDefineByFlowCode" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetSingleFlowDefineByFlowCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetSingleFlowDefineByFlowCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_AddFlowDefine_InputMessage">
+    <wsdl:part name="parameters" element="AddFlowDefine" />
+  </wsdl:message>
+  <wsdl:message name="Service_AddFlowDefine_OutputMessage">
+    <wsdl:part name="parameters" element="AddFlowDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_UpdateFlowDefine_InputMessage">
+    <wsdl:part name="parameters" element="UpdateFlowDefine" />
+  </wsdl:message>
+  <wsdl:message name="Service_UpdateFlowDefine_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateFlowDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_DeleteFlowDefinition_InputMessage">
+    <wsdl:part name="parameters" element="DeleteFlowDefinition" />
+  </wsdl:message>
+  <wsdl:message name="Service_DeleteFlowDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteFlowDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetSystemList_InputMessage">
+    <wsdl:part name="parameters" element="GetSystemList" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetSystemList_OutputMessage">
+    <wsdl:part name="parameters" element="GetSystemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetSystemBOList_InputMessage">
+    <wsdl:part name="parameters" element="GetSystemBOList" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetSystemBOList_OutputMessage">
+    <wsdl:part name="parameters" element="GetSystemBOListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetSystemBOAttributeList_InputMessage">
+    <wsdl:part name="parameters" element="GetSystemBOAttributeList" />
+  </wsdl:message>
+  <wsdl:message name="Service_GetSystemBOAttributeList_OutputMessage">
+    <wsdl:part name="parameters" element="GetSystemBOAttributeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_getWFBOSystemByName_InputMessage">
+    <wsdl:part name="parameters" element="getWFBOSystemByName" />
+  </wsdl:message>
+  <wsdl:message name="Service_getWFBOSystemByName_OutputMessage">
+    <wsdl:part name="parameters" element="getWFBOSystemByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Service_getWFBOObjectByName_InputMessage">
+    <wsdl:part name="parameters" element="getWFBOObjectByName" />
+  </wsdl:message>
+  <wsdl:message name="Service_getWFBOObjectByName_OutputMessage">
+    <wsdl:part name="parameters" element="getWFBOObjectByNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service">
+    <wsdl:operation name="GetModuleDefinition">
+      <wsdl:input wsaw:Action="urn:Service/GetModuleDefinition" message="Service_GetModuleDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModuleDefinitionResponse" message="Service_GetModuleDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleDefinitionById">
+      <wsdl:input wsaw:Action="urn:Service/GetModuleDefinitionById" message="Service_GetModuleDefinitionById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModuleDefinitionByIdResponse" message="Service_GetModuleDefinitionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistModuleDefinition">
+      <wsdl:input wsaw:Action="urn:Service/IsExistModuleDefinition" message="Service_IsExistModuleDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/IsExistModuleDefinitionResponse" message="Service_IsExistModuleDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleDefinition">
+      <wsdl:input wsaw:Action="urn:Service/UpdateModuleDefinition" message="Service_UpdateModuleDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/UpdateModuleDefinitionResponse" message="Service_UpdateModuleDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModuleDefinition">
+      <wsdl:input wsaw:Action="urn:Service/DeleteModuleDefinition" message="Service_DeleteModuleDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/DeleteModuleDefinitionResponse" message="Service_DeleteModuleDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModuleDefinitionAdd">
+      <wsdl:input wsaw:Action="urn:Service/ModuleDefinitionAdd" message="Service_ModuleDefinitionAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/ModuleDefinitionAddResponse" message="Service_ModuleDefinitionAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelDefineInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:Service/GetModelDefineInfosListBySearch" message="Service_GetModelDefineInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModelDefineInfosListBySearchResponse" message="Service_GetModelDefineInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelDefineInfosListByName">
+      <wsdl:input wsaw:Action="urn:Service/GetModelDefineInfosListByName" message="Service_GetModelDefineInfosListByName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModelDefineInfosListByNameResponse" message="Service_GetModelDefineInfosListByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleRelation">
+      <wsdl:input wsaw:Action="urn:Service/GetModuleRelation" message="Service_GetModuleRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModuleRelationResponse" message="Service_GetModuleRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleRelationById">
+      <wsdl:input wsaw:Action="urn:Service/GetModuleRelationById" message="Service_GetModuleRelationById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModuleRelationByIdResponse" message="Service_GetModuleRelationById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistModuleRelation">
+      <wsdl:input wsaw:Action="urn:Service/IsExistModuleRelation" message="Service_IsExistModuleRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/IsExistModuleRelationResponse" message="Service_IsExistModuleRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleRelation">
+      <wsdl:input wsaw:Action="urn:Service/UpdateModuleRelation" message="Service_UpdateModuleRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/UpdateModuleRelationResponse" message="Service_UpdateModuleRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModuleRelation">
+      <wsdl:input wsaw:Action="urn:Service/DeleteModuleRelation" message="Service_DeleteModuleRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/DeleteModuleRelationResponse" message="Service_DeleteModuleRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModuleRelationAdd">
+      <wsdl:input wsaw:Action="urn:Service/ModuleRelationAdd" message="Service_ModuleRelationAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/ModuleRelationAddResponse" message="Service_ModuleRelationAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelFlowRelationInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:Service/GetModelFlowRelationInfosListBySearch" message="Service_GetModelFlowRelationInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModelFlowRelationInfosListBySearchResponse" message="Service_GetModelFlowRelationInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelFlowRelation">
+      <wsdl:input wsaw:Action="urn:Service/GetModelFlowRelation" message="Service_GetModelFlowRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModelFlowRelationResponse" message="Service_GetModelFlowRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelFlowRelationByID">
+      <wsdl:input wsaw:Action="urn:Service/GetModelFlowRelationByID" message="Service_GetModelFlowRelationByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModelFlowRelationByIDResponse" message="Service_GetModelFlowRelationByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelNameInfosCombox">
+      <wsdl:input wsaw:Action="urn:Service/GetModelNameInfosCombox" message="Service_GetModelNameInfosCombox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetModelNameInfosComboxResponse" message="Service_GetModelNameInfosCombox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowModelNameInfosCombox">
+      <wsdl:input wsaw:Action="urn:Service/GetFlowModelNameInfosCombox" message="Service_GetFlowModelNameInfosCombox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetFlowModelNameInfosComboxResponse" message="Service_GetFlowModelNameInfosCombox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDefine">
+      <wsdl:input wsaw:Action="urn:Service/GetFlowDefine" message="Service_GetFlowDefine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetFlowDefineResponse" message="Service_GetFlowDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDefineV">
+      <wsdl:input wsaw:Action="urn:Service/GetFlowDefineV" message="Service_GetFlowDefineV_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetFlowDefineVResponse" message="Service_GetFlowDefineV_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDefineByFlowCode">
+      <wsdl:input wsaw:Action="urn:Service/GetFlowDefineByFlowCode" message="Service_GetFlowDefineByFlowCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetFlowDefineByFlowCodeResponse" message="Service_GetFlowDefineByFlowCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleFlowDefineByFlowCode">
+      <wsdl:input wsaw:Action="urn:Service/GetSingleFlowDefineByFlowCode" message="Service_GetSingleFlowDefineByFlowCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetSingleFlowDefineByFlowCodeResponse" message="Service_GetSingleFlowDefineByFlowCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFlowDefine">
+      <wsdl:input wsaw:Action="urn:Service/AddFlowDefine" message="Service_AddFlowDefine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/AddFlowDefineResponse" message="Service_AddFlowDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlowDefine">
+      <wsdl:input wsaw:Action="urn:Service/UpdateFlowDefine" message="Service_UpdateFlowDefine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/UpdateFlowDefineResponse" message="Service_UpdateFlowDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowDefinition">
+      <wsdl:input wsaw:Action="urn:Service/DeleteFlowDefinition" message="Service_DeleteFlowDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/DeleteFlowDefinitionResponse" message="Service_DeleteFlowDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemList">
+      <wsdl:input wsaw:Action="urn:Service/GetSystemList" message="Service_GetSystemList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetSystemListResponse" message="Service_GetSystemList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemBOList">
+      <wsdl:input wsaw:Action="urn:Service/GetSystemBOList" message="Service_GetSystemBOList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetSystemBOListResponse" message="Service_GetSystemBOList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemBOAttributeList">
+      <wsdl:input wsaw:Action="urn:Service/GetSystemBOAttributeList" message="Service_GetSystemBOAttributeList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/GetSystemBOAttributeListResponse" message="Service_GetSystemBOAttributeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWFBOSystemByName">
+      <wsdl:input wsaw:Action="urn:Service/getWFBOSystemByName" message="Service_getWFBOSystemByName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/getWFBOSystemByNameResponse" message="Service_getWFBOSystemByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWFBOObjectByName">
+      <wsdl:input wsaw:Action="urn:Service/getWFBOObjectByName" message="Service_getWFBOObjectByName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Service/getWFBOObjectByNameResponse" message="Service_getWFBOObjectByName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

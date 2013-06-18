@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="651274e1-3029-4df4-b386-bfcbe5834505" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3938/SmtOACommonOffice.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SmtOACommonOffice9.xsd" MetadataType="Schema" ID="9c732147-34e6-41b6-b821-84d6eb859538" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd3" />
+    <MetadataFile FileName="SmtOACommonOffice91.xsd" MetadataType="Schema" ID="240272b3-1f0f-4e7e-80a5-3afd9f78614d" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd1" />
+    <MetadataFile FileName="SmtOACommonOffice92.xsd" MetadataType="Schema" ID="8c40e1d6-af15-4d99-b9d7-4ae5329930d0" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd6" />
+    <MetadataFile FileName="SmtOACommonOffice2.wsdl" MetadataType="Wsdl" ID="7f26fbb9-768e-402c-81bb-29bdf9b728ec" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?wsdl" />
+    <MetadataFile FileName="SmtOACommonOffice93.xsd" MetadataType="Schema" ID="a100697d-0bca-4672-bbba-e5f62abe891d" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd4" />
+    <MetadataFile FileName="SmtOACommonOffice94.xsd" MetadataType="Schema" ID="92422a72-9b21-4c8c-9444-687073e92641" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd8" />
+    <MetadataFile FileName="SmtOACommonOffice95.xsd" MetadataType="Schema" ID="4d9885d4-5fa6-4ed7-983f-f00f66bdcb71" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd2" />
+    <MetadataFile FileName="SmtOACommonOffice96.xsd" MetadataType="Schema" ID="8ec6bbd0-02b9-480d-851c-a159d1bb7ed6" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd7" />
+    <MetadataFile FileName="SmtOACommonOffice97.xsd" MetadataType="Schema" ID="b9253297-6e0a-42fb-aea1-e54d66d7acec" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd0" />
+    <MetadataFile FileName="SmtOACommonOffice98.xsd" MetadataType="Schema" ID="0cfa9962-77ef-453b-9bdf-990807c297fd" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?xsd=xsd5" />
+    <MetadataFile FileName="SmtOACommonOffice1.disco" MetadataType="Disco" ID="18832186-272a-4e8f-93f6-80cb6383d7b5" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?disco" />
+    <MetadataFile FileName="SmtOACommonOffice21.wsdl" MetadataType="Wsdl" ID="91fe3096-667e-4e1e-a6a8-f5280fa94105" SourceId="1" SourceUrl="http://localhost:3938/SmtOACommonOffice.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

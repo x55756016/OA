@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="efef8ac2-3b48-4c70-88e7-cfca3f119fd5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1604/UseractLogService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UseractLogService.xsd" MetadataType="Schema" ID="39fee61c-0296-44bc-85ba-175e7dee6dcc" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UseractLogService6.xsd" MetadataType="Schema" ID="a8d0f224-f8dd-4df2-82fa-a160535171bf" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?xsd=xsd6" />
+    <MetadataFile FileName="UseractLogService.disco" MetadataType="Disco" ID="03228089-2ba5-467d-8baf-5cd501f23b6a" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?disco" />
+    <MetadataFile FileName="UseractLogService1.xsd" MetadataType="Schema" ID="cba3c00a-d254-4aca-86de-7d3d17008d9d" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?xsd=xsd5" />
+    <MetadataFile FileName="UseractLogService2.xsd" MetadataType="Schema" ID="09d14355-047c-4a7f-899d-9ff3eb52c289" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UseractLogService3.xsd" MetadataType="Schema" ID="dfc86ecb-7f4c-49d3-9031-9ed0f6489fd5" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UseractLogService4.xsd" MetadataType="Schema" ID="ecc7e51a-39e6-4e98-982f-d84021bd8e24" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UseractLogService5.xsd" MetadataType="Schema" ID="59089948-1dcf-490f-84c6-ec83dc93548a" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UseractLogService.wsdl" MetadataType="Wsdl" ID="093a77bb-3212-4499-b38e-06ac3da96921" SourceId="1" SourceUrl="http://localhost:1604/UseractLogService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

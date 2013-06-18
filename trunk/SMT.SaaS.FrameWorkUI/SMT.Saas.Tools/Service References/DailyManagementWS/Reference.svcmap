@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4a144fdc-ff2f-4aa5-b849-7cedcb3d65db" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DailyManagementServices2.wsdl" MetadataType="Wsdl" ID="e0bb67dd-4477-4c51-8f44-1b1cf85d0d92" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?wsdl" />
+    <MetadataFile FileName="DailyManagementServices1.disco" MetadataType="Disco" ID="e5fc21aa-825f-418f-ad50-98544fe51eca" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?disco" />
+    <MetadataFile FileName="DailyManagementServices6.xsd" MetadataType="Schema" ID="a959d654-8a38-457d-bec2-ccdc084b0fbe" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="DailyManagementServices61.xsd" MetadataType="Schema" ID="4ffe4c4a-1f62-44f3-b1e4-c8841b81dad3" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="DailyManagementServices62.xsd" MetadataType="Schema" ID="661b93e5-57d0-4a50-9770-6884adcff129" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="DailyManagementServices63.xsd" MetadataType="Schema" ID="f4499de6-a7f8-4640-b989-b2548209096e" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="DailyManagementServices64.xsd" MetadataType="Schema" ID="65cacf7b-000e-4759-b15e-59ecfcb252be" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="DailyManagementServices65.xsd" MetadataType="Schema" ID="9f1b59f3-5e1d-4db8-832a-f963fdf9ae0f" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="DailyManagementServices21.wsdl" MetadataType="Wsdl" ID="b72783f5-c311-4bf2-9447-52a13d13cc1a" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

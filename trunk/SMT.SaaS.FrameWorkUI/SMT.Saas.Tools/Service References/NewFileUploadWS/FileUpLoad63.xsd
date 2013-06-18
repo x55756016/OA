@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_FU_EFModel" />
+  <xs:complexType name="UserFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BytesUploaded" type="xs:long" />
+      <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:double" />
+      <xs:element minOccurs="0" name="FileType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INDEXL" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaxNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxSize" type="xs:double" />
+      <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SavePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SmtFileListId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThumbnailUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UploadSpeed" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserFile" nillable="true" type="tns:UserFile" />
+  <xs:complexType name="CallBackResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DownloadUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_FU_EFModel" minOccurs="0" name="FileList" nillable="true" type="q1:ArrayOfSMT_FILELIST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CallBackResult" nillable="true" type="tns:CallBackResult" />
+</xs:schema>
