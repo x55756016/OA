@@ -26,6 +26,7 @@ namespace SMT.HRM.UI.Form.Personnel
         PersonnelServiceClient client = new PersonnelServiceClient();
         SMT.Saas.Tools.OrganizationWS.OrganizationServiceClient oClient = new Saas.Tools.OrganizationWS.OrganizationServiceClient();
         SMT.Saas.Tools.FBServiceWS.FBServiceClient fbClient = new SMT.Saas.Tools.FBServiceWS.FBServiceClient();
+        ObservableCollection<T_FB_PERSONACCOUNT> perCount = new ObservableCollection<T_FB_PERSONACCOUNT>();
         //SmtOADocumentAdminClient oaClient = new SmtOADocumentAdminClient();
         SMT.Saas.Tools.FlowWFService.ServiceClient flowClient = new Saas.Tools.FlowWFService.ServiceClient();
 
@@ -157,6 +158,7 @@ namespace SMT.HRM.UI.Form.Personnel
                         if (e.Result != null && e.Result.Count > 0)
                         {
                             DtBorrowMoney.ItemsSource = e.Result.Where(c => c.BORROWMONEY > 0).ToList();
+                            perCount = e.Result;
                             return;
                         }
                     }
@@ -191,7 +193,6 @@ namespace SMT.HRM.UI.Form.Personnel
             }
             else
             {
-                this.dpConfirmDate.Text = DateTime.Now.ToString("yyyy-mm-dd");                
                 if (string.IsNullOrEmpty(conformID))
                 {
                     LeftOfficeConfirm = new T_HR_LEFTOFFICECONFIRM();
@@ -646,6 +647,7 @@ namespace SMT.HRM.UI.Form.Personnel
         #region mobilexml
         private string GetXmlString(string StrSource, T_HR_LEFTOFFICECONFIRM Info)
         {
+            List<object> ObjectList = new List<object>();
             SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY ownerCompany = (Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>).Where(s => s.COMPANYID == Info.OWNERCOMPANYID).FirstOrDefault();
             SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT ownerDepartment = (Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>).Where(s => s.DEPARTMENTID == Info.OWNERDEPARTMENTID).FirstOrDefault();
             SMT.Saas.Tools.OrganizationWS.T_HR_POST ownerPost = (Application.Current.Resources["SYS_PostInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_POST>).Where(s => s.POSTID == Info.OWNERPOSTID).FirstOrDefault();
@@ -695,9 +697,34 @@ namespace SMT.HRM.UI.Form.Personnel
             AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "OWNERCOMPANYID", Info.OWNERCOMPANYID, ownerCompanyName));
             AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, ownerDepartmentName));
             AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "OWNERPOSTID", Info.OWNERPOSTID, ownerPostName));
-            string a = mx.TableToXml(Info, null, StrSource, AutoList);
+            List<T_FB_PERSONACCOUNT> objPe=new List<T_FB_PERSONACCOUNT>();
+            if (perCount != null && perCount.Count > 0)
+            {
+                objPe = perCount.ToList();
+            }
+            foreach (var item in objPe)
+            {
+                AutoList.Add(basedataForChild("T_FB_PERSONACCOUNT", "SPECIALBORROWMONEY", item.SPECIALBORROWMONEY.ToString(), item.SPECIALBORROWMONEY.ToString(), item.PERSONACCOUNTID));
+                AutoList.Add(basedataForChild("T_FB_PERSONACCOUNT", "SIMPLEBORROWMONEY", item.SIMPLEBORROWMONEY.ToString(), item.SIMPLEBORROWMONEY.ToString(), item.PERSONACCOUNTID));
+                AutoList.Add(basedataForChild("T_FB_PERSONACCOUNT", "BACKUPBORROWMONEY", item.BACKUPBORROWMONEY.ToString(), item.BACKUPBORROWMONEY.ToString(), item.PERSONACCOUNTID));
+                ObjectList.Add(item);
+            }
+            string a = mx.TableToXml(Info, ObjectList, StrSource, AutoList);
 
             return a;
+        }
+
+        private AutoDictionary basedataForChild(string TableName, string Name, string Value, string Text, string keyValue)
+        {
+            string[] strlist = new string[5];
+            strlist[0] = TableName;
+            strlist[1] = Name;
+            strlist[2] = Value;
+            strlist[3] = Text;
+            strlist[4] = keyValue;
+            AutoDictionary ad = new AutoDictionary();
+            ad.AutoDictionaryChiledList(strlist);
+            return ad;
         }
 
         private AutoDictionary basedata(string TableName, string Name, string Value, string Text)
@@ -1102,15 +1129,15 @@ namespace SMT.HRM.UI.Form.Personnel
             T_FB_PERSONACCOUNT temp = new T_FB_PERSONACCOUNT();
             string filter = "";    //查询过滤条件
             ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();   //参数值
-            //if (!string.IsNullOrEmpty(LeftOfficeConfirm.OWNERCOMPANYID))
-            //{
-            //    if (!string.IsNullOrEmpty(filter))
-            //    {
-            //        filter += " and ";
-            //    }
-            //    filter += "@" + paras.Count().ToString() + ".Contains(OWNERCOMPANYID) ";
-            //    paras.Add(LeftOfficeConfirm.OWNERCOMPANYID);
-            //}
+            if (!string.IsNullOrEmpty(LeftOfficeConfirm.OWNERCOMPANYID))
+            {
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    filter += " and ";
+                }
+                filter += "@" + paras.Count().ToString() + ".Contains(OWNERCOMPANYID) ";
+                paras.Add(LeftOfficeConfirm.OWNERCOMPANYID);
+            }
             if (!string.IsNullOrEmpty(LeftOfficeConfirm.EMPLOYEEID))
             {
                 if (!string.IsNullOrEmpty(filter))

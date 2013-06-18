@@ -40,8 +40,8 @@ namespace SMT.HRM.UI.Form.Salary
         {
             InitializeComponent();
 
-            client.GenerateSalaryRecordCompleted += new EventHandler<GenerateSalaryRecordCompletedEventArgs>(client_GenerateSalaryRecordCompleted);
-            client.SalaryRecordAccountCompleted += new EventHandler<SalaryRecordAccountCompletedEventArgs>(client_SalaryRecordAccountCompleted);
+            //client.GenerateSalaryRecordCompleted += new EventHandler<GenerateSalaryRecordCompletedEventArgs>(client_GenerateSalaryRecordCompleted);
+            //client.SalaryRecordAccountCompleted += new EventHandler<SalaryRecordAccountCompletedEventArgs>(client_SalaryRecordAccountCompleted);
             client.SalaryRecordAccountCheckCompleted += new EventHandler<SalaryRecordAccountCheckCompletedEventArgs>(client_SalaryRecordAccountCheckCompleted);
             timer = new System.Windows.Threading.DispatcherTimer();
             timer.Interval = new TimeSpan(10000);
@@ -204,42 +204,42 @@ namespace SMT.HRM.UI.Form.Salary
         //    }
         //}
 
-        void client_SalaryRecordAccountCompleted(object sender, SalaryRecordAccountCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-            }
-            else
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", "EMPLOYEESALARYRECORD"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
-                //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", "EMPLOYEESALARYRECORD"));
-            }
-            //  timer.Stop();
-            if (flag)
-            {
-                //timer.Stop();
-                //progressGenerate.Value = progressGenerate.Minimum;
-                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-                entBrowser.Close();
-            }
-            Recovery();
-        }
+        //void client_SalaryRecordAccountCompleted(object sender, SalaryRecordAccountCompletedEventArgs e)
+        //{
+        //    if (e.Error != null)
+        //    {
+        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+        //    }
+        //    else
+        //    {
+        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", "EMPLOYEESALARYRECORD"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+        //        //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", "EMPLOYEESALARYRECORD"));
+        //    }
+        //    //  timer.Stop();
+        //    if (flag)
+        //    {
+        //        //timer.Stop();
+        //        //progressGenerate.Value = progressGenerate.Minimum;
+        //        EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+        //        entBrowser.Close();
+        //    }
+        //    Recovery();
+        //}
 
-        void client_GenerateSalaryRecordCompleted(object sender, GenerateSalaryRecordCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-            }
-            else
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "EMPLOYEESALARYRECORD"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
-                //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "EMPLOYEESALARYRECORD"));
-            }
-            // timer.Stop();
-            //  progressGenerate.Value = progressGenerate.Maximum;
-        }
+        //void client_GenerateSalaryRecordCompleted(object sender, GenerateSalaryRecordCompletedEventArgs e)
+        //{
+        //    if (e.Error != null)
+        //    {
+        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+        //    }
+        //    else
+        //    {
+        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "EMPLOYEESALARYRECORD"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+        //        //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "EMPLOYEESALARYRECORD"));
+        //    }
+        //    // timer.Stop();
+        //    //  progressGenerate.Value = progressGenerate.Maximum;
+        //}
 
         void timer_Tick(object sender, EventArgs e)
         {

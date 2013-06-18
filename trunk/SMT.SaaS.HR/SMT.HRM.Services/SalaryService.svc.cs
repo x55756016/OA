@@ -2121,6 +2121,22 @@ namespace SMT.HRM.Services
         }
 
         /// <summary>
+        /// 根据员工ID年月获取员工薪资信息
+        /// </summary>
+        /// <param name="employeeIDs">员工IDs</param>
+        /// <param name="year">年</param>
+        /// <param name="month">月</param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<T_HR_SALARYARCHIVE> GetSalaryArchiveByEmployeeIDs(List<string> employeeIDs, int year, int month)
+        {
+            using (SalaryArchiveBLL bll = new SalaryArchiveBLL())
+            {
+                return bll.GetSalaryArchiveByEmployeeIDs(employeeIDs, year, month);
+            }
+        }
+
+        /// <summary>
         /// 文件上传服务
         /// </summary>
         /// <param name="UploadFile">上传载体</param>

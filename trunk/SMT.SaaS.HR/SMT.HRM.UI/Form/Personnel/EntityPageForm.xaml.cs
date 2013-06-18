@@ -234,8 +234,9 @@ namespace SMT.HRM.UI.Form.Personnel
                     }
 
                 }
-                entryAddForm.ComputerNo = temp.txtComputerNO.Text.Trim();
-                entryAddForm.PensionCardID = temp.txtCardID.Text.Trim();
+                //entryAddForm.ComputerNo = temp.txtComputerNO.Text.Trim();
+               // entryAddForm.PensionCardID = temp.txtCardID.Text.Trim();
+               // entryAddForm.SocialServiceYear = temp.dtpStartWorkTime.SelectedDate.Value.ToShortDateString();
                 entryAddForm.eminfo = temp;
                 ctr.MinHeight = 300;
                 ctr.MinWidth = 680;

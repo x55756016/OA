@@ -12,7 +12,6 @@ using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
 using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 using SMT.HRM.BLL.Report;
-using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -710,6 +709,19 @@ namespace SMT.HRM.BLL
             return ents.Count() > 0 ? ents.FirstOrDefault() : null;
         }
 
+        public List<T_HR_SALARYARCHIVE> GetSalaryArchiveByEmployeeIDList(List<string> employeeIDList)
+        {
+            List<T_HR_SALARYARCHIVE> salaryList = new List<T_HR_SALARYARCHIVE>();
+            foreach (var employeeID in employeeIDList)
+            {
+                var ents = from o in dal.GetObjects<T_HR_SALARYARCHIVE>()
+                       where o.EMPLOYEEID == employeeID
+                       select o;
+            }
+            return salaryList;
+        }
+        
+
         /// <summary>
         /// 根据员工ID获取审核通过的薪资档案(非离职)
         /// </summary>
@@ -779,11 +791,20 @@ namespace SMT.HRM.BLL
                 ents = ents.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT);
                 foreach (T_HR_SALARYARCHIVE item in ents)
                 {
-                    if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month && item.OWNERCOMPANYID == companyid)
+                    //if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month && item.OWNERCOMPANYID == companyid)
+                    //{
+                    //    return item;
+                    //}
+                    //if (item.OTHERSUBJOIN < year && item.OWNERCOMPANYID == companyid)
+                    //{
+                    //    return item;
+                    //}
+                    //去掉公司限制，暂时解决跨机构的情况
+                    if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month )
                     {
                         return item;
                     }
-                    if (item.OTHERSUBJOIN < year && item.OWNERCOMPANYID == companyid)
+                    if (item.OTHERSUBJOIN < year)
                     {
                         return item;
                     }
@@ -791,6 +812,43 @@ namespace SMT.HRM.BLL
 
             }
             return null;
+        }
+
+        /// <summary>
+        /// 根据员工ID年月获取员工薪资信息(年月暂不用)
+        /// </summary>
+        /// <param name="employeeIDs">员工IDs</param>
+        /// <param name="year">年</param>
+        /// <param name="month">月</param>
+        /// <returns>员工薪资</returns>
+        public List<T_HR_SALARYARCHIVE> GetSalaryArchiveByEmployeeIDs(List<string> employeeIDs, int year, int month)
+        {
+            List<T_HR_SALARYARCHIVE> salaryList = new List<T_HR_SALARYARCHIVE>();
+            employeeIDs.ForEach(it =>
+            {
+                var ents = from o in dal.GetObjects<T_HR_SALARYARCHIVE>()
+                           join p in dal.GetObjects<T_HR_EMPLOYEE>() on o.EMPLOYEEID equals p.EMPLOYEEID
+                           where o.EMPLOYEEID == it && o.CHECKSTATE == "2"
+                           select o;
+                if (ents.Count() > 0)
+                {
+                    ents = ents.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT);
+                    salaryList.Add(ents.FirstOrDefault());//默认取第一条
+                }
+                else //居然有没有审核通过的薪资档案，没办法只能这样取
+                {
+                    var en = from o in dal.GetObjects<T_HR_SALARYARCHIVE>()
+                             join p in dal.GetObjects<T_HR_EMPLOYEE>() on o.EMPLOYEEID equals p.EMPLOYEEID
+                             where o.EMPLOYEEID == it
+                             select o;
+                    if (en.Count() > 0)
+                    {
+                        en = en.OrderByDescending(s => s.CREATEDATE).ThenByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT);
+                        salaryList.Add(en.FirstOrDefault());//默认取第一条
+                    }
+                }
+            });
+            return salaryList;
         }
 
         /// <summary>
@@ -1113,7 +1171,6 @@ namespace SMT.HRM.BLL
                 //dal.CommitTransaction();有错误是回滚而不是提交
                 dal.RollbackTransaction();
                 ex.Message.ToString();
-                Tracer.Debug(ex.ToString());
                 //throw ex;
             }
         }
@@ -1525,10 +1582,6 @@ namespace SMT.HRM.BLL
             SalaryArchiveItemBLL bll = new SalaryArchiveItemBLL();
             standerItems = GetstandardItemByStandardID(archive.T_HR_SALARYSTANDARD.SALARYSTANDARDID);
             // salaryItems = GetSalaryItemSetByItems(standerItems);
-            if (standerItems.Count() < 1)
-            {
-                Tracer.Debug("未生成薪资标准薪资项，无法新建薪资档案T_HR_SALARYSTANDARD T_HR_SALARYSTANDARDITEM");
-            }
             foreach (var item in standerItems)
             {
                 T_HR_SALARYARCHIVEITEM archiveitem = new T_HR_SALARYARCHIVEITEM();

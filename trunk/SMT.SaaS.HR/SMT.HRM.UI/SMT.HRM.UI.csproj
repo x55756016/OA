@@ -140,9 +140,6 @@
     <Reference Include="SMT.SAAS.Themes">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.Saas.Tools">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SaaS.Window">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
@@ -2441,6 +2438,10 @@
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</Project>
       <Name>SMT.SAAS.FrameworkUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
+      <Project>{9484C541-B0A2-437A-8C6F-0BFD7E13934E}</Project>
+      <Name>SMT.Saas.Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

@@ -824,7 +824,7 @@
                Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                     return;
                 }
-                Employee = e.Result;                
+                Employee = e.Result;
                 if (Employee.HASCHILDREN == "1")
                 {
                     chkHas.IsChecked = true;

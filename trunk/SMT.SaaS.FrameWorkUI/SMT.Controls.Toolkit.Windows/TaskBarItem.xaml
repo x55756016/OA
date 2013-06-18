@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="SMT.SAAS.Controls.Toolkit.Windows.TaskBarItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Border Style="{StaticResource TaskBarItemBorder}">
+        <Grid x:Name="Root" MouseLeftButtonDown="btnTitle_Click" 
+  MouseEnter="btnTitle_MouseEnter"   MouseLeave="btnTitle_MouseLeave">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource TaskBarItemBorder2}" Grid.ColumnSpan="2"/>
+            <!--白色模糊底板-->
+            <Border Style="{StaticResource TaskBarItemBorder3}" Grid.ColumnSpan="2"/>
+            <Border Style="{StaticResource TaskBarItemBorder4}" Grid.ColumnSpan="2"/>
+            <!--按钮选中效果-->
+            <Border Grid.ColumnSpan="2" Visibility="Collapsed"	x:Name="SelectBackground"
+                Style="{StaticResource TaskBarItemBorderOver}">
+            </Border>
+              
+            <Image x:Name="iocImage" Source="image/config.png" Height="16" Width="16" Margin="6,0,0,0"  Grid.Column="0"/>
+            <TextBlock x:Name="TaskBarTitel"  FontSize="12" Text="Text" Grid.Column="1" Foreground="{StaticResource taskBarItemFont_1}" Margin="2 0 6 0"
+           VerticalAlignment="Center" FontStretch="Normal"
+           HorizontalAlignment="Center" /> 
+        </Grid>
+    </Border>
+</UserControl>

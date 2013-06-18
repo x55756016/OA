@@ -374,7 +374,7 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "CHECKSTATE", "1", checkState));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "SYSTEMTYPE", SYSTEMTYPE != null ? SYSTEMTYPE.DICTIONARYVALUE.ToString() : "0", SYSTEMTYPE != null ? SYSTEMTYPE.DICTIONARYNAME : ""));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEEID", Info.EMPLOYEEID, Info.EMPLOYEEID));
-            AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEENAME", Info.EMPLOYEENAME, Info.EMPLOYEENAME));
+            AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEENAME", Info.EMPLOYEENAME,ownerCompanyName+"-"+ownerDepartmentName+ "-"+Info.EMPLOYEENAME));
 
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "OWNERCOMPANYID", Info.OWNERCOMPANYID, ownerCompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, ownerDepartmentName));

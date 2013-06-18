@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+  <xs:complexType name="ArrayOfV_SALARYSTANDARDITEM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SALARYSTANDARDITEM" nillable="true" type="tns:V_SALARYSTANDARDITEM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_SALARYSTANDARDITEM" nillable="true" type="tns:ArrayOfV_SALARYSTANDARDITEM" />
+  <xs:complexType name="V_SALARYSTANDARDITEM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ORDERNUMBER" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYITEMNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYSTANDARDID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STANDRECORDITEMID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUM" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_SALARYSTANDARDITEM" nillable="true" type="tns:V_SALARYSTANDARDITEM" />
   <xs:complexType name="ArrayOfV_EMPLOYEESALARYRECORDITEM">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EMPLOYEESALARYRECORDITEM" nillable="true" type="tns:V_EMPLOYEESALARYRECORDITEM" />
@@ -130,6 +147,97 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_SalarySummary" nillable="true" type="tns:V_SalarySummary" />
+  <xs:complexType name="ArrayOfV_RESIGN">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_RESIGN" nillable="true" type="tns:V_RESIGN" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_RESIGN" nillable="true" type="tns:ArrayOfV_RESIGN" />
+  <xs:complexType name="V_RESIGN">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeePostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeftDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_RESIGN" nillable="true" type="tns:V_RESIGN" />
+  <xs:complexType name="V_EmployeeAddsumView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADDSUMID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEALMONTH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEALYEAR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MONTHLYBATCHID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROJECTCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROJECTMONEY" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PROJECTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SYSTEMTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_EmployeeAddsumView" nillable="true" type="tns:V_EmployeeAddsumView" />
+  <xs:complexType name="ArrayOfV_CUSTOMGUERDON">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_CUSTOMGUERDON" nillable="true" type="tns:V_CUSTOMGUERDON" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_CUSTOMGUERDON" nillable="true" type="tns:ArrayOfV_CUSTOMGUERDON" />
+  <xs:complexType name="V_CUSTOMGUERDON">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CALCULATORTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOMGUERDONID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOMGUERDONSETID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GUERDONCATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GUERDONNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GUERDONSUM" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SALARYSTANDARDID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYSTANDARDNAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_CUSTOMGUERDON" nillable="true" type="tns:V_CUSTOMGUERDON" />
+  <xs:complexType name="ArrayOfV_RETURNFBI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_RETURNFBI" nillable="true" type="tns:V_RETURNFBI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_RETURNFBI" nillable="true" type="tns:ArrayOfV_RETURNFBI" />
+  <xs:complexType name="V_RETURNFBI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYSUM" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_RETURNFBI" nillable="true" type="tns:V_RETURNFBI" />
   <xs:complexType name="ArrayOfV_CUSTOMGUERDONARCHIVE">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="V_CUSTOMGUERDONARCHIVE" nillable="true" type="tns:V_CUSTOMGUERDONARCHIVE" />
@@ -176,39 +284,84 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_PAYMENT" nillable="true" type="tns:V_PAYMENT" />
-  <xs:complexType name="ArrayOfV_SALARYSTANDARDITEM">
+  <xs:complexType name="ArrayOfV_SALARYSOLUTIONASSIGN">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SALARYSTANDARDITEM" nillable="true" type="tns:V_SALARYSTANDARDITEM" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SALARYSOLUTIONASSIGN" nillable="true" type="tns:V_SALARYSOLUTIONASSIGN" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_SALARYSTANDARDITEM" nillable="true" type="tns:ArrayOfV_SALARYSTANDARDITEM" />
-  <xs:complexType name="V_SALARYSTANDARDITEM">
+  <xs:element name="ArrayOfV_SALARYSOLUTIONASSIGN" nillable="true" type="tns:ArrayOfV_SALARYSOLUTIONASSIGN" />
+  <xs:complexType name="V_SALARYSOLUTIONASSIGN">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AssignObjectName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="SalarySolutionAssign" nillable="true" type="q2:T_HR_SALARYSOLUTIONASSIGN" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_SALARYSOLUTIONASSIGN" nillable="true" type="tns:V_SALARYSOLUTIONASSIGN" />
+  <xs:complexType name="V_SALARYARCHIVEMASTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="archive" nillable="true" type="q3:T_HR_SALARYARCHIVE" />
+      <xs:element minOccurs="0" name="standerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="standerName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_SALARYARCHIVEMASTER" nillable="true" type="tns:V_SALARYARCHIVEMASTER" />
+  <xs:complexType name="ArrayOfV_SALARYARCHIVEITEM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SALARYARCHIVEITEM" nillable="true" type="tns:V_SALARYARCHIVEITEM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_SALARYARCHIVEITEM" nillable="true" type="tns:ArrayOfV_SALARYARCHIVEITEM" />
+  <xs:complexType name="V_SALARYARCHIVEITEM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CALCULATEFORMULA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CALCULATEFORMULACODE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ORDERNUMBER" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYARCHIVEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYARCHIVEITEM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYITEMID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SALARYITEMNAME" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SALARYSTANDARDID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="STANDRECORDITEMID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SUM" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_SALARYSTANDARDITEM" nillable="true" type="tns:V_SALARYSTANDARDITEM" />
-  <xs:complexType name="ArrayOfV_RETURNFBI">
+  <xs:element name="V_SALARYARCHIVEITEM" nillable="true" type="tns:V_SALARYARCHIVEITEM" />
+  <xs:complexType name="ArrayOfV_SALARYARCHIVES">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_RETURNFBI" nillable="true" type="tns:V_RETURNFBI" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SALARYARCHIVES" nillable="true" type="tns:V_SALARYARCHIVES" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_RETURNFBI" nillable="true" type="tns:ArrayOfV_RETURNFBI" />
-  <xs:complexType name="V_RETURNFBI">
+  <xs:element name="ArrayOfV_SALARYARCHIVES" nillable="true" type="tns:ArrayOfV_SALARYARCHIVES" />
+  <xs:complexType name="V_SALARYARCHIVES">
     <xs:sequence>
-      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYSUM" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYARCHIVEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALARYLEVEL" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_RETURNFBI" nillable="true" type="tns:V_RETURNFBI" />
+  <xs:element name="V_SALARYARCHIVES" nillable="true" type="tns:V_SALARYARCHIVES" />
+  <xs:complexType name="ArrayOfV_CUSTOMGUERDONARCHIVEHIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_CUSTOMGUERDONARCHIVEHIS" nillable="true" type="tns:V_CUSTOMGUERDONARCHIVEHIS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_CUSTOMGUERDONARCHIVEHIS" nillable="true" type="tns:ArrayOfV_CUSTOMGUERDONARCHIVEHIS" />
+  <xs:complexType name="V_CUSTOMGUERDONARCHIVEHIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GUERDONNAME" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_CUSTOMGUERDONARCHIVEHIS" nillable="true" type="q4:T_HR_CUSTOMGUERDONARCHIVEHIS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_CUSTOMGUERDONARCHIVEHIS" nillable="true" type="tns:V_CUSTOMGUERDONARCHIVEHIS" />
   <xs:complexType name="ArrayOfV_EMPLOYEESALARYRECORD">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EMPLOYEESALARYRECORD" nillable="true" type="tns:V_EMPLOYEESALARYRECORD" />
@@ -236,7 +389,7 @@
       <xs:element minOccurs="0" name="SALARYLEVEL" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="SALARYMONTH" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SALARYYEAR" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_EMPLOYEESALARYRECORD" nillable="true" type="q2:T_HR_EMPLOYEESALARYRECORD" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_EMPLOYEESALARYRECORD" nillable="true" type="q5:T_HR_EMPLOYEESALARYRECORD" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_EMPLOYEESALARYRECORD" nillable="true" type="tns:V_EMPLOYEESALARYRECORD" />
@@ -314,157 +467,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DataColumnInfo" nillable="true" type="tns:DataColumnInfo" />
-  <xs:complexType name="ArrayOfV_RESIGN">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_RESIGN" nillable="true" type="tns:V_RESIGN" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_RESIGN" nillable="true" type="tns:ArrayOfV_RESIGN" />
-  <xs:complexType name="V_RESIGN">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmployeePostID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LeftDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_RESIGN" nillable="true" type="tns:V_RESIGN" />
-  <xs:complexType name="V_EmployeeAddsumView">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ADDSUMID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DEALMONTH" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DEALYEAR" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MONTHLYBATCHID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PROJECTCODE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PROJECTMONEY" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="PROJECTNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SYSTEMTYPE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_EmployeeAddsumView" nillable="true" type="tns:V_EmployeeAddsumView" />
-  <xs:complexType name="ArrayOfV_CUSTOMGUERDON">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_CUSTOMGUERDON" nillable="true" type="tns:V_CUSTOMGUERDON" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_CUSTOMGUERDON" nillable="true" type="tns:ArrayOfV_CUSTOMGUERDON" />
-  <xs:complexType name="V_CUSTOMGUERDON">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CALCULATORTYPE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CUSTOMGUERDONID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CUSTOMGUERDONSETID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GUERDONCATEGORY" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GUERDONNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GUERDONSUM" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="SALARYSTANDARDID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYSTANDARDNAME" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_CUSTOMGUERDON" nillable="true" type="tns:V_CUSTOMGUERDON" />
-  <xs:complexType name="ArrayOfV_SALARYSOLUTIONASSIGN">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SALARYSOLUTIONASSIGN" nillable="true" type="tns:V_SALARYSOLUTIONASSIGN" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_SALARYSOLUTIONASSIGN" nillable="true" type="tns:ArrayOfV_SALARYSOLUTIONASSIGN" />
-  <xs:complexType name="V_SALARYSOLUTIONASSIGN">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AssignObjectName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="SalarySolutionAssign" nillable="true" type="q3:T_HR_SALARYSOLUTIONASSIGN" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_SALARYSOLUTIONASSIGN" nillable="true" type="tns:V_SALARYSOLUTIONASSIGN" />
-  <xs:complexType name="V_SALARYARCHIVEMASTER">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="archive" nillable="true" type="q4:T_HR_SALARYARCHIVE" />
-      <xs:element minOccurs="0" name="standerID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="standerName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_SALARYARCHIVEMASTER" nillable="true" type="tns:V_SALARYARCHIVEMASTER" />
-  <xs:complexType name="ArrayOfV_SALARYARCHIVEITEM">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SALARYARCHIVEITEM" nillable="true" type="tns:V_SALARYARCHIVEITEM" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_SALARYARCHIVEITEM" nillable="true" type="tns:ArrayOfV_SALARYARCHIVEITEM" />
-  <xs:complexType name="V_SALARYARCHIVEITEM">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CALCULATEFORMULA" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CALCULATEFORMULACODE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ORDERNUMBER" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYARCHIVEID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYARCHIVEITEM" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYITEMID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYITEMNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYSTANDARDID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SUM" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_SALARYARCHIVEITEM" nillable="true" type="tns:V_SALARYARCHIVEITEM" />
-  <xs:complexType name="ArrayOfV_SALARYARCHIVES">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SALARYARCHIVES" nillable="true" type="tns:V_SALARYARCHIVES" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_SALARYARCHIVES" nillable="true" type="tns:ArrayOfV_SALARYARCHIVES" />
-  <xs:complexType name="V_SALARYARCHIVES">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYARCHIVEID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SALARYLEVEL" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_SALARYARCHIVES" nillable="true" type="tns:V_SALARYARCHIVES" />
-  <xs:complexType name="ArrayOfV_CUSTOMGUERDONARCHIVEHIS">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_CUSTOMGUERDONARCHIVEHIS" nillable="true" type="tns:V_CUSTOMGUERDONARCHIVEHIS" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_CUSTOMGUERDONARCHIVEHIS" nillable="true" type="tns:ArrayOfV_CUSTOMGUERDONARCHIVEHIS" />
-  <xs:complexType name="V_CUSTOMGUERDONARCHIVEHIS">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="GUERDONNAME" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_CUSTOMGUERDONARCHIVEHIS" nillable="true" type="q5:T_HR_CUSTOMGUERDONARCHIVEHIS" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_CUSTOMGUERDONARCHIVEHIS" nillable="true" type="tns:V_CUSTOMGUERDONARCHIVEHIS" />
 </xs:schema>

@@ -390,6 +390,7 @@ namespace SMT.HRM.UI.Form.Personnel
             AutoList.Add(basedata("T_HR_EMPLOYEECONTRACT", "OWNERCOMPANYID", Info.OWNERCOMPANYID, ownerCompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEECONTRACT", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, ownerDepartmentName));
             AutoList.Add(basedata("T_HR_EMPLOYEECONTRACT", "OWNERPOSTID", Info.OWNERPOSTID, ownerPostName));
+            AutoList.Add(basedata("T_HR_EMPLOYEECONTRACT", "NOENDDATE", Info.NOENDDATE, Info.NOENDDATE=="0"?"不是":"是"));
             string a = mx.TableToXml(Info, null, StrSource, AutoList);
 
             return a;

@@ -722,6 +722,11 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "SALARYSOLUTIONNAME", Info.SALARYSOLUTIONID, Info.SALARYSOLUTIONNAME));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "SALARYSTANDARDNAME", Info.T_HR_SALARYSTANDARD.SALARYSTANDARDID, txtSalaryStandard.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "AVAILABLEDATE", Info.OTHERSUBJOIN.ToString() + Utility.GetResourceStr("YEAR") + Info.OTHERADDDEDUCT.ToString() + Utility.GetResourceStr("MONTH"), ""));
+            AutoList.Add(basedata("T_HR_SALARYARCHIVE", "lkAttendanceCompany", lkAttendanceCompany.TxtLookUp.Text, lkAttendanceCompany.TxtLookUp.Text));
+            AutoList.Add(basedata("T_HR_SALARYARCHIVE", "lkBalancePost", lkBalancePost.TxtLookUp.Text, lkBalancePost.TxtLookUp.Text));
+            AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDS", txtSum.Text, txtSum.Text));
+            AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDSREMARK", txtSumRemark.Text, txtSumRemark.Text));
+          
             foreach (var v in archiveItemsList)
             {
                 AutoList.Add(basedataForChild("V_SALARYARCHIVEITEM", "REMARK", v.REMARK, "", v.SALARYARCHIVEITEM));

@@ -84,8 +84,8 @@
                     <data:DataGridTextColumn Header="ABSENTDAYS" Binding="{Binding ABSENTDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="ABSENTMINUTES" Binding="{Binding ABSENTMINUTES}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="AFFAIRLEAVEDAYS" Binding="{Binding AFFAIRLEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                    <data:DataGridTextColumn Header="LEAVEUSEDDAYS" Binding="{Binding LEAVEUSEDDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="ANNUALLEVELDAYS" Binding="{Binding ANNUALLEVELDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="MONTHLEAVEUSEDDAYS" Binding="{Binding LEAVEUSEDDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="SICKLEAVEDAYS" Binding="{Binding SICKLEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>                    
                     <data:DataGridTextColumn Header="MARRYDAYS" Binding="{Binding MARRYDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="MATERNITYLEAVEDAYS" Binding="{Binding MATERNITYLEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>

@@ -45,6 +45,7 @@ namespace SMT.HRM.UI.Form.Personnel
         public bool IsEntryBefore { get; set; } //是否是离职再入职
         public string ComputerNo { get; set; }
         public string PensionCardID { get; set; }
+        public string SocialServiceYear { get; set; }
         public EmployeeInfoForm eminfo;
         public bool canSave = true;
 
@@ -232,22 +233,23 @@ namespace SMT.HRM.UI.Form.Personnel
                 {
                     //添加薪资密码
                     salaryCient.AddSalaryPasswordAsync(Employee.EMPLOYEEID, Employee.EMPLOYEECNAME, SysUser.PASSWORD);
-                    //添加社保档案
-                    string strMsg = string.Empty;
-                    T_HR_PENSIONMASTER pension = new T_HR_PENSIONMASTER();
-                    pension.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
-                    pension.T_HR_EMPLOYEE.EMPLOYEEID = Employee.EMPLOYEEID;
-                    pension.PENSIONMASTERID = Guid.NewGuid().ToString();
-                    pension.COMPUTERNO = ComputerNo;
-                    pension.CARDID = PensionCardID;
-                    pension.CREATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                    pension.OWNERCOMPANYID = Employee.OWNERCOMPANYID;
-                    pension.OWNERDEPARTMENTID = Employee.OWNERDEPARTMENTID;
-                    pension.OWNERPOSTID = Employee.OWNERPOSTID;
-                    pension.OWNERID = Employee.OWNERID;
-                    pension.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
-                    pension.EDITSTATE = ((int)EditStates.UnActived).ToString();
-                    client.PensionMasterAddAsync(pension, strMsg);
+                    //添加社保档案 不在这里添加社保档案，员工入职审核通过后会发出社保档案
+                    //string strMsg = string.Empty;
+                    //T_HR_PENSIONMASTER pension = new T_HR_PENSIONMASTER();
+                    //pension.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
+                    //pension.T_HR_EMPLOYEE.EMPLOYEEID = Employee.EMPLOYEEID;
+                    //pension.PENSIONMASTERID = Guid.NewGuid().ToString();
+                    //pension.COMPUTERNO = ComputerNo;
+                    //pension.CARDID = PensionCardID;
+                    //pension.SOCIALSERVICEYEAR = SocialServiceYear;
+                    //pension.CREATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                    //pension.OWNERCOMPANYID = Employee.OWNERCOMPANYID;
+                    //pension.OWNERDEPARTMENTID = Employee.OWNERDEPARTMENTID;
+                    //pension.OWNERPOSTID = Employee.OWNERPOSTID;
+                    //pension.OWNERID = Employee.OWNERID;
+                    //pension.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
+                    //pension.EDITSTATE = ((int)EditStates.UnActived).ToString();
+                    //client.PensionMasterAddAsync(pension, strMsg);
                     eminfo.saveResume();
 
                 }

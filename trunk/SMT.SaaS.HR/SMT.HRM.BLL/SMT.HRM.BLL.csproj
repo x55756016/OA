@@ -240,10 +240,6 @@
     <Compile Include="缓存 PostBLL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
-      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
-      <Name>SMT.SAAS.BLLCommonServices</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
       <Project>{0E45B937-670F-49E1-8EF1-A4BD312B94DA}</Project>
       <Name>SMT.HRM.CustomModel</Name>

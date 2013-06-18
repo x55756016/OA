@@ -12,6 +12,7 @@
         xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:controls1="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
     x:Class="SMT.HRM.UI.Form.Personnel.EmployeeInfoForm"
     Canvas.Top="0"
      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" mc:Ignorable="d">
@@ -38,7 +39,7 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
-
+                               <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
@@ -189,23 +190,28 @@
 
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtBankCardNumber"  MaxLength="50" Text="{Binding BANKCARDNUMBER,Mode=TwoWay}" Height="22" Margin="5,0,0,0"
                                        Grid.Row="8" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto"/>
-                            <TextBlock   Grid.Row="9" Grid.Column="0"  Margin="5,0,0,0"
+                            
+                        <!--    <TextBlock   Grid.Row="9" Grid.Column="0"  Margin="5,0,0,0"
 			Text="{Binding Converter={StaticResource ResourceConveter}, Source=CARDID}" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCardID"  Text="{Binding CARDID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" MaxLength="50" Margin="5,0,0,0"
 			Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto">
-                            </TextBox>
+                            </TextBox>-->
 
                             <!--Row 2-->
                             <!--社保电脑号-->
-                            <TextBlock   Grid.Row="9" Grid.Column="3" Margin="5,0,0,0"
+                           <!-- <TextBlock   Grid.Row="9" Grid.Column="3" Margin="5,0,0,0"
 			Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPUTERNO}" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtComputerNO" Text="{Binding COMPUTERNO, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" MaxLength="50"  Margin="5,0,0,0"
 			Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto">
                             </TextBox>
-                          
+                              <TextBlock Style="{StaticResource SysTextBlockStyle}"  Grid.Row="10" Grid.Column="0" Margin="5,0,0,0"
+                    			Text="社保缴纳起始时间"/>
+                            <controls1:DatePicker HorizontalAlignment="Stretch" 
+                               Grid.Row="10" Grid.Column="1" x:Name="dtpStartWorkTime" Margin="5,0,0,0" Height="24" Style="{StaticResource DatePickerStyle}" ></controls1:DatePicker> -->
 
 
-                        </Grid>
+
+                                </Grid>
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>

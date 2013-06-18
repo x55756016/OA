@@ -4,6 +4,186 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_SalaryService" type="SalaryService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PerformanceRewardRecordUpdate">
+      <soap:operation soapAction="urn:SalaryService/PerformanceRewardRecordUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PerformanceRewardRecordDelete">
+      <soap:operation soapAction="urn:SalaryService/PerformanceRewardRecordDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformaceRewardByID">
+      <soap:operation soapAction="urn:SalaryService/GetPerformaceRewardByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceRewardRecordWithPaging">
+      <soap:operation soapAction="urn:SalaryService/GetPerformanceRewardRecordWithPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionStandardAdd">
+      <soap:operation soapAction="urn:SalaryService/SalarySolutionStandardAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalarySolutionStandardDelete">
+      <soap:operation soapAction="urn:SalaryService/SalarySolutionStandardDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalarySolutionStandardWithPaging">
+      <soap:operation soapAction="urn:SalaryService/GetSalarySolutionStandardWithPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSetPaging">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSetPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSets">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalaryItemSetAdd">
+      <soap:operation soapAction="urn:SalaryService/SalaryItemSetAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormulaTemplateAdd">
+      <soap:operation soapAction="urn:SalaryService/FormulaTemplateAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalaryItemSetUpdate">
+      <soap:operation soapAction="urn:SalaryService/SalaryItemSetUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalaryItemSetDelete">
+      <soap:operation soapAction="urn:SalaryService/SalaryItemSetDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSetByID">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSetByStandardID">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSetByStandardID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryItemSetName">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSetName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCalItem">
+      <soap:operation soapAction="urn:SalaryService/CheckCalItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSalaryItemSql">
+      <soap:operation soapAction="urn:SalaryService/ExecuteSalaryItemSql" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardItemPaging">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryStandardItemPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryStandardItemsViewByStandarID">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryStandardItemsViewByStandarID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetSalaryStandardItems">
       <soap:operation soapAction="urn:SalaryService/GetSalaryStandardItems" style="document" />
       <wsdl:input>
@@ -382,746 +562,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCustomGuerdonArchiveWithPaging">
-      <soap:operation soapAction="urn:SalaryService/GetCustomGuerdonArchiveWithPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCustomGuerdonArchiveByArchiveID">
-      <soap:operation soapAction="urn:SalaryService/GetCustomGuerdonArchiveByArchiveID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CustomGuerdonArchiveAdd">
-      <soap:operation soapAction="urn:SalaryService/CustomGuerdonArchiveAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CustomGuerdonArchiveUpdate">
-      <soap:operation soapAction="urn:SalaryService/CustomGuerdonArchiveUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PaymentUpdate">
-      <soap:operation soapAction="urn:SalaryService/PaymentUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PaymentConfirmUpdate">
-      <soap:operation soapAction="urn:SalaryService/PaymentConfirmUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryRecordOne">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryRecordOne" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryArchiveByEmployeeIDs">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryArchiveByEmployeeIDs" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SaveFile">
-      <soap:operation soapAction="urn:SalaryService/SaveFile" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ImportExcel">
-      <soap:operation soapAction="urn:SalaryService/ImportExcel" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReadExcel">
-      <soap:operation soapAction="urn:SalaryService/ReadExcel" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ExportExcelAll">
-      <soap:operation soapAction="urn:SalaryService/ExportExcelAll" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ExportExcel">
-      <soap:operation soapAction="urn:SalaryService/ExportExcel" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ExportSalaryExcel">
-      <soap:operation soapAction="urn:SalaryService/ExportSalaryExcel" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ExportSalarySummary">
-      <soap:operation soapAction="urn:SalaryService/ExportSalarySummary" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ExportEmployeeDeductionMoney">
-      <soap:operation soapAction="urn:SalaryService/ExportEmployeeDeductionMoney" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ExportMonthDeductionTaxs">
-      <soap:operation soapAction="urn:SalaryService/ExportMonthDeductionTaxs" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPaymentPagings">
-      <soap:operation soapAction="urn:SalaryService/GetPaymentPagings" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPaymentPaging">
-      <soap:operation soapAction="urn:SalaryService/GetPaymentPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaAllowanceADD">
-      <soap:operation soapAction="urn:SalaryService/AreaAllowanceADD" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaAllowanceUpdate">
-      <soap:operation soapAction="urn:SalaryService/AreaAllowanceUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaAllowance">
-      <soap:operation soapAction="urn:SalaryService/AreaAllowance" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaAllowanceDelete">
-      <soap:operation soapAction="urn:SalaryService/AreaAllowanceDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAreaAllowanceByAreaID">
-      <soap:operation soapAction="urn:SalaryService/GetAreaAllowanceByAreaID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAreaAllowanceByID">
-      <soap:operation soapAction="urn:SalaryService/GetAreaAllowanceByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAreaCategory">
-      <soap:operation soapAction="urn:SalaryService/GetAreaCategory" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAreaCityByCategory">
-      <soap:operation soapAction="urn:SalaryService/GetAreaCityByCategory" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaCityAdd">
-      <soap:operation soapAction="urn:SalaryService/AreaCityAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaCityCheck">
-      <soap:operation soapAction="urn:SalaryService/AreaCityCheck" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaCityByCategoryDelete">
-      <soap:operation soapAction="urn:SalaryService/AreaCityByCategoryDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaCityLotsofAdd">
-      <soap:operation soapAction="urn:SalaryService/AreaCityLotsofAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaCityDelete">
-      <soap:operation soapAction="urn:SalaryService/AreaCityDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAreaCategoryByID">
-      <soap:operation soapAction="urn:SalaryService/GetAreaCategoryByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaCategoryUpdate">
-      <soap:operation soapAction="urn:SalaryService/AreaCategoryUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaCategoryADD">
-      <soap:operation soapAction="urn:SalaryService/AreaCategoryADD" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AreaCategoryDelete">
-      <soap:operation soapAction="urn:SalaryService/AreaCategoryDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAreaAllowanceWithPaging">
-      <soap:operation soapAction="urn:SalaryService/GetAreaAllowanceWithPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAreaCityWithPaging">
-      <soap:operation soapAction="urn:SalaryService/GetAreaCityWithPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAreaWithPaging">
-      <soap:operation soapAction="urn:SalaryService/GetAreaWithPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PerformanceRewardRecordAdd">
-      <soap:operation soapAction="urn:SalaryService/PerformanceRewardRecordAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PerformanceRewardRecordUpdate">
-      <soap:operation soapAction="urn:SalaryService/PerformanceRewardRecordUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PerformanceRewardRecordDelete">
-      <soap:operation soapAction="urn:SalaryService/PerformanceRewardRecordDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPerformaceRewardByID">
-      <soap:operation soapAction="urn:SalaryService/GetPerformaceRewardByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPerformanceRewardRecordWithPaging">
-      <soap:operation soapAction="urn:SalaryService/GetPerformanceRewardRecordWithPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SalarySolutionStandardAdd">
-      <soap:operation soapAction="urn:SalaryService/SalarySolutionStandardAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SalarySolutionStandardDelete">
-      <soap:operation soapAction="urn:SalaryService/SalarySolutionStandardDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalarySolutionStandardWithPaging">
-      <soap:operation soapAction="urn:SalaryService/GetSalarySolutionStandardWithPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryItemSetPaging">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSetPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryItemSets">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSets" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SalaryItemSetAdd">
-      <soap:operation soapAction="urn:SalaryService/SalaryItemSetAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FormulaTemplateAdd">
-      <soap:operation soapAction="urn:SalaryService/FormulaTemplateAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SalaryItemSetUpdate">
-      <soap:operation soapAction="urn:SalaryService/SalaryItemSetUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SalaryItemSetDelete">
-      <soap:operation soapAction="urn:SalaryService/SalaryItemSetDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryItemSetByID">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSetByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryItemSetByStandardID">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSetByStandardID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryItemSetName">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryItemSetName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckCalItem">
-      <soap:operation soapAction="urn:SalaryService/CheckCalItem" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ExecuteSalaryItemSql">
-      <soap:operation soapAction="urn:SalaryService/ExecuteSalaryItemSql" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryStandardItemPaging">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryStandardItemPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryStandardItemsViewByStandarID">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryStandardItemsViewByStandarID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSalaryRecordByID">
-      <soap:operation soapAction="urn:SalaryService/GetEmployeeSalaryRecordByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EmployeeSalaryRecordOrItemDelete">
-      <soap:operation soapAction="urn:SalaryService/EmployeeSalaryRecordOrItemDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EmployeeSalaryRecordDelete">
-      <soap:operation soapAction="urn:SalaryService/EmployeeSalaryRecordDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSalaryRecordPaging">
-      <soap:operation soapAction="urn:SalaryService/GetEmployeeSalaryRecordPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateSalaryRecord">
-      <soap:operation soapAction="urn:SalaryService/GenerateSalaryRecord" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SalaryRecordAccountCheck">
-      <soap:operation soapAction="urn:SalaryService/SalaryRecordAccountCheck" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SalaryRecordAccount">
-      <soap:operation soapAction="urn:SalaryService/SalaryRecordAccount" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FBStatistics">
-      <soap:operation soapAction="urn:SalaryService/FBStatistics" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FBStatisticsMass">
-      <soap:operation soapAction="urn:SalaryService/FBStatisticsMass" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FBStatisticsMassByChoose">
-      <soap:operation soapAction="urn:SalaryService/FBStatisticsMassByChoose" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAutoEmployeeSalaryRecordPagings">
-      <soap:operation soapAction="urn:SalaryService/GetAutoEmployeeSalaryRecordPagings" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetMenuSignAutoEmployeeSalaryRecordPagings">
-      <soap:operation soapAction="urn:SalaryService/GetMenuSignAutoEmployeeSalaryRecordPagings" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AutoCalItem">
-      <soap:operation soapAction="urn:SalaryService/AutoCalItem" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FilterStandard">
-      <soap:operation soapAction="urn:SalaryService/FilterStandard" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UndoRepayment">
-      <soap:operation soapAction="urn:SalaryService/UndoRepayment" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UndoRepaymentMass">
-      <soap:operation soapAction="urn:SalaryService/UndoRepaymentMass" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryRecordAuditPaging">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryRecordAuditPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetMassAuditSalaryRecordPagings">
-      <soap:operation soapAction="urn:SalaryService/GetMassAuditSalaryRecordPagings" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAuditSalaryRecordsPagings">
-      <soap:operation soapAction="urn:SalaryService/GetAuditSalaryRecordsPagings" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAuditSalaryRecords">
-      <soap:operation soapAction="urn:SalaryService/GetAuditSalaryRecords" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryRecordAuditSum">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryRecordAuditSum" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSalaryRecordBatchByID">
-      <soap:operation soapAction="urn:SalaryService/GetSalaryRecordBatchByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckSalaryAuditState">
-      <soap:operation soapAction="urn:SalaryService/CheckSalaryAuditState" style="document" />
+    <wsdl:operation name="AssignPersonMoney">
+      <soap:operation soapAction="urn:SalaryService/AssignPersonMoney" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1491,6 +933,366 @@
     </wsdl:operation>
     <wsdl:operation name="GetPerformanceRewardSetWithPaging">
       <soap:operation soapAction="urn:SalaryService/GetPerformanceRewardSetWithPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonArchiveWithPaging">
+      <soap:operation soapAction="urn:SalaryService/GetCustomGuerdonArchiveWithPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomGuerdonArchiveByArchiveID">
+      <soap:operation soapAction="urn:SalaryService/GetCustomGuerdonArchiveByArchiveID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonArchiveAdd">
+      <soap:operation soapAction="urn:SalaryService/CustomGuerdonArchiveAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomGuerdonArchiveUpdate">
+      <soap:operation soapAction="urn:SalaryService/CustomGuerdonArchiveUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentUpdate">
+      <soap:operation soapAction="urn:SalaryService/PaymentUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentConfirmUpdate">
+      <soap:operation soapAction="urn:SalaryService/PaymentConfirmUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryRecordOne">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryRecordOne" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryArchiveByEmployeeIDs">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryArchiveByEmployeeIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <soap:operation soapAction="urn:SalaryService/SaveFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportExcel">
+      <soap:operation soapAction="urn:SalaryService/ImportExcel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadExcel">
+      <soap:operation soapAction="urn:SalaryService/ReadExcel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportExcelAll">
+      <soap:operation soapAction="urn:SalaryService/ExportExcelAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportExcel">
+      <soap:operation soapAction="urn:SalaryService/ExportExcel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSalaryExcel">
+      <soap:operation soapAction="urn:SalaryService/ExportSalaryExcel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSalarySummary">
+      <soap:operation soapAction="urn:SalaryService/ExportSalarySummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeDeductionMoney">
+      <soap:operation soapAction="urn:SalaryService/ExportEmployeeDeductionMoney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportMonthDeductionTaxs">
+      <soap:operation soapAction="urn:SalaryService/ExportMonthDeductionTaxs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentPagings">
+      <soap:operation soapAction="urn:SalaryService/GetPaymentPagings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentPaging">
+      <soap:operation soapAction="urn:SalaryService/GetPaymentPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaAllowanceADD">
+      <soap:operation soapAction="urn:SalaryService/AreaAllowanceADD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaAllowanceUpdate">
+      <soap:operation soapAction="urn:SalaryService/AreaAllowanceUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaAllowance">
+      <soap:operation soapAction="urn:SalaryService/AreaAllowance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaAllowanceDelete">
+      <soap:operation soapAction="urn:SalaryService/AreaAllowanceDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaAllowanceByAreaID">
+      <soap:operation soapAction="urn:SalaryService/GetAreaAllowanceByAreaID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaAllowanceByID">
+      <soap:operation soapAction="urn:SalaryService/GetAreaAllowanceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCategory">
+      <soap:operation soapAction="urn:SalaryService/GetAreaCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCityByCategory">
+      <soap:operation soapAction="urn:SalaryService/GetAreaCityByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityAdd">
+      <soap:operation soapAction="urn:SalaryService/AreaCityAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityCheck">
+      <soap:operation soapAction="urn:SalaryService/AreaCityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityByCategoryDelete">
+      <soap:operation soapAction="urn:SalaryService/AreaCityByCategoryDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityLotsofAdd">
+      <soap:operation soapAction="urn:SalaryService/AreaCityLotsofAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaCityDelete">
+      <soap:operation soapAction="urn:SalaryService/AreaCityDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCategoryByID">
+      <soap:operation soapAction="urn:SalaryService/GetAreaCategoryByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaCategoryUpdate">
+      <soap:operation soapAction="urn:SalaryService/AreaCategoryUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaCategoryADD">
+      <soap:operation soapAction="urn:SalaryService/AreaCategoryADD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaCategoryDelete">
+      <soap:operation soapAction="urn:SalaryService/AreaCategoryDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaAllowanceWithPaging">
+      <soap:operation soapAction="urn:SalaryService/GetAreaAllowanceWithPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCityWithPaging">
+      <soap:operation soapAction="urn:SalaryService/GetAreaCityWithPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaWithPaging">
+      <soap:operation soapAction="urn:SalaryService/GetAreaWithPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PerformanceRewardRecordAdd">
+      <soap:operation soapAction="urn:SalaryService/PerformanceRewardRecordAdd" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2067,6 +1869,195 @@
     </wsdl:operation>
     <wsdl:operation name="EmployeeSalaryRecordUpdate">
       <soap:operation soapAction="urn:SalaryService/EmployeeSalaryRecordUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSalaryRecordByID">
+      <soap:operation soapAction="urn:SalaryService/GetEmployeeSalaryRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSalaryRecordOrItemDelete">
+      <soap:operation soapAction="urn:SalaryService/EmployeeSalaryRecordOrItemDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSalaryRecordDelete">
+      <soap:operation soapAction="urn:SalaryService/EmployeeSalaryRecordDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSalaryRecordPaging">
+      <soap:operation soapAction="urn:SalaryService/GetEmployeeSalaryRecordPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalaryRecordAccountCheck">
+      <soap:operation soapAction="urn:SalaryService/SalaryRecordAccountCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FBStatistics">
+      <soap:operation soapAction="urn:SalaryService/FBStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FBStatisticsMass">
+      <soap:operation soapAction="urn:SalaryService/FBStatisticsMass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FBStatisticsMassByChoose">
+      <soap:operation soapAction="urn:SalaryService/FBStatisticsMassByChoose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAutoEmployeeSalaryRecordPagings">
+      <soap:operation soapAction="urn:SalaryService/GetAutoEmployeeSalaryRecordPagings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuSignAutoEmployeeSalaryRecordPagings">
+      <soap:operation soapAction="urn:SalaryService/GetMenuSignAutoEmployeeSalaryRecordPagings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoCalItem">
+      <soap:operation soapAction="urn:SalaryService/AutoCalItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterStandard">
+      <soap:operation soapAction="urn:SalaryService/FilterStandard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoRepayment">
+      <soap:operation soapAction="urn:SalaryService/UndoRepayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndoRepaymentMass">
+      <soap:operation soapAction="urn:SalaryService/UndoRepaymentMass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryRecordAuditPaging">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryRecordAuditPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMassAuditSalaryRecordPagings">
+      <soap:operation soapAction="urn:SalaryService/GetMassAuditSalaryRecordPagings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditSalaryRecordsPagings">
+      <soap:operation soapAction="urn:SalaryService/GetAuditSalaryRecordsPagings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditSalaryRecords">
+      <soap:operation soapAction="urn:SalaryService/GetAuditSalaryRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryRecordAuditSum">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryRecordAuditSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalaryRecordBatchByID">
+      <soap:operation soapAction="urn:SalaryService/GetSalaryRecordBatchByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSalaryAuditState">
+      <soap:operation soapAction="urn:SalaryService/CheckSalaryAuditState" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

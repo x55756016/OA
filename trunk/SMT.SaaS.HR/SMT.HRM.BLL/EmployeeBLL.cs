@@ -18,6 +18,7 @@ using SMT.HRM.IMServices.IMServiceWS;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using SMT.Foundation.Log;
 
 
 
@@ -1152,7 +1153,8 @@ namespace SMT.HRM.BLL
                        where em.EMPLOYEEID == employeeID
                        select new V_EMPLOYEEVIEW
                        {
-                           EMPLOYEECNAME = em.EMPLOYEECNAME
+                           EMPLOYEECNAME = em.EMPLOYEECNAME,
+                           EMPLOYEESTATE = em.EMPLOYEESTATE
                        }).FirstOrDefault();
 
             var ent = from em in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_POST")
@@ -1171,7 +1173,8 @@ namespace SMT.HRM.BLL
                           COMPANYNAME = c.CNAME,
                           DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                           POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
-                          POSTLEVEL = em.POSTLEVEL
+                          POSTLEVEL = em.POSTLEVEL,
+                          EMPLOYEESTATE = ents.EMPLOYEESTATE
                       };
             if (ent != null && ent.Count() > 0)
             {
@@ -2673,12 +2676,50 @@ namespace SMT.HRM.BLL
                                 }
                             }
                         }
-                        
-                        item.ATTENDREMARK = GetIsAgency(item.ISAGENCY) + "；" + GetEmployeeDicration(item.EMPLOYEESTATE, item.EMPLOYEEID) +
+                        string reMart = GetIsAgency(item.ISAGENCY) + "；" + GetEmployeeDicration(item.EMPLOYEESTATE, item.EMPLOYEEID) +
                             "；应出勤" + item.NEEDATTENDDAYS.ToString() + "天，实际出勤" + item.REALATTENDDAYS.ToString() + "天";
+                        if (entCurMonth.LATEMINUTES != null)
+                        {
+                            if (entCurMonth.LATEMINUTES.Value>0)
+                            {
+                                reMart = reMart + "，迟到" + entCurMonth.LATEMINUTES + "分钟：";
+                            }
+                        }
+                        item.ATTENDREMARK = reMart;
+                        
+                        
                         item.NEEDSUM = custom.ToList().FirstOrDefault().SUM;
-                        //实际下拨金额=（实际出勤天数/应出勤天数*应下拨金额）
+                        //实际下拨金额=（实际出勤天数/应出勤天数*应下拨金额）-迟到扣款（总额/应出勤时间/每天工作小时数/60分*迟到分钟数）
                         decimal total = Convert.ToDecimal((item.REALATTENDDAYS / item.NEEDATTENDDAYS) * item.NEEDSUM);
+                        try
+                        {
+                            if (entCurMonth.LATEMINUTES != null)
+                            {
+                                if (entCurMonth.LATEMINUTES.Value > 0)
+                                {
+                                    decimal d = 0;
+                                    AttendanceSolutionAsignBLL bll = new AttendanceSolutionAsignBLL();
+                                    T_HR_ATTENDANCESOLUTIONASIGN entAttSolAsign 
+                                        = bll.GetAttendanceSolutionAsignByEmployeeIDAndDate(item.EMPLOYEEID, DateTime.Now);
+                                    if (entAttSolAsign != null)
+                                    {
+                                        d = entAttSolAsign.T_HR_ATTENDANCESOLUTION.WORKTIMEPERDAY.Value;
+
+                                        if (d > 0)
+                                        {
+                                            double LaterValue = (double)((item.NEEDSUM / item.NEEDATTENDDAYS).Value)
+                                                / (double)d / 60 * (double)entCurMonth.LATEMINUTES.Value;
+                                            total = total - Convert.ToDecimal(LaterValue);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Tracer.Debug(ex.ToString());
+                        }
+
                         item.REALSUM = Math.Round(total);
                         list.Add(item);
                     }
@@ -2692,8 +2733,6 @@ namespace SMT.HRM.BLL
                         list.Add(item);
                     }
                 }
-
-
                 list = list.Where(c => c.COMPANYID == strCompantID && c.ISAGENCY == "0").ToList();
                 List<V_EMPLOYEEFUNDS> entResList = new List<V_EMPLOYEEFUNDS>();
 
