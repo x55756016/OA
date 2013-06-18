@@ -496,6 +496,30 @@ namespace SMT.FB.BLL
             #region 填充XML一级节点
             EntityObject ent = fbEntity.ReferencedEntity[0].FBEntity.Entity;
 
+            #region 部门分配没有去到子表数据，这里组一下
+            if (entityInfo.EntityCode == "T_FB_DEPTTRANSFERMASTER")
+            {
+                QueryEntityBLL bll = new QueryEntityBLL();
+                QueryExpression qeDetail = QueryExpression.Equal("DEPTTRANSFERMASTERID", ent.EntityKey.EntityKeyValues[0].Value.ToString());
+                qeDetail.QueryType = "T_FB_DEPTTRANSFERMASTER";
+                qeDetail.Include = new string[] { typeof(T_FB_DEPTTRANSFERDETAIL).Name };
+                var deptDetail = bll.InnerGetEntities<T_FB_DEPTTRANSFERMASTER>(qeDetail).FirstOrDefault();///部门分配明细
+                foreach (var item in deptDetail.T_FB_DEPTTRANSFERDETAIL)
+                {
+                    QueryExpression qePer = QueryExpression.Equal("DEPTTRANSFERDETAILID", item.DEPTTRANSFERDETAILID);
+                    qePer.QueryType = "T_FB_DEPTTRANSFERDETAIL";
+                    qePer.Include = new string[] { typeof(T_FB_PERSONTRANSFERDETAIL).Name };
+                    var perDetail = bll.InnerGetEntities<T_FB_DEPTTRANSFERDETAIL>(qePer).FirstOrDefault();///部门分配给个人的明细
+                    perDetail.T_FB_PERSONTRANSFERDETAIL.ForEach(it =>
+                    {
+                        item.T_FB_PERSONTRANSFERDETAIL.Add(it);
+                    });
+                }
+
+                ent = (EntityObject)deptDetail;
+            }
+            #endregion
+
             string strFirstKeyName = xe.Attribute("Key").Value;
             if (!string.IsNullOrWhiteSpace(strFirstKeyName))
             {

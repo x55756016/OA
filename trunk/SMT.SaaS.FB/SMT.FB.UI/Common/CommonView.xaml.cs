@@ -600,6 +600,7 @@ namespace SMT.FB.UI.Common
                 qeEndDate.RelatedType = QueryExpression.RelationType.And;
                 qe.RelatedExpression = qeEndDate;
                 qe = qe.RelatedExpression;
+                
             }
 
             // 查询对象选择范围

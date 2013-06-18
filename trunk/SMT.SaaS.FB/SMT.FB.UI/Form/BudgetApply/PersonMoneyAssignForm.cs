@@ -26,7 +26,7 @@ namespace SMT.FB.UI.Form.BudgetApply
     public class PersonMoneyAssignForm : FBPage
     {
         FBEntityService fbService;
-
+        bool isFirst = true;
         /// <summary>
         /// 个人经费下拨 构造函数
         /// </summary>
@@ -62,15 +62,15 @@ namespace SMT.FB.UI.Form.BudgetApply
 
 
             details.ToList().ForEach(item =>
-                {
-                    T_FB_PERSONMONEYASSIGNDETAIL detail = item.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
+            {
+                T_FB_PERSONMONEYASSIGNDETAIL detail = item.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
 
-                    if (detail.BUDGETMONEY <= 0 || detail.BUDGETMONEY == null)
-                    {
-                        string errorMessage = detail.OWNERNAME + "的下拨金额为零请删除";
-                        msgs.Add(errorMessage);
-                    }
-                });
+                if (detail.BUDGETMONEY <= 0 || detail.BUDGETMONEY == null)
+                {
+                    string errorMessage = detail.OWNERNAME + "的下拨金额为零请删除";
+                    msgs.Add(errorMessage);
+                }
+            });
 
             //明细为为0的不能提交
             if (details.ToList().Count <= 0)
@@ -114,6 +114,11 @@ namespace SMT.FB.UI.Form.BudgetApply
             else
             {
                 SetSortDetails();
+                //if (isFirst)
+                //{
+                //    isFirst = false;
+                SortDetails();
+                //  }
             }
 
             this.OrderEntity.OrderPropertyChanged += new EventHandler<OrderPropertyChangedArgs>(OrderEntity_OrderPropertyChanged);
@@ -124,6 +129,26 @@ namespace SMT.FB.UI.Form.BudgetApply
 
         }
 
+        /// <summary>
+        /// 为了明细安排岗位级别和薪资级别排序
+        /// </summary>
+        void SortDetails()
+        {
+            var details = this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name);
+            ObservableCollection<string> employeeIDs = new ObservableCollection<string>();
+            details.ForEach(item =>
+                employeeIDs.Add((item.Entity as T_FB_PERSONMONEYASSIGNDETAIL).OWNERID)
+                );
+
+
+            //为了排序，后台排好序以后到前台还是乱的
+            SMT.Saas.Tools.SalaryWS.SalaryServiceClient pe = new SMT.Saas.Tools.SalaryWS.SalaryServiceClient();
+            pe.GetSalaryArchiveByEmployeeIDsCompleted += new EventHandler<Saas.Tools.SalaryWS.GetSalaryArchiveByEmployeeIDsCompletedEventArgs>(pe_GetSalaryArchiveByEmployeeIDsCompleted);
+            int dYear = 0, dMonth = 0;
+            dYear = DateTime.Now.AddMonths(-1).Year;     //取年份
+            dMonth = DateTime.Now.AddMonths(-1).Month;   //取月份
+            pe.GetSalaryArchiveByEmployeeIDsAsync(employeeIDs, dYear, dMonth);
+        }
         void fbService_QueryFBEntitiesCompleted(object sender, QueryFBEntitiesCompletedEventArgs e)
         {
             if (e.Error == null)
@@ -152,7 +177,6 @@ namespace SMT.FB.UI.Form.BudgetApply
                 {
                     CommonFunction.ShowErrorMessage(msgs);
                 }
-
             }
         }
 
@@ -217,9 +241,9 @@ namespace SMT.FB.UI.Form.BudgetApply
                 {
                     var details = this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name);
                     decimal? sumMoney = details.Sum(item =>
-                        {
-                            return (item.Entity as T_FB_PERSONMONEYASSIGNDETAIL).BUDGETMONEY;
-                        });
+                    {
+                        return (item.Entity as T_FB_PERSONMONEYASSIGNDETAIL).BUDGETMONEY;
+                    });
                     this.OrderEntity.SetObjValue("Entity.BUDGETMONEY", sumMoney);
 
 
@@ -252,6 +276,66 @@ namespace SMT.FB.UI.Form.BudgetApply
         }
 
         /// <summary>
+        /// 根据员工ID获取员工薪资档案信息（为了根据岗位级别和薪资级别排序）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void pe_GetSalaryArchiveByEmployeeIDsCompleted(object sender, Saas.Tools.SalaryWS.GetSalaryArchiveByEmployeeIDsCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Result == null || e.Result.Count == 0 || e.Error != null)
+                {
+                    CommonFunction.ShowErrorMessage("调用HR服务返回异常信息（为空表示没有数据）：" + e.Error);
+                    return;
+                }
+                var details = this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name);
+                List<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE> listSalay = e.Result.ToList();
+                List<T_FB_PERSONMONEYASSIGNDETAIL> perLIst = new List<T_FB_PERSONMONEYASSIGNDETAIL>();
+                foreach (var item in details)
+                {
+                    var itemFBEntity = item.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
+                    listSalay.ForEach(it =>
+                    {
+                        if (itemFBEntity.OWNERID == it.OWNERID)
+                        {
+                            itemFBEntity.CREATEUSERNAME = Convert.ToString(it.POSTLEVEL);
+                            itemFBEntity.UPDATEUSERNAME = Convert.ToString(it.SALARYLEVEL);
+                        }
+                    });
+                    perLIst.Add(itemFBEntity);
+                }
+
+                perLIst = perLIst.OrderBy(t => Convert.ToDecimal(t.CREATEUSERNAME)).ThenBy(t => Convert.ToDecimal(t.UPDATEUSERNAME)).ToList();
+                var fbEntity = perLIst.ToFBEntityList();
+                DetailGrid dgrid = this.EditForm.FindControl("OrderGrid") as DetailGrid;
+                if (dgrid != null)
+                {
+                    dgrid.ClearValue(DetailGrid.ItemsSourceProperty);
+                    dgrid.ItemsSource = fbEntity;
+                }
+                this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name).Clear();
+                fbEntity.ForEach(item =>
+                {
+                    item.FBEntityState = FBEntityState.Modified;
+                    T_FB_PERSONMONEYASSIGNDETAIL perDetail = item.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
+                    perDetail.T_FB_PERSONMONEYASSIGNMASTER = this.OrderEntity.Entity as T_FB_PERSONMONEYASSIGNMASTER;
+                });
+                this.OrderEntity.FBEntity.AddFBEntities<T_FB_PERSONMONEYASSIGNDETAIL>(fbEntity);
+                var detailss = this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name);
+                for (int i = 0; i < details.Count; i++)
+                {
+                    (details[i].Entity as T_FB_PERSONMONEYASSIGNDETAIL).RowIndex = i + 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                CommonFunction.ShowErrorMessage("调用HR服务返回异常信息：" + ex.ToString());
+            }
+        }
+
+
+        /// <summary>
         /// 查询数据
         /// </summary>
         private void GetOrderDetail()
@@ -271,6 +355,7 @@ namespace SMT.FB.UI.Form.BudgetApply
         protected override void OnLoadDataComplete()
         {
             InitData();
+            //SortDetails();
         }
 
         protected override void OnLoadControlComplete()
@@ -300,7 +385,6 @@ namespace SMT.FB.UI.Form.BudgetApply
                 if (lu != null)
                     lu.IsEnabled = false;
             }
-
         }
 
         void dGrid_ToolBarItemClick(object sender, ToolBarItemClickEventArgs e)
@@ -348,67 +432,67 @@ namespace SMT.FB.UI.Form.BudgetApply
 
                         var selectedObjects = ogzLookup.SelectedObj;
                         selectedObjects.ForEach(obj =>
+                        {
+                            ExtOrgObj post = obj.ParentObject as ExtOrgObj;
+                            ExtOrgObj dept = post.ParentObject as ExtOrgObj;
+
+                            // ExtOrgObj com = dept.ParentObject as ExtOrgObj;
+                            ITextValueItem pdata = DataCore.FindReferencedData<PostData>(post.ObjectID);
+                            ITextValueItem ddata = DataCore.FindReferencedData<DepartmentData>(dept.ObjectID);
+                            ITextValueItem cdata = (ddata as DepartmentData).Company;
+
+                            var existDetail = assignDetail.FirstOrDefault(item =>
                             {
-                                ExtOrgObj post = obj.ParentObject as ExtOrgObj;
-                                ExtOrgObj dept = post.ParentObject as ExtOrgObj;
-
-                                // ExtOrgObj com = dept.ParentObject as ExtOrgObj;
-                                ITextValueItem pdata = DataCore.FindReferencedData<PostData>(post.ObjectID);
-                                ITextValueItem ddata = DataCore.FindReferencedData<DepartmentData>(dept.ObjectID);
-                                ITextValueItem cdata = (ddata as DepartmentData).Company;
-
-                                var existDetail = assignDetail.FirstOrDefault(item =>
-                                {
-                                    T_FB_PERSONMONEYASSIGNDETAIL cd = item.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
-                                    return cd.OWNERID == obj.ObjectID && cd.OWNERPOSTID == pdata.Value.ToString();
-                                });
-
-                                T_FB_PERSONMONEYASSIGNDETAIL detail = new T_FB_PERSONMONEYASSIGNDETAIL();
-                                if (existDetail != null)
-                                {
-                                    detail.PERSONBUDGETAPPLYDETAILID = (existDetail.Entity as T_FB_PERSONMONEYASSIGNDETAIL).PERSONBUDGETAPPLYDETAILID;
-                                    detail.T_FB_PERSONMONEYASSIGNMASTER = this.OrderEntity.Entity as T_FB_PERSONMONEYASSIGNMASTER;
-                                }
-                                else
-                                {
-                                    detail.PERSONBUDGETAPPLYDETAILID = Guid.NewGuid().ToString();
-                                    detail.T_FB_PERSONMONEYASSIGNMASTER = this.OrderEntity.Entity as T_FB_PERSONMONEYASSIGNMASTER;
-                                    detail.BUDGETMONEY = 0;
-                                }
-
-                                detail.OWNERID = obj.ObjectID;
-                                detail.OWNERNAME = obj.ObjectName;
-                                detail.OWNERPOSTID = pdata.Value.ToString();
-                                detail.OWNERPOSTNAME = pdata.Text;
-                                detail.OWNERDEPARTMENTID = ddata.Value.ToString();
-                                detail.OWNERDEPARTMENTNAME = ddata.Text;
-                                detail.OWNERCOMPANYID = cdata.Value.ToString();
-                                detail.OWNERCOMPANYNAME = cdata.Text;
-
-                                //SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTFORFB vpostinfo = new SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTFORFB();
-                                //vpostinfo.PERSONBUDGETAPPLYDETAILID = detail.PERSONBUDGETAPPLYDETAILID;
-                                //vpostinfo.OWNERID = detail.OWNERID;
-                                //vpostinfo.OWNERPOSTID = detail.OWNERPOSTID;
-                                //vlistpostinfo.Add(vpostinfo);
-
-                                SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEFUNDS vpostinfo = new SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEFUNDS();
-
-                                vpostinfo.EMPLOYEEID = detail.OWNERID;
-                                vpostinfo.POSTID = detail.OWNERPOSTID;
-                                vpostinfo.COMPANYID = detail.OWNERCOMPANYID;
-                                vlistpostinfo.Add(vpostinfo);
-
-                                if (existDetail != null)
-                                {
-                                    return;
-                                }
-                                else
-                                {
-                                    FBEntity fbEntity = detail.ToFBEntity();
-                                    fbEntity.FBEntityState = FBEntityState.Added;
-                                    assignDetail.Add(fbEntity);
-                                }
+                                T_FB_PERSONMONEYASSIGNDETAIL cd = item.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
+                                return cd.OWNERID == obj.ObjectID && cd.OWNERPOSTID == pdata.Value.ToString();
                             });
+
+                            T_FB_PERSONMONEYASSIGNDETAIL detail = new T_FB_PERSONMONEYASSIGNDETAIL();
+                            if (existDetail != null)
+                            {
+                                detail.PERSONBUDGETAPPLYDETAILID = (existDetail.Entity as T_FB_PERSONMONEYASSIGNDETAIL).PERSONBUDGETAPPLYDETAILID;
+                                detail.T_FB_PERSONMONEYASSIGNMASTER = this.OrderEntity.Entity as T_FB_PERSONMONEYASSIGNMASTER;
+                            }
+                            else
+                            {
+                                detail.PERSONBUDGETAPPLYDETAILID = Guid.NewGuid().ToString();
+                                detail.T_FB_PERSONMONEYASSIGNMASTER = this.OrderEntity.Entity as T_FB_PERSONMONEYASSIGNMASTER;
+                                detail.BUDGETMONEY = 0;
+                            }
+
+                            detail.OWNERID = obj.ObjectID;
+                            detail.OWNERNAME = obj.ObjectName;
+                            detail.OWNERPOSTID = pdata.Value.ToString();
+                            detail.OWNERPOSTNAME = pdata.Text;
+                            detail.OWNERDEPARTMENTID = ddata.Value.ToString();
+                            detail.OWNERDEPARTMENTNAME = ddata.Text;
+                            detail.OWNERCOMPANYID = cdata.Value.ToString();
+                            detail.OWNERCOMPANYNAME = cdata.Text;
+
+                            //SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTFORFB vpostinfo = new SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTFORFB();
+                            //vpostinfo.PERSONBUDGETAPPLYDETAILID = detail.PERSONBUDGETAPPLYDETAILID;
+                            //vpostinfo.OWNERID = detail.OWNERID;
+                            //vpostinfo.OWNERPOSTID = detail.OWNERPOSTID;
+                            //vlistpostinfo.Add(vpostinfo);
+
+                            SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEFUNDS vpostinfo = new SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEFUNDS();
+
+                            vpostinfo.EMPLOYEEID = detail.OWNERID;
+                            vpostinfo.POSTID = detail.OWNERPOSTID;
+                            vpostinfo.COMPANYID = detail.OWNERCOMPANYID;
+                            vlistpostinfo.Add(vpostinfo);
+
+                            if (existDetail != null)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                FBEntity fbEntity = detail.ToFBEntity();
+                                fbEntity.FBEntityState = FBEntityState.Added;
+                                assignDetail.Add(fbEntity);
+                            }
+                        });
                         if (vlistpostinfo != null && vlistpostinfo.Count > 0)
                         {
                             pe.GetEmployeeFundsListCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeeFundsListCompletedEventArgs>(pe_GetEmployeeFundsListCompleted);
@@ -436,33 +520,33 @@ namespace SMT.FB.UI.Form.BudgetApply
                 var assignDetail = this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name);
                 ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEFUNDS> vlistpostinfo = e.Result;
                 vlistpostinfo.ForEach(person =>
-                  {
-                      var detail = assignDetail.FirstOrDefault(p =>
-                                  {
-                                      T_FB_PERSONMONEYASSIGNDETAIL cd = p.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
-                                      return cd.OWNERID == person.EMPLOYEEID && cd.OWNERPOSTID == person.POSTID;
-                                  });
-                      if (detail != null)
-                      {
-                          T_FB_PERSONMONEYASSIGNDETAIL item = detail.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
-                          decimal dRealsum = 0, dNeedsum = 0;
-                          if (person.REALSUM != null)
-                          {
-                               dRealsum = person.REALSUM.Value;
- 
-                          }
+                {
+                    var detail = assignDetail.FirstOrDefault(p =>
+                    {
+                        T_FB_PERSONMONEYASSIGNDETAIL cd = p.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
+                        return cd.OWNERID == person.EMPLOYEEID && cd.OWNERPOSTID == person.POSTID;
+                    });
+                    if (detail != null)
+                    {
+                        T_FB_PERSONMONEYASSIGNDETAIL item = detail.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
+                        decimal dRealsum = 0, dNeedsum = 0;
+                        if (person.REALSUM != null)
+                        {
+                            dRealsum = person.REALSUM.Value;
 
-                          if (person.NEEDSUM != null)
-                          {
-                              dNeedsum = person.NEEDSUM.Value;
+                        }
 
-                          }
+                        if (person.NEEDSUM != null)
+                        {
+                            dNeedsum = person.NEEDSUM.Value;
 
-                          item.BUDGETMONEY = dRealsum;
-                          item.SUGGESTBUDGETMONEY = dNeedsum;
-                          item.POSTINFO = person.ATTENDREMARK;
-                      }
-                  });
+                        }
+
+                        item.BUDGETMONEY = dRealsum;
+                        item.SUGGESTBUDGETMONEY = dNeedsum;
+                        item.POSTINFO = person.ATTENDREMARK;
+                    }
+                });
             }
             catch (Exception ex)
             {
@@ -485,10 +569,10 @@ namespace SMT.FB.UI.Form.BudgetApply
                 vlistpostinfo.ForEach(person =>
                 {
                     var detail = assignDetail.FirstOrDefault(p =>
-                                {
-                                    T_FB_PERSONMONEYASSIGNDETAIL cd = p.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
-                                    return cd.PERSONBUDGETAPPLYDETAILID == person.PERSONBUDGETAPPLYDETAILID;
-                                });
+                    {
+                        T_FB_PERSONMONEYASSIGNDETAIL cd = p.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
+                        return cd.PERSONBUDGETAPPLYDETAILID == person.PERSONBUDGETAPPLYDETAILID;
+                    });
                     if (detail != null)
                     {
                         T_FB_PERSONMONEYASSIGNDETAIL item = detail.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
@@ -566,25 +650,25 @@ namespace SMT.FB.UI.Form.BudgetApply
 
             // 复制每一个子表
             masterOld.T_FB_PERSONMONEYASSIGNDETAIL.OrderBy(item => item.OWNERNAME).ForEach(item =>
-                {
-                    item.EntityKey = null;
-                    item.T_FB_PERSONMONEYASSIGNMASTER = master;
-                    item.T_FB_PERSONMONEYASSIGNMASTERReference = null;
-                    item.PERSONBUDGETAPPLYDETAILID = Guid.NewGuid().ToString();
-                    item.REMARK = string.Empty;
-                    item.T_FB_SUBJECT.T_FB_PERSONMONEYASSIGNDETAIL.Clear();
-                    item.T_FB_SUBJECT.T_FB_BUDGETACCOUNT.Clear();
-                    var fbEntityDetail = item.ToFBEntity();
-                    fbEntityDetail.FBEntityState = FBEntityState.Added;
-                    details.Add(fbEntityDetail);
+            {
+                item.EntityKey = null;
+                item.T_FB_PERSONMONEYASSIGNMASTER = master;
+                item.T_FB_PERSONMONEYASSIGNMASTERReference = null;
+                item.PERSONBUDGETAPPLYDETAILID = Guid.NewGuid().ToString();
+                item.REMARK = string.Empty;
+                item.T_FB_SUBJECT.T_FB_PERSONMONEYASSIGNDETAIL.Clear();
+                item.T_FB_SUBJECT.T_FB_BUDGETACCOUNT.Clear();
+                var fbEntityDetail = item.ToFBEntity();
+                fbEntityDetail.FBEntityState = FBEntityState.Added;
+                details.Add(fbEntityDetail);
 
-                    master.T_FB_PERSONMONEYASSIGNDETAIL.Add(item);
-                });
+                master.T_FB_PERSONMONEYASSIGNDETAIL.Add(item);
+            });
 
             decimal? sumMoney = details.Sum(item =>
-                        {
-                            return (item.Entity as T_FB_PERSONMONEYASSIGNDETAIL).BUDGETMONEY;
-                        });
+            {
+                return (item.Entity as T_FB_PERSONMONEYASSIGNDETAIL).BUDGETMONEY;
+            });
             master.BUDGETMONEY = sumMoney;
         }
 
@@ -594,10 +678,10 @@ namespace SMT.FB.UI.Form.BudgetApply
             if (entityNewly.T_FB_PERSONMONEYASSIGNDETAIL == null)
             {
                 entityNewly.T_FB_PERSONMONEYASSIGNDETAIL = new ObservableCollection<T_FB_PERSONMONEYASSIGNDETAIL>();
-            }            
+            }
 
             entityNewly.T_FB_PERSONMONEYASSIGNDETAIL.Clear();
-            entityNewly.PERSONMONEYASSIGNMASTERID = Guid.NewGuid().ToString();           
+            entityNewly.PERSONMONEYASSIGNMASTERID = Guid.NewGuid().ToString();
 
             return entityNewly;
         }
