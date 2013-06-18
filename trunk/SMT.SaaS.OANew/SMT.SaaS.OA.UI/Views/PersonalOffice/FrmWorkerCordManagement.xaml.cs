@@ -41,7 +41,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             #region 初始值设置
             DateTime dpEnd = DateTime.Now.AddHours(23).AddMinutes(59);
             StringBuilder sbFilter = new StringBuilder();  //查询过滤条件 
-            dpDate.Text = DateTime.Now.AddDays(-7).ToShortDateString();
+            dpDate.Text = DateTime.Now.AddMonths(-1).ToShortDateString();
             dpEndDate.Text = DateTime.Now.ToShortDateString();
             paras = new ObservableCollection<object>();
             if (sbFilter.Length != 0)
@@ -49,7 +49,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                 sbFilter.Append(" and ");
             }
             sbFilter.Append("PLANTIME >= @" + paras.Count().ToString());
-            DateTime dpStart = dpEnd.AddDays(-7);//一个星期前开始
+            DateTime dpStart = dpEnd.AddMonths(-1);//一个月前开始
             paras.Add(dpStart);
             sbFilter.Append(" and ");
             sbFilter.Append(" PLANTIME <= @" + paras.Count().ToString());
@@ -107,8 +107,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         {
             GetEntityLogo("T_OA_WORKRECORD");
             List<string> listSearch = new List<string>();
-            listSearch.Add("最近一周记录");
             listSearch.Add("最近一个月记录");
+            listSearch.Add("最近一周记录");
             dateTimeSearch.ItemsSource = listSearch;
             dateTimeSearch.SelectedIndex = 0;
         }
@@ -440,7 +440,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         {
             ComboBox dateTimeSearch = Utility.FindChildControl<ComboBox>(controlsToolkitTUV, "dateTimeSearch");
             filterString = null;
-            DateTime dpEnd = DateTime.Now;
+            DateTime dpEnd = DateTime.Now.AddDays(1);
             StringBuilder sbFilter = new StringBuilder();  //查询过滤条件 
             paras = new ObservableCollection<object>();
 
@@ -487,14 +487,14 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             }
             else
             {
-                dpDate.Text = DateTime.Now.AddDays(-7).ToShortDateString();
+                dpDate.Text = DateTime.Now.AddMonths(-1).ToShortDateString();
                 dpEndDate.Text = DateTime.Now.ToShortDateString();
                 if (sbFilter.Length != 0)
                 {
                     sbFilter.Append(" and ");
                 }
                 sbFilter.Append("PLANTIME >= @" + paras.Count().ToString());
-                DateTime dpStart = dpEnd.AddDays(-7);//一个星期前开始
+                DateTime dpStart = dpEnd.AddMonths(-1);//一个月前开始
                 paras.Add(dpStart);
                 sbFilter.Append(" and ");
                 sbFilter.Append(" PLANTIME <= @" + paras.Count().ToString());

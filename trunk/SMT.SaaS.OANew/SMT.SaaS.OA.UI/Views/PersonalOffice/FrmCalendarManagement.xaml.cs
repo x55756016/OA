@@ -494,7 +494,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         private void dateTimeSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox dateTimeSearch = Utility.FindChildControl<ComboBox>(controlsToolkitTUV, "dateTimeSearch");
-            DateTime dpEndDate = DateTime.Now;
+            DateTime dpEndDate = DateTime.Now.AddDays(1);
             System.Text.StringBuilder sbFilter = new System.Text.StringBuilder();  //查询过滤条件 
             searchParas = new ObservableCollection<object>();
             filterString = null;
