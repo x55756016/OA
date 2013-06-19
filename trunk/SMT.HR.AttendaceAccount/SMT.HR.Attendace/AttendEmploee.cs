@@ -607,7 +607,7 @@ namespace SmtPortalSetUp
         }
         #endregion
 
-        #region Datagrid考勤初始化状态更新
+        #region 处理Datagrid考勤初始化记录（修改删除）
 
 
         private void dataGridEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -654,6 +654,16 @@ namespace SmtPortalSetUp
                             UpdateAttendancerecordToNormal(attendancerecordid);
                         }
                     }
+                    if (column.Name == "ColumnDelAttInit")
+                    {
+                        DialogResult MsgBoxResult
+                              = MessageBox.Show("确认是否继续删除？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                        if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
+                        {
+                            string attendancerecordid = dataGridEmployees.Rows[e.RowIndex].Cells["attendancerecordid"].EditedFormattedValue.ToString();
+                            DeleteAttendancerecord(attendancerecordid);
+                        }
+                    }
                 }
             }
         }
@@ -669,7 +679,7 @@ namespace SmtPortalSetUp
                      where a.attendancerecordid = '" + attendancerecordid + @"'";
             int i = OracleHelp.Excute(sql);
             txtMessagebox.Text = "强制更新考勤初始化记录状态完毕，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-            GetAttendInitData();
+            //GetAttendInitData();
         }
 
         /// <summary>
@@ -683,7 +693,19 @@ namespace SmtPortalSetUp
                      where a.attendancerecordid = '" + attendancerecordid + @"'";
             int i = OracleHelp.Excute(sql);
             txtMessagebox.Text = "强制更新考勤初始化记录状态完毕，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-            GetAttendInitData();
+            //GetAttendInitData();
+        }
+        /// <summary>
+        /// 强制删除指定的考勤记录
+        /// </summary>
+        /// <param name="attendancerecordid"></param>
+        private void DeleteAttendancerecord(string attendancerecordid)
+        {
+            string sql = @"Delete smthrm.t_hr_attendancerecord a                     
+                     where a.attendancerecordid = '" + attendancerecordid + @"'";
+            int i = OracleHelp.Excute(sql);
+            txtMessagebox.Text = "强制删除指定的考勤记录完毕，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
+            //GetAttendInitData();
         }
 
         #endregion

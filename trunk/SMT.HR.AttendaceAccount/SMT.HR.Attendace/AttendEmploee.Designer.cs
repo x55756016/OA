@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttendEmploee));
             this.btnStart = new System.Windows.Forms.Button();
@@ -43,9 +44,6 @@
             this.txtStartDate = new System.Windows.Forms.TextBox();
             this.txtEndDate = new System.Windows.Forms.TextBox();
             this.dataGridEmployees = new System.Windows.Forms.DataGridView();
-            this.ColumnSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ClUpdateToNormal = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnUpdateAttendstates = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.btnCleanAll = new System.Windows.Forms.Button();
@@ -59,6 +57,8 @@
             this.dtGEmployeeLeaveRecord = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dtGEmployeeEvectionRecord = new System.Windows.Forms.DataGridView();
+            this.dtEvectionCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dtgAbnormrecord = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnColumnAbnormalDelet = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -85,6 +85,12 @@
             this.btnDeleEmployeeClockin = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dtOverTime = new System.Windows.Forms.DataGridView();
+            this.dtOverTimeCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnGenarat = new System.Windows.Forms.Button();
+            this.btnGetOvertimeRecord = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dtVacationFrom = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -106,18 +112,14 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.txtSql = new System.Windows.Forms.TextBox();
             this.btnExcute = new System.Windows.Forms.Button();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.dtEvectionCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dtOverTime = new System.Windows.Forms.DataGridView();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnGetOvertimeRecord = new System.Windows.Forms.Button();
-            this.btnGenarat = new System.Windows.Forms.Button();
-            this.dtOverTimeCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnDelAttInit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ClUpdateToNormal = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnUpdateAttendstates = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGClockRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGEmployeeLeaveRecord)).BeginInit();
@@ -132,12 +134,12 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtOverTime)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacationFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacation)).BeginInit();
             this.tabPage6.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtOverTime)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
@@ -209,6 +211,7 @@
             this.dataGridEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnSelect,
+            this.ColumnDelAttInit,
             this.ClUpdateToNormal,
             this.ColumnUpdateAttendstates});
             this.dataGridEmployees.Location = new System.Drawing.Point(8, 26);
@@ -217,27 +220,6 @@
             this.dataGridEmployees.Size = new System.Drawing.Size(415, 375);
             this.dataGridEmployees.TabIndex = 13;
             this.dataGridEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployees_CellClick);
-            // 
-            // ColumnSelect
-            // 
-            this.ColumnSelect.HeaderText = "选择";
-            this.ColumnSelect.Name = "ColumnSelect";
-            // 
-            // ClUpdateToNormal
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "更新为正常";
-            this.ClUpdateToNormal.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ClUpdateToNormal.HeaderText = "更新为正常";
-            this.ClUpdateToNormal.Name = "ClUpdateToNormal";
-            // 
-            // ColumnUpdateAttendstates
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "强制清空考勤状态";
-            this.ColumnUpdateAttendstates.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnUpdateAttendstates.HeaderText = "更新考勤状态";
-            this.ColumnUpdateAttendstates.Name = "ColumnUpdateAttendstates";
             // 
             // btnSelect
             // 
@@ -366,6 +348,19 @@
             this.dtGEmployeeEvectionRecord.TabIndex = 13;
             this.dtGEmployeeEvectionRecord.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGEmployeeEvectionRecord_CellClick);
             // 
+            // dtEvectionCheckBoxColumn
+            // 
+            this.dtEvectionCheckBoxColumn.HeaderText = "选择";
+            this.dtEvectionCheckBoxColumn.Name = "dtEvectionCheckBoxColumn";
+            // 
+            // ColumnDelete
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = "删除";
+            this.ColumnDelete.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnDelete.HeaderText = "删除";
+            this.ColumnDelete.Name = "ColumnDelete";
+            // 
             // dtgAbnormrecord
             // 
             this.dtgAbnormrecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -386,9 +381,9 @@
             // 
             // btnColumnAbnormalDelet
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = "强制删除";
-            this.btnColumnAbnormalDelet.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.NullValue = "强制删除";
+            this.btnColumnAbnormalDelet.DefaultCellStyle = dataGridViewCellStyle5;
             this.btnColumnAbnormalDelet.HeaderText = "强制删除";
             this.btnColumnAbnormalDelet.Name = "btnColumnAbnormalDelet";
             // 
@@ -626,6 +621,66 @@
             this.tabPage3.Text = "异常考勤及签卡";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.label15);
+            this.tabPage8.Controls.Add(this.dtOverTime);
+            this.tabPage8.Controls.Add(this.btnGenarat);
+            this.tabPage8.Controls.Add(this.btnGetOvertimeRecord);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(938, 407);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "加班记录";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(19, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 12);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "加班记录";
+            // 
+            // dtOverTime
+            // 
+            this.dtOverTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtOverTime.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtOverTimeCheckBoxColumn});
+            this.dtOverTime.Location = new System.Drawing.Point(20, 29);
+            this.dtOverTime.Name = "dtOverTime";
+            this.dtOverTime.RowTemplate.Height = 23;
+            this.dtOverTime.Size = new System.Drawing.Size(712, 303);
+            this.dtOverTime.TabIndex = 15;
+            // 
+            // dtOverTimeCheckBoxColumn
+            // 
+            this.dtOverTimeCheckBoxColumn.HeaderText = "选择";
+            this.dtOverTimeCheckBoxColumn.Name = "dtOverTimeCheckBoxColumn";
+            // 
+            // btnGenarat
+            // 
+            this.btnGenarat.BackColor = System.Drawing.Color.Silver;
+            this.btnGenarat.Location = new System.Drawing.Point(780, 59);
+            this.btnGenarat.Name = "btnGenarat";
+            this.btnGenarat.Size = new System.Drawing.Size(136, 24);
+            this.btnGenarat.TabIndex = 4;
+            this.btnGenarat.Text = "生成选中加班的调休假";
+            this.btnGenarat.UseVisualStyleBackColor = false;
+            this.btnGenarat.Click += new System.EventHandler(this.btnGenarat_Click);
+            // 
+            // btnGetOvertimeRecord
+            // 
+            this.btnGetOvertimeRecord.BackColor = System.Drawing.Color.Silver;
+            this.btnGetOvertimeRecord.Location = new System.Drawing.Point(780, 8);
+            this.btnGetOvertimeRecord.Name = "btnGetOvertimeRecord";
+            this.btnGetOvertimeRecord.Size = new System.Drawing.Size(136, 24);
+            this.btnGetOvertimeRecord.TabIndex = 4;
+            this.btnGetOvertimeRecord.Text = "查询";
+            this.btnGetOvertimeRecord.UseVisualStyleBackColor = false;
+            this.btnGetOvertimeRecord.Click += new System.EventHandler(this.btnGetOvertimeRecord_Click);
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.dtVacationFrom);
@@ -669,9 +724,9 @@
             // 
             // ColumnDel
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = "删除";
-            this.ColumnDel.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = "删除";
+            this.ColumnDel.DefaultCellStyle = dataGridViewCellStyle6;
             this.ColumnDel.HeaderText = "删除";
             this.ColumnDel.Name = "ColumnDel";
             // 
@@ -826,19 +881,6 @@
             this.btnExcute.UseVisualStyleBackColor = true;
             this.btnExcute.Click += new System.EventHandler(this.btnExcute_Click);
             // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.label15);
-            this.tabPage8.Controls.Add(this.dtOverTime);
-            this.tabPage8.Controls.Add(this.btnGenarat);
-            this.tabPage8.Controls.Add(this.btnGetOvertimeRecord);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(938, 407);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "加班记录";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -876,65 +918,34 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "如果检查不出异常，请先清空考勤初始化记录状态后再检查异常";
             // 
-            // dtEvectionCheckBoxColumn
+            // ColumnSelect
             // 
-            this.dtEvectionCheckBoxColumn.HeaderText = "选择";
-            this.dtEvectionCheckBoxColumn.Name = "dtEvectionCheckBoxColumn";
+            this.ColumnSelect.HeaderText = "选择";
+            this.ColumnSelect.Name = "ColumnSelect";
             // 
-            // ColumnDelete
+            // ColumnDelAttInit
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "删除";
+            this.ColumnDelAttInit.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnDelAttInit.HeaderText = "删除";
+            this.ColumnDelAttInit.Name = "ColumnDelAttInit";
+            // 
+            // ClUpdateToNormal
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "更新为正常";
+            this.ClUpdateToNormal.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ClUpdateToNormal.HeaderText = "更新为正常";
+            this.ClUpdateToNormal.Name = "ClUpdateToNormal";
+            // 
+            // ColumnUpdateAttendstates
             // 
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "删除";
-            this.ColumnDelete.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnDelete.HeaderText = "删除";
-            this.ColumnDelete.Name = "ColumnDelete";
-            // 
-            // dtOverTime
-            // 
-            this.dtOverTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtOverTime.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dtOverTimeCheckBoxColumn});
-            this.dtOverTime.Location = new System.Drawing.Point(20, 29);
-            this.dtOverTime.Name = "dtOverTime";
-            this.dtOverTime.RowTemplate.Height = 23;
-            this.dtOverTime.Size = new System.Drawing.Size(712, 303);
-            this.dtOverTime.TabIndex = 15;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(19, 9);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 12);
-            this.label15.TabIndex = 18;
-            this.label15.Text = "加班记录";
-            // 
-            // btnGetOvertimeRecord
-            // 
-            this.btnGetOvertimeRecord.BackColor = System.Drawing.Color.Silver;
-            this.btnGetOvertimeRecord.Location = new System.Drawing.Point(780, 8);
-            this.btnGetOvertimeRecord.Name = "btnGetOvertimeRecord";
-            this.btnGetOvertimeRecord.Size = new System.Drawing.Size(136, 24);
-            this.btnGetOvertimeRecord.TabIndex = 4;
-            this.btnGetOvertimeRecord.Text = "查询";
-            this.btnGetOvertimeRecord.UseVisualStyleBackColor = false;
-            this.btnGetOvertimeRecord.Click += new System.EventHandler(this.btnGetOvertimeRecord_Click);
-            // 
-            // btnGenarat
-            // 
-            this.btnGenarat.BackColor = System.Drawing.Color.Silver;
-            this.btnGenarat.Location = new System.Drawing.Point(780, 59);
-            this.btnGenarat.Name = "btnGenarat";
-            this.btnGenarat.Size = new System.Drawing.Size(136, 24);
-            this.btnGenarat.TabIndex = 4;
-            this.btnGenarat.Text = "生成选中加班的调休假";
-            this.btnGenarat.UseVisualStyleBackColor = false;
-            this.btnGenarat.Click += new System.EventHandler(this.btnGenarat_Click);
-            // 
-            // dtOverTimeCheckBoxColumn
-            // 
-            this.dtOverTimeCheckBoxColumn.HeaderText = "选择";
-            this.dtOverTimeCheckBoxColumn.Name = "dtOverTimeCheckBoxColumn";
+            dataGridViewCellStyle3.NullValue = "强制清空考勤状态";
+            this.ColumnUpdateAttendstates.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnUpdateAttendstates.HeaderText = "更新考勤状态";
+            this.ColumnUpdateAttendstates.Name = "ColumnUpdateAttendstates";
             // 
             // AttendEmploee
             // 
@@ -990,15 +1001,15 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtOverTime)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacationFrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacation)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtOverTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1040,9 +1051,6 @@
         private System.Windows.Forms.Button btnGenerVacation;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn4;
         private System.Windows.Forms.DataGridViewButtonColumn btnColumnAbnormalDelet;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnSelect;
-        private System.Windows.Forms.DataGridViewButtonColumn ClUpdateToNormal;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnUpdateAttendstates;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1090,6 +1098,10 @@
         private System.Windows.Forms.Button btnGetOvertimeRecord;
         private System.Windows.Forms.Button btnGenarat;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dtOverTimeCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnSelect;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnDelAttInit;
+        private System.Windows.Forms.DataGridViewButtonColumn ClUpdateToNormal;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnUpdateAttendstates;
     }
 }
 

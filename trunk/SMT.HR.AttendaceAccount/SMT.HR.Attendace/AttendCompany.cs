@@ -15,7 +15,7 @@ namespace SmtPortalSetUp
 {
     public partial class AttendCompany : Form
     {
-
+        private AttendanceServiceClient AttRdSvcClient;
         private DataTable dtEmployee = new DataTable();
         public AttendCompany()
         {
@@ -26,7 +26,7 @@ namespace SmtPortalSetUp
             DateTime dtEnd = new DateTime(dtNext.Year, dtNext.Month, 1).AddDays(-1);
             txtStartDate.Text = dtstart.ToString("yyyy-MM-dd");
             txtEndDate.Text = dtEnd.ToString("yyyy-MM-dd");
-
+            AttRdSvcClient = new AttendanceServiceClient();
             //this.Txtid.Text = GlobalParameters.employeeid;
             
             //txtCompanyName.Text = GlobalParameters.employeeName;
@@ -504,6 +504,28 @@ namespace SmtPortalSetUp
                              and b.attendancedate <= to_date('2013-05-31', 'yyyy-mm-dd')
                              group by t.cname, b.employeename,b.employeeid
                              order by t.cname, b.employeename";
+        }
+
+        #region 生成公司带薪假
+        private void btnGenerVacation_Click(object sender, EventArgs e)
+        {
+            DialogResult MsgBoxResult
+                              = MessageBox.Show("确认是否继续操作？生成带薪假需要有生效的主岗位，有生效的考勤方案，并且员工状态为在职状态。", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
+            {
+                txtMessagebox.Text = "开始生成带薪假:" + System.Environment.NewLine + txtMessagebox.Text;
+                AttRdSvcClient.CalculateEmployeeLevelDayCountByOrgID("1", txtCompanyid.Text);
+                txtMessagebox.Text = "生成带薪假完成:" + System.Environment.NewLine + txtMessagebox.Text;
+                MessageBox.Show("生成带薪年假完成！");
+            }
+        }
+        #endregion
+
+        private void btnPrevious_Click_1(object sender, EventArgs e)
+        {
+            Form_Second form = GlobalParameters.fromSecond;
+            form.Show();
+            this.Hide();
         }
 
     }

@@ -40,21 +40,22 @@
             this.btnCompanyAttend = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btndel = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
             this.txtEndDate = new System.Windows.Forms.TextBox();
             this.txtStartDate = new System.Windows.Forms.TextBox();
-            this.btnPrevious = new System.Windows.Forms.Button();
             this.btnCleanAll = new System.Windows.Forms.Button();
             this.BtnAttendBlance = new System.Windows.Forms.Button();
             this.btnCheckUnNormal = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
-            this.btndel = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnInitAttendRecord = new System.Windows.Forms.Button();
             this.btnGetAllCompany = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnGenerVacation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -146,6 +147,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnGenerVacation);
             this.tabPage1.Controls.Add(this.btndel);
             this.tabPage1.Controls.Add(this.btnStart);
             this.tabPage1.Controls.Add(this.btnPreviousMonth);
@@ -168,18 +170,25 @@
             this.tabPage1.Text = "处理公司考勤";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // btndel
             // 
-            this.tabPage2.Controls.Add(this.btnInitAttendRecord);
-            this.tabPage2.Controls.Add(this.btnGetAllCompany);
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(867, 403);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "处理所有公司考勤";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.btndel.BackColor = System.Drawing.Color.Silver;
+            this.btndel.Location = new System.Drawing.Point(609, 270);
+            this.btndel.Name = "btndel";
+            this.btndel.Size = new System.Drawing.Size(135, 24);
+            this.btndel.TabIndex = 31;
+            this.btndel.Text = "删除所有考勤初始化";
+            this.btndel.UseVisualStyleBackColor = false;
+            // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.Silver;
+            this.btnStart.Location = new System.Drawing.Point(609, 306);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(135, 24);
+            this.btnStart.TabIndex = 32;
+            this.btnStart.Text = "初始化考勤";
+            this.btnStart.UseVisualStyleBackColor = false;
             // 
             // btnPreviousMonth
             // 
@@ -205,16 +214,6 @@
             this.txtStartDate.Size = new System.Drawing.Size(100, 21);
             this.txtStartDate.TabIndex = 28;
             this.txtStartDate.Text = "2013-03-01";
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.BackColor = System.Drawing.Color.Silver;
-            this.btnPrevious.Location = new System.Drawing.Point(893, 4);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(63, 24);
-            this.btnPrevious.TabIndex = 27;
-            this.btnPrevious.Text = "上一步";
-            this.btnPrevious.UseVisualStyleBackColor = false;
             // 
             // btnCleanAll
             // 
@@ -256,25 +255,18 @@
             this.btnCheck.Text = "检查请假及出差";
             this.btnCheck.UseVisualStyleBackColor = false;
             // 
-            // btndel
+            // tabPage2
             // 
-            this.btndel.BackColor = System.Drawing.Color.Silver;
-            this.btndel.Location = new System.Drawing.Point(609, 270);
-            this.btndel.Name = "btndel";
-            this.btndel.Size = new System.Drawing.Size(135, 24);
-            this.btndel.TabIndex = 31;
-            this.btndel.Text = "删除所有考勤初始化";
-            this.btndel.UseVisualStyleBackColor = false;
-            // 
-            // btnStart
-            // 
-            this.btnStart.BackColor = System.Drawing.Color.Silver;
-            this.btnStart.Location = new System.Drawing.Point(609, 306);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(135, 24);
-            this.btnStart.TabIndex = 32;
-            this.btnStart.Text = "初始化考勤";
-            this.btnStart.UseVisualStyleBackColor = false;
+            this.tabPage2.Controls.Add(this.btnInitAttendRecord);
+            this.tabPage2.Controls.Add(this.btnGetAllCompany);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(867, 403);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "处理所有公司考勤";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnInitAttendRecord
             // 
@@ -313,6 +305,28 @@
             // 
             this.dataGridViewCheckBoxColumn1.HeaderText = "选择";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.BackColor = System.Drawing.Color.Silver;
+            this.btnPrevious.Location = new System.Drawing.Point(893, 4);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(63, 24);
+            this.btnPrevious.TabIndex = 27;
+            this.btnPrevious.Text = "上一步";
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click_1);
+            // 
+            // btnGenerVacation
+            // 
+            this.btnGenerVacation.BackColor = System.Drawing.Color.Silver;
+            this.btnGenerVacation.Location = new System.Drawing.Point(123, 354);
+            this.btnGenerVacation.Name = "btnGenerVacation";
+            this.btnGenerVacation.Size = new System.Drawing.Size(133, 24);
+            this.btnGenerVacation.TabIndex = 34;
+            this.btnGenerVacation.Text = "生成整个公司带薪假";
+            this.btnGenerVacation.UseVisualStyleBackColor = false;
+            this.btnGenerVacation.Click += new System.EventHandler(this.btnGenerVacation_Click);
             // 
             // AttendCompany
             // 
@@ -370,6 +384,7 @@
         private System.Windows.Forms.Button btnGetAllCompany;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.Button btnGenerVacation;
     }
 }
 
