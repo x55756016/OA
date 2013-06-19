@@ -127,9 +127,20 @@ namespace SMT.SaaS.FrameworkUI
             //{
             //    toolBar1.ButtonHelp.Click += new RoutedEventHandler(ButtonHelp_Click);
             //}
+            //设置entitybrowser内部显示区域高度，以显示垂直进度条
+            try
+            {
+                if (ParentWindow != null)
+                {
+                    SVShowContent.Width = ParentWindow.ActualWidth;
+                    SVShowContent.Height = ParentWindow.ActualHeight - toolBar1.ActualHeight - AuditCtrl.ActualHeight;
+                }
+            }
+            catch (Exception ex)
+            {
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
 
-            SVShowContent.Width = ParentWindow.ActualWidth;
-            SVShowContent.Height = ParentWindow.ActualHeight - toolBar1.ActualHeight - AuditCtrl.ActualHeight; 
+            }
         }
         /// <summary>
         /// xiedx
