@@ -46,14 +46,14 @@
         <Attribute Name="T_FB_SUBJECT.SUBJECTNAME" LableResourceID="SUBJECTNAME" Description="科目名称" DataType="string" DataValue="" DataText=""/>
         <Attribute Name="USABLEMONEY" LableResourceID="USABLEMONEY" Description="可用额度" DataType="decimal" DataValue="" DataText=""/>
         <Attribute Name="TRANSFERMONEY" LableResourceID="TRANSFERMONEY" Description="调拨金额" DataType="decimal" DataValue="" DataText=""/>
-		<ObjectList Name="T_FB_PERSONTRANSFERDETAILList" ParentName="PERSONTRANSFERDETAILID" ParentID="" LableResourceID="T_FB_PERSONTRANSFERDETAILList" Description="部门分配个人申请明细" DataText="">
+     <ObjectList Name="T_FB_PERSONTRANSFERDETAILList" ParentName="PERSONTRANSFERDETAILID" ParentID="" LableResourceID="T_FB_PERSONTRANSFERDETAILList" Description="部门分配个人申请明细" DataText="">
           <Object Name="T_FB_PERSONTRANSFERDETAIL" LableResourceID="T_FB_PERSONTRANSFERDETAIL" Description="部门分配个人申请明细" Key="PERSONTRANSFERDETAILID" id="">
             <Attribute Name="PERSONTRANSFERDETAILID" LableResourceID="PERSONTRANSFERDETAILID" Description="部门分配个人申请明细ID" DataType="string" DataValue="" DataText=""/>            
             <Attribute Name="SUBJECTID" LableResourceID="SUBJECTID" Description="科目ID" DataType="string" DataValue="" DataText=""/>
             <Attribute Name="BUDGETMONEY" LableResourceID="BUDGETMONEY" Description="资金预算" DataType="decimal" DataValue="" DataText=""/>
             <Attribute Name="LIMITBUDGETMONEY" LableResourceID="LIMITBUDGETMONEY" Description="可用金额" DataType="decimal" DataValue="" DataText=""/>
             <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="申请人名称" DataType="string" DataValue="" DataText=""/>
-			<Attribute Name="REMARK" LableResourceID="REMARK" Description="摘要" DataType="string" DataValue="" DataText=""/>
+          <Attribute Name="REMARK" LableResourceID="REMARK" Description="摘要" DataType="string" DataValue="" DataText=""/>
           </Object>
         </ObjectList>
       </Object>

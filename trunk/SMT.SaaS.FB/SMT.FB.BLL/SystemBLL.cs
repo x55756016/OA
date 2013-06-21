@@ -138,6 +138,7 @@ namespace SMT.FB.BLL
             
             //开始更新元数据单号
             string Formid = string.Empty;
+            Tracer.Debug("开始更新元数据："+tablename);
             try
             {
                   switch (tablename)
@@ -154,10 +155,10 @@ namespace SMT.FB.BLL
 
                 SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
                     new SaaS.BLLCommonServices.FlowWFService.ServiceClient();
-                Tracer.Debug(Formid);
+                Tracer.Debug("开始调用元数据获取接口：FlowWFService.GetMetadataByFormid("+Formid+")");
                 string xml=string.Empty;
                 xml=client.GetMetadataByFormid(Formid);
-                Tracer.Debug(xml);
+                Tracer.Debug("获取到的元数据："+xml);
                 xml=xml.Replace("自动生成", code);
                 Tracer.Debug("替换单号后的XML:"+xml);
                 client.UpdateMetadataByFormid(Formid, xml);

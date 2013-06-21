@@ -46,7 +46,7 @@ namespace SMT.FB.BLL
 
             //string xml = GetAuditXml(fbEntity);
             string xml = GetAuditXmlForMobile(fbEntity);
-            //Tracer.Debug(xml);
+            Tracer.Debug(xml);
 
             FlowWFService.SubmitData AuditSubmitData = new FlowWFService.SubmitData();
             AuditSubmitData.FormID = auditEntity.FormID;
@@ -496,7 +496,7 @@ namespace SMT.FB.BLL
             #region 填充XML一级节点
             EntityObject ent = fbEntity.ReferencedEntity[0].FBEntity.Entity;
 
-            #region 部门分配没有去到子表数据，这里组一下
+            #region 部门分配没有去到字表数据，这里组一下
             if (entityInfo.EntityCode == "T_FB_DEPTTRANSFERMASTER")
             {
                 QueryEntityBLL bll = new QueryEntityBLL();
@@ -519,7 +519,6 @@ namespace SMT.FB.BLL
                 ent = (EntityObject)deptDetail;
             }
             #endregion
-
             string strFirstKeyName = xe.Attribute("Key").Value;
             if (!string.IsNullOrWhiteSpace(strFirstKeyName))
             {
@@ -690,7 +689,6 @@ namespace SMT.FB.BLL
             #region try-catch的try
             try
             {
-                ///没有心情想好点写，就这样写
                 //年度汇总
                 if (entityInfo.EntityCode == "T_FB_COMPANYBUDGETSUMMASTER")
                 {
@@ -844,22 +842,33 @@ namespace SMT.FB.BLL
             try
             {
                 var tempEntity = listChildEnts.FirstOrDefault();
-                if (tempEntity.GetType().ToString() == "SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL")
+                //为了按照科目编号排序
+                switch (tempEntity.GetType().ToString())
                 {
-                    listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
-                }
-                else if (tempEntity.GetType().ToString() == "SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL")
-                {
-                    listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
-                }
-                else
-                {
-                    listChildEnts = listChildEnts.OrderBy(item => ((SMT.FB.BLL.V_SubjectDeptSum)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                    case "SMT_FB_EFModel.T_FB_COMPANYBUDGETAPPLYDETAIL"://年度预算申请明细
+                        listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_COMPANYBUDGETAPPLYDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList(); 
+                        break;
+                    case "SMT_FB_EFModel.T_FB_COMPANYBUDGETMODDETAIL"://年度增补明细
+                        listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_COMPANYBUDGETMODDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        break;
+                    case "SMT.FB.BLL.V_SubjectCompanySum"://年度预算汇总明细
+                        listChildEnts = listChildEnts.OrderBy(item => ((SMT.FB.BLL.V_SubjectCompanySum)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        break;
+                    case "SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL": //部门预算申请明细
+                        listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList(); 
+                        break;
+                    case"SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL"://部门预算增补明细
+                        listChildEnts = listChildEnts.OrderBy(item => ((SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        break;
+                    case"SMT.FB.BLL.V_SubjectDeptSum"://部门预算汇总明细
+                        listChildEnts = listChildEnts.OrderBy(item => ((SMT.FB.BLL.V_SubjectDeptSum)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        break;
+                    default: break;
                 }
             }
             catch (Exception ex)
             {
-                Tracer.Debug(ex.ToString());
+                Tracer.Debug("排序出错"+ex.ToString());
             }
             finally
             {
@@ -1056,6 +1065,7 @@ namespace SMT.FB.BLL
         /// <param name="listAllEnts"></param>
         private void GetAuditDeptBudgetSumDetails(EntityObject entityObject, ref List<EntityObject> listAllEnts)
         {
+            List<EntityObject> listTemp = new List<EntityObject>();
             T_FB_DEPTBUDGETSUMMASTER entMaster = entityObject as T_FB_DEPTBUDGETSUMMASTER;
             if (entMaster.T_FB_DEPTBUDGETSUMDETAIL == null)
             {
@@ -1093,12 +1103,37 @@ namespace SMT.FB.BLL
                                 select new V_SubjectDeptSum
                                 {
                                     T_FB_SUBJECT = p.Key,
-                                    BUDGETMONEY = p.Sum(sumItem => sumItem.BUDGETMONEY),
+                                    BUDGETMONEY = p.Sum(sumItem =>Convert.ToDecimal(sumItem.TOTALBUDGETMONEY)),
                                     T_FB_DEPTBUDGETAPPLYDETAIL = listDetail.Where(de => de.T_FB_SUBJECT == p.Key).ToList()
                                 };
-
-                listAllEnts.AddRange(detailSum);
+                listTemp.AddRange(detailSum);
             }
+            List<V_SubjectDeptSum> listSub = new List<V_SubjectDeptSum>();
+            listTemp.ForEach(it =>
+            {
+                listSub.Add(it as V_SubjectDeptSum);
+            });
+            var gruopList = listSub.GroupBy(t => t.T_FB_SUBJECT.SUBJECTID).OrderBy(t => t.Key);//根据科目分组
+            List<V_SubjectDeptSum> listSubs = new List<V_SubjectDeptSum>();
+            gruopList.ForEach(it =>
+                {
+                    if (it != null && it.Count() > 0)
+                    {
+                        it.ForEach(t =>
+                            {
+                                it.FirstOrDefault().T_FB_DEPTBUDGETAPPLYDETAIL.Add(t.T_FB_DEPTBUDGETAPPLYDETAIL.FirstOrDefault());//把相同科目的明细放在一起
+                            });
+                    }
+                    it.FirstOrDefault().T_FB_DEPTBUDGETAPPLYDETAIL.RemoveAt(0);//第一个多加了一次
+                    decimal totalMoney=0;
+                    it.FirstOrDefault().T_FB_DEPTBUDGETAPPLYDETAIL.ForEach(m =>
+                        {
+                            totalMoney +=Convert.ToDecimal(m.TOTALBUDGETMONEY);
+                        });
+                    it.FirstOrDefault().BUDGETMONEY = totalMoney;//总金额等于每个明细金额之和
+                    listSubs.Add(it.FirstOrDefault());
+                });
+            listAllEnts.AddRange(listSubs);
         }
 
         /// <summary>
@@ -1108,6 +1143,7 @@ namespace SMT.FB.BLL
         /// <param name="listAllEnts"></param>
         private void GetAuditCompanyBudgetSumDetails(EntityObject entityObject, ref List<EntityObject> listAllEnts)
         {
+            List<EntityObject> listTemp = new List<EntityObject>();
             T_FB_COMPANYBUDGETSUMMASTER entMaster = entityObject as T_FB_COMPANYBUDGETSUMMASTER;
             if (entMaster.T_FB_COMPANYBUDGETSUMDETAIL == null)
             {
@@ -1149,8 +1185,34 @@ namespace SMT.FB.BLL
                                     T_FB_COMPANYBUDGETAPPLYDETAIL = listDetail.Where(de => de.T_FB_SUBJECT == p.Key).ToList()
                                 };
 
-                listAllEnts.AddRange(detailSum);
+                listTemp.AddRange(detailSum);
             }
+            List<V_SubjectCompanySum> listSub = new List<V_SubjectCompanySum>();
+            listTemp.ForEach(it =>
+            {
+                listSub.Add(it as V_SubjectCompanySum);
+            });
+            var gruopList = listSub.GroupBy(t => t.T_FB_SUBJECT.SUBJECTID).OrderBy(t => t.Key);//根据科目分组
+            List<V_SubjectCompanySum> listSubs = new List<V_SubjectCompanySum>();
+            gruopList.ForEach(it =>
+            {
+                if (it != null && it.Count() > 0)
+                {
+                    it.ForEach(t =>
+                    {
+                        it.FirstOrDefault().T_FB_COMPANYBUDGETAPPLYDETAIL.Add(t.T_FB_COMPANYBUDGETAPPLYDETAIL.FirstOrDefault());//把相同科目的明细放在一起
+                    });
+                }
+                it.FirstOrDefault().T_FB_COMPANYBUDGETAPPLYDETAIL.RemoveAt(0);//第一个多加了一次
+                decimal totalMoney = 0;
+                it.FirstOrDefault().T_FB_COMPANYBUDGETAPPLYDETAIL.ForEach(m =>
+                {
+                    totalMoney += Convert.ToDecimal(m.BUDGETMONEY);
+                });
+                it.FirstOrDefault().BUDGETMONEY = totalMoney;//总金额等于每个明细金额之和
+                listSubs.Add(it.FirstOrDefault());
+            });
+            listAllEnts.AddRange(listSubs);
         }
 
         /// <summary>
