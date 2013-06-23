@@ -21,6 +21,7 @@ using SMT.SaaS.OA.UI.TravelExpApplyMaster;
 using SMT.Saas.Tools.FBServiceWS;
 using SMT.SAAS.Platform.Logging;
 using SMT.SaaS.MobileXml;
+using SMT.SaaS.OA.UI.AgentChannel;
 
 namespace SMT.SaaS.OA.UI.UserControls
 {
@@ -401,6 +402,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                         Utility.GetResourceStr("SUCCESSSUBMITAUDIT"));
                     textStandards.Text = string.Empty;//清空报销标准说明
                     OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
+                    if (UserState == "Submit" && state == "Approving")
+                    {
+                        //更新元数据单号
+                        AgentServicesClient clinet = new AgentServicesClient();
+                        clinet.UpdateEntityXMLAsync(TravelReimbursement_Golbal.T_OA_BUSINESSTRIP.BUSINESSTRIPID
+                            , "自动生成", TravelReimbursement_Golbal.NOBUDGETCLAIMS);
+                    }
                     break;
                 case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Successful://审核通过
                     state = Utility.GetCheckState(CheckStates.Approved);

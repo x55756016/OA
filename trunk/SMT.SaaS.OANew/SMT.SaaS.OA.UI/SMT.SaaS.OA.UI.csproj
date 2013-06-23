@@ -2570,9 +2570,6 @@
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
     <None Include="Service References\AgentChannel\AgentServices.wsdl" />
-    <None Include="Service References\AgentChannel\AgentServices.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\AgentChannel\AgentServices1.wsdl" />
     <None Include="Service References\AgentChannel\AgentServices1.xsd">
       <SubType>Designer</SubType>
@@ -2584,12 +2581,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AgentChannel\AgentServices4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AgentChannel\AgentServices5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\AgentChannel\AgentServices6.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AgentChannel\AgentServices7.xsd">

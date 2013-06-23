@@ -420,22 +420,7 @@ namespace SMT.SaaS.OA.BLL
                         else
                         {
                             Tracer.Debug("引擎状态更新出差报销完成："+System.DateTime.Now.ToString());
-                            if (oldCheckState == ((int)CheckStates.UnSubmit).ToString()
-                                && StrCheckState == ((int)CheckStates.Approving).ToString())
-                            {
-                                //元数据中保存的formid为出差申请的id
-                                string Formid = Master.T_OA_BUSINESSTRIP.BUSINESSTRIPID;
-                                //更新元数据里的报销单号
-                                SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
-                              new SaaS.BLLCommonServices.FlowWFService.ServiceClient();
-                                Tracer.Debug("开始调用元数据获取接口：FlowWFService.GetMetadataByFormid(" + Formid + ")");
-                                string xml = string.Empty;
-                                xml = client.GetMetadataByFormid(Formid);
-                                Tracer.Debug("获取到的元数据：" + xml);
-                                xml = xml.Replace("自动生成", Master.NOBUDGETCLAIMS);
-                                Tracer.Debug("替换单号后的XML:" + xml);
-                                client.UpdateMetadataByFormid(Formid, xml);
-                            }
+                          
                         }
                     }
                     else

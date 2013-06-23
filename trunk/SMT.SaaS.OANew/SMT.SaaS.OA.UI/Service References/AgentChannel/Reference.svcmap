@@ -16,29 +16,7 @@
     <UseSerializerForFaults>true</UseSerializerForFaults>
     <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
     <ReferencedAssemblies>
-      <ReferencedAssembly AssemblyName="mscorlib" />
       <ReferencedAssembly AssemblyName="System" />
-      <ReferencedAssembly AssemblyName="System.ComponentModel.DataAnnotations" />
-      <ReferencedAssembly AssemblyName="System.Core" />
-      <ReferencedAssembly AssemblyName="System.Net" />
-      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
-      <ReferencedAssembly AssemblyName="System.ServiceModel" />
-      <ReferencedAssembly AssemblyName="System.Windows" />
-      <ReferencedAssembly AssemblyName="System.Windows.Browser" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.DataForm.Toolkit" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.Input" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.DataVisualization.Toolkit" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input.Toolkit" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Layout.Toolkit" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Navigation" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Theming.Toolkit" />
-      <ReferencedAssembly AssemblyName="System.Windows.Controls.Toolkit" />
-      <ReferencedAssembly AssemblyName="System.Windows.Data" />
-      <ReferencedAssembly AssemblyName="System.Xml" />
-      <ReferencedAssembly AssemblyName="System.Xml.Serialization" />
     </ReferencedAssemblies>
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
@@ -47,7 +25,6 @@
     <MetadataSource Address="http://localhost:3938/AgentServices.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AgentServices.xsd" MetadataType="Schema" ID="26c929a0-3316-4dc8-bdce-07e053fba63b" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?xsd=xsd7" />
     <MetadataFile FileName="AgentServices1.xsd" MetadataType="Schema" ID="6dfba2ba-017c-4f36-b325-c2c7e254f07b" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?xsd=xsd0" />
     <MetadataFile FileName="AgentServices.disco" MetadataType="Disco" ID="56f40070-2f8c-4cbd-a5fb-4e506aa97c4d" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?disco" />
     <MetadataFile FileName="AgentServices.wsdl" MetadataType="Wsdl" ID="d38875b4-68bb-4372-a889-0ddfc3189008" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?wsdl=wsdl0" />
@@ -55,8 +32,6 @@
     <MetadataFile FileName="AgentServices1.wsdl" MetadataType="Wsdl" ID="c983c790-c5e6-44d0-afda-63b785ac3083" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?wsdl" />
     <MetadataFile FileName="AgentServices3.xsd" MetadataType="Schema" ID="b6688f0d-5e32-4f64-b1af-c94fb1d5e064" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?xsd=xsd1" />
     <MetadataFile FileName="AgentServices4.xsd" MetadataType="Schema" ID="1acc4de4-57a7-4d06-8c39-f8ed59cb28f8" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?xsd=xsd3" />
-    <MetadataFile FileName="AgentServices5.xsd" MetadataType="Schema" ID="ad645d19-6d3f-42e8-b0ab-9fc8ad279d6e" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?xsd=xsd6" />
-    <MetadataFile FileName="AgentServices6.xsd" MetadataType="Schema" ID="45dae8ae-df3d-4726-b0c4-90cb46ffd2d3" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?xsd=xsd5" />
     <MetadataFile FileName="AgentServices7.xsd" MetadataType="Schema" ID="a23873d3-b367-4554-822c-9be428ccfb5f" SourceId="1" SourceUrl="http://localhost:3938/AgentServices.svc?xsd=xsd4" />
   </Metadata>
   <Extensions>
