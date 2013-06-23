@@ -374,12 +374,14 @@ namespace SMT.SaaS.OA.BLL
         {
             dal.BeginTransaction();
             Tracer.Debug("引擎开始更新出差报销状态：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
+            string oldCheckState = string.Empty;
             try
             { 
                 T_OA_TRAVELREIMBURSEMENT Master = new T_OA_TRAVELREIMBURSEMENT();
                 FBServiceClient FBClient = new FBServiceClient();
                 string strMsg = "";//string.Empty;
                 Master = GetTravelReimbursementById(BorrowID);
+                oldCheckState = Master.CHECKSTATE;//保留旧的审核状态
                 Master.CHECKSTATE = StrCheckState;
                 
                 var fbResult = FBClient.UpdateExtensionOrder("Travel", BorrowID, StrCheckState, ref strMsg);//手机审单时通过后台修改个人费用报销中对应的报销单据状态
@@ -417,7 +419,23 @@ namespace SMT.SaaS.OA.BLL
                         }
                         else
                         {
-                            Tracer.Debug("引擎状态更新完成："+System.DateTime.Now.ToString());
+                            Tracer.Debug("引擎状态更新出差报销完成："+System.DateTime.Now.ToString());
+                            if (oldCheckState == ((int)CheckStates.UnSubmit).ToString()
+                                && StrCheckState == ((int)CheckStates.Approving).ToString())
+                            {
+                                //元数据中保存的formid为出差申请的id
+                                string Formid = Master.T_OA_BUSINESSTRIP.BUSINESSTRIPID;
+                                //更新元数据里的报销单号
+                                SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
+                              new SaaS.BLLCommonServices.FlowWFService.ServiceClient();
+                                Tracer.Debug("开始调用元数据获取接口：FlowWFService.GetMetadataByFormid(" + Formid + ")");
+                                string xml = string.Empty;
+                                xml = client.GetMetadataByFormid(Formid);
+                                Tracer.Debug("获取到的元数据：" + xml);
+                                xml = xml.Replace("自动生成", Master.NOBUDGETCLAIMS);
+                                Tracer.Debug("替换单号后的XML:" + xml);
+                                client.UpdateMetadataByFormid(Formid, xml);
+                            }
                         }
                     }
                     else
