@@ -452,7 +452,8 @@ namespace SMT.HRM.UI.Form.Salary
             Dictionary<string, string> systype = new Dictionary<string, string>();
             systype.Add("0", "员工加扣款");
             systype.Add("1", "员工代扣款");
-            systype.Add("2", "其他......");
+            systype.Add("2", "绩效奖金");
+            systype.Add("3", "其他......");
 
             SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY ownerCompany = (Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>).Where(s => s.COMPANYID == Info.OWNERCOMPANYID).FirstOrDefault();
             SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT ownerDepartment = (Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>).Where(s => s.DEPARTMENTID == Info.OWNERDEPARTMENTID).FirstOrDefault();
@@ -489,7 +490,7 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUMBATCH", "OWNERPOSTID", Info.OWNERPOSTID, ownerPostName));
             foreach (var v in listDetail)
             {
-                //AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "SYSTEMTYPE", v.SYSTEMTYPE, systype[v.SYSTEMTYPE.ToString()], v.ADDSUMID));
+                AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "SYSTEMTYPE", v.SYSTEMTYPE, systype[v.SYSTEMTYPE.ToString()], v.ADDSUMID));
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "CHECKSTATE", "1", checkState, v.ADDSUMID));
             }
             string a = mx.TableToXml(Info, listDetail, StrSource, AutoList);
@@ -534,9 +535,66 @@ namespace SMT.HRM.UI.Form.Salary
             entity.SystemCode = "HR";
             string strXmlObjectSource = string.Empty;
             // strXmlObjectSource = Utility.ObjListToXml<T_HR_EMPLOYEEADDSUMBATCH>(EmployeeAddSumBatch, null, "HR", para2, null);
-            if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
-                strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, EmployeeAddSumBatch);
+            //try
+            //{
+            //    //为了手机显示xml文件在这里转化一下，不然传过去的值为数字，手机那面没有判断再显示相应类型 0员工加扣款，1员工代扣款，2绩效奖金，3其他......
+            //    string str0 = (Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>).Where(s => s.DICTIONCATEGORY == "PROTECTTYPE" && s.DICTIONARYVALUE == 0).FirstOrDefault().DICTIONARYNAME;
+            //    string str1 = (Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>).Where(s => s.DICTIONCATEGORY == "PROTECTTYPE" && s.DICTIONARYVALUE == 1).FirstOrDefault().DICTIONARYNAME;
+            //    string str2 = (Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>).Where(s => s.DICTIONCATEGORY == "PROTECTTYPE" && s.DICTIONARYVALUE == 2).FirstOrDefault().DICTIONARYNAME;
+            //    string str3 = (Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>).Where(s => s.DICTIONCATEGORY == "PROTECTTYPE" && s.DICTIONARYVALUE == 3).FirstOrDefault().DICTIONARYNAME;
+            //    if (EmployeeAddSumBatch != null && EmployeeAddSumBatch.T_HR_EMPLOYEEADDSUM != null)
+            //    {
+            //        List<T_HR_EMPLOYEEADDSUM> addSum = EmployeeAddSumBatch.T_HR_EMPLOYEEADDSUM.ToList();
+            //        EmployeeAddSumBatch.T_HR_EMPLOYEEADDSUM.ToList().ForEach(
+            //            item =>
+            //            {
+            //                switch (item.SYSTEMTYPE)
+            //                {
+            //                    case "0":
+            //                        {
+            //                            if (!string.IsNullOrEmpty(str0))
+            //                                item.SYSTEMTYPE = str0;
+            //                            else
+            //                                item.SYSTEMTYPE = "员工加扣款";
+            //                        }; break;
+            //                    case "1":
+            //                        {
+            //                            if (!string.IsNullOrEmpty(str1))
+            //                                item.SYSTEMTYPE = str1;
+            //                            else
+            //                                item.SYSTEMTYPE = "员工代扣款";
+            //                        }; break;
+            //                    case "2":
+            //                        {
+            //                            if (!string.IsNullOrEmpty(str2))
+            //                                item.SYSTEMTYPE = str2;
+            //                            else
+            //                                item.SYSTEMTYPE = "绩效奖金";
+            //                        }; break;
+            //                    case "3":
+            //                        {
+            //                            if (!string.IsNullOrEmpty(str3))
+            //                                item.SYSTEMTYPE = str3;
+            //                            else
+            //                                item.SYSTEMTYPE = "其他......";
+            //                        }; break;
+            //                    default: break;
+            //                }
+            //            }
+            //                );
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    //无
+            //}
+            //finally
+            //{
+            //     if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
+            //    strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, EmployeeAddSumBatch);
+            //}
 
+            strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, EmployeeAddSumBatch);
             Dictionary<string, string> paraIDs = new Dictionary<string, string>();
             paraIDs.Add("CreateUserID", EmployeeAddSumBatch.CREATEUSERID);
             paraIDs.Add("CreatePostID", EmployeeAddSumBatch.OWNERPOSTID);

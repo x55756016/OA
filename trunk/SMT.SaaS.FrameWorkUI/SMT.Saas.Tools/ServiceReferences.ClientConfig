@@ -20,10 +20,7 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
-        <binding name="BasicHttpBinding_AttendanceService" maxBufferSize="2147483647"
-          maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
+        <binding name="BasicHttpBinding_AttendanceService" maxReceivedMessageSize="2147483647" />
         <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
@@ -109,9 +106,6 @@
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/System/UseractLogService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_UseractLogService"
         contract="UseractWS.UseractLogService" name="CustomBinding_UseractLogService" />
-      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/AttendanceService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
-        contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/PerformanceService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
         contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
@@ -163,6 +157,9 @@
       <endpoint address="http://localhost:1604/PermissionService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
         contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/AttendanceService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
+        contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
     </client>
 
   </system.serviceModel>

@@ -4,6 +4,15 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_AttendanceService" type="AttendanceService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByMonthlyBalanceId">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMonthlyBalanceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAttendMonthlyBatchBalanceByMultSearch">
       <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMultSearch" style="document" />
       <wsdl:input>
@@ -184,6 +193,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLeaveRdListsByLeaveRecordID">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeLeaveRdListsByLeaveRecordID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAttendMachineSetPaging">
       <soap:operation soapAction="urn:AttendanceService/GetAttendMachineSetPaging" style="document" />
       <wsdl:input>
@@ -330,6 +348,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAttendSolAsignForOutEngineXml">
       <soap:operation soapAction="urn:AttendanceService/GetAttendSolAsignForOutEngineXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionAsignByEmployeeIDAndDate">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionAsignByEmployeeIDAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetRdListForAttendanceSolution">
+      <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetRdListForAttendanceSolution" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1093,15 +1129,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendMonthlyBatchBalanceByMonthlyBalanceId">
-      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMonthlyBalanceId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="DoWork">
       <soap:operation soapAction="urn:AttendanceService/DoWork" style="document" />
       <wsdl:input>
@@ -1714,6 +1741,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllCompanyIDByAttendSolAsign">
+      <soap:operation soapAction="urn:AttendanceService/GetAllCompanyIDByAttendSolAsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAttendanceDeductMasterByID">
       <soap:operation soapAction="urn:AttendanceService/GetAttendanceDeductMasterByID" style="document" />
       <wsdl:input>
@@ -1851,15 +1887,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetFreeLeaveDaySetByID">
       <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetFreeLeaveDaySetRdListForAttendanceSolution">
-      <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetRdListForAttendanceSolution" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

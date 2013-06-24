@@ -1163,8 +1163,8 @@ namespace SMT.HRM.BLL
                         }
                     }
                     DepartmentUpdate(department, ref strMsg);
-                    #region 添加即时通讯的接口调用
-                    if (department.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString())
+                    #region 添加即时通讯的接口调用 审核不通过也调用，因为审核不通过后部门信息无效
+                    if (department.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString() || department.CHECKSTATE == Convert.ToInt32(CheckStates.UnApproved).ToString())
                     {
                         SMT.Foundation.Log.Tracer.Debug("修改部门开始调用即时通讯接口:" + department.DEPARTMENTID);
                         AddDepartmentInfoToIM(department);

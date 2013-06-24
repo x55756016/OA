@@ -119,6 +119,20 @@ namespace SMT.HRM.BLL
         }
 
         /// <summary>
+        /// 根据请假记录ID,获取全部的销假记录
+        /// </summary>
+        /// <param name="strLeaveRecordID">请假记录ID</param>
+        /// <param name="strCheckState">审核状态</param>
+        /// <returns></returns>
+        public List<T_HR_EMPLOYEECANCELLEAVE> GetEmployeeLeaveRdListsByLeaveRecordID(string strLeaveRecordID, string strCheckState)
+        {
+            var ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
+                       where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveRecordID && c.CHECKSTATE == strCheckState
+                       select c;
+            return ents.Count() > 0 ? ents.ToList() : null;
+        }
+
+        /// <summary>
         /// 获取指定员工的实际销假天数(实际销假天数=销假天数-公休假天数-每周休息天数)，实际销假时长(按小时计，实际销假合计时长=非整天销假时长-当日作息间隙休息时间+整天销假时长)
         /// </summary>
         /// <param name="strCancelLeaveId">当前销假记录的ID</param>
@@ -448,7 +462,7 @@ namespace SMT.HRM.BLL
                     var ent = dal.GetObjects().FirstOrDefault(s => s.CANCELLEAVEID == id);
                     if (ent != null)
                     {
-                        Delete(ent);
+                        dal.DeleteFromContext(ent);
                     }
 
                     //根据id删除代办信息

@@ -333,8 +333,6 @@ namespace SMT.HRM.UI.Form
                 if (e.UserState.ToString() != "FATHER")
                 {
                     Department = e.Result;
-                    RefreshUI(RefreshedTypes.EntityInfo);
-
                     if (FormType == FormTypes.Resubmit)
                     {
                         lkFather.IsEnabled = false;
@@ -566,17 +564,7 @@ namespace SMT.HRM.UI.Form
         #region IEntityEditor
         public string GetTitle()
         {
-            if (Department!=null)
-            {
-                if (!string.IsNullOrEmpty(Department.EDITSTATE))
-                {
-                    if (Department.EDITSTATE == Convert.ToInt32(EditStates.PendingCanceled).ToString())//撤销中
-                    {
-                        return "部门撤销";
-                    }
-                }
-            }
-            return "部门信息";//Utility.GetResourceStr("DEPARTMENTINFO");
+            return Utility.GetResourceStr("DEPARTMENTINFO");
         }
         public string GetStatus()
         {

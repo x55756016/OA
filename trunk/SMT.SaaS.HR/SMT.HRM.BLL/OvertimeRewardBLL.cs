@@ -152,7 +152,13 @@ namespace SMT.HRM.BLL
                 {
                     return "{REQUIREDFIELDS}";
                 }
-
+                //取小数点后1位
+                string va = Convert.ToDouble(entTemp.VACATIONPAYRATE).ToString("F1");
+                string we = Convert.ToDouble(entTemp.WEEKENDPAYRATE).ToString("F1");
+               
+                entTemp.VACATIONPAYRATE = Convert.ToDecimal(va);
+                entTemp.WEEKENDPAYRATE = Convert.ToDecimal(we);
+               
                 bool flag = false;
                 StringBuilder strFilter = new StringBuilder();
                 List<string> objArgs = new List<string>();
@@ -195,8 +201,12 @@ namespace SMT.HRM.BLL
                 {
                     return "{REQUIREDFIELDS}";
                 }
+                //取小数点后1位
+                string va = Convert.ToDouble(entTemp.VACATIONPAYRATE).ToString("F1");
+                string we = Convert.ToDouble(entTemp.WEEKENDPAYRATE).ToString("F1");
 
-
+                entTemp.VACATIONPAYRATE = Convert.ToDecimal(va);
+                entTemp.WEEKENDPAYRATE = Convert.ToDecimal(we);
                 bool flag = false;
                 StringBuilder strFilter = new StringBuilder();
                 List<string> objArgs = new List<string>();

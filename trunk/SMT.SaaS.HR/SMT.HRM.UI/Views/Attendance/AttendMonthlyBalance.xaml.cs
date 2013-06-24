@@ -717,9 +717,6 @@ namespace SMT.HRM.UI.Views.Attendance
 
         void btnNew_Click(object sender, RoutedEventArgs e)
         {
-            //Utility.CreateFormFromEngine("AE26CCEE-C974-486C-8978-173479579E05", "SMT.HRM.UI.Form.Attendance.AttendMonthlyBalanceAudit", "Audit");
-
-            //return;
             CalculateEmployeeAttendanceMonthlyForm form = new CalculateEmployeeAttendanceMonthlyForm();
             EntityBrowser entBrowser = new EntityBrowser(form);
             form.MinWidth = 580;
@@ -789,20 +786,21 @@ namespace SMT.HRM.UI.Views.Attendance
                 string Result = "";
                 if (ent != null)
                 {
-                    strID = ent.MONTHLYBALANCEID.ToString();
+                    //strID = ent.MONTHLYBALANCEID.ToString();
+                    strID += ent.MONTHLYBALANCEID + ",";
                     if (ent.CHECKSTATE == Convert.ToInt32(CheckStates.Approving).ToString() || ent.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString() || ent.CHECKSTATE == Convert.ToInt32(CheckStates.UnApproved).ToString())
                     {
                         ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), Utility.GetResourceStr("DELETEAUDITERROR"), Utility.GetResourceStr("CONFIRMBUTTON"));
                         return;
                     }
-
+                }
                     ComfirmWindow delComfirm = new ComfirmWindow();
                     delComfirm.OnSelectionBoxClosed += (obj, result) =>
                     {
                         clientAtt.RemoveAttendMonthlyBalanceAsync(strID);
                     };
                     delComfirm.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("DELETEALTER"), ComfirmWindow.titlename, Result);
-                }
+                
             }
         }
 

@@ -3430,6 +3430,24 @@ namespace SMT.HRM.Services
                 return bll.GetEmployeeCancelLeaveByID(id);
             }
         }
+
+
+        /// <summary>
+        /// 根据请假记录ID,获取全部的销假记录
+        /// </summary>
+        /// <param name="strLeaveRecordID">请假记录ID</param>
+        /// <param name="strCheckState">审核状态</param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<T_HR_EMPLOYEECANCELLEAVE> GetEmployeeLeaveRdListsByLeaveRecordID(string strLeaveRecordID, string strCheckState)
+        {
+            using (EmployeeCancelLeaveBLL bll = new EmployeeCancelLeaveBLL())
+            {
+                List<T_HR_EMPLOYEECANCELLEAVE> rslt = bll.GetEmployeeLeaveRdListsByLeaveRecordID(strLeaveRecordID, strCheckState);
+                return rslt;
+            }
+        }
+
         #endregion
 
         #region  T_HR_ATTENDMACHINESET 考勤机设置

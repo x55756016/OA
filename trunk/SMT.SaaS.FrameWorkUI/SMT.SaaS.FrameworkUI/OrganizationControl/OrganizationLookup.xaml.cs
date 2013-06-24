@@ -285,7 +285,7 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
             }
             catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), "数据存入缓存错误，可关掉重新选择");
+                Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), "数据存入缓存错误，可关掉重新选择："+ex.ToString());
             }
         }
 

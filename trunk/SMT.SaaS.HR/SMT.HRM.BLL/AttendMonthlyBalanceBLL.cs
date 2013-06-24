@@ -647,11 +647,11 @@ namespace SMT.HRM.BLL
                         {
                             entTemp.REMARK = strLine[22];
                         }
-                        bool flag = this.IsExitEmployeeMonthlyBalance(entCurrEmp.EMPLOYEEID, dBalanceYear, dBalanceMonth);
-                        if (!flag)//返回false，即没有该员工该月审核中月度考勤才进行添加
-                        {
-                            AddMonthlyBalance(entTemp);
-                        }
+                        //bool flag = this.IsExitEmployeeMonthlyBalance(entCurrEmp.EMPLOYEEID, dBalanceYear, dBalanceMonth);
+                        //if (!flag)//返回false，即没有该员工该月审核中月度考勤才进行添加 //AddMonthlyBalance里面已有判断
+                        //{
+                        AddMonthlyBalance(entTemp);
+                        // }
                     }
                     catch (Exception ex)
                     {
@@ -698,7 +698,14 @@ namespace SMT.HRM.BLL
                 return false;
             }
         }
-
+        /// <summary>
+        /// 删除员工当月考勤记录
+        /// </summary>
+        /// <param name="strCompanyID"></param>
+        /// <param name="strEmployeeID"></param>
+        /// <param name="dBalanceYear"></param>
+        /// <param name="dBalanceMonth"></param>
+        /// <returns></returns>
         public string DeleteMonthlyBalance(string strCompanyID, string strEmployeeID, decimal dBalanceYear, decimal dBalanceMonth)
         {
             string strMsg = string.Empty;
@@ -927,35 +934,45 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="strMonthlyBalanceId">主键索引</param>
         /// <returns></returns>
-        public string DeleteMonthlyBalance(string strMonthlyBalanceId)
+        public string DeleteMonthlyBalance(string strMonthlyBalanceIds)
         {
             string strMsg = string.Empty;
             try
             {
-                if (string.IsNullOrEmpty(strMonthlyBalanceId))
+                string[] ids = strMonthlyBalanceIds.Split(',');
+                foreach (var strMonthlyBalanceId in ids)
                 {
-                    return "{REQUIREDFIELDS}";
+                    if (!string.IsNullOrEmpty(strMonthlyBalanceId))
+                    {
+                        // return "{REQUIREDFIELDS}";
+
+
+
+
+
+                        bool flag = false;
+                        StringBuilder strFilter = new StringBuilder();
+                        List<string> objArgs = new List<string>();
+
+                        strFilter.Append(" MONTHLYBALANCEID == @0");
+
+                        objArgs.Add(strMonthlyBalanceId);
+
+
+                        AttendMonthlyBalanceDAL dalAttendMonthlyBalance = new AttendMonthlyBalanceDAL();
+                        flag = dalAttendMonthlyBalance.IsExistsRd(strFilter.ToString(), objArgs.ToArray());
+
+
+
+                        if (!flag)
+                        {
+                            return "{NOTFOUND}";
+                        }
+
+                        T_HR_ATTENDMONTHLYBALANCE entDel = dalAttendMonthlyBalance.GetAttendMonthlyBalanceRdByMultSearch(strFilter.ToString(), objArgs.ToArray());
+                        dalAttendMonthlyBalance.Delete(entDel);
+                    }
                 }
-
-                bool flag = false;
-                StringBuilder strFilter = new StringBuilder();
-                List<string> objArgs = new List<string>();
-
-                strFilter.Append(" MONTHLYBALANCEID == @0");
-
-                objArgs.Add(strMonthlyBalanceId);
-
-                AttendMonthlyBalanceDAL dalAttendMonthlyBalance = new AttendMonthlyBalanceDAL();
-                flag = dalAttendMonthlyBalance.IsExistsRd(strFilter.ToString(), objArgs.ToArray());
-
-                if (!flag)
-                {
-                    return "{NOTFOUND}";
-                }
-
-                T_HR_ATTENDMONTHLYBALANCE entDel = dalAttendMonthlyBalance.GetAttendMonthlyBalanceRdByMultSearch(strFilter.ToString(), objArgs.ToArray());
-                dalAttendMonthlyBalance.Delete(entDel);
-
                 strMsg = "{DELETESUCCESSED}";
             }
             catch (Exception ex)
