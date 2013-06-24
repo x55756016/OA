@@ -70,6 +70,10 @@
     <Reference Include="SMT.Foundation.Log">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
+    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
     <Reference Include="SMT.SaaS.Globalization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313418dd5b9fe6fe, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.Globalization.dll</HintPath>

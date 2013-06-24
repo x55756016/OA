@@ -186,7 +186,8 @@ namespace SMT.HRM.BLL
 
                 //Tracer.Debug("出差消除异常结束，请假开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
                 //  + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-                dal.Add(entity);            
+                dal.Add(entity);    
+                Tracer.Debug("出差同步HR考勤记录完毕");
             }
             catch (Exception ex)
             {
