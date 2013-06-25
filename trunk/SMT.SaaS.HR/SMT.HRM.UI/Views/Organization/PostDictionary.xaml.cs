@@ -101,6 +101,18 @@ namespace SMT.HRM.UI.Views.Organization
                 var entity = from ent in e.Result
                              orderby ent.DEPARTMENTNAME
                              select ent;
+                List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY> dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>;
+                dicts = dicts.Where(s => s.DICTIONCATEGORY == "COMPANYTYPE").OrderBy(s => s.DICTIONARYVALUE).ToList();
+
+                foreach (T_HR_DEPARTMENTDICTIONARY diction in entity)
+                {
+                    decimal dptype = Convert.ToDecimal(diction.DEPARTMENTTYPE);
+                    var tmp = dicts.Where(s => s.DICTIONARYVALUE == dptype).FirstOrDefault();
+                    if (tmp != null)
+                    {
+                        diction.DEPARTMENTNAME = diction.DEPARTMENTNAME + "(" + tmp.DICTIONARYNAME + ")";
+                    }
+                }
                 acbDepName.ItemsSource = entity;
                 acbDepName.ValueMemberPath = "DEPARTMENTNAME";
             }
@@ -312,7 +324,7 @@ namespace SMT.HRM.UI.Views.Organization
 
         void browser_ReloadDataEvent()
         {
-            dataPager.PageIndex = 1;
+            //dataPager.PageIndex = 1;
             LoadData();
         }
 

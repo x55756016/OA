@@ -163,16 +163,20 @@ namespace SMT.HRM.BLL
                 #region  启动处理考勤异常的线程
 
                 string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
-                Dictionary<string, object> d = new Dictionary<string, object>();
-                d.Add("EMPLOYEEID", entity.EMPLOYEEID);
-                d.Add("STARTDATETIME", entity.STARTDATE.Value);
-                d.Add("ENDDATETIME", entity.ENDDATE.Value);
-                d.Add("ATTSTATE", attState);
-                Thread thread = new Thread(dealAttend);
-                thread.Start(d);
-                Tracer.Debug("出差启动消除异常的线程，出差开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                //Dictionary<string, object> d = new Dictionary<string, object>();
+                //d.Add("EMPLOYEEID", entity.EMPLOYEEID);
+                //d.Add("STARTDATETIME", entity.STARTDATE.Value);
+                //d.Add("ENDDATETIME", entity.ENDDATE.Value);
+                //d.Add("ATTSTATE", attState);
+                //Thread thread = new Thread(dealAttend);
+                //thread.Start(d);
+                Tracer.Debug("出差启动消除异常，出差开始时间:" + entity.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
                   + " 结束时间：" + entity.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss") + "员工id：" + entity.EMPLOYEEID);
-
+                using (AbnormRecordBLL bll = new AbnormRecordBLL())
+                {
+                    bll.DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, attState);
+                }
+                Tracer.Debug("出差启动消除异常完成");
                 #endregion
 
 
@@ -195,20 +199,20 @@ namespace SMT.HRM.BLL
             }
         }
 
-        private void dealAttend(object obj)
-        {
-            Dictionary<string, object> parameterDic = (Dictionary<string, object>)obj;
-            string employeeid = parameterDic["EMPLOYEEID"].ToString();
-            DateTime STARTDATETIME = (DateTime)parameterDic["STARTDATETIME"];
-            DateTime ENDDATETIME = (DateTime)parameterDic["ENDDATETIME"];
-            string attState = parameterDic["ATTSTATE"].ToString();
+        //private void dealAttend(object obj)
+        //{
+        //    Dictionary<string, object> parameterDic = (Dictionary<string, object>)obj;
+        //    string employeeid = parameterDic["EMPLOYEEID"].ToString();
+        //    DateTime STARTDATETIME = (DateTime)parameterDic["STARTDATETIME"];
+        //    DateTime ENDDATETIME = (DateTime)parameterDic["ENDDATETIME"];
+        //    string attState = parameterDic["ATTSTATE"].ToString();
 
-            using (AbnormRecordBLL bll = new AbnormRecordBLL())
-            {   
-                //出差消除异常
-                bll.DealEmployeeAbnormRecord(employeeid, STARTDATETIME, ENDDATETIME, attState);
-            }
-        }       
+        //    using (AbnormRecordBLL bll = new AbnormRecordBLL())
+        //    {   
+        //        //出差消除异常
+        //        bll.DealEmployeeAbnormRecord(employeeid, STARTDATETIME, ENDDATETIME, attState);
+        //    }
+        //}       
 
         /// <summary>
         /// 修改出差记录信息

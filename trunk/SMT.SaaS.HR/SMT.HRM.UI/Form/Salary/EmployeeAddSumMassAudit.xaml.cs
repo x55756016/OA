@@ -593,8 +593,8 @@ namespace SMT.HRM.UI.Form.Salary
             //     if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
             //    strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, EmployeeAddSumBatch);
             //}
-
-            strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, EmployeeAddSumBatch);
+            if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
+                strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, EmployeeAddSumBatch);
             Dictionary<string, string> paraIDs = new Dictionary<string, string>();
             paraIDs.Add("CreateUserID", EmployeeAddSumBatch.CREATEUSERID);
             paraIDs.Add("CreatePostID", EmployeeAddSumBatch.OWNERPOSTID);

@@ -171,7 +171,7 @@ namespace SMT.HRM.UI.Views.Organization
 
         void browser_ReloadDataEvent()
         {
-            dataPager.PageIndex = 1;
+            //dataPager.PageIndex = 1;
             LoadData();
         }
 

@@ -1528,7 +1528,8 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 }
                 else
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                    //Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                    //未提交单据
                 }
             }
             catch (Exception ex)
