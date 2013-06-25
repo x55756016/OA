@@ -373,7 +373,7 @@ namespace SMT.SaaS.OA.BLL
         public int UpdateTravelReimbursementFromEngine(string BorrowID, string StrCheckState)
         {
             dal.BeginTransaction();
-            Tracer.Debug("引擎开始更新出差报销状态：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
+          
             string oldCheckState = string.Empty;
             try
             { 
@@ -383,62 +383,68 @@ namespace SMT.SaaS.OA.BLL
                 Master = GetTravelReimbursementById(BorrowID);
                 oldCheckState = Master.CHECKSTATE;//保留旧的审核状态
                 Master.CHECKSTATE = StrCheckState;
-                
+                Tracer.Debug("事务开始 出差报销引擎开始更新预算关联单据：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
                 var fbResult = FBClient.UpdateExtensionOrder("Travel", BorrowID, StrCheckState, ref strMsg);//手机审单时通过后台修改个人费用报销中对应的报销单据状态
                 
                 if (string.IsNullOrEmpty(strMsg))//预算没有错误才执行改变表单状态的操作
                 {
                     if (fbResult == null)
                     {
+                        dal.RollbackTransaction();
+                        Tracer.Debug("事务中 出差报销引擎开始更新预算关联单据失败:" 
+                            + "no FB.Result was returned");
                         throw new Exception("no FB.Result was returned");
                     }
-                    SMT.Foundation.Log.Tracer.Debug(fbResult.INNERORDERCODE);
+                    else
+                    {
+                        Tracer.Debug("事务中 出差报销引擎开始更新预算关联单据成功，预算生成单号:" 
+                            + fbResult.INNERORDERCODE + " 审核状态：" + StrCheckState);
+                    }
+
                     string fbOrderCode = fbResult.INNERORDERCODE;
                     Master.NOBUDGETCLAIMS = fbOrderCode;
                     int i =  Update(Master);
                     if (i >0)
                     {
-                        dal.CommitTransaction();
-                        Tracer.Debug("引擎更新出差报销状态成功：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
-                        //add by luojie 先添加以查看是否有重现更改状态不成功的情况，若影响性能可删除
-                        string NowCheckState = GetTravelReimbursementById(BorrowID).CHECKSTATE;
-                        Tracer.Debug("更新后的出差报销状态为：出差报销id：" + BorrowID + " 审核状态：" + NowCheckState);
+                        Tracer.Debug("事务中 引擎更新出差报销状态成功：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
+
                         if (Master.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString())
                         {
                             #region 开始调用HR中考勤的数据
-                            Tracer.Debug("开始调用HR中考勤的接口");
+                            Tracer.Debug("事务中 引擎开始更新出差报销状态：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
                             try
                             {
                                 InsertAttenceRecord(Master);
                             }
                             catch (Exception ex)
                             {
-                                Tracer.Debug("调用HR中考勤的接口出现错误哦" + ex.ToString());
+                                Tracer.Debug("事务回滚 调用HR中考勤的接口出现错误:" + ex.ToString());
+                                dal.RollbackTransaction();
                             }
                             #endregion
-                        }
-                        else
-                        {
-                            Tracer.Debug("引擎状态更新出差报销完成："+System.DateTime.Now.ToString());
-                          
                         }
                     }
                     else
                     {
-                        Tracer.Debug("引擎更新出差报销状态失败：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
+                        Tracer.Debug("事务回滚 引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id：" 
+                            + BorrowID + " 审核状态：" + StrCheckState);
                         dal.RollbackTransaction();
                     }
                 }
                 else
                 {
-                    Tracer.Debug("引擎更新出差报销状态失败：" + BorrowID + System.DateTime.Now.ToString() + " " + "预算操作失败。");
+                    Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID
+                        + System.DateTime.Now.ToString() + " " + " 出差报销引擎开始更新预算关联单据返回结果为空"); 
+                    dal.RollbackTransaction();
                     throw new Exception(strMsg);
                 }
+                Tracer.Debug("事务确认成功：引擎更新出差报销，同步预算单，更新单号，考勤记录成功！");
+                dal.CommitTransaction();
             }
             catch (Exception ex)
             {
                 dal.RollbackTransaction();
-                Tracer.Debug("引擎更新出差报销状态失败：" + BorrowID + System.DateTime.Now.ToString() + " " + ex.ToString());
+                Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID + System.DateTime.Now.ToString() + " " + ex.ToString());
                 throw ex;
             }
             return 1;

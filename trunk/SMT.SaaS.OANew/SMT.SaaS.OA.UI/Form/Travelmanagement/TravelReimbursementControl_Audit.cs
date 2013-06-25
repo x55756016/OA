@@ -389,7 +389,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 Resubmit = false;
             }
 
-            if (TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
+            if (TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString()
+                || TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnApproved).ToString())
             {
                 UserState = "Submit";
             }
@@ -402,11 +403,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                         Utility.GetResourceStr("SUCCESSSUBMITAUDIT"));
                     textStandards.Text = string.Empty;//清空报销标准说明
                     OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
-                    if (UserState == "Submit" && state == "Approving")
+                    if (UserState == "Submit")
                     {
                         //更新元数据单号
                         AgentServicesClient clinet = new AgentServicesClient();
-                        clinet.UpdateEntityXMLAsync(TravelReimbursement_Golbal.T_OA_BUSINESSTRIP.BUSINESSTRIPID
+                        clinet.UpdateEntityXMLAsync(this.businesstrID
                             , "自动生成", TravelReimbursement_Golbal.NOBUDGETCLAIMS);
                     }
                     break;

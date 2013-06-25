@@ -266,43 +266,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         citysStartList_Golbal[selectGridRowIndex + 1] = citysEndList_Golbal[selectGridRowIndex - 1];//上一城市的城市值
                     }
                     DaGrs.ItemsSource = TraveDetailList_Golbal;
-                    //for (int i = 0; i < DaGrs.SelectedItems.Count; i++)
-                    //{
-                    //    int k = DaGrs.SelectedIndex;//当前选中行
-                    //    T_OA_BUSINESSTRIPDETAIL entDel = DaGrs.SelectedItems[i] as T_OA_BUSINESSTRIPDETAIL;
-
-                    //    if (TraveDetailList_Golbal.Contains(entDel))
-                    //    {
-
-                    //        TraveDetailList_Golbal.Remove(entDel);
-                    //        if (citysEndList_Golbal.Count > k)
-                    //        {
-
-                    //            int EachCount = 0;
-                    //            foreach (Object obje in DaGrs.ItemsSource)//将下一个出发城市的值修改
-                    //            {
-                    //                EachCount++;
-                    //                if (DaGrs.Columns[1].GetCellContent(obje) != null)
-                    //                {
-                    //                    SearchCity mystarteachCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
-                    //                    if ((k + 1) == EachCount)
-                    //                    {
-                    //                        if (k > 0)
-                    //                        {
-                    //                            mystarteachCity.TxtSelectedCity.Text = GetCityName(citysEndList_Golbal[k - 1]);
-                    //                            citysStartList_Golbal[k + 1] = citysEndList_Golbal[k - 1];//上一城市的城市值
-                    //                        }
-                    //                    }
-                    //                }
-                    //            }
-                    //            citysEndList_Golbal.RemoveAt(k);//清除目标城市的值
-                    //            citysStartList_Golbal.RemoveAt(k);//清除出发城市的值
-                    //        }
-                    //        //buipList[k].PRIVATEAFFAIR = "0";//清除私事的勾选
-                    //        //buipList[k].GOOUTTOMEET = "0";//清除内部开会\培训的勾选
-                    //        //buipList[k].COMPANYCAR = "0";//清除公司派车的勾选
-                    //    }
-                    //}
                 }
                 else
                 {

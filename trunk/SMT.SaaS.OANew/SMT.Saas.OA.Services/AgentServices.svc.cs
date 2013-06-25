@@ -60,6 +60,14 @@ namespace SMT.SaaS.OA.Services
         {
             try
             {
+                TravelReimbursementBLL bll=new TravelReimbursementBLL();
+                ReplaceString = (from ent in bll.dal.GetObjects()
+                                select ent.NOBUDGETCLAIMS).FirstOrDefault();
+                if (string.IsNullOrEmpty(ReplaceString))
+                {
+                    Tracer.Debug("出差报销提交审核替换元数据单号，获取的单号为空：" + ReplaceString);
+                    return "";
+                }
                 //更新元数据里的报销单号
                 SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
                 new SaaS.BLLCommonServices.FlowWFService.ServiceClient();
