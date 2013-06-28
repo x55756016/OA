@@ -46,7 +46,7 @@ namespace SMT.FB.BLL
 
             //string xml = GetAuditXml(fbEntity);
             string xml = GetAuditXmlForMobile(fbEntity);
-            Tracer.Debug(xml);
+            //Tracer.Debug(xml);
 
             FlowWFService.SubmitData AuditSubmitData = new FlowWFService.SubmitData();
             AuditSubmitData.FormID = auditEntity.FormID;
@@ -496,6 +496,29 @@ namespace SMT.FB.BLL
             #region 填充XML一级节点
             EntityObject ent = fbEntity.ReferencedEntity[0].FBEntity.Entity;
 
+            //预算预算，修改直接提交后fbEntity.ReferencedEntity[0].FBEntity.Entity的数据为没有更改的值，这时要加上修改的数据
+            if (entityInfo.EntityCode == "T_FB_DEPTBUDGETAPPLYMASTER")//月度部门预算
+            {
+                var tempEntity = fbEntity.ReferencedEntity[0].FBEntity.CollectionEntity[0].FBEntities;
+                if (tempEntity.Count > 0)
+                {
+                    tempEntity.ForEach(item =>
+                        {
+                            ((SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYMASTER)(ent)).T_FB_DEPTBUDGETAPPLYDETAIL.Add(((SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL)(item.Entity)));
+                        });
+                }
+            }
+            else if (entityInfo.EntityCode == "T_FB_DEPTBUDGETADDMASTER")//月度预算增补
+            {
+                var tempEntity = fbEntity.ReferencedEntity[0].FBEntity.CollectionEntity[0].FBEntities;
+                if (tempEntity.Count > 0)
+                {
+                    tempEntity.ForEach(item =>
+                    {
+                        ((SMT_FB_EFModel.T_FB_DEPTBUDGETADDMASTER)(ent)).T_FB_DEPTBUDGETADDDETAIL.Add(((SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL)(item.Entity)));
+                    });
+                }
+            }
             #region 部门分配没有去到字表数据，这里组一下
             if (entityInfo.EntityCode == "T_FB_DEPTTRANSFERMASTER")
             {

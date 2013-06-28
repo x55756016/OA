@@ -47,7 +47,7 @@
         <Attribute Name="LASTACTUALBUDGETMONEY" LableResourceID="LASTACTUALBUDGETMONEY" Description="上期发生" DataType="decimal" DataValue="" DataText=""/>        
         <Attribute Name="USABLEMONEY" LableResourceID="USABLEMONEY" Description="年度结余" DataType="decimal" DataValue="" DataText=""/>
         <Attribute Name="BEGINNINGBUDGETBALANCE" LableResourceID="BEGINNINGBUDGETBALANCE" Description="可用结余" DataType="decimal" DataValue="" DataText=""/>
-        <Attribute Name="BUDGETMONEY" LableResourceID="BUTGETCHARGE" Description="预算金额" DataType="decimal" DataValue="" DataText=""/>
+        <Attribute Name="TOTALBUDGETMONEY" LableResourceID="BUTGETCHARGE" Description="预算金额" DataType="decimal" DataValue="" DataText=""/>
         <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="" />
         <ObjectList Name="T_FB_PERSONBUDGETAPPLYDETAILList" ParentName="DEPTBUDGETAPPLYDETAILID" ParentID="" LableResourceID="T_FB_PERSONBUDGETAPPLYDETAILList" Description="个人预算申请明细" DataText="">
           <Object Name="T_FB_PERSONBUDGETAPPLYDETAIL" LableResourceID="T_FB_DEPTBUDGETAPPLYDETAIL" Description="个人预算申请明细" Key="PERSONBUDGETAPPLYDETAILID" id="">

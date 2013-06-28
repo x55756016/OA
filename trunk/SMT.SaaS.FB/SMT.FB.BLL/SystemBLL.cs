@@ -144,24 +144,30 @@ namespace SMT.FB.BLL
                   switch (tablename)
                     {
 
-                        case "T_FB_EXTENSIONALORDER":
-                            T_FB_EXTENSIONALORDER item = (T_FB_EXTENSIONALORDER)entity;
-                            Formid = item.ORDERID;
+                        case "T_FB_TRAVELEXPAPPLYMASTER":
+                            //T_FB_TRAVELEXPAPPLYMASTER item = (T_FB_TRAVELEXPAPPLYMASTER)entity;
+                            //Formid = item.T_FB_EXTENSIONALORDER.ORDERID;
+                            //出差报销在OA中出差报销审核的业务逻辑中处理
                             break;
                         default:
                             Formid =entity.EntityKey.EntityKeyValues[0].Value.ToString();
+
+                            SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
+                                new SaaS.BLLCommonServices.FlowWFService.ServiceClient();
+                            Tracer.Debug("开始调用元数据获取接口：FlowWFService.GetMetadataByFormid("+Formid+")");
+                            string xml=string.Empty;
+                            xml=client.GetMetadataByFormid(Formid);
+                            if (string.IsNullOrEmpty(xml))
+                            {
+                                Tracer.Debug("XML元数据为空，跳过:" + xml);
+                                break;
+                            }
+                            Tracer.Debug("获取到的元数据："+xml);
+                            xml=xml.Replace("自动生成", code);
+                            Tracer.Debug("替换单号后的XML:"+xml);
+                            client.UpdateMetadataByFormid(Formid, xml);
                             break;
                     }
-
-                SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
-                    new SaaS.BLLCommonServices.FlowWFService.ServiceClient();
-                Tracer.Debug("开始调用元数据获取接口：FlowWFService.GetMetadataByFormid("+Formid+")");
-                string xml=string.Empty;
-                xml=client.GetMetadataByFormid(Formid);
-                Tracer.Debug("获取到的元数据："+xml);
-                xml=xml.Replace("自动生成", code);
-                Tracer.Debug("替换单号后的XML:"+xml);
-                client.UpdateMetadataByFormid(Formid, xml);
             }
             catch (Exception ex)
             {

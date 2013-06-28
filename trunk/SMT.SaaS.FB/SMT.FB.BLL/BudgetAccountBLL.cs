@@ -4708,21 +4708,22 @@ namespace SMT.FB.BLL
             if (orderType == "CCBX")
             {
                 T_FB_TRAVELEXPAPPLYMASTER master = new T_FB_TRAVELEXPAPPLYMASTER();
+                master.T_FB_EXTENSIONALORDER = entityExtensionalOrder;
                 SystemBLL.AddAutoOrderCode(master); // 自动生成编号                        
-                innerOrderCode = master.TRAVELEXPAPPLYMASTERCODE;
+                innerOrderCode = master.TRAVELEXPAPPLYMASTERCODE; 
             }
-            else if (entityExtensionalOrder.APPLYTYPE.Equal(2))
-            {
-                T_FB_BORROWAPPLYMASTER master = new T_FB_BORROWAPPLYMASTER();
-                SystemBLL.AddAutoOrderCode(master); // 自动生成编号                        
-                innerOrderCode = master.BORROWAPPLYMASTERCODE;
-            }
-            else
-            {
-                T_FB_CHARGEAPPLYMASTER master = new T_FB_CHARGEAPPLYMASTER();
-                SystemBLL.AddAutoOrderCode(master); // 自动生成编号                        
-                innerOrderCode = master.CHARGEAPPLYMASTERCODE;
-            }
+            //else if (entityExtensionalOrder.APPLYTYPE.Equal(2))
+            //{
+            //    T_FB_BORROWAPPLYMASTER master = new T_FB_BORROWAPPLYMASTER();
+            //    SystemBLL.AddAutoOrderCode(master); // 自动生成编号                        
+            //    innerOrderCode = master.BORROWAPPLYMASTERCODE;
+            //}
+            //else
+            //{
+            //    T_FB_CHARGEAPPLYMASTER master = new T_FB_CHARGEAPPLYMASTER();
+            //    SystemBLL.AddAutoOrderCode(master); // 自动生成编号                        
+            //    innerOrderCode = master.CHARGEAPPLYMASTERCODE;
+            //}
 
             entityExtensionalOrder.INNERORDERCODE = innerOrderCode;
         }
@@ -5480,18 +5481,18 @@ namespace SMT.FB.BLL
                 // 提交时，才生成编号 2012版
                 if (checkStatesOld == CheckStates.UnSubmit && checkStates == CheckStates.Approving)
                 {
-                    if (entity is T_FB_CHARGEAPPLYMASTER)
-                    {
-                        T_FB_CHARGEAPPLYMASTER master = entity as T_FB_CHARGEAPPLYMASTER;
-                        if (new string[] { "", " ", "   ", "    ", null, SystemBLL.DEFAULTORDERCODE }.Contains(master.CHARGEAPPLYMASTERCODE))
-                        {
-                            SystemBLL.AddAutoOrderCode(fbEntity.ReferencedEntity[0].FBEntity.Entity); // 自动生成编号        
-                        }
-                    }
-                    else
-                    {
+                    //if (entity is T_FB_CHARGEAPPLYMASTER)
+                    //{
+                    //    T_FB_CHARGEAPPLYMASTER master = entity as T_FB_CHARGEAPPLYMASTER;
+                    //    if (new string[] { "", " ", "   ", "    ", null, SystemBLL.DEFAULTORDERCODE }.Contains(master.CHARGEAPPLYMASTERCODE))
+                    //    {
+                    //        SystemBLL.AddAutoOrderCode(fbEntity.ReferencedEntity[0].FBEntity.Entity); // 自动生成编号        
+                    //    }
+                    //}
+                    //else
+                    //{
                         SystemBLL.AddAutoOrderCode(fbEntity.ReferencedEntity[0].FBEntity.Entity); // 自动生成编号   
-                    }
+                    //}
                 }
 
                 #endregion
