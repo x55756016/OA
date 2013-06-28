@@ -1319,224 +1319,6 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         }
         void auditService_GetFlowInfoCompleted(object sender, GetFlowInfoCompletedEventArgs e)
         {
-            try
-            {
-                if (e.Result != null)
-                {
-                    this.LayoutRoot.Visibility = System.Windows.Visibility.Visible;
-                    //为NULL 代表为新记录
-                    if (e.Result == null)
-                    {
-                        #region 是否可以使用自选流程
-
-                        //if (IsUserFreeFlow)
-                        //{//使用自选流程
-                        //    RdbAuditFree.Visibility = Visibility.Visible;
-                        //    EndAuditPnl.Visibility = Visibility.Visible;
-                        //    SelectAuditPersonPnl.Visibility = Visibility.Visible;
-                        //}
-                        //else
-                        //{
-                        //    RdbAuditFree.Visibility = Visibility.Collapsed;
-                        //    EndAuditPnl.Visibility = Visibility.Collapsed;
-                        //    SelectAuditPersonPnl.Visibility = Visibility.Collapsed;
-                        //}
-                        #endregion
-                        //若无结果则显示 无信息面板
-                        //TempPanel.Visibility = Visibility.Visible;
-                        //GotoState(AuditFormViewState.AuditStart);
-                        GetIsFreeFlowAndIsCancel(AuditFormViewState.AuditStart);
-                        return;
-                    }
-                    else
-                    {
-                        //获取审核信息列表,若无审核记录则表明用户未曾提交过流程，否则 则可能为审核中或完成
-                        var items = from item in e.Result
-                                    where item.STATECODE.ToUpper() != "STARTFLOW"
-                                    orderby item.FLAG descending, item.EDITDATE
-                                    select item;
-                        //获取当前节点之前所有的的节点 用于系统自动打分
-                        AllAuditEntityList = e.Result.ToList();
-
-                        if (items.ToList().Count > 0)
-                        {
-                            #region 数据审核
-                            this.AuditEntityList = items.ToList();
-                            TempPanel.Visibility = Visibility.Collapsed;
-                            //审核记录
-                            List<FLOW_FLOWRECORDDETAIL_T> list = this.AuditEntityList;
-
-                            //获取第一个符合条件的实体数据,判断审核人
-                            FLOW_FLOWRECORDDETAIL_T currentFlow = this.AuditEntityList.FirstOrDefault(item =>
-                            {
-                                //当前用户是否为审核用户
-                                bool bUser = (item.EDITUSERID == AuditEntity.EditUserID || item.AGENTUSERID == AuditEntity.EditUserID);
-                                bool bResult = item.FLAG == "0";//0：未处理，1：已处理
-                                return bResult && bUser;
-                            });
-                            //若不为NULL 则表示需要当前用户进行审批
-                            if (currentFlow != null)
-                            {
-                                //判断流程审批与逐级审批
-                                IsFixedFlow = (currentFlow.FLOW_FLOWRECORDMASTER_T.FLOWSELECTTYPE == "0") ? true : false;
-                                if (IsFixedFlow)
-                                {
-                                    GotoState(AuditFormViewState.Auditing);
-                                }
-                                else
-                                {
-                                    GotoState(AuditFormViewState.FreeAuditing);
-                                }
-
-                                list.Remove(currentFlow);
-                                AuditEntity.ModelCode = currentFlow.FLOW_FLOWRECORDMASTER_T.MODELCODE;
-                                AuditEntity.GUID = currentFlow.FLOWRECORDDETAILID;
-                                currentFLOWRECORDDETAIL = currentFlow;
-                            }
-                            else
-                            {
-                                //判断流程是否为终审通过
-                                FLOW_FLOWRECORDDETAIL_T AuditingFlow = this.AuditEntityList.FirstOrDefault(item2 =>
-                                {
-                                    return item2.FLOW_FLOWRECORDMASTER_T.CHECKSTATE == "1";
-                                });
-
-                                //若为终审则修改其最后一条数据为终审状态
-                                if (AuditingFlow == null)
-                                {
-                                    FLOW_FLOWRECORDDETAIL_T temp = list[list.Count - 1];
-                                    if (temp.CHECKSTATE == "0")
-                                        temp.CHECKSTATE = "3";
-                                    else if (temp.CHECKSTATE == "1")
-                                        temp.CHECKSTATE = "4";
-
-                                    list.RemoveAt(list.Count - 1);
-                                    list.Add(temp);
-                                }
-
-                                GotoState(AuditFormViewState.End);
-                                IsAuditUser = false;
-                            }
-                            //Modify by 安凯航 2011年5月21日
-                            //修改审核信息显示,改为按照不同的提交过程分组.并始终显示提交人
-                            //获取审核记录并根据审核记录显示记录列表
-                            //this.IsShowList = list.Count == 0 ? false : true;
-                            //绑定审核记录信息
-                            //if (list.Count > 0)
-                            //{
-
-                            /* 原来的代码
-                            List<FLOW_FLOWRECORDMASTER_T> tdlist = new List<FLOW_FLOWRECORDMASTER_T>();
-                            tdlist.Add(list[0].FLOW_FLOWRECORDMASTER_T);
-                            TDInfo.ItemsSource = tdlist;
-                            this.AuditListBox.ItemsSource = list; */
-                            //}
-                            //修改后代码
-                            var auditResults = from t in e.Result
-                                               group t by t.FLOW_FLOWRECORDMASTER_T
-                                                   into g
-                                                   orderby g.Key.CREATEDATE
-                                                   select g.Key;
-                            foreach (var item in auditResults)
-                            {
-                                //排除流程起始的默认数据
-                                FLOW_FLOWRECORDDETAIL_T sub = item.FLOW_FLOWRECORDDETAIL_T.FirstOrDefault(p => p.STATECODE.ToUpper() == "STARTFLOW");
-                                item.FLOW_FLOWRECORDDETAIL_T.Remove(sub);
-                                //暂时屏蔽,不确定是否需要.2011年5月24日
-                                //sub = item.FLOW_FLOWRECORDDETAIL_T.FirstOrDefault(p => p.EDITUSERID == SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID && p.CHECKSTATE == "2");
-                                //item.FLOW_FLOWRECORDDETAIL_T.Remove(sub);//排出当前审核人是自己的数据
-
-                                //审核记录按照时间先后顺序排序.
-                                ObservableCollection<FLOW_FLOWRECORDDETAIL_T> details = new ObservableCollection<FLOW_FLOWRECORDDETAIL_T>();
-                                //foreach (var detail in item.FLOW_FLOWRECORDDETAIL_T.OrderBy(p => p.EDITDATE))
-                                //{
-                                //    details.Add(detail);
-                                //}
-
-
-
-                                List<FLOW_FLOWRECORDDETAIL_T> source = item.FLOW_FLOWRECORDDETAIL_T.Where(d => d.FLAG == "1").OrderBy(d => d.EDITDATE).ToList();
-                                source.AddRange(item.FLOW_FLOWRECORDDETAIL_T.Where(d => d.FLAG != "1").OrderBy(d => d.EDITDATE).ToList());
-
-                                foreach (var detail in source)
-                                {
-                                    details.Add(detail);
-                                }
-                                item.FLOW_FLOWRECORDDETAIL_T = details;
-                                //foreach (var detail in details)
-                                //{
-                                //    item.FLOW_FLOWRECORDDETAIL_T.Add(detail);
-                                //}
-                            }
-                            if (auditResults.Count() > 0)
-                            {
-                                //显示代理人beyond
-                                auditResults.ForEach(master =>
-                                {
-                                    if (master.FLOW_FLOWRECORDDETAIL_T != null)
-                                    {
-                                        master.FLOW_FLOWRECORDDETAIL_T.ForEach(detail =>
-                                        {
-                                            if (!string.IsNullOrEmpty(detail.AGENTERNAME))
-                                            {
-                                                detail.EDITUSERNAME = detail.EDITUSERNAME + "(" + detail.AGENTERNAME + ")";
-                                            }
-                                        });
-                                    }
-                                });
-                                this.AuditListPnl.ItemsSource = auditResults;
-                                this.AuditListPnl.Visibility = System.Windows.Visibility.Visible;
-                            }
-                            else
-                            {
-                                this.AuditListPnl.ItemsSource = null;
-                            }
-                            //end Modify.
-
-                            #endregion
-                        }
-                        else
-                        {
-                            #region 使用自选流程
-
-                            //if (IsUserFreeFlow)
-                            //{//使用自选流程
-                            //    RdbAuditFree.Visibility = Visibility.Visible;
-                            //    EndAuditPnl.Visibility = Visibility.Visible;
-                            //    SelectAuditPersonPnl.Visibility = Visibility.Visible;
-                            //}
-                            //else
-                            //{
-                            //    RdbAuditFree.Visibility = Visibility.Collapsed;
-                            //    EndAuditPnl.Visibility = Visibility.Collapsed;
-                            //    SelectAuditPersonPnl.Visibility = Visibility.Collapsed;
-                            //}
-                            #endregion
-                            #region 数据未曾提交成功,需要重新 提交审核
-                            //GotoState(AuditFormViewState.AuditStart);
-                            GetIsFreeFlowAndIsCancel(AuditFormViewState.AuditStart);
-                            //IsFixedFlow = true;
-                            #endregion
-                        }
-
-                        #region beyond
-                        this.ExtendLoad(AllAuditEntityList);
-                        #endregion
-                    }
-                    if (OnBindingDataCompleted.IsNotNull())
-                        OnBindingDataCompleted(this, EventArgs.Empty);
-                }
-                else
-                {
-                    //Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-                    //未提交单据
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.ToString());
-                
-            }
             ////beyond
             //if (this.tbTest.Text != "")
             //{
@@ -1544,7 +1326,208 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             //    string message = "GetFlowInfoCompleted:" +  DateTime.Now.ToString() + "\n";
             //    this.tbTest.Text =this.tbTest.Text+message;
             //}
-          
+            this.LayoutRoot.Visibility = System.Windows.Visibility.Visible;
+            //为NULL 代表为新记录
+            if (e.Result == null)
+            {
+                #region 是否可以使用自选流程
+             
+                //if (IsUserFreeFlow)
+                //{//使用自选流程
+                //    RdbAuditFree.Visibility = Visibility.Visible;
+                //    EndAuditPnl.Visibility = Visibility.Visible;
+                //    SelectAuditPersonPnl.Visibility = Visibility.Visible;
+                //}
+                //else
+                //{
+                //    RdbAuditFree.Visibility = Visibility.Collapsed;
+                //    EndAuditPnl.Visibility = Visibility.Collapsed;
+                //    SelectAuditPersonPnl.Visibility = Visibility.Collapsed;
+                //}
+                #endregion
+                //若无结果则显示 无信息面板
+                //TempPanel.Visibility = Visibility.Visible;
+                //GotoState(AuditFormViewState.AuditStart);
+                GetIsFreeFlowAndIsCancel(AuditFormViewState.AuditStart);
+                return;
+            }
+            else
+            {
+                //获取审核信息列表,若无审核记录则表明用户未曾提交过流程，否则 则可能为审核中或完成
+                var items = from item in e.Result
+                            where item.STATECODE.ToUpper() != "STARTFLOW"
+                            orderby item.FLAG descending, item.EDITDATE
+                            select item;
+                //获取当前节点之前所有的的节点 用于系统自动打分
+                AllAuditEntityList = e.Result.ToList();
+
+                if (items.ToList().Count > 0)
+                {
+                    #region 数据审核
+                    this.AuditEntityList = items.ToList();
+                    TempPanel.Visibility = Visibility.Collapsed;
+                    //审核记录
+                    List<FLOW_FLOWRECORDDETAIL_T> list = this.AuditEntityList;
+
+                    //获取第一个符合条件的实体数据,判断审核人
+                    FLOW_FLOWRECORDDETAIL_T currentFlow = this.AuditEntityList.FirstOrDefault(item =>
+                    {
+                        //当前用户是否为审核用户
+                        bool bUser = (item.EDITUSERID == AuditEntity.EditUserID || item.AGENTUSERID == AuditEntity.EditUserID);
+                        bool bResult = item.FLAG == "0";//0：未处理，1：已处理
+                        return bResult && bUser;
+                    });
+                    //若不为NULL 则表示需要当前用户进行审批
+                    if (currentFlow != null)
+                    {
+                        //判断流程审批与逐级审批
+                        IsFixedFlow = (currentFlow.FLOW_FLOWRECORDMASTER_T.FLOWSELECTTYPE == "0") ? true : false;
+                        if (IsFixedFlow)
+                        {
+                            GotoState(AuditFormViewState.Auditing);
+                        }
+                        else
+                        {
+                            GotoState(AuditFormViewState.FreeAuditing);
+                        }
+
+                        list.Remove(currentFlow);
+                        AuditEntity.ModelCode = currentFlow.FLOW_FLOWRECORDMASTER_T.MODELCODE;
+                        AuditEntity.GUID = currentFlow.FLOWRECORDDETAILID;
+                        currentFLOWRECORDDETAIL = currentFlow;
+                    }
+                    else
+                    {
+                        //判断流程是否为终审通过
+                        FLOW_FLOWRECORDDETAIL_T AuditingFlow = this.AuditEntityList.FirstOrDefault(item2 =>
+                        {
+                            return item2.FLOW_FLOWRECORDMASTER_T.CHECKSTATE == "1";
+                        });
+
+                        //若为终审则修改其最后一条数据为终审状态
+                        if (AuditingFlow == null)
+                        {
+                            FLOW_FLOWRECORDDETAIL_T temp = list[list.Count - 1];
+                            if (temp.CHECKSTATE == "0")
+                                temp.CHECKSTATE = "3";
+                            else if (temp.CHECKSTATE == "1")
+                                temp.CHECKSTATE = "4";
+
+                            list.RemoveAt(list.Count - 1);
+                            list.Add(temp);
+                        }
+
+                        GotoState(AuditFormViewState.End);
+                        IsAuditUser = false;
+                    }
+                    //Modify by 安凯航 2011年5月21日
+                    //修改审核信息显示,改为按照不同的提交过程分组.并始终显示提交人
+                    //获取审核记录并根据审核记录显示记录列表
+                    //this.IsShowList = list.Count == 0 ? false : true;
+                    //绑定审核记录信息
+                    //if (list.Count > 0)
+                    //{
+
+                    /* 原来的代码
+                    List<FLOW_FLOWRECORDMASTER_T> tdlist = new List<FLOW_FLOWRECORDMASTER_T>();
+                    tdlist.Add(list[0].FLOW_FLOWRECORDMASTER_T);
+                    TDInfo.ItemsSource = tdlist;
+                    this.AuditListBox.ItemsSource = list; */
+                    //}
+                    //修改后代码
+                    var auditResults = from t in e.Result
+                                       group t by t.FLOW_FLOWRECORDMASTER_T
+                                           into g
+                                           orderby g.Key.CREATEDATE
+                                           select g.Key;
+                    foreach (var item in auditResults)
+                    {
+                        //排除流程起始的默认数据
+                        FLOW_FLOWRECORDDETAIL_T sub = item.FLOW_FLOWRECORDDETAIL_T.FirstOrDefault(p => p.STATECODE.ToUpper() == "STARTFLOW");
+                        item.FLOW_FLOWRECORDDETAIL_T.Remove(sub);
+                        //暂时屏蔽,不确定是否需要.2011年5月24日
+                        //sub = item.FLOW_FLOWRECORDDETAIL_T.FirstOrDefault(p => p.EDITUSERID == SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID && p.CHECKSTATE == "2");
+                        //item.FLOW_FLOWRECORDDETAIL_T.Remove(sub);//排出当前审核人是自己的数据
+
+                        //审核记录按照时间先后顺序排序.
+                        ObservableCollection<FLOW_FLOWRECORDDETAIL_T> details = new ObservableCollection<FLOW_FLOWRECORDDETAIL_T>();
+                        //foreach (var detail in item.FLOW_FLOWRECORDDETAIL_T.OrderBy(p => p.EDITDATE))
+                        //{
+                        //    details.Add(detail);
+                        //}
+
+
+
+                        List<FLOW_FLOWRECORDDETAIL_T> source = item.FLOW_FLOWRECORDDETAIL_T.Where(d => d.FLAG == "1").OrderBy(d => d.EDITDATE).ToList();
+                        source.AddRange(item.FLOW_FLOWRECORDDETAIL_T.Where(d => d.FLAG != "1").OrderBy(d => d.EDITDATE).ToList());
+
+                        foreach (var detail in source)
+                        {
+                            details.Add(detail);
+                        }
+                        item.FLOW_FLOWRECORDDETAIL_T = details;
+                        //foreach (var detail in details)
+                        //{
+                        //    item.FLOW_FLOWRECORDDETAIL_T.Add(detail);
+                        //}
+                    }
+                    if (auditResults.Count() > 0)
+                    {
+                        //显示代理人beyond
+                        auditResults.ForEach(master =>
+                            {
+                                if (master.FLOW_FLOWRECORDDETAIL_T != null)
+                                {
+                                    master.FLOW_FLOWRECORDDETAIL_T.ForEach(detail =>
+                                        {
+                                            if (!string.IsNullOrEmpty(detail.AGENTERNAME))
+                                            {
+                                                detail.EDITUSERNAME = detail.EDITUSERNAME + "(" + detail.AGENTERNAME + ")";
+                                            }
+                                        });
+                                }
+                            });
+                        this.AuditListPnl.ItemsSource = auditResults;
+                        this.AuditListPnl.Visibility = System.Windows.Visibility.Visible;
+                    }
+                    else
+                    {
+                        this.AuditListPnl.ItemsSource = null;
+                    }
+                    //end Modify.
+
+                    #endregion
+                }
+                else
+                {
+                    #region 使用自选流程
+                    
+                    //if (IsUserFreeFlow)
+                    //{//使用自选流程
+                    //    RdbAuditFree.Visibility = Visibility.Visible;
+                    //    EndAuditPnl.Visibility = Visibility.Visible;
+                    //    SelectAuditPersonPnl.Visibility = Visibility.Visible;
+                    //}
+                    //else
+                    //{
+                    //    RdbAuditFree.Visibility = Visibility.Collapsed;
+                    //    EndAuditPnl.Visibility = Visibility.Collapsed;
+                    //    SelectAuditPersonPnl.Visibility = Visibility.Collapsed;
+                    //}
+                    #endregion
+                    #region 数据未曾提交成功,需要重新 提交审核
+                    //GotoState(AuditFormViewState.AuditStart);
+                    GetIsFreeFlowAndIsCancel(AuditFormViewState.AuditStart);
+                    //IsFixedFlow = true;
+                    #endregion
+                }
+
+                #region beyond
+                this.ExtendLoad(AllAuditEntityList);
+                #endregion 
+            }
+            if (OnBindingDataCompleted.IsNotNull())
+                OnBindingDataCompleted(this, EventArgs.Empty);
         }
 
         #region 判断是否可能用自选流程或提单人可以撤回流程

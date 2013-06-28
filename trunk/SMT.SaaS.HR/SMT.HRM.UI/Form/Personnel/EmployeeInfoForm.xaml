@@ -203,11 +203,11 @@
 			Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPUTERNO}" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtComputerNO" Text="{Binding COMPUTERNO, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" MaxLength="50"  Margin="5,0,0,0"
 			Grid.Row="9" Grid.Column="4" HorizontalAlignment="Stretch" Width="Auto">
-                            </TextBox>
+                            </TextBox>-->
                               <TextBlock Style="{StaticResource SysTextBlockStyle}"  Grid.Row="10" Grid.Column="0" Margin="5,0,0,0"
                     			Text="社保缴纳起始时间"/>
                             <controls1:DatePicker HorizontalAlignment="Stretch" 
-                               Grid.Row="10" Grid.Column="1" x:Name="dtpStartWorkTime" Margin="5,0,0,0" Height="24" Style="{StaticResource DatePickerStyle}" ></controls1:DatePicker> -->
+                               Grid.Row="10" Grid.Column="1" x:Name="dtpStartWorkTime" Margin="5,0,0,0" Height="24" Style="{StaticResource DatePickerStyle}" ></controls1:DatePicker> 
 
 
 

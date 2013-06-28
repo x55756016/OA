@@ -24,7 +24,6 @@
             <RowDefinition Height="26"></RowDefinition>
             <RowDefinition Height="26"></RowDefinition>
             <RowDefinition Height="26"></RowDefinition>
-            <RowDefinition Height="26"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
 
         </Grid.RowDefinitions>
@@ -86,26 +85,22 @@
         <!--最后一次交缴时间-->
         <TextBlock   Grid.Row="5" Grid.Column="0" 
 			Text="{Binding Converter={StaticResource ResourceConveter}, Source=LASTDATE}" />
-        <controls1:DatePicker  Text="{Binding LASTDATE,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"  Margin="5,0,0,0" Grid.Row="5" Grid.Column="1" Height="24" Style="{StaticResource DatePickerStyle}"></controls1:DatePicker>
+        <controls1:DatePicker Text="{Binding LASTDATE,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"  Margin="5,0,0,0" Grid.Row="5" Grid.Column="1" Height="24" Style="{StaticResource DatePickerStyle}"></controls1:DatePicker>
         
-        <!--社保缴交起始时间-->
-        <TextBlock  Grid.Row="6" Grid.Column="0"  Text="社保缴纳起始时间"/>
-        <controls1:DatePicker   Text="{Binding SOCIALSERVICEYEAR,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"
-                               Grid.Row="6" Grid.Column="1" x:Name="dtpStartWorkTime" Margin="5,0,0,0" Height="24" Style="{StaticResource DatePickerStyle}" ></controls1:DatePicker>
         <!--Row 7-->
         <!--是否有效-->
-        <TextBlock   Grid.Row="7" Grid.Column="0" x:Name="LabIsValid"
+        <TextBlock   Grid.Row="6" Grid.Column="0" x:Name="LabIsValid"
 			Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISVALID}" />
-        <appCtr:DictionaryComboBox x:Name="cbxIsValid" Grid.Row="7" Margin="5,0,0,0" IsShowNull="False"  Grid.Column="1" Style="{StaticResource SysComboBoxStyle}" IsEnabled="False"
+        <appCtr:DictionaryComboBox x:Name="cbxIsValid" Grid.Row="6" Margin="5,0,0,0" IsShowNull="False"  Grid.Column="1" Style="{StaticResource SysComboBoxStyle}" IsEnabled="False"
         Category="ISVALID" HorizontalAlignment="Stretch" Width="Auto" SelectedValue="{Binding ISVALID, Mode=TwoWay}"></appCtr:DictionaryComboBox>
 
         <!--Row 8-->
         <!--备注-->
-        <TextBlock   Grid.Row="8" Grid.Column="0" 
+        <TextBlock   Grid.Row="7" Grid.Column="0" 
 			Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" />
 
         <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark"  Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  MaxLength="2000" Margin="5,0,0,0"
-			Grid.Row="8" Grid.Column="1" TextWrapping="Wrap"  HorizontalAlignment="Stretch"  Height="auto" Width="Auto" />
+			Grid.Row="7" Grid.Column="1" TextWrapping="Wrap"  HorizontalAlignment="Stretch"  Height="auto" Width="Auto" />
 
     </Grid>
 </smtLocal:BaseForm>

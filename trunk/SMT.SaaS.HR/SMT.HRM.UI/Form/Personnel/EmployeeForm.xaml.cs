@@ -627,16 +627,17 @@
                 {
                     Pesion = e.Result;
                     PensionGrid.DataContext = Pesion;
-                    DateTime dt = new DateTime();
-                    if (!string.IsNullOrEmpty(Pesion.SOCIALSERVICEYEAR))
-                    {
-                        DateTime.TryParse(Pesion.SOCIALSERVICEYEAR, out dt);
-                        dtpStartWorkTime.Text = dt.ToShortDateString();
-                    }
-                    else
-                    {
-                        dtpStartWorkTime.Text = string.Empty;
-                    }
+                    //缴交时间不用这里读取，从员工个人档案里面的缴交日期读取
+                    //DateTime dt = new DateTime();
+                    //if (!string.IsNullOrEmpty(Pesion.SOCIALSERVICEYEAR))
+                    //{
+                    //    DateTime.TryParse(Pesion.SOCIALSERVICEYEAR, out dt);
+                    //    dtpStartWorkTime.Text = dt.ToShortDateString();
+                    //}
+                    //else
+                    //{
+                    //    dtpStartWorkTime.Text = string.Empty;
+                    //}
                 }
             }
             BindData();
@@ -840,7 +841,7 @@
                 //    experience.LoadData(FormTypes.Browse, Employee.T_HR_RESUME.RESUMEID, Employee.T_HR_RESUME);
                 //    educateHistory.LoadData(FormTypes.Browse, Employee.T_HR_RESUME.RESUMEID, Employee.T_HR_RESUME);
                 //}
-                client.GetPensionMasterByEmployeeIDAsync(Employee.EMPLOYEEID);               
+                client.GetPensionMasterByEmployeeIDAsync(Employee.EMPLOYEEID); //员工社保档案              
             }
         }
         /// <summary>
@@ -929,34 +930,35 @@
         /// <returns>always true</returns>
         private bool Save()
         {
-            if (dtpStartWorkTime.Text==string.Empty)
+            if (string.IsNullOrEmpty(Employee.SOCIALSERVICEYEAR))
             {
-                MessageBox.Show("请输入员工社保缴纳起始时间");
+                Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("请输入员工社保缴纳起始时间"));
                 return false;
             }
-            if (Pesion != null)
-            {                
-                Pesion.SOCIALSERVICEYEAR = dtpStartWorkTime.SelectedDate.Value.ToShortDateString();
-                client.PensionMasterUpdateAsync(Pesion);
-            }
-            else
-            {
-                Pesion = new T_HR_PENSIONMASTER();
-                Pesion.PENSIONMASTERID = Guid.NewGuid().ToString();
-                Pesion.OWNERID = Employee.EMPLOYEEID;
-                Pesion.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
-                Pesion.T_HR_EMPLOYEE.EMPLOYEEID = Employee.EMPLOYEEID;
+            //缴交日期字段采用员工个人档案表里面的字段SOCIALSERVICEYEAR
+            //if (Pesion != null)
+            //{                
+            //    Pesion.SOCIALSERVICEYEAR = dtpStartWorkTime.SelectedDate.Value.ToShortDateString();
+            //    client.PensionMasterUpdateAsync(Pesion);
+            //}
+            //else
+            //{
+            //    Pesion = new T_HR_PENSIONMASTER();
+            //    Pesion.PENSIONMASTERID = Guid.NewGuid().ToString();
+            //    Pesion.OWNERID = Employee.EMPLOYEEID;
+            //    Pesion.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
+            //    Pesion.T_HR_EMPLOYEE.EMPLOYEEID = Employee.EMPLOYEEID;
 
-                //Pesion.OWNERPOSTID = Employee;
-                Pesion.OWNERDEPARTMENTID = Employee.OWNERDEPARTMENTID;
-                Pesion.OWNERCOMPANYID = Employee.OWNERCOMPANYID;
-                Pesion.CHECKSTATE = "2";
-                Pesion.REMARK = "员工个人档案修改工作年限时新增";
-
-                Pesion.SOCIALSERVICEYEAR = dtpStartWorkTime.SelectedDate.Value.ToShortDateString();
-                string str = string.Empty; ;
-                client.PensionMasterAddAsync(Pesion, str);
-            }
+            //    //Pesion.OWNERPOSTID = Employee;
+            //    Pesion.OWNERDEPARTMENTID = Employee.OWNERDEPARTMENTID;
+            //    Pesion.OWNERCOMPANYID = Employee.OWNERCOMPANYID;
+            //    Pesion.CHECKSTATE = "2";
+            //    Pesion.REMARK = "员工个人档案修改工作年限时新增";
+            //    Pesion.ISVALID = "1";
+            //    Pesion.SOCIALSERVICEYEAR = dtpStartWorkTime.SelectedDate.Value.ToShortDateString();
+            //    string str = string.Empty; ;
+            //    client.PensionMasterAddAsync(Pesion, str);
+            //}
             RefreshUI(RefreshedTypes.ShowProgressBar);
             string strMsg = string.Empty;
             if (!SMT.SaaS.FrameworkUI.Common.Utility.CheckDataIsValid(Group1))
@@ -975,7 +977,7 @@
                 {
                     Employee.HASCHILDREN = "0";
                 }
-
+                //Employee.SOCIALSERVICEYEAR= dtpStartWorkTime.SelectedDate.Value.ToShortDateString();
                 Employee.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 Employee.UPDATEDATE = DateTime.Now;
                 //if (Employee.EMPLOYEEENAME != sysUser.USERNAME)

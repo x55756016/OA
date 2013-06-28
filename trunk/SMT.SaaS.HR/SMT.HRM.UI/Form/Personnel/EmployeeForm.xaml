@@ -183,7 +183,7 @@
                             <!--工作开始时间-->
                             <TextBlock Style="{StaticResource SysTextBlockStyle}"  Grid.Row="8" Grid.Column="3"
                     			Text="社保缴纳起始时间"/>
-                            <controls1:DatePicker HorizontalAlignment="Stretch" 
+                            <controls1:DatePicker HorizontalAlignment="Stretch"  Text="{Binding SOCIALSERVICEYEAR,Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"
                                Grid.Row="8" Grid.Column="4" x:Name="dtpStartWorkTime" Margin="5,0,0,0" Height="24" Style="{StaticResource DatePickerStyle}" ></controls1:DatePicker>
 
                             <dataInput:DescriptionViewer  Target="{Binding ElementName=txtHeight}" 

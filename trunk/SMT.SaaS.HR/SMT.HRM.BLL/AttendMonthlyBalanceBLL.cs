@@ -729,6 +729,7 @@ namespace SMT.HRM.BLL
                 T_HR_ATTENDMONTHLYBALANCE entDel = dalAttendMonthlyBalance.GetAttendMonthlyBalanceRdByEmployeeID(strCompanyID, strEmployeeID, dBalanceYear, dBalanceMonth);
 
                 Delete(entDel);
+                Utility.SaveLog("删除T_HR_ATTENDMONTHLYBALANCE 员工ID：" + strEmployeeID + " 公司ID：" + strCompanyID + "的" + dBalanceYear + "年" + dBalanceMonth + "月考勤成功");
                 strMsg = "{SAVESUCCESSED}";
             }
             catch (Exception ex)
@@ -850,7 +851,8 @@ namespace SMT.HRM.BLL
                 }
 
                 dalAttendMonthlyBalance.Add(entTemp);
-
+                Utility.SaveLog("添加T_HR_ATTENDMONTHLYBALANCE 员工ID：" + entTemp.EMPLOYEEID + " 公司ID：" + entTemp.OWNERCOMPANYID + "的" + entTemp.BALANCEYEAR.Value + "年" + entTemp.BALANCEMONTH.Value + "月考勤成功");
+                
                 strMsg = "{SAVESUCCESSED}";
 
             }

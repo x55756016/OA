@@ -489,6 +489,15 @@ namespace SMT.HRM.UI.Form.Personnel
                     }
                 }
                 //所属
+                if (dtpStartWorkTime.Text == string.Empty)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("请输入员工社保缴纳起始时间"));
+                    return;
+                }
+                else
+                {
+                    Employee.SOCIALSERVICEYEAR = dtpStartWorkTime.SelectedDate.Value.ToShortDateString();
+                }
                 Employee.CREATECOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
                 Employee.CREATEDEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
                 Employee.CREATEPOSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID;
