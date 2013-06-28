@@ -522,10 +522,17 @@ namespace SmtPortalSetUp
         #endregion
 
         private void btnPrevious_Click_1(object sender, EventArgs e)
-        {
-            Form_Second form = GlobalParameters.fromSecond;
+        {  
+            Form_Second form;
+            if (GlobalParameters.fromSecond == null) form = new Form_Second();
+            form = GlobalParameters.fromSecond;
             form.Show();
             this.Hide();
+        }
+
+        private void btnStart_Click_1(object sender, EventArgs e)
+        {
+            AsignAttendanceSolution();
         }
 
     }

@@ -1380,6 +1380,65 @@ namespace SmtPortalSetUp
                 }
             }
         }
+
+
+        #region 待办任务处理
+        private void btnSelectDotask_Click(object sender, EventArgs e)
+        {
+            string sql = @"select t.applicationurl,t.messagebody,
+                            t.dotaskstatus,
+                            t.receiveuserid,
+                            t.messagebody,
+                            t.*
+                       from smtwf.t_wf_dotask t
+                      where t.receiveuserid = '"+Txtid.Text+@"'
+                        and t.dotaskstatus = '0'";
+            OracleHelp.Connect();
+            DataTable dt= OracleHelp.getTable(sql);
+            SetLog("查询待办任务完毕。");
+            OracleHelp.close();
+            dtDotask.DataSource = dt;
+
+        }
+
+        private void dtDotask_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string selectValue = dtDotask.Rows[e.RowIndex].Cells["dtcolumDotaskCheckBox"].EditedFormattedValue.ToString();
+
+                if (selectValue == "True")
+                {
+                    DataGridViewColumn column = dtDotask.Columns[e.ColumnIndex];
+                    if (column is DataGridViewButtonColumn)
+                    {
+                        if (column.Name == "dtcolumDotaskDelete")
+                        {
+                            DialogResult MsgBoxResult
+                                = MessageBox.Show("确认是否删除选中的记录？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                            if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
+                            {
+                                string evectionrecordid = dtDotask.Rows[e.RowIndex].Cells["dotaskid"].EditedFormattedValue.ToString();
+                                deleteDotask(evectionrecordid);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void deleteDotask(string taskid)
+        {
+            string sql = @"  delete from smtwf.t_wf_dotask t
+                            where t.dotaskid='" + taskid + "'";
+            OracleHelp.Connect();
+            int i = OracleHelp.Excute(sql);
+            SetLog("删除待办任务：" + i + "条数据");
+            OracleHelp.close();
+        }
+        #endregion
+
+
     }
 
     

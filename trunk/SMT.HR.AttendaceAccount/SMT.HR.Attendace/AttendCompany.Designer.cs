@@ -40,6 +40,7 @@
             this.btnCompanyAttend = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnGenerVacation = new System.Windows.Forms.Button();
             this.btndel = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnPrevious = new System.Windows.Forms.Button();
-            this.btnGenerVacation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -170,6 +170,17 @@
             this.tabPage1.Text = "处理公司考勤";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnGenerVacation
+            // 
+            this.btnGenerVacation.BackColor = System.Drawing.Color.Silver;
+            this.btnGenerVacation.Location = new System.Drawing.Point(123, 354);
+            this.btnGenerVacation.Name = "btnGenerVacation";
+            this.btnGenerVacation.Size = new System.Drawing.Size(133, 24);
+            this.btnGenerVacation.TabIndex = 34;
+            this.btnGenerVacation.Text = "生成整个公司带薪假";
+            this.btnGenerVacation.UseVisualStyleBackColor = false;
+            this.btnGenerVacation.Click += new System.EventHandler(this.btnGenerVacation_Click);
+            // 
             // btndel
             // 
             this.btndel.BackColor = System.Drawing.Color.Silver;
@@ -189,6 +200,7 @@
             this.btnStart.TabIndex = 32;
             this.btnStart.Text = "初始化考勤";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click_1);
             // 
             // btnPreviousMonth
             // 
@@ -316,17 +328,6 @@
             this.btnPrevious.Text = "上一步";
             this.btnPrevious.UseVisualStyleBackColor = false;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click_1);
-            // 
-            // btnGenerVacation
-            // 
-            this.btnGenerVacation.BackColor = System.Drawing.Color.Silver;
-            this.btnGenerVacation.Location = new System.Drawing.Point(123, 354);
-            this.btnGenerVacation.Name = "btnGenerVacation";
-            this.btnGenerVacation.Size = new System.Drawing.Size(133, 24);
-            this.btnGenerVacation.TabIndex = 34;
-            this.btnGenerVacation.Text = "生成整个公司带薪假";
-            this.btnGenerVacation.UseVisualStyleBackColor = false;
-            this.btnGenerVacation.Click += new System.EventHandler(this.btnGenerVacation_Click);
             // 
             // AttendCompany
             // 

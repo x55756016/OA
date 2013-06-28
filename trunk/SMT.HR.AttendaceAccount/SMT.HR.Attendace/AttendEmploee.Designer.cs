@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttendEmploee));
             this.btnStart = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -44,6 +45,10 @@
             this.txtStartDate = new System.Windows.Forms.TextBox();
             this.txtEndDate = new System.Windows.Forms.TextBox();
             this.dataGridEmployees = new System.Windows.Forms.DataGridView();
+            this.ColumnSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnDelAttInit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ClUpdateToNormal = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnUpdateAttendstates = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtEmployeeName = new System.Windows.Forms.TextBox();
             this.btnCleanAll = new System.Windows.Forms.Button();
@@ -116,10 +121,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.ColumnSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnDelAttInit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ClUpdateToNormal = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnUpdateAttendstates = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.dtDotask = new System.Windows.Forms.DataGridView();
+            this.btnSelectDotask = new System.Windows.Forms.Button();
+            this.dtcolumDotaskCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dtcolumDotaskDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGClockRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGEmployeeLeaveRecord)).BeginInit();
@@ -140,6 +146,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtVacationFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacation)).BeginInit();
             this.tabPage6.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtDotask)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
@@ -220,6 +228,35 @@
             this.dataGridEmployees.Size = new System.Drawing.Size(415, 375);
             this.dataGridEmployees.TabIndex = 13;
             this.dataGridEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployees_CellClick);
+            // 
+            // ColumnSelect
+            // 
+            this.ColumnSelect.HeaderText = "选择";
+            this.ColumnSelect.Name = "ColumnSelect";
+            // 
+            // ColumnDelAttInit
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "删除";
+            this.ColumnDelAttInit.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnDelAttInit.HeaderText = "删除";
+            this.ColumnDelAttInit.Name = "ColumnDelAttInit";
+            // 
+            // ClUpdateToNormal
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "更新为正常";
+            this.ClUpdateToNormal.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ClUpdateToNormal.HeaderText = "更新为正常";
+            this.ClUpdateToNormal.Name = "ClUpdateToNormal";
+            // 
+            // ColumnUpdateAttendstates
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "强制清空考勤状态";
+            this.ColumnUpdateAttendstates.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnUpdateAttendstates.HeaderText = "更新考勤状态";
+            this.ColumnUpdateAttendstates.Name = "ColumnUpdateAttendstates";
             // 
             // btnSelect
             // 
@@ -477,6 +514,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(16, 66);
             this.tabControl1.Name = "tabControl1";
@@ -918,34 +956,52 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "如果检查不出异常，请先清空考勤初始化记录状态后再检查异常";
             // 
-            // ColumnSelect
+            // tabPage9
             // 
-            this.ColumnSelect.HeaderText = "选择";
-            this.ColumnSelect.Name = "ColumnSelect";
+            this.tabPage9.Controls.Add(this.dtDotask);
+            this.tabPage9.Controls.Add(this.btnSelectDotask);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(938, 407);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "查询待办任务";
+            this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // ColumnDelAttInit
+            // dtDotask
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "删除";
-            this.ColumnDelAttInit.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnDelAttInit.HeaderText = "删除";
-            this.ColumnDelAttInit.Name = "ColumnDelAttInit";
+            this.dtDotask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtDotask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtcolumDotaskCheckBox,
+            this.dtcolumDotaskDelete});
+            this.dtDotask.Location = new System.Drawing.Point(13, 51);
+            this.dtDotask.Name = "dtDotask";
+            this.dtDotask.RowTemplate.Height = 23;
+            this.dtDotask.Size = new System.Drawing.Size(900, 341);
+            this.dtDotask.TabIndex = 14;
+            this.dtDotask.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtDotask_CellClick);
             // 
-            // ClUpdateToNormal
+            // btnSelectDotask
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "更新为正常";
-            this.ClUpdateToNormal.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ClUpdateToNormal.HeaderText = "更新为正常";
-            this.ClUpdateToNormal.Name = "ClUpdateToNormal";
+            this.btnSelectDotask.Location = new System.Drawing.Point(13, 12);
+            this.btnSelectDotask.Name = "btnSelectDotask";
+            this.btnSelectDotask.Size = new System.Drawing.Size(123, 23);
+            this.btnSelectDotask.TabIndex = 20;
+            this.btnSelectDotask.Text = "查询";
+            this.btnSelectDotask.UseVisualStyleBackColor = true;
+            this.btnSelectDotask.Click += new System.EventHandler(this.btnSelectDotask_Click);
             // 
-            // ColumnUpdateAttendstates
+            // dtcolumDotaskCheckBox
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "强制清空考勤状态";
-            this.ColumnUpdateAttendstates.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnUpdateAttendstates.HeaderText = "更新考勤状态";
-            this.ColumnUpdateAttendstates.Name = "ColumnUpdateAttendstates";
+            this.dtcolumDotaskCheckBox.HeaderText = "选择";
+            this.dtcolumDotaskCheckBox.Name = "dtcolumDotaskCheckBox";
+            // 
+            // dtcolumDotaskDelete
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = "强制删除";
+            this.dtcolumDotaskDelete.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dtcolumDotaskDelete.HeaderText = "强制删除";
+            this.dtcolumDotaskDelete.Name = "dtcolumDotaskDelete";
             // 
             // AttendEmploee
             // 
@@ -1010,6 +1066,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtVacation)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtDotask)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1102,6 +1160,11 @@
         private System.Windows.Forms.DataGridViewButtonColumn ColumnDelAttInit;
         private System.Windows.Forms.DataGridViewButtonColumn ClUpdateToNormal;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnUpdateAttendstates;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.DataGridView dtDotask;
+        private System.Windows.Forms.Button btnSelectDotask;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dtcolumDotaskCheckBox;
+        private System.Windows.Forms.DataGridViewButtonColumn dtcolumDotaskDelete;
     }
 }
 
