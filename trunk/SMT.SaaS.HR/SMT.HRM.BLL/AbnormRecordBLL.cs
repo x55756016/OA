@@ -642,14 +642,13 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                AttendanceSolutionBLL bllAttSol = new AttendanceSolutionBLL(); 
+                AttendanceRecordBLL bllAttendanceRecord = new AttendanceRecordBLL();
                 //对考勤记录进行轮询
                 foreach (T_HR_ATTENDANCERECORD item in entAttRds)
                 {
                     //获取对应的考勤方案
-                    AttendanceSolutionBLL bllAttSol = new AttendanceSolutionBLL();
                     T_HR_ATTENDANCESOLUTION entAttSol = bllAttSol.GetAttendanceSolutionByID(item.ATTENDANCESOLUTIONID);
-                    AttendanceRecordBLL bllAttendanceRecord = new AttendanceRecordBLL();
-
                     if (entAttSol == null)
                     {
                         continue;
