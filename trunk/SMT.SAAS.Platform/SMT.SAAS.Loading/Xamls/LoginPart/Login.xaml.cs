@@ -348,6 +348,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             catch (Exception ex)
             {
                 btnAddSpace.Visibility = System.Windows.Visibility.Visible;
+                txtUserMsg.Text = "系统异常，请联系管理员";
                 SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("系统错误，请联系管理员：" + ex.ToString());
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
             }

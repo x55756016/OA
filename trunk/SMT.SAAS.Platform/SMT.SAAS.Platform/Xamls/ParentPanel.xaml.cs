@@ -69,18 +69,19 @@ namespace SMT.SAAS.Platform.Xamls
         private void TCloseButton_Click(object sender, RoutedEventArgs e)
         {
 
-            ICleanup content = PanelContent as ICleanup;
+            System.Windows.Application.Current.Host.Content.IsFullScreen = System.Windows.Application.Current.Host.Content.IsFullScreen ? false : true; 
+            //ICleanup content = PanelContent as ICleanup;
 
-            if (content != null)
-            {
+            //if (content != null)
+            //{
 
-                content.Cleanup();
-                PanelContent = null;
-            }
-            if (Back != null)
-            {
-                Back.Invoke(sender, e);
-            }
+            //    content.Cleanup();
+            //    PanelContent = null;
+            //}
+            //if (Back != null)
+            //{
+            //    Back.Invoke(sender, e);
+            //}
         }
         #endregion
 
@@ -96,16 +97,16 @@ namespace SMT.SAAS.Platform.Xamls
 
         public void Navigation(string name1, bool isAppend)
         {
-            if (!isAppend)
-            {
-                if (NavigationPanel.Children.Count > 0)
-                {
-                    NavigationPanel.Children.Clear();
-                    Navigation("系统");
-                }
-            }
+            //if (!isAppend)
+            //{
+            //    if (NavigationPanel.Children.Count > 0)
+            //    {
+            //        NavigationPanel.Children.Clear();
+            //        Navigation("系统");
+            //    }
+            //}
 
-            NavigationPanel.Children.Add(new NavigationTemplate(name1));
+            //NavigationPanel.Children.Add(new NavigationTemplate(name1));
         }
         #endregion
 
@@ -118,11 +119,6 @@ namespace SMT.SAAS.Platform.Xamls
             }
 
             this.Visibility = Visibility.Visible;
-            if (System.Windows.Application.Current.Resources["CurrentSysUserID"] != null && System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
-            {
-                NavigationPanel.Visibility = Visibility.Collapsed;
-                TCloseButton.Visibility = Visibility.Collapsed;
-            }
 
             this.PanelContent = Content;
             Navigation(Titel);
@@ -147,12 +143,19 @@ namespace SMT.SAAS.Platform.Xamls
 
         public void SetTitel(string titel)
         {
-            if (NavigationPanel.Children.Count > 2)
-            {
-                NavigationPanel.Children.RemoveAt(NavigationPanel.Children.Count - 1);
-            }
+            //if (NavigationPanel.Children.Count > 2)
+            //{
+            //    NavigationPanel.Children.RemoveAt(NavigationPanel.Children.Count - 1);
+            //}
 
-            Navigation(titel, true);
+            //Navigation(titel, true);
+        }
+
+      
+
+        private void FullScreenButton_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            System.Windows.Application.Current.Host.Content.IsFullScreen = System.Windows.Application.Current.Host.Content.IsFullScreen ? false : true; 
         }
     }
 }

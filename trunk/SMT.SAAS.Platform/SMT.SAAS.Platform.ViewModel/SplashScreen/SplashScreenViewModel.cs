@@ -9,6 +9,7 @@ using SMT.SaaS.LocalData.ViewModel;
 using SMT.SAAS.Platform.Core.Modularity;
 using SMT.Saas.Tools.PermissionWS;
 using SMT.SaaS.LocalData.Tables;
+using SMT.SAAS.Main.CurrentContext;
 
 namespace SMT.SAAS.Platform.ViewModel.SplashScreen
 {
@@ -489,7 +490,8 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                AppContext.SystemMessage(ex.ToString());
+                AppContext.ShowSystemMessageText();
             }
         }
 

@@ -100,7 +100,6 @@ namespace SMT.SAAS.Platform.Xamls
             {
                 ayTools.InitAsyncCompleted += new EventHandler(ayTools_InitAsyncCompleted);
                 bMVCOpen = true;
-                loading.Start();
             }
 
             ViewModel.Context.MainPanel = WorkHost;
@@ -189,12 +188,16 @@ namespace SMT.SAAS.Platform.Xamls
 
                 WorkHost.Navigation(workitem, titel);
                 Common.AppContext.IsMenuOpen = _fromMenu;
-                loading.Stop();
+               
             }
             catch (Exception ex)
             {
                 string strmsg = "点击菜单时发生错误，原因：" + ex.ToString();
                 SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(strmsg);
+            }
+            finally
+            {
+                loading.Stop();
             }
         }
 
@@ -526,6 +529,7 @@ namespace SMT.SAAS.Platform.Xamls
             }
             catch (Exception ex)
             {
+                loading.Stop();
                 AppContext.SystemMessage(string.Format("打开模块'{0}'产生异常！", description) + ex.ToString());
                 AppContext.ShowSystemMessageText();
                 if (_mainMenu != null)
@@ -548,34 +552,47 @@ namespace SMT.SAAS.Platform.Xamls
 
         private void Managed_OnLoadModuleCompleted(object sender, ViewModel.LoadModuleEventArgs e)
         {
-            if (_mainMenu != null)
+            try
             {
-                _mainMenu.Stop();
-            }
-            if (e.ModuleInstance != null)
-            {
-                FrameworkElement content = e.ModuleInstance as FrameworkElement;
-                if (content != null)
+                if (_mainMenu != null)
                 {
-                    if (content.Parent == null)
+                    _mainMenu.Stop();
+                }
+                if (e.ModuleInstance != null)
+                {
+                    FrameworkElement content = e.ModuleInstance as FrameworkElement;
+                    if (content != null)
                     {
-                        WorkHost.Visibility = Visibility.Visible;
-                        WebPartHost.Visibility = Visibility.Collapsed;
-                        WebPartHost.Stop();
+                        if (content.Parent == null)
+                        {
+                            WorkHost.Visibility = Visibility.Visible;
+                            WebPartHost.Visibility = Visibility.Collapsed;
+                            WebPartHost.Stop();
 
-                        WorkHost.Navigation(content, e.ModuleInfo.Description);
-                        Common.AppContext.IsMenuOpen = _fromMenu;
+                            WorkHost.Navigation(content, e.ModuleInfo.Description);
+                            Common.AppContext.IsMenuOpen = _fromMenu;
+                        }
                     }
                 }
+                else
+                {
+                    string message = string.Format("打开模块'{0}'失败,请联系管理员！", e.ModuleInfo.Description);
+                    AppContext.SystemMessage(message);
+                    AppContext.ShowSystemMessageText();
+                    MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                string message = string.Format("打开模块'{0}'失败,请联系管理员！", e.ModuleInfo.Description);
+                string message = string.Format("打开模块'{0}'失败,请联系管理员！", ex.ToString());
                 AppContext.SystemMessage(message);
                 AppContext.ShowSystemMessageText();
-                MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);
             }
-            loading.Stop();
+            finally
+            {
+                loading.Stop();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+            }
         }
         #endregion
 
@@ -609,16 +626,16 @@ namespace SMT.SAAS.Platform.Xamls
                 strMvcSource = System.Windows.Application.Current.Resources["MvcOpenRecordSource"] as List<string>;
             }
 
-            bool isFirst = false;
-            if (System.Windows.Application.Current.Resources["isFirstOpen"] != null)
-            {
-                isFirst = (bool)System.Windows.Application.Current.Resources["isFirstOpen"];
-            }
-            if (isFirst)
-            {
-                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
-                return;
-            }
+            //bool isFirst = false;
+            //if (System.Windows.Application.Current.Resources["isFirstOpen"] != null)
+            //{
+            //    isFirst = (bool)System.Windows.Application.Current.Resources["isFirstOpen"];
+            //}
+            //if (isFirst)
+            //{
+              
+                //return;
+            //}
 
 
             if (strMvcSource == null)
@@ -653,6 +670,7 @@ namespace SMT.SAAS.Platform.Xamls
                 + "strOptType:" + strOptType
                    + "strMessageid:" + strMessageid
                       + "strConfig:" + strConfig);
+
             loading.Start();
             //AppContext.ShowSystemMessageText();
             if (string.IsNullOrWhiteSpace(strOptType))
@@ -698,26 +716,39 @@ namespace SMT.SAAS.Platform.Xamls
         /// <param name="strConfig"></param>
         private void LoadTask(string strMessageid, string strConfig)
         {
-            if (string.IsNullOrWhiteSpace(strMessageid) || string.IsNullOrWhiteSpace(strConfig))
+            try
             {
-                return;
-            }
-
-            SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager(strMessageid, "open");
-            pendingTaskView.isMyrecord = false;
-            if (ViewModel.Context.MainPanel != null)
-            {
-                if (ViewModel.Context.MainPanel.DefaultContent != null)
+                if (string.IsNullOrWhiteSpace(strMessageid) || string.IsNullOrWhiteSpace(strConfig))
                 {
-                    IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
-                    if (webpart != null)
-                        webpart.Stop();
+                    return;
+                }
+
+                SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager(strMessageid, "open");
+                pendingTaskView.isMyrecord = false;
+                if (ViewModel.Context.MainPanel != null)
+                {
+                    if (ViewModel.Context.MainPanel.DefaultContent != null)
+                    {
+                        IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
+                        if (webpart != null)
+                            webpart.Stop();
+
+                    }
+                    ViewModel.Context.MainPanel.Navigation(pendingTaskView, "待办任务");
 
                 }
-                ViewModel.Context.MainPanel.Navigation(pendingTaskView, "待办任务");
-
             }
-            loading.Stop();
+            catch (Exception ex)
+            {
+                string message = string.Format("打开模块'{0}'失败,请联系管理员！", ex.ToString());
+                AppContext.SystemMessage(message);
+                AppContext.ShowSystemMessageText();
+            }
+            finally
+            {
+                loading.Stop();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+            }
         }
 
         /// <summary>
@@ -726,30 +757,39 @@ namespace SMT.SAAS.Platform.Xamls
         /// <param name="strConfig"></param>
         private void LoadMyRecord(string strConfig)
         {
-            if (string.IsNullOrWhiteSpace(strConfig))
+            try
             {
-                return;
-            }
-
-            //SMT.SAAS.Platform.WebParts.Views.MyRecord myRecordView = new WebParts.Views.MyRecord();
-            //myRecordView.ShowMyRecord(strConfig);
-
-            SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager("", "open");
-            pendingTaskView.isMyrecord = true;
-            pendingTaskView.applicationUrl = strConfig;
-            if (ViewModel.Context.MainPanel != null)
-            {
-                if (ViewModel.Context.MainPanel.DefaultContent != null)
+                if (string.IsNullOrWhiteSpace(strConfig))
                 {
-                    IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
-                    if (webpart != null)
-                        webpart.Stop();
+                    return;
+                }
+                SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager("", "open");
+                pendingTaskView.isMyrecord = true;
+                pendingTaskView.applicationUrl = strConfig;
+                if (ViewModel.Context.MainPanel != null)
+                {
+                    if (ViewModel.Context.MainPanel.DefaultContent != null)
+                    {
+                        IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
+                        if (webpart != null)
+                            webpart.Stop();
+
+                    }
+                    ViewModel.Context.MainPanel.Navigation(pendingTaskView, "我的单据");
 
                 }
-                ViewModel.Context.MainPanel.Navigation(pendingTaskView, "我的单据");
-
             }
-            loading.Stop();
+            catch (Exception ex)
+            {
+                string message = string.Format("打开模块'{0}'失败,请联系管理员！", ex.ToString());
+                AppContext.SystemMessage(message);
+                AppContext.ShowSystemMessageText();
+            }
+            finally
+            {
+                loading.Stop();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+            }
         }
 
         /// <summary>

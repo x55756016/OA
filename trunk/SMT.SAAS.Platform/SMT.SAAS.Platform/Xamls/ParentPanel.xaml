@@ -20,21 +20,23 @@
         <Border Background="#EEEFF3" Grid.ColumnSpan="4" Margin="0"></Border>
         <!--导航按钮-->
         
-        <Image Source="/Images/Back-9.png" Width="22" Height="22" Margin="10,2,0,2"
+        <!--<Image Source="/SMT.SAAS.Platform;component/Images/Back-9.png" Width="22" Height="22" Margin="10,2,0,2"
                HorizontalAlignment="Left" Tag="0" MouseLeftButtonDown="Image_MouseLeftButtonDown"></Image>
-        <Image Source="/Images/Next-9.png" Width="22" Height="22" Margin="33,2,2,2"
-               HorizontalAlignment="Left" Tag="1" MouseLeftButtonDown="Image_MouseLeftButtonDown"></Image>
+        <Image Source="/SMT.SAAS.Platform;component/Images/Next-9.png" Width="22" Height="22" Margin="33,2,2,2"
+               HorizontalAlignment="Left" Tag="1" MouseLeftButtonDown="Image_MouseLeftButtonDown"></Image>-->
         <!--导航-->
         
-        <StackPanel Orientation="Horizontal" x:Name="NavigationPanel" Margin="17,3,0,2" Grid.Column="1">
+        <!--<StackPanel Orientation="Horizontal" x:Name="NavigationPanel" Margin="17,3,0,2" Grid.Column="1">
             
-        </StackPanel>
+        </StackPanel>-->
         <!--CloseButton-->
-        <Button Style="{StaticResource CloseButtonStyle}"  Margin="0 2 8 4" HorizontalAlignment="Right"
+        <!--<Button Style="{StaticResource CloseButtonStyle}"  Margin="0 2 8 4" HorizontalAlignment="Right"
                 Width="32" Height="18" x:Name="TCloseButton" Foreground="Red" Grid.Column="3"
                 Click="TCloseButton_Click">
 
-        </Button>
+        </Button>-->
+        <Image Source="/SMT.SAAS.Platform;component/Images/full_screen.png" Margin="0 2 8 4" HorizontalAlignment="Right"
+                Width="32" Height="18" x:Name="FullScreenButton"  Grid.Column="3" MouseLeftButtonDown="FullScreenButton_MouseLeftButtonDown" ></Image>
         <Border Height="1" VerticalAlignment="Bottom" Margin="0,0,0,3" Background="#D1D1D3" Grid.ColumnSpan="4"></Border>
         <Border Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
                         Background="#198BAF" Grid.ColumnSpan="4"></Border>

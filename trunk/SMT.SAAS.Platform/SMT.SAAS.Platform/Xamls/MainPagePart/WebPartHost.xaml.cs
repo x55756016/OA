@@ -34,7 +34,15 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
 
         void WebPartHost_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadWebPartData();
+
+            if (System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
+            {
+                //从mvc打开不需要加载相关webpart
+            }
+            else
+            {
+                LoadWebPartData();
+            }
         }
 
         //modify by 安凯航.2011年9月5日
