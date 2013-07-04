@@ -657,6 +657,71 @@ namespace SMT.HRM.BLL
                 Utility.SaveLog(ex.ToString());
             }
         }
+
+        /// <summary>
+        /// 重新初始化考勤记录，强制删除签卡记录，异常考勤，考勤记录，重新初始化考勤
+        /// </summary>
+        /// <param name="objType"></param>
+        /// <param name="objId"></param>
+        /// <param name="dtStar"></param>
+        /// <param name="dtEnd"></param>
+        /// <returns></returns>
+        public string CompulsoryInitialization(string objType, string objId, DateTime dtStar, DateTime dtEnd)
+        {
+            string strMsg = string.Empty;
+            try
+            {
+                List<T_HR_EMPLOYEE> employees = new List<T_HR_EMPLOYEE>();
+                EmployeeBLL empbll = new EmployeeBLL();
+                AttendanceSolutionAsignBLL bll = new AttendanceSolutionAsignBLL();
+
+                switch (objType)
+                {
+                    case "0":
+                        employees = empbll.GetEmployeeByCompanyID(objId).ToList();
+                        break;
+                    case "4":
+                        employees.Add(empbll.GetEmployeeByID(objId));
+                        break;
+                }
+
+                foreach (var emp in employees)
+                {
+                    strMsg ="开始强制删除考勤初始化记录，员工姓名："+ emp.EMPLOYEECNAME;
+                    var q = from ent in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+                            where ent.EMPLOYEEID == emp.EMPLOYEEID
+                            && ent.ATTENDANCEDATE >= dtStar
+                            && ent.ATTENDANCEDATE <= dtEnd
+                            select ent;
+                    if (q.Count() > 0)
+                    {
+                        List<T_HR_ATTENDANCERECORD> attlist = q.ToList();
+                        RemoveWrongSignRds(attlist);
+                        foreach (var att in attlist)
+                        {
+                            dal.Delete(att);
+                            strMsg += "强制删除考勤初始化记录,员工姓名：" + att.EMPLOYEENAME
+                                + " 考勤日期：" + att.ATTENDANCEDATE.ToString()
+                                + " 考勤状态：" + att.ATTENDANCESTATE;
+
+                            Tracer.Debug("强制删除考勤初始化记录,员工姓名："+att.EMPLOYEENAME
+                                +" 考勤日期："+att.ATTENDANCEDATE.ToString()
+                                +" 考勤状态："+att.ATTENDANCESTATE);
+                        }
+                    }
+
+                    bll.AsignAttendanceSolutionForEmployeeByDate(emp, dtStar);
+                    strMsg += "强制删除考勤初始化记录，初始化考勤记录成功！,员工姓名：" + emp.EMPLOYEECNAME;
+                    Tracer.Debug("强制删除考勤初始化记录，初始化考勤记录成功！,员工姓名：" + emp.EMPLOYEECNAME);
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
+
+            return strMsg;
+        }
         #endregion
     }
 }

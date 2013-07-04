@@ -550,13 +550,38 @@ namespace SMT.HRM.BLL
                 IQueryable<T_HR_ATTENDANCERECORD> entAttRds 
                     = bllAttendanceRecord.GetAttendanceRecordByEmployeeIDAndDate(entEmployee.OWNERCOMPANYID
                     , strEmployeeID, dtStart, dtEnd);
-
+                //如果没有找到考勤初始化记录，初始考勤一次。
                 if (entAttRds.Count() == 0)
                 {
-                    Tracer.Debug("导入打卡记录没有找到初始化考勤记录，未修改考勤初始化记录状态。");
+                    try
+                    {
+                        string dealType = "检查异常考勤";
+                        string dtInit = dtStart.Year.ToString() + "-" + dtStart.Month.ToString();
+                        Tracer.Debug(dealType + " 没有查到考勤初始化数据，开始初始化员工考勤：" + dtInit);
+                        AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
+                        //初始化该员工当月考勤记录
+                        bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", entEmployee.EMPLOYEEID
+                            , dtInit);
+                        Tracer.Debug(dealType + " 初始化员工考勤成功，初始化月份：" + dtInit);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Tracer.Debug(ex.ToString());
+                    }
+                    //continue;
+                }
+
+                entAttRds
+                = bllAttendanceRecord.GetAttendanceRecordByEmployeeIDAndDate(entEmployee.OWNERCOMPANYID
+                , strEmployeeID, dtStart, dtEnd);
+                //如果初始化考勤后任然没有考勤记录，跳过。
+                if (entAttRds.Count() == 0)
+                {
                     continue;
                 }
 
+                //查询打卡记录
                 string strSortKey = "PUNCHDATE";
                 ClockInRecordBLL bllClockInRecord = new ClockInRecordBLL();
                 IQueryable<T_HR_EMPLOYEECLOCKINRECORD> entClockInRecords 
@@ -564,6 +589,7 @@ namespace SMT.HRM.BLL
                     , string.Empty, string.Empty, strEmployeeID, dtStart.ToString()
                     , dtEnd.ToString(), strSortKey);
 
+                //检查考勤异常
                 CheckAbnormRecord(entAttRds, entClockInRecords, ref strMsg, ref isAbnorm);
 
                 if (isAbnorm && strMsg == "{SAVESUCCESSED}")
@@ -701,7 +727,7 @@ namespace SMT.HRM.BLL
 
                     Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查异常完成，员工姓名：" + item.EMPLOYEENAME
                         + ",打卡记录导入 修改的状态为：" + item.ATTENDANCESTATE);
-                    item.REMARK = "打卡记录导入检查考勤状态";
+                    item.REMARK = item.REMARK+" 打卡记录导入检查考勤状态";
                     bllAttendanceRecord.ModifyAttRd(item);
 
                     //检查是否有出差及请假并确认一次状态

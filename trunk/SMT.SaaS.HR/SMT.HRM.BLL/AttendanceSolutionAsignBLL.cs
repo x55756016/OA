@@ -1143,7 +1143,7 @@ namespace SMT.HRM.BLL
             return AsignAttendanceSolutionForEmployeeByDate(entEmployee, DateTime.Now);
         }
 
-        private string AsignAttendanceSolutionForEmployeeByDate(T_HR_EMPLOYEE entEmployee, DateTime dtAsignDate)
+        public string AsignAttendanceSolutionForEmployeeByDate(T_HR_EMPLOYEE entEmployee, DateTime dtAsignDate)
         {
             string strMsg = string.Empty;
             try
@@ -1509,6 +1509,8 @@ namespace SMT.HRM.BLL
                     {
                         T_HR_EMPLOYEE item_emp = entEmployees[n];
                         DateTime dtInitAttandRecordStartDate = new DateTime();
+
+                        #region 判断是否免打卡
                         //如果是免打卡的用户，在这里还是需要初始化，因为结算的时候需要计算出勤天数
                         if (!entTemp.T_HR_ATTENDANCESOLUTIONReference.IsLoaded)
                         {
@@ -1521,7 +1523,9 @@ namespace SMT.HRM.BLL
                             //    + entEmployees.FirstOrDefault().EMPLOYEEENAME
                             //    + " 考勤方案名：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME;
                         }
+                        #endregion
 
+                        #region 初始化开始日期大于结束日期
                         dtInitAttandRecordStartDate = dtStart;
 
                         if (dtInitAttandRecordStartDate >= dtInitAttandRecordEndDate)
@@ -1529,6 +1533,9 @@ namespace SMT.HRM.BLL
                             Tracer.Debug("初始化员工考勤记录被跳过，dtInitAttandRecordStartDate >= dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
                             continue;
                         }
+                        #endregion
+
+                        #region 判断员工状态，是否有入职记录，是否已离职,入职，离职日期
                         Tracer.Debug("初始化员工考勤记录：员工状态：" + item_emp.EMPLOYEESTATE + "，员工姓名" + item_emp.EMPLOYEEENAME);
                         if (item_emp.EMPLOYEESTATE == "0")
                         {
@@ -1590,6 +1597,7 @@ namespace SMT.HRM.BLL
                                 continue;
                             }
                         }
+                        #endregion
 
                         TimeSpan ts = dtInitAttandRecordEndDate.Subtract(dtInitAttandRecordStartDate);
                         iTotalDay = ts.Days;
@@ -1618,7 +1626,7 @@ namespace SMT.HRM.BLL
                         string strWorkDayType = (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString();
                         IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
                         IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType && s.STARTDATE >= dtInitAttandRecordStartDate && s.ENDDATE <= dtInitAttandRecordEndDate);
-
+                        //例外工作日考勤初始化记录
                         CreateOutPlanWorkDay(entCompany, item_emp, entTemp, entTemplateDetails, entWorkDays, AttendNoCheck);
                         int addCount = 0;
                         int updateCount = 0;

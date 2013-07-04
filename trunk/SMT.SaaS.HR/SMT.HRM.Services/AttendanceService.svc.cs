@@ -181,6 +181,7 @@ namespace SMT.HRM.Services
         #endregion T_HR_EMPLOYEECLOCKINRECORD 员工原始打卡记录服务
 
         #region T_HR_EMPLOYEECLOCKINRECORD 员工原始打卡记录服务
+        
 
         /// <summary>
         /// 根据公司的ID，取得当前录入的员工打卡记录的最新打卡日期
@@ -347,6 +348,25 @@ namespace SMT.HRM.Services
                 Tracer.Debug(ex.ToString());
                 strMsg = ex.ToString();
                 return null;
+            }
+        }
+        /// <summary>
+        /// 强制删除考勤异常及签卡，重新初始化考勤
+        /// </summary>
+        /// <param name="objType">类型：0公司，1员工</param>
+        /// <param name="objId">类型id</param>
+        /// <param name="dtStar">开始时间</param>
+        /// <param name="dtEnd">结束时间</param>
+        /// <returns></returns>
+        [OperationContract]        
+        public string CompulsoryInitialization(string objType, string objId, DateTime dtStar, DateTime dtEnd)
+        {
+            string smtmsg = string.Empty;
+            using (AttendanceRecordBLL bll = new AttendanceRecordBLL())
+            {
+                smtmsg=bll.CompulsoryInitialization(objType, objId, dtStar, dtEnd);
+
+                return smtmsg;
             }
         }
         #endregion
