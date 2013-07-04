@@ -61,6 +61,19 @@ namespace SMT.SAAS.Platform.WebParts.Views
         {
             _currentMessageID = messageid;
             _state = state;
+            if (!System.Windows.Application.Current.Resources.Contains("CurrentSysUserID"))
+            {
+                MessageBox.Show(@"System.Windows.Application.Current.Resources 没有传入 CurrentSysUserID
+                ，无法打开系统，请联系管理员");
+                return;
+            }
+            if (!System.Windows.Application.Current.Resources.Contains("MvcOpenRecordSource"))
+            {
+                MessageBox.Show(@"System.Windows.Application.Current.Resources 没有传入 MvcOpenRecordSource
+                ，无法打开系统，请联系管理员");
+                return;
+            }
+
             if (System.Windows.Application.Current.Resources["CurrentSysUserID"] != null && System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
             {
                 bMVCOpen = true;

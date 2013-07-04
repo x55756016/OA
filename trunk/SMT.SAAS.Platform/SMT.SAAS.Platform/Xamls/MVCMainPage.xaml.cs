@@ -657,6 +657,22 @@ namespace SMT.SAAS.Platform.Xamls
         }
 
         /// <summary>
+        /// 打开我的单据,工作计划中打开出差我的单据
+        /// </summary>
+        /// <param name="strConfig"></param>
+        [ScriptableMember]
+        public void LoadMyRecordByConfig(string strConfig)
+        {
+            if (string.IsNullOrWhiteSpace(strConfig))
+            {
+                return;
+            }
+
+            SMT.SAAS.Platform.WebParts.Views.MyRecord myRecordView = new WebParts.Views.MyRecord();
+            myRecordView.ShowMyRecord(strConfig);
+        }
+
+        /// <summary>
         /// 打开指定的菜单，待办任务，新闻或我的单据记录
         /// </summary>
         /// <param name="strModuleid"></param>
@@ -687,7 +703,14 @@ namespace SMT.SAAS.Platform.Xamls
                     LoadTask(strMessageid, strConfig);
                     break;
                 case "RECORD":
-                    LoadMyRecord(strConfig);
+                    if (strConfig.Length > 40)
+                    {
+                        LoadMyRecordByConfig(strConfig);
+                    }
+                    else
+                    {
+                        LoadMyRecord(strConfig);
+                    }
                     break;
                 case "NEWSMANAGER":
                     LoadNews(strModuleid);
