@@ -1894,7 +1894,15 @@ namespace SMT.HRM.BLL
                 var commonSalaryItems = from c in dal.GetObjects<T_HR_SALARYITEM>()
                                         where c.OWNERCOMPANYID == GenerateCompanyEmployeeArchive.PAYCOMPANY
                                         select c;
-
+                if (commonSalaryItems.Count() < 1)
+                {
+                    Tracer.Debug("结算"+ year + "年" + month 
+                        + "月 员工薪资失败，根据薪资档案的发薪机构获取的薪资项目<1 员工姓名：" 
+                        + emp.EMPLOYEECNAME + " " 
+                        + " 薪资档案id：" + GenerateCompanyEmployeeArchive.SALARYARCHIVEID
+                        + " 发薪机构id：" + GenerateCompanyEmployeeArchive.PAYCOMPANY);
+                    return 0;
+                }
                 //改为全集团不在使用同一套薪资项目
                 var ents = from archiveItem in dal.GetObjects<T_HR_SALARYARCHIVEITEM>().Include("T_HR_SALARYARCHIVE")
                            join tmpItem in dal.GetObjects<T_HR_SALARYITEM>() on archiveItem.SALARYITEMID equals tmpItem.SALARYITEMID
