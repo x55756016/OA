@@ -1069,8 +1069,16 @@ namespace SMT.HRM.UI.Form.Salary
                     }
                     else
                     {
-                        //fullName = employeeTmp.EMPLOYEECNAME + " - " + postName + " - " + GetFullOrgName(deptId);
-                        fullName = employeeTmp.EMPLOYEECNAME + " - " + postName + " - " + corp.CNAME;
+                        string orgName = GetFullOrgName(deptId);
+                        if (string.IsNullOrEmpty(orgName))
+                        {
+                            fullName = employeeTmp.EMPLOYEECNAME + " - " + postName + " - " + corp.CNAME;
+                        }
+                        else
+                        {
+                            fullName = employeeTmp.EMPLOYEECNAME + " - " + postName + " - " + GetFullOrgName(deptId);
+
+                        }
                     }
                     lkEmployee.TxtLookUp.Text = fullName;
                     if (lkSalarySolution.DataContext as T_HR_SALARYSOLUTION != null)
@@ -1352,77 +1360,85 @@ namespace SMT.HRM.UI.Form.Salary
         /// <returns></returns>
         public string GetFullOrgName(string depID)
         {
-            List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> allCompanys = Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>;
-            List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> allDepartments = Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>;
-            SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT department = allDepartments.Where(s => s.DEPARTMENTID == depID).FirstOrDefault();
-            SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY company = new SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY();
             string orgName = string.Empty;
-            string fatherType = "0";
-            string fatherID = "";
-            bool hasFather = false;
-
-            if (department != null)
+            try
             {
-                orgName += department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
-                if (!string.IsNullOrEmpty(department.FATHERTYPE) && !string.IsNullOrEmpty(department.FATHERID))
-                {
-                    fatherType = department.FATHERTYPE;
-                    fatherID = department.FATHERID;
-                    hasFather = true;
-                }
-                else
-                {
-                    hasFather = false;
-                }
-            }
+                List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> allCompanys = Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>;
+                List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> allDepartments = Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>;
+                SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT department = allDepartments.Where(s => s.DEPARTMENTID == depID).FirstOrDefault();
+                SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY company = new SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY();
+               
+                string fatherType = "0";
+                string fatherID = "";
+                bool hasFather = false;
 
-            while (hasFather)
-            {
-                if (fatherType == "1" && !string.IsNullOrEmpty(fatherID))
+                if (department != null)
                 {
-                    department = (from de in allDepartments
-                                  where de.DEPARTMENTID == fatherID
-                                  select de).FirstOrDefault();
-                    if (department != null)
+                    orgName += department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
+                    if (!string.IsNullOrEmpty(department.FATHERTYPE) && !string.IsNullOrEmpty(department.FATHERID))
                     {
-                        orgName += " - " + department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
-                        if (!string.IsNullOrEmpty(department.FATHERTYPE) && !string.IsNullOrEmpty(department.FATHERID))
+                        fatherType = department.FATHERTYPE;
+                        fatherID = department.FATHERID;
+                        hasFather = true;
+                    }
+                    else
+                    {
+                        hasFather = false;
+                    }
+                }
+
+                while (hasFather)
+                {
+                    if (fatherType == "1" && !string.IsNullOrEmpty(fatherID))
+                    {
+                        department = (from de in allDepartments
+                                      where de.DEPARTMENTID == fatherID
+                                      select de).FirstOrDefault();
+                        if (department != null)
                         {
-                            fatherID = department.FATHERID;
-                            fatherType = department.FATHERTYPE;
+                            orgName += " - " + department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
+                            if (!string.IsNullOrEmpty(department.FATHERTYPE) && !string.IsNullOrEmpty(department.FATHERID))
+                            {
+                                fatherID = department.FATHERID;
+                                fatherType = department.FATHERTYPE;
+                            }
+                            else
+                            {
+                                hasFather = false;
+                            }
                         }
                         else
                         {
                             hasFather = false;
                         }
                     }
+                    else if (fatherType == "0" && !string.IsNullOrEmpty(fatherID))
+                    {
+                        company = (from com in allCompanys
+                                   where com.COMPANYID == fatherID
+                                   select com).FirstOrDefault();
+
+                        if (company != null)
+                        {
+                            orgName += " - " + company.CNAME;
+                            hasFather = false;
+                        }
+                        else
+                        {
+                            hasFather = false;
+                        }
+
+                    }
                     else
                     {
                         hasFather = false;
                     }
-                }
-                else if (fatherType == "0" && !string.IsNullOrEmpty(fatherID))
-                {
-                    company = (from com in allCompanys
-                               where com.COMPANYID == fatherID
-                               select com).FirstOrDefault();
-
-                    if (company != null)
-                    {
-                        orgName += " - " + company.CNAME;
-                        hasFather = false;
-                    }
-                    else
-                    {
-                        hasFather = false;
-                    }
 
                 }
-                else
-                {
-                    hasFather = false;
-                }
-
+            }
+            catch (Exception ex)
+            {
+                Utility.Log(ex.ToString());
             }
             return orgName;
         }

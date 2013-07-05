@@ -60,7 +60,7 @@
                 <behaviors:ShowRequire></behaviors:ShowRequire>
             </interaction:Interaction.Behaviors>
         </ComboBox>-->
-        <custom:AutoCompleteComboBox  x:Name="acbDepName" SelectionChanged="acbDepName_SelectionChanged" Width="180" Height="26" Margin="5,0,5,0"  Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" >
+        <custom:AutoCompleteComboBox  x:Name="acbDepName" SelectionChanged="acbDepName_SelectionChanged" Width="auto" Height="26" Margin="5,0,5,0"  Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" >
             <custom:AutoCompleteComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

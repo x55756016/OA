@@ -1007,6 +1007,16 @@ namespace SMT.HRM.BLL
             return ents.Count() > 0 ? ents.FirstOrDefault() : null;
         }
 
+        public T_HR_EMPLOYEE GetEmployeeByName(string employeeCName)
+        {
+            //CommonUserInfo.EmployeeID = employeeID;//传递当前用户ID
+            var ents = from o in dal.GetObjects()
+                       where o.EMPLOYEECNAME == employeeCName
+                       select o;
+
+            return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+        }
+
         /// <summary>
         /// 根据员工ID集合查询所有员工
         /// </summary>

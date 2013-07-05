@@ -56,7 +56,7 @@
                     </DataTemplate>
                 </custom:AutoCompleteComboBox.ItemTemplate>
             </custom:AutoCompleteComboBox>-->
-            <custom:AutoCompleteComboBox  x:Name="acbDepName"  Width="180" Height="26" Margin="0,0,5,0"  Grid.Column="1" HorizontalAlignment="Left">
+            <custom:AutoCompleteComboBox  x:Name="acbDepName"  Width="Auto" MinWidth="180" Height="26" Margin="0,0,5,0"  Grid.Column="1" HorizontalAlignment="Left">
                 <custom:AutoCompleteComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

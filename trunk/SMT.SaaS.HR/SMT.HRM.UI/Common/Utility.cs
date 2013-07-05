@@ -117,6 +117,11 @@ namespace SMT.HRM.UI
             }
         }
 
+        public static void Log(string msg)
+        {
+            SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
+        }
+
         public static object DeserializeObject(string objString, Type type)
         {
 
