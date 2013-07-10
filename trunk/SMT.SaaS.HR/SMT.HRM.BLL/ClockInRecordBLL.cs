@@ -185,9 +185,11 @@ namespace SMT.HRM.BLL
                     Tracer.Debug("导入的打卡记录非今年记录，跳过。");
                     return "{REQUIREDFIELDS}";
                 }
+
                 #region 判断是否已经初始化考勤记录，没有就初始化整月数据
                 DateTime dt = new DateTime(entTemp.PUNCHDATE.Value.Year, entTemp.PUNCHDATE.Value.Month, entTemp.PUNCHDATE.Value.Day);
-                Tracer.Debug("导入CSV打卡记录开始判断是否已有考勤初始化记录，员工id：" + entTemp.EMPLOYEEID
+                Tracer.Debug("导入打卡记录开始判断是否已有考勤初始化记录，员工id：" + entTemp.EMPLOYEEID
+                    +"员工姓名:" + entTemp.EMPLOYEENAME 
                     + " 查询的日期：" + dt.ToShortDateString());
                 IQueryable<T_HR_ATTENDANCERECORD> entArs = from att in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                                            where att.EMPLOYEEID == entTemp.EMPLOYEEID
@@ -215,8 +217,8 @@ namespace SMT.HRM.BLL
                 }
                 else
                 {
-                    Tracer.Debug("导入CSV打卡记录开始已有考勤初始化记录,直接导入打卡记录，员工id：" + entTemp.EMPLOYEEID
-                   + " 查询的日期：" + dt.ToShortDateString());
+                    Tracer.Debug("导入打卡记录开始,已有考勤初始化记录,直接增加员工打卡记录，员工id：" + entTemp.EMPLOYEEID
+                   + " 姓名：" + entTemp.EMPLOYEENAME +  " 查询的日期：" + dt.ToShortDateString());
                 }
                 #endregion
 
@@ -332,28 +334,43 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                Utility.SaveLog("本次打卡自动导入调用服务开始。导入的打卡机IP:" + strClientIP + "。 " + DateTime.Now.ToString() + "开始调用ImportClockInRdListByWindowsService函数计算考勤异常(计算的考勤时间段为：" + dtStart.ToString() + "-" + dtEnd.ToString() + ")。计算考勤的公司ID为：" + strCompanyId);
+                string importInfo = string.Empty;
+              
                 if (string.IsNullOrWhiteSpace(strCompanyId))
                 {
                     strMsg = "{REQUIREDFIELDS}";
+                    Tracer.Debug("打卡导入，公司id为空，返回。");
                     return;
                 }
+
+                var CompanyName = from ent in dal.GetObjects<T_HR_COMPANY>()
+                                  where ent.COMPANYID == strCompanyId
+                                  select ent.CNAME;
+
+                importInfo = "定时服务导入打卡记录，公司id：" + strCompanyId
+                    + " 公司名称：" +CompanyName
+                    + " 导入时间段为：(" + dtStart.ToString() + "-" + dtEnd.ToString() + ")"
+                    + " 导入的打卡机IP:" + strClientIP;
+
+                Utility.SaveLog("开始" + importInfo);
 
                 if (string.IsNullOrWhiteSpace(strClientIP))
                 {
                     strMsg = "打卡机IP未知，禁止导入！";
-                    Utility.SaveLog(strMsg + "此次导入，计算考勤异常(计算的考勤时间段为：" + dtStart.ToString() + "-" + dtEnd.ToString() + ")。计算考勤的公司ID为：" + strCompanyId);
+                    Utility.SaveLog(strMsg +importInfo);
                     return;
                 }
 
                 if (entTempList == null)
                 {
+                    Tracer.Debug("打卡导入，导入的打卡记录为空，返回。" + importInfo);
                     strMsg = "{REQUIREDFIELDS}";
                     return;
                 }
 
                 if (entTempList.Count() == 0)
                 {
+                    Tracer.Debug("打卡导入，导入的打卡记录为空，返回。" + importInfo);
                     strMsg = "{REQUIREDFIELDS}";
                     return;
                 }
@@ -390,65 +407,65 @@ namespace SMT.HRM.BLL
                 string strEditState = Convert.ToInt32(Common.EditStates.Actived).ToString();
                 string strCheckState = Convert.ToInt32(Common.CheckStates.Approved).ToString();
 
-                Utility.SaveLog(strMsg + "此次导入，(计算的考勤时间段为：" + dtStart.ToString() + "-" + dtEnd.ToString() + ")。计算考勤的所有员工指纹编码为：" + filter);
+                Utility.SaveLog(strMsg + importInfo + "计算考勤的所有员工指纹编码为：" + filter);
                     
 
-                var listCompany = (from e in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST")
-                                   join p in dal.GetObjects<T_HR_POST>().Include("T_HR_DEPARTMENT") on e.T_HR_POST.POSTID equals p.POSTID
-                                   join d in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_COMPANY") on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
-                                   join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-                                   where e.ISAGENCY == strIsAgnecy && e.EDITSTATE == strEditState && e.CHECKSTATE == strCheckState
-                                   && e.T_HR_EMPLOYEE.FINGERPRINTID.Contains(filter)
-                                   select c.COMPANYID).Distinct().ToList();
+                //var listCompany = (from e in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST")
+                //                   join p in dal.GetObjects<T_HR_POST>().Include("T_HR_DEPARTMENT") on e.T_HR_POST.POSTID equals p.POSTID
+                //                   join d in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_COMPANY") on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
+                //                   join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
+                //                   where e.ISAGENCY == strIsAgnecy && e.EDITSTATE == strEditState && e.CHECKSTATE == strCheckState
+                //                   && e.T_HR_EMPLOYEE.FINGERPRINTID.Contains(filter)
+                //                   select c.COMPANYID).Distinct().ToList();
 
-                if (listCompany == null)
-                {
-                    strMsg = "当前导入的人员在系统内无对应的所属公司";
-                    Utility.SaveLog(strMsg + "此次导入，计算考勤异常(计算的考勤时间段为：" + dtStart.ToString() + "-" + dtEnd.ToString() + ")。计算考勤的公司ID为：" + strCompanyId);
-                    return;
-                }
+                //if (listCompany == null)
+                //{
+                //    strMsg = "当前导入的人员在系统内无对应的所属公司";
+                //    Utility.SaveLog(strMsg + "此次导入，计算考勤异常(计算的考勤时间段为：" + dtStart.ToString() + "-" + dtEnd.ToString() + ")。计算考勤的公司ID为：" + strCompanyId);
+                //    return;
+                //}
 
-                int n = listCompany.Count();
-                if (n == 0)
-                {
-                    strMsg = "当前导入的人员在系统内无对应的所属公司";
-                    Utility.SaveLog(strMsg + "此次导入，计算考勤异常(计算的考勤时间段为：" + dtStart.ToString() + "-" + dtEnd.ToString() + ")。计算考勤的公司ID为：" + strCompanyId);
-                    return;
-                }
+                //int n = listCompany.Count();
+                //if (n == 0)
+                //{
+                //    strMsg = "当前导入的人员在系统内无对应的所属公司";
+                //    Utility.SaveLog(strMsg + "此次导入，计算考勤异常(计算的考勤时间段为：" + dtStart.ToString() + "-" + dtEnd.ToString() + ")。计算考勤的公司ID为：" + strCompanyId);
+                //    return;
+                //}
 
-                filter = string.Empty;
-                int m = 0;
-                foreach (var item in listCompany)
-                {
-                    if (strCheckAutoImportComps.Contains(item))
-                    {
-                        filter = filter + item;
-                    }
+                //filter = string.Empty;
+                //int m = 0;
+                //foreach (var item in listCompany)
+                //{
+                //    if (strCheckAutoImportComps.Contains(item))
+                //    {
+                //        filter = filter + item;
+                //    }
 
-                    if (m != n - 1)
-                    {
-                        filter = filter + ",";
-                    }
+                //    if (m != n - 1)
+                //    {
+                //        filter = filter + ",";
+                //    }
 
-                    m++;
-                }
+                //    m++;
+                //}
 
-                SMT.Foundation.Log.Tracer.Debug("导入打卡记录的公司Id：" + filter);
+                //SMT.Foundation.Log.Tracer.Debug("导入打卡记录的公司Id：" + filter);
 
-                var entEmployees = from e in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST")
-                                   join p in dal.GetObjects<T_HR_POST>().Include("T_HR_DEPARTMENT") on e.T_HR_POST.POSTID equals p.POSTID
-                                   join d in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_COMPANY") on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
-                                   join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-                                   where e.ISAGENCY == strIsAgnecy && e.EDITSTATE == strEditState && e.CHECKSTATE == strCheckState
-                                   && c.COMPANYID.Contains(filter)
-                                   select e.T_HR_EMPLOYEE;
+                //var entEmployees = from e in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST")
+                //                   join p in dal.GetObjects<T_HR_POST>().Include("T_HR_DEPARTMENT") on e.T_HR_POST.POSTID equals p.POSTID
+                //                   join d in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_COMPANY") on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
+                //                   join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
+                //                   where e.ISAGENCY == strIsAgnecy && e.EDITSTATE == strEditState && e.CHECKSTATE == strCheckState
+                //                   && c.COMPANYID.Contains(filter)
+                //                   select e.T_HR_EMPLOYEE;
 
 
                 for (int i = 0; i < entTempList.Count(); i++)
                 {
                     T_HR_EMPLOYEECLOCKINRECORD entTemp = entTempList[i];
                     string strFingerPrintID = entTemp.FINGERPRINTID;
-                    var q = from ent in entEmployees
+                    var q = from ent in dal.GetObjects<T_HR_EMPLOYEE>()
                             where ent.FINGERPRINTID == strFingerPrintID
                             select ent;
                     T_HR_EMPLOYEE entEmployee = q.FirstOrDefault();
@@ -472,21 +489,28 @@ namespace SMT.HRM.BLL
                         entClockInRd.CREATEPOSTID = entEmployee.CREATEPOSTID;
                         entClockInRd.CREATEUSERID = entEmployee.CREATEUSERID;
                         entClockInRd.VERIFYCODE = 0;
+
+                        entClockInRd.PUNCHDATE = entTemp.PUNCHDATE;
+                        entClockInRd.PUNCHTIME = entTemp.PUNCHTIME;
                     }
-
-                    entClockInRd.PUNCHDATE = entTemp.PUNCHDATE;
-                    entClockInRd.PUNCHTIME = entTemp.PUNCHTIME;
-
+                    else
+                    {
+                        Tracer.Debug(importInfo+" 打卡导入，通过导入的指纹编码查询所属员工不存在，导入的信息："
+                            + "员工姓名：" + entTemp.EMPLOYEENAME
+                            + "员工指纹编码：" + entTemp.FINGERPRINTID
+                            + "打卡日期：" + entTemp.PUNCHDATE
+                            + "打卡时间：" + entTemp.PUNCHTIME
+                            );
+                        continue;
+                    }
                     var qc = from ar in dal.GetObjects<T_HR_EMPLOYEECLOCKINRECORD>()
-                             where ar.OWNERCOMPANYID == entClockInRd.OWNERCOMPANYID && ar.EMPLOYEEID 
-                             == entClockInRd.EMPLOYEEID 
-                             && ar.PUNCHDATE == entClockInRd.PUNCHDATE 
+                             where ar.OWNERCOMPANYID == entClockInRd.OWNERCOMPANYID
+                             && ar.EMPLOYEEID == entClockInRd.EMPLOYEEID
+                             && ar.PUNCHDATE == entClockInRd.PUNCHDATE
                              && ar.PUNCHTIME == entClockInRd.PUNCHTIME
-                             orderby ar.PUNCHDATE
                              select ar;
 
-                    T_HR_EMPLOYEECLOCKINRECORD entUpdate = qc.FirstOrDefault();
-                    if (entUpdate != null)
+                    if (qc.Count() > 0)
                     {
                         continue;
                     }
@@ -496,15 +520,27 @@ namespace SMT.HRM.BLL
 
                 if (strMsg != "{SAVESUCCESSED}" && strMsg != "{ALREADYEXISTSRECORD}")
                 {
+                    Tracer.Debug("打卡记录导入不成功：" + importInfo);
                     return;
                 }
 
                 DateTime dtCheck = DateTime.Parse(dtStart.ToString("yyyy-MM") + "-1");
 
+                //只检查本次导入公司的员工考勤异常
                 AbnormRecordBLL bllAbnormRecord = new AbnormRecordBLL();
-                List<T_HR_EMPLOYEE> listEmpss = entEmployees.ToList();
+                List<T_HR_EMPLOYEE> listEmpss = (from e in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST")
+                                   join p in dal.GetObjects<T_HR_POST>().Include("T_HR_DEPARTMENT") on e.T_HR_POST.POSTID equals p.POSTID
+                                   join d in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_COMPANY") on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
+                                   join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
+                                   where e.ISAGENCY == strIsAgnecy 
+                                   && e.EDITSTATE == strEditState 
+                                   && e.CHECKSTATE == strCheckState
+                                   && c.COMPANYID==strCompanyId
+                                   select e.T_HR_EMPLOYEE).ToList();
                 bllAbnormRecord.CheckAbnormRecordForEmployees(listEmpss, dtStart, dtEnd, ref strMsg);
-                Utility.SaveLog("本次打卡自动导入调用服务完毕。导入的打卡机IP:" + strClientIP + "。 " + DateTime.Now.ToString() + "，计算考勤异常(计算的考勤时间段为：" + dtStart.ToString() + "-" + dtEnd.ToString() + ")。计算考勤的公司ID为：" + strCompanyId + ",本次处理的结果为：" + strMsg);
+                Utility.SaveLog("本次打卡自动导入调用服务完毕。" + importInfo
+                    + "本次检查异常的员工个数：" + listEmpss.Count
+                    + ",本次处理的结果为：" + strMsg);
             }
             catch (Exception ex)
             {

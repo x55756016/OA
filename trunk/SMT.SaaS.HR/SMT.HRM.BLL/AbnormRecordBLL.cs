@@ -543,6 +543,9 @@ namespace SMT.HRM.BLL
         {
             foreach (T_HR_EMPLOYEE entEmployee in entEmployees)
             {
+                if (entEmployee.EMPLOYEECNAME == "曹利宁")
+                {
+                }
                 bool isAbnorm = false;
                 string strEmployeeID = entEmployee.EMPLOYEEID;
                 //获取导入打卡记录对应时间段的考勤记录，以便进行比对
@@ -553,9 +556,9 @@ namespace SMT.HRM.BLL
                 //如果没有找到考勤初始化记录，初始考勤一次。
                 if (entAttRds.Count() == 0)
                 {
+                    string dealType = "检查异常考勤";
                     try
-                    {
-                        string dealType = "检查异常考勤";
+                    {                       
                         string dtInit = dtStart.Year.ToString() + "-" + dtStart.Month.ToString();
                         Tracer.Debug(dealType + " 没有查到考勤初始化数据，开始初始化员工考勤：" + dtInit);
                         AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
@@ -567,7 +570,7 @@ namespace SMT.HRM.BLL
                     }
                     catch (Exception ex)
                     {
-                        Tracer.Debug(ex.ToString());
+                        Tracer.Debug(dealType+" 初始化考勤异常："+ex.ToString());
                     }
                     //continue;
                 }
@@ -578,6 +581,7 @@ namespace SMT.HRM.BLL
                 //如果初始化考勤后任然没有考勤记录，跳过。
                 if (entAttRds.Count() == 0)
                 {
+                    Tracer.Debug("导入打卡记录没有找到初始化考勤记录，未修改考勤初始化记录状态。");
                     continue;
                 }
 
@@ -592,10 +596,9 @@ namespace SMT.HRM.BLL
                 //检查考勤异常
                 CheckAbnormRecord(entAttRds, entClockInRecords, ref strMsg, ref isAbnorm);
 
-                if (isAbnorm && strMsg == "{SAVESUCCESSED}")
-                {
-                    AbnormRecordCheckAlarm(entEmployee.EMPLOYEEID, dtStart.ToString("yyyy-MM") + "-1", dtEnd.ToString("yyyy-MM-dd"));
-                }
+                //生成签卡记录
+                AbnormRecordCheckAlarm(entEmployee.EMPLOYEEID, dtStart.ToString("yyyy-MM") + "-1", dtEnd.ToString("yyyy-MM-dd"));
+                
             }
         }
 
@@ -679,6 +682,12 @@ namespace SMT.HRM.BLL
                     {
                         continue;
                     }
+                    else
+                    {
+                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                        + " 打卡记录导入 检查异常，员工姓名：" + item.EMPLOYEENAME
+                        + ",获取的考勤方案为：" + entAttSol.ATTENDANCESOLUTIONNAME);
+                    }
 
                     //考勤方案设定为不需要考勤时，跳过考勤异常检查
                     if (entAttSol.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())
@@ -695,48 +704,42 @@ namespace SMT.HRM.BLL
 
                     //检查第一段工作期，打卡情况
                     CheckAbnormRecordByFirstWorkTime(item, entClockInRds, ref strAbnormCategory);
-
+                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                        + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                        + ",检测第一段工作状态为：" + strAbnormCategory);
                     //检查第二段上班，打卡情况
                     CheckAbnormRecordBySecondWorkTime(item, entClockInRds, ref strAbnormCategory);
+                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                        + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                        + ",检测第二段工作状态为：" + strAbnormCategory);
 
                     //检查第三段上班，打卡情况
                     CheckAbnormRecordByThirdWorkTime(item, entClockInRds, ref strAbnormCategory);
-
+                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                        + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                        + ",检测第三段工作状态为：" + strAbnormCategory);
                     //检查第四段上班，打卡情况
                     CheckAbnormRecordByFourthWorkTime(item, entClockInRds, ref strAbnormCategory);
-
+                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                        + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                        + ",检测第四段工作状态为：" + strAbnormCategory);
                     if (string.IsNullOrEmpty(strAbnormCategory))
                     {
                         item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Regular) + 1).ToString();
                     }
                     else
                     {
-                        bIsAbnorm = true;
-                        EmployeeEvectionRecordBLL bllEvectionRd = new EmployeeEvectionRecordBLL();
-                        T_HR_EMPLOYEEEVECTIONRECORD entEvectionRd = bllEvectionRd.GetEmployeeEvectionRdByEmployeeIdAndDate(item.EMPLOYEEID, item.ATTENDANCEDATE);
-
-                        if (entEvectionRd != null)
-                        {
-                            item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Regular) + 1).ToString();
-                        }
-                        else
-                        {
-                            item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Abnormal) + 1).ToString();
-                        }
+                        item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Abnormal) + 1).ToString();
                     }
 
                     Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查异常完成，员工姓名：" + item.EMPLOYEENAME
                         + ",打卡记录导入 修改的状态为：" + item.ATTENDANCESTATE);
-                    item.REMARK = item.REMARK+" 打卡记录导入检查考勤状态";
+                    item.REMARK = item.REMARK + " 打卡记录导入检查考勤状态:" + item.ATTENDANCESTATE;
                     bllAttendanceRecord.ModifyAttRd(item);
 
                     //检查是否有出差及请假并确认一次状态
-                    if (!string.IsNullOrWhiteSpace(item.ATTENDANCESTATE))
-                    {
-                        CheckEvectionRecordAndLeaveRecordAttendState(item, entClockInRds, ref strMsg, ref bIsAbnorm);
-                    }
+                    CheckEvectionRecordAndLeaveRecordAttendState(item, entClockInRds, ref strMsg, ref bIsAbnorm);
                 }
-
                 strMsg = "{SAVESUCCESSED}";
             }
             catch (Exception ex)
@@ -761,22 +764,20 @@ namespace SMT.HRM.BLL
                 DateTime dtStartDate = entAttRd.ATTENDANCEDATE.Value;
                 DateTime dtEndDate = entAttRd.ATTENDANCEDATE.Value.AddDays(1).AddSeconds(-1);
 
-
+                #region  启动出差处理考勤异常的线程
                 //查询出差记录，检查当天存在出差情况
                 EmployeeEvectionRecordBLL bllEvectionRd = new EmployeeEvectionRecordBLL();
                 T_HR_EMPLOYEEEVECTIONRECORD entity = bllEvectionRd.GetEmployeeEvectionRdByEmployeeIdAndDate(entAttRd.EMPLOYEEID, entAttRd.ATTENDANCEDATE);
-
                 //如果有出差记录，就判断出差是否为全天
                 if (entity != null)
                 {
-                    #region  启动处理考勤异常的线程
                     //出差消除异常
                     string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();                    
                     DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, attState);
-
-                    #endregion
                 }
+                #endregion
 
+                #region  启动请假处理考勤异常的线程
                 //查询请假记录，检查当天存在请假情况
                 EmployeeLeaveRecordBLL bllLeaveRd = new EmployeeLeaveRecordBLL();
                 IQueryable<T_HR_EMPLOYEELEAVERECORD> entLeaveRds = bllLeaveRd.GetEmployeeLeaveRdListByEmployeeIDAndDate(entAttRd.EMPLOYEEID, dtStartDate, dtEndDate, "2");
@@ -791,6 +792,7 @@ namespace SMT.HRM.BLL
                         DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATETIME.Value, ent.ENDDATETIME.Value, attState);
                     }
                 }
+                #endregion
             }
             catch (Exception ex)
             {
@@ -1337,7 +1339,7 @@ namespace SMT.HRM.BLL
         private void CreateTempSignInRecord(string strEmployeeId, DateTime dtStart, DateTime dtEnd)
         {
             EmployeeBLL bllEmployee = new EmployeeBLL();
-            V_EMPLOYEEPOST entEmployeeDetail = bllEmployee.GetEmployeeDetailByID(strEmployeeId);
+            V_EMPLOYEEDETAIL entEmployeeDetail = bllEmployee.GetEmployeeDetailView(strEmployeeId);
 
             if (entEmployeeDetail == null)
             {
@@ -1355,7 +1357,7 @@ namespace SMT.HRM.BLL
             }
 
             string strIsAgency = Convert.ToInt32(Common.IsAgencyPost.No).ToString();
-            T_HR_EMPLOYEEPOST entEmpPost = entEmployeeDetail.EMPLOYEEPOSTS.Where(c => c.ISAGENCY == strIsAgency).FirstOrDefault();
+            var entEmpPost = entEmployeeDetail.EMPLOYEEPOSTS.Where(c => c.ISAGENCY == strIsAgency).FirstOrDefault();
 
             if (entEmpPost == null)
             {
@@ -1375,30 +1377,40 @@ namespace SMT.HRM.BLL
             {
                 return;
             }
+            var q = from ent in dal.GetObjects<T_HR_EMPLOYEESIGNINDETAIL>()
+                    join abr in entAbnormRecords on ent.T_HR_EMPLOYEEABNORMRECORD.ABNORMRECORDID equals abr.ABNORMRECORDID
+                    select ent;
+            if (q.Count() >= entAbnormRecords.Count())
+            {
+                //所有异常都已生成签卡
+                Tracer.Debug(entEmployeeDetail.EMPLOYEENAME+" 所有异常都已生成签卡。");
+                return;
+            }
+            
 
             EmployeeSignInRecordBLL bllSignInRecord = new EmployeeSignInRecordBLL();
-            bllSignInRecord.ClearNoSignInRecord("T_HR_EMPLOYEESIGNINRECORD", entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEEID, entAbnormRecords);
+            bllSignInRecord.ClearNoSignInRecord("T_HR_EMPLOYEESIGNINRECORD", entEmployeeDetail.EMPLOYEEID, entAbnormRecords);
 
             T_HR_EMPLOYEESIGNINRECORD entSignInRd = new T_HR_EMPLOYEESIGNINRECORD();
             entSignInRd.SIGNINID = Guid.NewGuid().ToString().ToUpper();
-            entSignInRd.EMPLOYEEID = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEEID;
-            entSignInRd.EMPLOYEENAME = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEECNAME;
-            entSignInRd.EMPLOYEECODE = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEECODE;
+            entSignInRd.EMPLOYEEID = entEmployeeDetail.EMPLOYEEID;
+            entSignInRd.EMPLOYEENAME = entEmployeeDetail.EMPLOYEENAME;
+            //entSignInRd.EMPLOYEECODE = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEECODE;
             entSignInRd.SIGNINTIME = DateTime.Now;
             entSignInRd.SIGNINCATEGORY = string.Empty;
             entSignInRd.CHECKSTATE = Convert.ToInt32(Common.CheckStates.UnSubmit).ToString();
             entSignInRd.REMARK = string.Empty;
-            entSignInRd.CREATEUSERID = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEEID;
+            entSignInRd.CREATEUSERID = entEmployeeDetail.EMPLOYEEID;
             entSignInRd.CREATEDATE = DateTime.Now;
-            entSignInRd.UPDATEUSERID = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEEID;
+            entSignInRd.UPDATEUSERID = entEmployeeDetail.EMPLOYEEID;
             entSignInRd.UPDATEDATE = DateTime.Now;
-            entSignInRd.OWNERID = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEEID;
-            entSignInRd.OWNERPOSTID = entEmpPost.T_HR_POST.POSTID;
-            entSignInRd.OWNERDEPARTMENTID = entEmpPost.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
-            entSignInRd.OWNERCOMPANYID = entEmpPost.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
-            entSignInRd.CREATECOMPANYID = entEmpPost.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
-            entSignInRd.CREATEDEPARTMENTID = entEmpPost.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
-            entSignInRd.CREATEPOSTID = entEmpPost.T_HR_POST.POSTID;
+            entSignInRd.OWNERID = entEmployeeDetail.EMPLOYEEID;
+            entSignInRd.OWNERPOSTID = entEmpPost.POSTID;
+            entSignInRd.OWNERDEPARTMENTID = entEmpPost.DepartmentID;
+            entSignInRd.OWNERCOMPANYID = entEmpPost.CompanyID;
+            entSignInRd.CREATECOMPANYID = entEmpPost.CompanyID;
+            entSignInRd.CREATEDEPARTMENTID = entEmpPost.DepartmentID;
+            entSignInRd.CREATEPOSTID = entEmpPost.POSTID;
 
             List<T_HR_EMPLOYEESIGNINDETAIL> entSignInDetails = new List<T_HR_EMPLOYEESIGNINDETAIL>();
             foreach (T_HR_EMPLOYEEABNORMRECORD item in entAbnormRecords)
@@ -1414,17 +1426,17 @@ namespace SMT.HRM.BLL
                 entSignInDetail.REASONCATEGORY = (Convert.ToInt32(Common.AbnormReasonCategory.DrainPunch) + 1).ToString();
                 entSignInDetail.DETAILREASON = string.Empty;
                 entSignInDetail.REMARK = string.Empty;
-                entSignInDetail.CREATEUSERID = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEEID;
+                entSignInDetail.CREATEUSERID = entEmployeeDetail.EMPLOYEEID;
                 entSignInDetail.CREATEDATE = DateTime.Now;
-                entSignInDetail.UPDATEUSERID = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEEID;
+                entSignInDetail.UPDATEUSERID = entEmployeeDetail.EMPLOYEEID;
                 entSignInDetail.UPDATEDATE = DateTime.Now;
-                entSignInDetail.OWNERID = entEmployeeDetail.T_HR_EMPLOYEE.EMPLOYEEID;
-                entSignInDetail.OWNERPOSTID = entEmpPost.T_HR_POST.POSTID;
-                entSignInDetail.OWNERDEPARTMENTID = entEmpPost.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
-                entSignInDetail.OWNERCOMPANYID = entEmpPost.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
-                entSignInDetail.CREATECOMPANYID = entEmpPost.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
-                entSignInDetail.CREATEDEPARTMENTID = entEmpPost.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
-                entSignInDetail.CREATEPOSTID = entEmpPost.T_HR_POST.POSTID;
+                entSignInDetail.OWNERID = entEmployeeDetail.EMPLOYEEID;
+                entSignInDetail.OWNERPOSTID = entEmpPost.POSTID;
+                entSignInDetail.OWNERDEPARTMENTID = entEmpPost.DepartmentID;
+                entSignInDetail.OWNERCOMPANYID = entEmpPost.CompanyID;
+                entSignInDetail.CREATECOMPANYID = entEmpPost.CompanyID;
+                entSignInDetail.CREATEDEPARTMENTID = entEmpPost.DepartmentID;
+                entSignInDetail.CREATEPOSTID = entEmpPost.POSTID;
 
                 entSignInDetails.Add(entSignInDetail);
             }
@@ -2146,7 +2158,7 @@ namespace SMT.HRM.BLL
                             + "，没有查到异常记录，修改考勤记录状态为：" + attState);
                     item.ATTENDANCESTATE = attState;
                     item.UPDATEDATE = DateTime.Now;
-                    item.REMARK = dealType;
+                    item.REMARK = item.REMARK+dealType;
                     dal.Update(item);
                     continue;
                 }
@@ -2329,7 +2341,7 @@ namespace SMT.HRM.BLL
                                 item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixTravelAbnormal) + 1).ToString();
                             }
                             item.UPDATEDATE = DateTime.Now;
-                            item.REMARK = dealType;
+                            item.REMARK = item.REMARK+dealType;
                             dal.Update(item);
                             Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查请假出差修改状态完成，员工姓名：" + item.EMPLOYEENAME
                             + ",修改的状态为：" + item.ATTENDANCESTATE);
@@ -2341,7 +2353,7 @@ namespace SMT.HRM.BLL
                             bllSignInRd.ClearNoSignInRecord("T_HR_EMPLOYEEABNORMRECORD", item.EMPLOYEEID, entAbnormRecords);
                             item.ATTENDANCESTATE = attState;
                             item.UPDATEDATE = DateTime.Now;
-                            item.REMARK = dealType;
+                            item.REMARK = item.REMARK + dealType;
                             dal.Update(item);
                             Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查请假出差修改状态完成，员工姓名：" + item.EMPLOYEENAME
                             + ",修改的状态为：" + item.ATTENDANCESTATE);
