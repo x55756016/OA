@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendaceAccount", "SMT.HR.Attendace\AttendaceAccount.csproj", "{C3AA11D5-F525-4FB9-9274-60F8C5F4B69C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT_HRM_EFModel", "..\SMT.SaaS.HR\SMT_HRM_EFModel\SMT_HRM_EFModel.csproj", "{C07A351D-305D-4A97-958D-E6449B022F30}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -27,6 +29,16 @@ Global
 		{C3AA11D5-F525-4FB9-9274-60F8C5F4B69C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{C3AA11D5-F525-4FB9-9274-60F8C5F4B69C}.Release|x86.ActiveCfg = Release|x86
 		{C3AA11D5-F525-4FB9-9274-60F8C5F4B69C}.Release|x86.Build.0 = Release|x86
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C07A351D-305D-4A97-958D-E6449B022F30}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -346,6 +346,7 @@ namespace SmtPortalSetUp
             #region 异常考勤记录
             sql = @"select b.abnormaldate,b.abnormcategory,b.singinstate,b.abnormaltime,b.attendperiod,
                                 b.singinstate,b.updatedate,b.abnormrecordid,b.ownerid 
+                                ,b.createuserid,b.createdate,b.updateuserid,b.updatedate
                                 from smthrm.T_HR_EMPLOYEEABNORMRECORD b
                                 where b.ownerid='" + GlobalParameters.employeeid + @"'
                                 and b.abnormaldate>=to_date('" + GlobalParameters.StartDate + @"','yyyy-mm-dd')
@@ -366,7 +367,9 @@ namespace SmtPortalSetUp
 
             #region 员工签卡记录
             sql = @"select b.abnormaldate,b.abnormcategory,c.singinstate,a.checkstate,b.reasoncategory,b.abnormaltime,a.updatedate,
-                    a.employeename,a.signinid,b.signindetailid,c.abnormrecordid from smthrm.t_hr_employeesigninrecord a
+                    a.employeename,a.signinid,b.signindetailid,c.abnormrecordid
+                    ,a.createuserid,a.createdate,a.updateuserid,a.updatedate
+                    from smthrm.t_hr_employeesigninrecord a
                     inner join smthrm.t_hr_employeesignindetail b on a.signinid=b.signinid
                     inner join smthrm.t_hr_employeeabnormrecord c on b.abnormrecordid=c.abnormrecordid
                     where b.ownerid='" + GlobalParameters.employeeid + @"'

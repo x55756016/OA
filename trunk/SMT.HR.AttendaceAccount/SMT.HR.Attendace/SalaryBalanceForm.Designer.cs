@@ -80,6 +80,12 @@
             this.dtPentionRecord = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnGetPentionMaster = new System.Windows.Forms.Button();
+            this.btnInitSalaryItem = new System.Windows.Forms.Button();
+            this.txtSalaryItemCompanyid = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textSalaryItemCompany = new System.Windows.Forms.TextBox();
+            this.btnGetCompanyid = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtSalaryRecord)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -87,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtSalaryAchive)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtPentionRecord)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPrevious
@@ -228,6 +235,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 70);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -548,6 +556,67 @@
             this.btnGetPentionMaster.UseVisualStyleBackColor = false;
             this.btnGetPentionMaster.Click += new System.EventHandler(this.btnGetPentionMaster_Click);
             // 
+            // btnInitSalaryItem
+            // 
+            this.btnInitSalaryItem.BackColor = System.Drawing.Color.Silver;
+            this.btnInitSalaryItem.Location = new System.Drawing.Point(453, 91);
+            this.btnInitSalaryItem.Name = "btnInitSalaryItem";
+            this.btnInitSalaryItem.Size = new System.Drawing.Size(130, 31);
+            this.btnInitSalaryItem.TabIndex = 4;
+            this.btnInitSalaryItem.Text = "初始化薪资项目";
+            this.btnInitSalaryItem.UseVisualStyleBackColor = false;
+            this.btnInitSalaryItem.Click += new System.EventHandler(this.btnInitSalaryItem_Click);
+            // 
+            // txtSalaryItemCompanyid
+            // 
+            this.txtSalaryItemCompanyid.Location = new System.Drawing.Point(620, 11);
+            this.txtSalaryItemCompanyid.Name = "txtSalaryItemCompanyid";
+            this.txtSalaryItemCompanyid.Size = new System.Drawing.Size(233, 21);
+            this.txtSalaryItemCompanyid.TabIndex = 16;
+            this.txtSalaryItemCompanyid.Text = "公司id";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.Controls.Add(this.textSalaryItemCompany);
+            this.tabPage4.Controls.Add(this.btnGetCompanyid);
+            this.tabPage4.Controls.Add(this.btnInitSalaryItem);
+            this.tabPage4.Controls.Add(this.txtSalaryItemCompanyid);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1106, 338);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "初始化薪资项目";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(101, 12);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "薪资项目来源公司";
+            // 
+            // textSalaryItemCompany
+            // 
+            this.textSalaryItemCompany.Location = new System.Drawing.Point(143, 17);
+            this.textSalaryItemCompany.Name = "textSalaryItemCompany";
+            this.textSalaryItemCompany.Size = new System.Drawing.Size(269, 21);
+            this.textSalaryItemCompany.TabIndex = 18;
+            this.textSalaryItemCompany.Text = "集团本部";
+            // 
+            // btnGetCompanyid
+            // 
+            this.btnGetCompanyid.BackColor = System.Drawing.Color.Silver;
+            this.btnGetCompanyid.Location = new System.Drawing.Point(453, 11);
+            this.btnGetCompanyid.Name = "btnGetCompanyid";
+            this.btnGetCompanyid.Size = new System.Drawing.Size(130, 31);
+            this.btnGetCompanyid.TabIndex = 4;
+            this.btnGetCompanyid.Text = "获取公司id";
+            this.btnGetCompanyid.UseVisualStyleBackColor = false;
+            this.btnGetCompanyid.Click += new System.EventHandler(this.btnGetCompanyid_Click);
+            // 
             // SalaryBalanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -581,6 +650,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtSalaryAchive)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtPentionRecord)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -637,6 +708,12 @@
         private System.Windows.Forms.TextBox txtGenerEmployeeid;
         private System.Windows.Forms.TextBox txtGenEmployeeName;
         private System.Windows.Forms.Button btnGetEmployeeId;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textSalaryItemCompany;
+        private System.Windows.Forms.Button btnGetCompanyid;
+        private System.Windows.Forms.Button btnInitSalaryItem;
+        private System.Windows.Forms.TextBox txtSalaryItemCompanyid;
     }
 }
 

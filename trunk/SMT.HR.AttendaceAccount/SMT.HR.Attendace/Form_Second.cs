@@ -431,6 +431,90 @@ namespace SmtPortalSetUp
             form.Show();
             this.Hide();
         }
+
+        #region  出差相关查询
+        private void btnGetTraveSolution_Click(object sender, EventArgs e)
+        {
+            string sql = @"--查询指定公司应用的考勤方案
+                select a.companyid,b.travelsolutionsid,b.programmename from smtoa.T_OA_PROGRAMAPPLICATIONS a--出差方案应用
+                inner join smtoa.T_OA_TRAVELSOLUTIONS b --出差方案
+                on a.travelsolutionsid=b.travelsolutionsid
+                inner join smthrm.t_hr_company c on c.companyid=a.companyid
+                where c.companyid='" + txtCompanyid.Text + "'";
+
+            OracleHelp.Connect();
+            DataTable dt = OracleHelp.getTable(sql);
+            dtTravSolution.DataSource = dt;
+            OracleHelp.close();
+            if (dt.Rows.Count > 0)
+            {
+                txtTraveSolutionid.Text = dt.Rows[0]["travelsolutionsid"].ToString();
+            }
+        }
+        #endregion
+
+        private void btnGetTravlTools_Click(object sender, EventArgs e)
+        {
+            string sql = @"--查询可乘坐的交通级别
+                    select t.endpostlevel 岗位级别,t.typeoftraveltools 交通工具类型,
+                    d.dictionaryname,t.TAKETHETOOLLEVEL 交通工具级别,
+                    dl.dictionaryname 
+                    from smtoa.T_OA_TAKETHESTANDARDTRANSPORT t
+                    inner join smtsystem.t_sys_dictionary d on t.typeoftraveltools = d.dictionaryvalue and d.dictioncategoryname='交通工具类型'
+                    inner join smtsystem.t_sys_dictionary dl on t.TAKETHETOOLLEVEL = dl.dictionaryvalue and dl.dictioncategory='VICHILELEVEL'--'交通工具类型'
+                    where t.travelsolutionsid='"+txtTraveSolutionid.Text+@"'
+                    order by t.typeoftraveltools";
+
+            OracleHelp.Connect();
+            DataTable dt = OracleHelp.getTable(sql);
+            dtTravSolution.DataSource = dt;
+            OracleHelp.close();
+        }
+
+        private void btnGetTravButie_Click(object sender, EventArgs e)
+        {
+            string sql = @"
+                    --查询地区补贴
+                    select c.city,a.travelsolutionsid,a.postlevel
+                    ,a.Accommodation 住宿补贴
+                    ,a.Transportationsubsidies 交通补贴
+                    ,a.Mealsubsidies 餐费补贴 
+                    from smtoa.T_OA_AreaAllowance a--地区差异分类补贴
+                    inner join smtoa.T_OA_AreaDifference b --地区差异分类表
+                    on b.areadifferenceid=a.areadifferenceid
+                    inner join smtoa.T_OA_AreaCity c--地区分类城市
+                    on c.areadifferenceid=b.areadifferenceid
+                    where 
+                    c.city=(
+                    select t.dictionaryvalue from smtsystem.t_sys_dictionary t--查询城市字典值
+                    where t.dictionaryname='"+txtTraveCityName.Text+@"')
+                    and a.postlevel in (
+                    select --查询员工出差岗位级别,所属公司
+                           ep.postlevel      
+                      from smthrm.t_hr_employee e
+                     inner join smthrm.t_hr_employeepost ep
+                        on e.employeeid = ep.employeeid
+                     where  
+                     e.employeeid = '" + Txtid.Text + @"'
+                     and ep.editstate=1 and ep.isagency=0 and ep.checkstate=2
+                    )
+                    and 
+                    a.travelsolutionsid='"+txtTraveSolutionid.Text+"'";
+            OracleHelp.Connect();
+            DataTable dt = OracleHelp.getTable(sql);
+            dtTravSolution.DataSource = dt;
+            OracleHelp.close();
+        }
+
+        private void btnGetTravalReme_Click(object sender, EventArgs e)
+        {
+            string sql = @"select t.COMPUTINGTIME,t.* from smtoa.T_OA_TRAVELREIMBURSEMENT t
+where t.nobudgetclaims='" + txtTravNomber.Text + "'";
+            OracleHelp.Connect();
+            DataTable dt = OracleHelp.getTable(sql);
+            dtTravSolution.DataSource = dt;
+            OracleHelp.close();
+        }
     }
 
     

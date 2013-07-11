@@ -11,6 +11,7 @@ using System.Threading;
 using AttendaceAccount;
 using AttendaceAccount.AttendWS;
 
+
 namespace SmtPortalSetUp
 {
     public partial class SalaryBalanceForm : Form
@@ -22,6 +23,10 @@ namespace SmtPortalSetUp
             InitializeComponent();
             GlobalParameters.salaryBalanceForm = this;           
             salaryClient = new AttendaceAccount.SalaryWS.SalaryServiceClient();
+
+            TxtEmployeeid.Text = GlobalParameters.employeeid;
+            txtCompanyid.Text = GlobalParameters.employeeMasterCompanyid;
+
         }
 
         delegate void DelShow(String Msg); //代理
@@ -275,7 +280,7 @@ namespace SmtPortalSetUp
                 on a.employeesalaryrecordid = b.employeesalaryrecordid
                 inner join smthrm.t_hr_employee e
                 on a.createuserid = e.employeeid
-                where a.employeeid='" + GlobalParameters.employeeid + @"'
+                where a.employeeid='" + TxtEmployeeid.Text + @"'
                 and a.salaryyear = " + date.Year + @"
                 and a.salarymonth = " + date.Month + @"
                 order by a.employeename";
@@ -586,6 +591,97 @@ namespace SmtPortalSetUp
             }
             OracleHelp.close();
         }
+
+        #region 初始化薪资项目
+
+        private void btnGetCompanyid_Click(object sender, EventArgs e)
+        {
+            string sql = @"select c.companyid--,c.cname
+                         from smthrm.t_hr_company c 
+                        where c.cname like '%" + textSalaryItemCompany.Text + @"%'";
+            OracleHelp.Connect();
+            DataTable dt = OracleHelp.getTable(sql);
+            if (dt.Rows.Count == 1)
+            {
+                txtSalaryItemCompanyid.Text = dt.Rows[0]["companyid"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("公司不存在或有同名！");
+            }
+            OracleHelp.close();
+
+          
+        }
+
+
+        private void btnInitSalaryItem_Click(object sender, EventArgs e)
+        {
+            //using (SMT_HRM_EFModelContext context = new SMT_HRM_EFModelContext())
+            //{
+            //    //需要替换薪资项目的公司
+            //    var toCompany = (from ent in context.T_HR_COMPANY
+            //                       where ent.COMPANYID == txtCompanyid.Text
+            //                       select ent).FirstOrDefault().CNAME;
+
+            //    //薪资项目来源公司
+            //    var fromCompany = (from ent in context.T_HR_COMPANY
+            //                     where ent.COMPANYID == txtSalaryItemCompanyid.Text
+            //                     select ent).FirstOrDefault().CNAME;
+
+
+            //    DialogResult MsgBoxResult;//设置对话框的返回值
+            //    MsgBoxResult = MessageBox.Show("是否确认将公司:" + toCompany
+            //        + "的薪资项目替换为公司：" + fromCompany + "的薪资项目，覆盖后将不可恢复？",//对话框的显示内容 
+
+            //    "提示",//对话框的标题 
+            //    MessageBoxButtons.YesNo,//定义对话框的按钮，这里定义了YSE和NO两个按钮
+            //    MessageBoxIcon.Exclamation,//定义对话框内的图表式样，这里是一个黄色三角型内加一个感叹号 
+            //    MessageBoxDefaultButton.Button2);//定义对话框的按钮式样
+            //    if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
+            //    {
+
+            //        //先删除
+            //        var deleteItems = (from ent in context.T_HR_SALARYITEM
+            //                           where ent.OWNERCOMPANYID == txtCompanyid.Text
+            //                           select ent).ToList();
+            //        int i = 0;
+            //        foreach (var item in deleteItems)
+            //        {
+            //            context.DeleteObject(item);
+            //            i = i + context.SaveChanges();
+            //        }
+            //        txtMessagebox.Text += "删除薪资项目：" + i;
+            //        i = 0;
+            //        //再添加
+            //        var addItems = (from ent in context.T_HR_SALARYITEM
+            //                        where ent.OWNERCOMPANYID == txtSalaryItemCompanyid.Text
+            //                        select ent).ToList();
+
+            //        foreach (var item in deleteItems)
+            //        {
+            //            item.CREATECOMPANYID = GlobalParameters.employeeMasterCompanyid;
+            //            item.CREATEDEPARTMENTID = GlobalParameters.employeeMasterDepartmentid;
+            //            item.CREATEUSERID = GlobalParameters.employeeid;
+            //            item.CREATEDATE = DateTime.Now;
+
+            //            item.OWNERCOMPANYID = GlobalParameters.employeeMasterCompanyid;
+            //            item.OWNERDEPARTMENTID = GlobalParameters.employeeMasterDepartmentid;
+            //            item.OWNERID = GlobalParameters.employeeid;
+            //            item.UPDATEDATE = DateTime.Now;
+            //            item.REMARK = "手工初始化";
+            //            item.UPDATEUSERID = GlobalParameters.employeeid;
+
+            //            context.AddObject(item.GetType().Name, item);
+            //            i = i + context.SaveChanges();
+            //        }
+            //        txtMessagebox.Text += "添加了薪资项目：" + i;
+
+            //    }
+            //}
+        }
+        #endregion
+
 
     }
 
