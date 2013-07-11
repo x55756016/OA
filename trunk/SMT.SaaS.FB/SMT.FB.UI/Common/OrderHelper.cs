@@ -460,7 +460,11 @@ namespace SMT.FB.UI.Common
            
             return view;
         }
-
+        /// <summary>
+        /// 根据xml获取控件
+        /// </summary>
+        /// <param name="xe"></param>
+        /// <returns></returns>
         private static FormInfo GetOrderForm(XElement xe)
         {
             FormInfo from = new FormInfo();

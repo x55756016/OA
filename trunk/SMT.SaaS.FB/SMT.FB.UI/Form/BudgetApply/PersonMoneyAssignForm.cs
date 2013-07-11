@@ -26,7 +26,7 @@ namespace SMT.FB.UI.Form.BudgetApply
     public class PersonMoneyAssignForm : FBPage
     {
         FBEntityService fbService;
-        bool isFirst = true;
+        SMTLoading loadbar = null;
         /// <summary>
         /// 个人经费下拨 构造函数
         /// </summary>
@@ -99,6 +99,7 @@ namespace SMT.FB.UI.Form.BudgetApply
 
         private void InitData()
         {
+            this.StartProcess();
             if (this.OrderEntity.FBEntityState == FBEntityState.Added)
             {
                 OrderEntity.SetObjValue("Entity.BUDGETARYMONTH", new DateTime(DataCore.SystemDateTime.Year, DataCore.SystemDateTime.Month, 1));
@@ -126,7 +127,6 @@ namespace SMT.FB.UI.Form.BudgetApply
 
             var details = this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name);
             details.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(details_CollectionChanged);
-
         }
 
         /// <summary>
@@ -161,12 +161,15 @@ namespace SMT.FB.UI.Form.BudgetApply
                     if (e.Result.Count == 0)
                     {
                         this.OrderEntity.SetObjValue("Entity.BUDGETMONEY", 0);
+                        this.StopProcess();
+                        CommonFunction.ShowErrorMessage("根据公司加载人员信息失败，请手动选择下拨人员");
                         return;
                     }
 
                     T_FB_PERSONMONEYASSIGNMASTER entlastest = e.Result[0].Entity as T_FB_PERSONMONEYASSIGNMASTER;
                     // 2. 复制上个月的单据数据到当前操作的新单据上
                     CopyData(entlastest);
+                    SortDetails();
                 }
                 catch (Exception ex)
                 {
@@ -222,9 +225,11 @@ namespace SMT.FB.UI.Form.BudgetApply
 
         void OrderEntity_OrderPropertyChanged(object sender, OrderPropertyChangedArgs e)
         {
+            
             T_FB_PERSONMONEYASSIGNMASTER entCurr = this.OrderEntity.Entity as T_FB_PERSONMONEYASSIGNMASTER;
             if (e.Result.Contains("Entity.AssignCompany"))
             {
+                this.StartProcess();
                 CompanyData comData = entCurr.AssignCompany as CompanyData;
 
                 entCurr.ASSIGNCOMPANYNAME = comData.Text.ToString();
@@ -299,14 +304,14 @@ namespace SMT.FB.UI.Form.BudgetApply
                     {
                         if (itemFBEntity.OWNERID == it.OWNERID)
                         {
-                            itemFBEntity.CREATEUSERNAME = Convert.ToString(it.POSTLEVEL);
-                            itemFBEntity.UPDATEUSERNAME = Convert.ToString(it.SALARYLEVEL);
+                            itemFBEntity.CREATEUSERNAME = Convert.ToString(it.POSTLEVEL);//目前把岗位级别存为创建人字段
+                            itemFBEntity.UPDATEUSERNAME = Convert.ToString(it.SALARYLEVEL);//把薪资级别存在更新热字段，目前表里面没有相应字段
                         }
                     });
                     perLIst.Add(itemFBEntity);
                 }
 
-                perLIst = perLIst.OrderBy(t => Convert.ToDecimal(t.CREATEUSERNAME)).ThenBy(t => Convert.ToDecimal(t.UPDATEUSERNAME)).ToList();
+                perLIst = perLIst.OrderBy(t => Convert.ToDecimal(t.CREATEUSERNAME)).ThenBy(t => Convert.ToDecimal(t.UPDATEUSERNAME)).ToList();//排序
                 var fbEntity = perLIst.ToFBEntityList();
                 DetailGrid dgrid = this.EditForm.FindControl("OrderGrid") as DetailGrid;
                 if (dgrid != null)
@@ -317,19 +322,21 @@ namespace SMT.FB.UI.Form.BudgetApply
                 this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name).Clear();
                 fbEntity.ForEach(item =>
                 {
-                    item.FBEntityState = FBEntityState.Modified;
+                    item.FBEntityState = FBEntityState.Modified;//因为清除了数据，所以得要加上状态
                     T_FB_PERSONMONEYASSIGNDETAIL perDetail = item.Entity as T_FB_PERSONMONEYASSIGNDETAIL;
-                    perDetail.T_FB_PERSONMONEYASSIGNMASTER = this.OrderEntity.Entity as T_FB_PERSONMONEYASSIGNMASTER;
+                    perDetail.T_FB_PERSONMONEYASSIGNMASTER = this.OrderEntity.Entity as T_FB_PERSONMONEYASSIGNMASTER;//设置主表关联
                 });
-                this.OrderEntity.FBEntity.AddFBEntities<T_FB_PERSONMONEYASSIGNDETAIL>(fbEntity);
-                var detailss = this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name);
+                this.OrderEntity.FBEntity.AddFBEntities<T_FB_PERSONMONEYASSIGNDETAIL>(fbEntity);//加载数据
+                var detailss = this.OrderEntity.GetRelationFBEntities(typeof(T_FB_PERSONMONEYASSIGNDETAIL).Name);//获取数据
                 for (int i = 0; i < details.Count; i++)
                 {
-                    (details[i].Entity as T_FB_PERSONMONEYASSIGNDETAIL).RowIndex = i + 1;
+                    (details[i].Entity as T_FB_PERSONMONEYASSIGNDETAIL).RowIndex = i + 1;//序号
                 }
+                this.StopProcess();
             }
             catch (Exception ex)
             {
+                this.StopProcess();
                 CommonFunction.ShowErrorMessage("调用HR服务返回异常信息：" + ex.ToString());
             }
         }
@@ -354,6 +361,7 @@ namespace SMT.FB.UI.Form.BudgetApply
 
         protected override void OnLoadDataComplete()
         {
+            this.InitProcess();
             InitData();
             //SortDetails();
         }
@@ -504,6 +512,7 @@ namespace SMT.FB.UI.Form.BudgetApply
             }
             catch (Exception ex)
             {
+                this.StopProcess();
                 CommonFunction.ShowErrorMessage("调用HR服务返回异常信息：" + ex.ToString());
             }
         }
@@ -550,6 +559,7 @@ namespace SMT.FB.UI.Form.BudgetApply
             }
             catch (Exception ex)
             {
+                this.StopProcess();
                 CommonFunction.ShowErrorMessage("调用HR服务返回异常信息：" + ex.ToString());
             }
         }
@@ -637,6 +647,7 @@ namespace SMT.FB.UI.Form.BudgetApply
             }
             catch (Exception ex)
             {
+                this.StopProcess();
                 CommonFunction.ShowErrorMessage("调用HR服务返回异常信息：" + ex.ToString());
             }
         }
@@ -685,5 +696,35 @@ namespace SMT.FB.UI.Form.BudgetApply
 
             return entityNewly;
         }
+
+        #region 进度条（转圈那个东西）
+        private  void InitProcess()
+        {
+            Panel parent = this.Content as Panel;
+            if (parent != null)
+            {
+                Grid g = new Grid();
+                this.Content = g;
+                g.Children.Add(parent);
+                loadbar = new SMTLoading(); //全局变量
+                g.Children.Add(loadbar);
+            }
+        }
+        private void StartProcess()
+        {
+            if (loadbar != null)
+            {
+                loadbar.Start();//调用服务时写
+            }
+        }
+        private void StopProcess()
+        {
+            if (loadbar != null)
+            {
+                loadbar.Stop();
+            }
+
+        }
+        #endregion 
     }
 }

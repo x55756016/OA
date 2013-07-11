@@ -528,6 +528,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\DataSources\SMT.SaaS.FrameworkUI.AuditService.CompositeType.datasource" />
     <None Include="Properties\DataSources\SMT.SaaS.FrameworkUI.AuditService.Flow_FlowRecord_T.datasource" />

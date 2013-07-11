@@ -1,0 +1,2246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SMT.FB.UI.App" Collapsed="true">
+    <Position X="206" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAEIAAIAAAAAAAAAAAAAAIAAAAAIAAAAAQAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.EntryPointPage" Collapsed="true">
+    <Position X="223.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.AppConfig" Collapsed="true">
+    <Position X="207.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAA=</HashCode>
+      <FileName>AppConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.IndentifyCodeClass" Collapsed="true">
+    <Position X="223.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAABAAAAAAA=</HashCode>
+      <FileName>Class\IndentifyCodeClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.ErrorWindow" Collapsed="true">
+    <Position X="207.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommForm\ErrorWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.LogoutWindow" Collapsed="true">
+    <Position X="213" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommForm\LogoutWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBLookUp" Collapsed="true">
+    <Position X="216.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAaAEAAAABAAAQAAAAAAIBGAAAAABA=</HashCode>
+      <FileName>Common\Controls\FBLookUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FieldForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="206" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhIAAAAAAAAADAAQAEIEAgCUAAAAAAAAAABAAIgAAAA=</HashCode>
+      <FileName>Common\Controls\FieldForm.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.FieldForm2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="207.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAgAAAAAAAAAAAEAAAgAQAAAAAAAAAAAAAAgAQAA=</HashCode>
+      <FileName>Common\Controls\FieldForm2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.GridFormItem" Collapsed="true">
+    <Position X="213" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\GridFormItem.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.EmployeeModel" Collapsed="true">
+    <Position X="209.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAICAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>EmployeeModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.MainPage" Collapsed="true">
+    <Position X="216.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIggKAAJoAAAABAIEFAABAEAQoEKAICgSgABAAA=</HashCode>
+      <FileName>MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.MasterPageTest" Collapsed="true">
+    <Position X="218.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAAAAACAAAAAA=</HashCode>
+      <FileName>MasterPageTest.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.ResourceWrapper" Collapsed="true">
+    <Position X="209.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.ShowWindow" Collapsed="true">
+    <Position X="211.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShowWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Index" Collapsed="true">
+    <Position X="206" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Blank.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Home" Collapsed="true">
+    <Position X="220" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Home.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.S_Images" Collapsed="true">
+    <Position X="213" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\S_Images.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.CommForm.GridHelper" Collapsed="true">
+    <Position X="214.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>CommForm\GridHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Args" Collapsed="true">
+    <Position X="209.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.FieldDisplayName" Collapsed="true">
+    <Position X="223.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAAIAAAAAAAAAAAQApAAAABAAQAAAACAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ErrorMessage" Collapsed="true">
+    <Position X="206" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAIgBAyIAAIEAAAAAAgAiAQAAQAABAAAIAAAAAABA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.EntityChangedArgs" Collapsed="true">
+    <Position X="213" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.SavingEventArgs" Collapsed="true">
+    <Position X="218.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderPropertyChangedArgs" Collapsed="true">
+    <Position X="0.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ActionCompletedEventArgs&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ToolBarItemClickEventArgs" Collapsed="true">
+    <Position X="221.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.StringExtension" Collapsed="true">
+    <Position X="214.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.TreeViewExtension" Collapsed="true">
+    <Position X="223.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAABAAABAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ListExtension" Collapsed="true">
+    <Position X="209.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAQAACAAAAACAAAIAAAAAAAABA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.EntityExtension" Collapsed="true">
+    <Position X="216.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAACIAqQ=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.NullableExtension" Collapsed="true">
+    <Position X="206" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAAAAAAAgAACAAAAAAAAAAAAAABAAAAAACA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.StyleExtenstion" Collapsed="true">
+    <Position X="216.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.QueryExpressionHelper" Collapsed="true">
+    <Position X="223.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ITextValueItemConvert" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="207.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.CommonConvert" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="220" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.EntityConvert" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="214.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.TypeImageConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="206" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.VisibleBoolConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="213" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.CurrencyConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="223.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAEAACAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.GroupConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="218.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DependancyObjectExtension" Collapsed="true">
+    <Position X="221.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.CommonFunction" Collapsed="true">
+    <Position X="221.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAAgCABACBA4BJAAIhAAAAAABAkEAAAgAAAgAAEA=</HashCode>
+      <FileName>Common\CommonFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.FBSystemException" Collapsed="true">
+    <Position X="220" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\CommonFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.XmlHelper" Collapsed="true">
+    <Position X="218.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAIAAAAAAAAAAAAABAAAAAAEAAAAAAQAAAA=</HashCode>
+      <FileName>Common\CommonFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.CommonView" Collapsed="true">
+    <Position X="38.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>pQcAhUIAABCADBAEAEAJRIwAAAAZJBABAQAAAAAAAwA=</HashCode>
+      <FileName>Common\CommonView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataCore" Collapsed="true">
+    <Position X="206" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAJEMAQEAIhhAFQEEEACAQiAQCIsAAIQEQqQASwAGgA=</HashCode>
+      <FileName>Common\DataCore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.PageQueryer" Collapsed="true">
+    <Position X="7.75" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAACAEAAAAAAAAAgAAAAAAAAAAwAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\DataCore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataTempaleHelper" Collapsed="true">
+    <Position X="218.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAABBgARQAAEAAAA=</HashCode>
+      <FileName>Common\DataTemplateHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.EditForm" Collapsed="true">
+    <Position X="207.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIEAIQBQIEGRAWACEABIqCVAKAAABAiAABgAAAAEgA=</HashCode>
+      <FileName>Common\EditForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.EntityAdapter" Collapsed="true">
+    <Position X="64" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAgAAAIICAAAAAAIIEAQAEAAAAggAAAAAACE=</HashCode>
+      <FileName>Common\EntityAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderEntity" Collapsed="true">
+    <Position X="64" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAgBGgAAgAAAAMAkABIgACIDAgAAEAAIEAAAgEQAI=</HashCode>
+      <FileName>Common\EntityAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ObjectList&lt;T&gt;" Collapsed="true">
+    <Position X="207.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAACAAAgAAEAFAABBAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\EntityAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.EntityHelper" Collapsed="true">
+    <Position X="218.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEACAAEAAAAAMQAIYAAAAAQAAABACBAAAAAQ=</HashCode>
+      <FileName>Common\EntityAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.XLSXReader" Collapsed="true">
+    <Position X="216.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAEgEAAAAAAAAEQEAISAECAAAAAAACBAAAWgA=</HashCode>
+      <FileName>Common\ExcelReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.UnZipper" Collapsed="true">
+    <Position X="207.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAEAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>Common\ExcelReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataSourceCreator" Collapsed="true">
+    <Position X="216.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAQAQAAAAAAAAQAAAAAAAIAA=</HashCode>
+      <FileName>Common\ExcelReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.FBBaseControl" Collapsed="true">
+    <Position X="20.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAQBAAAAAAAAAAAIAAAAACAAAAAAABAA=</HashCode>
+      <FileName>Common\FBBaseControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.LookUpForm" Collapsed="true">
+    <Position X="214.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\LookUpForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderInitManager" Collapsed="true">
+    <Position X="213" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.SelectorHelper" Collapsed="true">
+    <Position X="223.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAEAAAAAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderHelper" Collapsed="true">
+    <Position X="211.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAIAAAAAAAAAAAACAFAgAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderXml" Collapsed="true">
+    <Position X="214.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAIAAAAAAAAAAAAAAAAAACABAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.SelectorXml" Collapsed="true">
+    <Position X="206" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAABAAgAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.XMLHelper" Collapsed="true">
+    <Position X="220" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEICIAAIAAAIgAAAIAWgAhAEIAAAAAAAAgBhAAAgAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.InfoBase" Collapsed="true">
+    <Position X="21.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAQAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderInfo" Collapsed="true">
+    <Position X="2.25" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAIAAAAAABAAAAACAAAAEAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ViewInfo" Collapsed="true">
+    <Position X="6.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.FormInfo" Collapsed="true">
+    <Position X="11.25" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataPanelInfo" Collapsed="true">
+    <Position X="13.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataPanelTwoSideInfo" Collapsed="true">
+    <Position X="15.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAABBAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataPanelUploadInfo" Collapsed="true">
+    <Position X="18" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderDetailGridInfo" Collapsed="true">
+    <Position X="20.25" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAABAAAEIACAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataPanelSplit" Collapsed="true">
+    <Position X="22.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataPanelGrid" Collapsed="true">
+    <Position X="24.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.PropertyItemInfo" Collapsed="true">
+    <Position X="28.25" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIEAAAQQACAAAAAAAAAIAIAAAAQAABAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DataFieldItem" Collapsed="true">
+    <Position X="27" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.GridItem" Collapsed="true">
+    <Position X="29.25" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderEntityInfo" Collapsed="true">
+    <Position X="31.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderDetailEntityInfo" Collapsed="true">
+    <Position X="33.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAACAAgAAAAAAAAAAAAAAEAAABAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.EntityInfo" Collapsed="true">
+    <Position X="36" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ReferencedDataInfo" Collapsed="true">
+    <Position X="38.25" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAACAABAAACAQBAAAAAAIEAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.QueryInfo" Collapsed="true">
+    <Position X="40.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.QueryExpressionInfo" Collapsed="true">
+    <Position X="4.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEACAAAAAAQAAAAAAAQAAAAAAAAAAAAAAkAAABAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.SelectorInfo" Collapsed="true">
+    <Position X="9" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.SplitPanel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="213" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAACAAAAAAEAAAgAQAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.GridPanel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="216.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAACAAAAAAEAAAgAQAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.TextValueItemBase" Collapsed="true">
+    <Position X="27" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAgBAAAAAAAAAAQAAAAAAAAAAgCAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.MonthItem" Collapsed="true">
+    <Position X="25.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.YearItem" Collapsed="true">
+    <Position X="28" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrgObjectData" Collapsed="true">
+    <Position X="33.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.EmployeerData" Collapsed="true">
+    <Position X="30.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAGgAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.LoginUserData" Collapsed="true">
+    <Position X="30.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.CompanyData" Collapsed="true">
+    <Position X="32.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DepartmentData" Collapsed="true">
+    <Position X="34.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAABA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.PostData" Collapsed="true">
+    <Position X="37" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.QueryData" Collapsed="true">
+    <Position X="39.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.BudgetAccountTypeData" Collapsed="true">
+    <Position X="41.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderStatusData" Collapsed="true">
+    <Position X="43.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.PayTypeData" Collapsed="true">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.RepayTypeData" Collapsed="true">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.BorrowTypeData" Collapsed="true">
+    <Position X="14.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ControlTypeData" Collapsed="true">
+    <Position X="16.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.BudgetChargeTypeData" Collapsed="true">
+    <Position X="19" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.BudgetTypeData" Collapsed="true">
+    <Position X="21.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.BudgetSumStatesData" Collapsed="true">
+    <Position X="23.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ReferencedData&lt;T&gt;" Collapsed="true">
+    <Position X="207.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.DateTimeData" Collapsed="true">
+    <Position X="46" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAgCAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.BorrowOrderData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="218.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAgCAAAACA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ExtensionalOrderData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="209.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAiCAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.MyOrgObjectData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="223.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAgCAAABAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.SelectedDataManager" Collapsed="true">
+    <Position X="220" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAAAgAAABAAAAwACAAUAQAAAAAAAAAIAAAQAA=</HashCode>
+      <FileName>Common\SelectedDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.SelectedForm" Collapsed="true">
+    <Position X="221.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABICgCAEAAoAAEBAAEAAAEJBBAIAAAAACAAQAAAABAA=</HashCode>
+      <FileName>Common\SelectedForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ServiceHelper" Collapsed="true">
+    <Position X="207.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Common\ServiceHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.GetOrderCompletedEventArgsa" Collapsed="true">
+    <Position X="211.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ServiceHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.OrderEntityService" Collapsed="true">
+    <Position X="5.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAIAYAAAAAQAAQIQBBEAAAAEAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Common\ServiceHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.FBEntityService" Collapsed="true">
+    <Position X="6.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCIAACAAAAAQAQAAAAAAAAAAAAABgAAAAAIIAABAI=</HashCode>
+      <FileName>Common\ServiceHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.AuditService" Collapsed="true">
+    <Position X="214.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAIAAEAAA=</HashCode>
+      <FileName>Common\ServiceHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.ValidationExtension" Collapsed="true">
+    <Position X="211.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ValidationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.AuditControlFB" Collapsed="true">
+    <Position X="211.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAACiAAAAAAAAAAAAYABAoCQABCAEABBAAQgACAA=</HashCode>
+      <FileName>Common\Controls\AuditControlFB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.FBFlowService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="214.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICACAAAAAAAAAAAQAAAAAABAAQAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Common\Controls\AuditControlFB.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.AutoDataGrid" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="216.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAgAAACAgABAAEAAAgAQBAAAAECAAAAAAAgAEAA=</HashCode>
+      <FileName>Common\Controls\AutoDataGrid.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DataGridReferenceColumn" Collapsed="true">
+    <Position X="213" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Controls\AutoDataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DataGridComboBoxColumn" Collapsed="true">
+    <Position X="207.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAgAAAAAAAAAABAAAAAAAAAAAAAAAgIAAAAA=</HashCode>
+      <FileName>Common\Controls\AutoDataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.MyDataGridTextColumn" Collapsed="true">
+    <Position X="221.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAABAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Common\Controls\AutoDataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DataGridIconColumn" Collapsed="true">
+    <Position X="211.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Common\Controls\AutoDataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.IconCellControl" Collapsed="true">
+    <Position X="221.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIggAAAAEAAAAAABCBAAAAAAAAEAAAABAAAACEEBAA=</HashCode>
+      <FileName>Common\Controls\AutoDataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DetailGrid" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="223.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>4AIEIEAAQAKAFCBQAEAABiJQBAMACAABQKABAIgEBAA=</HashCode>
+      <FileName>Common\Controls\DetailGrid.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.FBComboBox" Collapsed="true">
+    <Position X="211.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAEJAAAAAAABAgAYEAAAA=</HashCode>
+      <FileName>Common\Controls\FBComboBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.FBUploadControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="221.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAACABEAAAAIEAAAoAQACUQAAAAAABAAQgAAAA=</HashCode>
+      <FileName>Common\Controls\FBUploadControl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.PageDataGrid" Collapsed="true">
+    <Position X="216.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAAAEgAAAAAAAAAIAAAAIAEAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Common\Controls\PageDataGrid.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DataTemplates.DataTemplateHelper" Collapsed="true">
+    <Position X="220" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAAQAAFAAAA=</HashCode>
+      <FileName>Common\Controls\DataTemplates\DataTempaleHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DataTemplates.XElementHelper" Collapsed="true">
+    <Position X="214.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Controls\DataTemplates\XElementHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DataTemplates.XObjectString" Collapsed="true">
+    <Position X="1.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Controls\DataTemplates\XElementHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DataTemplates.XAttributeString" Collapsed="true">
+    <Position X="2.75" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Common\Controls\DataTemplates\XElementHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Common.Controls.DataTemplates.XElementString" Collapsed="true">
+    <Position X="0.5" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAEAAAAAAAgAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Common\Controls\DataTemplates\XElementHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.FBEntity" Collapsed="true">
+    <Position X="66.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAFAAAAAQAAAAIgCAABAgAABAQAAAAAAkAIAAABAAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_BUDGETACCOUNT" Collapsed="true">
+    <Position X="75.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAChIIAEhEAIUIAFEgABAAEQYSAAJEAAgAADIBggIAg=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.V_SubjectDepartmentSum" Collapsed="true">
+    <Position X="84.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_DEPTBUDGETSUMDETAIL" Collapsed="true">
+    <Position X="97.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKAAAJAgIAIAAAAABAAAAIQAAZACggAAAAAEAwAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.V_SubjectCompanySum" Collapsed="true">
+    <Position X="106.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_COMPANYBUDGETSUMDETAIL" Collapsed="true">
+    <Position X="115.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgMAAARAIIAICAAAAAAAAAYSIABAAAgAIQAAAAAAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_COMPANYBUDGETMODDETAIL" Collapsed="true">
+    <Position X="136" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAJIAAkhAAIIIAEEgQEAAAAYSAABEBggCABAAAAAEA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.V_DepartmentSum" Collapsed="true">
+    <Position X="145" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAgEgAoAAAAAAABAAAAAAEAAAAAAACAAAAAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_DEPTBUDGETADDMASTER" Collapsed="true">
+    <Position X="151.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEhYgAZjsAIgMwFQCEIIAEAIZBABARAkjATGBQhIgA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_DEPTBUDGETAPPLYMASTER" Collapsed="true">
+    <Position X="158.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEhYhARjkIIgMgFUCEIAAEAIbBABIRCkrAzGBwBYgA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_DEPTTRANSFERMASTER" Collapsed="true">
+    <Position X="165.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEEh4pURjkqJg8oHajEMsQWQIZBABAQU9hKXGBUhIkg=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_DEPTBUDGETSUMMASTER" Collapsed="true">
+    <Position X="172" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEhYgQRjkKKgMgFUCEIAAEIIbBQBARQ0rATGBwBIhA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_DEPTBUDGETAPPLYDETAIL" Collapsed="true">
+    <Position X="178.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAORQEhIgIBIQAkgAAAAAIYaAABEjAgCABAWAEkAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_DEPTBUDGETADDDETAIL" Collapsed="true">
+    <Position X="185.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAAYAQUhhAIEIQQEgIAEAAAYSAABEBAgiABESABQAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_PERSONBUDGETAPPLYDETAIL" Collapsed="true">
+    <Position X="192.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgYAAUlkAJAIAAUgAAABEAYSAABEAAgAABGDIBQAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_PERSONBUDGETADDDETAIL" Collapsed="true">
+    <Position X="199" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgYAAUBkAIAIABUgAgIBEAaSAABEAAgAAAGDIBAAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_PERSONMONEYASSIGNMASTER" Collapsed="true">
+    <Position X="48.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEhYAAVjkIIgMgVRCEIAAEUIbBABARAknCTGBwZIgA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_PERSONMONEYASSIGNDETAIL" Collapsed="true">
+    <Position X="55" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAhYAAQnkBIIIEFwgAAAAGAYSAABEEAgFIDGBgBIAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_CHARGEAPPLYMASTER" Collapsed="true">
+    <Position X="68.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAE7YEAZjkQcoM4HRCEIAAkAIZDABC6Ak5ATHTQBIwA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_CHARGEAPPLYDETAIL" Collapsed="true">
+    <Position X="77.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BGBAIQAEhAkICICAEgAAQAEAYTAABkABgAABECAAAAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_BORROWAPPLYDETAIL" Collapsed="true">
+    <Position X="86.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMIAAEhEAIAIIEEigoEAAAcSAABEAAhAABESQAAAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_TRAVELEXPAPPLYDETAIL" Collapsed="true">
+    <Position X="100" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACFSYQAOhGgICMSEEgAgQAEAYSUgBEABwAKxHCIIsAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_TRAVELEXPAPPLYMASTER" Collapsed="true">
+    <Position X="109" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAE9YAAZjkgIgMwFQCkMAAEAIZBABCyAkxATGTQBIgI=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SUBJECT" Collapsed="true">
+    <Position X="118" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UEE1fzgQHkoIqMIFZKkKcAMYIZBAByQCsjASOxSBY0E=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SUBJECTDEPTMENT" Collapsed="true">
+    <Position X="138.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEEzYAIQDkIIgMAFRiEoAKEAYZBABEQCshBSWBQBIgA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SUBJECTPOST" Collapsed="true">
+    <Position X="147.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EkEjYAAQDkIIkOAFQiEIACMAYZBABEQAkhBSWBQBIgA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.VisitUserBase" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAAABCAAgAAAAAIQQgAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.QueryExpression" Collapsed="true">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIMAGBAAAkAUAAAACAASCADEQAgAEIQEgAlACCBCBAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.OrderByExpression" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="209.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAACAAAAAAAABAAAAICAgAAAAAAAAQACAABEAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.PageExpression" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="218.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAwEAAEAAAgCAAAAAAAAAAECACAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.UserInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="209.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIhAQAACAAIAgAEAIAAhEAhAggAAAAAAAQAABQQAIAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.Role_UserType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="211.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAgAAAgAAAEAQAgAQACAAAAAQAEAACiQA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.DataResult" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="214.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAJgAKgAAAAAhAAAFACAgAgAASURswmAMAgAAkBCA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_SYS_ROLE" Collapsed="true">
+    <Position X="57.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAhQAAYgEBAgAQEQCBBAEUhYZBSJAAAgAITEJABIQA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_SYS_ENTITYMENUCUSTOMPERM" Collapsed="true">
+    <Position X="70.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QMAAQAAIoAAQA0AABADDCAEAIQ0gKAAAiIQBAIAQAQA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_SYS_ENTITYMENU" Collapsed="true">
+    <Position X="79.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggABICIIoAAQAkAgACBBQEAhIRAAyEAggsABAJCBEQE=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_SYS_PERMISSION" Collapsed="true">
+    <Position X="88.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEAgAAIgIABAQAAAAABBEAAIxggCAAAkAQBAIAAhQA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_SYS_ROLEMENUPERMISSION" Collapsed="true">
+    <Position X="102.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIAAAQAAFAAADBAAAAIQYACAAIgBAAAJgAARA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_SYS_ROLEENTITYMENU" Collapsed="true">
+    <Position X="111.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIgAAAAQAAAABxCAAAIwggAAAAmAQBAIAQAQA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_SYS_USERROLE" Collapsed="true">
+    <Position X="120.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAABgAIAAAAAQAAAABBCAAAIQEAQAAAiAADAIAQIwA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_SYS_USER" Collapsed="true">
+    <Position X="140.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAhAEAIlEAAAAA2UAABACEAaQAQggEAgQADBpAAKQA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.AuditResult" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityObject" Collapsed="true">
+    <Position X="126" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.StructuralObject" Collapsed="true">
+    <Position X="106.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_BORROWAPPLYMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="50.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReference" Collapsed="true">
+    <Position X="35" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.RelatedEnd" Collapsed="true">
+    <Position X="35" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_BORROWAPPLYDETAILZ5CrhPbu" Collapsed="true">
+    <Position X="59.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_CHARGEAPPLYMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="64.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" Collapsed="true">
+    <Position X="3.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_COMPANYBUDGETAPPLYMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="8" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_COMPANYBUDGETSUMMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="12.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_COMPANYBUDGETMODMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="17" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_COMPANYTRANSFERMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="21.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_DEPTBUDGETADDMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="26" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_DEPTBUDGETADDDETAILZ5CrhPbu" Collapsed="true">
+    <Position X="30.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_DEPTBUDGETAPPLYMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="35" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_DEPTBUDGETSUMMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="39.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_DEPTBUDGETAPPLYDETAILZ5CrhPbu" Collapsed="true">
+    <Position X="41.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_DEPTTRANSFERMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="44" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_DEPTTRANSFERDETAILZ5CrhPbu" Collapsed="true">
+    <Position X="46.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_EXTENSIONALTYPEZ5CrhPbu" Collapsed="true">
+    <Position X="48.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu" Collapsed="true">
+    <Position X="53" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_REPAYAPPLYMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="55.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_TRAVELEXPAPPLYMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="57.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_PERSONMONEYASSIGNMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="62" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_SUBJECTCOMPANYZ5CrhPbu" Collapsed="true">
+    <Position X="66.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_SUBJECTDEPTMENTZ5CrhPbu" Collapsed="true">
+    <Position X="5.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_SUBJECTTYPEZ5CrhPbu" Collapsed="true">
+    <Position X="10.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_FB_SUMSETTINGSMASTERZ5CrhPbu" Collapsed="true">
+    <Position X="14.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv" Collapsed="true">
+    <Position X="19.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv" Collapsed="true">
+    <Position X="23.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_SYS_ROLECIR1sILv" Collapsed="true">
+    <Position X="28.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv" Collapsed="true">
+    <Position X="32.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityReferenceOfT_SYS_USERCIR1sILv" Collapsed="true">
+    <Position X="37.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityKey" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="220" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAACAAIAAgAQAAAAAAAAgAEAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.EntityKeyMember" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="221.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAgAAAQAAAAAAAAAgAAAAAAAAgAgAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_BORROWAPPLYMASTER" Collapsed="true">
+    <Position X="154" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAE74AAYjkgMqMQHRSEIQAGAIZBABAyDk/ITHBQBIwA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_BUDGETCHECK" Collapsed="true">
+    <Position X="160.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQhIIAEBEAISIAFEgABAAEBYyAAJEgAwEQCIBAAIAg=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_COMPANYBUDGETAPPLYDETAIL" Collapsed="true">
+    <Position X="167.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIEAAhAIIAIAAAgAAAAAQYSYABEBggCABAAAAAQA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_COMPANYBUDGETAPPLYMASTER" Collapsed="true">
+    <Position X="174.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAElcEAQj0AIgMAFQiEJAAEANbBABARAkjEzGhQBI0g=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_COMPANYBUDGETSUMMASTER" Collapsed="true">
+    <Position X="181" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAElYEQQjkCKgMAFQCEJoAEIMbBQBARAkjATGhQBIxg=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_COMPANYBUDGETMODMASTER" Collapsed="true">
+    <Position X="187.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEhYAAQjkYIgMAFQCEJAAEAIbBABARAkjATGBQBIgg=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_COMPANYTRANSFERDETAIL" Collapsed="true">
+    <Position X="194.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAERQAIAIAAGwAAEAAAcQAABEAAgAAABAAABAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_COMPANYTRANSFERMASTER" Collapsed="true">
+    <Position X="201.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEhYgAQjkgJw8AHSCENEQEAIZhQBCQA0hAXGBShIgg=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_DEPTTRANSFERDETAIL" Collapsed="true">
+    <Position X="50.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEQIACEhAAIAIACGgAAEQAAYQAABEAAgAABAgAgAEA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_PERSONTRANSFERDETAIL" Collapsed="true">
+    <Position X="59.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgYAAUhkgIIIIAcgAAABEAYSAABMAAgAABGBIBAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_EXTENSIONORDERDETAIL" Collapsed="true">
+    <Position X="73" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQIAAMhAAIAIAAUgAAAACAYSgABEDAgQABEAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_EXTENSIONALORDER" Collapsed="true">
+    <Position X="82" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQMr5gAQjkgMoMRFRCEoKBMAIZBABEwJkNITHRQDMwI=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_EXTENSIONALTYPE" Collapsed="true">
+    <Position X="91" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAgQAAiAAAAIAIAABAACAAEACAAQABAAAgAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_REPAYAPPLYMASTER" Collapsed="true">
+    <Position X="104.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAE5YAAYjkAIoMQHQCEIAAEBIZBABAyI05ATGRQBKgA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_REPAYAPPLYDETAIL" Collapsed="true">
+    <Position X="113.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAoAAAhEAICICCggAAUAEAYSAABEAAgUgFEBAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SUBJECTCOMPANY" Collapsed="true">
+    <Position X="122.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEEpYBIUDkIIgsAFQqEIAAMAYZBgBEQAklBSGBSBIgA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SUBJECTTYPE" Collapsed="true">
+    <Position X="142.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYAAQBAAIAIAAAAAAAAAAYRAABAFAggAAgMABAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_CHARGEAPPLYREPAYDETAIL" Collapsed="true">
+    <Position X="149.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCBAIAAAhkgIAAACAAAAEAAAIRAABQAAgAABABAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_CHARGEBYREPAY" Collapsed="true">
+    <Position X="156.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>NEGhYAAQjmwIgMQHQCEIAAEAIZBABAwgkhATGBQRKgA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_ORDERCODE" Collapsed="true">
+    <Position X="163" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgBhYAAQjkGIgMAFYCEMAYEAIZhAFAAAkBATGBSRIkA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_PERSONACCOUNT" Collapsed="true">
+    <Position X="169.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MEChIAAAhGQIgAAECCAAEgEAIYBABAAAgAETABAQIAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SALARYPAYLIST" Collapsed="true">
+    <Position X="176.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgGhIAAADEAIgIAlAGAACAECIZBABAQAghASIBAAIAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SUMSETTINGSDETAIL" Collapsed="true">
+    <Position X="183.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAApYAAQDkAMAIAFQAAAAAGAIRAABAABghACGBABMAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SUMSETTINGSMASTER" Collapsed="true">
+    <Position X="190" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEhYAAYjkCIgMAFQDEIAAEAIZBABAQAkhATGBQBIhA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_SYSTEMSETTINGS" Collapsed="true">
+    <Position X="196.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAhYAAQDkAIgMAFQCEIBCECIcBAJAQS0BASHBQBI4A=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_WFBUDGETACCOUNT" Collapsed="true">
+    <Position X="203.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAKhYoAMlEEIUIAFEAABgBEQISJAJwAIggAjIBAgMAg=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_WFPERSONACCOUNT" Collapsed="true">
+    <Position X="52.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MEKhYgAIhGUIgAAECCAAEhEAoYJABQAIggETABAQMAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.T_FB_WFSUBJECTSETTING" Collapsed="true">
+    <Position X="61.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEADIhIAnENIAoAFQIEAABAAIQIgBgAAglBDSBCAMAg=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.RelationManyEntity" Collapsed="true">
+    <Position X="93.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAgAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.RelationEntity" Collapsed="true">
+    <Position X="94.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAEAAAAAAAAAAAAACAQAAAAAAAAAAAAABCAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.RelationOneEntity" Collapsed="true">
+    <Position X="95.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.VirtualEntityObject" Collapsed="true">
+    <Position X="129.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAhYAAQLkAIgMAFQCEIAAUAAJBABAAAEhASGBQBIgA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.VirtualUser" Collapsed="true">
+    <Position X="124.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.VirtualPost" Collapsed="true">
+    <Position X="127" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAGAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.VirtualCompany" Collapsed="true">
+    <Position X="129.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.VirtualDepartment" Collapsed="true">
+    <Position X="131.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAgAACAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.VirtualAudit" Collapsed="true">
+    <Position X="133.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAAAAAgIAIQAAAQAAECQAACAAABBAAABIAAAACAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.SaveResult" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAIEAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.ServiceResult" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAIAAABAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.QueryResult" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAEAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.GetFBEntityCompletedEventArgs" Collapsed="true">
+    <Position X="209.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.QueryFBEntitiesCompletedEventArgs" Collapsed="true">
+    <Position X="206" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.QueryCompletedEventArgs" Collapsed="true">
+    <Position X="221.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.SaveCompletedEventArgs" Collapsed="true">
+    <Position X="214.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.SaveListCompletedEventArgs" Collapsed="true">
+    <Position X="216.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.AuditFBEntityCompletedEventArgs" Collapsed="true">
+    <Position X="213" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.FBCommonWS.FBCommonServiceClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="213" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>lDAFhCICYAAMoAhaRKaAEkRiCYxIQBCRBkAbJ/lQAQA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.CompanyBudgetApplyForm" Collapsed="true">
+    <Position X="13.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAIBAAAAAAAkAAAAAARAQAAAAEEAAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\CompanyBudgetApplyForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.CompanyBudgetModForm" Collapsed="true">
+    <Position X="15.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAMABAAEAgAEAABAAAJAQAAAAEEAAAAgAAAEA=</HashCode>
+      <FileName>Form\BudgetApply\CompanyBudgetModForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.CompanyBudgetSumForm" Collapsed="true">
+    <Position X="18" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAIAAABAAAAAAAAAAAQAQAAAABEAAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\CompanyBudgetSumForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.CompanyTransferAppForm" Collapsed="true">
+    <Position X="20.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAiAIAAAIBAAAAAAAkAAAAAAAAQAACAAEAAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\CompanyTransferAppForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.DepartmentTransferAppForm" Collapsed="true">
+    <Position X="22.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAiAIAAAIBAAAAAAAkAAAAAAgAQAACQAEgAAAAAAgAA=</HashCode>
+      <FileName>Form\BudgetApply\DepartmentTransferAppForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.DeptBudgetAddForm" Collapsed="true">
+    <Position X="24.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAIBAKAAAAAkAAAAAAAAQAAAAAEwAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\DeptBudgetAddForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.DeptBudgetApplyForm" Collapsed="true">
+    <Position X="27" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAIBAAAAAAAkAAAAAAAAQAAAAAEgAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\DeptBudgetApplyForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.DeptBudgetSumForm" Collapsed="true">
+    <Position X="29.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAIAAAIAAABAAAAAAAAAAAQAQAAAABEAAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\DeptBudgetSumForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.PersonBudgetAddForm" Collapsed="true">
+    <Position X="31.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAIBAAAAAAAkAAAAAAAAQAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\PersonBudgetAddForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.PersonBudgetApplyForm" Collapsed="true">
+    <Position X="33.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAIBAAAAAAAkAAAAAAAAQAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\PersonBudgetApplyForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.PersonMoneyAssignForm" Collapsed="true">
+    <Position X="36" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAIAAAIBAABAAABkACAAYAQARgCAAAEAAAACAAACA=</HashCode>
+      <FileName>Form\BudgetApply\PersonMoneyAssignForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.BudgetApply.SumSettingsForm" Collapsed="true">
+    <Position X="2.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAIAAABAAAAEAAAAQAAARAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Form\BudgetApply\SumSettingsForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.DailyManagement.BorrowApplyForm" Collapsed="true">
+    <Position X="4.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAIAAAAAAAAgACAAAAAAQAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Form\DailyManagement\BorrowApplyForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.DailyManagement.ChargeApplyForm" Collapsed="true">
+    <Position X="6.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAIBAABAAAAkACAAAAAAQQAAAAEAAAAAIgAAA=</HashCode>
+      <FileName>Form\DailyManagement\ChargeApplyForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.DailyManagement.RepayApplyForm" Collapsed="true">
+    <Position X="9" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAIBAAAAAAAgAGAAAAQAQAAAAAEAAAAAAgAAA=</HashCode>
+      <FileName>Form\DailyManagement\RepayApplyForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.DailyManagement.TravelApplyForm" Collapsed="true">
+    <Position X="11.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAIBAAAAAAAgACAAQAABQAAAAgEAAAAAAgAAA=</HashCode>
+      <FileName>Form\DailyManagement\TravelApplyForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.EntityBrowserFB" Collapsed="true">
+    <Position X="211.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Form\EntityBrowserFB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.FBPage" Collapsed="true">
+    <Position X="19" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAACAEAEYAAABQAACgBBIBAMYgQcAJQAEQYAAQBACAA=</HashCode>
+      <FileName>Form\FBPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Form.FBPageEditor" Collapsed="true">
+    <Position X="218.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Form\FBPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Form.Test" Collapsed="true">
+    <Position X="220" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAABAAAAAAAAACAAAAAAAAAAAAAkAAAAAAACAAAA=</HashCode>
+      <FileName>Form\Test.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.SaaS.FramewokUI.ServiceResult" Collapsed="true">
+    <Position X="209.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>ServiceResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Test.DataGridGrouping" Collapsed="true">
+    <Position X="209.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAEAAAAAAAAAIAAAAAAAEAAAAAAAUAAAA=</HashCode>
+      <FileName>Test\DataGridGrouping.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Test.Task" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="218.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAECAAAAKIADAAAARAEgAAQAAAEAAAIAIAgAAA=</HashCode>
+      <FileName>Test\DataGridGrouping.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SMT.FB.UI.Test.DGRowDetails" Collapsed="true">
+    <Position X="206" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Test\DGRowDetails.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.AuditOrder" Collapsed="true">
+    <Position X="17" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAcABQAAABCADAEEAkAIRAQAAABQABAAAAAAAAAAAgA=</HashCode>
+      <FileName>Views\AuditOrder.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.FB.UI.Views.FBBasePage" Collapsed="true">
+    <Position X="10.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAgAAABAAAAQACAAAAMAEAACCAAQAAAABAA=</HashCode>
+      <FileName>Views\FBBasePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.OrderView" Collapsed="true">
+    <Position X="19.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEABgAAABAAAAAEAAAAAAAAAAAAAAACAQAABAAABgA=</HashCode>
+      <FileName>Views\OrderView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SMT.SaaS.LM.UI.AppMain.Login.Login" Collapsed="true">
+    <Position X="211.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAgABAAAAAAAAAAQAAAQARSAAhAAAAAAJAgAEAA=</HashCode>
+      <FileName>Views\Login\Login.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.Query.MultiValuesItem&lt;T&gt;" Collapsed="true">
+    <Position X="220" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAAAAAA=</HashCode>
+      <FileName>Views\Query\QueryBudgetAccount.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.Query.QueryBudgetAccount" Collapsed="true">
+    <Position X="1.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABgAAAAAAAAAEQAAAAABgBAAAAIAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Views\Query\QueryBudgetAccount.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.Query.QueryBudgetExecute" Collapsed="true">
+    <Position X="220" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Query\QueryBudgetExecute.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.Query.QueryFBOrder" Collapsed="true">
+    <Position X="3.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQABgAAAAAAAAAEQAAQIABgBAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Views\Query\QueryOrder.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.SubjectManagement.SubjectCompany" Collapsed="true">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAIAAEIAABACAAMYABAAQAAAACAAGgQAggIAAYIA=</HashCode>
+      <FileName>Views\SubjectManagement\SubjectCompany.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.SubjectManagement.SubjectCompanySet" Collapsed="true">
+    <Position X="8" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAIAAEIAABACAAMYABAAQAAAACAAGiQAggIAAYIA=</HashCode>
+      <FileName>Views\SubjectManagement\SubjectCompanySet.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.SubjectManagement.SubjectDepartment" Collapsed="true">
+    <Position X="10.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEAICQEIAABAAAIMcBAAAQAAAACAIGgQAggIAEaMA=</HashCode>
+      <FileName>Views\SubjectManagement\SubjectDepartment.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.SubjectManagement.SubjectManagement" Collapsed="true">
+    <Position X="12.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAAABIAAEEAABEAAAMwAAwAQBAEISQgCgQAAkAAAZIA=</HashCode>
+      <FileName>Views\SubjectManagement\SubjectManagement.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMT.FB.UI.Views.SystemManagement.SystemSetting" Collapsed="true">
+    <Position X="14.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YACAAAAAAAAAAAAgAASAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\SystemManagement\SystemSetting.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="SMT.FB.UI.Common.EntityFieldName" Collapsed="true">
+    <Position X="206" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAQgQCCAAABAIJAIAAgEAAAAAAAABABgAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SMT.FB.UI.Common.FieldName" Collapsed="true">
+    <Position X="207.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAQCCAAAAAIJAIAAAEAAAAAAAABABgAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="SMT.FB.UI.Common.IDataPanel" Collapsed="true">
+    <Position X="207.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SMT.FB.UI.Common.IControlAction" Collapsed="true">
+    <Position X="206" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAAAAAAAAAAAAAAEAAAgQQAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Common\OrderHelper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SMT.FB.UI.Common.ITextValueItem" Collapsed="true">
+    <Position X="211.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAAAAAA=</HashCode>
+      <FileName>Common\ReferencedData.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SMT.FB.UI.FBCommonWS.IDetails" Collapsed="true">
+    <Position X="209.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Common\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SMT.FB.UI.FBCommonWS.FBCommonService" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAEADAACDAAACAgAAAAAAAAAEAAAAACAAEAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SMT.FB.UI.FBCommonWS.FBCommonServiceChannel">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SMT.FB.UI.Common.ControlType" Collapsed="true">
+    <Position X="211.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAIAAEAIAAAEAAAAAEhAAAAAAAAAAAAAAIAAAAQA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.UI.Common.CompareResult" Collapsed="true">
+    <Position X="209.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAgAAAAAAAAAAAAAAAQAAAAAEAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.UI.Common.OperationTypes" Collapsed="true">
+    <Position X="216.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAIAAAAAAIAAABAAAAAEAAAACAAAAAAAABBA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.UI.Common.Actions" Collapsed="true">
+    <Position X="206" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAIACQAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Args.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.UI.FBCommonWS.FlowResult" Collapsed="true">
+    <Position X="214.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAACAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAAACA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.UI.FBCommonWS.SubmitFlag" Collapsed="true">
+    <Position X="220" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.UI.FBCommonWS.CheckStates" Collapsed="true">
+    <Position X="207.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAIAAAAAAAAAAAQAAEAAAAiAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.UI.FBCommonWS.OrderByType" Collapsed="true">
+    <Position X="218.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMT.FB.UI.FBCommonWS.FBEntityState" Collapsed="true">
+    <Position X="213" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAABAAEEAAAAAAAQACAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\FBCommonWS\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="宋体" Size="9" />
+</ClassDiagram>

@@ -264,6 +264,9 @@ namespace SMT.FB.UI.Common
             }
         }
 
+        /// <summary>
+        /// 根据xml初始化UI界面
+        /// </summary>
         private void InitControl()
         {
             try

@@ -4325,7 +4325,12 @@ namespace SMT.FB.BLL
                                              where n.OWNERID == entLastMonthDetail.OWNERID
                                              select n;
 
-
+                            PersonnelWS.V_EMPLOYEEVIEW vEmp = pe.GetEmployeeInfoByEmployeeID(entLastMonthDetail.OWNERID);
+                            //离职员工就不做活动经费了吧
+                            if (vEmp.EMPLOYEESTATE == "2")
+                            {
+                                continue;
+                            }
                             if (existitems.Count() > 0)
                             {
                                 continue;
