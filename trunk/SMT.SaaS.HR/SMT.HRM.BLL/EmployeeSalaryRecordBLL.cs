@@ -1409,6 +1409,7 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         private void GenerateAsinBalancePostEmployeeSalary(string GenerateEmployeePostid, string strBalanceEmployeeID, int year, int month, string GenerateCompanyid)
         {
+            var company = dal.GetObjects<T_HR_COMPANY>().Where(c => c.COMPANYID == GenerateCompanyid).FirstOrDefault();
             //查询在职的结算岗位为指定岗位的员工及员工薪资档案
             //List<T_HR_EMPLOYEE> list = new List<T_HR_EMPLOYEE>();
             var q = from employee in dal.GetObjects<T_HR_EMPLOYEE>()
@@ -1427,23 +1428,32 @@ namespace SMT.HRM.BLL
             {
                 Tracer.Debug("获取到所有结算岗位 " + GenerateEmployeePostid + " 上的员工薪资档案，共 " + q.Count().ToString() + "条");
 
-                List<T_HR_SALARYARCHIVE> salarylist = q.ToList();
-                List<string> employeeids = (from ent in salarylist
-                                            select ent.EMPLOYEEID).Distinct().ToList();
+                List<T_HR_SALARYARCHIVE> SalaryArchivelist = q.ToList();
+                var employees = (from ent in SalaryArchivelist
+                                 select new { ent.EMPLOYEEID, ent.EMPLOYEENAME }).Distinct().ToList();
                 int i=1;
-                foreach (var employeeid in employeeids)
+                foreach (var employee in employees)
                 {
                     try
                     {
-                        //获取员工最新生效的一条薪资档案
-                        T_HR_SALARYARCHIVE salaryArchive
-                            = salarylist.Where(c => c.EMPLOYEEID == employeeid).OrderByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT).ThenByDescending(s => s.CREATEDATE).FirstOrDefault();
-                        GenerateEmployeeSalary(i,salaryArchive, strBalanceEmployeeID, employeeid, year.ToString(), month.ToString(), GenerateCompanyid);
+                        //获取员工最新生效的一条薪资档案信息以判断是否可以继续操作
+                        T_HR_SALARYARCHIVE entLast = GetEmployeeAcitiveSalaryArchive(employee.EMPLOYEEID, GenerateEmployeePostid, GenerateCompanyid, year, month);
+                        if (entLast == null)
+                        {
+                            Tracer.Debug("根据结算岗位结算员工薪资，该员工被跳过，因为该员工最新的薪资档案验证后为空," + "员工姓名：" + employee.EMPLOYEENAME + ",员工id：" + employee.EMPLOYEEID + " 发薪结构：" + company.CNAME + " 发薪机构id" + GenerateCompanyid);
+                            //验证失败，跳过。
+                            continue;
+                        }
+                        
+                        T_HR_SALARYARCHIVE employeeSalaryArchive
+                            = SalaryArchivelist.Where(c => c.EMPLOYEEID == employee.EMPLOYEEID).OrderByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT).ThenByDescending(s => s.CREATEDATE).FirstOrDefault();
+
+                        GenerateEmployeeSalary(i, employeeSalaryArchive, strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), GenerateCompanyid);
                         i++;
                     }
                     catch (Exception ex)
                     {
-                        Tracer.Debug("结算指定结算岗位薪资异常,员工id" + employeeid + " 异常原因：" + ex.ToString());
+                        Tracer.Debug("结算指定结算岗位薪资异常,员工id" + employee.EMPLOYEEID + " 异常原因：" + ex.ToString());
                         continue;
                     }
                 }
@@ -2433,6 +2443,7 @@ namespace SMT.HRM.BLL
         /// <param name="month"></param>
         public void GenerateEmployeeBySalaryCompany(string strBalanceEmployeeID,string GenerateEmployeePostid, string PayCompanyID, int year, int month)
         {
+            string strmsg = "通过发薪结构结算薪资：";
             var company = dal.GetObjects<T_HR_COMPANY>().Where(c => c.COMPANYID == PayCompanyID).FirstOrDefault();
                 
             //查询在职的结算岗位为指定岗位的员工及员工薪资档案
@@ -2453,7 +2464,7 @@ namespace SMT.HRM.BLL
             {
                 List<T_HR_SALARYARCHIVE> SalaryArchivelist = q.ToList();
                 
-                Tracer.Debug("获取到所有发薪机构 " + PayCompanyID + " 上的员工薪资档案，共 " + isalaryAchiveCount.ToString() + "条");
+                Tracer.Debug(strmsg+"获取到所有发薪机构 " + PayCompanyID + " 上的员工薪资档案，共 " + isalaryAchiveCount.ToString() + "条");
                 var employees = (from ent in SalaryArchivelist
                                                 select new { ent.EMPLOYEEID, ent.EMPLOYEENAME }).Distinct().ToList();
                     int i = 1;
@@ -2475,14 +2486,7 @@ namespace SMT.HRM.BLL
                             //获取员工最新生效的一条薪资档案
                             T_HR_SALARYARCHIVE employeeSalaryArchive
                                 = SalaryArchivelist.Where(c => c.EMPLOYEEID == employee.EMPLOYEEID).OrderByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT).ThenByDescending(s => s.CREATEDATE).FirstOrDefault();
-                            if (!string.IsNullOrEmpty(employeeSalaryArchive.BALANCEPOSTID))
-                            {
-                                if (employeeSalaryArchive.BALANCEPOSTID != GenerateEmployeePostid)
-                                {
-                                    Tracer.Debug("根据发薪机构结算员工薪资，该员工被跳过，因为该员工的薪资档案设置的结算岗位跟结算人的主岗位不符," + "员工姓名：" + employee.EMPLOYEENAME + ",员工id：" + employee.EMPLOYEEID + " 发薪结构：" + company.CNAME + " 发薪机构id" + PayCompanyID);                                
-                                    continue;
-                                }
-                            }
+
                             GenerateEmployeeSalary(i,employeeSalaryArchive, strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), PayCompanyID);
                             i++;
                         }
