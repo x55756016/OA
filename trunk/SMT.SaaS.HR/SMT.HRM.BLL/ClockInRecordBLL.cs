@@ -343,9 +343,9 @@ namespace SMT.HRM.BLL
                     return;
                 }
 
-                var CompanyName = from ent in dal.GetObjects<T_HR_COMPANY>()
+                var CompanyName = (from ent in dal.GetObjects<T_HR_COMPANY>()
                                   where ent.COMPANYID == strCompanyId
-                                  select ent.CNAME;
+                                  select ent.CNAME).FirstOrDefault();
 
                 importInfo = "定时服务导入打卡记录，公司id：" + strCompanyId
                     + " 公司名称：" +CompanyName
