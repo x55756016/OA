@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SMS00001" xml:space="preserve">
+    <value>用户类型名称</value>
+  </data>
+  <data name="SMS00002" xml:space="preserve">
+    <value>基本信息</value>
+  </data>
+  <data name="SMS00003" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="SMS00004" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="SMS00005" xml:space="preserve">
+    <value>用户名称</value>
+  </data>
+  <data name="SMS00006" xml:space="preserve">
+    <value>用户类型</value>
+  </data>
+  <data name="SMS00007" xml:space="preserve">
+    <value>公司电话</value>
+  </data>
+  <data name="SMS00008" xml:space="preserve">
+    <value>负责人</value>
+  </data>
+  <data name="SMS00009" xml:space="preserve">
+    <value>负责人手机号码</value>
+  </data>
+  <data name="SMS00010" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="SMS00011" xml:space="preserve">
+    <value>审核状态</value>
+  </data>
+  <data name="SMS00012" xml:space="preserve">
+    <value>申请人</value>
+  </data>
+  <data name="SMS00013" xml:space="preserve">
+    <value>用户账号</value>
+  </data>
+  <data name="SMS00014" xml:space="preserve">
+    <value>用户密码</value>
+  </data>
+  <data name="SMS00015" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="SMS00016" xml:space="preserve">
+    <value>身份证</value>
+  </data>
+  <data name="SMS00017" xml:space="preserve">
+    <value>登记人</value>
+  </data>
+  <data name="SMS00018" xml:space="preserve">
+    <value>邮政编码</value>
+  </data>
+  <data name="SMS00019" xml:space="preserve">
+    <value>用户信息</value>
+  </data>
+  <data name="SMS00020" xml:space="preserve">
+    <value>短信账号</value>
+  </data>
+  <data name="SMS00021" xml:space="preserve">
+    <value>文字短信数量</value>
+  </data>
+  <data name="SMS00022" xml:space="preserve">
+    <value>彩信短信数量</value>
+  </data>
+  <data name="SMS00023" xml:space="preserve">
+    <value>语音短信数量</value>
+  </data>
+  <data name="SMS00024" xml:space="preserve">
+    <value>信息总数量</value>
+  </data>
+  <data name="SMS00025" xml:space="preserve">
+    <value>已发信息数量</value>
+  </data>
+  <data name="SMS00026" xml:space="preserve">
+    <value>申请时间</value>
+  </data>
+  <data name="SMS00027" xml:space="preserve">
+    <value>登记时间</value>
+  </data>
+  <data name="SMS00028" xml:space="preserve">
+    <value>短信积分</value>
+  </data>
+  <data name="SMS00029" xml:space="preserve">
+    <value>充值金额</value>
+  </data>
+  <data name="SMS00030" xml:space="preserve">
+    <value>充值套餐</value>
+  </data>
+  <data name="SMS00031" xml:space="preserve">
+    <value>充值积分</value>
+  </data>
+  <data name="SMS00032" xml:space="preserve">
+    <value>每条信息金额</value>
+  </data>
+  <data name="SMS00033" xml:space="preserve">
+    <value>充值人员</value>
+  </data>
+  <data name="SMS00034" xml:space="preserve">
+    <value>套餐积分</value>
+  </data>
+  <data name="SMS00035" xml:space="preserve">
+    <value>充值时间</value>
+  </data>
+  <data name="SMS00036" xml:space="preserve">
+    <value>审核人员</value>
+  </data>
+  <data name="SMS00037" xml:space="preserve">
+    <value>审核时间</value>
+  </data>
+  <data name="SMS00038" xml:space="preserve">
+    <value>账号充值信息</value>
+  </data>
+  <data name="SMS00039" xml:space="preserve">
+    <value>模板名称</value>
+  </data>
+  <data name="SMS00040" xml:space="preserve">
+    <value>模板内容</value>
+  </data>
+  <data name="SMS00041" xml:space="preserve">
+    <value>创建人员</value>
+  </data>
+  <data name="SMS00042" xml:space="preserve">
+    <value>短信模板信息</value>
+  </data>
+  <data name="SMS00043" xml:space="preserve">
+    <value>类型名称</value>
+  </data>
+  <data name="SMS00044" xml:space="preserve">
+    <value>短信通道</value>
+  </data>
+  <data name="SMS00045" xml:space="preserve">
+    <value>单价</value>
+  </data>
+  <data name="SMS00046" xml:space="preserve">
+    <value>套餐名称</value>
+  </data>
+  <data name="SMS00047" xml:space="preserve">
+    <value>套餐积分</value>
+  </data>
+  <data name="SMS00048" xml:space="preserve">
+    <value>套餐信息</value>
+  </data>
+  <data name="SMS00049" xml:space="preserve">
+    <value>每次最多可发送信息数量</value>
+  </data>
+  <data name="SMS00050" xml:space="preserve">
+    <value>每条信息字符长度</value>
+  </data>
+  <data name="SMS00051" xml:space="preserve">
+    <value>接收号码</value>
+  </data>
+  <data name="SMS00052" xml:space="preserve">
+    <value>发送内容</value>
+  </data>
+  <data name="SMS00053" xml:space="preserve">
+    <value>短信类型</value>
+  </data>
+  <data name="SMS00054" xml:space="preserve">
+    <value>错误信息</value>
+  </data>
+  <data name="SMS00055" xml:space="preserve">
+    <value>发送号码</value>
+  </data>
+  <data name="SMS00056" xml:space="preserve">
+    <value>接收时间</value>
+  </data>
+  <data name="SMS00057" xml:space="preserve">
+    <value>发送人</value>
+  </data>
+  <data name="SMS00058" xml:space="preserve">
+    <value>关键字</value>
+  </data>
+  <data name="SMS00059" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="SMS00060" xml:space="preserve">
+    <value>添加{0}失败！</value>
+  </data>
+  <data name="SMS00061" xml:space="preserve">
+    <value>添加{0}成功！</value>
+  </data>
+  <data name="SMS00062" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="SMS00063" xml:space="preserve">
+    <value>修改{0}成功！</value>
+  </data>
+  <data name="SMS00064" xml:space="preserve">
+    <value>修改{0}失败！</value>
+  </data>
+  <data name="SMS00065" xml:space="preserve">
+    <value>删除{0}成功！</value>
+  </data>
+  <data name="SMS00066" xml:space="preserve">
+    <value>删除{0}失败！</value>
+  </data>
+  <data name="SMS00067" xml:space="preserve">
+    <value>请选择需要删除的数据！</value>
+  </data>
+  <data name="SMS00068" xml:space="preserve">
+    <value>只能选择一条数据！</value>
+  </data>
+  <data name="SMS00069" xml:space="preserve">
+    <value>请选择需要查看的数据！</value>
+  </data>
+  <data name="SMS00070" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="SMS00071" xml:space="preserve">
+    <value>短信通道名称</value>
+  </data>
+  <data name="SMS00072" xml:space="preserve">
+    <value>发送号码前缀</value>
+  </data>
+  <data name="SMS00073" xml:space="preserve">
+    <value>发送号码后缀</value>
+  </data>
+  <data name="SMS00074" xml:space="preserve">
+    <value>短信费用</value>
+  </data>
+  <data name="SMS00075" xml:space="preserve">
+    <value>短信通道信息</value>
+  </data>
+  <data name="SMS00076" xml:space="preserve">
+    <value>请选择需要修改的数据！</value>
+  </data>
+  <data name="SMS00077" xml:space="preserve">
+    <value>短信类型信息</value>
+  </data>
+  <data name="SMS00078" xml:space="preserve">
+    <value>请选择短信通道</value>
+  </data>
+  <data name="SMS00079" xml:space="preserve">
+    <value>发送时间</value>
+  </data>
+  <data name="SMS00080" xml:space="preserve">
+    <value>接收人</value>
+  </data>
+  <data name="SMS00081" xml:space="preserve">
+    <value>接收内容</value>
+  </data>
+  <data name="SMS00082" xml:space="preserve">
+    <value>发送方式</value>
+  </data>
+  <data name="SMS00083" xml:space="preserve">
+    <value>前缀加后缀</value>
+  </data>
+  <data name="SMS00084" xml:space="preserve">
+    <value>发送状态</value>
+  </data>
+  <data name="SMS00085" xml:space="preserve">
+    <value>兑换积分</value>
+  </data>
+  <data name="SMS00086" xml:space="preserve">
+    <value>兑换物品</value>
+  </data>
+  <data name="SMS00087" xml:space="preserve">
+    <value>兑换时间</value>
+  </data>
+  <data name="SMS00088" xml:space="preserve">
+    <value>短信发送信息</value>
+  </data>
+  <data name="SMS00089" xml:space="preserve">
+    <value>短信接收信息</value>
+  </data>
+  <data name="SMS00090" xml:space="preserve">
+    <value>短信定时发送信息</value>
+  </data>
+  <data name="SMS00091" xml:space="preserve">
+    <value>请选择{0}</value>
+  </data>
+  <data name="SMS00092" xml:space="preserve">
+    <value>{0}必须为数字</value>
+  </data>
+  <data name="SMS00093" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="SMS00094" xml:space="preserve">
+    <value>密码初始化</value>
+  </data>
+  <data name="SMS00095" xml:space="preserve">
+    <value>新密码</value>
+  </data>
+  <data name="SMS00096" xml:space="preserve">
+    <value>旧密码</value>
+  </data>
+  <data name="SMS00097" xml:space="preserve">
+    <value>存在相同{0}名称！</value>
+  </data>
+  <data name="SMS00098" xml:space="preserve">
+    <value>未知错误！</value>
+  </data>
+  <data name="SMS00099" xml:space="preserve">
+    <value>存在相同{0}！</value>
+  </data>
+  <data name="SMS00100" xml:space="preserve">
+    <value>用户充值记录</value>
+  </data>
+  <data name="SMS00101" xml:space="preserve">
+    <value>关键字</value>
+  </data>
+  <data name="SMS00102" xml:space="preserve">
+    <value>短信参数配置信息</value>
+  </data>
+  <data name="SMS00103" xml:space="preserve">
+    <value>短信参数名称</value>
+  </data>
+  <data name="SMS00104" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="SMS00105" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="SMS00106" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="SMS00107" xml:space="preserve">
+    <value>套餐金额</value>
+  </data>
+  <data name="SMS00108" xml:space="preserve">
+    <value>是否总账号</value>
+  </data>
+  <data name="SMS00109" xml:space="preserve">
+    <value>传真号码</value>
+  </data>
+  <data name="SMS00110" xml:space="preserve">
+    <value>账号类型</value>
+  </data>
+  <data name="SMS00111" xml:space="preserve">
+    <value>短信状态</value>
+  </data>
+  <data name="SMS00112" xml:space="preserve">
+    <value>提供商代码</value>
+  </data>
+  <data name="SMS00113" xml:space="preserve">
+    <value>提供商名称</value>
+  </data>
+  <data name="SMS00114" xml:space="preserve">
+    <value>采购员</value>
+  </data>
+  <data name="SMS00115" xml:space="preserve">
+    <value>购买日期</value>
+  </data>
+  <data name="SMS00116" xml:space="preserve">
+    <value>短信采购信息</value>
+  </data>
+  <data name="SMS00117" xml:space="preserve">
+    <value>短信总账号</value>
+  </data>
+  <data name="SMS00118" xml:space="preserve">
+    <value>短信子账号</value>
+  </data>
+  <data name="SMS00119" xml:space="preserve">
+    <value>分配文字短信数量</value>
+  </data>
+  <data name="SMS00120" xml:space="preserve">
+    <value>分配彩信短信数量</value>
+  </data>
+  <data name="SMS00121" xml:space="preserve">
+    <value>分配语音短信数量</value>
+  </data>
+  <data name="SMS00122" xml:space="preserve">
+    <value>短信分配信息</value>
+  </data>
+  <data name="SMS00123" xml:space="preserve">
+    <value>分配人员</value>
+  </data>
+  <data name="SMS00124" xml:space="preserve">
+    <value>分配时间</value>
+  </data>
+  <data name="SMS00125" xml:space="preserve">
+    <value>总分配短信数量</value>
+  </data>
+</root>

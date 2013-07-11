@@ -65,7 +65,7 @@ namespace SMT.SaaS.OA.Services
                 foreach (var item in eGFunc.Attributes("TableName"))
                 {
                     SMT.Foundation.Log.Tracer.Debug("luojie " + item.Value.ToString());
-                    if (item.Value == ModelNames.T_OA_SENDDOC.ToString())
+                    if (item.Value == ModelNames.T_OA_SENDDOC.ToString())//公司发文
                     {
                         paraValue = AddSenddoc(eGFunc);
                         formID = "SENDDOCID";
@@ -399,12 +399,15 @@ namespace SMT.SaaS.OA.Services
                 string strOwnerPostID = string.Empty;
                 string strOwnerDepartmentID = string.Empty;
                 string strOwnerCompanyID = string.Empty;
-
+                string strSendDocID = string.Empty;
                 foreach (var q in eGFunc)
                 {
                     string strName = q.Attribute("Name").Value;
                     switch (strName)
                     {
+                        case "SENDDOCID":
+                            strSendDocID = q.Attribute("Value").Value;
+                            break;
                         case "CREATEUSERID":
                             strEmployeeID = q.Attribute("Value").Value;
                             break;
@@ -422,7 +425,11 @@ namespace SMT.SaaS.OA.Services
                             break;
                     }
                 }
-
+                //如果有公司发文就直接产生该公文的代办
+                if (!string.IsNullOrEmpty(strSendDocID))
+                {
+                    return strSendDocID;
+                }
                 SmtOACommonOffice doc = new SmtOACommonOffice();
                 //获取默认一个公司发文类型
                 T_OA_SENDDOCTYPE doctype = new T_OA_SENDDOCTYPE();

@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PERSONNELCLASS" xml:space="preserve">
+    <value>人员分类</value>
+  </data>
+  <data name="SINGLEWEIGHT" xml:space="preserve">
+    <value>单重(KG)</value>
+  </data>
+  <data name="PERSONNELTYPE" xml:space="preserve">
+    <value>人员类型</value>
+  </data>
+  <data name="ORDERDELIVERYLIST" xml:space="preserve">
+    <value>提货订单</value>
+  </data>
+  <data name="ORDERDISPATCHLIST" xml:space="preserve">
+    <value>派送订单</value>
+  </data>
+  <data name="ORDERFORMMANAGE" xml:space="preserve">
+    <value>订单录入</value>
+  </data>
+  <data name="ORDERINVENTORYLIST" xml:space="preserve">
+    <value>盘点订单</value>
+  </data>
+  <data name="ORDERPROCESSINGLIST" xml:space="preserve">
+    <value>加工订单</value>
+  </data>
+  <data name="ORDERRETURNLIST" xml:space="preserve">
+    <value>退库订单</value>
+  </data>
+  <data name="ORDERSTORAGELIST" xml:space="preserve">
+    <value>入库订单</value>
+  </data>
+  <data name="NOCHINA" xml:space="preserve">
+    <value>不能选取中国进行添加</value>
+  </data>
+  <data name="REALQTY" xml:space="preserve">
+    <value>实收数</value>
+  </data>
+  <data name="MOVEQTYSUM" xml:space="preserve">
+    <value>货物数量</value>
+  </data>
+  <data name="UALSCXGA" xml:space="preserve">
+    <value>行政区域</value>
+  </data>
+  <data name="UPDATEPASSWORD" xml:space="preserve">
+    <value>修改密码</value>
+  </data>
+  <data name="NOTAUDITORNOTPASS" xml:space="preserve">
+    <value>只能修改未提交和审核未通过的记录!</value>
+  </data>
+  <data name="CANDELETENOTAUDITORNOTPASS" xml:space="preserve">
+    <value>只能删除未提交和审核未通过的记录</value>
+  </data>
+  <data name="CUSTOMERSDONOTEXIST" xml:space="preserve">
+    <value>客户不存在</value>
+  </data>
+  <data name="DOESNOTEXISTENTERAGAIN" xml:space="preserve">
+    <value>{0}不存在，请重新选择！</value>
+  </data>
+  <data name="GOODSHEAVY" xml:space="preserve">
+    <value>货重</value>
+  </data>
+  <data name="NOTTHISUALSCXGA" xml:space="preserve">
+    <value>没有此行政区域</value>
+  </data>
+  <data name="huo" xml:space="preserve">
+    <value>提货数量</value>
+  </data>
+  <data name="GOODSNOTEXIST" xml:space="preserve">
+    <value>此货品信息不存在</value>
+  </data>
+  <data name="AGINGALERT" xml:space="preserve">
+    <value>时效警戒</value>
+  </data>
+  <data name="DONOTREPEAT" xml:space="preserve">
+    <value>此货物已添加,请不要重复!</value>
+  </data>
+  <data name="NOTEXIST" xml:space="preserve">
+    <value>{0}不存在</value>
+  </data>
+  <data name="NOTNULLANDISINT" xml:space="preserve">
+    <value>{0}不能为空,并且是整数</value>
+  </data>
+  <data name="SOURCECUSTOMER" xml:space="preserve">
+    <value>货源客户</value>
+  </data>
+  <data name="DELIVERYLIMITATION" xml:space="preserve">
+    <value>提货时效</value>
+  </data>
+  <data name="MUSTINT" xml:space="preserve">
+    <value>必须为正整数</value>
+  </data>
+  <data name="CLASS" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="CUSTOMERFACTOR" xml:space="preserve">
+    <value>常用报价因素</value>
+  </data>
+  <data name="FACTOR" xml:space="preserve">
+    <value>报价因素</value>
+  </data>
+  <data name="RECEIPTCODE" xml:space="preserve">
+    <value>回执单号</value>
+  </data>
+  <data name="RECEIPTDESCRIBE" xml:space="preserve">
+    <value>回执描述</value>
+  </data>
+  <data name="CARRYSIGNSTATE" xml:space="preserve">
+    <value>回执状态</value>
+  </data>
+  <data name="OPERATIONSTATE" xml:space="preserve">
+    <value>执行状态</value>
+  </data>
+  <data name="DELIVERCODE" xml:space="preserve">
+    <value>派件人代码</value>
+  </data>
+  <data name="ISINSTEADGET" xml:space="preserve">
+    <value>代收货款</value>
+  </data>
+  <data name="ISPROXY" xml:space="preserve">
+    <value>是否代理签收</value>
+  </data>
+  <data name="REQUEST" xml:space="preserve">
+    <value>回执要求</value>
+  </data>
+  <data name="SIGNER" xml:space="preserve">
+    <value>签收人姓名</value>
+  </data>
+  <data name="SIGNTIME" xml:space="preserve">
+    <value>签收时间</value>
+  </data>
+  <data name="DELIVER" xml:space="preserve">
+    <value>派件人</value>
+  </data>
+  <data name="SIGNDATE" xml:space="preserve">
+    <value>签收日期</value>
+  </data>
+  <data name="RETURNORDERLIST" xml:space="preserve">
+    <value>退货订单</value>
+  </data>
+  <data name="ACCEPTORDERLIST" xml:space="preserve">
+    <value>订单处理</value>
+  </data>
+  <data name="ACCEPT" xml:space="preserve">
+    <value>受理</value>
+  </data>
+  <data name="ACCEPTORG" xml:space="preserve">
+    <value>受理机构</value>
+  </data>
+  <data name="BACK" xml:space="preserve">
+    <value>驳回</value>
+  </data>
+  <data name="CANCELLATION" xml:space="preserve">
+    <value>注销</value>
+  </data>
+  <data name="BACKSUCCESSED" xml:space="preserve">
+    <value>回退成功</value>
+  </data>
+  <data name="CANCELLATIONSUCCESSED" xml:space="preserve">
+    <value>注销成功</value>
+  </data>
+  <data name="NOCARRYSIGNDETAIL" xml:space="preserve">
+    <value>回执记录详细已添加，直接查看</value>
+  </data>
+  <data name="CARRYCOMPANYID" xml:space="preserve">
+    <value>回执机构</value>
+  </data>
+  <data name="CARRYTYPE" xml:space="preserve">
+    <value>回执类型</value>
+  </data>
+  <data name="CARRYOPERATORID" xml:space="preserve">
+    <value>回执人</value>
+  </data>
+  <data name="NOCARRYSIGN" xml:space="preserve">
+    <value>回执记录已存在</value>
+  </data>
+  <data name="SENDRECIVEDATE" xml:space="preserve">
+    <value>回执时间</value>
+  </data>
+  <data name="CARRYSIGN" xml:space="preserve">
+    <value>回执</value>
+  </data>
+  <data name="CARRYSIGNDETIL" xml:space="preserve">
+    <value>回执记录</value>
+  </data>
+  <data name="FACTORNAME" xml:space="preserve">
+    <value>因素名称</value>
+  </data>
+  <data name="QUANTITY" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="NORMALTIMELINESS" xml:space="preserve">
+    <value>标准时效</value>
+  </data>
+  <data name="CARRYSIGNDATE" xml:space="preserve">
+    <value>制单时间</value>
+  </data>
+  <data name="RECEIVEID" xml:space="preserve">
+    <value>接收人ID</value>
+  </data>
+  <data name="RECEIVENAME" xml:space="preserve">
+    <value>接收人姓名</value>
+  </data>
+  <data name="COPERATORID" xml:space="preserve">
+    <value>收发人ID</value>
+  </data>
+  <data name="OPCOMPANYID" xml:space="preserve">
+    <value>收发机构ID</value>
+  </data>
+  <data name="OPCOMPANYNAME" xml:space="preserve">
+    <value>收发机构名称</value>
+  </data>
+  <data name="OPDATE" xml:space="preserve">
+    <value>收发时间</value>
+  </data>
+  <data name="OPERATORNAME" xml:space="preserve">
+    <value>收发人名称</value>
+  </data>
+  <data name="NODEORG" xml:space="preserve">
+    <value>网点机构</value>
+  </data>
+  <data name="SELFDEFINECODE" xml:space="preserve">
+    <value>自定义编码</value>
+  </data>
+  <data name="SPELLCODE" xml:space="preserve">
+    <value>拼音编码</value>
+  </data>
+  <data name="WBXCODE" xml:space="preserve">
+    <value>五笔编码</value>
+  </data>
+  <data name="ACCEPTED" xml:space="preserve">
+    <value>已受理</value>
+  </data>
+  <data name="NOTACCEPT" xml:space="preserve">
+    <value>未受理</value>
+  </data>
+  <data name="REVERTED" xml:space="preserve">
+    <value>已回复</value>
+  </data>
+  <data name="SUBMITED" xml:space="preserve">
+    <value>已提交</value>
+  </data>
+  <data name="COMPLAINTCONTENT" xml:space="preserve">
+    <value>投诉内容描述</value>
+  </data>
+  <data name="COMPLAINTCUSTOMER" xml:space="preserve">
+    <value>投诉客户</value>
+  </data>
+  <data name="COMPLAINTORGANIZATIONS" xml:space="preserve">
+    <value>被投诉机构</value>
+  </data>
+  <data name="ACCEPTDEPARTMENT" xml:space="preserve">
+    <value>受理部门</value>
+  </data>
+  <data name="COMPLAINTDATE" xml:space="preserve">
+    <value>投诉日期</value>
+  </data>
+  <data name="INSPECTORS" xml:space="preserve">
+    <value>投诉核查员</value>
+  </data>
+  <data name="RESPONSEPOST" xml:space="preserve">
+    <value>责任岗位</value>
+  </data>
+  <data name="REVERTTIME" xml:space="preserve">
+    <value>回复时间</value>
+  </data>
+  <data name="PUNISHMENTS" xml:space="preserve">
+    <value>处罚情况</value>
+  </data>
+  <data name="REVERTTIMEBIGGERCOMPLAINTDATE" xml:space="preserve">
+    <value>回复时间必须大于投诉时间</value>
+  </data>
+  <data name="WatermarkedTextBox_DefaultWatermarkText" xml:space="preserve">
+    <value>请输入...</value>
+  </data>
+  <data name="WatermarkedTextBox_TemplatePartIsOfIncorrectType" xml:space="preserve">
+    <value>模板部分是不正确的类型。</value>
+  </data>
+  <data name="INPUTCODE" xml:space="preserve">
+    <value>入库单号</value>
+  </data>
+  <data name="ORDERCODE" xml:space="preserve">
+    <value>订单单号</value>
+  </data>
+  <data name="OUTSTOCKCODE" xml:space="preserve">
+    <value>出库单号</value>
+  </data>
+  <data name="PICKCODE" xml:space="preserve">
+    <value>拣货单号</value>
+  </data>
+  <data name="PUTUPCODE" xml:space="preserve">
+    <value>上架单号</value>
+  </data>
+  <data name="RECEIVEGOODSCODE" xml:space="preserve">
+    <value>收货单号</value>
+  </data>
+  <data name="STOCKCOUNTCODE" xml:space="preserve">
+    <value>盘点单号</value>
+  </data>
+  <data name="CANNOTREPEAT" xml:space="preserve">
+    <value>此{0}已添加，请不要重复!</value>
+  </data>
+  <data name="PARENTCUSTOMER" xml:space="preserve">
+    <value>上级客户</value>
+  </data>
+  <data name="SERVICECONTENT" xml:space="preserve">
+    <value>业务服务内容</value>
+  </data>
+  <data name="COMPANYCODE" xml:space="preserve">
+    <value>公司编号</value>
+  </data>
+  <data name="ORGTONODE" xml:space="preserve">
+    <value>{0}不能为空，请首先选择网点！</value>
+  </data>
+</root>

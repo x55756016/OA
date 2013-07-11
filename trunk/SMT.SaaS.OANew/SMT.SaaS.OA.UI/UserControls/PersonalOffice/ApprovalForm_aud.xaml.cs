@@ -838,6 +838,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (approvalInfo.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString()
                     || approvalInfo.CHECKSTATE == Convert.ToInt32(CheckStates.UnApproved).ToString())
                 {
+                    approvalInfo.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
+                    //RefreshUI刷新事件时会通过接口GetAuditState获取当前表单状态，然后加载相应按钮
                     RefreshUI(RefreshedTypes.All);
                 }
 
@@ -1364,8 +1366,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 state = approvalInfo.CHECKSTATE;
                 //if (operationType == FormTypes.Browse)
                 //    state = "-1";
-                if (operationType == FormTypes.Resubmit)
-                    state = "0";
+                //if (operationType == FormTypes.Resubmit)
+                //    state = "0";
             }
 
             return state;

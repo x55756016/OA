@@ -1392,7 +1392,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     else if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的无各项补贴
                     {
-                        textStandards.Text = "您的岗位级别≥'I'级,无各项差旅补贴。";
+                        //textStandards.Text = "您的岗位级别≥'I'级,无各项差旅补贴。";
+                        textStandards.Text = textStandards.Text + "出差城市：" + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "  您的岗位级别≥'I'级，无各项差旅补贴。";
                         textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。\n";
                         //textStandards.Text += "(以上为员工现岗位级别的补贴，仅供参考)";
                     }
@@ -1419,7 +1420,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     else if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的无各项补贴
                     {
-                        textStandards.Text = "您的岗位级别≥'I'级，无各项差旅补贴。";
+                        //textStandards.Text = "您的岗位级别≥'I'级，无各项差旅补贴。";
+                        textStandards.Text = textStandards.Text + "出差城市：" + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityValue) + "  您的岗位级别≥'I'级，无各项差旅补贴。";                        
                         textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。\n";
                         //textStandards.Text += "(以上为员工现岗位级别的补贴，仅供参考)";
                     }
