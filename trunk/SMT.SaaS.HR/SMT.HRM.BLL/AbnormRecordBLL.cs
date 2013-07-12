@@ -1377,13 +1377,24 @@ namespace SMT.HRM.BLL
             {
                 return;
             }
-            var q = from ent in dal.GetObjects<T_HR_EMPLOYEESIGNINDETAIL>()
-                    join abr in entAbnormRecords on ent.T_HR_EMPLOYEEABNORMRECORD.ABNORMRECORDID equals abr.ABNORMRECORDID
-                    select ent;
-            if (q.Count() >= entAbnormRecords.Count())
+
+            bool needCreateSignInRecord = false;
+            foreach (var item in entAbnormRecords)
             {
-                //所有异常都已生成签卡
-                Tracer.Debug(entEmployeeDetail.EMPLOYEENAME+" 所有异常都已生成签卡。");
+                var q = from ent in dal.GetObjects<T_HR_EMPLOYEESIGNINDETAIL>()
+                        where ent.T_HR_EMPLOYEEABNORMRECORD.ABNORMRECORDID==item.ABNORMRECORDID
+                        select ent;
+                if (q.Count() < 1 )
+                {
+                    needCreateSignInRecord = true;
+                    break;
+                }
+
+            }
+            //全部异常都已生成签卡明细，返回
+            if (!needCreateSignInRecord)
+            {
+                Tracer.Debug(entEmployeeDetail.EMPLOYEENAME + " 所有异常都已生成签卡。");
                 return;
             }
             

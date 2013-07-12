@@ -332,9 +332,9 @@ namespace SMT.HRM.BLL
         /// <param name="strMsg">处理消息</param>
         public void ImportClockInRdListByWindowsService(string strCompanyId, List<T_HR_EMPLOYEECLOCKINRECORD> entTempList, DateTime dtStart, DateTime dtEnd, string strClientIP, ref string strMsg)
         {
+            string importInfo = string.Empty;
             try
             {
-                string importInfo = string.Empty;
               
                 if (string.IsNullOrWhiteSpace(strCompanyId))
                 {
@@ -406,10 +406,7 @@ namespace SMT.HRM.BLL
                 string strIsAgnecy = Convert.ToInt32(Common.IsAgencyPost.No).ToString();
                 string strEditState = Convert.ToInt32(Common.EditStates.Actived).ToString();
                 string strCheckState = Convert.ToInt32(Common.CheckStates.Approved).ToString();
-
-                Utility.SaveLog(strMsg + importInfo + "计算考勤的所有员工指纹编码为：" + filter);
-                    
-
+                
                 //var listCompany = (from e in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST")
                 //                   join p in dal.GetObjects<T_HR_POST>().Include("T_HR_DEPARTMENT") on e.T_HR_POST.POSTID equals p.POSTID
                 //                   join d in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_COMPANY") on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
@@ -537,16 +534,24 @@ namespace SMT.HRM.BLL
                                    && e.CHECKSTATE == strCheckState
                                    && c.COMPANYID==strCompanyId
                                    select e.T_HR_EMPLOYEE).ToList();
+
+                string employeesName = string.Empty;
+                foreach (var item in listEmpss)
+                {
+                    employeesName += ",'"+item.EMPLOYEECNAME+"'";
+                }
+                Utility.SaveLog(strMsg + importInfo + "计算考勤的所有员工指纹编码为：" + filter + employeesName);
                 bllAbnormRecord.CheckAbnormRecordForEmployees(listEmpss, dtStart, dtEnd, ref strMsg);
+
                 Utility.SaveLog("本次打卡自动导入调用服务完毕。" + importInfo
                     + "本次检查异常的员工个数：" + listEmpss.Count
-                    + ",本次处理的结果为：" + strMsg);
+                    + ",本次处理的结果为：" + strMsg + " 处理的员工为：" + employeesName);
             }
             catch (Exception ex)
             {
                 strMsg = ex.Message.ToString();
 
-                string strerr = "本次打卡自动导入调用服务发生异常。导入的打卡机IP:" + strClientIP + "。 " + DateTime.Now.ToString() + "，计算考勤异常(计算的考勤时间段为：{0}-{1})。计算考勤的公司ID为：" + strCompanyId + ",出错原因：" + ex.ToString();
+                string strerr = "本次打卡自动导入调用服务发生异常。 "+importInfo+",出错原因：" + ex.ToString();
 
                 string strStartTime = string.Empty, strEndTime = string.Empty;
                 if (dtStart == null)
