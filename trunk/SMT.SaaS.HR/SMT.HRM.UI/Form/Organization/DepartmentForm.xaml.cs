@@ -515,6 +515,7 @@ namespace SMT.HRM.UI.Form
                 //cbxDepartMent.DisplayMemberPath = "DEPARTMENTNAME";
                 acbDepName.ItemsSource = entity;
                 acbDepName.ValueMemberPath = "DEPARTMENTNAME";
+                string deptName = string.Empty;
                 if (Department.T_HR_DEPARTMENTDICTIONARY != null)
                 {
                     foreach (var item in acbDepName.ItemsSource)
@@ -526,11 +527,13 @@ namespace SMT.HRM.UI.Form
                             {
                                 //cbxDepartMent.SelectedItem = item;
                                 acbDepName.SelectedItem = item;
+                                deptName = dict.DEPARTMENTNAME;
                                 break;
                             }
                         }
                     }
                 }
+                ToolTipService.SetToolTip(this.deptName, deptName);
             }
         }
 

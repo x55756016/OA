@@ -1366,8 +1366,13 @@ namespace SMT.HRM.BLL
 
             string strAbnormCategory = (Convert.ToInt32(Common.AbnormCategory.Absent) + 1).ToString();
             string strSignState = (Convert.ToInt32(Common.IsChecked.No) + 1).ToString();
-            string strOrderKey = "ABNORMALDATE";
-            IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = GetAbnormRecordRdListByEmpIdAndDate(strEmployeeId, strAbnormCategory, strSignState, dtStart, dtEnd, strOrderKey);
+            //string strOrderKey = "ABNORMALDATE";
+            IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = from ent in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>()
+                                                                     where ent.OWNERID == strEmployeeId
+                                                                     && ent.ABNORMALDATE >= dtStart
+                                                                     && ent.ABNORMALDATE <= dtEnd
+                                                                     select ent;
+            //GetAbnormRecordRdListByEmpIdAndDate(strEmployeeId, strAbnormCategory, strSignState, dtStart, dtEnd, strOrderKey);
             if (entAbnormRecords == null)
             {
                 return;

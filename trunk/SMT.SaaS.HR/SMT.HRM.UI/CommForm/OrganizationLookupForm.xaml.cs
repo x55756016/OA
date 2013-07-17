@@ -42,20 +42,6 @@ namespace SMT.HRM.UI
         {
             InitializeComponent();
             InitParas();
-
-            try
-            {
-                if (ParentWindow != null)
-                {
-                    SVShowContent.Width = ParentWindow.ActualWidth;
-                    SVShowContent.Height = ParentWindow.ActualHeight - ButtonAreaPanel.ActualHeight;
-                }
-            }
-            catch (Exception ex)
-            {
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
-
-            }
         }
 
         /// <summary>

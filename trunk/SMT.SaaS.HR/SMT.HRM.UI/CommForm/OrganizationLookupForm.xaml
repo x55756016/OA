@@ -3,32 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
         xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
-	xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
         TitleContent="{Binding Converter={StaticResource ResourceConveter}, Source=ORGANIZATION}"
-        Width="400" Height="500">
+        Width="400">
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
     <Grid x:Name="PARENT">
-        <Grid x:Name="LayoutRoot" Margin="2" >
+        <Grid x:Name="LayoutRoot" Margin="2" MinWidth="160" MinHeight="200" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="40" />
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="0.1*"/>
             </Grid.RowDefinitions>
-	     <controlsToolkit:DockPanel LastChildFill="True" HorizontalAlignment="Stretch" 
-                                     Grid.Row="0" VerticalAlignment="Stretch" Background="Transparent">            
-		<ScrollViewer Style="{StaticResource ScrollViewerStyle}" Padding="0" Margin="0"
-                              HorizontalScrollBarVisibility="Disabled"
-                              VerticalScrollBarVisibility="Auto" x:Name="SVShowContent" BorderThickness="0">
-			<controls:TreeView x:Name="treeOrganization"   SelectedItemChanged="lookUpTree_SelectedItemChanged"
-				       Margin="5,5,5,5" 
-				       HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Stretch" Height="Auto" Style="{StaticResource TreeViewStyle}">
 
-			</controls:TreeView>
-		</ScrollViewer>	
-	 </controlsToolkit:DockPanel>
-	<StackPanel Orientation="Horizontal" Grid.Row="1"  x:Name="ButtonAreaPanel"  HorizontalAlignment="Center">
-		<Button x:Name="OKButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=OKBUTTON}" Click="OKButton_Click" Width="70"   Height="24"  Margin="5,0,5,0"/>
-		<Button x:Name="CancelButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCELBUTTON}" Click="CancelButton_Click" Width="70"  Height="24" Margin="5,0,5,0" />
-		<Button  x:Name="btnRefresh"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=REFRESH}" Click="btnRefresh_Click" Width="70"   Height="24" Margin="5,0,5,0" HorizontalAlignment="Right" />
-	</StackPanel>
+            <controls:TreeView x:Name="treeOrganization"   SelectedItemChanged="lookUpTree_SelectedItemChanged"
+                               Margin="5,5,5,5"  Grid.Row="0" 
+                               HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Stretch" Height="Auto" Style="{StaticResource TreeViewStyle}">
+
+            </controls:TreeView>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                <Button x:Name="OKButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=OKBUTTON}" Click="OKButton_Click" Width="70"   Height="24"  Margin="5,0,5,0"/>
+                <Button x:Name="CancelButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCELBUTTON}" Click="CancelButton_Click" Width="70"  Height="24" Margin="5,0,5,0" />
+                <Button  x:Name="btnRefresh"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=REFRESH}" Click="btnRefresh_Click" Width="70"   Height="24" Margin="5,0,5,0" HorizontalAlignment="Right" />
+            </StackPanel>
+
         </Grid>
     </Grid>
+    </ScrollViewer>
 </swc:Window>

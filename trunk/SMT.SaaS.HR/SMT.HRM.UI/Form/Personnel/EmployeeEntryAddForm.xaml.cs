@@ -154,6 +154,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 loadbar.Stop();
                 OnUIRefreshed();
             }
+            this.showEmployeeEntryForm();
         }
 
 
@@ -251,7 +252,6 @@ namespace SMT.HRM.UI.Form.Personnel
                     //pension.EDITSTATE = ((int)EditStates.UnActived).ToString();
                     //client.PensionMasterAddAsync(pension, strMsg);
                     eminfo.saveResume();
-
                 }
                 else
                 {
@@ -491,8 +491,25 @@ namespace SMT.HRM.UI.Form.Personnel
                 loadbar.Stop();
             }
 
+        }
 
-
+        /// <summary>
+        /// 打开员工入职表单EmployeeEntryForm
+        /// </summary>
+        private void showEmployeeEntryForm()
+        {
+            try
+            {
+                EmployeeEntryForm form = new EmployeeEntryForm(FormTypes.Edit, EmployeeEntry.EMPLOYEEENTRYID);
+                EntityBrowser browser = new EntityBrowser(form);
+                browser.MinHeight = 300;
+                browser.FormType = FormTypes.Edit;
+                browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
+            }
+            catch
+            {
+                //不用处理
+            }
         }
 
         /// <summary>

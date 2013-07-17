@@ -52,7 +52,7 @@
 
         <!--Row 1-->
         <!--部门字典-->
-        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENT}" 
+        <TextBlock x:Name="deptName" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENTNAME}" 
                    Grid.Row="1" Grid.Column="0" ></TextBlock>
         <!--<ComboBox x:Name="cbxDepartMent" Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStyle}" 
                 SelectionChanged="cbxDepartMent_SelectionChanged" Width="auto" HorizontalAlignment="Stretch">
