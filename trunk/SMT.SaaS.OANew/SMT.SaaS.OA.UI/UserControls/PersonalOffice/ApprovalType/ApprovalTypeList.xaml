@@ -6,11 +6,11 @@
     mc:Ignorable="d"
     xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
     xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
-    Height="420" Width="400"
+     Width="400"
     >
     
-
-    <Grid x:Name="LayoutRoot" Background="White">
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <Grid x:Name="LayoutRoot" Background="White" MinWidth="160" MinHeight="200">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -49,5 +49,5 @@
             </StackPanel>
         </Grid>
     </Grid>
-    
+    </ScrollViewer>
 </swc:Window>

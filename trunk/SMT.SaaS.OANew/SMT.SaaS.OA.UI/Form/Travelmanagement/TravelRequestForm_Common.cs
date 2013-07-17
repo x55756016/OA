@@ -132,20 +132,35 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             if (TraveDetailList_Golbal.Count() > 0)
             {
-                //新的赋值方式
-                NewBussnessTripDetail.STARTDATE = TraveDetailList_Golbal[TraveDetailList_Golbal.Count() - 1].ENDDATE;
-                NewBussnessTripDetail.DEPCITY = citysEndList_Golbal[TraveDetailList_Golbal.Count() - 1];
-                NewBussnessTripDetail.ENDDATE = DateTime.Now;
-                //citysStartList_Golbal.Add(citysEndList_Golbal[TraveDetailList_Golbal.Count() - 1]);绑定后会增加一条
-                TraveDetailList_Golbal.Add(NewBussnessTripDetail);
-                DaGrs.ItemsSource = TraveDetailList_Golbal;
-                //禁用此记录开始城市选择控件
-                SearchCity myCity = DaGrs.Columns[1].GetCellContent(NewBussnessTripDetail).FindName("txtDEPARTURECITY") as SearchCity;
-                if (myCity != null)
+                try
                 {
-                    myCity.TxtSelectedCity.Text = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(citysStartList_Golbal[TraveDetailList_Golbal.Count() - 1]);
-                    myCity.IsEnabled = false;
-                    ((DataGridCell)((StackPanel)myCity.Parent).Parent).IsEnabled = false;
+                    //新的赋值方式，开始城市，开始时间
+                    NewBussnessTripDetail.STARTDATE = TraveDetailList_Golbal[TraveDetailList_Golbal.Count() - 1].ENDDATE;
+                    NewBussnessTripDetail.DEPCITY = TraveDetailList_Golbal[TraveDetailList_Golbal.Count() - 1].DESTCITY;
+                    
+                    //到达城市，时间默认值
+                    NewBussnessTripDetail.DESTCITY = TraveDetailList_Golbal[0].DEPCITY;                  
+                    NewBussnessTripDetail.ENDDATE = TraveDetailList_Golbal[TraveDetailList_Golbal.Count() - 1].ENDDATE.Value.AddDays(1);
+                    
+                    TraveDetailList_Golbal.Add(NewBussnessTripDetail);
+
+                    //citysStartList_Golbal.Add(NewBussnessTripDetail.DEPCITY);
+                    //citysEndList_Golbal.Add(NewBussnessTripDetail.DESTCITY);
+
+                    DaGrs.ItemsSource = TraveDetailList_Golbal;
+                    //禁用此记录开始城市选择控件
+                    if (DaGrs.Columns[1].GetCellContent(NewBussnessTripDetail) == null) return;
+                    SearchCity myCity = DaGrs.Columns[1].GetCellContent(NewBussnessTripDetail).FindName("txtDEPARTURECITY") as SearchCity;
+                    if (myCity != null)
+                    {
+                        myCity.TxtSelectedCity.Text = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(NewBussnessTripDetail.DEPCITY);
+                        myCity.IsEnabled = false;
+                        ((DataGridCell)((StackPanel)myCity.Parent).Parent).IsEnabled = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Utility.SetLog(ex.ToString());
                 }
                 //旧的赋值方式
             }
@@ -163,7 +178,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 SearchCity myCitys = DaGrs.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
 
-                TraveDetailOne_Golbal.T_OA_BUSINESSTRIP = Master_Golbal;
+                //TraveDetailOne_Golbal.T_OA_BUSINESSTRIP = Master_Golbal;
                 DateTimePicker StartDate = DaGrs.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
                 DateTimePicker EndDate = DaGrs.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
 
@@ -172,6 +187,13 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
                 SearchCity DepartCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
                 SearchCity TargetCity = DaGrs.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
+
+                if (StartDate.Value == null || EndDate.Value == null)
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "开始时间或结束的年月日或时分不能为空", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    IsResult = false;
+                    return IsResult;
+                }
                 StrStartDt = StartDate.Value.Value.ToString("d");//开始日期
                 EndDt = EndDate.Value.Value.ToString("d");//结束日期
                 StrStartTime = StartDate.Value.Value.ToString("HH:mm");//开始时间
@@ -188,6 +210,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "结束时间的年月日或时分不能为空", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     IsResult = false;
                 }
+
+
                 DateTime DtStart = System.Convert.ToDateTime(StrStartDt + " " + StrStartTime);
                 DateTime DtEnd = System.Convert.ToDateTime(EndDt + " " + StrEndTime);
                 if (DtStart >= DtEnd)
@@ -240,31 +264,35 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             try
             {
-                TraveDetailList_Golbal = DaGrs.ItemsSource as ObservableCollection<T_OA_BUSINESSTRIPDETAIL>;
+                //TraveDetailList_Golbal = DaGrs.ItemsSource as ObservableCollection<T_OA_BUSINESSTRIPDETAIL>;
                 if (TraveDetailList_Golbal.Count() > 1)
                 {
+                    
                     int selectGridRowIndex = DaGrs.SelectedIndex;
-                    T_OA_BUSINESSTRIPDETAIL entDel = DaGrs.SelectedItems[0] as T_OA_BUSINESSTRIPDETAIL;
-                    if (TraveDetailList_Golbal.Contains(entDel))
+                    if (selectGridRowIndex >= 0)
                     {
-                        TraveDetailList_Golbal.Remove(entDel);
-                        if (citysEndList_Golbal.Count >= selectGridRowIndex)
+                        if (TraveDetailList_Golbal.Count >= selectGridRowIndex)
                         {
-                            citysEndList_Golbal.RemoveAt(selectGridRowIndex - 1);
+                            TraveDetailList_Golbal.RemoveAt(selectGridRowIndex);
                         }
-                        if (citysStartList_Golbal.Count >= selectGridRowIndex)
-                        {
-                            citysStartList_Golbal.RemoveAt(selectGridRowIndex - 1);
-                        }
+                        //if (citysEndList_Golbal.Count >= selectGridRowIndex)
+                        //{
+                        //    citysEndList_Golbal.RemoveAt(selectGridRowIndex);
+                        //}
+                        //if (citysStartList_Golbal.Count >= selectGridRowIndex)
+                        //{
+                        //    citysStartList_Golbal.RemoveAt(selectGridRowIndex);
+                        //}
                     }
                     //如果选中的不是第一条也不是最后一行，那么修改选中行的下一行的开始城市
-                    if (1 < selectGridRowIndex && selectGridRowIndex < TraveDetailList_Golbal.Count - 1)
-                    {
-                        Object obje = DaGrs.SelectedItems[selectGridRowIndex + 1];
-                        SearchCity mystarteachCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
-                        mystarteachCity.TxtSelectedCity.Text = GetCityName(citysEndList_Golbal[selectGridRowIndex - 1]);
-                        citysStartList_Golbal[selectGridRowIndex + 1] = citysEndList_Golbal[selectGridRowIndex - 1];//上一城市的城市值
-                    }
+                    //if (1 < selectGridRowIndex && selectGridRowIndex < TraveDetailList_Golbal.Count - 1)
+                    //{
+                    //    Object obje = DaGrs.SelectedItems[selectGridRowIndex + 1];
+                    //    if (obje == null) return;
+                    //    SearchCity mystarteachCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
+                    //    mystarteachCity.TxtSelectedCity.Text = GetCityName(citysEndList_Golbal[selectGridRowIndex - 1]);
+                    //    citysStartList_Golbal[selectGridRowIndex + 1] = citysEndList_Golbal[selectGridRowIndex - 1];//上一城市的城市值
+                    //}
                     DaGrs.ItemsSource = TraveDetailList_Golbal;
                 }
                 else
@@ -302,36 +330,32 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     int selectGridRowIndex = DaGrs.SelectedIndex;
 
 
-                    if (selectGridRowIndex > 0 && citysEndList_Golbal.Count >= selectGridRowIndex + 1)
+                    if (selectGridRowIndex > 0)
                     {
-                        if (selectCityValue == citysEndList_Golbal[selectGridRowIndex])
+                        if (selectCityValue == TraveDetailList_Golbal[selectGridRowIndex].DESTCITY)
                         {
                             ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出发城市和目标城市不能相同"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                             return;
                         }
                     }
-                    for (int i = 0; i < citysStartList_Golbal.Count; i++)
-                    {
-                        if (citysStartList_Golbal.Count > 1)
-                        {
-                            //如果上下两条出差记录城市一样
-                            if (i < citysStartList_Golbal.Count - 1 && citysStartList_Golbal[i] == citysStartList_Golbal[i + 1])
-                            {
-                                //出发城市与开始城市不能相同
-                                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                                return;
-                            }
-                        }
-                    }
+                    //for (int i = 0; i < citysStartList_Golbal.Count; i++)
+                    //{
+                    //    if (citysStartList_Golbal.Count > 1)
+                    //    {
+                    //        //如果上下两条出差记录城市一样
+                    //        if (i < citysStartList_Golbal.Count - 1 && citysStartList_Golbal[i] == citysStartList_Golbal[i + 1])
+                    //        {
+                    //            //出发城市与开始城市不能相同
+                    //            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    //            return;
+                    //        }
+                    //    }
+                    //}
 
                     senderCity.TxtSelectedCity.Text = selectCityName;
-                    if (citysStartList_Golbal.Count >= selectGridRowIndex + 1)
+                    if (TraveDetailList_Golbal.Count >= selectGridRowIndex + 1)
                     {
-                        citysStartList_Golbal[selectGridRowIndex] = selectCityValue;
-                    }
-                    else
-                    {
-                        citysStartList_Golbal.Add(selectCityValue);
+                        TraveDetailList_Golbal[selectGridRowIndex].DEPCITY = selectCityValue;
                     }
 
 
@@ -412,38 +436,33 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 {
                     int selectGridRowIndex = DaGrs.SelectedIndex;
 
-                    if (selectGridRowIndex >= 0 && citysStartList_Golbal.Count >= selectGridRowIndex + 1)
+                    if (TraveDetailList_Golbal.Count>1)//如果不是只有一条记录，且出发城市跟选择的结束城市一致，返回。
                     {
-                        if (selectCityValue == citysStartList_Golbal[selectGridRowIndex])
+                        if (TraveDetailList_Golbal[selectGridRowIndex].DEPCITY == selectCityValue)
                         {
                             ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出发城市和目标城市不能相同"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                             return;
                         }
-                    }
-
-                    if (citysEndList_Golbal.Count >= selectGridRowIndex + 1)
-                    {
-                        citysEndList_Golbal[selectGridRowIndex] = selectCityValue;
-                    }
-                    else
-                    {
-                        citysEndList_Golbal.Add(selectCityValue);
-                    }
-                    serchCitySender.TxtSelectedCity.Text = selectCityName;
-                    //设置下一行的起始城市 如果为最后一行数据，且grid有下一行，增加下一行
-                    if (citysStartList_Golbal.Count == (selectGridRowIndex + 1))
-                    {
-                        ObservableCollection<T_OA_BUSINESSTRIPDETAIL> objs = DaGrs.ItemsSource as ObservableCollection<T_OA_BUSINESSTRIPDETAIL>;
-                        if (objs.Count > selectGridRowIndex + 1)
+                        else
                         {
-                            citysStartList_Golbal.Add(selectCityValue);
-                            SetNextDepartureCity(selectGridRowIndex);
+                            //设置当前出差明细的到达城市
+                            TraveDetailList_Golbal[selectGridRowIndex].DESTCITY = selectCityValue;
                         }
                     }
-                    else
+
+                    //if (citysEndList_Golbal.Count >= selectGridRowIndex)
+                    //{
+                    //    citysEndList_Golbal[selectGridRowIndex] = selectCityValue;
+                    //}
+                    //else
+                    //{
+                    //    citysEndList_Golbal.Add(selectCityValue);
+                    //}
+                    serchCitySender.TxtSelectedCity.Text = selectCityName;
+                    //设置下一行的起始城市 如果为最后一行数据，且grid有下一行，增加下一行
+                    if (selectGridRowIndex<TraveDetailList_Golbal.Count-1 )//非最后一条明细
                     {
-                        //citysStartList[selectGridRowIndex] = thisSelectStartCity.Tag.ToString();
-                        citysStartList_Golbal[selectGridRowIndex + 1] = selectCityValue;//出发城市中下一条记录
+                        TraveDetailList_Golbal[selectGridRowIndex+1].DEPCITY = selectCityValue;//下一条记录出发城市
                         SetNextDepartureCity(selectGridRowIndex);
                     }
                 }
@@ -452,54 +471,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("系统错误，请联系管理员：" + ex.ToString());
                     SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                 }
-                //serchCitySender.TxtSelectedCity.Text = SelectCity.Result.Keys.FirstOrDefault();
-                //if (DaGrs.SelectedItem != null)
-                //{
-                //    int selectGridRowIndex = DaGrs.SelectedIndex;//选择的行数，选择的行数也就是目的城市的位置
-                //    if (DaGrs.Columns[3].GetCellContent(DaGrs.SelectedItem) != null)
-                //    {
-                //        //T_OA_BUSINESSTRIPDETAIL travDetaillist = DaGrs.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
-                //        SearchCity thisSelectEndCity = DaGrs.Columns[3].GetCellContent(DaGrs.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;
-                //        SearchCity thisSelectStartCity = DaGrs.Columns[1].GetCellContent(DaGrs.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;
-
-                //        if (citysEndList.Count > 1)
-                //        {
-                //            if (thisSelectStartCity.TxtSelectedCity.Text.ToString().Trim() == thisSelectEndCity.TxtSelectedCity.Text.ToString().Trim())
-                //            {
-                //                thisSelectEndCity.TxtSelectedCity.Text = string.Empty;
-                //                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出发城市和目标城市不能相同"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                //                return;
-                //            }
-                //        }
-                //        if (citysEndList.Count >= (selectGridRowIndex + 1))
-                //        {
-                //            citysEndList[selectGridRowIndex] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();
-                //        }
-                //        else
-                //        {
-                //            citysEndList.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
-                //        }
-                //        //设置下一行的起始城市
-                //        if (citysStartList.Count == (selectGridRowIndex + 1))
-                //        {
-                //            citysStartList.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
-                //            SetNextDepartureCity(selectGridRowIndex);
-                //        }
-                //        else
-                //        {
-                //            citysStartList[selectGridRowIndex] = thisSelectStartCity.Tag.ToString();
-                //            citysStartList[selectGridRowIndex + 1] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();//出发城市中下一条记录
-                //            SetNextDepartureCity(selectGridRowIndex);
-                //        }
-                //    }
-                //}
-                //if (citysEndList.Last().Split(',').Count() > 2)
-                //{
-                //    serchCitySender.TxtSelectedCity.Text = string.Empty;
-                //    citysEndList.RemoveAt(citysEndList.Count - 1);
-                //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANONLYCHOOSEONE", "ARRIVALCITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                //    return;
-                //}
             };
             var windows = SMT.SAAS.Controls.Toolkit.Windows.ProgramManager.ShowProgram(Utility.GetResourceStr("CITY"), "", "123", SelectCity, false, false, null);
             if (SelectCity is AreaSortCity)
@@ -527,7 +498,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     //DateTimePicker myDaysTime = DaGrs.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
                     if ((SelectIndex + 2) == EachCount)
                     {
-                        mystarteachCity.TxtSelectedCity.Text = GetCityName(citysStartList_Golbal[SelectIndex + 1]);
+                        mystarteachCity.TxtSelectedCity.Text = GetCityName(TraveDetailList_Golbal[SelectIndex + 1].DEPCITY);
                         //myDaysTime.Value = Convert.ToDateTime(endTime[SelectIndex+1]);
                     }
                 }
@@ -865,30 +836,30 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         #region KeyDown事件
         private void TextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            int i = 0;
-            if (e.Key == Key.Enter)
-            {
-                if (TraveDetailList_Golbal.Count() > 0)
-                {
-                    if (DaGrs.SelectedIndex == TraveDetailList_Golbal.Count - 1)
-                    {
-                        T_OA_BUSINESSTRIPDETAIL buip = new T_OA_BUSINESSTRIPDETAIL();
-                        buip.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
-                        if (TraveDetailList_Golbal.Count() > 0)
-                        {
-                            foreach (T_OA_BUSINESSTRIPDETAIL tailList in TraveDetailList_Golbal)
-                            {
-                                tailList.DESTCITY = citysEndList_Golbal[i].Replace(",", "");
-                                buip.DEPCITY = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(tailList.DESTCITY);
-                                buip.STARTDATE = tailList.ENDDATE;
-                            }
-                            i++;
-                        }
-                        buip.ENDDATE = DateTime.Now;
-                        TraveDetailList_Golbal.Add(buip);
-                    }
-                }
-            }
+            //int i = 0;
+            //if (e.Key == Key.Enter)
+            //{
+            //    if (TraveDetailList_Golbal.Count() > 0)
+            //    {
+            //        if (DaGrs.SelectedIndex == TraveDetailList_Golbal.Count - 1)
+            //        {
+            //            T_OA_BUSINESSTRIPDETAIL buip = new T_OA_BUSINESSTRIPDETAIL();
+            //            buip.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
+            //            if (TraveDetailList_Golbal.Count() > 0)
+            //            {
+            //                foreach (T_OA_BUSINESSTRIPDETAIL tailList in TraveDetailList_Golbal)
+            //                {
+            //                    tailList.DESTCITY = citysEndList_Golbal[i].Replace(",", "");
+            //                    buip.DEPCITY = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(tailList.DESTCITY);
+            //                    buip.STARTDATE = tailList.ENDDATE;
+            //                }
+            //                i++;
+            //            }
+            //            buip.ENDDATE = DateTime.Now;
+            //            TraveDetailList_Golbal.Add(buip);
+            //        }
+            //    }
+            //}
         }
         #endregion
 
@@ -1093,13 +1064,13 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         private void BindDataGrid(ObservableCollection<T_OA_BUSINESSTRIPDETAIL> obj)
         {
             if (obj == null) return;
-            citysStartList_Golbal.Clear();
-            citysEndList_Golbal.Clear();
-            foreach (T_OA_BUSINESSTRIPDETAIL detail in obj)
-            {
-                citysStartList_Golbal.Add(detail.DEPCITY);
-                citysEndList_Golbal.Add(detail.DESTCITY);
-            }
+            //citysStartList_Golbal.Clear();
+            //citysEndList_Golbal.Clear();
+            //TraveDetailList_Golbal.Clear();
+            //foreach (T_OA_BUSINESSTRIPDETAIL detail in obj)
+            //{
+            //    TraveDetailList_Golbal.Add(detail);
+            //}
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
                 DaGridReadOnly.ItemsSource = obj;
@@ -1226,24 +1197,24 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         /// <summary>
         /// 添加子表数据
         /// </summary>
-        private void NewDetail()
+        private void SetTraveRequestDetailValue()
         {
             try
             {
-
-                ObservableCollection<T_OA_BUSINESSTRIPDETAIL> ListDetail = new ObservableCollection<T_OA_BUSINESSTRIPDETAIL>();
+                ObservableCollection<T_OA_BUSINESSTRIPDETAIL> ListDetail 
+                    = DaGrs.ItemsSource as ObservableCollection<T_OA_BUSINESSTRIPDETAIL>;
                 string StrStartDt = "";   //开始时间
                 string StrStartTime = ""; //开始时：分
                 string EndDt = "";    //结束时间
                 string StrEndTime = ""; //结束时：分
-                int i = 0;
+                //int i = 0;
                 if (DaGrs.ItemsSource != null)
                 {
-                    foreach (Object obje in DaGrs.ItemsSource)//判断所选的出发城市是否与目标城市相同
+                    for (int i = 0; i < ListDetail.Count; i++)
                     {
-                        TraveDetailOne_Golbal = new T_OA_BUSINESSTRIPDETAIL();
-                        TraveDetailOne_Golbal.BUSINESSTRIPDETAILID = (obje as T_OA_BUSINESSTRIPDETAIL).BUSINESSTRIPDETAILID;
-                        TraveDetailOne_Golbal.T_OA_BUSINESSTRIP = Master_Golbal;
+                        Object obje = ListDetail[i];
+                        TraveDetailList_Golbal[i].T_OA_BUSINESSTRIP = Master_Golbal;
+
                         DateTimePicker StartDate = DaGrs.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
                         DateTimePicker EndDate = DaGrs.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
                         TextBox datys = ((TextBox)((StackPanel)DaGrs.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
@@ -1267,68 +1238,56 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         DateTime DtStart = System.Convert.ToDateTime(StrStartDt + " " + StrStartTime);
                         DateTime DtEnd = System.Convert.ToDateTime(EndDt + " " + StrEndTime);
 
-                        if (citysStartList_Golbal != null)//出发城市
-                        {
-                            TraveDetailOne_Golbal.DEPCITY = citysStartList_Golbal[i].Replace(",", "");
-                        }
-                        if (citysEndList_Golbal != null)//目标城市
-                        {
-                            TraveDetailOne_Golbal.DESTCITY = citysEndList_Golbal[i].Replace(",", "");
-                        }
+                        //出差出发到达城市名称
+                        TraveDetailList_Golbal[i].STARTCITYNAME =GetCityName(TraveDetailList_Golbal[i].DEPCITY);
+                        TraveDetailList_Golbal[i].ENDCITYNAME =GetCityName(TraveDetailList_Golbal[i].DESTCITY);
+
                         if (DtStart != null)
                         {
-                            TraveDetailOne_Golbal.STARTDATE = DtStart;
+                            TraveDetailList_Golbal[i].STARTDATE = DtStart;
                         }
                         if (datys != null)//出差天数
                         {
-                            TraveDetailOne_Golbal.BUSINESSDAYS = datys.Text;
+                            TraveDetailList_Golbal[i].BUSINESSDAYS = datys.Text;
                         }
                         if (DtEnd != null)
                         {
-                            TraveDetailOne_Golbal.ENDDATE = DtEnd;
+                            TraveDetailList_Golbal[i].ENDDATE = DtEnd;
                         }
                         if (IsCheck != null)//是否是私事
                         {
-                            TraveDetailOne_Golbal.PRIVATEAFFAIR = (bool)IsCheck.IsChecked ? "1" : "0";
+                            TraveDetailList_Golbal[i].PRIVATEAFFAIR = (bool)IsCheck.IsChecked ? "1" : "0";
                         }
                         if (IsCheckMeet != null)//是否是开会
                         {
-                            TraveDetailOne_Golbal.GOOUTTOMEET = (bool)IsCheckMeet.IsChecked ? "1" : "0";
+                            TraveDetailList_Golbal[i].GOOUTTOMEET = (bool)IsCheckMeet.IsChecked ? "1" : "0";
                         }
                         if (IsCheckCar != null)//公司派车
                         {
-                            TraveDetailOne_Golbal.COMPANYCAR = (bool)IsCheckCar.IsChecked ? "1" : "0";
+                            TraveDetailList_Golbal[i].COMPANYCAR = (bool)IsCheckCar.IsChecked ? "1" : "0";
                         }
                         if (ToolType != null)//乘坐交通工具类型
                         {
                             T_SYS_DICTIONARY ComVechileObj = ToolType.SelectedItem as T_SYS_DICTIONARY;
                             if (ComVechileObj != null)
-                                TraveDetailOne_Golbal.TYPEOFTRAVELTOOLS = ComVechileObj.DICTIONARYVALUE.ToString();
+                                TraveDetailList_Golbal[i].TYPEOFTRAVELTOOLS = ComVechileObj.DICTIONARYVALUE.ToString();
                         }
                         if (ToolLevel != null)//乘坐交通工具级别
                         {
                             T_SYS_DICTIONARY ComLevelObj = ToolLevel.SelectedItem as T_SYS_DICTIONARY;
                             if (ComLevelObj != null)
-                                TraveDetailOne_Golbal.TAKETHETOOLLEVEL = ComLevelObj.DICTIONARYVALUE.ToString();
+                                TraveDetailList_Golbal[i].TAKETHETOOLLEVEL = ComLevelObj.DICTIONARYVALUE.ToString();
                         }
-                        ListDetail.Add(TraveDetailOne_Golbal);
-                        i++;
                     }
-                    TraveDetailList_Golbal = ListDetail;
                 }
             }
             catch (Exception ex)
             {
                 Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "设置出差明细出错："+Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             }
         }
         #endregion
-
-
-
-
-
 
     }
 }

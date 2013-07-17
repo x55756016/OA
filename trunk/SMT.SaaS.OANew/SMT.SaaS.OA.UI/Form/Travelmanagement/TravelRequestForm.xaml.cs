@@ -37,7 +37,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         private T_OA_AGENTDATESET AgentDateSet;
         private ObservableCollection<T_OA_BUSINESSTRIPDETAIL> TraveDetailList_Golbal = new ObservableCollection<T_OA_BUSINESSTRIPDETAIL>();
-        private T_OA_BUSINESSTRIPDETAIL TraveDetailOne_Golbal = new T_OA_BUSINESSTRIPDETAIL();
+        //private T_OA_BUSINESSTRIPDETAIL TraveDetailList_Golbal[i] = new T_OA_BUSINESSTRIPDETAIL();
         public List<T_SYS_DICTIONARY> ListVechileLevel = new List<T_SYS_DICTIONARY>();
         public List<T_OA_CANTAKETHEPLANELINE> cantaketheplaneline = new List<T_OA_CANTAKETHEPLANELINE>();//可乘坐飞机线路设置
         public T_OA_TRAVELSOLUTIONS travelsolutions_Golbal;//出差方案
@@ -48,9 +48,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         //bool IsAudit = true;
         //private string Master_Golbal.BUSINESSTRIPID = string.Empty;
         //开始城市集合
-        private List<string> citysStartList_Golbal = new List<string>();
+        //private List<string> citysStartList_Golbal = new List<string>();
         //目标城市集合
-        private List<string> citysEndList_Golbal = new List<string>();
+        //private List<string> citysEndList_Golbal = new List<string>();
         private List<string> endTime = new List<string>();
         //private DateTimePicker txtEndTime = new DateTimePicker();
         //员工信息
@@ -116,12 +116,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 svdgEdit.Visibility = Visibility.Collapsed;
                 svdgReadOnly.Visibility = Visibility.Visible;
+                Utility.InitFileLoad(FormTypes.Browse, uploadFile, BUSINESSTRIPID, false);
             }
             else
             {
                 svdgEdit.Visibility = Visibility.Visible;
-                svdgReadOnly.Visibility = Visibility.Collapsed;
-                
+                svdgReadOnly.Visibility = Visibility.Collapsed;                
             }
             this.Loaded += new RoutedEventHandler(TravelapplicationPage_Loaded);
         }
@@ -469,12 +469,15 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 TraveDetailList_Golbal = new ObservableCollection<T_OA_BUSINESSTRIPDETAIL>();
                 T_OA_BUSINESSTRIPDETAIL buip = new T_OA_BUSINESSTRIPDETAIL();
                 buip.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
-                buip.STARTDATE = DateTime.Now;
-                buip.ENDDATE = DateTime.Now;
+                buip.STARTDATE = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.AddDays(1).Day,8,30,0);
+                buip.ENDDATE = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(1).Day, 17, 30, 0); 
+                
                 TraveDetailList_Golbal.Add(buip);
 
                 T_OA_BUSINESSTRIPDETAIL buipd = new T_OA_BUSINESSTRIPDETAIL();
                 buipd.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
+                buipd.STARTDATE = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(2).Day, 8, 30, 0);
+                buipd.ENDDATE = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.AddDays(2).Day, 17, 30, 0); 
                 TraveDetailList_Golbal.Add(buipd);
 
                 DaGrs.ItemsSource = TraveDetailList_Golbal;
@@ -511,7 +514,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 if (BtnNewButton == true)
                 {
                     myCitys.TxtSelectedCity.Text = string.Empty;
-                    citysStartList_Golbal.Add(tmp.DEPCITY);
+                    //citysStartList_Golbal.Add(tmp.DEPCITY);
                 }
                 else
                 {

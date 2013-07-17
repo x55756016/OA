@@ -168,36 +168,42 @@ namespace SMT.SaaS.OA.UI.UserControls
 
             }
             #endregion
-            
-            #region "判断出差开始城市是否用重复"           
-            for (int i = 0; i < TripDetails.Count; i++)
-            {
 
-                if (string.IsNullOrEmpty(TripDetails[i].DEPCITY) || string.IsNullOrEmpty(TripDetails[i].DESTCITY))
+            //字段赋值及子表城市赋值
+            SetTraveAndFBChargeValue();
+
+            #region "判断出差开始城市是否用重复"           
+            for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
+            {
+                if (string.IsNullOrEmpty(TravelDetailList_Golbal[i].DEPCITY) || string.IsNullOrEmpty(TravelDetailList_Golbal[i].DESTCITY))
                 {
                     //出发城市为空
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发或到达城市不能为空！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
                 }
-                if (TripDetails.Count > 1)
+                if (i > 0)
                 {
-                    //如果上下两条出差记录城市一样
-                    if (i < TripDetails.Count - 1 && TripDetails[i].DEPCITY == TripDetails[i + 1].DEPCITY)
+                    if (TravelDetailList_Golbal[i].DEPCITY == TravelDetailList_Golbal[i].DESTCITY)
                     {
                         //出发城市与开始城市不能相同
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发到达城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         return false;
                     }
-                    if (i > 0)
-                    {
-                        if (TripDetails[i].DEPCITY == TripDetails[i].DESTCITY)
-                        {
-                            //出发城市与开始城市不能相同
-                            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发到达城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                            return false;
-                        }
-                    }
-                }             
+                }
+            }
+            if (TravelDetailList_Golbal.Count > 1)
+            {
+                //如果上下两条出差记录城市一样
+                string strStarCity = TravelDetailList_Golbal[0].DEPCITY;
+                var q = from ent in TravelDetailList_Golbal
+                        where ent.DEPCITY == strStarCity
+                        select ent;
+                if (q.Count() > 1)
+                {
+                    //出发城市与开始城市不能相同
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return false;
+                }
             }
             #endregion  
 
@@ -331,9 +337,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (Check())
                 {
                     //textStandards.Text = string.Empty;//清空报销标准说明
-                    //字段赋值
-                    SetTraveAndFBChargeValue();
-
 
                     #region "判断回程住宿费"
                     

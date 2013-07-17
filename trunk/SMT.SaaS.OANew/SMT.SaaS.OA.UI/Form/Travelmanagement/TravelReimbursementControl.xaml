@@ -80,12 +80,14 @@
                    
 				
                 <ScrollViewer x:Name="ShowAudits"  HorizontalAlignment="Stretch" VerticalAlignment="Top" 
-                                Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,1,20,4" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                                Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,1,20,4" 
+				ScrollViewer.VerticalScrollBarVisibility="Hidden"
+				HorizontalScrollBarVisibility="auto">
                     <data:DataGrid x:Name="DaGrs" AutoGenerateColumns="False" Grid.Row="4" Grid.Column="1" LoadingRow="DaGrs_LoadingRow" 
 				SelectionMode="Single" Style="{StaticResource DataGridStyle}" CanUserSortColumns="False"
                 CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
                 RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" 
-                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" HorizontalAlignment="Stretch" >
                         <data:DataGrid.Columns>
                             <data:DataGridTemplateColumn Header="DEPARTURETIME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>

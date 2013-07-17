@@ -189,7 +189,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             if (formType == FormTypes.Resubmit || formType == FormTypes.New || formType == FormTypes.Edit)
             {
-                SetTraveRequestValue();
+                SetTraveRequestMasterValue();
             }
             Master_Golbal.CHECKSTATE = state;
             RefreshUI(RefreshedTypes.HideProgressBar);

@@ -144,7 +144,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             if (BtnNewButton == true)
             {
                 TxtMyCitys.Text = string.Empty;
-                citysStartList_Golbal.Add(tmp.DEPCITY);
+                //citysStartList_Golbal.Add(tmp.DEPCITY);
             }
             else
             {

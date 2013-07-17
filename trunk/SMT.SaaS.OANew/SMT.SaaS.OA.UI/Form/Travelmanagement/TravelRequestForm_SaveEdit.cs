@@ -54,16 +54,18 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         /// <summary>
         /// 字段赋值
         /// </summary>
-        private void SetTraveRequestValue()
+        private void SetTraveRequestMasterValue()
         {
             //计算出差时间
             TravelTimeCalculation();
+            //设置出差明细值
+            SetTraveRequestDetailValue();
 
             Master_Golbal.TEL = this.txtTELL.Text;//联系电话;
             Master_Golbal.CHARGEMONEY = 0;//费用;
             Master_Golbal.ISAGENT = (bool)ckEnabled.IsChecked ? "1" : "0";//是否启用代理
             Master_Golbal.CONTENT = this.txtSubject.Text;//出差事由
-            NewDetail();
+            
             string StartCity = string.Empty;//出发城市
             string EndCity = string.Empty;//目标城市
             string StartTime = string.Empty;//开始时间
@@ -113,10 +115,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             ObservableCollection<T_OA_BUSINESSTRIPDETAIL> entBusinessTripDetails = DaGrs.ItemsSource as ObservableCollection<T_OA_BUSINESSTRIPDETAIL>;
             
-            int foreachCount = 0;
             foreach (object obje in DaGrs.ItemsSource)
             {
-                TraveDetailOne_Golbal.T_OA_BUSINESSTRIP = Master_Golbal;
+                //TraveDetailOne_Golbal.T_OA_BUSINESSTRIP = Master_Golbal;
 
                 #region "判断出差日期"
                 DateTimePicker StartDate = DaGrs.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
@@ -226,26 +227,56 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 #endregion
             }
 
-            #region "判断出差城市"
-            for (int i=0; i < citysStartList_Golbal.Count; i++)
+            #region "判断出差开始城市是否用重复"
+            for (int i = 0; i < TraveDetailList_Golbal.Count; i++)
             {
 
-                if (string.IsNullOrEmpty(citysStartList_Golbal[i].Trim()) || string.IsNullOrEmpty(citysEndList_Golbal[i].Trim()))
+                if (string.IsNullOrEmpty(TraveDetailList_Golbal[i].DEPCITY) || string.IsNullOrEmpty(TraveDetailList_Golbal[i].DESTCITY))
                 {
                     //出发城市为空
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发或到达城市不能为空！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
                 }
-                if (citysStartList_Golbal.Count > 1)
+                if (i > 0)
                 {
-                    //如果上下两条出差记录城市一样
-                    if (i < citysStartList_Golbal.Count - 1 && citysStartList_Golbal[i] == citysStartList_Golbal[i + 1])
+                    if (TraveDetailList_Golbal[i].DEPCITY == TraveDetailList_Golbal[i].DESTCITY)
                     {
                         //出发城市与开始城市不能相同
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发到达城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         return false;
                     }
                 }
+               
+            }
+            if (TraveDetailList_Golbal.Count > 1)
+            {
+                //如果上下两条出差记录城市一样
+                string strStarCity = TraveDetailList_Golbal[0].DEPCITY;
+                var q = from ent in TraveDetailList_Golbal
+                         where ent.DEPCITY==strStarCity
+                         select ent;
+                    if (q.Count() > 1)
+                    {
+                        //出发城市与开始城市不能相同
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        return false;
+                    }
+                //var q = (from ent in TraveDetailList_Golbal
+                //         group ent by ent.DEPCITY into g
+                //         select new
+                //         {
+                //             g.Key,
+                //             number = g.Count()
+                //         });
+                //foreach (var item in q)
+                //{
+                //    if (item.number > 1)
+                //    {
+                //        //出发城市与开始城市不能相同
+                //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                //        return false;
+                //    }
+                //}
             }
             #endregion  
 
@@ -269,6 +300,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 RefreshUI(RefreshedTypes.HideProgressBar);
             }
             #endregion
+
+            SetTraveRequestMasterValue();
             return true;
         }
         #endregion
@@ -280,8 +313,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 if (Check())
                 {
-                    string FirstStartCity = citysStartList_Golbal[0].Replace(",", "");//出发城市中第一个城市代码
-                    string LastEndCity = citysEndList_Golbal[citysEndList_Golbal.Count - 1].Replace(",", "");//目标城市中最后一个城市代码
+                    string FirstStartCity =TraveDetailList_Golbal[0].DEPCITY;//出发城市中第一个城市代码
+                    string LastEndCity = TraveDetailList_Golbal[TraveDetailList_Golbal.Count - 1].DESTCITY;//目标城市中最后一个城市代码
 
                     if (FirstStartCity != LastEndCity)
                     {
@@ -316,7 +349,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             RefreshUI(RefreshedTypes.ShowProgressBar);//点击保存后显示进度条
 
-            SetTraveRequestValue();
             if (formType == FormTypes.New)
             {
                 OaPersonOfficeClient.TravelmanagementAddAsync(Master_Golbal, TraveDetailList_Golbal);
@@ -421,9 +453,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             catch (Exception ex)
             {
-                RefreshUI(RefreshedTypes.HideProgressBar);
                 Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
         #endregion

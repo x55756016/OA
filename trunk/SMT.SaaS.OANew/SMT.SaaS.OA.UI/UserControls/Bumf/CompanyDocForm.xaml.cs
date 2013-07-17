@@ -23,6 +23,7 @@ using SMT.Saas.Tools.PermissionWS;
 using SMT.Saas.Tools.PublicInterfaceWS;
 using System.Windows.Media;
 using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
 
 
 namespace SMT.SaaS.OA.UI.UserControls
@@ -115,7 +116,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             // by ldx
             // 2011-08-09
             // 这个是用来判断下拉框动作的，修改等文档类型、模版名称不能编辑
-            if (action == FormTypes.New)
+            if (action == FormTypes.New || action == FormTypes.Edit || action == FormTypes.Resubmit)
                 SelectChange = true;
             else
             {
@@ -899,13 +900,46 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         }
 
+        /// <summary>
+        /// 隐藏一些公文类型
+        /// </summary>
+        /// <param name="sendTypeList"></param>
+        /// <returns></returns>
+        private ObservableCollection<T_OA_SENDDOCTYPE> HideSendType(ObservableCollection<T_OA_SENDDOCTYPE> sendTypeList)
+        {
+            //List<string> typeList = new List<string>();
+            //typeList.Add("公文类型");
+            //typeList.Add("一般紧急");
+            //typeList.Add("通知");
+            //typeList.Add("紧急通知");
+            //typeList.Add("一般公文");
+            string ownerName  = "杨双贵";//这个人建的不需要了，临时解决办法
+            ObservableCollection<T_OA_SENDDOCTYPE> tempList = new ObservableCollection<T_OA_SENDDOCTYPE>();
+            for (int i = 0; i < sendTypeList.Count; i++)
+            {
+                if (sendTypeList[i].OWNERNAME!=ownerName)
+                {
+                    tempList.Add(sendTypeList[i]);
+                }
+            }
+
+            return tempList;
+        }
+
         void SendDocClient_GetDocTypeInfosCompleted(object sender, GetDocTypeInfosCompletedEventArgs e)
         {
             RefreshUI(RefreshedTypes.HideProgressBar);
             if (e.Result != null)
             {
-
-                this.cbxDocType.ItemsSource = e.Result;
+               // this.cbxDocType.ItemsSource = e.Result;
+                if (action == FormTypes.Edit || action == FormTypes.New || action == FormTypes.Resubmit)//如果为修改，新建，重新提交才隐藏，因为查看要看到原来的数据
+                {
+                    this.cbxDocType.ItemsSource = this.HideSendType(e.Result);
+                }
+                else
+                {
+                    this.cbxDocType.ItemsSource = e.Result;
+                }
                 this.cbxDocType.DisplayMemberPath = "SENDDOCTYPE";
 
                 if (SelectDocType.SENDDOCTYPE != null)
