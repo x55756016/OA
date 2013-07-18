@@ -913,11 +913,11 @@ namespace SMT.SaaS.OA.UI.UserControls
             //typeList.Add("通知");
             //typeList.Add("紧急通知");
             //typeList.Add("一般公文");
-            string ownerName  = "杨双贵";//这个人建的不需要了，临时解决办法
+            string createName  = "杨双贵";//这个人建的不需要了，临时解决办法
             ObservableCollection<T_OA_SENDDOCTYPE> tempList = new ObservableCollection<T_OA_SENDDOCTYPE>();
             for (int i = 0; i < sendTypeList.Count; i++)
             {
-                if (sendTypeList[i].OWNERNAME!=ownerName)
+                if (sendTypeList[i].CREATEUSERNAME != createName)
                 {
                     tempList.Add(sendTypeList[i]);
                 }

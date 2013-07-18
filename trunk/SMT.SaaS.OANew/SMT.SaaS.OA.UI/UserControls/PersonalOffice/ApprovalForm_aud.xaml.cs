@@ -66,6 +66,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         private RefreshedTypes saveType;
         private bool canSubmit = false;//能否提交审核
 
+        bool isAuditing = false;//用于重提提交后判断页面状态
         #endregion
 
         #region 构造函数
@@ -838,8 +839,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (approvalInfo.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString()
                     || approvalInfo.CHECKSTATE == Convert.ToInt32(CheckStates.UnApproved).ToString())
                 {
-                    approvalInfo.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
-                    //RefreshUI刷新事件时会通过接口GetAuditState获取当前表单状态，然后加载相应按钮
                     RefreshUI(RefreshedTypes.All);
                 }
 
@@ -1324,6 +1323,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Auditing:
                     state = Utility.GetCheckState(CheckStates.Approving);
                     _flwResult = SMT.SaaS.FrameworkUI.CheckStates.Approving;
+                    isAuditing = true;
                     break;
                 case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Successful:
                     state = Utility.GetCheckState(CheckStates.Approved);
@@ -1366,8 +1366,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 state = approvalInfo.CHECKSTATE;
                 //if (operationType == FormTypes.Browse)
                 //    state = "-1";
-                //if (operationType == FormTypes.Resubmit)
-                //    state = "0";
+                if (operationType == FormTypes.Resubmit && !isAuditing)//是重新提交单据并且提交，目的为了重新提交审核后隐藏保存等按钮
+                    state = "0";
             }
 
             return state;

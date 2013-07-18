@@ -986,6 +986,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                             }
                             //entall.Add(obj2);
                             List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> listcompany = App.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>;
+                           var company= listcompany.Where(t=>t.EDITSTATE=="1");//过滤，选出已生效的公司信息
+                           listcompany = company.ToList();
                             var ents = from childcompany in listcompany
                                        where childcompany.T_HR_COMPANY2 != null && childcompany.T_HR_COMPANY2.COMPANYID == h.ObjectID
                                        select childcompany;
