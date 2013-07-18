@@ -96,7 +96,10 @@ namespace SMT.SaaS.OA.BLL
                     workerCordInfo.CONTENT = entity.CONTENT;
                     workerCordInfo.CREATEDATE = entity.CREATEDATE;
                     workerCordInfo.PLANTIME = entity.PLANTIME;
-                    workerCordInfo.CREATEUSERID = entity.CREATEUSERID;
+                    workerCordInfo.UPDATEUSERID = entity.UPDATEUSERID;
+                    workerCordInfo.UPDATEUSERNAME = entity.UPDATEUSERNAME;
+                    workerCordInfo.UPDATEDATE = entity.UPDATEDATE;
+
                     dal.Update(workerCordInfo);
                 }
             }

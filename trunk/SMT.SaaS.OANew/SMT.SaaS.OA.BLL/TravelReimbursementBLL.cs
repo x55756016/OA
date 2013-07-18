@@ -440,6 +440,9 @@ namespace SMT.SaaS.OA.BLL
                 }
                 Tracer.Debug("事务确认成功：引擎更新出差报销，同步预算单，更新单号，考勤记录成功！");
                 dal.CommitTransaction();
+                //更新元数据单号
+                UpdateEntityXML(Master.T_OA_BUSINESSTRIP.BUSINESSTRIPID
+                    , "自动生成", Master.NOBUDGETCLAIMS);
             }
             catch (Exception ex)
             {
@@ -448,6 +451,49 @@ namespace SMT.SaaS.OA.BLL
                 throw ex;
             }
             return 1;
+        }
+
+        public string UpdateEntityXML(string Formid, string OldString, string ReplaceString)
+        {
+            try
+            {
+                TravelReimbursementBLL bll = new TravelReimbursementBLL();
+                ReplaceString = (from ent in bll.dal.GetObjects()
+                                 select ent.NOBUDGETCLAIMS).FirstOrDefault();
+                if (string.IsNullOrEmpty(ReplaceString))
+                {
+                    Tracer.Debug("出差报销提交审核替换元数据单号，获取的单号为空：" + ReplaceString);
+                    return "";
+                }
+                //更新元数据里的报销单号
+                SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
+                new SaaS.BLLCommonServices.FlowWFService.ServiceClient();
+                Tracer.Debug("开始调用元数据获取接口：FlowWFService.GetMetadataByFormid(" + Formid + ")");
+                string xml = string.Empty;
+                xml = client.GetMetadataByFormid(Formid);
+                Tracer.Debug("获取到的元数据：" + xml);
+                xml = xml.Replace("自动生成", ReplaceString);
+                Tracer.Debug("替换单号后的XML:" + xml);
+                bool flag = client.UpdateMetadataByFormid(Formid, xml);
+                if (flag)
+                {
+                    Tracer.Debug("出差报销元数据替换单号成功：" + ReplaceString);
+                    return "";
+                }
+                else
+                {
+                    Tracer.Debug("出差报销元数据替换单号UpdateMetadataByFormid返回false：Formid：" + Formid
+                        + OldString
+                        + ReplaceString);
+                    return "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+                return "";
+            }
+
         }
 
         public void InsertAttenceRecord(T_OA_TRAVELREIMBURSEMENT travel)
