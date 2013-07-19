@@ -247,7 +247,7 @@ namespace SMT.HRM.BLL
 
                 if (entAudit.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString() && entAudit.CHECKSTATE != strCheckState)
                 {
-                    IQueryable<T_HR_EMPLOYEEABNORMRECORD> entABnormRecords = entDetails.Select(c => c.T_HR_EMPLOYEEABNORMRECORD);
+                    List<T_HR_EMPLOYEEABNORMRECORD> entABnormRecords = entDetails.Select(c => c.T_HR_EMPLOYEEABNORMRECORD).ToList();
                     ClearNoSignInRecord("T_HR_EMPLOYEESIGNINRECORD", entAudit.EMPLOYEEID, entABnormRecords);
                 }
 
@@ -317,7 +317,7 @@ namespace SMT.HRM.BLL
         /// <param name="strModelCode">模块实体代码</param>
         /// <param name="strEmployeeId">签卡人员工ID</param>
         /// <param name="entAbnormRecords">异常记录</param>
-        public void ClearNoSignInRecord(string strModelCode, string strEmployeeId, IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords)
+        public void ClearNoSignInRecord(string strModelCode, string strEmployeeId, List<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords)
         {
             if (entAbnormRecords == null)
             {

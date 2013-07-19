@@ -635,9 +635,9 @@ namespace SMT.HRM.BLL
                 foreach (T_HR_ATTENDANCERECORD item in entAttRds)
                 {
                     //获取请假当天所有异常考勤(针对补请假的情况，用于删除异常考勤)
-                    IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = from a in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
+                    List<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = (from a in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
                                                                              where a.T_HR_ATTENDANCERECORD.ATTENDANCERECORDID == item.ATTENDANCERECORDID && a.ABNORMCATEGORY == strAbnormCategory
-                                                                             select a;
+                                                                             select a).ToList();
 
                     if (entAbnormRecords.Count() == 0)
                     {

@@ -1365,13 +1365,16 @@ namespace SMT.HRM.BLL
             }
 
             string strAbnormCategory = (Convert.ToInt32(Common.AbnormCategory.Absent) + 1).ToString();
-            string strSignState = (Convert.ToInt32(Common.IsChecked.No) + 1).ToString();
-            //string strOrderKey = "ABNORMALDATE";
-            IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = from ent in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>()
+            string strSignState = (Convert.ToInt32(Common.IsChecked.No) + 1).ToString();            
+            List<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = (from ent in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>()
                                                                      where ent.OWNERID == strEmployeeId
+                                                                     && ent.ABNORMCATEGORY == strAbnormCategory//异常考勤
+                                                                     && ent.SINGINSTATE == strSignState//未签卡
                                                                      && ent.ABNORMALDATE >= dtStart
                                                                      && ent.ABNORMALDATE <= dtEnd
-                                                                     select ent;
+                                                                     select ent).ToList();
+
+            //string strOrderKey = "ABNORMALDATE";
             //GetAbnormRecordRdListByEmpIdAndDate(strEmployeeId, strAbnormCategory, strSignState, dtStart, dtEnd, strOrderKey);
             if (entAbnormRecords == null)
             {
@@ -2161,11 +2164,11 @@ namespace SMT.HRM.BLL
             {
                 string strAbnormCategory = (Convert.ToInt32(AbnormCategory.Absent) + 1).ToString();
                 //获取请假当天所有异常考勤(针对补请假的情况，用于删除异常考勤)
-                IQueryable<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords
-                    = from a in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
+                List<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords
+                    = (from a in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
                       where a.T_HR_ATTENDANCERECORD.ATTENDANCERECORDID == item.ATTENDANCERECORDID 
                       && a.ABNORMCATEGORY == strAbnormCategory
-                      select a;
+                      select a).ToList();
                 int i = 0;
                 i = entAbnormRecords.Count();
                 if (i == 0)
