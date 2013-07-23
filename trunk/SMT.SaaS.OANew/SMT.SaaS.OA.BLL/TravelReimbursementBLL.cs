@@ -438,16 +438,21 @@ namespace SMT.SaaS.OA.BLL
                     dal.RollbackTransaction();
                     throw new Exception(strMsg);
                 }
-                Tracer.Debug("事务确认成功：引擎更新出差报销，同步预算单，更新单号，考勤记录成功！");
+                Tracer.Debug("事务确认成功：引擎更新出差报销，同步预算单，考勤记录成功！");
                 dal.CommitTransaction();
                 //更新元数据单号
-                UpdateEntityXML(Master.T_OA_BUSINESSTRIP.BUSINESSTRIPID
+                var BUSINESSTRIPID = (from ent in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_BUSINESSTRIP")
+                                     where ent.TRAVELREIMBURSEMENTID == Master.TRAVELREIMBURSEMENTID
+                                     select ent).First().T_OA_BUSINESSTRIP.BUSINESSTRIPID;
+
+                UpdateEntityXML(BUSINESSTRIPID
                     , "自动生成", Master.NOBUDGETCLAIMS);
+                Tracer.Debug("出差更新元数据中出差单号成功！");
             }
             catch (Exception ex)
             {
-                dal.RollbackTransaction();
                 Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID + System.DateTime.Now.ToString() + " " + ex.ToString());
+                dal.RollbackTransaction();
                 throw ex;
             }
             return 1;
