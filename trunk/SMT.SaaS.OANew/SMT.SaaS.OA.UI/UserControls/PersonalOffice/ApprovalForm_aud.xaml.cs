@@ -1364,8 +1364,8 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
 
                 state = approvalInfo.CHECKSTATE;
-                //if (operationType == FormTypes.Browse)
-                //    state = "-1";
+                if (operationType == FormTypes.Browse)
+                    state = "-1";
                 if (operationType == FormTypes.Resubmit && !isAuditing)//是重新提交单据并且提交，目的为了重新提交审核后隐藏保存等按钮
                     state = "0";
             }

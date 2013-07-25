@@ -441,11 +441,11 @@ namespace SMT.SaaS.OA.BLL
                 Tracer.Debug("事务确认成功：引擎更新出差报销，同步预算单，考勤记录成功！");
                 dal.CommitTransaction();
                 //更新元数据单号
-                var BUSINESSTRIPID = (from ent in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_BUSINESSTRIP")
-                                     where ent.TRAVELREIMBURSEMENTID == Master.TRAVELREIMBURSEMENTID
-                                     select ent).First().T_OA_BUSINESSTRIP.BUSINESSTRIPID;
+                //var BUSINESSTRIPID = (from ent in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_BUSINESSTRIP")
+                //                     where ent.TRAVELREIMBURSEMENTID == Master.TRAVELREIMBURSEMENTID
+                //                     select ent).First().T_OA_BUSINESSTRIP.BUSINESSTRIPID;
 
-                UpdateEntityXML(BUSINESSTRIPID
+                UpdateEntityXML(Master.TRAVELREIMBURSEMENTID
                     , "自动生成", Master.NOBUDGETCLAIMS);
                 Tracer.Debug("出差更新元数据中出差单号成功！");
             }

@@ -2046,8 +2046,9 @@ namespace SMT.SaaS.OA.UI.UserControls
             AutoList.Add(basedata("T_OA_SENDDOC", "DEPARTID", tmpSendDocT.DEPARTID, StrSendDepartment));
             if (tmpSendDocT.T_OA_SENDDOCTYPE != null)
             {
-                AutoList.Add(basedata("T_OA_SENDDOC", "SENDDOCTYPE", tmpSendDocT.T_OA_SENDDOCTYPE.SENDDOCTYPEID, tmpSendDocT.T_OA_SENDDOCTYPE.SENDDOCTYPE));
-
+                //AutoList.Add(basedata("T_OA_SENDDOC", "SENDDOCTYPE", tmpSendDocT.T_OA_SENDDOCTYPE.SENDDOCTYPEID, tmpSendDocT.T_OA_SENDDOCTYPE.SENDDOCTYPE));
+                //把公文类型ID改为公文类型名字
+                AutoList.Add(basedata("T_OA_SENDDOC", "SENDDOCTYPE", tmpSendDocT.T_OA_SENDDOCTYPE.SENDDOCTYPE, tmpSendDocT.T_OA_SENDDOCTYPE.SENDDOCTYPE));
             }
 
             string StrReturn = mx.TableToXml(Info, "a", StrSource, AutoList);
