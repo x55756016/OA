@@ -1363,9 +1363,9 @@ namespace SMT.SaaS.OA.UI.UserControls
             if (approvalInfo != null)
             {
 
-                state = approvalInfo.CHECKSTATE;
-                if (operationType == FormTypes.Browse)
-                    state = "-1";
+                state = approvalInfo.CHECKSTATE;//事项审批只要审核后就能看到转发按钮，切记，后面如果修改，要小心
+                //if (operationType == FormTypes.Browse)
+                //    state = "-1";
                 if (operationType == FormTypes.Resubmit && !isAuditing)//是重新提交单据并且提交，目的为了重新提交审核后隐藏保存等按钮
                     state = "0";
             }
