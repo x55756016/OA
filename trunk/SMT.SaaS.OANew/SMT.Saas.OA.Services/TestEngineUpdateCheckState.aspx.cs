@@ -26,7 +26,8 @@ namespace SMT.SaaS.OA.Services
         {
 
             string strMessage = string.Empty;
-            //Utility.UpdateFormCheckState("OA", "T_OA_TRAVELREIMBURSEMENT", "TRAVELREIMBURSEMENTID", txtEntityId.Text, SMT.SaaS.BLLCommonServices.CheckStates.Approving, ref strMessage);
+            string strXmlParams = string.Empty;
+            Utility.UpdateFormCheckState("OA", "T_OA_TRAVELREIMBURSEMENT", "TRAVELREIMBURSEMENTID", txtEntityId.Text, SMT.SaaS.BLLCommonServices.CheckStates.Approving, ref strMessage,strXmlParams);
             txtMessage.Text = strMessage;
         }
 

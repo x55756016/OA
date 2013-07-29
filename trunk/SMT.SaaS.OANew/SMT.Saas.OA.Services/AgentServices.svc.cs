@@ -62,6 +62,7 @@ namespace SMT.SaaS.OA.Services
             {
                 TravelReimbursementBLL bll=new TravelReimbursementBLL();
                 ReplaceString = (from ent in bll.dal.GetObjects()
+                                 where ent.TRAVELREIMBURSEMENTID == Formid
                                 select ent.NOBUDGETCLAIMS).FirstOrDefault();
                 if (string.IsNullOrEmpty(ReplaceString))
                 {

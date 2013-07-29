@@ -45,27 +45,29 @@ namespace SMT.SaaS.OA.BLL
             //           select a;
             //return ents.Count() > 0 ? ents.FirstOrDefault() : null;
 
-            var entsM = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>()
+            var entsM = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_REIMBURSEMENTDETAIL")
                        where a.TRAVELREIMBURSEMENTID == TravelReimbursementID
                        
                        select a;
-            var entsd = from a in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>() 
-                        where a.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == TravelReimbursementID
-                       orderby a.STARTDATE
-                       select a;
-            if (entsM.Count() > 0)
+            if(entsM.Count()>0)
             {
-                var q = entsM.FirstOrDefault();
-                if (entsd.Count() > 0)
-                {
-                   var e=entsd.ToList().OrderBy(c=>c.STARTDATE);
-                    foreach(var a in e)
-                    {
-                        q.T_OA_REIMBURSEMENTDETAIL.Add(a);
-                    }
+            //var entsd = from a in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>() 
+            //            where a.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == TravelReimbursementID
+            //           orderby a.STARTDATE
+            //           select a;
+            //if (entsM.Count() > 0)
+            //{
+            //    var q = entsM.FirstOrDefault();
+            //    if (entsd.Count() > 0)
+            //    {
+            //       var e=entsd.ToList().OrderBy(c=>c.STARTDATE);
+            //        foreach(var a in e)
+            //        {
+            //            q.T_OA_REIMBURSEMENTDETAIL.Add(a);
+            //        }
 
-                }
-                return q;
+            //    }
+                return entsM.FirstOrDefault();
             }
             return null;
 
@@ -382,6 +384,7 @@ namespace SMT.SaaS.OA.BLL
                 string strMsg = "";//string.Empty;
                 Master = GetTravelReimbursementById(BorrowID);
                 oldCheckState = Master.CHECKSTATE;//保留旧的审核状态
+               
                 Master.CHECKSTATE = StrCheckState;
                 Tracer.Debug("事务开始 出差报销引擎开始更新预算关联单据：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
                 var fbResult = FBClient.UpdateExtensionOrder("Travel", BorrowID, StrCheckState, ref strMsg);//手机审单时通过后台修改个人费用报销中对应的报销单据状态
@@ -401,35 +404,41 @@ namespace SMT.SaaS.OA.BLL
                             + fbResult.INNERORDERCODE + " 审核状态：" + StrCheckState);
                     }
 
-                    string fbOrderCode = fbResult.INNERORDERCODE;
-                    Master.NOBUDGETCLAIMS = fbOrderCode;
-                    int i =  Update(Master);
-                    if (i >0)
+                    if (oldCheckState == "0" && StrCheckState == "1")
                     {
-                        Tracer.Debug("事务中 引擎更新出差报销状态成功：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
-
-                        if (Master.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString())
+                        string fbOrderCode = fbResult.INNERORDERCODE;
+                        Master.NOBUDGETCLAIMS = fbOrderCode;
+                        int i = Update(Master);
+                        if (i > 0)
                         {
-                            #region 开始调用HR中考勤的数据
-                            Tracer.Debug("事务中 引擎开始更新出差报销状态：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
-                            try
+                            Tracer.Debug("事务中 引擎更新出差报销状态成功：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
+
+                            if (Master.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString())
                             {
-                                InsertAttenceRecord(Master);
+                                #region 开始调用HR中考勤的数据
+                                Tracer.Debug("事务中 引擎开始更新出差报销状态：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
+                                try
+                                {
+                                    InsertAttenceRecord(Master);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Tracer.Debug("事务回滚 调用HR中考勤的接口出现错误:" + ex.ToString());
+                                    dal.RollbackTransaction();
+                                }
+                                #endregion
                             }
-                            catch (Exception ex)
-                            {
-                                Tracer.Debug("事务回滚 调用HR中考勤的接口出现错误:" + ex.ToString());
-                                dal.RollbackTransaction();
-                            }
-                            #endregion
+                        }
+                        else
+                        {
+                            Tracer.Debug("事务回滚 引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id："
+                                + BorrowID + " 审核状态：" + StrCheckState);
+                            dal.RollbackTransaction();
+                            throw new Exception(strMsg);
                         }
                     }
-                    else
-                    {
-                        Tracer.Debug("事务回滚 引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id：" 
-                            + BorrowID + " 审核状态：" + StrCheckState);
-                        dal.RollbackTransaction();
-                    }
+
+                   
                 }
                 else
                 {
@@ -445,9 +454,9 @@ namespace SMT.SaaS.OA.BLL
                 //                     where ent.TRAVELREIMBURSEMENTID == Master.TRAVELREIMBURSEMENTID
                 //                     select ent).First().T_OA_BUSINESSTRIP.BUSINESSTRIPID;
 
-                UpdateEntityXML(Master.TRAVELREIMBURSEMENTID
-                    , "自动生成", Master.NOBUDGETCLAIMS);
-                Tracer.Debug("出差更新元数据中出差单号成功！");
+                //UpdateEntityXML(Master.TRAVELREIMBURSEMENTID
+                //    , "自动生成", Master.NOBUDGETCLAIMS);
+                //Tracer.Debug("出差更新元数据中出差单号成功！");
             }
             catch (Exception ex)
             {

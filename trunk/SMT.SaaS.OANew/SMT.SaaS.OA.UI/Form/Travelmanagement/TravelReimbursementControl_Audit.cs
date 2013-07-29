@@ -388,6 +388,14 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 Resubmit = false;
             }
+            if (formType == FormTypes.New || formType == FormTypes.Edit || formType == FormTypes.Resubmit)
+            {
+                //MessageBox.Show("更新单号");
+                //更新元数据单号
+                AgentServicesClient clinet = new AgentServicesClient();
+                clinet.UpdateEntityXMLAsync(TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID
+                    , "自动生成", TravelReimbursement_Golbal.NOBUDGETCLAIMS);
+            }
 
             if (TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString()
                 || TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnApproved).ToString())
@@ -403,13 +411,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                         Utility.GetResourceStr("SUCCESSSUBMITAUDIT"));
                     textStandards.Text = string.Empty;//清空报销标准说明
                     OaPersonOfficeClient.GetTravelReimbursementByIdAsync(travelReimbursementID);
-                    if (UserState == "Submit")
-                    {
-                        //更新元数据单号
-                        AgentServicesClient clinet = new AgentServicesClient();
-                        clinet.UpdateEntityXMLAsync(this.businesstrID
-                            , "自动生成", TravelReimbursement_Golbal.NOBUDGETCLAIMS);
-                    }
                     break;
                 case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Successful://审核通过
                     state = Utility.GetCheckState(CheckStates.Approved);
