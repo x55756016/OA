@@ -200,8 +200,6 @@ namespace SMT.HRM.BLL
                 OutPlanDaysBLL bllOutPlanDays = new OutPlanDaysBLL();
                 if (entOutPlanDays.Count() > 0)
                 {
-                    bool needInitCompanyAttanceDayAgain = false;
-                    string strCurYearMonth=string.Empty;
                     foreach (T_HR_OUTPLANDAYS item in entOutPlanDays)
                     {
                         if (item.EntityKey != null)
@@ -228,53 +226,10 @@ namespace SMT.HRM.BLL
 
                         bllOutPlanDays.AddOutPlanDays(item);
 
-                        #region 处理考勤初始化
-
-                        if (item.DAYTYPE == (Convert.ToInt32(Common.OutPlanDaysType.Vacation) + 1).ToString())
-                        {
-                            try
-                            {
-                                string sql = @"delete smthrm.t_hr_attendancerecord a
-                                        where a.ownercompanyid = '" + entAdd.ASSIGNEDOBJECTID + @"'
-                                        and a.attendancedate >= To_Date('" + item.STARTDATE.Value + @"', 'yyyy-MM-dd')
-                                        and a.attendancedate <= To_Date('" + item.ENDDATE.Value + @"', 'yyyy-MM-dd')";
-
-                             int i=int.Parse(dal.ExecuteCustomerSql(sql).ToString());
-                             Tracer.Debug("新增假期设置删除设定日期整个公司考勤初始化记录,共删除：" + i.ToString()+" 条数据");
-                            }
-                            catch (Exception ex)
-                            {
-                                Tracer.Debug("新增假期设置删除设定日期整个公司考勤初始化记录异常：" + ex.ToString());
-                            }
-                        }
-
-
-                        if (item.DAYTYPE == (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString())
-                        {
-                            //如果设置的日期是当月，需要重新初始化公司考勤
-                            if(item.STARTDATE.Value<=DateTime.Now.AddMonths(1).AddDays(-1))
-                            {
-                                needInitCompanyAttanceDayAgain = true;
-                                strCurYearMonth = item.STARTDATE.Value.Year+"-"+ item.STARTDATE.Value.Month;
-                            }
-                            if (item.ENDDATE.Value <= DateTime.Now.AddMonths(1).AddDays(-1))
-                            {
-                                needInitCompanyAttanceDayAgain = true;
-                                strCurYearMonth = item.ENDDATE.Value.Year + "-" + item.ENDDATE.Value.Month;
-                            }
-                        }
-
-                        #endregion 
-                    }
-                    if (needInitCompanyAttanceDayAgain)
-                    {
-                      Tracer.Debug("====================================新增假期设置工作日开始初始化整个公司考勤记录");
-                      AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
-                      bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("1", entAdd.ASSIGNEDOBJECTID, strCurYearMonth);
-                      Tracer.Debug("====================================新增假期设置工作日初始化整个公司考勤记录完毕");
                     }
                 }
-              
+
+                reInitAttandeceRecordWithOutWorkDaySet(entVacRd.VACATIONID);
 
                 strMsg = "{SAVESUCCESSED}";
 
@@ -282,6 +237,7 @@ namespace SMT.HRM.BLL
             catch (Exception ex)
             {
                 strMsg = ex.Message.ToString();
+                Tracer.Debug(ex.ToString());
             }
 
             return strMsg;
@@ -367,6 +323,8 @@ namespace SMT.HRM.BLL
                     bllOutPlanDays.AddOutPlanDays(item);
                 }
 
+                reInitAttandeceRecordWithOutWorkDaySet(entUpdate.VACATIONID);
+
             }
             catch (Exception ex)
             {
@@ -374,6 +332,86 @@ namespace SMT.HRM.BLL
             }
 
             return strMsg;
+        }
+
+
+
+        /// <summary>
+        /// 根据设置的日历重新初始化考勤
+        /// </summary>
+        /// <param name="entVacRd"></param>
+        private void reInitAttandeceRecordWithOutWorkDaySet(string VACATIONID)
+        {
+            try
+            {
+                var q = from ent in dal.GetObjects<T_HR_VACATIONSET>().Include("T_HR_OUTPLANDAYS")
+                        where ent.VACATIONID == VACATIONID
+                        select ent;
+                var entVacRd = q.FirstOrDefault();
+                if (entVacRd == null)
+                {
+                    Tracer.Debug("根据设置的日历重新初始化考勤跳过，获取的T_HR_VACATIONSET为空，id：" + VACATIONID);
+                }
+                List<T_HR_OUTPLANDAYS> entOutPlanDays = entVacRd.T_HR_OUTPLANDAYS.ToList();
+                bool needInitCompanyAttanceDayAgain = false;
+                string strCurYearMonth = string.Empty;
+                if (entOutPlanDays.Count == 0)
+                {
+                    Tracer.Debug("根据设置的日历重新初始化考勤跳过，明细为空");
+                }
+                foreach (T_HR_OUTPLANDAYS item in entOutPlanDays)
+                {
+                    #region 处理考勤初始化
+
+                    if (item.DAYTYPE == (Convert.ToInt32(Common.OutPlanDaysType.Vacation) + 1).ToString())
+                    {
+                        try
+                        {
+                            string sql = @"delete smthrm.t_hr_attendancerecord a
+                                        where a.ownercompanyid = '" + entVacRd.ASSIGNEDOBJECTID + @"'
+                                        and a.attendancedate >= To_Date('" + item.STARTDATE.Value.ToString("yyyy-MM-dd") + @"', 'yyyy-MM-dd')
+                                        and a.attendancedate <= To_Date('" + item.ENDDATE.Value.ToString("yyyy-MM-dd") + @"', 'yyyy-MM-dd')";
+
+                            int i = dal.ExecuteNonQuery(sql);
+                            Tracer.Debug("新增假期设置删除设定日期整个公司考勤初始化记录,共删除：" + i.ToString() + " 条数据:执行的sql" + sql);
+                        }
+                        catch (Exception ex)
+                        {
+                            Tracer.Debug("新增假期设置删除设定日期整个公司考勤初始化记录异常：" + ex.ToString());
+                        }
+                    }
+
+
+                    if (item.DAYTYPE == (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString())
+                    {
+                        //如果设置的日期是当月，需要重新初始化公司考勤
+                        if (item.STARTDATE.Value <= DateTime.Now.AddMonths(1).AddDays(-1))
+                        {
+                            needInitCompanyAttanceDayAgain = true;
+                            strCurYearMonth = item.STARTDATE.Value.Year + "-" + item.STARTDATE.Value.Month;
+                        }
+                        if (item.ENDDATE.Value <= DateTime.Now.AddMonths(1).AddDays(-1))
+                        {
+                            needInitCompanyAttanceDayAgain = true;
+                            strCurYearMonth = item.ENDDATE.Value.Year + "-" + item.ENDDATE.Value.Month;
+                        }
+                    }
+
+                    #endregion
+                }
+
+                if (needInitCompanyAttanceDayAgain)
+                {
+                    Tracer.Debug("====================================新增假期设置工作日开始初始化整个公司考勤记录");
+                    AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
+                    bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("1", entVacRd.ASSIGNEDOBJECTID, strCurYearMonth);
+                    Tracer.Debug("====================================新增假期设置工作日初始化整个公司考勤记录完毕");
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
         }
 
         /// <summary>

@@ -45,6 +45,26 @@ namespace SMT.HRM.DAL
 
             }
         }
+        public int ExecuteNonQuery(string Sqlstring)
+        {
+            try
+            {
+                OracleDAO dao = new OracleDAO(conn);
+                //prameters = new ParameterCollection();
+                //prameters.Add("parme1", null);
+                return dao.ExecuteNonQuery(Sqlstring);
+
+                //return object obj=dao.ExecuteScalar(Sqlstring, System.Data.CommandType.Text);
+                //prameters = new ParameterCollection();
+                //object obj1 = dao.GetDataTable(Sqlstring, System.Data.CommandType.Text, prameters);
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+                return 0;
+
+            }
+        }
 
         public object ExecuteCustomerSql(string Sqlstring)
         {

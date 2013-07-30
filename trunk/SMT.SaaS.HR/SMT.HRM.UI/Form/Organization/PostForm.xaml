@@ -93,9 +93,9 @@
                    Grid.Row="2" Grid.Column="0" Visibility="Collapsed" ></TextBlock>
         <appCtr:DictionaryComboBox x:Name="cbPostlevel"  IsShowNull="False"  Category="POSTLEVEL"  SelectedValue="{Binding POSTLEVEL, Mode=TwoWay}" 
                  HorizontalAlignment="Stretch" Width="Auto" Grid.Row="2" Grid.Column="1" Visibility="Collapsed">
-            <interaction:Interaction.Behaviors>
+            <!--<interaction:Interaction.Behaviors>
                 <behaviors:ShowRequire></behaviors:ShowRequire>
-            </interaction:Interaction.Behaviors>
+            </interaction:Interaction.Behaviors>-->
         </appCtr:DictionaryComboBox>
 
         <!--Row 4-->
