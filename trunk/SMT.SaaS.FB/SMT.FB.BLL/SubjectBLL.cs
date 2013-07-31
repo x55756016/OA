@@ -22,26 +22,29 @@ namespace SMT.FB.BLL
         public const string FieldName_AccountObjectType = "ACCOUNTOBJECTTYPE";
         public const string SYSTEM_USER_ID = "001";
         public const int SYSTEM_SPECIAL_MONTH = 4;
-        public enum AccountObjectType
+        /// <summary>
+        /// 总账表预算类型枚举
+        /// </summary>
+        public enum AccountObjectType 
         {
-            Company = 1,
-            Deaprtment,
-            Person,
+            Company = 1,//当前生效公司预算
+            Deaprtment,//当前生效部门预算
+            Person,//当前生效个人预算
             Simple = 11,
             Backup,
             Special,
             /// <summary>
             /// 非当前记录
             /// </summary>
-            Companynext = 20,
+            Companynext = 20,//下年公司预算
             /// <summary>
             /// 非当前记录
             /// </summary>
-            Deptnext,
+            Deptnext,//下月部门预算
             /// <summary>
             /// 非当前记录
             /// </summary>
-            Personnext
+            Personnext//下月个人预算
 
         }
 
@@ -87,7 +90,7 @@ namespace SMT.FB.BLL
 
         public enum ControlType
         {
-            //1 : 不能跨月使用; 2 : 不那跨年使用 ; 3: 无限制 ; 4: 殊年结
+            //1 :不那跨年使用 ; 2 : 不能跨月使用 ; 3: 无限制 ; 4: 殊年结
             LimitYear = 1, LimitMonth, Unlimit, Special
         }
         #endregion
@@ -1391,7 +1394,6 @@ namespace SMT.FB.BLL
             string returnType = fbEntity.Entity.GetType().Name;
             Type type = this.GetType();
             MethodInfo method = type.GetMethod("Save" + returnType);
-            
             if (method != null)
             {
                 try
@@ -2447,6 +2449,7 @@ namespace SMT.FB.BLL
                 else
                 {
                     SystemBLL.Debug("ChangeExtenDetail " + qe.ToXml());
+                    msg += "，请联系财务管理员确认是否已启用该科目且有预算费用";//上面找不到业务差旅费的原因之一可能是没有启用科目
                     throw new FBBLLException("无可用的业务差旅费报销费用"+msg);
                 }
             }
@@ -2573,12 +2576,13 @@ namespace SMT.FB.BLL
             return result;
         }
 
+
         /// <summary>
         /// 查询与个人有关的所有可用预算（个人和部门公共部门)
         /// </summary>
         /// <param name="qe"></param>
         /// <returns></returns>
-        public List<T_FB_BUDGETACCOUNT> GetBUDGETACCOUNTPerson(QueryExpression qe,ref string msg)
+        public List<T_FB_BUDGETACCOUNT> GetBUDGETACCOUNTPerson(QueryExpression qe, ref string msg)
         {
             QueryExpression qeOwner = qe.GetQueryExpression(FieldName.OwnerID);
             QueryExpression qePost = qe.GetQueryExpression(FieldName.OwnerPostID);
@@ -2693,9 +2697,9 @@ namespace SMT.FB.BLL
                             if (view.ACCOUNTOBJECTTYPE.Value == 3) continue;
                         }
                     }
-                
+
                     //判断使用个人还是公共费用
-                    
+
                     if (view.T_FB_SUBJECT.SUBJECTID == "00161652-e3bf-4e9f-9a57-a9e1ff8cef74")//业务差旅费
                     {
                         if (q.FirstOrDefault().ISPERSON == null)//默认分配到部门

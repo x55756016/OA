@@ -504,7 +504,20 @@ namespace SMT.FB.BLL
                 {
                     tempEntity.ForEach(item =>
                         {
-                            ((SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYMASTER)(ent)).T_FB_DEPTBUDGETAPPLYDETAIL.Add(((SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL)(item.Entity)));
+                            T_FB_DEPTBUDGETAPPLYDETAIL depDetail = item.Entity as T_FB_DEPTBUDGETAPPLYDETAIL;
+                            QueryEntityBLL bll = new QueryEntityBLL();
+                            QueryExpression qeDetail = QueryExpression.Equal("DEPTBUDGETAPPLYDETAILID", depDetail.DEPTBUDGETAPPLYDETAILID);
+                            qeDetail.QueryType = "T_FB_DEPTBUDGETAPPLYDETAIL";
+                            qeDetail.Include = new string[] { typeof(T_FB_SUBJECT).Name };
+                            var dept = bll.InnerGetEntities<T_FB_DEPTBUDGETAPPLYDETAIL>(qeDetail).FirstOrDefault();//部门分配明细
+                            //item.Entity.EntityState=FBEntityState.Detached;
+                            depDetail.T_FB_SUBJECT = new T_FB_SUBJECT();
+                            //depDetail.T_FB_SUBJECTReference
+                            //depDetail.T_FB_SUBJECT.ToFBEntity().FBEntityState = FBEntityState.Deleted;
+                            depDetail.T_FB_SUBJECT.SUBJECTCODE = dept.T_FB_SUBJECT.SUBJECTCODE;
+                            depDetail.T_FB_SUBJECT.SUBJECTNAME = dept.T_FB_SUBJECT.SUBJECTNAME;
+                            //  depDetail.T_FB_SUBJECT.ToFBEntity().FBEntityState = FBEntityState.Detached;
+                            ((T_FB_DEPTBUDGETAPPLYMASTER)(ent)).T_FB_DEPTBUDGETAPPLYDETAIL.Add(depDetail);//手动加进去
                         });
                 }
             }
@@ -515,7 +528,8 @@ namespace SMT.FB.BLL
                 {
                     tempEntity.ForEach(item =>
                     {
-                        ((SMT_FB_EFModel.T_FB_DEPTBUDGETADDMASTER)(ent)).T_FB_DEPTBUDGETADDDETAIL.Add(((SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL)(item.Entity)));
+                        SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL depDetail = item.Entity as T_FB_DEPTBUDGETADDDETAIL;
+                        ((SMT_FB_EFModel.T_FB_DEPTBUDGETADDMASTER)(ent)).T_FB_DEPTBUDGETADDDETAIL.Add(depDetail);
                     });
                 }
             }
@@ -682,6 +696,15 @@ namespace SMT.FB.BLL
                 {
                     AttValue = GetTransferDepartemntName(ent, AttName);
                 }
+                else if (AttName == "BUDGETARYMONTH")
+                {
+                    object objValue = ent.GetValue(AttName);
+                    if (objValue != null)
+                    {
+                        DateTime dt = Convert.ToDateTime(objValue.ToString());
+                        AttValue = dt.Year.ToString() + "年" + dt.Month + "月";
+                    }
+                }
                 else
                 {
                     object objValue = ent.GetValue(AttName);
@@ -697,7 +720,7 @@ namespace SMT.FB.BLL
                     item.Attribute("DataText").SetValue(StrCheck);
                 }
             };
-            #endregion 填充XML一级节点
+            #endregion 
 
             //预算都要重做了，还有什么改的必要，搁浅中
             //if (entityInfo.EntityCode == "T_FB_COMPANYBUDGETSUMMASTER" && entityInfo.EntityCode == "T_FB_DEPTBUDGETSUMMASTER")
