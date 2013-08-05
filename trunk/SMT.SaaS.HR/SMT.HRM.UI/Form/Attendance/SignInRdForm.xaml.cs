@@ -195,6 +195,12 @@ namespace SMT.HRM.UI.Form.Attendance
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEESIGNINDETAIL", "REASONCATEGORY", v.REASONCATEGORY, reson[v.REASONCATEGORY.ToString()], v.SIGNINDETAILID));
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEESIGNINDETAIL", "ATTENDPERIOD", v.ATTENDPERIOD, dperiod[v.ATTENDPERIOD.ToString()], v.SIGNINDETAILID));
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEESIGNINDETAIL", "SIGNINID", Info.SIGNINID, "", v.SIGNINDETAILID));
+                if (v.ABNORMALDATE!=null)
+                {
+                    //日期格式tostring的时候程序会根据本机电脑设置的事情格式去生成，所以这里要加和格式设置（很奇怪吧，很多情况都会这样，例如我把我电脑日期设置后面加上中文"哈哈"，那么日期格式tostring的时候就会变成"2013-8-1 哈哈"）
+                    AutoList.Add(basedataForChild("T_HR_EMPLOYEESIGNINDETAIL", "ABNORMALDATE", v.ABNORMALDATE.Value.ToString("yyyy-MM-dd"), v.ABNORMALDATE.Value.ToString("yyyy-MM-dd"), v.SIGNINDETAILID));
+                }
+               
             }
             string a = mx.TableToXml(Info, SignInDetailList, StrSource, AutoList);
 

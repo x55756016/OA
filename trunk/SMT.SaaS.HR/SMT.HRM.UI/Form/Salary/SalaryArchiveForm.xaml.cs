@@ -726,7 +726,7 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "lkBalancePost", lkBalancePost.TxtLookUp.Text, lkBalancePost.TxtLookUp.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDS", txtSum.Text, txtSum.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDSREMARK", txtSumRemark.Text, txtSumRemark.Text));
-          
+            AutoList.Add(basedata("T_HR_SALARYARCHIVE", "EMPLOYEENAME", lkEmployee.TxtLookUp.Text, lkEmployee.TxtLookUp.Text));
             foreach (var v in archiveItemsList)
             {
                 AutoList.Add(basedataForChild("V_SALARYARCHIVEITEM", "REMARK", v.REMARK, "", v.SALARYARCHIVEITEM));
@@ -1367,7 +1367,7 @@ namespace SMT.HRM.UI.Form.Salary
                 List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> allDepartments = Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>;
                 SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT department = allDepartments.Where(s => s.DEPARTMENTID == depID).FirstOrDefault();
                 SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY company = new SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY();
-               
+
                 string fatherType = "0";
                 string fatherID = "";
                 bool hasFather = false;
@@ -1506,7 +1506,7 @@ namespace SMT.HRM.UI.Form.Salary
                                     strPostInfoName = strPostInfoName + " - " + post.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME;
                                 }
                             }
-                        }                        
+                        }
                     }
                     lkBalancePost.TxtLookUp.Text = strPostInfoName;
                     SalaryArchive.BALANCEPOSTID = post.POSTID;

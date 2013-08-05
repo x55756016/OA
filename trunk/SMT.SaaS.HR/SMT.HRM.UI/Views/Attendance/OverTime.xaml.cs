@@ -136,6 +136,7 @@ namespace SMT.HRM.UI.Views.Attendance
             {
                 Checkstate = dict.DICTIONARYVALUE.ToString();
                 Utility.SetToolBarButtonByCheckState(dict.DICTIONARYVALUE.Value.ToInt32(), toolbar1, "T_HR_EMPLOYEEOVERTIMERECORD");
+                toolbar1.btnReSubmit.Visibility = System.Windows.Visibility.Collapsed;//隐藏重新提交按钮
                 LoadData();
             }
         }

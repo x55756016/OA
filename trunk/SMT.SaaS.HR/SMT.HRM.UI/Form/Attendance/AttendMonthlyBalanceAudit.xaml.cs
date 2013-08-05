@@ -208,14 +208,13 @@ namespace SMT.HRM.UI.Form.Attendance
                     if (entCompany.COMPANYID != AttendMonthlyBatchBalance.OWNERCOMPANYID)
                     {
                         var temp = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts.Where(c => c.CompanyID == entCompany.COMPANYID);
-                        if (temp != null)
+                        if (temp != null && temp.Count()>0)
                         {
                             AttendMonthlyBatchBalance.OWNERCOMPANYID = temp.FirstOrDefault().CompanyID;
                             AttendMonthlyBatchBalance.OWNERDEPARTMENTID = temp.FirstOrDefault().DepartmentID;
                             AttendMonthlyBatchBalance.OWNERPOSTID = temp.FirstOrDefault().PostID;
-
-                            BindGrid();
                         }
+                        BindGrid();
                     }
                     else
                     {
@@ -249,14 +248,13 @@ namespace SMT.HRM.UI.Form.Attendance
                     if (entDepartment.DEPARTMENTID != AttendMonthlyBatchBalance.OWNERDEPARTMENTID)
                     {
                         var temp = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts.Where(c => c.DepartmentID == entDepartment.DEPARTMENTID);
-                        if (temp != null)
+                        if (temp != null && temp.Count()>0)
                         {
                             AttendMonthlyBatchBalance.OWNERCOMPANYID = temp.FirstOrDefault().CompanyID;
                             AttendMonthlyBatchBalance.OWNERDEPARTMENTID = temp.FirstOrDefault().DepartmentID;
                             AttendMonthlyBatchBalance.OWNERPOSTID = temp.FirstOrDefault().PostID;
-
-                            BindGrid();
                         }
+                        BindGrid();
                     }
                 }
             }
@@ -285,14 +283,13 @@ namespace SMT.HRM.UI.Form.Attendance
                     if (entPost.POSTID != AttendMonthlyBatchBalance.OWNERPOSTID)
                     {
                         var temp = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts.Where(c => c.PostID == entPost.POSTID);
-                        if (temp != null)
+                        if (temp != null && temp.Count()>0)
                         {
                             AttendMonthlyBatchBalance.OWNERCOMPANYID = temp.FirstOrDefault().CompanyID;
                             AttendMonthlyBatchBalance.OWNERDEPARTMENTID = temp.FirstOrDefault().DepartmentID;
                             AttendMonthlyBatchBalance.OWNERPOSTID = temp.FirstOrDefault().PostID;
-
-                            BindGrid();
                         }
+                        BindGrid();
                     }
                 }
             }
