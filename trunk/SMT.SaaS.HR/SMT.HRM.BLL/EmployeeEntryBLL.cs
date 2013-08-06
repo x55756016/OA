@@ -1064,6 +1064,13 @@ namespace SMT.HRM.BLL
                             else employee.EMPLOYEESTATE = "0";
                             //编辑状态
                             employee.EDITSTATE = "1";
+                            //获取员工用户信息，有则把邮箱信息等传进去
+                            T_SYS_USER userInfo = GetUserInfo(employee.EMPLOYEEID);
+                            if (userInfo != null && !string.IsNullOrEmpty(userInfo.USERNAME))
+                            {
+                                employee.EMAIL = userInfo.USERNAME + "@sinomaster.com";
+                                employee.OTHERCOMMUNICATE = userInfo.USERNAME;
+                            }
                             //更新员工基本信息表
                             dal.UpdateFromContext(employee);
                         }

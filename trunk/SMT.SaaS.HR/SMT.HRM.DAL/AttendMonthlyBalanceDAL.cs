@@ -192,13 +192,16 @@ namespace SMT.HRM.DAL
 
             switch (sType)
             {
-                case "Company":
+                //case "Company":
+                case "1":
                     ents = GetBlanceByCompanyId(sValue);
                     break;
-                case "Department":
+               // case "Department":
+                case "2":
                     ents = GetBlanceByDepartmentId(sValue);
                     break;
-                case "Post":
+                //case "Post":
+                case "3":
                     ents = GetBlanceByPostId(sValue);
                     break;
             }
@@ -252,7 +255,7 @@ namespace SMT.HRM.DAL
             var q = from b in GetObjects()
                     join e in ents on b.EMPLOYEEID equals e.EMPLOYEEID
                     select b;
-
+            q = q.Where(t => t.OWNERPOSTID == strPostID);//过滤
             return q.Distinct();
         }
 
@@ -291,7 +294,7 @@ namespace SMT.HRM.DAL
             var q = from b in GetObjects()
                     join e in ents on b.EMPLOYEEID equals e.EMPLOYEEID
                     select b;
-
+            q = q.Where(t => t.OWNERDEPARTMENTID == strDepartmentID);//过滤
             return q.Distinct();
         }
 
@@ -332,7 +335,7 @@ namespace SMT.HRM.DAL
             var q = from b in GetObjects()
                     join e in ents on b.EMPLOYEEID equals e.EMPLOYEEID
                     select b;
-
+            q = q.Where(t => t.OWNERCOMPANYID == strCompanyID);//过滤
             return q.Distinct();
         }
     }

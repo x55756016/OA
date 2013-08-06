@@ -24,7 +24,7 @@ using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
-    public class OverTimeRecordBLL : BaseBll<T_HR_EMPLOYEEOVERTIMERECORD>,IOperate
+    public class OverTimeRecordBLL : BaseBll<T_HR_EMPLOYEEOVERTIMERECORD>, IOperate
     {
         public OverTimeRecordBLL()
         {
@@ -188,7 +188,7 @@ namespace SMT.HRM.BLL
                     string strOldCheckState = string.Copy(ent.CHECKSTATE);
                     string strNewCheckState = entOTRd.CHECKSTATE;
 
-                    if ((strOldCheckState == Convert.ToInt32(Common.CheckStates.UnSubmit).ToString() && strNewCheckState == Convert.ToInt32(Common.CheckStates.UnSubmit).ToString()) 
+                    if ((strOldCheckState == Convert.ToInt32(Common.CheckStates.UnSubmit).ToString() && strNewCheckState == Convert.ToInt32(Common.CheckStates.UnSubmit).ToString())
                         || (strOldCheckState == Convert.ToInt32(Common.CheckStates.UnSubmit).ToString() && strNewCheckState == Convert.ToInt32(Common.CheckStates.Approving).ToString()))
                     {
                         decimal dTotalHours = 0;
@@ -271,7 +271,7 @@ namespace SMT.HRM.BLL
                 }
 
                 entOTRd.CHECKSTATE = strCheckState;
-                
+
                 ModifyOverTimeRd(entOTRd);
 
 
@@ -296,8 +296,8 @@ namespace SMT.HRM.BLL
                 {
                     Utility.SaveLog("审核加班单：" + strOverTimeRecordID + "，状态修改为：" + strCheckState + ".获取不到生成调休假所需要的考勤方案数据，生成调休假失败");
                     return "{NOTFOUND}";
-                }                
-                
+                }
+
 
                 if (entAttSol.OVERTIMEPAYTYPE == (Convert.ToInt32(Common.OverTimePayType.AdjustLeave) + 1).ToString())
                 {
@@ -477,9 +477,9 @@ namespace SMT.HRM.BLL
             }
             else
             {
-                CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays,entVacDays, iWorkDays, dtOTStart,
+                CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays, entVacDays, iWorkDays, dtOTStart,
                     dtStart.AddDays(1).AddSeconds(-1), entTemplateDetails, entTemplateMaster, ref dTotalOverTimeHours, ref strMsg);
-                CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays,entVacDays, iWorkDays, dtEnd, dtOTEnd,
+                CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays, entVacDays, iWorkDays, dtEnd, dtOTEnd,
                     entTemplateDetails, entTemplateMaster, ref dTotalOverTimeHours, ref strRes);
 
                 if (ts.Days > 0)
@@ -493,7 +493,7 @@ namespace SMT.HRM.BLL
                         bool bIsWorkDay = false;
                         bool bIsVacDay = false;
                         DateTime dtCurDate = dtStart.AddDays(j);
-                       
+
 
                         if (entWorkDays.Count() > 0)
                         {
@@ -550,7 +550,7 @@ namespace SMT.HRM.BLL
             }
 
             dOverTimeHours = dTotalOverTimeHours;
-            return strRes;
+            return strRes + strMsg;
         }
 
         //private void CalculateNonWholeDayOverTimeHoursNew
@@ -567,7 +567,7 @@ namespace SMT.HRM.BLL
         /// <param name="dtOTEnd">加班截止时间</param>
         /// <param name="entTemplateMaster">作息方案</param>
         /// <param name="dTotalOverTimeHours">加班累计时长</param>
-        private void CalculateNonWholeDayOverTimeHours(decimal dWorkTimePerDay, IQueryable<T_HR_OUTPLANDAYS> entWorkDays,IQueryable<T_HR_OUTPLANDAYS> entVacDays,
+        private void CalculateNonWholeDayOverTimeHours(decimal dWorkTimePerDay, IQueryable<T_HR_OUTPLANDAYS> entWorkDays, IQueryable<T_HR_OUTPLANDAYS> entVacDays,
             List<int> iWorkDays, DateTime dtOTStart, DateTime dtOTEnd, IQueryable<T_HR_SCHEDULINGTEMPLATEDETAIL> entTemplateDetails,
             T_HR_SCHEDULINGTEMPLATEMASTER entTemplateMaster, ref decimal dOverTimeHours, ref string strMsg)
         {

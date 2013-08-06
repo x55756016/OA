@@ -279,7 +279,13 @@ namespace SMT.HRM.BLL
 
         public T_HR_EMPLOYEECONTRACT GetEmployeeContractByEmployeeID(string employeeID)
         {
-            return dal.GetObjects().Include("T_HR_EMPLOYEE").FirstOrDefault(s => s.T_HR_EMPLOYEE.EMPLOYEEID == employeeID);
+            var ent = from e in dal.GetObjects().Include("T_HR_EMPLOYEE")
+                      where e.T_HR_EMPLOYEE.EMPLOYEEID == employeeID 
+                      && e.CHECKSTATE=="2"//审核通过
+                      orderby e.CREATEDATE descending
+                      select e;
+            return ent != null ? ent.ToList().FirstOrDefault() : null;//根据时间排序，得出最新的一条员工合同,这里toList后才能取到第一条数据，可能是数据还在数据库里面
+          //  return dal.GetObjects().Include("T_HR_EMPLOYEE").FirstOrDefault(s => s.T_HR_EMPLOYEE.EMPLOYEEID == employeeID);
         }
 
         /// <summary>
