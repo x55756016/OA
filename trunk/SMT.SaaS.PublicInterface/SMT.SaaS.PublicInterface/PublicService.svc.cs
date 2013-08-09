@@ -93,8 +93,12 @@ namespace SMT.SaaS.PublicInterface
 
                         strContent = strContent.Replace(match.Groups["imgUrl"].Value, imageUrl);
                     }
+                    string oldString = "<span class=\"s_E6FD2046\"> </span>";
+                    
+                    string newString = "<span class=\"s_E6FD2046\"></br></span>";
+                    strContent = strContent.Replace(oldString, newString);
                     return strContent;
-
+                    
         //            string imgLocalPath = @"D:/web/LoadImge";//存放下载图片的路径
         //            for (int i = 0; i < sUrlList.Length; i++)
         //            {
@@ -130,7 +134,17 @@ namespace SMT.SaaS.PublicInterface
                 throw ex;
             }
         }
-
+        /// <summary>                /// 获得字符串中开始和结束字符串中间得值 
+         /// /// </summary>    
+        /// <param name="str"></param>      
+        /// <param name="beginStr">开始</param>    
+         /// <param name="endStr">结束</param>       
+        /// <returns></returns>       
+        private static string GetStr(string str, string beginStr, string endStr)
+        {
+            Regex rg = new Regex("(?<=(" + beginStr + "))[.\\s\\S]*?(?=(" + endStr + "))", RegexOptions.Multiline | RegexOptions.Singleline);
+            return rg.Match(str).Value;
+        }
 
         /// <summary>   
 /// Base64编码转换为图像   

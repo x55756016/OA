@@ -12,7 +12,7 @@ namespace SMT.SaaS.PublicInterface
         protected void Page_Load(object sender, EventArgs e)
         {
             PublicService sv = new PublicService();
-            string str=sv.GetContentFormatImgToUrl("c63e4df4-58ee-435e-84cb-12c983a26c78");
+            string str = sv.GetContentFormatImgToUrl("128ef005-4006-4d37-acc7-8e2bb05abfa6");
             Response.Write(str);
         }
     }
