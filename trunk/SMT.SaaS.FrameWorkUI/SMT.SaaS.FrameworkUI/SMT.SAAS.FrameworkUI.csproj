@@ -76,36 +76,38 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FJ.Core">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\FJ.Core.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\FJ.Core.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.AnimationEngine">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.AnimationEngine.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.AnimationEngine.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Behaviors">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Behaviors.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.ClientServices">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.ClientServices.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientServices.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.ClientUtility">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.ClientUtility.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Extensions">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Extensions.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.Globalization">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.Globalization.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Globalization.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.LocalData">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Assembly\SMT.SaaS.LocalData.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Main.CurrentContext">
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Assembly\SMT.SAAS.Main.CurrentContext.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.Window, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SMT.SaaS.Window, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.Composition.Initialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />

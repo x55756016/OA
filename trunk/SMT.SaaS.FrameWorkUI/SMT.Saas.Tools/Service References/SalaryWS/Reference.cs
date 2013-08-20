@@ -15803,6 +15803,11 @@ namespace SMT.Saas.Tools.SalaryWS {
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="SalaryWS.SalaryService")]
     public interface SalaryService {
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/PerformanceRewardRecordAdd", ReplyAction="urn:SalaryService/PerformanceRewardRecordAddResponse")]
+        System.IAsyncResult BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState);
+        
+        void EndPerformanceRewardRecordAdd(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/PerformanceRewardRecordUpdate", ReplyAction="urn:SalaryService/PerformanceRewardRecordUpdateResponse")]
         System.IAsyncResult BeginPerformanceRewardRecordUpdate(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD obj, System.AsyncCallback callback, object asyncState);
         
@@ -16803,6 +16808,11 @@ namespace SMT.Saas.Tools.SalaryWS {
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_RESIGN> EndGetResign(ref int pageCount, System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/ImportEmployeeAddSumFromExcelForShow", ReplyAction="urn:SalaryService/ImportEmployeeAddSumFromExcelForShowResponse")]
+        System.IAsyncResult BeginImportEmployeeAddSumFromExcelForShow(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, System.Collections.Generic.Dictionary<string, string> paras, ref string strMsg, bool IsPreview, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM> EndImportEmployeeAddSumFromExcelForShow(ref string strMsg, System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/EmployeeAddSumLotsofADD", ReplyAction="urn:SalaryService/EmployeeAddSumLotsofADDResponse")]
         System.IAsyncResult BeginEmployeeAddSumLotsofADD(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM> objs, System.AsyncCallback callback, object asyncState);
         
@@ -17574,11 +17584,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         System.IAsyncResult BeginGetAreaWithPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> EndGetAreaWithPaging(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/PerformanceRewardRecordAdd", ReplyAction="urn:SalaryService/PerformanceRewardRecordAddResponse")]
-        System.IAsyncResult BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState);
-        
-        void EndPerformanceRewardRecordAdd(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/SalarySolutionAdd", ReplyAction="urn:SalaryService/SalarySolutionAddResponse")]
         System.IAsyncResult BeginSalarySolutionAdd(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION entity, System.AsyncCallback callback, object asyncState);
@@ -19123,6 +19128,32 @@ namespace SMT.Saas.Tools.SalaryWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_RESIGN>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ImportEmployeeAddSumFromExcelForShowCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ImportEmployeeAddSumFromExcelForShowCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string strMsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>)(this.results[1]));
             }
         }
     }
@@ -21696,6 +21727,12 @@ namespace SMT.Saas.Tools.SalaryWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class SalaryServiceClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.SalaryWS.SalaryService>, SMT.Saas.Tools.SalaryWS.SalaryService {
         
+        private BeginOperationDelegate onBeginPerformanceRewardRecordAddDelegate;
+        
+        private EndOperationDelegate onEndPerformanceRewardRecordAddDelegate;
+        
+        private System.Threading.SendOrPostCallback onPerformanceRewardRecordAddCompletedDelegate;
+        
         private BeginOperationDelegate onBeginPerformanceRewardRecordUpdateDelegate;
         
         private EndOperationDelegate onEndPerformanceRewardRecordUpdateDelegate;
@@ -22103,6 +22140,12 @@ namespace SMT.Saas.Tools.SalaryWS {
         private EndOperationDelegate onEndGetResignDelegate;
         
         private System.Threading.SendOrPostCallback onGetResignCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginImportEmployeeAddSumFromExcelForShowDelegate;
+        
+        private EndOperationDelegate onEndImportEmployeeAddSumFromExcelForShowDelegate;
+        
+        private System.Threading.SendOrPostCallback onImportEmployeeAddSumFromExcelForShowCompletedDelegate;
         
         private BeginOperationDelegate onBeginEmployeeAddSumLotsofADDDelegate;
         
@@ -22553,12 +22596,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         private EndOperationDelegate onEndGetAreaWithPagingDelegate;
         
         private System.Threading.SendOrPostCallback onGetAreaWithPagingCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginPerformanceRewardRecordAddDelegate;
-        
-        private EndOperationDelegate onEndPerformanceRewardRecordAddDelegate;
-        
-        private System.Threading.SendOrPostCallback onPerformanceRewardRecordAddCompletedDelegate;
         
         private BeginOperationDelegate onBeginSalarySolutionAddDelegate;
         
@@ -23122,6 +23159,8 @@ namespace SMT.Saas.Tools.SalaryWS {
             }
         }
         
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> PerformanceRewardRecordAddCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> PerformanceRewardRecordUpdateCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> PerformanceRewardRecordDeleteCompleted;
@@ -23257,6 +23296,8 @@ namespace SMT.Saas.Tools.SalaryWS {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EmployeeAddSumADDCompleted;
         
         public event System.EventHandler<GetResignCompletedEventArgs> GetResignCompleted;
+        
+        public event System.EventHandler<ImportEmployeeAddSumFromExcelForShowCompletedEventArgs> ImportEmployeeAddSumFromExcelForShowCompleted;
         
         public event System.EventHandler<EmployeeAddSumLotsofADDCompletedEventArgs> EmployeeAddSumLotsofADDCompleted;
         
@@ -23407,8 +23448,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         public event System.EventHandler<GetAreaCityWithPagingCompletedEventArgs> GetAreaCityWithPagingCompleted;
         
         public event System.EventHandler<GetAreaWithPagingCompletedEventArgs> GetAreaWithPagingCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> PerformanceRewardRecordAddCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SalarySolutionAddCompleted;
         
@@ -23583,6 +23622,63 @@ namespace SMT.Saas.Tools.SalaryWS {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPerformanceRewardRecordAdd(orgtype, orgid, year, month, startTime, endTime, construes, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.SalaryWS.SalaryService.EndPerformanceRewardRecordAdd(System.IAsyncResult result) {
+            base.Channel.EndPerformanceRewardRecordAdd(result);
+        }
+        
+        private System.IAsyncResult OnBeginPerformanceRewardRecordAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int orgtype = ((int)(inValues[0]));
+            string orgid = ((string)(inValues[1]));
+            string year = ((string)(inValues[2]));
+            string month = ((string)(inValues[3]));
+            System.DateTime startTime = ((System.DateTime)(inValues[4]));
+            System.DateTime endTime = ((System.DateTime)(inValues[5]));
+            string construes = ((string)(inValues[6]));
+            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginPerformanceRewardRecordAdd(orgtype, orgid, year, month, startTime, endTime, construes, callback, asyncState);
+        }
+        
+        private object[] OnEndPerformanceRewardRecordAdd(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndPerformanceRewardRecordAdd(result);
+            return null;
+        }
+        
+        private void OnPerformanceRewardRecordAddCompleted(object state) {
+            if ((this.PerformanceRewardRecordAddCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PerformanceRewardRecordAddCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PerformanceRewardRecordAddAsync(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes) {
+            this.PerformanceRewardRecordAddAsync(orgtype, orgid, year, month, startTime, endTime, construes, null);
+        }
+        
+        public void PerformanceRewardRecordAddAsync(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, object userState) {
+            if ((this.onBeginPerformanceRewardRecordAddDelegate == null)) {
+                this.onBeginPerformanceRewardRecordAddDelegate = new BeginOperationDelegate(this.OnBeginPerformanceRewardRecordAdd);
+            }
+            if ((this.onEndPerformanceRewardRecordAddDelegate == null)) {
+                this.onEndPerformanceRewardRecordAddDelegate = new EndOperationDelegate(this.OnEndPerformanceRewardRecordAdd);
+            }
+            if ((this.onPerformanceRewardRecordAddCompletedDelegate == null)) {
+                this.onPerformanceRewardRecordAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPerformanceRewardRecordAddCompleted);
+            }
+            base.InvokeAsync(this.onBeginPerformanceRewardRecordAddDelegate, new object[] {
+                        orgtype,
+                        orgid,
+                        year,
+                        month,
+                        startTime,
+                        endTime,
+                        construes}, this.onEndPerformanceRewardRecordAddDelegate, this.onPerformanceRewardRecordAddCompletedDelegate, userState);
+        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginPerformanceRewardRecordUpdate(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD obj, System.AsyncCallback callback, object asyncState) {
@@ -26944,6 +27040,60 @@ namespace SMT.Saas.Tools.SalaryWS {
                         userID,
                         orgtype,
                         orgid}, this.onEndGetResignDelegate, this.onGetResignCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginImportEmployeeAddSumFromExcelForShow(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, System.Collections.Generic.Dictionary<string, string> paras, ref string strMsg, bool IsPreview, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginImportEmployeeAddSumFromExcelForShow(UploadFile, paras, ref strMsg, IsPreview, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM> SMT.Saas.Tools.SalaryWS.SalaryService.EndImportEmployeeAddSumFromExcelForShow(ref string strMsg, System.IAsyncResult result) {
+            return base.Channel.EndImportEmployeeAddSumFromExcelForShow(ref strMsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginImportEmployeeAddSumFromExcelForShow(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile = ((SMT.Saas.Tools.SalaryWS.UploadFileModel)(inValues[0]));
+            System.Collections.Generic.Dictionary<string, string> paras = ((System.Collections.Generic.Dictionary<string, string>)(inValues[1]));
+            string strMsg = ((string)(inValues[2]));
+            bool IsPreview = ((bool)(inValues[3]));
+            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginImportEmployeeAddSumFromExcelForShow(UploadFile, paras, ref strMsg, IsPreview, callback, asyncState);
+        }
+        
+        private object[] OnEndImportEmployeeAddSumFromExcelForShow(System.IAsyncResult result) {
+            string strMsg = this.GetDefaultValueForInitialization<string>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM> retVal = ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndImportEmployeeAddSumFromExcelForShow(ref strMsg, result);
+            return new object[] {
+                    strMsg,
+                    retVal};
+        }
+        
+        private void OnImportEmployeeAddSumFromExcelForShowCompleted(object state) {
+            if ((this.ImportEmployeeAddSumFromExcelForShowCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ImportEmployeeAddSumFromExcelForShowCompleted(this, new ImportEmployeeAddSumFromExcelForShowCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ImportEmployeeAddSumFromExcelForShowAsync(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, System.Collections.Generic.Dictionary<string, string> paras, string strMsg, bool IsPreview) {
+            this.ImportEmployeeAddSumFromExcelForShowAsync(UploadFile, paras, strMsg, IsPreview, null);
+        }
+        
+        public void ImportEmployeeAddSumFromExcelForShowAsync(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, System.Collections.Generic.Dictionary<string, string> paras, string strMsg, bool IsPreview, object userState) {
+            if ((this.onBeginImportEmployeeAddSumFromExcelForShowDelegate == null)) {
+                this.onBeginImportEmployeeAddSumFromExcelForShowDelegate = new BeginOperationDelegate(this.OnBeginImportEmployeeAddSumFromExcelForShow);
+            }
+            if ((this.onEndImportEmployeeAddSumFromExcelForShowDelegate == null)) {
+                this.onEndImportEmployeeAddSumFromExcelForShowDelegate = new EndOperationDelegate(this.OnEndImportEmployeeAddSumFromExcelForShow);
+            }
+            if ((this.onImportEmployeeAddSumFromExcelForShowCompletedDelegate == null)) {
+                this.onImportEmployeeAddSumFromExcelForShowCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnImportEmployeeAddSumFromExcelForShowCompleted);
+            }
+            base.InvokeAsync(this.onBeginImportEmployeeAddSumFromExcelForShowDelegate, new object[] {
+                        UploadFile,
+                        paras,
+                        strMsg,
+                        IsPreview}, this.onEndImportEmployeeAddSumFromExcelForShowDelegate, this.onImportEmployeeAddSumFromExcelForShowCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -30710,63 +30860,6 @@ namespace SMT.Saas.Tools.SalaryWS {
                         filterString,
                         paras,
                         pageCount}, this.onEndGetAreaWithPagingDelegate, this.onGetAreaWithPagingCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginPerformanceRewardRecordAdd(orgtype, orgid, year, month, startTime, endTime, construes, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.SalaryWS.SalaryService.EndPerformanceRewardRecordAdd(System.IAsyncResult result) {
-            base.Channel.EndPerformanceRewardRecordAdd(result);
-        }
-        
-        private System.IAsyncResult OnBeginPerformanceRewardRecordAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            int orgtype = ((int)(inValues[0]));
-            string orgid = ((string)(inValues[1]));
-            string year = ((string)(inValues[2]));
-            string month = ((string)(inValues[3]));
-            System.DateTime startTime = ((System.DateTime)(inValues[4]));
-            System.DateTime endTime = ((System.DateTime)(inValues[5]));
-            string construes = ((string)(inValues[6]));
-            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginPerformanceRewardRecordAdd(orgtype, orgid, year, month, startTime, endTime, construes, callback, asyncState);
-        }
-        
-        private object[] OnEndPerformanceRewardRecordAdd(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndPerformanceRewardRecordAdd(result);
-            return null;
-        }
-        
-        private void OnPerformanceRewardRecordAddCompleted(object state) {
-            if ((this.PerformanceRewardRecordAddCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.PerformanceRewardRecordAddCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void PerformanceRewardRecordAddAsync(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes) {
-            this.PerformanceRewardRecordAddAsync(orgtype, orgid, year, month, startTime, endTime, construes, null);
-        }
-        
-        public void PerformanceRewardRecordAddAsync(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, object userState) {
-            if ((this.onBeginPerformanceRewardRecordAddDelegate == null)) {
-                this.onBeginPerformanceRewardRecordAddDelegate = new BeginOperationDelegate(this.OnBeginPerformanceRewardRecordAdd);
-            }
-            if ((this.onEndPerformanceRewardRecordAddDelegate == null)) {
-                this.onEndPerformanceRewardRecordAddDelegate = new EndOperationDelegate(this.OnEndPerformanceRewardRecordAdd);
-            }
-            if ((this.onPerformanceRewardRecordAddCompletedDelegate == null)) {
-                this.onPerformanceRewardRecordAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPerformanceRewardRecordAddCompleted);
-            }
-            base.InvokeAsync(this.onBeginPerformanceRewardRecordAddDelegate, new object[] {
-                        orgtype,
-                        orgid,
-                        year,
-                        month,
-                        startTime,
-                        endTime,
-                        construes}, this.onEndPerformanceRewardRecordAddDelegate, this.onPerformanceRewardRecordAddCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -35152,6 +35245,24 @@ namespace SMT.Saas.Tools.SalaryWS {
                     base(client) {
             }
             
+            public System.IAsyncResult BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[7];
+                _args[0] = orgtype;
+                _args[1] = orgid;
+                _args[2] = year;
+                _args[3] = month;
+                _args[4] = startTime;
+                _args[5] = endTime;
+                _args[6] = construes;
+                System.IAsyncResult _result = base.BeginInvoke("PerformanceRewardRecordAdd", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndPerformanceRewardRecordAdd(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("PerformanceRewardRecordAdd", _args, result);
+            }
+            
             public System.IAsyncResult BeginPerformanceRewardRecordUpdate(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD obj, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = obj;
@@ -36172,6 +36283,25 @@ namespace SMT.Saas.Tools.SalaryWS {
                 _args[0] = pageCount;
                 System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_RESIGN> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_RESIGN>)(base.EndInvoke("GetResign", _args, result)));
                 pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginImportEmployeeAddSumFromExcelForShow(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, System.Collections.Generic.Dictionary<string, string> paras, ref string strMsg, bool IsPreview, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[4];
+                _args[0] = UploadFile;
+                _args[1] = paras;
+                _args[2] = strMsg;
+                _args[3] = IsPreview;
+                System.IAsyncResult _result = base.BeginInvoke("ImportEmployeeAddSumFromExcelForShow", _args, callback, asyncState);
+                strMsg = ((string)(_args[2]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM> EndImportEmployeeAddSumFromExcelForShow(ref string strMsg, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = strMsg;
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>)(base.EndInvoke("ImportEmployeeAddSumFromExcelForShow", _args, result)));
+                strMsg = ((string)(_args[0]));
                 return _result;
             }
             
@@ -37327,24 +37457,6 @@ namespace SMT.Saas.Tools.SalaryWS {
                 System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>)(base.EndInvoke("GetAreaWithPaging", _args, result)));
                 pageCount = ((int)(_args[0]));
                 return _result;
-            }
-            
-            public System.IAsyncResult BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[7];
-                _args[0] = orgtype;
-                _args[1] = orgid;
-                _args[2] = year;
-                _args[3] = month;
-                _args[4] = startTime;
-                _args[5] = endTime;
-                _args[6] = construes;
-                System.IAsyncResult _result = base.BeginInvoke("PerformanceRewardRecordAdd", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndPerformanceRewardRecordAdd(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("PerformanceRewardRecordAdd", _args, result);
             }
             
             public System.IAsyncResult BeginSalarySolutionAdd(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION entity, System.AsyncCallback callback, object asyncState) {

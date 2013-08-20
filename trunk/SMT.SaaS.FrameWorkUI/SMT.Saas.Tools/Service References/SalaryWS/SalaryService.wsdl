@@ -12,6 +12,12 @@
       <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="SalaryService_PerformanceRewardRecordAdd_InputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardRecordAdd" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_PerformanceRewardRecordAdd_OutputMessage">
+    <wsdl:part name="parameters" element="PerformanceRewardRecordAddResponse" />
+  </wsdl:message>
   <wsdl:message name="SalaryService_PerformanceRewardRecordUpdate_InputMessage">
     <wsdl:part name="parameters" element="PerformanceRewardRecordUpdate" />
   </wsdl:message>
@@ -419,6 +425,12 @@
   </wsdl:message>
   <wsdl:message name="SalaryService_GetResign_OutputMessage">
     <wsdl:part name="parameters" element="GetResignResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ImportEmployeeAddSumFromExcelForShow_InputMessage">
+    <wsdl:part name="parameters" element="ImportEmployeeAddSumFromExcelForShow" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ImportEmployeeAddSumFromExcelForShow_OutputMessage">
+    <wsdl:part name="parameters" element="ImportEmployeeAddSumFromExcelForShowResponse" />
   </wsdl:message>
   <wsdl:message name="SalaryService_EmployeeAddSumLotsofADD_InputMessage">
     <wsdl:part name="parameters" element="EmployeeAddSumLotsofADD" />
@@ -869,12 +881,6 @@
   </wsdl:message>
   <wsdl:message name="SalaryService_GetAreaWithPaging_OutputMessage">
     <wsdl:part name="parameters" element="GetAreaWithPagingResponse" />
-  </wsdl:message>
-  <wsdl:message name="SalaryService_PerformanceRewardRecordAdd_InputMessage">
-    <wsdl:part name="parameters" element="PerformanceRewardRecordAdd" />
-  </wsdl:message>
-  <wsdl:message name="SalaryService_PerformanceRewardRecordAdd_OutputMessage">
-    <wsdl:part name="parameters" element="PerformanceRewardRecordAddResponse" />
   </wsdl:message>
   <wsdl:message name="SalaryService_SalarySolutionAdd_InputMessage">
     <wsdl:part name="parameters" element="SalarySolutionAdd" />
@@ -1387,6 +1393,10 @@
     <wsdl:part name="parameters" element="CheckSalaryAuditStateResponse" />
   </wsdl:message>
   <wsdl:portType name="SalaryService">
+    <wsdl:operation name="PerformanceRewardRecordAdd">
+      <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardRecordAdd" message="SalaryService_PerformanceRewardRecordAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardRecordAddResponse" message="SalaryService_PerformanceRewardRecordAdd_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PerformanceRewardRecordUpdate">
       <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardRecordUpdate" message="SalaryService_PerformanceRewardRecordUpdate_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardRecordUpdateResponse" message="SalaryService_PerformanceRewardRecordUpdate_OutputMessage" />
@@ -1658,6 +1668,10 @@
     <wsdl:operation name="GetResign">
       <wsdl:input wsaw:Action="urn:SalaryService/GetResign" message="SalaryService_GetResign_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/GetResignResponse" message="SalaryService_GetResign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportEmployeeAddSumFromExcelForShow">
+      <wsdl:input wsaw:Action="urn:SalaryService/ImportEmployeeAddSumFromExcelForShow" message="SalaryService_ImportEmployeeAddSumFromExcelForShow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ImportEmployeeAddSumFromExcelForShowResponse" message="SalaryService_ImportEmployeeAddSumFromExcelForShow_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EmployeeAddSumLotsofADD">
       <wsdl:input wsaw:Action="urn:SalaryService/EmployeeAddSumLotsofADD" message="SalaryService_EmployeeAddSumLotsofADD_InputMessage" />
@@ -1958,10 +1972,6 @@
     <wsdl:operation name="GetAreaWithPaging">
       <wsdl:input wsaw:Action="urn:SalaryService/GetAreaWithPaging" message="SalaryService_GetAreaWithPaging_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/GetAreaWithPagingResponse" message="SalaryService_GetAreaWithPaging_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PerformanceRewardRecordAdd">
-      <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardRecordAdd" message="SalaryService_PerformanceRewardRecordAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardRecordAddResponse" message="SalaryService_PerformanceRewardRecordAdd_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SalarySolutionAdd">
       <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionAdd" message="SalaryService_SalarySolutionAdd_InputMessage" />

@@ -13,13 +13,22 @@ using System.Windows.Controls.Primitives;
 
 namespace SMT.SaaS.FrameworkUI.AutoCompleteComboBox
 {
+    //ToggleButton和TextBox两个控件组成
     [TemplatePart(Name = AutoCompleteComboBox.ElementToggleButton, Type = typeof(ToggleButton))]
+    [TemplatePart(Name = AutoCompleteComboBox.ElementTextBox, Type = typeof(TextBox))]
     public class AutoCompleteComboBox : AutoCompleteBox
     {
         private const string ElementToggleButton = "ToggleButton";
+        private const string ElementTextBox = "Text";//找Themes下样式里面相应名称的控件
          ToggleButton _ToggleButton;
+         TextBox _TextBox;
+         public TextBox TxtLookUp
+         {
+             get { return this._TextBox; }
+             set { _TextBox = value; }
+         }
 
-        ToggleButton ToggleButton
+         public ToggleButton ToggleButton
         {
             get { return _ToggleButton; }
             set
@@ -82,6 +91,7 @@ namespace SMT.SaaS.FrameworkUI.AutoCompleteComboBox
         {
             base.OnApplyTemplate();
             ToggleButton = GetTemplateChild(ElementToggleButton) as ToggleButton;
+            TxtLookUp = GetTemplateChild(ElementTextBox) as TextBox;
         }
 
         void ToggleButton_MouseEnter(object sender, MouseEventArgs e)

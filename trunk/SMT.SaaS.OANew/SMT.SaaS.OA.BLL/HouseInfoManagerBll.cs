@@ -249,36 +249,36 @@ namespace SMT.SaaS.OA.BLL
             try
             {
                 //增加了发布的范围
-                var notice = from p in dal.GetObjects<T_OA_MEETINGMESSAGE>().Include("T_OA_MEETINGINFO")
-                             join n in dal.GetObjects<T_OA_MEETINGINFO>() on p.T_OA_MEETINGINFO.MEETINGINFOID equals n.MEETINGINFOID
-                             join c in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on n.MEETINGINFOID equals c.FORMID
-                             where n.CHECKSTATE == "2" && (c.VIEWER == userID
-                                || postIDs.Contains(c.VIEWER)
-                                || departmentIDs.Contains(c.VIEWER)
-                                || companyIDs.Contains(c.VIEWER))
-                             orderby p.CREATEDATE descending
-                             select new V_SystemNotice
-                             {
-                                 FormId = p.MEETINGMESSAGEID,
-                                 FormTitle = p.TITLE,
-                                 Formtype = "会议通知",
-                                 FormDate = (DateTime)p.UPDATEDATE
-                             };
-                var house = from k in dal.GetObjects<T_OA_HOUSEINFOISSUANCE>()
-                            join c in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on k.ISSUANCEID equals c.FORMID
-                            where k.CHECKSTATE == "2" && (c.VIEWER == userID
-                               || postIDs.Contains(c.VIEWER)
-                               || departmentIDs.Contains(c.VIEWER)
-                               || companyIDs.Contains(c.VIEWER))
-                            where k.CHECKSTATE == "2"
-                            orderby k.CREATEDATE descending
-                            select new V_SystemNotice
-                            {
-                                FormId = k.ISSUANCEID,
-                                FormTitle = k.ISSUANCETITLE,
-                                Formtype = "房源发布",
-                                FormDate = (DateTime)k.UPDATEDATE
-                            };
+                //var notice = from p in dal.GetObjects<T_OA_MEETINGMESSAGE>().Include("T_OA_MEETINGINFO")
+                //             join n in dal.GetObjects<T_OA_MEETINGINFO>() on p.T_OA_MEETINGINFO.MEETINGINFOID equals n.MEETINGINFOID
+                //             join c in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on n.MEETINGINFOID equals c.FORMID
+                //             where n.CHECKSTATE == "2" && (c.VIEWER == userID
+                //                || postIDs.Contains(c.VIEWER)
+                //                || departmentIDs.Contains(c.VIEWER)
+                //                || companyIDs.Contains(c.VIEWER))
+                //             orderby p.CREATEDATE descending
+                //             select new V_SystemNotice
+                //             {
+                //                 FormId = p.MEETINGMESSAGEID,
+                //                 FormTitle = p.TITLE,
+                //                 Formtype = "会议通知",
+                //                 FormDate = (DateTime)p.UPDATEDATE
+                //             };
+                //var house = from k in dal.GetObjects<T_OA_HOUSEINFOISSUANCE>()
+                //            join c in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on k.ISSUANCEID equals c.FORMID
+                //            where k.CHECKSTATE == "2" && (c.VIEWER == userID
+                //               || postIDs.Contains(c.VIEWER)
+                //               || departmentIDs.Contains(c.VIEWER)
+                //               || companyIDs.Contains(c.VIEWER))
+                //            where k.CHECKSTATE == "2"
+                //            orderby k.CREATEDATE descending
+                //            select new V_SystemNotice
+                //            {
+                //                FormId = k.ISSUANCEID,
+                //                FormTitle = k.ISSUANCETITLE,
+                //                Formtype = "房源发布",
+                //                FormDate = (DateTime)k.UPDATEDATE
+                //            };
                 //System.Text.Encoding  en = new en
                 //19上乱码的问题
                 //string str = "神州通";
@@ -304,7 +304,8 @@ namespace SMT.SaaS.OA.BLL
                                      FormDate = (DateTime)c.PUBLISHDATE
                                  };
 
-                var entity = notice.Union(house).Union(companydoc);
+                //var entity = notice.Union(house).Union(companydoc);
+                var entity = companydoc;
                 entity = entity.OrderByDescending(c => c.FormDate);
 
 

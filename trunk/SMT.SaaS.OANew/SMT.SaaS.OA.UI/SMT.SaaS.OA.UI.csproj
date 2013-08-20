@@ -104,7 +104,9 @@
     <Reference Include="SMT.SAAS.ClientServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientServices.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.ClientUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SMT.SAAS.ClientUtility">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
+    </Reference>
     <Reference Include="SMT.SAAS.CommonReportsModel">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.CommonReportsModel.dll</HintPath>
     </Reference>
@@ -128,6 +130,9 @@
     </Reference>
     <Reference Include="SMT.SaaS.LocalData">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContext">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
@@ -3121,10 +3126,6 @@
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</Project>
       <Name>SMT.SAAS.FrameworkUI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
-      <Project>{4B5991D6-D3C6-4BCF-B788-95AFC5323523}</Project>
-      <Name>SMT.SAAS.Main.CurrentContext</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SMT.SAAS.FrameWork\SMT.SAAS.Themes\SMT.SAAS.Themes.csproj" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
       <Project>{2C6FFFA6-6ACD-4C24-ADD5-ACEB431011E0}</Project>

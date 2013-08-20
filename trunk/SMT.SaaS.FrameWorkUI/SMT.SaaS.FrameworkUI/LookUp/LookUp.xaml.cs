@@ -48,6 +48,19 @@ namespace SMT.SaaS.FrameworkUI
             get { return this.txtLookUpValue_LookUp; }
         }
 
+        private string tipTextValue;
+        /// <summary>
+        /// 用于文本框显示Tip信息
+        /// </summary>
+        public string TipTextValue
+        {
+            get { return tipTextValue; }
+            set
+            {
+                tipTextValue = value;
+                ToolTipService.SetToolTip(TxtLookUp, value);
+            }
+        }
         private string displayMemberPath;
 
         public string DisplayMemberPath

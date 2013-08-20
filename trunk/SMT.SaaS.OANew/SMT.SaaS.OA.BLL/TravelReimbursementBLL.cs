@@ -37,7 +37,7 @@ namespace SMT.SaaS.OA.BLL
         /// <param name="TravelReimbursementID">报销ID</param>
         /// <returns>返回结果</returns>
         public T_OA_TRAVELREIMBURSEMENT GetTravelReimbursementById(string TravelReimbursementID)
-        {            
+        {
             //var ents = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_REIMBURSEMENTDETAIL")
             //           join b in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>() on a.TRAVELREIMBURSEMENTID equals b.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID
             //           where a.TRAVELREIMBURSEMENTID == TravelReimbursementID     
@@ -45,29 +45,27 @@ namespace SMT.SaaS.OA.BLL
             //           select a;
             //return ents.Count() > 0 ? ents.FirstOrDefault() : null;
 
-            var entsM = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_REIMBURSEMENTDETAIL")
-                       where a.TRAVELREIMBURSEMENTID == TravelReimbursementID
-                       
-                       select a;
-            if(entsM.Count()>0)
-            {
-            //var entsd = from a in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>() 
-            //            where a.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == TravelReimbursementID
-            //           orderby a.STARTDATE
-            //           select a;
-            //if (entsM.Count() > 0)
-            //{
-            //    var q = entsM.FirstOrDefault();
-            //    if (entsd.Count() > 0)
-            //    {
-            //       var e=entsd.ToList().OrderBy(c=>c.STARTDATE);
-            //        foreach(var a in e)
-            //        {
-            //            q.T_OA_REIMBURSEMENTDETAIL.Add(a);
-            //        }
+            var entsM = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>()
+                        where a.TRAVELREIMBURSEMENTID == TravelReimbursementID
 
-            //    }
-                return entsM.FirstOrDefault();
+                        select a;
+            var entsd = from a in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>()
+                        where a.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == TravelReimbursementID
+                        orderby a.STARTDATE
+                        select a;
+            if (entsM.Count() > 0)
+            {
+                var q = entsM.FirstOrDefault();
+                if (entsd.Count() > 0)
+                {
+                    var e = entsd.ToList().OrderBy(c => c.STARTDATE);
+                    foreach (var a in e)
+                    {
+                        q.T_OA_REIMBURSEMENTDETAIL.Add(a);
+                    }
+
+                }
+                return q;
             }
             return null;
 
@@ -382,25 +380,32 @@ namespace SMT.SaaS.OA.BLL
                 T_OA_TRAVELREIMBURSEMENT Master = new T_OA_TRAVELREIMBURSEMENT();
                 FBServiceClient FBClient = new FBServiceClient();
                 string strMsg = "";//string.Empty;
-                Master = GetTravelReimbursementById(BorrowID);
+                Master = (from ent in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>()
+                          where ent.TRAVELREIMBURSEMENTID == BorrowID
+                          select ent).FirstOrDefault();//GetTravelReimbursementById(BorrowID);
                 oldCheckState = Master.CHECKSTATE;//保留旧的审核状态
                
                 Master.CHECKSTATE = StrCheckState;
+
+                Master.UPDATEDATE = DateTime.Now;
+                Master.EntityKey = new System.Data.EntityKey("SMT_OA_EFModelContext.T_OA_TRAVELREIMBURSEMENT", "TRAVELREIMBURSEMENTID", Master.TRAVELREIMBURSEMENTID);
+               
+
                 Tracer.Debug("事务开始 出差报销引擎开始更新预算关联单据：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
                 var fbResult = FBClient.UpdateExtensionOrder("Travel", BorrowID, StrCheckState, ref strMsg);//手机审单时通过后台修改个人费用报销中对应的报销单据状态
-                
+
                 if (string.IsNullOrEmpty(strMsg))//预算没有错误才执行改变表单状态的操作
                 {
                     if (fbResult == null)
                     {
                         dal.RollbackTransaction();
-                        Tracer.Debug("事务中 出差报销引擎开始更新预算关联单据失败:" 
+                        Tracer.Debug("事务中 出差报销引擎开始更新预算关联单据失败:"
                             + "no FB.Result was returned");
                         throw new Exception("no FB.Result was returned");
                     }
                     else
                     {
-                        Tracer.Debug("事务中 出差报销引擎开始更新预算关联单据成功，预算生成单号:" 
+                        Tracer.Debug("事务中 出差报销引擎开始更新预算关联单据成功，预算生成单号:"
                             + fbResult.INNERORDERCODE + " 审核状态：" + StrCheckState);
                     }
 
@@ -408,42 +413,44 @@ namespace SMT.SaaS.OA.BLL
                     {
                         string fbOrderCode = fbResult.INNERORDERCODE;
                         Master.NOBUDGETCLAIMS = fbOrderCode;
-                        int i = Update(Master);
-                        if (i > 0)
-                        {
-                            Tracer.Debug("事务中 引擎更新出差报销状态成功：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
-
-                            if (Master.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString())
-                            {
-                                #region 开始调用HR中考勤的数据
-                                Tracer.Debug("事务中 引擎开始更新出差报销状态：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
-                                try
-                                {
-                                    InsertAttenceRecord(Master);
-                                }
-                                catch (Exception ex)
-                                {
-                                    Tracer.Debug("事务回滚 调用HR中考勤的接口出现错误:" + ex.ToString());
-                                    dal.RollbackTransaction();
-                                }
-                                #endregion
-                            }
-                        }
-                        else
-                        {
-                            Tracer.Debug("事务回滚 引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id："
-                                + BorrowID + " 审核状态：" + StrCheckState);
-                            dal.RollbackTransaction();
-                            throw new Exception(strMsg);
-                        }
                     }
 
-                   
+                    int i = Update(Master);
+                    if (i > 0)
+                    {
+                        Tracer.Debug("事务中 引擎更新出差报销状态成功：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
+
+                        if (Master.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString())
+                        {
+                            #region 开始调用HR中考勤的数据
+                            Tracer.Debug("事务中 引擎开始更新出差报销状态：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
+                            try
+                            {
+                                InsertAttenceRecord(Master);
+                            }
+                            catch (Exception ex)
+                            {
+                                Tracer.Debug("事务回滚 调用HR中考勤的接口出现错误:" + ex.ToString());
+                                dal.RollbackTransaction();
+                            }
+                            #endregion
+                        }
+                    }
+                    else
+                    {
+                        Tracer.Debug("事务回滚 引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id："
+                            + BorrowID + " 审核状态：" + StrCheckState);
+                        dal.RollbackTransaction();
+                        throw new Exception(strMsg);
+                    }
+
+
+
                 }
                 else
                 {
                     Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID
-                        + System.DateTime.Now.ToString() + " " + " 出差报销引擎开始更新预算关联单据返回结果为空"); 
+                        + System.DateTime.Now.ToString() + " " + " 出差报销引擎开始更新预算关联单据返回结果为空");
                     dal.RollbackTransaction();
                     throw new Exception(strMsg);
                 }
