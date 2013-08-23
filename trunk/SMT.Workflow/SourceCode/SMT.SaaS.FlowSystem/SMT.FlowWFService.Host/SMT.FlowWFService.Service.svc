@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SMT.FlowWFService.Service" CodeBehind="SMT.FlowWFService.Service.cs" %>
