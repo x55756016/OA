@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AA1B3B25-A276-4B58-A255-79B71B01B048}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.Workflow.Common.Model</RootNamespace>
+    <AssemblyName>SMT.Workflow.Common.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FlowEngine\CustomUserMsg.cs" />
+    <Compile Include="FlowEngine\MailParams.cs" />
+    <Compile Include="FlowEngine\MsgParms.cs" />
+    <Compile Include="FlowEngine\T_FLOW_CUSTOMFLOWDEFINE.cs" />
+    <Compile Include="FlowEngine\T_FLOW_ENGINEMSGLIST.cs" />
+    <Compile Include="FlowEngine\T_FLOW_ENGINENOTES.cs" />
+    <Compile Include="FlowEngine\T_PF_PERSONALRECORD.cs" />
+    <Compile Include="FlowEngine\T_WF_DOTASK.cs" />
+    <Compile Include="FlowEngine\T_WF_DOTASKMESSAGE.cs" />
+    <Compile Include="FlowEngine\T_WF_DOTASKRULE.cs" />
+    <Compile Include="FlowEngine\T_WF_DOTASKRULEDETAIL.cs" />
+    <Compile Include="FlowEngine\T_WF_ENGINEPREFIX.cs" />
+    <Compile Include="FlowEngine\T_WF_MESSAGEBODYDEFINE.cs" />
+    <Compile Include="FlowEngine\T_WF_SMSRECORD.cs" />
+    <Compile Include="FlowEngine\T_WF_TIMINGTRIGGERACTIVITY.cs" />
+    <Compile Include="FlowEngine\T_WF_TIMINGTRIGGERCONFIG.cs" />
+    <Compile Include="FlowEngine\T_WF_TIMINGTRIGGERRECORD.cs" />
+    <Compile Include="FlowEngine\T_WF_PERSONALRECORD.cs" />
+    <Compile Include="FlowRules.cs" />
+    <Compile Include="CuostomFlowsDefine.cs" />
+    <Compile Include="CustomFlowDefine.cs" />
+    <Compile Include="CustomPerfix.cs" />
+    <Compile Include="FlowCategory.cs" />
+    <Compile Include="FLOW_CONSULTATION_T.cs" />
+    <Compile Include="FLOW_EXCEPTIONLOG.cs" />
+    <Compile Include="FLOW_FLOWDEFINE_T.cs" />
+    <Compile Include="FlowprocessdeFine.cs" />
+    <Compile Include="FLOW_FLOWRECORDDETAIL_T.cs" />
+    <Compile Include="FLOW_FLOWRECORDMASTER_T.cs" />
+    <Compile Include="FlowToCategory.cs" />
+    <Compile Include="FlowTrigger.cs" />
+    <Compile Include="FlowTriggerRules.cs" />
+    <Compile Include="FlowXml\AppFunc.cs" />
+    <Compile Include="FlowXml\AppModel.cs" />
+    <Compile Include="FlowXml\AppSystem.cs" />
+    <Compile Include="FlowXml\Cycle.cs" />
+    <Compile Include="FlowXml\GlobalFunction.cs" />
+    <Compile Include="FlowXml\Param.cs" />
+    <Compile Include="FlowXml\Parameter.cs" />
+    <Compile Include="FlowXml\TableColumn.cs" />
+    <Compile Include="FlowXml\WFBOAttribute.cs" />
+    <Compile Include="FLOW_INSTANCE_STATE.cs" />
+    <Compile Include="FLOW_MODELDEFINE_T.cs" />
+    <Compile Include="FLOW_MODELFLOWRELATION_T.cs" />
+    <Compile Include="Msgbodydefine.cs" />
+    <Compile Include="MsgDefine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimingevenTTrigger.cs" />
+    <Compile Include="TimingTriggerdefine.cs" />
+    <Compile Include="TriggDefine.cs" />
+    <Compile Include="Triggerlog.cs" />
+    <Compile Include="T_WF_DEFAULTMESSAGE.cs" />
+    <Compile Include="Views\V_DotaskRule.cs" />
+    <Compile Include="Views\V_FlowToCategory.cs" />
+    <Compile Include="Views\V_FlowDefinition.cs" />
+    <Compile Include="V_FlowDefine.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
