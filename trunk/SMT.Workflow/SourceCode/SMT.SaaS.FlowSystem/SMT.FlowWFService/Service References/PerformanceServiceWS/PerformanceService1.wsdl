@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PerformanceService_DeleteSumPerformances_InputMessage">
+    <wsdl:part name="parameters" element="DeleteSumPerformances" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteSumPerformances_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteSumPerformancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddPerformanceRecord_InputMessage">
+    <wsdl:part name="parameters" element="AddPerformanceRecord" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddPerformanceRecord_OutputMessage">
+    <wsdl:part name="parameters" element="AddPerformanceRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddPerformanceRecordList_InputMessage">
+    <wsdl:part name="parameters" element="AddPerformanceRecordList" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddPerformanceRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="AddPerformanceRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdatePerformanceRecord_InputMessage">
+    <wsdl:part name="parameters" element="UpdatePerformanceRecord" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdatePerformanceRecord_OutputMessage">
+    <wsdl:part name="parameters" element="UpdatePerformanceRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdatePerformanceRecordList_InputMessage">
+    <wsdl:part name="parameters" element="UpdatePerformanceRecordList" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdatePerformanceRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdatePerformanceRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeletePerformanceRecord_InputMessage">
+    <wsdl:part name="parameters" element="DeletePerformanceRecord" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeletePerformanceRecord_OutputMessage">
+    <wsdl:part name="parameters" element="DeletePerformanceRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeletePerformanceRecords_InputMessage">
+    <wsdl:part name="parameters" element="DeletePerformanceRecords" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeletePerformanceRecords_OutputMessage">
+    <wsdl:part name="parameters" element="DeletePerformanceRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIScorePost_InputMessage">
+    <wsdl:part name="parameters" element="KPIScorePost" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIScorePost_OutputMessage">
+    <wsdl:part name="parameters" element="KPIScorePostResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPISystemScore_InputMessage">
+    <wsdl:part name="parameters" element="KPISystemScore" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPISystemScore_OutputMessage">
+    <wsdl:part name="parameters" element="KPISystemScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPISystemScoreByKPIPoint_InputMessage">
+    <wsdl:part name="parameters" element="KPISystemScoreByKPIPoint" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPISystemScoreByKPIPoint_OutputMessage">
+    <wsdl:part name="parameters" element="KPISystemScoreByKPIPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIManualScore_InputMessage">
+    <wsdl:part name="parameters" element="KPIManualScore" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIManualScore_OutputMessage">
+    <wsdl:part name="parameters" element="KPIManualScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIManualScoreByKPIPoint_InputMessage">
+    <wsdl:part name="parameters" element="KPIManualScoreByKPIPoint" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIManualScoreByKPIPoint_OutputMessage">
+    <wsdl:part name="parameters" element="KPIManualScoreByKPIPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIRandomScore_InputMessage">
+    <wsdl:part name="parameters" element="KPIRandomScore" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIRandomScore_OutputMessage">
+    <wsdl:part name="parameters" element="KPIRandomScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIRandomScoreByKPIPoint_InputMessage">
+    <wsdl:part name="parameters" element="KPIRandomScoreByKPIPoint" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIRandomScoreByKPIPoint_OutputMessage">
+    <wsdl:part name="parameters" element="KPIRandomScoreByKPIPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPoint_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIPoint" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPoint_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointAndLastPoint_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointAndLastPoint" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointAndLastPoint_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointAndLastPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointListByBusinessCode_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointListByBusinessCode" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointListByBusinessCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointListByBusinessCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointsByBusinessCode_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointsByBusinessCode" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointsByBusinessCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointsByBusinessCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointByID_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointRandomPersonID_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointRandomPersonID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIPointRandomPersonID_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIPointRandomPersonIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPITypeByID_InputMessage">
+    <wsdl:part name="parameters" element="GetKPITypeByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPITypeByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPITypeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPITypeAll_InputMessage">
+    <wsdl:part name="parameters" element="GetKPITypeAll" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPITypeAll_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPITypeAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPITypeWithPermission_InputMessage">
+    <wsdl:part name="parameters" element="GetKPITypeWithPermission" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPITypeWithPermission_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPITypeWithPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordRandomPersonID_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordRandomPersonID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordRandomPersonID_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordRandomPersonIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecord_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecord" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecord_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordScoreDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordScoreDetail" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordScoreDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordScoreDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordInterface_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordInterface" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordInterface_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordInterfaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordScore_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordScore" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordScore_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordById_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordById" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordById_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_CheckKPIRecordIsComplainingByUserID_InputMessage">
+    <wsdl:part name="parameters" element="CheckKPIRecordIsComplainingByUserID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_CheckKPIRecordIsComplainingByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="CheckKPIRecordIsComplainingByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPITypePaging_InputMessage">
+    <wsdl:part name="parameters" element="GetKPITypePaging" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPITypePaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPITypePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddKPIType_InputMessage">
+    <wsdl:part name="parameters" element="AddKPIType" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddKPIType_OutputMessage">
+    <wsdl:part name="parameters" element="AddKPITypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPIType_InputMessage">
+    <wsdl:part name="parameters" element="UpdateKPIType" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPIType_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateKPITypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPITypeAndRemind_InputMessage">
+    <wsdl:part name="parameters" element="UpdateKPITypeAndRemind" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPITypeAndRemind_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateKPITypeAndRemindResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteKPIType_InputMessage">
+    <wsdl:part name="parameters" element="DeleteKPIType" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteKPIType_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteKPITypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteKPITypes_InputMessage">
+    <wsdl:part name="parameters" element="DeleteKPITypes" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteKPITypes_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteKPITypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddKPIPoint_InputMessage">
+    <wsdl:part name="parameters" element="AddKPIPoint" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddKPIPoint_OutputMessage">
+    <wsdl:part name="parameters" element="AddKPIPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPIPoint_InputMessage">
+    <wsdl:part name="parameters" element="UpdateKPIPoint" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPIPoint_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateKPIPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPIPointAndRemind_InputMessage">
+    <wsdl:part name="parameters" element="UpdateKPIPointAndRemind" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPIPointAndRemind_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateKPIPointAndRemindResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteKPIPoint_InputMessage">
+    <wsdl:part name="parameters" element="DeleteKPIPoint" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteKPIPoint_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteKPIPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="KPIRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_KPIRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="KPIRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetVcomplainRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetVcomplainRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetVcomplainRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetVcomplainRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_SaveKPIRecordInterface_InputMessage">
+    <wsdl:part name="parameters" element="SaveKPIRecordInterface" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_SaveKPIRecordInterface_OutputMessage">
+    <wsdl:part name="parameters" element="SaveKPIRecordInterfaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordComplainByRecord_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordComplainByRecord" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordComplainByRecord_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordComplainByRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordComplainByID_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordComplainByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordComplainByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordComplainByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddKPIRecordComplain_InputMessage">
+    <wsdl:part name="parameters" element="AddKPIRecordComplain" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddKPIRecordComplain_OutputMessage">
+    <wsdl:part name="parameters" element="AddKPIRecordComplainResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPIRecordComplain_InputMessage">
+    <wsdl:part name="parameters" element="UpdateKPIRecordComplain" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateKPIRecordComplain_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateKPIRecordComplainResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetComplainRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetComplainRecordPaging" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetComplainRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetComplainRecordPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetCompainRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetCompainRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetCompainRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCompainRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_CompainRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="CompainRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_CompainRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="CompainRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_CompainRecordUpdateOver_InputMessage">
+    <wsdl:part name="parameters" element="CompainRecordUpdateOver" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_CompainRecordUpdateOver_OutputMessage">
+    <wsdl:part name="parameters" element="CompainRecordUpdateOverResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_ComplainRecordDelete_InputMessage">
+    <wsdl:part name="parameters" element="ComplainRecordDelete" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_ComplainRecordDelete_OutputMessage">
+    <wsdl:part name="parameters" element="ComplainRecordDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordPaging" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetKPIRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetKPIRecordPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_CheckRecordIsSummarize_InputMessage">
+    <wsdl:part name="parameters" element="CheckRecordIsSummarize" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_CheckRecordIsSummarize_OutputMessage">
+    <wsdl:part name="parameters" element="CheckRecordIsSummarizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPaging" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPersonAll_InputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPersonAll" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPersonAll_OutputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPersonAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPersonPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPersonPaging" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPersonPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPersonPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPersonByID_InputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPersonByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPersonByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPersonByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPersonByGroupID_InputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPersonByGroupID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupPersonByGroupID_OutputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupPersonByGroupIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupAll_InputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupAll" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupAll_OutputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupByID_InputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetRandomGroupByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetRandomGroupByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddRandomGroup_InputMessage">
+    <wsdl:part name="parameters" element="AddRandomGroup" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddRandomGroup_OutputMessage">
+    <wsdl:part name="parameters" element="AddRandomGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateRandomGroup_InputMessage">
+    <wsdl:part name="parameters" element="UpdateRandomGroup" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateRandomGroup_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateRandomGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomGroup_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomGroup" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomGroup_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomGroups_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomGroups" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomGroups_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddRandomGroupPerson_InputMessage">
+    <wsdl:part name="parameters" element="AddRandomGroupPerson" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddRandomGroupPerson_OutputMessage">
+    <wsdl:part name="parameters" element="AddRandomGroupPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddRandomGroupPersonList_InputMessage">
+    <wsdl:part name="parameters" element="AddRandomGroupPersonList" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddRandomGroupPersonList_OutputMessage">
+    <wsdl:part name="parameters" element="AddRandomGroupPersonListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateRandomGroupPerson_InputMessage">
+    <wsdl:part name="parameters" element="UpdateRandomGroupPerson" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateRandomGroupPerson_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateRandomGroupPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateRandomGroupPersonList_InputMessage">
+    <wsdl:part name="parameters" element="UpdateRandomGroupPersonList" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateRandomGroupPersonList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateRandomGroupPersonListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomGroupPerson_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomGroupPerson" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomGroupPerson_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomGroupPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomGroupPersons_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomGroupPersons" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomGroupPersons_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomGroupPersonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomPersons_InputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomPersons" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteRandomPersons_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteRandomPersonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetSumPerformancePaging_InputMessage">
+    <wsdl:part name="parameters" element="GetSumPerformancePaging" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetSumPerformancePaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetSumPerformancePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetSumPerformancePagingByTime_InputMessage">
+    <wsdl:part name="parameters" element="GetSumPerformancePagingByTime" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetSumPerformancePagingByTime_OutputMessage">
+    <wsdl:part name="parameters" element="GetSumPerformancePagingByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceDetailEmployeeAllPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceDetailEmployeeAllPaging" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceDetailEmployeeAllPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceDetailEmployeeAllPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetEmployeePerformancePagingByTime_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePerformancePagingByTime" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetEmployeePerformancePagingByTime_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePerformancePagingByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceEmployeeAllPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceEmployeeAllPaging" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceEmployeeAllPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceEmployeeAllPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceAllBySumID_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceAllBySumID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceAllBySumID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceAllBySumIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceEmployeeAllBySumID_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceEmployeeAllBySumID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceEmployeeAllBySumID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceEmployeeAllBySumIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceDetailEmployeeAllBySumID_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceDetailEmployeeAllBySumID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceDetailEmployeeAllBySumID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceDetailEmployeeAllBySumIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetEmployePerformance_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployePerformance" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetEmployePerformance_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployePerformanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetPerformanceRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPerformanceRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddSumPerformance_InputMessage">
+    <wsdl:part name="parameters" element="AddSumPerformance" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_AddSumPerformance_OutputMessage">
+    <wsdl:part name="parameters" element="AddSumPerformanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetSumPerformanceRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetSumPerformanceRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_GetSumPerformanceRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetSumPerformanceRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateSumPerformance_InputMessage">
+    <wsdl:part name="parameters" element="UpdateSumPerformance" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateSumPerformance_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateSumPerformanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateSumPerformanceAndSum_InputMessage">
+    <wsdl:part name="parameters" element="UpdateSumPerformanceAndSum" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_UpdateSumPerformanceAndSum_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateSumPerformanceAndSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteSumPerformance_InputMessage">
+    <wsdl:part name="parameters" element="DeleteSumPerformance" />
+  </wsdl:message>
+  <wsdl:message name="PerformanceService_DeleteSumPerformance_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteSumPerformanceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PerformanceService">
+    <wsdl:operation name="DeleteSumPerformances">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteSumPerformances" message="PerformanceService_DeleteSumPerformances_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteSumPerformancesResponse" message="PerformanceService_DeleteSumPerformances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPerformanceRecord">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddPerformanceRecord" message="PerformanceService_AddPerformanceRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddPerformanceRecordResponse" message="PerformanceService_AddPerformanceRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPerformanceRecordList">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddPerformanceRecordList" message="PerformanceService_AddPerformanceRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddPerformanceRecordListResponse" message="PerformanceService_AddPerformanceRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePerformanceRecord">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdatePerformanceRecord" message="PerformanceService_UpdatePerformanceRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdatePerformanceRecordResponse" message="PerformanceService_UpdatePerformanceRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePerformanceRecordList">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdatePerformanceRecordList" message="PerformanceService_UpdatePerformanceRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdatePerformanceRecordListResponse" message="PerformanceService_UpdatePerformanceRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerformanceRecord">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeletePerformanceRecord" message="PerformanceService_DeletePerformanceRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeletePerformanceRecordResponse" message="PerformanceService_DeletePerformanceRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerformanceRecords">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeletePerformanceRecords" message="PerformanceService_DeletePerformanceRecords_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeletePerformanceRecordsResponse" message="PerformanceService_DeletePerformanceRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KPIScorePost">
+      <wsdl:input wsaw:Action="urn:PerformanceService/KPIScorePost" message="PerformanceService_KPIScorePost_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/KPIScorePostResponse" message="PerformanceService_KPIScorePost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KPISystemScore">
+      <wsdl:input wsaw:Action="urn:PerformanceService/KPISystemScore" message="PerformanceService_KPISystemScore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/KPISystemScoreResponse" message="PerformanceService_KPISystemScore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KPISystemScoreByKPIPoint">
+      <wsdl:input wsaw:Action="urn:PerformanceService/KPISystemScoreByKPIPoint" message="PerformanceService_KPISystemScoreByKPIPoint_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/KPISystemScoreByKPIPointResponse" message="PerformanceService_KPISystemScoreByKPIPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KPIManualScore">
+      <wsdl:input wsaw:Action="urn:PerformanceService/KPIManualScore" message="PerformanceService_KPIManualScore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/KPIManualScoreResponse" message="PerformanceService_KPIManualScore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KPIManualScoreByKPIPoint">
+      <wsdl:input wsaw:Action="urn:PerformanceService/KPIManualScoreByKPIPoint" message="PerformanceService_KPIManualScoreByKPIPoint_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/KPIManualScoreByKPIPointResponse" message="PerformanceService_KPIManualScoreByKPIPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KPIRandomScore">
+      <wsdl:input wsaw:Action="urn:PerformanceService/KPIRandomScore" message="PerformanceService_KPIRandomScore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/KPIRandomScoreResponse" message="PerformanceService_KPIRandomScore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KPIRandomScoreByKPIPoint">
+      <wsdl:input wsaw:Action="urn:PerformanceService/KPIRandomScoreByKPIPoint" message="PerformanceService_KPIRandomScoreByKPIPoint_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/KPIRandomScoreByKPIPointResponse" message="PerformanceService_KPIRandomScoreByKPIPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIPoint">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIPoint" message="PerformanceService_GetKPIPoint_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIPointResponse" message="PerformanceService_GetKPIPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIPointAndLastPoint">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIPointAndLastPoint" message="PerformanceService_GetKPIPointAndLastPoint_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIPointAndLastPointResponse" message="PerformanceService_GetKPIPointAndLastPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIPointListByBusinessCode">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIPointListByBusinessCode" message="PerformanceService_GetKPIPointListByBusinessCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIPointListByBusinessCodeResponse" message="PerformanceService_GetKPIPointListByBusinessCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIPointsByBusinessCode">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIPointsByBusinessCode" message="PerformanceService_GetKPIPointsByBusinessCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIPointsByBusinessCodeResponse" message="PerformanceService_GetKPIPointsByBusinessCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIPointByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIPointByID" message="PerformanceService_GetKPIPointByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIPointByIDResponse" message="PerformanceService_GetKPIPointByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIPointRandomPersonID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIPointRandomPersonID" message="PerformanceService_GetKPIPointRandomPersonID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIPointRandomPersonIDResponse" message="PerformanceService_GetKPIPointRandomPersonID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPITypeByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPITypeByID" message="PerformanceService_GetKPITypeByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPITypeByIDResponse" message="PerformanceService_GetKPITypeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPITypeAll">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPITypeAll" message="PerformanceService_GetKPITypeAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPITypeAllResponse" message="PerformanceService_GetKPITypeAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPITypeWithPermission">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPITypeWithPermission" message="PerformanceService_GetKPITypeWithPermission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPITypeWithPermissionResponse" message="PerformanceService_GetKPITypeWithPermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecordRandomPersonID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecordRandomPersonID" message="PerformanceService_GetKPIRecordRandomPersonID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordRandomPersonIDResponse" message="PerformanceService_GetKPIRecordRandomPersonID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecord">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecord" message="PerformanceService_GetKPIRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordResponse" message="PerformanceService_GetKPIRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecordScoreDetail">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecordScoreDetail" message="PerformanceService_GetKPIRecordScoreDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordScoreDetailResponse" message="PerformanceService_GetKPIRecordScoreDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecordInterface">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecordInterface" message="PerformanceService_GetKPIRecordInterface_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordInterfaceResponse" message="PerformanceService_GetKPIRecordInterface_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecordScore">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecordScore" message="PerformanceService_GetKPIRecordScore_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordScoreResponse" message="PerformanceService_GetKPIRecordScore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecordById">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecordById" message="PerformanceService_GetKPIRecordById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordByIdResponse" message="PerformanceService_GetKPIRecordById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckKPIRecordIsComplainingByUserID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/CheckKPIRecordIsComplainingByUserID" message="PerformanceService_CheckKPIRecordIsComplainingByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/CheckKPIRecordIsComplainingByUserIDResponse" message="PerformanceService_CheckKPIRecordIsComplainingByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPITypePaging">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPITypePaging" message="PerformanceService_GetKPITypePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPITypePagingResponse" message="PerformanceService_GetKPITypePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddKPIType">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddKPIType" message="PerformanceService_AddKPIType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddKPITypeResponse" message="PerformanceService_AddKPIType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKPIType">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateKPIType" message="PerformanceService_UpdateKPIType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateKPITypeResponse" message="PerformanceService_UpdateKPIType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKPITypeAndRemind">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateKPITypeAndRemind" message="PerformanceService_UpdateKPITypeAndRemind_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateKPITypeAndRemindResponse" message="PerformanceService_UpdateKPITypeAndRemind_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKPIType">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteKPIType" message="PerformanceService_DeleteKPIType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteKPITypeResponse" message="PerformanceService_DeleteKPIType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKPITypes">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteKPITypes" message="PerformanceService_DeleteKPITypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteKPITypesResponse" message="PerformanceService_DeleteKPITypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddKPIPoint">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddKPIPoint" message="PerformanceService_AddKPIPoint_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddKPIPointResponse" message="PerformanceService_AddKPIPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKPIPoint">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateKPIPoint" message="PerformanceService_UpdateKPIPoint_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateKPIPointResponse" message="PerformanceService_UpdateKPIPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKPIPointAndRemind">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateKPIPointAndRemind" message="PerformanceService_UpdateKPIPointAndRemind_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateKPIPointAndRemindResponse" message="PerformanceService_UpdateKPIPointAndRemind_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKPIPoint">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteKPIPoint" message="PerformanceService_DeleteKPIPoint_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteKPIPointResponse" message="PerformanceService_DeleteKPIPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KPIRecordUpdate">
+      <wsdl:input wsaw:Action="urn:PerformanceService/KPIRecordUpdate" message="PerformanceService_KPIRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/KPIRecordUpdateResponse" message="PerformanceService_KPIRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVcomplainRecordByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetVcomplainRecordByID" message="PerformanceService_GetVcomplainRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetVcomplainRecordByIDResponse" message="PerformanceService_GetVcomplainRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveKPIRecordInterface">
+      <wsdl:input wsaw:Action="urn:PerformanceService/SaveKPIRecordInterface" message="PerformanceService_SaveKPIRecordInterface_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/SaveKPIRecordInterfaceResponse" message="PerformanceService_SaveKPIRecordInterface_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecordComplainByRecord">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecordComplainByRecord" message="PerformanceService_GetKPIRecordComplainByRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordComplainByRecordResponse" message="PerformanceService_GetKPIRecordComplainByRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecordComplainByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecordComplainByID" message="PerformanceService_GetKPIRecordComplainByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordComplainByIDResponse" message="PerformanceService_GetKPIRecordComplainByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddKPIRecordComplain">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddKPIRecordComplain" message="PerformanceService_AddKPIRecordComplain_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddKPIRecordComplainResponse" message="PerformanceService_AddKPIRecordComplain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKPIRecordComplain">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateKPIRecordComplain" message="PerformanceService_UpdateKPIRecordComplain_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateKPIRecordComplainResponse" message="PerformanceService_UpdateKPIRecordComplain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComplainRecordPaging">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetComplainRecordPaging" message="PerformanceService_GetComplainRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetComplainRecordPagingResponse" message="PerformanceService_GetComplainRecordPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompainRecordByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetCompainRecordByID" message="PerformanceService_GetCompainRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetCompainRecordByIDResponse" message="PerformanceService_GetCompainRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompainRecordUpdate">
+      <wsdl:input wsaw:Action="urn:PerformanceService/CompainRecordUpdate" message="PerformanceService_CompainRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/CompainRecordUpdateResponse" message="PerformanceService_CompainRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompainRecordUpdateOver">
+      <wsdl:input wsaw:Action="urn:PerformanceService/CompainRecordUpdateOver" message="PerformanceService_CompainRecordUpdateOver_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/CompainRecordUpdateOverResponse" message="PerformanceService_CompainRecordUpdateOver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ComplainRecordDelete">
+      <wsdl:input wsaw:Action="urn:PerformanceService/ComplainRecordDelete" message="PerformanceService_ComplainRecordDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/ComplainRecordDeleteResponse" message="PerformanceService_ComplainRecordDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKPIRecordPaging">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetKPIRecordPaging" message="PerformanceService_GetKPIRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetKPIRecordPagingResponse" message="PerformanceService_GetKPIRecordPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecordIsSummarize">
+      <wsdl:input wsaw:Action="urn:PerformanceService/CheckRecordIsSummarize" message="PerformanceService_CheckRecordIsSummarize_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/CheckRecordIsSummarizeResponse" message="PerformanceService_CheckRecordIsSummarize_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomGroupPaging">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetRandomGroupPaging" message="PerformanceService_GetRandomGroupPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetRandomGroupPagingResponse" message="PerformanceService_GetRandomGroupPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomGroupPersonAll">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetRandomGroupPersonAll" message="PerformanceService_GetRandomGroupPersonAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetRandomGroupPersonAllResponse" message="PerformanceService_GetRandomGroupPersonAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomGroupPersonPaging">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetRandomGroupPersonPaging" message="PerformanceService_GetRandomGroupPersonPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetRandomGroupPersonPagingResponse" message="PerformanceService_GetRandomGroupPersonPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomGroupPersonByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetRandomGroupPersonByID" message="PerformanceService_GetRandomGroupPersonByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetRandomGroupPersonByIDResponse" message="PerformanceService_GetRandomGroupPersonByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomGroupPersonByGroupID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetRandomGroupPersonByGroupID" message="PerformanceService_GetRandomGroupPersonByGroupID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetRandomGroupPersonByGroupIDResponse" message="PerformanceService_GetRandomGroupPersonByGroupID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomGroupAll">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetRandomGroupAll" message="PerformanceService_GetRandomGroupAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetRandomGroupAllResponse" message="PerformanceService_GetRandomGroupAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomGroupByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetRandomGroupByID" message="PerformanceService_GetRandomGroupByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetRandomGroupByIDResponse" message="PerformanceService_GetRandomGroupByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRandomGroup">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddRandomGroup" message="PerformanceService_AddRandomGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddRandomGroupResponse" message="PerformanceService_AddRandomGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRandomGroup">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateRandomGroup" message="PerformanceService_UpdateRandomGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateRandomGroupResponse" message="PerformanceService_UpdateRandomGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRandomGroup">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteRandomGroup" message="PerformanceService_DeleteRandomGroup_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteRandomGroupResponse" message="PerformanceService_DeleteRandomGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRandomGroups">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteRandomGroups" message="PerformanceService_DeleteRandomGroups_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteRandomGroupsResponse" message="PerformanceService_DeleteRandomGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRandomGroupPerson">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddRandomGroupPerson" message="PerformanceService_AddRandomGroupPerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddRandomGroupPersonResponse" message="PerformanceService_AddRandomGroupPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRandomGroupPersonList">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddRandomGroupPersonList" message="PerformanceService_AddRandomGroupPersonList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddRandomGroupPersonListResponse" message="PerformanceService_AddRandomGroupPersonList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRandomGroupPerson">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateRandomGroupPerson" message="PerformanceService_UpdateRandomGroupPerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateRandomGroupPersonResponse" message="PerformanceService_UpdateRandomGroupPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRandomGroupPersonList">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateRandomGroupPersonList" message="PerformanceService_UpdateRandomGroupPersonList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateRandomGroupPersonListResponse" message="PerformanceService_UpdateRandomGroupPersonList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRandomGroupPerson">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteRandomGroupPerson" message="PerformanceService_DeleteRandomGroupPerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteRandomGroupPersonResponse" message="PerformanceService_DeleteRandomGroupPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRandomGroupPersons">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteRandomGroupPersons" message="PerformanceService_DeleteRandomGroupPersons_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteRandomGroupPersonsResponse" message="PerformanceService_DeleteRandomGroupPersons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRandomPersons">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteRandomPersons" message="PerformanceService_DeleteRandomPersons_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteRandomPersonsResponse" message="PerformanceService_DeleteRandomPersons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSumPerformancePaging">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetSumPerformancePaging" message="PerformanceService_GetSumPerformancePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetSumPerformancePagingResponse" message="PerformanceService_GetSumPerformancePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSumPerformancePagingByTime">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetSumPerformancePagingByTime" message="PerformanceService_GetSumPerformancePagingByTime_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetSumPerformancePagingByTimeResponse" message="PerformanceService_GetSumPerformancePagingByTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceDetailEmployeeAllPaging">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetPerformanceDetailEmployeeAllPaging" message="PerformanceService_GetPerformanceDetailEmployeeAllPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetPerformanceDetailEmployeeAllPagingResponse" message="PerformanceService_GetPerformanceDetailEmployeeAllPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePerformancePagingByTime">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetEmployeePerformancePagingByTime" message="PerformanceService_GetEmployeePerformancePagingByTime_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetEmployeePerformancePagingByTimeResponse" message="PerformanceService_GetEmployeePerformancePagingByTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceEmployeeAllPaging">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetPerformanceEmployeeAllPaging" message="PerformanceService_GetPerformanceEmployeeAllPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetPerformanceEmployeeAllPagingResponse" message="PerformanceService_GetPerformanceEmployeeAllPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceAllBySumID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetPerformanceAllBySumID" message="PerformanceService_GetPerformanceAllBySumID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetPerformanceAllBySumIDResponse" message="PerformanceService_GetPerformanceAllBySumID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceEmployeeAllBySumID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetPerformanceEmployeeAllBySumID" message="PerformanceService_GetPerformanceEmployeeAllBySumID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetPerformanceEmployeeAllBySumIDResponse" message="PerformanceService_GetPerformanceEmployeeAllBySumID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceDetailEmployeeAllBySumID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetPerformanceDetailEmployeeAllBySumID" message="PerformanceService_GetPerformanceDetailEmployeeAllBySumID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetPerformanceDetailEmployeeAllBySumIDResponse" message="PerformanceService_GetPerformanceDetailEmployeeAllBySumID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployePerformance">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetEmployePerformance" message="PerformanceService_GetEmployePerformance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetEmployePerformanceResponse" message="PerformanceService_GetEmployePerformance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerformanceRecordByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetPerformanceRecordByID" message="PerformanceService_GetPerformanceRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetPerformanceRecordByIDResponse" message="PerformanceService_GetPerformanceRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSumPerformance">
+      <wsdl:input wsaw:Action="urn:PerformanceService/AddSumPerformance" message="PerformanceService_AddSumPerformance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/AddSumPerformanceResponse" message="PerformanceService_AddSumPerformance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSumPerformanceRecordByID">
+      <wsdl:input wsaw:Action="urn:PerformanceService/GetSumPerformanceRecordByID" message="PerformanceService_GetSumPerformanceRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/GetSumPerformanceRecordByIDResponse" message="PerformanceService_GetSumPerformanceRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSumPerformance">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateSumPerformance" message="PerformanceService_UpdateSumPerformance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateSumPerformanceResponse" message="PerformanceService_UpdateSumPerformance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSumPerformanceAndSum">
+      <wsdl:input wsaw:Action="urn:PerformanceService/UpdateSumPerformanceAndSum" message="PerformanceService_UpdateSumPerformanceAndSum_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/UpdateSumPerformanceAndSumResponse" message="PerformanceService_UpdateSumPerformanceAndSum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSumPerformance">
+      <wsdl:input wsaw:Action="urn:PerformanceService/DeleteSumPerformance" message="PerformanceService_DeleteSumPerformance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PerformanceService/DeleteSumPerformanceResponse" message="PerformanceService_DeleteSumPerformance_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

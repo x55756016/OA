@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="T_HR_PERFORMANCERECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPRAISEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERFORMANCEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERFORMANCEREMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERFORMANCESCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_PERFORMANCEDETAIL" nillable="true" type="tns:ArrayOfT_HR_PERFORMANCEDETAIL" />
+          <xs:element minOccurs="0" name="T_HR_SUMPERFORMANCERECORD" nillable="true" type="tns:T_HR_SUMPERFORMANCERECORD" />
+          <xs:element minOccurs="0" name="T_HR_SUMPERFORMANCERECORDReference" nillable="true" type="q1:EntityReferenceOfT_HR_SUMPERFORMANCERECORDLmi1kWPo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_PERFORMANCERECORD" nillable="true" type="tns:T_HR_PERFORMANCERECORD" />
+  <xs:complexType name="ArrayOfT_HR_PERFORMANCEDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_PERFORMANCEDETAIL" nillable="true" type="tns:T_HR_PERFORMANCEDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_PERFORMANCEDETAIL" nillable="true" type="tns:ArrayOfT_HR_PERFORMANCEDETAIL" />
+  <xs:complexType name="T_HR_PERFORMANCEDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PERFORMANCEDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_KPIRECORD" nillable="true" type="tns:T_HR_KPIRECORD" />
+          <xs:element minOccurs="0" name="T_HR_KPIRECORDReference" nillable="true" type="q2:EntityReferenceOfT_HR_KPIRECORDLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_PERFORMANCERECORD" nillable="true" type="tns:T_HR_PERFORMANCERECORD" />
+          <xs:element minOccurs="0" name="T_HR_PERFORMANCERECORDReference" nillable="true" type="q2:EntityReferenceOfT_HR_PERFORMANCERECORDLmi1kWPo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_PERFORMANCEDETAIL" nillable="true" type="tns:T_HR_PERFORMANCEDETAIL" />
+  <xs:complexType name="T_HR_KPIRECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPRAISEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="APPRAISERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BUSINESSCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPLAINSTATUS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWDESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWRECORDCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPICATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPIDESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPIRECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MANUALSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MANUALWEIGHT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RANDOMPERSONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RANDOMSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RANDOMWEIGHT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STEPDETAILCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SYSTEMSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SYSTEMWEIGHT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_KPIPOINT" nillable="true" type="tns:T_HR_KPIPOINT" />
+          <xs:element minOccurs="0" name="T_HR_KPIPOINTReference" nillable="true" type="q3:EntityReferenceOfT_HR_KPIPOINTLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_KPIRECORDCOMPLAIN" nillable="true" type="tns:ArrayOfT_HR_KPIRECORDCOMPLAIN" />
+          <xs:element minOccurs="0" name="T_HR_PERFORMANCEDETAIL" nillable="true" type="tns:ArrayOfT_HR_PERFORMANCEDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_KPIRECORD" nillable="true" type="tns:T_HR_KPIRECORD" />
+  <xs:complexType name="T_HR_KPIPOINT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUSINESSID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPIPOINTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPIPOINTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPIPOINTREMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STEPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SYSTEMID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_KPIRECORD" nillable="true" type="tns:ArrayOfT_HR_KPIRECORD" />
+          <xs:element minOccurs="0" name="T_HR_SCORETYPE" nillable="true" type="tns:T_HR_SCORETYPE" />
+          <xs:element minOccurs="0" name="T_HR_SCORETYPEReference" nillable="true" type="q4:EntityReferenceOfT_HR_SCORETYPELmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_KPIPOINT" nillable="true" type="tns:T_HR_KPIPOINT" />
+  <xs:complexType name="ArrayOfT_HR_KPIRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_KPIRECORD" nillable="true" type="tns:T_HR_KPIRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_KPIRECORD" nillable="true" type="tns:ArrayOfT_HR_KPIRECORD" />
+  <xs:complexType name="T_HR_SCORETYPE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ADDSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="COUNTUNIT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="INITAILSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="INITIALPOINT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="INITIALSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISMANUALSCORE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISRANDOMSCORE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISSYSTEMSCORE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LATERUNIT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MANUALWEIGHT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MAXSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MINSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RANDOMWEIGHT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REDUCESCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SCORETYPEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SYSTEMWEIGHT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_KPIPOINT" nillable="true" type="tns:ArrayOfT_HR_KPIPOINT" />
+          <xs:element minOccurs="0" name="T_HR_KPIREMIND" nillable="true" type="tns:ArrayOfT_HR_KPIREMIND" />
+          <xs:element minOccurs="0" name="T_HR_KPITYPE" nillable="true" type="tns:ArrayOfT_HR_KPITYPE" />
+          <xs:element minOccurs="0" name="T_HR_RANDOMGROUP" nillable="true" type="tns:T_HR_RANDOMGROUP" />
+          <xs:element minOccurs="0" name="T_HR_RANDOMGROUPReference" nillable="true" type="q5:EntityReferenceOfT_HR_RANDOMGROUPLmi1kWPo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_SCORETYPE" nillable="true" type="tns:T_HR_SCORETYPE" />
+  <xs:complexType name="ArrayOfT_HR_KPIPOINT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_KPIPOINT" nillable="true" type="tns:T_HR_KPIPOINT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_KPIPOINT" nillable="true" type="tns:ArrayOfT_HR_KPIPOINT" />
+  <xs:complexType name="ArrayOfT_HR_KPIREMIND">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_KPIREMIND" nillable="true" type="tns:T_HR_KPIREMIND" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_KPIREMIND" nillable="true" type="tns:ArrayOfT_HR_KPIREMIND" />
+  <xs:complexType name="T_HR_KPIREMIND">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FORWARDHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMINDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMINDTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_SCORETYPE" nillable="true" type="tns:T_HR_SCORETYPE" />
+          <xs:element minOccurs="0" name="T_HR_SCORETYPEReference" nillable="true" type="q6:EntityReferenceOfT_HR_SCORETYPELmi1kWPo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_KPIREMIND" nillable="true" type="tns:T_HR_KPIREMIND" />
+  <xs:complexType name="ArrayOfT_HR_KPITYPE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_KPITYPE" nillable="true" type="tns:T_HR_KPITYPE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_KPITYPE" nillable="true" type="tns:ArrayOfT_HR_KPITYPE" />
+  <xs:complexType name="T_HR_KPITYPE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPITYPEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPITYPENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KPITYPEREMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_SCORETYPE" nillable="true" type="tns:T_HR_SCORETYPE" />
+          <xs:element minOccurs="0" name="T_HR_SCORETYPEReference" nillable="true" type="q7:EntityReferenceOfT_HR_SCORETYPELmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_KPITYPE" nillable="true" type="tns:T_HR_KPITYPE" />
+  <xs:complexType name="T_HR_RANDOMGROUP">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GROUPCOUNT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="GROUPREMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RANDOMGROUPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RANDOMGROUPNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_RAMDONGROUPPERSON" nillable="true" type="tns:ArrayOfT_HR_RAMDONGROUPPERSON" />
+          <xs:element minOccurs="0" name="T_HR_SCORETYPE" nillable="true" type="tns:ArrayOfT_HR_SCORETYPE" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_RANDOMGROUP" nillable="true" type="tns:T_HR_RANDOMGROUP" />
+  <xs:complexType name="ArrayOfT_HR_RAMDONGROUPPERSON">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_RAMDONGROUPPERSON" nillable="true" type="tns:T_HR_RAMDONGROUPPERSON" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_RAMDONGROUPPERSON" nillable="true" type="tns:ArrayOfT_HR_RAMDONGROUPPERSON" />
+  <xs:complexType name="T_HR_RAMDONGROUPPERSON">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GROUPPERSONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_RANDOMGROUP" nillable="true" type="tns:T_HR_RANDOMGROUP" />
+          <xs:element minOccurs="0" name="T_HR_RANDOMGROUPReference" nillable="true" type="q9:EntityReferenceOfT_HR_RANDOMGROUPLmi1kWPo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_RAMDONGROUPPERSON" nillable="true" type="tns:T_HR_RAMDONGROUPPERSON" />
+  <xs:complexType name="ArrayOfT_HR_SCORETYPE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_SCORETYPE" nillable="true" type="tns:T_HR_SCORETYPE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_SCORETYPE" nillable="true" type="tns:ArrayOfT_HR_SCORETYPE" />
+  <xs:complexType name="ArrayOfT_HR_KPIRECORDCOMPLAIN">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_KPIRECORDCOMPLAIN" nillable="true" type="tns:T_HR_KPIRECORDCOMPLAIN" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_KPIRECORDCOMPLAIN" nillable="true" type="tns:ArrayOfT_HR_KPIRECORDCOMPLAIN" />
+  <xs:complexType name="T_HR_KPIRECORDCOMPLAIN">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPLAINANTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPLAINDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="COMPLAINID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPLAINREMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INITIALSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REVIEWDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="REVIEWERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REVIEWREMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REVIEWSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_KPIRECORD" nillable="true" type="tns:T_HR_KPIRECORD" />
+          <xs:element minOccurs="0" name="T_HR_KPIRECORDReference" nillable="true" type="q10:EntityReferenceOfT_HR_KPIRECORDLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_KPIRECORDCOMPLAIN" nillable="true" type="tns:T_HR_KPIRECORDCOMPLAIN" />
+  <xs:complexType name="T_HR_SUMPERFORMANCERECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AWARDTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BASEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REVIEWERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REVIEWREMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMCOUNT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SUMDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SUMDEPTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMEND" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SUMID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMPERSONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMREMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SUMSTART" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SUMTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_PERFORMANCERECORD" nillable="true" type="tns:ArrayOfT_HR_PERFORMANCERECORD" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_SUMPERFORMANCERECORD" nillable="true" type="tns:T_HR_SUMPERFORMANCERECORD" />
+  <xs:complexType name="ArrayOfT_HR_PERFORMANCERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_PERFORMANCERECORD" nillable="true" type="tns:T_HR_PERFORMANCERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_PERFORMANCERECORD" nillable="true" type="tns:ArrayOfT_HR_PERFORMANCERECORD" />
+  <xs:complexType name="ArrayOfT_HR_RANDOMGROUP">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_RANDOMGROUP" nillable="true" type="tns:T_HR_RANDOMGROUP" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_RANDOMGROUP" nillable="true" type="tns:ArrayOfT_HR_RANDOMGROUP" />
+  <xs:complexType name="ArrayOfT_HR_SUMPERFORMANCERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_SUMPERFORMANCERECORD" nillable="true" type="tns:T_HR_SUMPERFORMANCERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_SUMPERFORMANCERECORD" nillable="true" type="tns:ArrayOfT_HR_SUMPERFORMANCERECORD" />
+</xs:schema>

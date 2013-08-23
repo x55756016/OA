@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7aca699e-1a07-46b1-bb73-c116e3e156ec" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PerformanceService.xsd" MetadataType="Schema" ID="9faccde0-827f-4319-833a-7a7e37a270a8" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PerformanceService1.xsd" MetadataType="Schema" ID="15ba96fe-afdc-4d40-b564-e189bfc90d8b" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PerformanceService2.xsd" MetadataType="Schema" ID="9f690fdc-68af-4ec9-af93-55409062baf2" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PerformanceService3.xsd" MetadataType="Schema" ID="c6017bcc-58e7-4121-b6a5-860dd9d146ae" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PerformanceService.disco" MetadataType="Disco" ID="f717002c-9ce9-4869-8d8d-b573cb0fae1b" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?disco" />
+    <MetadataFile FileName="PerformanceService.wsdl" MetadataType="Wsdl" ID="891e8db3-9735-4856-869c-2b732e3edc2f" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?wsdl" />
+    <MetadataFile FileName="PerformanceService1.wsdl" MetadataType="Wsdl" ID="fbba91ea-296b-4214-bc86-74ff09ebc1bb" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="PerformanceService4.xsd" MetadataType="Schema" ID="44dadb31-5a5c-4133-a7d9-9c4ed8d8ba51" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PerformanceService5.xsd" MetadataType="Schema" ID="decf6bcc-bd30-40c7-ac2b-d3a931a11389" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PerformanceService6.xsd" MetadataType="Schema" ID="538596ee-0718-453d-a686-eaeb819ed037" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

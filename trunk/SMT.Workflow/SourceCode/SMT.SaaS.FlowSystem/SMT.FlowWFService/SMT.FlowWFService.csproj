@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{10EFAFD0-B2C8-4F13-B8F5-68FB97EB4117}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.FlowWFService</RootNamespace>
+    <AssemblyName>SMT.FlowWFService</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.30, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.EntityFlowSys, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\SMT.EntityFlowSys.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Core">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Log">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Workflow.Activities">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Workflow.ComponentModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Workflow.Runtime">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.WorkflowServices">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WFTools.Resources, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WFTools\Resources\bin\Debug\WFTools.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="WFTools.Resources.resources">
+      <HintPath>..\..\..\..\SMT.SaaS.Flow\SMT.SaaS.FlowSys\SMT.FlowWFService\en-GB\WFTools.Resources.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="WFTools.Utilities, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WFTools\Utilities\bin\Debug\WFTools.Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="EnginFlowBLL.cs" />
+    <Compile Include="FlowBLL2.cs" />
+    <Compile Include="IService2.cs" />
+    <Compile Include="NewFlow\EnginFlowBLL.cs" />
+    <Compile Include="NewFlow\FlowBLL.cs" />
+    <Compile Include="NewFlow\FlowMonitor.cs" />
+    <Compile Include="NewFlow\IService.cs" />
+    <Compile Include="NewFlow\Service.cs" />
+    <Compile Include="NewFlow\SMTWorkFlowManage.cs" />
+    <Compile Include="NewFlow\SubmitUser.cs" />
+    <Compile Include="PublicClass\FreeFlow.xoml.cs">
+      <DependentUpon>FreeFlow.xoml</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PublicClass\Utility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service References\FlowEngineService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OAWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PerformanceServiceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service2.cs" />
+    <Compile Include="SMTType.cs" />
+    <Compile Include="FlowBLL.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="SMTWorkFlowManage.cs" />
+    <Compile Include="I调试外网.cs" />
+    <Compile Include="调试外网.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction.wsdl" />
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction1.wsdl" />
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowEngineService\SMT.FlowWFService.FlowEngineService.TaskCacheEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowEngineService\SMT.FlowWFService.FlowEngineService.T_FLOW_CUSTOMFLOWDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowEngineService\SMT.FlowWFService.FlowEngineService.T_FLOW_ENGINEMSGLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowEngineService\SMT.FlowWFService.FlowEngineService.T_FLOW_ENGINENOTES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAWS\AgentServices.wsdl" />
+    <None Include="Service References\OAWS\AgentServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices1.wsdl" />
+    <None Include="Service References\OAWS\AgentServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\SMT.FlowWFService.OAWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\PerformanceService.wsdl" />
+    <None Include="Service References\PerformanceServiceWS\PerformanceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\PerformanceService1.wsdl" />
+    <None Include="Service References\PerformanceServiceWS\PerformanceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\PerformanceService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\PerformanceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\PerformanceService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\PerformanceService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\PerformanceService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.T_HR_KPIPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.T_HR_KPIRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.T_HR_KPIRECORDCOMPLAIN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.T_HR_KPITYPE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.T_HR_PERFORMANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.T_HR_RAMDONGROUPPERSON.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.T_HR_RANDOMGROUP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.T_HR_SUMPERFORMANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.V_COMPLAINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.V_EMPLOYEEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.V_KPIRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.V_PERFORMANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\SMT.FlowWFService.PerformanceServiceWS.V_PERFORMANCERECORDDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
+      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
+      <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.Workflow\SMT.Workflow.Common\SMT.Workflow.Common.DataAccess\SMT.Workflow.Common.DataAccess.csproj">
+      <Project>{D080370C-EE36-4E5A-B761-FAE6A078C7E4}</Project>
+      <Name>SMT.Workflow.Common.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.Workflow\SMT.Workflow.Common\SMT.Workflow.Common.Model\SMT.Workflow.Common.Model.csproj">
+      <Project>{AA1B3B25-A276-4B58-A255-79B71B01B048}</Project>
+      <Name>SMT.Workflow.Common.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.Workflow\SMT.Workflow.Engine\SMT.Workflow.Engine.BLL\SMT.Workflow.Engine.BLL.csproj">
+      <Project>{069C7DF7-469D-4D57-A3FE-E4C03C1C3C16}</Project>
+      <Name>SMT.Workflow.Engine.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.Workflow\SMT.Workflow.Platform\SMT.Workflow.Platform.Designer.Web\SMT.Workflow.Platform.Designer.Web.csproj">
+      <Project>{39ABFA15-5EFF-4AC5-895B-343A2F5469A2}</Project>
+      <Name>SMT.Workflow.Platform.Designer.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.FlowDAL\SMT.FlowDAL.csproj">
+      <Project>{6B61ACF2-41B8-45FA-AED3-1AC9D5950135}</Project>
+      <Name>SMT.FlowDAL %28业务系统\SMT.FlowDAL\SMT.FlowDAL%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.WFLib\SMT.WFLib.csproj">
+      <Project>{39945946-45EE-418B-8B20-8BFAC13AB2F8}</Project>
+      <Name>SMT.WFLib %28业务系统\SMT.WFLib\SMT.WFLib%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WFTools\Services\WFTools.Services.csproj">
+      <Project>{AFDBD4BB-BC33-421E-8086-68BD23AC90A2}</Project>
+      <Name>WFTools.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clientaccesspolicy.xml" />
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction1.disco" />
+    <None Include="Service References\FlowEngineService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\FlowEngineService\configuration.svcinfo" />
+    <None Include="Service References\FlowEngineService\configuration91.svcinfo" />
+    <None Include="Service References\FlowEngineService\EngineWcfGlobalFunction.disco" />
+    <Content Include="en-GB\WFTools.Resources.resources.dll" />
+    <Content Include="FreeFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PublicClass\FreeFlow.xoml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Service References\OAWS\AgentServices.disco" />
+    <None Include="Service References\OAWS\configuration91.svcinfo" />
+    <None Include="Service References\OAWS\configuration.svcinfo" />
+    <None Include="Service References\OAWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PerformanceServiceWS\PerformanceService.disco" />
+    <None Include="Service References\PerformanceServiceWS\configuration91.svcinfo" />
+    <None Include="Service References\PerformanceServiceWS\configuration.svcinfo" />
+    <None Include="Service References\PerformanceServiceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\FlowEngineService\" />
+    <WCFMetadataStorage Include="Service References\OAWS\" />
+    <WCFMetadataStorage Include="Service References\PerformanceServiceWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PublicClass\FreeFlow.layout">
+      <DependentUpon>FreeFlow.xoml</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>True</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

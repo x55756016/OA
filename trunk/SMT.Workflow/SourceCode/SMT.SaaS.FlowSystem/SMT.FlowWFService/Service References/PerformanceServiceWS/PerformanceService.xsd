@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+  <xs:complexType name="V_COMPLAINRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_KPIRECORD" nillable="true" type="q1:T_HR_KPIRECORD" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_KPIRECORDCOMPLAIN" nillable="true" type="q2:T_HR_KPIRECORDCOMPLAIN" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_COMPLAINRECORD" nillable="true" type="tns:V_COMPLAINRECORD" />
+  <xs:complexType name="ArrayOfV_COMPLAINRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_COMPLAINRECORD" nillable="true" type="tns:V_COMPLAINRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_COMPLAINRECORD" nillable="true" type="tns:ArrayOfV_COMPLAINRECORD" />
+  <xs:complexType name="ArrayOfV_KPIRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_KPIRECORD" nillable="true" type="tns:V_KPIRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_KPIRECORD" nillable="true" type="tns:ArrayOfV_KPIRECORD" />
+  <xs:complexType name="V_KPIRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KPIPOINTREMARK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_KPIRECORD" nillable="true" type="q3:T_HR_KPIRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_KPIRECORD" nillable="true" type="tns:V_KPIRECORD" />
+  <xs:complexType name="ArrayOfV_EMPLOYEEVIEW">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EMPLOYEEVIEW" nillable="true" type="tns:V_EMPLOYEEVIEW" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_EMPLOYEEVIEW" nillable="true" type="tns:ArrayOfV_EMPLOYEEVIEW" />
+  <xs:complexType name="V_EMPLOYEEVIEW">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FINGERPRINTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDNUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOBILE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SEX" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_EMPLOYEEVIEW" nillable="true" type="tns:V_EMPLOYEEVIEW" />
+  <xs:complexType name="ArrayOfV_PERFORMANCERECORDDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_PERFORMANCERECORDDETAIL" nillable="true" type="tns:V_PERFORMANCERECORDDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_PERFORMANCERECORDDETAIL" nillable="true" type="tns:ArrayOfV_PERFORMANCERECORDDETAIL" />
+  <xs:complexType name="V_PERFORMANCERECORDDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EMPLOYEECNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PERFORMANCEID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_KPIRECORD" nillable="true" type="q4:T_HR_KPIRECORD" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_PERFORMANCERECORD" nillable="true" type="q5:T_HR_PERFORMANCERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_PERFORMANCERECORDDETAIL" nillable="true" type="tns:V_PERFORMANCERECORDDETAIL" />
+  <xs:complexType name="ArrayOfV_PERFORMANCERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_PERFORMANCERECORD" nillable="true" type="tns:V_PERFORMANCERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_PERFORMANCERECORD" nillable="true" type="tns:ArrayOfV_PERFORMANCERECORD" />
+  <xs:complexType name="V_PERFORMANCERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PERFORMANCEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUMEND" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SUMID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUMSTART" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_PERFORMANCERECORD" nillable="true" type="q6:T_HR_PERFORMANCERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_PERFORMANCERECORD" nillable="true" type="tns:V_PERFORMANCERECORD" />
+</xs:schema>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://smtdev.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="MsgParms">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BeginDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastDay" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageBody" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Top" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MsgParms" nillable="true" type="tns:MsgParms" />
+  <xs:complexType name="ArrayOfReceiveUserAndContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceiveUserAndContent" nillable="true" type="tns:ReceiveUserAndContent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReceiveUserAndContent" nillable="true" type="tns:ArrayOfReceiveUserAndContent" />
+  <xs:complexType name="ReceiveUserAndContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceiveUser" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReceiveUserAndContent" nillable="true" type="tns:ReceiveUserAndContent" />
+  <xs:complexType name="ArrayOfReceiveUserForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceiveUserForm" nillable="true" type="tns:ReceiveUserForm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReceiveUserForm" nillable="true" type="tns:ArrayOfReceiveUserForm" />
+  <xs:complexType name="ReceiveUserForm">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FormID" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ReceiveUser" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReceiveUserForm" nillable="true" type="tns:ReceiveUserForm" />
+  <xs:simpleType name="MsgType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Msg" />
+      <xs:enumeration value="Task" />
+      <xs:enumeration value="Cancel" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MsgType" nillable="true" type="tns:MsgType" />
+</xs:schema>

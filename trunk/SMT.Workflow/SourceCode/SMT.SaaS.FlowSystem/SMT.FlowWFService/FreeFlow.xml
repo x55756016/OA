@@ -1,0 +1,15 @@
+﻿<ns0:SMTStateMachineWorkflowActivity  FlowData="{x:Null}" InitialStateName="StartFlow" CompletedStateName="EndFlow" x:Name="FreeFlow" DynamicUpdateCondition="{x:Null}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:SMT.WFLib;Assembly=SMT.WFLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+	<StateActivity x:Name="StartFlow">
+		<EventDrivenActivity x:Name="EdaStartFlow0">
+			<ns0:SMTSubmitEvent EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" x:Name="EventStartFlow0" ApproveInfo="{x:Null}" />
+			<SetStateActivity x:Name="TsStartFlow0" TargetStateName="DoingFlow" />
+		</EventDrivenActivity>
+	</StateActivity>
+	<StateActivity x:Name="DoingFlow">
+		<EventDrivenActivity x:Name="EdaStatea9416b1e606243d9b920c714f07287011">
+			<ns0:SMTSubmitEvent EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" x:Name="EventStatea9416b1e606243d9b920c714f07287011" ApproveInfo="{x:Null}" />
+			<SetStateActivity x:Name="setStateActivity1" TargetStateName="EndFlow" />
+		</EventDrivenActivity>
+	</StateActivity>
+	<StateActivity x:Name="EndFlow" />
+</ns0:SMTStateMachineWorkflowActivity>
