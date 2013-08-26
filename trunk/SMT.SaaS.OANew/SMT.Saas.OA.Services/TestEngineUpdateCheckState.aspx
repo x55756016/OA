@@ -22,6 +22,8 @@
         <br />
         <br />
         <asp:Button ID="btnSubmit" runat="server" onclick="btnSubmit_Click" Text="提交" />
+        <asp:Button ID="btngetMyrecord" runat="server" onclick="btngetMyrecord_Click" 
+            Text="我的单据测试" />
         <br />
         <br />
         <br />

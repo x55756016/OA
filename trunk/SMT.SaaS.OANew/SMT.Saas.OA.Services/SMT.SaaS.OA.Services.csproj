@@ -58,10 +58,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\Smt.Global.IContract.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -102,6 +98,13 @@
     <Content Include="EngineEventServices.svc" />
     <Content Include="EngineServices.svc" />
     <Content Include="OAUpdateCheckServices.svc" />
+    <None Include="Service References\vm\VMServices.disco" />
+    <None Include="Service References\vm\configuration91.svcinfo" />
+    <None Include="Service References\vm\configuration.svcinfo" />
+    <None Include="Service References\vm\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SmtOACommonAdmin.svc" />
     <Content Include="SmtOACommonOffice.svc" />
     <Content Include="SmtOADocumentAdmin.svc" />
@@ -111,6 +114,13 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Service References\vm\VMServices.wsdl" />
+    <None Include="Service References\vm\VMServices5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\vm\VMServices6.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgentServices.svc.cs">
@@ -171,6 +181,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SerializerHelper.cs" />
+    <Compile Include="Service References\vm\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="SmtOACommonAdmin.svc.cs">
       <DependentUpon>SmtOACommonAdmin.svc</DependentUpon>
     </Compile>
@@ -205,11 +220,30 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Service References\vm\VMServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\vm\VMServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\vm\VMServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\vm\VMServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\vm\VMServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
+      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
+      <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.OA.BLL\SMT.SaaS.OA.BLL.csproj">
       <Project>{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}</Project>
       <Name>SMT.SaaS.OA.BLL</Name>
@@ -225,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\vm\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
