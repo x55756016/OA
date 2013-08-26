@@ -1,0 +1,30 @@
+﻿ <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <font style="font-size: 12px">通知： </font>&nbsp;&nbsp;<font style="font-size: 12px;
+                            color: blue"> [<a href="{0}">{1}]</a>&nbsp;</font><font style="font-size: 12px">
+                        </font>
+                        <br>
+                        <br>
+                        <table style="font-size: 12px" cellspacing="0" bordercolordark="white" cellpadding="3"
+                            width="80%" bgcolor="#efefef" border="1">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            标题:{1}</p>
+                                        <p>
+                                            发送时间:{2}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br><font style="font-size: 12px">此邮件为</font><font style="font-size: 12px" color="red">协同办公系统</font><font
+                            style="font-size: 12px">自动发送。</font> </br>
+                        <br><font style="font-size: 12px" color="red">协同办公系统登陆地址：</font><font style="font-size: 12px"
+                            color="blue">{0}</font> </br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
