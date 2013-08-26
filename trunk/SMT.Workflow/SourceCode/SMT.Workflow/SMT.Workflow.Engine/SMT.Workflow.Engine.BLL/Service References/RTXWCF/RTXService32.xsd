@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Services.Message.RTX" />
+  <xs:element name="RTXIMSend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSendPwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strReceiveUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strContent" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RTXIMSendResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RTXSendMsg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strReceiveUsers" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMsgContent" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RTXSendMsgResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RtxSendMsgParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.Workflow.Services.Message.RTX" minOccurs="0" name="Params" nillable="true" type="q1:ArrayOfRtxParams" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RtxSendMsgParamsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRTXUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDeptID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNick" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rtxNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMobile" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRTXUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddRTXUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRTXUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDEPTID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUIN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNICK" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPWD" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRTXUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateRTXUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRTXUserExist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRTXUserExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckRTXUserExistResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRTXUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRTXUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRTXUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRTXDept">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strPDEPTID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDeptName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDeptID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strInfo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRTXDeptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddRTXDeptResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRTXDept">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDeptID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="delall" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRTXDeptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRTXDeptResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

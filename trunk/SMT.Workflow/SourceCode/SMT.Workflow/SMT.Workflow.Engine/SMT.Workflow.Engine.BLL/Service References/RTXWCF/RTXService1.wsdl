@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RTXService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Services.Message.RTX" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRTXService_RTXIMSend_InputMessage">
+    <wsdl:part name="parameters" element="tns:RTXIMSend" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_RTXIMSend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RTXIMSendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_RTXSendMsg_InputMessage">
+    <wsdl:part name="parameters" element="tns:RTXSendMsg" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_RTXSendMsg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RTXSendMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_RtxSendMsgParams_InputMessage">
+    <wsdl:part name="parameters" element="tns:RtxSendMsgParams" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_RtxSendMsgParams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RtxSendMsgParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_AddRTXUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRTXUser" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_AddRTXUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRTXUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_UpdateRTXUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRTXUser" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_UpdateRTXUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRTXUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_CheckRTXUserExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRTXUserExist" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_CheckRTXUserExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRTXUserExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_DeleteRTXUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRTXUser" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_DeleteRTXUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRTXUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_AddRTXDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRTXDept" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_AddRTXDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRTXDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_DeleteRTXDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRTXDept" />
+  </wsdl:message>
+  <wsdl:message name="IRTXService_DeleteRTXDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRTXDeptResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRTXService">
+    <wsdl:operation name="RTXIMSend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/RTXIMSend" message="tns:IRTXService_RTXIMSend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/RTXIMSendResponse" message="tns:IRTXService_RTXIMSend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RTXSendMsg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/RTXSendMsg" message="tns:IRTXService_RTXSendMsg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/RTXSendMsgResponse" message="tns:IRTXService_RTXSendMsg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RtxSendMsgParams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/RtxSendMsgParams" message="tns:IRTXService_RtxSendMsgParams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/RtxSendMsgParamsResponse" message="tns:IRTXService_RtxSendMsgParams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRTXUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/AddRTXUser" message="tns:IRTXService_AddRTXUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/AddRTXUserResponse" message="tns:IRTXService_AddRTXUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRTXUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/UpdateRTXUser" message="tns:IRTXService_UpdateRTXUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/UpdateRTXUserResponse" message="tns:IRTXService_UpdateRTXUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRTXUserExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/CheckRTXUserExist" message="tns:IRTXService_CheckRTXUserExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/CheckRTXUserExistResponse" message="tns:IRTXService_CheckRTXUserExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRTXUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/DeleteRTXUser" message="tns:IRTXService_DeleteRTXUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/DeleteRTXUserResponse" message="tns:IRTXService_DeleteRTXUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRTXDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/AddRTXDept" message="tns:IRTXService_AddRTXDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/AddRTXDeptResponse" message="tns:IRTXService_AddRTXDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRTXDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTXService/DeleteRTXDept" message="tns:IRTXService_DeleteRTXDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTXService/DeleteRTXDeptResponse" message="tns:IRTXService_DeleteRTXDept_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRTXService" type="tns:IRTXService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RTXIMSend">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/RTXIMSend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTXSendMsg">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/RTXSendMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RtxSendMsgParams">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/RtxSendMsgParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRTXUser">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/AddRTXUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRTXUser">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/UpdateRTXUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRTXUserExist">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/CheckRTXUserExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRTXUser">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/DeleteRTXUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRTXDept">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/AddRTXDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRTXDept">
+      <soap:operation soapAction="http://tempuri.org/IRTXService/DeleteRTXDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RTXService">
+    <wsdl:port name="BasicHttpBinding_IRTXService" binding="tns:BasicHttpBinding_IRTXService">
+      <soap:address location="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

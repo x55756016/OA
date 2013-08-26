@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="544ab17b-8420-450d-921c-c33620e9dc0d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RTXService1.disco" MetadataType="Disco" ID="dae9beff-a55d-402d-9f37-9513ddddf761" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?disco" />
+    <MetadataFile FileName="RTXService1.wsdl" MetadataType="Wsdl" ID="f02060a3-9df1-4fae-84a7-53201ae54786" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?wsdl" />
+    <MetadataFile FileName="RTXService3.xsd" MetadataType="Schema" ID="4b9841ad-d6d0-4ee0-bfdc-3d5a7bba37a5" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RTXService31.xsd" MetadataType="Schema" ID="4e838a5b-24f6-4ab2-a4ca-f6ab4ec73654" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RTXService32.xsd" MetadataType="Schema" ID="a296e704-588f-4b94-9230-4b3897291c60" SourceId="1" SourceUrl="http://172.30.50.13/SmtOnline/Develop/Services/EngineRTXService/RTXService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

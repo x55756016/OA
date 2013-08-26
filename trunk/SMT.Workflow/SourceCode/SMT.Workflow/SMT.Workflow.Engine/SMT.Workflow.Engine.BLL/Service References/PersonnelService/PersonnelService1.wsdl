@@ -1,0 +1,1647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PersonnelService_GetEmployeePostByEmployeePostID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByEmployeePostID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByEmployeePostID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByEmployeePostIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByPostID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByPostID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByPostID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByPostIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByPostIDs_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByPostIDs" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByPostIDs_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByPostIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesByPostLevel_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesByPostLevel" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesByPostLevel_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesByPostLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesByPostLevelInterval_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesByPostLevelInterval" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesByPostLevelInterval_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesByPostLevelIntervalResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailByParas_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailByParas" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailByParas_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailByParasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostBriefByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostBriefByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostBriefByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostBriefByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesPostBriefByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesPostBriefByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesPostBriefByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesPostBriefByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPostsActivedByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetPostsActivedByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPostsActivedByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPostsActivedByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractsPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractsPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractsPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractsPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeContractByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeContractByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeContractByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeContractByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeContractByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeContractByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeContractByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeContractByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeContractEngineXml_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeContractEngineXml" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeContractEngineXml_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeContractEngineXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractAlarm_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractAlarm" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterAdd_InputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterAdd_OutputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterUpdate_InputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByObjectID_InputMessage">
+    <wsdl:part name="parameters" element="GetAssessMentFormMasterByObjectID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByObjectID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAssessMentFormMasterByObjectIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAssessMentFormMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAssessMentFormMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterPaging_InputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterPaging_OutputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessmentFormDetailByMasterID_InputMessage">
+    <wsdl:part name="parameters" element="GetAssessmentFormDetailByMasterID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessmentFormDetailByMasterID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAssessmentFormDetailByMasterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetMasterPaging_InputMessage">
+    <wsdl:part name="parameters" element="ImportSetMasterPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetMasterPaging_OutputMessage">
+    <wsdl:part name="parameters" element="ImportSetMasterPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetMasterAdd_InputMessage">
+    <wsdl:part name="parameters" element="ImportSetMasterAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetMasterAdd_OutputMessage">
+    <wsdl:part name="parameters" element="ImportSetMasterAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetMasterUpdate_InputMessage">
+    <wsdl:part name="parameters" element="ImportSetMasterUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetMasterUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="ImportSetMasterUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetMasterDelete_InputMessage">
+    <wsdl:part name="parameters" element="ImportSetMasterDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetMasterDelete_OutputMessage">
+    <wsdl:part name="parameters" element="ImportSetMasterDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetImportSetMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetImportSetMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetImportSetMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetImportSetMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetDetailPaging_InputMessage">
+    <wsdl:part name="parameters" element="ImportSetDetailPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportSetDetailPaging_OutputMessage">
+    <wsdl:part name="parameters" element="ImportSetDetailPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetImportSetDetailByMasterID_InputMessage">
+    <wsdl:part name="parameters" element="GetImportSetDetailByMasterID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetImportSetDetailByMasterID_OutputMessage">
+    <wsdl:part name="parameters" element="GetImportSetDetailByMasterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeConfirmPaging_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeConfirmPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeConfirmPaging_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeConfirmPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeConfirmAdd_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeConfirmAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeConfirmAdd_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeConfirmAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeConfirmUpdate_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeConfirmUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeConfirmUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeConfirmUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeConfirmDelete_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeConfirmDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeConfirmDelete_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeConfirmDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetLeftOfficeConfirmByID_InputMessage">
+    <wsdl:part name="parameters" element="GetLeftOfficeConfirmByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetLeftOfficeConfirmByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeftOfficeConfirmByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_SaveFile_InputMessage">
+    <wsdl:part name="parameters" element="SaveFile" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_SaveFile_OutputMessage">
+    <wsdl:part name="parameters" element="SaveFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeAddOrUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddOrUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeAddOrUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeAddOrUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesByIdnumber_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesByIdnumber" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesByIdnumber_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesByIdnumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByCompanyID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByCompanyID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByCompanyID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByCompanyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByPostID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByPostID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByPostID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByPostIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeIDsByPostID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeIDsByPostID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeIDsByPostID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeIDsByPostIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeLeader_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLeader" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeLeader_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeLeaders_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLeaders" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeLeaders_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeLeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetDepartmentLeaders_InputMessage">
+    <wsdl:part name="parameters" element="GetDepartmentLeaders" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetDepartmentLeaders_OutputMessage">
+    <wsdl:part name="parameters" element="GetDepartmentLeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailByParasPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailByParasPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailByParasPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailByParasPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByIDs_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByIDs" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByIDs_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeToEngine_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeToEngine" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeToEngine_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeToEngineResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExportEmployeeContract_InputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeContract" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExportEmployeeContract_OutputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailViewByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailViewByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailViewByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailViewByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailByIDs_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailByIDs" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeDetailByIDs_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeDetailByIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByDepartmentID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByDepartmentID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByDepartmentID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByDepartmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePaging_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeViewsPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeViewsPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeViewsPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeViewsPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeIDsByParas_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeIDsByParas" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeIDsByParas_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeIDsByParasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeIDsWithParas_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeIDsWithParas" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeIDsWithParas_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeIDsWithParasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetLeaveEmployeeViewsPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetLeaveEmployeeViewsPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetLeaveEmployeeViewsPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeaveEmployeeViewsPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeViewsActivedPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeViewsActivedPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeViewsActivedPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeViewsActivedPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesWithOutPermissions_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesWithOutPermissions" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesWithOutPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesWithOutPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeViewsWithOutPermissions_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeViewsWithOutPermissions" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeViewsWithOutPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeViewsWithOutPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePagingByFilter_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePagingByFilter" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePagingByFilter_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePagingByFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesIntime_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesIntime" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeesIntime_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeesIntimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExportEmployeesIntime_InputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeesIntime" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExportEmployeesIntime_OutputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeesIntimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeIsEntry_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeIsEntry" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeIsEntry_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeIsEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByNumberID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByNumberID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByNumberID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByNumberIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_IsExistFingerPrintID_InputMessage">
+    <wsdl:part name="parameters" element="IsExistFingerPrintID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_IsExistFingerPrintID_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistFingerPrintIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetResumePaging_InputMessage">
+    <wsdl:part name="parameters" element="GetResumePaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetResumePaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetResumePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetResumeByid_InputMessage">
+    <wsdl:part name="parameters" element="GetResumeByid" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetResumeByid_OutputMessage">
+    <wsdl:part name="parameters" element="GetResumeByidResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ResumeAdd_InputMessage">
+    <wsdl:part name="parameters" element="ResumeAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ResumeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="ResumeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ResumeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="ResumeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ResumeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="ResumeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ResumeDelete_InputMessage">
+    <wsdl:part name="parameters" element="ResumeDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ResumeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="ResumeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetResumeByNumber_InputMessage">
+    <wsdl:part name="parameters" element="GetResumeByNumber" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetResumeByNumber_OutputMessage">
+    <wsdl:part name="parameters" element="GetResumeByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetExperienceAll_InputMessage">
+    <wsdl:part name="parameters" element="GetExperienceAll" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetExperienceAll_OutputMessage">
+    <wsdl:part name="parameters" element="GetExperienceAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExperienceAdd_InputMessage">
+    <wsdl:part name="parameters" element="ExperienceAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExperienceAdd_OutputMessage">
+    <wsdl:part name="parameters" element="ExperienceAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExperienceUpdate_InputMessage">
+    <wsdl:part name="parameters" element="ExperienceUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExperienceUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="ExperienceUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEducateHistoryAll_InputMessage">
+    <wsdl:part name="parameters" element="GetEducateHistoryAll" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEducateHistoryAll_OutputMessage">
+    <wsdl:part name="parameters" element="GetEducateHistoryAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EducateHistoryAdd_InputMessage">
+    <wsdl:part name="parameters" element="EducateHistoryAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EducateHistoryAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EducateHistoryAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetBlackListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetBlackListPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetBlackListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetBlackListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_BlackListAdd_InputMessage">
+    <wsdl:part name="parameters" element="BlackListAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_BlackListAdd_OutputMessage">
+    <wsdl:part name="parameters" element="BlackListAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckBlackListByName_InputMessage">
+    <wsdl:part name="parameters" element="CheckBlackListByName" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckBlackListByName_OutputMessage">
+    <wsdl:part name="parameters" element="CheckBlackListByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_BlackListUpdate_InputMessage">
+    <wsdl:part name="parameters" element="BlackListUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_BlackListUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="BlackListUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_BlackListDelete_InputMessage">
+    <wsdl:part name="parameters" element="BlackListDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_BlackListDelete_OutputMessage">
+    <wsdl:part name="parameters" element="BlackListDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetBlackListByID_InputMessage">
+    <wsdl:part name="parameters" element="GetBlackListByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetBlackListByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetBlackListByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeEntryAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEntryAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeEntryAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEntryAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AddEmployeeEntry_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeEntry" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AddEmployeeEntry_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeEntryUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEntryUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeEntryUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEntryUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeEntryDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeEntryDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeEntryDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeEntryDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeEntryPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeEntryPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeEntryPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeEntryPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeEntryByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeEntryByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeEntryByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeEntryByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeEntryByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeEntryByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeEntryByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeEntryByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionAlarmSetPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetPensionAlarmSetPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionAlarmSetPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetPensionAlarmSetPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionAlarmSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="PensionAlarmSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionAlarmSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="PensionAlarmSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionAlarmSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PensionAlarmSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionAlarmSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PensionAlarmSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionAlarmSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="PensionAlarmSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionAlarmSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="PensionAlarmSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionAlarmSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetPensionAlarmSetByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionAlarmSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPensionAlarmSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionAlarmSetViewByID_InputMessage">
+    <wsdl:part name="parameters" element="GetPensionAlarmSetViewByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionAlarmSetViewByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPensionAlarmSetViewByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterPaging_InputMessage">
+    <wsdl:part name="parameters" element="PensionMasterPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterPaging_OutputMessage">
+    <wsdl:part name="parameters" element="PensionMasterPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterAdd_InputMessage">
+    <wsdl:part name="parameters" element="PensionMasterAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterAdd_OutputMessage">
+    <wsdl:part name="parameters" element="PensionMasterAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PensionMasterUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PensionMasterUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterDelete_InputMessage">
+    <wsdl:part name="parameters" element="PensionMasterDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterDelete_OutputMessage">
+    <wsdl:part name="parameters" element="PensionMasterDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetPensionMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPensionMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionMasterByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetPensionMasterByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionMasterByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPensionMasterByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_UpdateEmployeeWorkAgeByID_InputMessage">
+    <wsdl:part name="parameters" element="UpdateEmployeeWorkAgeByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_UpdateEmployeeWorkAgeByID_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateEmployeeWorkAgeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionDetailPaging_InputMessage">
+    <wsdl:part name="parameters" element="PensionDetailPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionDetailPaging_OutputMessage">
+    <wsdl:part name="parameters" element="PensionDetailPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionDetailDelete_InputMessage">
+    <wsdl:part name="parameters" element="PensionDetailDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionDetailDelete_OutputMessage">
+    <wsdl:part name="parameters" element="PensionDetailDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportClockInRdListFromExcel_InputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListFromExcel" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportClockInRdListFromExcel_OutputMessage">
+    <wsdl:part name="parameters" element="ImportClockInRdListFromExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeInsurancePaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeInsurancePaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeInsurancePaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeInsurancePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeInsuranceAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeInsuranceAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeInsuranceAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeInsuranceAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeInsuranceUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeInsuranceUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeInsuranceUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeInsuranceUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeInsuranceDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeInsuranceDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeInsuranceDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeInsuranceDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeInsuranceByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeInsuranceByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeInsuranceByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeInsuranceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeCheckByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeCheckByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeCheckByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeCheckByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeCheckEngineXml_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeCheckEngineXml" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeCheckEngineXml_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeCheckEngineXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckAlarm_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckAlarm" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeCheckAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeCheckAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangePaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangePaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangePaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangeViewPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeViewPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangeViewPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeViewPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangeAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangeDelete_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChangeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostChangeByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostChangeByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostChangeByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostChangeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetLastChangeByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetLastChangeByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetLastChangeByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetLastChangeByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChange_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChange" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostChange_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AddEmployeePostChangeForEntry_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeePostChangeForEntry" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AddEmployeePostChangeForEntry_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeePostChangeForEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficePaging_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficePaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficePaging_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeViewsPaging_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeViewsPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeViewsPaging_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeViewsPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeAdd_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeDelete_InputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_LeftOfficeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="LeftOfficeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetLeftOfficeByID_InputMessage">
+    <wsdl:part name="parameters" element="GetLeftOfficeByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetLeftOfficeByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetLeftOfficeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckProjectSetPaging_InputMessage">
+    <wsdl:part name="parameters" element="CheckProjectSetPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckProjectSetPaging_OutputMessage">
+    <wsdl:part name="parameters" element="CheckProjectSetPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckProjectSetByType_InputMessage">
+    <wsdl:part name="parameters" element="GetCheckProjectSetByType" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckProjectSetByType_OutputMessage">
+    <wsdl:part name="parameters" element="GetCheckProjectSetByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckProjectSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="CheckProjectSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckProjectSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="CheckProjectSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckProjectSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="CheckProjectSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckProjectSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="CheckProjectSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckProjectSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="CheckProjectSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckProjectSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="CheckProjectSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckProjectSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetCheckProjectSetByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckProjectSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCheckProjectSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointSetByPrimaryID_InputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointSetByPrimaryID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointSetByPrimaryID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointSetByPrimaryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointSetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointSetByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointSetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointSetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckPointSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="CheckPointSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckPointSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="CheckPointSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckPointSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="CheckPointSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckPointSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="CheckPointSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckPointSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="CheckPointSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_CheckPointSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="CheckPointSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointAvailable_InputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointAvailable" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointByEmployeeTypeSum_InputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointByEmployeeTypeSum" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointByEmployeeTypeSum_OutputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointByEmployeeTypeSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointLevelSetByPrimaryID_InputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointLevelSetByPrimaryID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetCheckPointLevelSetByPrimaryID_OutputMessage">
+    <wsdl:part name="parameters" element="GetCheckPointLevelSetByPrimaryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostActivedByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostActivedByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostActivedByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostActivedByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByEmployeeIDAndPostID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByEmployeeIDAndPostID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByEmployeeIDAndPostID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByEmployeeIDAndPostIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostAdd_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostAdd_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeePostByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeePostByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostSalaryLevelUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostSalaryLevelUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostSalaryLevelUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostSalaryLevelUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeSamePostSalaryLevelUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSamePostSalaryLevelUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeSamePostSalaryLevelUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSamePostSalaryLevelUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostUpdate_InputMessage">
+    <wsdl:part name="parameters" element="EmployeePostUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeePostUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeePostUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_updateAllpostByemployeeID_InputMessage">
+    <wsdl:part name="parameters" element="updateAllpostByemployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_updateAllpostByemployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="updateAllpostByemployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAllPostByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetAllPostByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAllPostByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllPostByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PersonnelService">
+    <wsdl:operation name="GetEmployeePostByEmployeePostID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostByEmployeePostID" message="PersonnelService_GetEmployeePostByEmployeePostID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostByEmployeePostIDResponse" message="PersonnelService_GetEmployeePostByEmployeePostID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePostByPostID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostByPostID" message="PersonnelService_GetEmployeePostByPostID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostByPostIDResponse" message="PersonnelService_GetEmployeePostByPostID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePostByPostIDs">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostByPostIDs" message="PersonnelService_GetEmployeePostByPostIDs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostByPostIDsResponse" message="PersonnelService_GetEmployeePostByPostIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesByPostLevel">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeesByPostLevel" message="PersonnelService_GetEmployeesByPostLevel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeesByPostLevelResponse" message="PersonnelService_GetEmployeesByPostLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesByPostLevelInterval">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeesByPostLevelInterval" message="PersonnelService_GetEmployeesByPostLevelInterval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeesByPostLevelIntervalResponse" message="PersonnelService_GetEmployeesByPostLevelInterval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDetailByParas">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeDetailByParas" message="PersonnelService_GetEmployeeDetailByParas_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeDetailByParasResponse" message="PersonnelService_GetEmployeeDetailByParas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePostBriefByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostBriefByEmployeeID" message="PersonnelService_GetEmployeePostBriefByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostBriefByEmployeeIDResponse" message="PersonnelService_GetEmployeePostBriefByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesPostBriefByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeesPostBriefByEmployeeID" message="PersonnelService_GetEmployeesPostBriefByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeesPostBriefByEmployeeIDResponse" message="PersonnelService_GetEmployeesPostBriefByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostsActivedByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetPostsActivedByEmployeeID" message="PersonnelService_GetPostsActivedByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetPostsActivedByEmployeeIDResponse" message="PersonnelService_GetPostsActivedByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeContractsPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractsPaging" message="PersonnelService_EmployeeContractsPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractsPagingResponse" message="PersonnelService_EmployeeContractsPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeContractPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractPaging" message="PersonnelService_EmployeeContractPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractPagingResponse" message="PersonnelService_EmployeeContractPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeContractAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractAdd" message="PersonnelService_EmployeeContractAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractAddResponse" message="PersonnelService_EmployeeContractAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeContractUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractUpdate" message="PersonnelService_EmployeeContractUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractUpdateResponse" message="PersonnelService_EmployeeContractUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeContractDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractDelete" message="PersonnelService_EmployeeContractDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractDeleteResponse" message="PersonnelService_EmployeeContractDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeContractByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeContractByID" message="PersonnelService_GetEmployeeContractByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeContractByIDResponse" message="PersonnelService_GetEmployeeContractByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeContractByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeContractByEmployeeID" message="PersonnelService_GetEmployeeContractByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeContractByEmployeeIDResponse" message="PersonnelService_GetEmployeeContractByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeContractEngineXml">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeContractEngineXml" message="PersonnelService_GetEmployeeContractEngineXml_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeContractEngineXmlResponse" message="PersonnelService_GetEmployeeContractEngineXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeContractAlarm">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractAlarm" message="PersonnelService_EmployeeContractAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractAlarmResponse" message="PersonnelService_EmployeeContractAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssessmentFormMasterAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterAdd" message="PersonnelService_AssessmentFormMasterAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterAddResponse" message="PersonnelService_AssessmentFormMasterAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssessmentFormMasterUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterUpdate" message="PersonnelService_AssessmentFormMasterUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterUpdateResponse" message="PersonnelService_AssessmentFormMasterUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssessMentFormMasterByObjectID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByObjectID" message="PersonnelService_GetAssessMentFormMasterByObjectID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByObjectIDResponse" message="PersonnelService_GetAssessMentFormMasterByObjectID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssessMentFormMasterByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByID" message="PersonnelService_GetAssessMentFormMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByIDResponse" message="PersonnelService_GetAssessMentFormMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssessmentFormMasterPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterPaging" message="PersonnelService_AssessmentFormMasterPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterPagingResponse" message="PersonnelService_AssessmentFormMasterPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssessmentFormDetailByMasterID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetAssessmentFormDetailByMasterID" message="PersonnelService_GetAssessmentFormDetailByMasterID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetAssessmentFormDetailByMasterIDResponse" message="PersonnelService_GetAssessmentFormDetailByMasterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSetMasterPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ImportSetMasterPaging" message="PersonnelService_ImportSetMasterPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ImportSetMasterPagingResponse" message="PersonnelService_ImportSetMasterPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSetMasterAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ImportSetMasterAdd" message="PersonnelService_ImportSetMasterAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ImportSetMasterAddResponse" message="PersonnelService_ImportSetMasterAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSetMasterUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ImportSetMasterUpdate" message="PersonnelService_ImportSetMasterUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ImportSetMasterUpdateResponse" message="PersonnelService_ImportSetMasterUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSetMasterDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ImportSetMasterDelete" message="PersonnelService_ImportSetMasterDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ImportSetMasterDeleteResponse" message="PersonnelService_ImportSetMasterDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImportSetMasterByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetImportSetMasterByID" message="PersonnelService_GetImportSetMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetImportSetMasterByIDResponse" message="PersonnelService_GetImportSetMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSetDetailPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ImportSetDetailPaging" message="PersonnelService_ImportSetDetailPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ImportSetDetailPagingResponse" message="PersonnelService_ImportSetDetailPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImportSetDetailByMasterID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetImportSetDetailByMasterID" message="PersonnelService_GetImportSetDetailByMasterID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetImportSetDetailByMasterIDResponse" message="PersonnelService_GetImportSetDetailByMasterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficeConfirmPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficeConfirmPaging" message="PersonnelService_LeftOfficeConfirmPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficeConfirmPagingResponse" message="PersonnelService_LeftOfficeConfirmPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficeConfirmAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficeConfirmAdd" message="PersonnelService_LeftOfficeConfirmAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficeConfirmAddResponse" message="PersonnelService_LeftOfficeConfirmAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficeConfirmUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficeConfirmUpdate" message="PersonnelService_LeftOfficeConfirmUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficeConfirmUpdateResponse" message="PersonnelService_LeftOfficeConfirmUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficeConfirmDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficeConfirmDelete" message="PersonnelService_LeftOfficeConfirmDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficeConfirmDeleteResponse" message="PersonnelService_LeftOfficeConfirmDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeftOfficeConfirmByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetLeftOfficeConfirmByID" message="PersonnelService_GetLeftOfficeConfirmByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetLeftOfficeConfirmByIDResponse" message="PersonnelService_GetLeftOfficeConfirmByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:PersonnelService/DoWork" message="PersonnelService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/DoWorkResponse" message="PersonnelService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <wsdl:input wsaw:Action="urn:PersonnelService/SaveFile" message="PersonnelService_SaveFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/SaveFileResponse" message="PersonnelService_SaveFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeAdd" message="PersonnelService_EmployeeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeAddResponse" message="PersonnelService_EmployeeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeAddOrUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeAddOrUpdate" message="PersonnelService_EmployeeAddOrUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeAddOrUpdateResponse" message="PersonnelService_EmployeeAddOrUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeUpdate" message="PersonnelService_EmployeeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeUpdateResponse" message="PersonnelService_EmployeeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByID" message="PersonnelService_GetEmployeeByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByIDResponse" message="PersonnelService_GetEmployeeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesByIdnumber">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeesByIdnumber" message="PersonnelService_GetEmployeesByIdnumber_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeesByIdnumberResponse" message="PersonnelService_GetEmployeesByIdnumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByCompanyID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByCompanyID" message="PersonnelService_GetEmployeeByCompanyID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByCompanyIDResponse" message="PersonnelService_GetEmployeeByCompanyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByPostID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByPostID" message="PersonnelService_GetEmployeeByPostID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByPostIDResponse" message="PersonnelService_GetEmployeeByPostID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeIDsByPostID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeIDsByPostID" message="PersonnelService_GetEmployeeIDsByPostID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeIDsByPostIDResponse" message="PersonnelService_GetEmployeeIDsByPostID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLeader">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeLeader" message="PersonnelService_GetEmployeeLeader_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeLeaderResponse" message="PersonnelService_GetEmployeeLeader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLeaders">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeLeaders" message="PersonnelService_GetEmployeeLeaders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeLeadersResponse" message="PersonnelService_GetEmployeeLeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentLeaders">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetDepartmentLeaders" message="PersonnelService_GetDepartmentLeaders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetDepartmentLeadersResponse" message="PersonnelService_GetDepartmentLeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDetailByParasPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeDetailByParasPaging" message="PersonnelService_GetEmployeeDetailByParasPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeDetailByParasPagingResponse" message="PersonnelService_GetEmployeeDetailByParasPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByIDs">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByIDs" message="PersonnelService_GetEmployeeByIDs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByIDsResponse" message="PersonnelService_GetEmployeeByIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeToEngine">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeToEngine" message="PersonnelService_GetEmployeeToEngine_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeToEngineResponse" message="PersonnelService_GetEmployeeToEngine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeContract">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ExportEmployeeContract" message="PersonnelService_ExportEmployeeContract_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ExportEmployeeContractResponse" message="PersonnelService_ExportEmployeeContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDetailByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeDetailByID" message="PersonnelService_GetEmployeeDetailByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeDetailByIDResponse" message="PersonnelService_GetEmployeeDetailByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDetailViewByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeDetailViewByID" message="PersonnelService_GetEmployeeDetailViewByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeDetailViewByIDResponse" message="PersonnelService_GetEmployeeDetailViewByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeDetailByIDs">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeDetailByIDs" message="PersonnelService_GetEmployeeDetailByIDs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeDetailByIDsResponse" message="PersonnelService_GetEmployeeDetailByIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeDelete" message="PersonnelService_EmployeeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeDeleteResponse" message="PersonnelService_EmployeeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByDepartmentID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByDepartmentID" message="PersonnelService_GetEmployeeByDepartmentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByDepartmentIDResponse" message="PersonnelService_GetEmployeeByDepartmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePaging" message="PersonnelService_GetEmployeePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePagingResponse" message="PersonnelService_GetEmployeePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeViewsPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeViewsPaging" message="PersonnelService_GetEmployeeViewsPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeViewsPagingResponse" message="PersonnelService_GetEmployeeViewsPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeIDsByParas">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeIDsByParas" message="PersonnelService_GetEmployeeIDsByParas_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeIDsByParasResponse" message="PersonnelService_GetEmployeeIDsByParas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeIDsWithParas">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeIDsWithParas" message="PersonnelService_GetEmployeeIDsWithParas_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeIDsWithParasResponse" message="PersonnelService_GetEmployeeIDsWithParas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveEmployeeViewsPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetLeaveEmployeeViewsPaging" message="PersonnelService_GetLeaveEmployeeViewsPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetLeaveEmployeeViewsPagingResponse" message="PersonnelService_GetLeaveEmployeeViewsPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeViewsActivedPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeViewsActivedPaging" message="PersonnelService_GetEmployeeViewsActivedPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeViewsActivedPagingResponse" message="PersonnelService_GetEmployeeViewsActivedPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesWithOutPermissions">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeesWithOutPermissions" message="PersonnelService_GetEmployeesWithOutPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeesWithOutPermissionsResponse" message="PersonnelService_GetEmployeesWithOutPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeViewsWithOutPermissions">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeViewsWithOutPermissions" message="PersonnelService_GetEmployeeViewsWithOutPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeViewsWithOutPermissionsResponse" message="PersonnelService_GetEmployeeViewsWithOutPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePagingByFilter">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePagingByFilter" message="PersonnelService_GetEmployeePagingByFilter_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePagingByFilterResponse" message="PersonnelService_GetEmployeePagingByFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesIntime">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeesIntime" message="PersonnelService_GetEmployeesIntime_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeesIntimeResponse" message="PersonnelService_GetEmployeesIntime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeesIntime">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ExportEmployeesIntime" message="PersonnelService_ExportEmployeesIntime_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ExportEmployeesIntimeResponse" message="PersonnelService_ExportEmployeesIntime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeIsEntry">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeIsEntry" message="PersonnelService_EmployeeIsEntry_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeIsEntryResponse" message="PersonnelService_EmployeeIsEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByNumberID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByNumberID" message="PersonnelService_GetEmployeeByNumberID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByNumberIDResponse" message="PersonnelService_GetEmployeeByNumberID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistFingerPrintID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/IsExistFingerPrintID" message="PersonnelService_IsExistFingerPrintID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/IsExistFingerPrintIDResponse" message="PersonnelService_IsExistFingerPrintID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResumePaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetResumePaging" message="PersonnelService_GetResumePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetResumePagingResponse" message="PersonnelService_GetResumePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResumeByid">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetResumeByid" message="PersonnelService_GetResumeByid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetResumeByidResponse" message="PersonnelService_GetResumeByid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResumeAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ResumeAdd" message="PersonnelService_ResumeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ResumeAddResponse" message="PersonnelService_ResumeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResumeUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ResumeUpdate" message="PersonnelService_ResumeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ResumeUpdateResponse" message="PersonnelService_ResumeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResumeDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ResumeDelete" message="PersonnelService_ResumeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ResumeDeleteResponse" message="PersonnelService_ResumeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResumeByNumber">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetResumeByNumber" message="PersonnelService_GetResumeByNumber_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetResumeByNumberResponse" message="PersonnelService_GetResumeByNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceAll">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetExperienceAll" message="PersonnelService_GetExperienceAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetExperienceAllResponse" message="PersonnelService_GetExperienceAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExperienceAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ExperienceAdd" message="PersonnelService_ExperienceAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ExperienceAddResponse" message="PersonnelService_ExperienceAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExperienceUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ExperienceUpdate" message="PersonnelService_ExperienceUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ExperienceUpdateResponse" message="PersonnelService_ExperienceUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducateHistoryAll">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEducateHistoryAll" message="PersonnelService_GetEducateHistoryAll_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEducateHistoryAllResponse" message="PersonnelService_GetEducateHistoryAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EducateHistoryAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EducateHistoryAdd" message="PersonnelService_EducateHistoryAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EducateHistoryAddResponse" message="PersonnelService_EducateHistoryAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlackListPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetBlackListPaging" message="PersonnelService_GetBlackListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetBlackListPagingResponse" message="PersonnelService_GetBlackListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlackListAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/BlackListAdd" message="PersonnelService_BlackListAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/BlackListAddResponse" message="PersonnelService_BlackListAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckBlackListByName">
+      <wsdl:input wsaw:Action="urn:PersonnelService/CheckBlackListByName" message="PersonnelService_CheckBlackListByName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/CheckBlackListByNameResponse" message="PersonnelService_CheckBlackListByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlackListUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/BlackListUpdate" message="PersonnelService_BlackListUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/BlackListUpdateResponse" message="PersonnelService_BlackListUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlackListDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/BlackListDelete" message="PersonnelService_BlackListDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/BlackListDeleteResponse" message="PersonnelService_BlackListDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlackListByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetBlackListByID" message="PersonnelService_GetBlackListByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetBlackListByIDResponse" message="PersonnelService_GetBlackListByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEntryAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeEntryAdd" message="PersonnelService_EmployeeEntryAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeEntryAddResponse" message="PersonnelService_EmployeeEntryAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeEntry">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AddEmployeeEntry" message="PersonnelService_AddEmployeeEntry_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AddEmployeeEntryResponse" message="PersonnelService_AddEmployeeEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEntryUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeEntryUpdate" message="PersonnelService_EmployeeEntryUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeEntryUpdateResponse" message="PersonnelService_EmployeeEntryUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEntryDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeEntryDelete" message="PersonnelService_EmployeeEntryDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeEntryDeleteResponse" message="PersonnelService_EmployeeEntryDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeEntryPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeEntryPaging" message="PersonnelService_GetEmployeeEntryPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeEntryPagingResponse" message="PersonnelService_GetEmployeeEntryPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeEntryByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeEntryByID" message="PersonnelService_GetEmployeeEntryByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeEntryByIDResponse" message="PersonnelService_GetEmployeeEntryByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeEntryByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeEntryByEmployeeID" message="PersonnelService_GetEmployeeEntryByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeEntryByEmployeeIDResponse" message="PersonnelService_GetEmployeeEntryByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionAlarmSetPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionAlarmSetPaging" message="PersonnelService_GetPensionAlarmSetPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionAlarmSetPagingResponse" message="PersonnelService_GetPensionAlarmSetPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionAlarmSetAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionAlarmSetAdd" message="PersonnelService_PensionAlarmSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionAlarmSetAddResponse" message="PersonnelService_PensionAlarmSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionAlarmSetUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionAlarmSetUpdate" message="PersonnelService_PensionAlarmSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionAlarmSetUpdateResponse" message="PersonnelService_PensionAlarmSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionAlarmSetDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionAlarmSetDelete" message="PersonnelService_PensionAlarmSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionAlarmSetDeleteResponse" message="PersonnelService_PensionAlarmSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionAlarmSetByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionAlarmSetByID" message="PersonnelService_GetPensionAlarmSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionAlarmSetByIDResponse" message="PersonnelService_GetPensionAlarmSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionAlarmSetViewByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionAlarmSetViewByID" message="PersonnelService_GetPensionAlarmSetViewByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionAlarmSetViewByIDResponse" message="PersonnelService_GetPensionAlarmSetViewByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionMasterPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterPaging" message="PersonnelService_PensionMasterPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterPagingResponse" message="PersonnelService_PensionMasterPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionMasterAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterAdd" message="PersonnelService_PensionMasterAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterAddResponse" message="PersonnelService_PensionMasterAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionMasterUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterUpdate" message="PersonnelService_PensionMasterUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterUpdateResponse" message="PersonnelService_PensionMasterUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionMasterDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterDelete" message="PersonnelService_PensionMasterDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterDeleteResponse" message="PersonnelService_PensionMasterDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionMasterByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionMasterByID" message="PersonnelService_GetPensionMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionMasterByIDResponse" message="PersonnelService_GetPensionMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionMasterByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionMasterByEmployeeID" message="PersonnelService_GetPensionMasterByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionMasterByEmployeeIDResponse" message="PersonnelService_GetPensionMasterByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeWorkAgeByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/UpdateEmployeeWorkAgeByID" message="PersonnelService_UpdateEmployeeWorkAgeByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/UpdateEmployeeWorkAgeByIDResponse" message="PersonnelService_UpdateEmployeeWorkAgeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionDetailPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionDetailPaging" message="PersonnelService_PensionDetailPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionDetailPagingResponse" message="PersonnelService_PensionDetailPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionDetailDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionDetailDelete" message="PersonnelService_PensionDetailDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionDetailDeleteResponse" message="PersonnelService_PensionDetailDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListFromExcel">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ImportClockInRdListFromExcel" message="PersonnelService_ImportClockInRdListFromExcel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ImportClockInRdListFromExcelResponse" message="PersonnelService_ImportClockInRdListFromExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeInsurancePaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeInsurancePaging" message="PersonnelService_EmployeeInsurancePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeInsurancePagingResponse" message="PersonnelService_EmployeeInsurancePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeInsuranceAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeInsuranceAdd" message="PersonnelService_EmployeeInsuranceAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeInsuranceAddResponse" message="PersonnelService_EmployeeInsuranceAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeInsuranceUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeInsuranceUpdate" message="PersonnelService_EmployeeInsuranceUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeInsuranceUpdateResponse" message="PersonnelService_EmployeeInsuranceUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeInsuranceDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeInsuranceDelete" message="PersonnelService_EmployeeInsuranceDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeInsuranceDeleteResponse" message="PersonnelService_EmployeeInsuranceDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeInsuranceByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeInsuranceByID" message="PersonnelService_GetEmployeeInsuranceByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeInsuranceByIDResponse" message="PersonnelService_GetEmployeeInsuranceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCheckPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeCheckPaging" message="PersonnelService_EmployeeCheckPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeCheckPagingResponse" message="PersonnelService_EmployeeCheckPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeCheckByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeCheckByID" message="PersonnelService_GetEmployeeCheckByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeCheckByIDResponse" message="PersonnelService_GetEmployeeCheckByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCheckAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeCheckAdd" message="PersonnelService_EmployeeCheckAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeCheckAddResponse" message="PersonnelService_EmployeeCheckAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCheckUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeCheckUpdate" message="PersonnelService_EmployeeCheckUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeCheckUpdateResponse" message="PersonnelService_EmployeeCheckUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCheckDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeCheckDelete" message="PersonnelService_EmployeeCheckDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeCheckDeleteResponse" message="PersonnelService_EmployeeCheckDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeCheckEngineXml">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeCheckEngineXml" message="PersonnelService_GetEmployeeCheckEngineXml_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeCheckEngineXmlResponse" message="PersonnelService_GetEmployeeCheckEngineXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCheckAlarm">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeCheckAlarm" message="PersonnelService_EmployeeCheckAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeCheckAlarmResponse" message="PersonnelService_EmployeeCheckAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostChangePaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostChangePaging" message="PersonnelService_EmployeePostChangePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostChangePagingResponse" message="PersonnelService_EmployeePostChangePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostChangeViewPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostChangeViewPaging" message="PersonnelService_EmployeePostChangeViewPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostChangeViewPagingResponse" message="PersonnelService_EmployeePostChangeViewPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostChangeAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostChangeAdd" message="PersonnelService_EmployeePostChangeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostChangeAddResponse" message="PersonnelService_EmployeePostChangeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostChangeUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostChangeUpdate" message="PersonnelService_EmployeePostChangeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostChangeUpdateResponse" message="PersonnelService_EmployeePostChangeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostChangeDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostChangeDelete" message="PersonnelService_EmployeePostChangeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostChangeDeleteResponse" message="PersonnelService_EmployeePostChangeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePostChangeByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostChangeByID" message="PersonnelService_GetEmployeePostChangeByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostChangeByIDResponse" message="PersonnelService_GetEmployeePostChangeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastChangeByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetLastChangeByEmployeeID" message="PersonnelService_GetLastChangeByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetLastChangeByEmployeeIDResponse" message="PersonnelService_GetLastChangeByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostChange">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostChange" message="PersonnelService_EmployeePostChange_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostChangeResponse" message="PersonnelService_EmployeePostChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeePostChangeForEntry">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AddEmployeePostChangeForEntry" message="PersonnelService_AddEmployeePostChangeForEntry_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AddEmployeePostChangeForEntryResponse" message="PersonnelService_AddEmployeePostChangeForEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficePaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficePaging" message="PersonnelService_LeftOfficePaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficePagingResponse" message="PersonnelService_LeftOfficePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficeViewsPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficeViewsPaging" message="PersonnelService_LeftOfficeViewsPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficeViewsPagingResponse" message="PersonnelService_LeftOfficeViewsPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficeAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficeAdd" message="PersonnelService_LeftOfficeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficeAddResponse" message="PersonnelService_LeftOfficeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficeUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficeUpdate" message="PersonnelService_LeftOfficeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficeUpdateResponse" message="PersonnelService_LeftOfficeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeftOfficeDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/LeftOfficeDelete" message="PersonnelService_LeftOfficeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/LeftOfficeDeleteResponse" message="PersonnelService_LeftOfficeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeftOfficeByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetLeftOfficeByID" message="PersonnelService_GetLeftOfficeByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetLeftOfficeByIDResponse" message="PersonnelService_GetLeftOfficeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckProjectSetPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/CheckProjectSetPaging" message="PersonnelService_CheckProjectSetPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/CheckProjectSetPagingResponse" message="PersonnelService_CheckProjectSetPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckProjectSetByType">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetCheckProjectSetByType" message="PersonnelService_GetCheckProjectSetByType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetCheckProjectSetByTypeResponse" message="PersonnelService_GetCheckProjectSetByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckProjectSetAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/CheckProjectSetAdd" message="PersonnelService_CheckProjectSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/CheckProjectSetAddResponse" message="PersonnelService_CheckProjectSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckProjectSetUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/CheckProjectSetUpdate" message="PersonnelService_CheckProjectSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/CheckProjectSetUpdateResponse" message="PersonnelService_CheckProjectSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckProjectSetDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/CheckProjectSetDelete" message="PersonnelService_CheckProjectSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/CheckProjectSetDeleteResponse" message="PersonnelService_CheckProjectSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckProjectSetByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetCheckProjectSetByID" message="PersonnelService_GetCheckProjectSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetCheckProjectSetByIDResponse" message="PersonnelService_GetCheckProjectSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckPointSetByPrimaryID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetCheckPointSetByPrimaryID" message="PersonnelService_GetCheckPointSetByPrimaryID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetCheckPointSetByPrimaryIDResponse" message="PersonnelService_GetCheckPointSetByPrimaryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckPointSetByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetCheckPointSetByID" message="PersonnelService_GetCheckPointSetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetCheckPointSetByIDResponse" message="PersonnelService_GetCheckPointSetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPointSetAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/CheckPointSetAdd" message="PersonnelService_CheckPointSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/CheckPointSetAddResponse" message="PersonnelService_CheckPointSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPointSetUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/CheckPointSetUpdate" message="PersonnelService_CheckPointSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/CheckPointSetUpdateResponse" message="PersonnelService_CheckPointSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPointSetDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/CheckPointSetDelete" message="PersonnelService_CheckPointSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/CheckPointSetDeleteResponse" message="PersonnelService_CheckPointSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckPointAvailable">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetCheckPointAvailable" message="PersonnelService_GetCheckPointAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetCheckPointAvailableResponse" message="PersonnelService_GetCheckPointAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckPointByEmployeeTypeSum">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetCheckPointByEmployeeTypeSum" message="PersonnelService_GetCheckPointByEmployeeTypeSum_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetCheckPointByEmployeeTypeSumResponse" message="PersonnelService_GetCheckPointByEmployeeTypeSum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckPointLevelSetByPrimaryID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetCheckPointLevelSetByPrimaryID" message="PersonnelService_GetCheckPointLevelSetByPrimaryID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetCheckPointLevelSetByPrimaryIDResponse" message="PersonnelService_GetCheckPointLevelSetByPrimaryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePostByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostByEmployeeID" message="PersonnelService_GetEmployeePostByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostByEmployeeIDResponse" message="PersonnelService_GetEmployeePostByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePostActivedByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostActivedByEmployeeID" message="PersonnelService_GetEmployeePostActivedByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostActivedByEmployeeIDResponse" message="PersonnelService_GetEmployeePostActivedByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePostByEmployeeIDAndPostID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostByEmployeeIDAndPostID" message="PersonnelService_GetEmployeePostByEmployeeIDAndPostID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostByEmployeeIDAndPostIDResponse" message="PersonnelService_GetEmployeePostByEmployeeIDAndPostID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostAdd" message="PersonnelService_EmployeePostAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostAddResponse" message="PersonnelService_EmployeePostAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeePostByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeePostByID" message="PersonnelService_GetEmployeePostByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeePostByIDResponse" message="PersonnelService_GetEmployeePostByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostSalaryLevelUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostSalaryLevelUpdate" message="PersonnelService_EmployeePostSalaryLevelUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostSalaryLevelUpdateResponse" message="PersonnelService_EmployeePostSalaryLevelUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSamePostSalaryLevelUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeSamePostSalaryLevelUpdate" message="PersonnelService_EmployeeSamePostSalaryLevelUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeSamePostSalaryLevelUpdateResponse" message="PersonnelService_EmployeeSamePostSalaryLevelUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeePostUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeePostUpdate" message="PersonnelService_EmployeePostUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeePostUpdateResponse" message="PersonnelService_EmployeePostUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAllpostByemployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/updateAllpostByemployeeID" message="PersonnelService_updateAllpostByemployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/updateAllpostByemployeeIDResponse" message="PersonnelService_updateAllpostByemployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPostByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetAllPostByEmployeeID" message="PersonnelService_GetAllPostByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetAllPostByEmployeeIDResponse" message="PersonnelService_GetAllPostByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9081ec0a-d3a8-4d64-b437-8f709819bd46" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.50.83:8300/SmtOnline/Services/SMS/SMSService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SMSService5.xsd" MetadataType="Schema" ID="dbc038d2-924f-4405-924d-cd88e29ec2e0" SourceId="1" SourceUrl="http://172.30.50.83:8300/SmtOnline/Services/SMS/SMSService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SMSService51.xsd" MetadataType="Schema" ID="c0c9c8e7-196b-457a-9f64-88d5c3b5bde9" SourceId="1" SourceUrl="http://172.30.50.83:8300/SmtOnline/Services/SMS/SMSService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SMSService52.xsd" MetadataType="Schema" ID="7a882dbd-f790-49e4-b352-45d6de5e48d6" SourceId="1" SourceUrl="http://172.30.50.83:8300/SmtOnline/Services/SMS/SMSService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SMSService53.xsd" MetadataType="Schema" ID="762a51a8-dde3-461c-8b47-887b9eaa31f7" SourceId="1" SourceUrl="http://172.30.50.83:8300/SmtOnline/Services/SMS/SMSService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SMSService1.wsdl" MetadataType="Wsdl" ID="c458e440-4970-4898-86e0-2ddc88f0e086" SourceId="1" SourceUrl="http://172.30.50.83:8300/SmtOnline/Services/SMS/SMSService.svc?wsdl" />
+    <MetadataFile FileName="SMSService1.disco" MetadataType="Disco" ID="916fc523-c2c4-4dfd-8622-22023dcaf4b2" SourceId="1" SourceUrl="http://172.30.50.83:8300/SmtOnline/Services/SMS/SMSService.svc?disco" />
+    <MetadataFile FileName="SMSService54.xsd" MetadataType="Schema" ID="b500cea7-dea9-41b7-93ec-de072a9c5de6" SourceId="1" SourceUrl="http://172.30.50.83:8300/SmtOnline/Services/SMS/SMSService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
