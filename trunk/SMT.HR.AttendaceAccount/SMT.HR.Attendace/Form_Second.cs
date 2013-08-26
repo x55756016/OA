@@ -369,11 +369,11 @@ namespace SmtPortalSetUp
 
         private void btnGenerateSalary_Click(object sender, EventArgs e)
         {
-            GlobalParameters.employeeid = Txtid.Text;
-            GlobalParameters.StartDate = txtStartDate.Text;
-            GlobalParameters.EndDate = txtEndDate.Text;
-            GlobalParameters.employeeMasterCompanyid = txtCompanyid.Text;
-            GlobalParameters.employeeName = txtEmployeeName.Text;
+            //GlobalParameters.employeeid = Txtid.Text;
+            //GlobalParameters.StartDate = txtStartDate.Text;
+            //GlobalParameters.EndDate = txtEndDate.Text;
+            //GlobalParameters.employeeMasterCompanyid = txtCompanyid.Text;
+            //GlobalParameters.employeeName = txtEmployeeName.Text;
             SalaryBalanceForm form = GlobalParameters.salaryBalanceForm;
             if (form == null) form = new SalaryBalanceForm();
             form.Show();

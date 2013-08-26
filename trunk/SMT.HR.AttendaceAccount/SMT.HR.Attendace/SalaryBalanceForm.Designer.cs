@@ -80,12 +80,16 @@
             this.dtPentionRecord = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnGetPentionMaster = new System.Windows.Forms.Button();
-            this.btnInitSalaryItem = new System.Windows.Forms.Button();
-            this.txtSalaryItemCompanyid = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.textSalaryItemCompany = new System.Windows.Forms.TextBox();
             this.btnGetCompanyid = new System.Windows.Forms.Button();
+            this.btnInitSalaryItem = new System.Windows.Forms.Button();
+            this.txtSalaryItemCompanyid = new System.Windows.Forms.TextBox();
+            this.btnGetSalaryItem = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtSalaryRecord)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -119,7 +123,7 @@
             // 
             // TxtEmployeeid
             // 
-            this.TxtEmployeeid.Location = new System.Drawing.Point(133, 10);
+            this.TxtEmployeeid.Location = new System.Drawing.Point(239, 10);
             this.TxtEmployeeid.Name = "TxtEmployeeid";
             this.TxtEmployeeid.Size = new System.Drawing.Size(195, 21);
             this.TxtEmployeeid.TabIndex = 9;
@@ -180,7 +184,7 @@
             // 
             // txtCompanyid
             // 
-            this.txtCompanyid.Location = new System.Drawing.Point(344, 10);
+            this.txtCompanyid.Location = new System.Drawing.Point(601, 10);
             this.txtCompanyid.Name = "txtCompanyid";
             this.txtCompanyid.Size = new System.Drawing.Size(233, 21);
             this.txtCompanyid.TabIndex = 16;
@@ -197,17 +201,17 @@
             // 
             // txtOrgType
             // 
-            this.txtOrgType.Location = new System.Drawing.Point(193, 43);
+            this.txtOrgType.Location = new System.Drawing.Point(601, 43);
             this.txtOrgType.Name = "txtOrgType";
-            this.txtOrgType.Size = new System.Drawing.Size(100, 21);
+            this.txtOrgType.Size = new System.Drawing.Size(216, 21);
             this.txtOrgType.TabIndex = 10;
-            this.txtOrgType.Text = "0公司，4员工";
+            this.txtOrgType.Text = "0:公司1:部门2:岗位3:员工";
             // 
             // TxtGenerID
             // 
-            this.TxtGenerID.Location = new System.Drawing.Point(312, 43);
+            this.TxtGenerID.Location = new System.Drawing.Point(912, 43);
             this.TxtGenerID.Name = "TxtGenerID";
-            this.TxtGenerID.Size = new System.Drawing.Size(100, 21);
+            this.TxtGenerID.Size = new System.Drawing.Size(210, 21);
             this.TxtGenerID.TabIndex = 10;
             this.TxtGenerID.Text = "结算对象ID";
             // 
@@ -224,9 +228,9 @@
             // 
             // txtGenerateType
             // 
-            this.txtGenerateType.Location = new System.Drawing.Point(444, 43);
+            this.txtGenerateType.Location = new System.Drawing.Point(239, 46);
             this.txtGenerateType.Name = "txtGenerateType";
-            this.txtGenerateType.Size = new System.Drawing.Size(303, 21);
+            this.txtGenerateType.Size = new System.Drawing.Size(338, 21);
             this.txtGenerateType.TabIndex = 10;
             this.txtGenerateType.Text = "结算类型 0:发薪机构,1:组织架构,2:离职薪资,3:结算岗位薪资";
             // 
@@ -354,6 +358,7 @@
             this.tabPage2.Controls.Add(this.txtBlancePostName);
             this.tabPage2.Controls.Add(this.txBalancePostid);
             this.tabPage2.Controls.Add(this.dtSalaryAchive);
+            this.tabPage2.Controls.Add(this.btnGetSalaryItem);
             this.tabPage2.Controls.Add(this.btnCompanyCheck);
             this.tabPage2.Controls.Add(this.btnGetBalancePost);
             this.tabPage2.Controls.Add(this.btnGetSalaryAchive);
@@ -468,7 +473,7 @@
             this.dtSalaryAchive.Location = new System.Drawing.Point(6, 196);
             this.dtSalaryAchive.Name = "dtSalaryAchive";
             this.dtSalaryAchive.RowTemplate.Height = 23;
-            this.dtSalaryAchive.Size = new System.Drawing.Size(715, 136);
+            this.dtSalaryAchive.Size = new System.Drawing.Size(1094, 136);
             this.dtSalaryAchive.TabIndex = 17;
             this.dtSalaryAchive.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSalaryAchive_CellContentClick);
             // 
@@ -488,7 +493,7 @@
             // btnCompanyCheck
             // 
             this.btnCompanyCheck.BackColor = System.Drawing.Color.Silver;
-            this.btnCompanyCheck.Location = new System.Drawing.Point(11, 141);
+            this.btnCompanyCheck.Location = new System.Drawing.Point(11, 154);
             this.btnCompanyCheck.Name = "btnCompanyCheck";
             this.btnCompanyCheck.Size = new System.Drawing.Size(180, 22);
             this.btnCompanyCheck.TabIndex = 14;
@@ -556,25 +561,6 @@
             this.btnGetPentionMaster.UseVisualStyleBackColor = false;
             this.btnGetPentionMaster.Click += new System.EventHandler(this.btnGetPentionMaster_Click);
             // 
-            // btnInitSalaryItem
-            // 
-            this.btnInitSalaryItem.BackColor = System.Drawing.Color.Silver;
-            this.btnInitSalaryItem.Location = new System.Drawing.Point(453, 91);
-            this.btnInitSalaryItem.Name = "btnInitSalaryItem";
-            this.btnInitSalaryItem.Size = new System.Drawing.Size(130, 31);
-            this.btnInitSalaryItem.TabIndex = 4;
-            this.btnInitSalaryItem.Text = "初始化薪资项目";
-            this.btnInitSalaryItem.UseVisualStyleBackColor = false;
-            this.btnInitSalaryItem.Click += new System.EventHandler(this.btnInitSalaryItem_Click);
-            // 
-            // txtSalaryItemCompanyid
-            // 
-            this.txtSalaryItemCompanyid.Location = new System.Drawing.Point(620, 11);
-            this.txtSalaryItemCompanyid.Name = "txtSalaryItemCompanyid";
-            this.txtSalaryItemCompanyid.Size = new System.Drawing.Size(233, 21);
-            this.txtSalaryItemCompanyid.TabIndex = 16;
-            this.txtSalaryItemCompanyid.Text = "公司id";
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.label10);
@@ -617,6 +603,63 @@
             this.btnGetCompanyid.UseVisualStyleBackColor = false;
             this.btnGetCompanyid.Click += new System.EventHandler(this.btnGetCompanyid_Click);
             // 
+            // btnInitSalaryItem
+            // 
+            this.btnInitSalaryItem.BackColor = System.Drawing.Color.Silver;
+            this.btnInitSalaryItem.Location = new System.Drawing.Point(453, 91);
+            this.btnInitSalaryItem.Name = "btnInitSalaryItem";
+            this.btnInitSalaryItem.Size = new System.Drawing.Size(130, 31);
+            this.btnInitSalaryItem.TabIndex = 4;
+            this.btnInitSalaryItem.Text = "初始化薪资项目";
+            this.btnInitSalaryItem.UseVisualStyleBackColor = false;
+            this.btnInitSalaryItem.Click += new System.EventHandler(this.btnInitSalaryItem_Click);
+            // 
+            // txtSalaryItemCompanyid
+            // 
+            this.txtSalaryItemCompanyid.Location = new System.Drawing.Point(620, 11);
+            this.txtSalaryItemCompanyid.Name = "txtSalaryItemCompanyid";
+            this.txtSalaryItemCompanyid.Size = new System.Drawing.Size(233, 21);
+            this.txtSalaryItemCompanyid.TabIndex = 16;
+            this.txtSalaryItemCompanyid.Text = "公司id";
+            // 
+            // btnGetSalaryItem
+            // 
+            this.btnGetSalaryItem.BackColor = System.Drawing.Color.Silver;
+            this.btnGetSalaryItem.Location = new System.Drawing.Point(243, 154);
+            this.btnGetSalaryItem.Name = "btnGetSalaryItem";
+            this.btnGetSalaryItem.Size = new System.Drawing.Size(180, 22);
+            this.btnGetSalaryItem.TabIndex = 14;
+            this.btnGetSalaryItem.Text = "查询薪资项";
+            this.btnGetSalaryItem.UseVisualStyleBackColor = false;
+            this.btnGetSalaryItem.Click += new System.EventHandler(this.btnGetSalaryItem_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(167, 15);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "员工id";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(554, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 12);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "公司id";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(841, 49);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 12);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "结算对象ID";
+            // 
             // SalaryBalanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -624,6 +667,9 @@
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1150, 554);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCompanyid);
             this.Controls.Add(this.txtEmployeeName);
@@ -714,6 +760,10 @@
         private System.Windows.Forms.Button btnGetCompanyid;
         private System.Windows.Forms.Button btnInitSalaryItem;
         private System.Windows.Forms.TextBox txtSalaryItemCompanyid;
+        private System.Windows.Forms.Button btnGetSalaryItem;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 

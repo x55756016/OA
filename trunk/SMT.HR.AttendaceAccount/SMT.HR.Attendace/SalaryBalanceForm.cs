@@ -26,6 +26,7 @@ namespace SmtPortalSetUp
 
             TxtEmployeeid.Text = GlobalParameters.employeeid;
             txtCompanyid.Text = GlobalParameters.employeeMasterCompanyid;
+            txtEmployeeName.Text = GlobalParameters.employeeName;
 
         }
 
@@ -229,10 +230,12 @@ namespace SmtPortalSetUp
         }
 
         #region 查询薪资档案
+        string salaryAchiveId = string.Empty;
+        string paycompanyId = string.Empty;
         private void btnGetSalaryAchive_Click(object sender, EventArgs e)
         {
             string sql = @"select e.employeeid,s.salaryarchiveid,e.employeecname,c.cname 发薪机构,
-                            s.attendanceorgid,ac.cname 考勤机构,
+                            s.attendanceorgid,ac.cname 考勤机构,s.paycompany 发薪结构id,
                             s.balancepostid 结算岗位,
                             s.balancepostname 结算岗位名称,
                             e.employeestate,
@@ -254,6 +257,11 @@ namespace SmtPortalSetUp
             OracleHelp.Connect();
             DataTable dt = OracleHelp.getTable(sql);
             dtSalaryAchive.DataSource = dt;
+            if (dt.Rows.Count > 0)
+            {
+                salaryAchiveId = dt.Rows[0]["salaryarchiveid"].ToString();
+                paycompanyId = dt.Rows[0]["发薪结构id"].ToString();
+            }
             OracleHelp.close();         
         }
         #endregion
@@ -682,6 +690,18 @@ namespace SmtPortalSetUp
         }
         #endregion
 
+        #region 获取员工薪资项目
+        private void btnGetSalaryItem_Click(object sender, EventArgs e)
+        {
+            string sql = @"select * from smthrm.T_HR_SALARYITEM t
+                            where t.OWNERCOMPANYID = '"+paycompanyId+"'";
+            OracleHelp.Connect();
+            DataTable dt = OracleHelp.getTable(sql);
+            dtSalaryAchive.DataSource = dt;
+            OracleHelp.close();
+
+        }
+        #endregion
 
     }
 

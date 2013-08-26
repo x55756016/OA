@@ -114,18 +114,21 @@
             this.btnSelectVacation = new System.Windows.Forms.Button();
             this.dtVacation = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.dtDotask = new System.Windows.Forms.DataGridView();
+            this.dtcolumDotaskCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dtcolumDotaskDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSelectDotask = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.txtSql = new System.Windows.Forms.TextBox();
             this.btnExcute = new System.Windows.Forms.Button();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.btnGernerateInsertSql = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.dtDotask = new System.Windows.Forms.DataGridView();
-            this.btnSelectDotask = new System.Windows.Forms.Button();
-            this.dtcolumDotaskCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dtcolumDotaskDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGClockRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGEmployeeLeaveRecord)).BeginInit();
@@ -145,9 +148,10 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacationFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacation)).BeginInit();
-            this.tabPage6.SuspendLayout();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDotask)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
@@ -516,6 +520,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Location = new System.Drawing.Point(16, 66);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -890,6 +895,53 @@
             this.dataGridViewCheckBoxColumn8.HeaderText = "选择";
             this.dataGridViewCheckBoxColumn8.Name = "dataGridViewCheckBoxColumn8";
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.dtDotask);
+            this.tabPage9.Controls.Add(this.btnSelectDotask);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(938, 407);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "查询待办任务";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // dtDotask
+            // 
+            this.dtDotask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtDotask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtcolumDotaskCheckBox,
+            this.dtcolumDotaskDelete});
+            this.dtDotask.Location = new System.Drawing.Point(13, 51);
+            this.dtDotask.Name = "dtDotask";
+            this.dtDotask.RowTemplate.Height = 23;
+            this.dtDotask.Size = new System.Drawing.Size(900, 341);
+            this.dtDotask.TabIndex = 14;
+            this.dtDotask.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtDotask_CellClick);
+            // 
+            // dtcolumDotaskCheckBox
+            // 
+            this.dtcolumDotaskCheckBox.HeaderText = "选择";
+            this.dtcolumDotaskCheckBox.Name = "dtcolumDotaskCheckBox";
+            // 
+            // dtcolumDotaskDelete
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = "强制删除";
+            this.dtcolumDotaskDelete.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dtcolumDotaskDelete.HeaderText = "强制删除";
+            this.dtcolumDotaskDelete.Name = "dtcolumDotaskDelete";
+            // 
+            // btnSelectDotask
+            // 
+            this.btnSelectDotask.Location = new System.Drawing.Point(13, 12);
+            this.btnSelectDotask.Name = "btnSelectDotask";
+            this.btnSelectDotask.Size = new System.Drawing.Size(123, 23);
+            this.btnSelectDotask.TabIndex = 20;
+            this.btnSelectDotask.Text = "查询";
+            this.btnSelectDotask.UseVisualStyleBackColor = true;
+            this.btnSelectDotask.Click += new System.EventHandler(this.btnSelectDotask_Click);
+            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.txtSql);
@@ -918,6 +970,37 @@
             this.btnExcute.Text = "执行";
             this.btnExcute.UseVisualStyleBackColor = true;
             this.btnExcute.Click += new System.EventHandler(this.btnExcute_Click);
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.txtUserName);
+            this.tabPage10.Controls.Add(this.btnGernerateInsertSql);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(938, 407);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "tabPage10";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(27, 39);
+            this.txtUserName.Multiline = true;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(896, 182);
+            this.txtUserName.TabIndex = 3;
+            this.txtUserName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtUserName_MouseDoubleClick);
+            // 
+            // btnGernerateInsertSql
+            // 
+            this.btnGernerateInsertSql.Location = new System.Drawing.Point(619, 268);
+            this.btnGernerateInsertSql.Name = "btnGernerateInsertSql";
+            this.btnGernerateInsertSql.Size = new System.Drawing.Size(254, 23);
+            this.btnGernerateInsertSql.TabIndex = 2;
+            this.btnGernerateInsertSql.Text = "添加礼品派送员角色";
+            this.btnGernerateInsertSql.UseVisualStyleBackColor = true;
+            this.btnGernerateInsertSql.Click += new System.EventHandler(this.btnGernerateInsertSql_Click);
             // 
             // label1
             // 
@@ -955,53 +1038,6 @@
             this.label9.Size = new System.Drawing.Size(341, 12);
             this.label9.TabIndex = 21;
             this.label9.Text = "如果检查不出异常，请先清空考勤初始化记录状态后再检查异常";
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.dtDotask);
-            this.tabPage9.Controls.Add(this.btnSelectDotask);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(938, 407);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "查询待办任务";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // dtDotask
-            // 
-            this.dtDotask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtDotask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dtcolumDotaskCheckBox,
-            this.dtcolumDotaskDelete});
-            this.dtDotask.Location = new System.Drawing.Point(13, 51);
-            this.dtDotask.Name = "dtDotask";
-            this.dtDotask.RowTemplate.Height = 23;
-            this.dtDotask.Size = new System.Drawing.Size(900, 341);
-            this.dtDotask.TabIndex = 14;
-            this.dtDotask.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtDotask_CellClick);
-            // 
-            // btnSelectDotask
-            // 
-            this.btnSelectDotask.Location = new System.Drawing.Point(13, 12);
-            this.btnSelectDotask.Name = "btnSelectDotask";
-            this.btnSelectDotask.Size = new System.Drawing.Size(123, 23);
-            this.btnSelectDotask.TabIndex = 20;
-            this.btnSelectDotask.Text = "查询";
-            this.btnSelectDotask.UseVisualStyleBackColor = true;
-            this.btnSelectDotask.Click += new System.EventHandler(this.btnSelectDotask_Click);
-            // 
-            // dtcolumDotaskCheckBox
-            // 
-            this.dtcolumDotaskCheckBox.HeaderText = "选择";
-            this.dtcolumDotaskCheckBox.Name = "dtcolumDotaskCheckBox";
-            // 
-            // dtcolumDotaskDelete
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = "强制删除";
-            this.dtcolumDotaskDelete.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dtcolumDotaskDelete.HeaderText = "强制删除";
-            this.dtcolumDotaskDelete.Name = "dtcolumDotaskDelete";
             // 
             // AttendEmploee
             // 
@@ -1064,10 +1100,12 @@
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacationFrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtVacation)).EndInit();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtDotask)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1165,6 +1203,9 @@
         private System.Windows.Forms.Button btnSelectDotask;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dtcolumDotaskCheckBox;
         private System.Windows.Forms.DataGridViewButtonColumn dtcolumDotaskDelete;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Button btnGernerateInsertSql;
     }
 }
 

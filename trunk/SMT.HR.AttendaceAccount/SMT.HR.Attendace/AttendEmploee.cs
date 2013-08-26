@@ -33,7 +33,7 @@ namespace SmtPortalSetUp
         private void Form_Second_Load(object sender, EventArgs e)
         {
             OracleHelp.MsgBox = this.txtMessagebox;
-            
+
         }
 
         private void txtMessagebox_DoubleClick(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace SmtPortalSetUp
         private void btnStart_Click(object sender, EventArgs e)
         {
             DialogResult MsgBoxResult;//设置对话框的返回值
-            MsgBoxResult = MessageBox.Show("初始化月份为:" + GlobalParameters.StartDate.Substring(0, 7) 
+            MsgBoxResult = MessageBox.Show("初始化月份为:" + GlobalParameters.StartDate.Substring(0, 7)
                 + ",是否覆盖该员工所有考勤初始化记录？",//对话框的显示内容 
             "提示",//对话框的标题 
             MessageBoxButtons.YesNo,//定义对话框的按钮，这里定义了YSE和NO两个按钮
@@ -82,8 +82,8 @@ namespace SmtPortalSetUp
         }
         string attendancesolutionid = string.Empty;
         private void GetAttendSolutionAssign()
-        {      
-            
+        {
+
             #region 考勤方案应用
 
             string sql = @"--查询员工分配的考勤方案
@@ -393,16 +393,16 @@ namespace SmtPortalSetUp
 
         #endregion
 
-//        private void btnGetEmployeeid_Click(object sender, EventArgs e)
-//        {
-//            string sql = @"select t.employeeid,t.employeecname from smthrm.t_hr_employee t
-//                    where t.employeecname='"+txtEmployeeName.Text+"'";
-//            OracleHelp.Connect();
-//            DataTable dt = OracleHelp.getTable(sql);
-//            dataGridEmployees.DataSource = dt;
-//            OracleHelp.close();
-//            Txtid.Text = dt.Rows[0][0].ToString();
-//        }
+        //        private void btnGetEmployeeid_Click(object sender, EventArgs e)
+        //        {
+        //            string sql = @"select t.employeeid,t.employeecname from smthrm.t_hr_employee t
+        //                    where t.employeecname='"+txtEmployeeName.Text+"'";
+        //            OracleHelp.Connect();
+        //            DataTable dt = OracleHelp.getTable(sql);
+        //            dataGridEmployees.DataSource = dt;
+        //            OracleHelp.close();
+        //            Txtid.Text = dt.Rows[0][0].ToString();
+        //        }
 
         #region 清空所有异常并重置考勤
         private void btnCleanAll_Click(object sender, EventArgs e)
@@ -411,16 +411,16 @@ namespace SmtPortalSetUp
             OracleHelp.Connect();
             int i = OracleHelp.Excute(CleareEployeesignindetail1());
             txtMessagebox.Text = "第一步清除签卡明细完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-             i = OracleHelp.Excute(CleareEployeesigninPersonalrecord());
-             txtMessagebox.Text = "第二步清除签卡我的单据完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-             i = OracleHelp.Excute(Clearet_wf_dotask3());
-             txtMessagebox.Text = "第三步清除签卡待办完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-             i = OracleHelp.Excute(CleareEmployeesigninrecordMaster4());
-             txtMessagebox.Text = "第四步清除签卡主表完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-             i = OracleHelp.Excute(CleareEmployeeabnormrecord5());
-             txtMessagebox.Text = "第五步清除考勤异常完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-             i = OracleHelp.Excute(UpdateEmployeeAttendancerecord6());
-             txtMessagebox.Text = "第六步还原考勤初始化记录状态完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
+            i = OracleHelp.Excute(CleareEployeesigninPersonalrecord());
+            txtMessagebox.Text = "第二步清除签卡我的单据完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
+            i = OracleHelp.Excute(Clearet_wf_dotask3());
+            txtMessagebox.Text = "第三步清除签卡待办完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
+            i = OracleHelp.Excute(CleareEmployeesigninrecordMaster4());
+            txtMessagebox.Text = "第四步清除签卡主表完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
+            i = OracleHelp.Excute(CleareEmployeeabnormrecord5());
+            txtMessagebox.Text = "第五步清除考勤异常完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
+            i = OracleHelp.Excute(UpdateEmployeeAttendancerecord6());
+            txtMessagebox.Text = "第六步还原考勤初始化记录状态完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
 
             OracleHelp.close();
             MessageBox.Show("处理完成");
@@ -430,7 +430,7 @@ namespace SmtPortalSetUp
         private string CleareEployeesignindetail1()
         {
             string sql = @"delete from smthrm.t_hr_employeesignindetail d
-                where d.abnormaldate >= To_Date('"+GlobalParameters.StartDate+@"', 'yyyy-MM-dd')
+                where d.abnormaldate >= To_Date('" + GlobalParameters.StartDate + @"', 'yyyy-MM-dd')
                and d.abnormaldate <= To_Date('" + GlobalParameters.EndDate + @"', 'yyyy-MM-dd')
                 and d.ownercompanyid ='" + GlobalParameters.employeeMasterCompanyid + @"'
                and d.ownerid = '" + GlobalParameters.employeeid + @"'";
@@ -464,7 +464,7 @@ namespace SmtPortalSetUp
                        and p.orderid in
                            (select s.signinid
                               from smthrm.t_hr_employeesigninrecord s
-                             where s.ownercompanyid = '"+GlobalParameters.employeeMasterCompanyid+@"'
+                             where s.ownercompanyid = '" + GlobalParameters.employeeMasterCompanyid + @"'
                                and s.ownerid = '" + GlobalParameters.employeeid + @"'
                                and s.signintime >= To_Date('" + GlobalParameters.StartDate + @"', 'yyyy-MM-dd')
                                and s.signinid not in
@@ -486,7 +486,7 @@ namespace SmtPortalSetUp
                            and s.signinid not in
                                (select d.signinid
                                   from smthrm.t_hr_employeesignindetail d)";
-                                   //where d.ownerid = '" + GlobalParameters.employeeid + @"')";
+            //where d.ownerid = '" + GlobalParameters.employeeid + @"')";
             //d.ownercompanyid ='" + GlobalParameters.ownerCompanyid + @"'
             return sql;
         }
@@ -545,7 +545,7 @@ namespace SmtPortalSetUp
             AttRdSvcClient.UpdateAttendRecordByEvectionAndLeaveRd(GlobalParameters.employeeMasterCompanyid, GlobalParameters.StartDate.Substring(0, 7));
             txtMessagebox.Text = "检查所有请假出差完成" + System.Environment.NewLine + txtMessagebox.Text;
             MessageBox.Show("检查所有请假出差完毕！");
-           
+
         }
         #endregion
 
@@ -578,12 +578,12 @@ namespace SmtPortalSetUp
                     txtMessagebox.Text = "检查所有异常完成:" + strMsg + System.Environment.NewLine + txtMessagebox.Text;
 
                     MessageBox.Show("检查所有异常完毕！");
-                    
+
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("日期选择错误，请重新选择。"+ex.ToString());
+                MessageBox.Show("日期选择错误，请重新选择。" + ex.ToString());
             }
 
 
@@ -632,7 +632,7 @@ namespace SmtPortalSetUp
             }
 
 
-            if (e.RowIndex >= 0 && e.ColumnIndex>=0)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 DataGridViewColumn column = dataGridEmployees.Columns[e.ColumnIndex];
                 if (column is DataGridViewButtonColumn)
@@ -741,33 +741,33 @@ namespace SmtPortalSetUp
                             MessageBox.Show("请选择不为空的异常记录进行操作");
                             return;
                         }
-                          DialogResult MsgBoxResult 
-                        = MessageBox.Show("确认是否继续操作？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-                          if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
-                          {
-                              try
-                              {
-                                  int i = OracleHelp.Excute(DeletSignindetailFromAbnormalId(abnormrecordid));
-                                  txtMessagebox.Text = "第一步清除签卡明细完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-                              }
-                              catch (Exception ex)
-                              {
-                                  txtMessagebox.Text = "第一步清除签卡异常：" + ex.ToString()
-                                      + System.Environment.NewLine + txtMessagebox.Text;
+                        DialogResult MsgBoxResult
+                      = MessageBox.Show("确认是否继续操作？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                        if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
+                        {
+                            try
+                            {
+                                int i = OracleHelp.Excute(DeletSignindetailFromAbnormalId(abnormrecordid));
+                                txtMessagebox.Text = "第一步清除签卡明细完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
+                            }
+                            catch (Exception ex)
+                            {
+                                txtMessagebox.Text = "第一步清除签卡异常：" + ex.ToString()
+                                    + System.Environment.NewLine + txtMessagebox.Text;
 
-                              }
-                              try
-                              {
-                                  int i = OracleHelp.Excute(DeletAbnormrecordFromAbnormalId(abnormrecordid));
-                                  txtMessagebox.Text = "第二步清除异常考勤完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
-                              }
-                              catch (Exception ex)
-                              {
-                                  txtMessagebox.Text = "第二步清除异常考勤异常：" + ex.ToString()
-                                        + System.Environment.NewLine + txtMessagebox.Text;
-                              }
-                              MessageBox.Show("处理完毕！");
-                          }
+                            }
+                            try
+                            {
+                                int i = OracleHelp.Excute(DeletAbnormrecordFromAbnormalId(abnormrecordid));
+                                txtMessagebox.Text = "第二步清除异常考勤完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
+                            }
+                            catch (Exception ex)
+                            {
+                                txtMessagebox.Text = "第二步清除异常考勤异常：" + ex.ToString()
+                                      + System.Environment.NewLine + txtMessagebox.Text;
+                            }
+                            MessageBox.Show("处理完毕！");
+                        }
                         //UpdateEmployeeAttendancerecordById(attendancerecordid);
                     }
                 }
@@ -799,7 +799,7 @@ namespace SmtPortalSetUp
         private void btnPreviousMonth_Click(object sender, EventArgs e)
         {
 
-            DateTime dtstart = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
+            DateTime dtstart = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
             DateTime dtPrivious = DateTime.Now;
             DateTime dtEnd = new DateTime(dtPrivious.Year, dtPrivious.Month, 1).AddDays(-1);
             txtStartDate.Text = dtstart.ToString("yyyy-MM-dd");
@@ -813,7 +813,7 @@ namespace SmtPortalSetUp
         string leavetypesetid = string.Empty;
         private void btnCheckVacationName_Click(object sender, EventArgs e)
         {
-           
+
             string sql = @"select l.leavetypename,l.leavetypesetid                            
                             from    smthrm.T_HR_AttendFreeLeave a
                             inner join smthrm.t_hr_leavetypeset l on a.leavetypesetid=l.leavetypesetid
@@ -823,11 +823,11 @@ namespace SmtPortalSetUp
 
             OracleHelp.Connect();
             DataTable dt = OracleHelp.getTable(sql);
-            if (dt.Rows.Count>0)
+            if (dt.Rows.Count > 0)
             {
                 txtVacationName.Text = dt.Rows[0]["leavetypename"].ToString();
                 leavetypesetid = dt.Rows[0]["leavetypesetid"].ToString();
-               
+
                 txtMessagebox.Text = "检查带薪假名称完成，共：" + dt.Rows.Count.ToString() + "条数据" + System.Environment.NewLine + txtMessagebox.Text;
             }
             else
@@ -848,7 +848,7 @@ namespace SmtPortalSetUp
                     group by t.employeename,b.leavetypename";
 
             dt = OracleHelp.getTable(sql);
-            if (dt.Rows.Count>0)
+            if (dt.Rows.Count > 0)
             {
                 txtVacationTotolDay.Text = dt.Rows[0]["days"].ToString();
             }
@@ -864,15 +864,15 @@ namespace SmtPortalSetUp
                             from smthrm.T_HR_EMPLOYEELEVELDAYCOUNT t
                             inner join smthrm.T_HR_LEAVETYPESET b on t.leavetypesetid=b.leavetypesetid
                             inner join smthrm.v_oragnization p on t.ownerpostid=p.postid
-                            where  b.leavetypesetid='" + leavetypesetid+@"'
+                            where  b.leavetypesetid='" + leavetypesetid + @"'
                             and t.employeeid='" + GlobalParameters.employeeid + @"'
                             and t.ownercompanyid='" + GlobalParameters.employeeMasterCompanyid + @"'
-                            and t.terminatedate>to_date('" + (DateTime.Now.Year-1)+"-01-01" + @"','yyyy-MM-dd')";
+                            and t.terminatedate>to_date('" + (DateTime.Now.Year - 1) + "-01-01" + @"','yyyy-MM-dd')";
             OracleHelp.Connect();
             DataTable dt = OracleHelp.getTable(sql);
             if (dt != null)
             {
-                dtVacationFrom.DataSource = dt;              
+                dtVacationFrom.DataSource = dt;
                 txtMessagebox.Text = "查询休假记录来源完成，共：" + dt.Rows.Count.ToString() + "条数据" + System.Environment.NewLine + txtMessagebox.Text;
             }
             else
@@ -887,16 +887,16 @@ namespace SmtPortalSetUp
                             ,t.employeeid,t.ownercompanyid,t.leaverecordid 
                             from smthrm.T_HR_EmployeeLeaveRecord t
                             inner join smthrm.t_hr_leavetypeset s on t.leavetypesetid=s.leavetypesetid
-                            where s.leavetypesetid='" + leavetypesetid+@"'
+                            where s.leavetypesetid='" + leavetypesetid + @"'
                             and t.employeeid='" + GlobalParameters.employeeid + @"'
                             --and t.ownercompanyid='" + GlobalParameters.employeeMasterCompanyid + @"'
-                            and t.startdatetime>=to_date('"+txtVacationStart.Text+@"','yyyy-MM-dd')
+                            and t.startdatetime>=to_date('" + txtVacationStart.Text + @"','yyyy-MM-dd')
                             order by t.enddatetime desc";
             OracleHelp.Connect();
             DataTable dts = OracleHelp.getTable(sql);
             if (dts != null)
             {
-                dtVacation.DataSource = dts;               
+                dtVacation.DataSource = dts;
                 txtMessagebox.Text = "查询休假记录完成，共：" + dts.Rows.Count.ToString() + "条数据" + System.Environment.NewLine + txtMessagebox.Text;
             }
             else
@@ -905,14 +905,14 @@ namespace SmtPortalSetUp
             }
             //txtVacationTotolDay.Text=decimal.Parse(txtVacationTotolDay.Text)-
             OracleHelp.close();
-            
+
         }
         #endregion
 
         private void btnDeleEmployeeClockin_Click(object sender, EventArgs e)
         {
             DialogResult MsgBoxResult;//设置对话框的返回值
-            MsgBoxResult = MessageBox.Show("是否确认删除该员工所有打卡记录？时间：" + GlobalParameters.StartDate +"-"+ GlobalParameters.EndDate,//对话框的显示内容 
+            MsgBoxResult = MessageBox.Show("是否确认删除该员工所有打卡记录？时间：" + GlobalParameters.StartDate + "-" + GlobalParameters.EndDate,//对话框的显示内容 
 
             "提示",//对话框的标题 
             MessageBoxButtons.YesNo,//定义对话框的按钮，这里定义了YSE和NO两个按钮
@@ -935,7 +935,7 @@ namespace SmtPortalSetUp
         #region 执行sql
         private void btnExcute_Click(object sender, EventArgs e)
         {
-            string sql=txtSql.Text;
+            string sql = txtSql.Text;
             OracleHelp.Connect();
             int i = OracleHelp.Excute(sql);
             txtMessagebox.Text = "处理完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
@@ -975,7 +975,7 @@ namespace SmtPortalSetUp
                                 txtMessagebox.Text = "处理异常：" + ex.ToString()
                                     + System.Environment.NewLine + txtMessagebox.Text;
 
-                            }                           
+                            }
                         }
                         //UpdateEmployeeAttendancerecordById(attendancerecordid);
                     }
@@ -997,18 +997,18 @@ namespace SmtPortalSetUp
             {
                 Thread t = new Thread(new ThreadStart(startDealAttByVacationset));
                 t.Start();
-            }            
+            }
         }
 
         private void startDealAttByVacationset()
         {
-            string strMsg =  "____________开始处理当前用户所在公司的公共假期设置考勤异常............";
+            string strMsg = "____________开始处理当前用户所在公司的公共假期设置考勤异常............";
             SetLog(strMsg);
             bool aleadyCheckEmployeeleved = false;
 
             OracleHelp.Connect();
             DataTable dtEmployees = OracleHelp.getTable(GetallEmployeeByCompanyid(GlobalParameters.employeeMasterCompanyid));
-                    
+
 
             for (int i = 0; i < dtVacationDay.RowCount; i++)
             {
@@ -1024,10 +1024,10 @@ namespace SmtPortalSetUp
                     startdate = dtstart.ToString("yyyy-MM-dd");
                     enddate = dtEnd.ToString("yyyy-MM-dd");
 
-                   if (dtEmployees != null && dtEmployees.Rows.Count > 0)
+                    if (dtEmployees != null && dtEmployees.Rows.Count > 0)
                     {
                         for (int j = 0; j < dtEmployees.Rows.Count; j++)
-                        {                            
+                        {
                             string employeeName = dtEmployees.Rows[j]["cname"].ToString() + "-" + dtEmployees.Rows[j]["departmentname"].ToString()
                                 + dtEmployees.Rows[j]["postname"].ToString() + dtEmployees.Rows[j]["employeecname"].ToString();
 
@@ -1035,7 +1035,7 @@ namespace SmtPortalSetUp
                             GlobalParameters.EndDate = enddate;
                             GlobalParameters.employeeid = dtEmployees.Rows[j]["employeeid"].ToString();
 
-                        
+
                             switch (daytype)
                             {
                                 case "1"://假期，消除异常考勤并消除初始化考勤记录
@@ -1065,7 +1065,7 @@ namespace SmtPortalSetUp
                                         SetLog("检查公司" + GlobalParameters.employeeMasterCompanyid + " " + startdate + "---" + enddate + " 所有异常完成:" + strMsg);
                                         aleadyCheckEmployeeleved = true;
                                     }
-                                  
+
                                     break;
                                 default:
                                     break;
@@ -1092,7 +1092,7 @@ namespace SmtPortalSetUp
             j = OracleHelp.Excute(CleareEmployeeabnormrecord5());
             SetLog("第五步清除考勤异常完成，处理了：" + j + "条数据！");
             j = OracleHelp.Excute(deleteAttanRecordByDate());
-            SetLog("第六步删除考勤初始化记录完成，处理了：" + j + "条数据！");            
+            SetLog("第六步删除考勤初始化记录完成，处理了：" + j + "条数据！");
 
             //MessageBox.Show("处理完成");
         }
@@ -1212,7 +1212,7 @@ namespace SmtPortalSetUp
                 Invoke(ds, new object[] { para });
             }
         }
-        #endregion 
+        #endregion
 
         #region 处理调休假及生效日期
         private void btnUpdateEffectDate_Click(object sender, EventArgs e)
@@ -1236,20 +1236,20 @@ namespace SmtPortalSetUp
 
         private void btnUpdateAllEffectDate_Click(object sender, EventArgs e)
         {
-              DialogResult MsgBoxResult
-                            = MessageBox.Show("确认是否修改当前员工所在公司所有员工指定假期生效日期？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-              if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
-              {
-                  string sql = @"update smthrm.T_HR_EMPLOYEELEVELDAYCOUNT t 
+            DialogResult MsgBoxResult
+                          = MessageBox.Show("确认是否修改当前员工所在公司所有员工指定假期生效日期？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
+            {
+                string sql = @"update smthrm.T_HR_EMPLOYEELEVELDAYCOUNT t 
                             set t.terminatedate=add_months(t.efficdate," + txtAvailableMonth.Text + @")
                             where t.leavetypesetid='" + leavetypesetid + @"'                           
                             and t.ownercompanyid='" + GlobalParameters.employeeMasterCompanyid + @"'";
 
-                  OracleHelp.Connect();
-                  int i = OracleHelp.Excute(sql);
-                  SetLog("更新了" + i + "条数据");
-                  OracleHelp.close();
-              }
+                OracleHelp.Connect();
+                int i = OracleHelp.Excute(sql);
+                SetLog("更新了" + i + "条数据");
+                OracleHelp.close();
+            }
         }
         #endregion
 
@@ -1268,25 +1268,25 @@ namespace SmtPortalSetUp
 
             if (e.RowIndex >= 0)
             {
-                 string selectValue = dtGEmployeeEvectionRecord.Rows[e.RowIndex].Cells["dtEvectionCheckBoxColumn"].EditedFormattedValue.ToString();
+                string selectValue = dtGEmployeeEvectionRecord.Rows[e.RowIndex].Cells["dtEvectionCheckBoxColumn"].EditedFormattedValue.ToString();
 
-                 if (selectValue == "True")
-                 {
-                     DataGridViewColumn column = dtGEmployeeEvectionRecord.Columns[e.ColumnIndex];
-                     if (column is DataGridViewButtonColumn)
-                     {
-                         if (column.Name == "ColumnDelete")
-                         {
-                             DialogResult MsgBoxResult
-                                 = MessageBox.Show("确认是否删除选中的出差记录？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-                             if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
-                             {
-                                 string evectionrecordid = dtGEmployeeEvectionRecord.Rows[e.RowIndex].Cells["evectionrecordid"].EditedFormattedValue.ToString();
-                                 deleteEvection(evectionrecordid);
-                             }
-                         }
-                     }
-                 }
+                if (selectValue == "True")
+                {
+                    DataGridViewColumn column = dtGEmployeeEvectionRecord.Columns[e.ColumnIndex];
+                    if (column is DataGridViewButtonColumn)
+                    {
+                        if (column.Name == "ColumnDelete")
+                        {
+                            DialogResult MsgBoxResult
+                                = MessageBox.Show("确认是否删除选中的出差记录？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                            if (MsgBoxResult == DialogResult.Yes)//如果对话框的返回值是YES（按"Y"按钮）
+                            {
+                                string evectionrecordid = dtGEmployeeEvectionRecord.Rows[e.RowIndex].Cells["evectionrecordid"].EditedFormattedValue.ToString();
+                                deleteEvection(evectionrecordid);
+                            }
+                        }
+                    }
+                }
             }
 
         }
@@ -1349,7 +1349,7 @@ namespace SmtPortalSetUp
                                    t.updatedate
                               from smthrm.T_HR_EmployeeOverTimeRecord t
                             where t.employeeid ='" + GlobalParameters.employeeid + @"'
-                            and t.startdate >=  to_date('"+datestar+@"', 'yyyy-mm-dd')
+                            and t.startdate >=  to_date('" + datestar + @"', 'yyyy-mm-dd')
                             order by t.startdate desc";
             OracleHelp.Connect();
             DataTable dt = OracleHelp.getTable(sql);
@@ -1394,10 +1394,10 @@ namespace SmtPortalSetUp
                             t.messagebody,
                             t.*
                        from smtwf.t_wf_dotask t
-                      where t.receiveuserid = '"+Txtid.Text+@"'
+                      where t.receiveuserid = '" + Txtid.Text + @"'
                         and t.dotaskstatus = '0'";
             OracleHelp.Connect();
-            DataTable dt= OracleHelp.getTable(sql);
+            DataTable dt = OracleHelp.getTable(sql);
             SetLog("查询待办任务完毕。");
             OracleHelp.close();
             dtDotask.DataSource = dt;
@@ -1440,6 +1440,77 @@ namespace SmtPortalSetUp
             OracleHelp.close();
         }
         #endregion
+
+        #region 生成礼品派送员角色插入SQL
+        private void btnGernerateInsertSql_Click(object sender, EventArgs e)
+        {
+            string cnames = "'深圳市爱施德股份有限公司','爱施德分销','哈尔滨','石家庄','南京','天津','沈阳','武汉','成都分公司','福州','西安分支机构','贵阳分支机构','长春分支机构','郑州分支机构','长沙','山西','济南分支机构','上海分公司','广西爱施德','广州','杭州','昆明分支机构','合肥','江西','重庆','海南','深圳','北京','内蒙','南昌','酷人通讯','深圳市酷动数码有限公司','杭州分公司','济南分公司','武汉分公司','北京（分公司）','西安（分公司）','南京（分公司）','深圳（分公司）','福州（分公司）','成都（分公司）'";
+            txtUserName.Text = cnames;
+            string roleid = "deccc5dc-e157-41d0-8cc7-fe2210485c84";
+            string sql = @"select u.sysuserid,u.ownercompanyid,u.ownerdepartmentid,u.ownerpostid  from smtsystem.t_sys_user u
+                            where u.ownercompanyid
+                            in
+                            (
+                              select c.companyid from smthrm.t_hr_company c
+                              where c.cname in
+                              (" + txtUserName.Text + @")
+                            )
+";
+
+            OracleHelp.Connect();
+            DataTable dt = OracleHelp.getTable(sql);
+            OracleHelp.close();
+            string strInsert = string.Empty;
+
+            OracleHelp.Connect();
+            try
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string userid = dt.Rows[i]["sysuserid"].ToString();
+                    string ownercompanyid = dt.Rows[i]["ownercompanyid"].ToString();
+                    string ownerdepartmentid = dt.Rows[i]["ownerdepartmentid"].ToString();
+                    string ownerpostid = dt.Rows[i]["ownerpostid"].ToString();
+
+                    string checkSql = @"select ur.userroleid from  smtsystem.t_sys_userrole ur
+                                    where ur.sysuserid='" + userid + @"'
+                                    and ur.roleid='" + roleid + "'";
+
+                    DataTable dtChechk = OracleHelp.getTable(checkSql);
+
+                    if (dtChechk.Rows != null && dtChechk.Rows.Count > 0) continue;
+
+                    strInsert += @"
+                insert into smtsystem.t_sys_userrole
+                  (userroleid, roleid, sysuserid, createuser, createdate, updateuser, updatedate, ownercompanyid, postid, employeepostid)
+                values
+                  ('" + Guid.NewGuid().ToString() + @"', '"
+                          + roleid + @"', '"
+                          + userid + @"', "
+                          + "'系统插入'"
+                          + ", " + "to_date('" + DateTime.Now.ToString("yyyy-MM-dd") + @"','yyyy-MM-dd')"
+                          + ", " + "'系统插入'"
+                          + ", " + "to_date('" + DateTime.Now.ToString("yyyy-MM-dd") + @"','yyyy-MM-dd')"
+                           + ", '" + ownercompanyid + @"', '"
+                          + ownerpostid + @"', '手动插入');";
+                }
+            }
+            catch (Exception ex)
+            {
+                txtMessagebox.Text += ex.ToString();
+            }
+            finally
+            {
+                OracleHelp.close();
+            }
+            txtUserName.Text = strInsert;
+        }
+        private void txtUserName_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            txtUserName.SelectAll();
+        }
+        #endregion
+
 
 
     }
