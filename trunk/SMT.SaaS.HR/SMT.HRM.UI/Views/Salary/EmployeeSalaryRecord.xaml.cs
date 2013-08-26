@@ -68,7 +68,7 @@ namespace SMT.HRM.UI.Views.Salary
             InitializeComponent();
             InitParas();
             GetEntityLogo("T_HR_EMPLOYEESALARYRECORD");
-         
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -205,7 +205,7 @@ namespace SMT.HRM.UI.Views.Salary
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 }
             }
-            
+
         }
         void _ImgButtonDeductionmoney_Click(object sender, RoutedEventArgs e)
         {
@@ -231,11 +231,11 @@ namespace SMT.HRM.UI.Views.Salary
         /// <param name="e"></param>
         void _ImgButtonReports_Click(object sender, RoutedEventArgs e)
         {
-            
+
             dialog.DefaultExt = ".xls";
             dialog.Filter = "MS Excel Files|*.xls";
             dialog.FilterIndex = 1;
-            
+
             result = dialog.ShowDialog();
             if (result.Value == true)
             {
@@ -284,7 +284,7 @@ namespace SMT.HRM.UI.Views.Salary
                 }
                 #endregion
 
-                
+
 
 
                 NumericUpDown nuYear = Utility.FindChildControl<NumericUpDown>(expander, "Nuyear");
@@ -302,15 +302,15 @@ namespace SMT.HRM.UI.Views.Salary
                 //if (nuStartmounth.Value.ToInt32() == 12) endtimes = new DateTime(nuYear.Value.ToInt32() + 1, 1, 1); else endtimes = new DateTime(nuYear.Value.ToInt32(), nuStartmounth.Value.ToInt32(), 1);
                 endtimes = new DateTime(nuYear.Value.ToInt32(), nuStartmounth.Value.ToInt32(), DateTime.DaysInMonth(nuYear.Value.ToInt32(), nuStartmounth.Value.ToInt32()));
                 loadbar.Start();
-                client.ExportEmployeePensionReportsAsync("COMPANYNAME", filter, paras, Common.CurrentLoginUserInfo.EmployeeID, sValue,(DateTime)starttimes);
-                
+                client.ExportEmployeePensionReportsAsync("COMPANYNAME", filter, paras, Common.CurrentLoginUserInfo.EmployeeID, sValue, (DateTime)starttimes);
+
 
 
 
 
             }
 
-            
+
         }
         void treeOrganization_SelectedClick(object sender, EventArgs e)
         {
@@ -550,7 +550,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     {
                         list[i].ACTUALLYPAY = SMT.SaaS.FrameworkUI.Common.Utility.AESDecrypt(list[i].ACTUALLYPAY);
                     }
-                    DtGrid.ItemsSource = list;                    
+                    DtGrid.ItemsSource = list;
                     dataPager.PageCount = e.pageCount;
                 }
                 else
@@ -766,7 +766,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
         void DtGrid_LoadingRowDetails(object sender, DataGridRowDetailsEventArgs e)
         {
             DataGrid gridDetails = e.DetailsElement as DataGrid;
-            
+
             T_HR_EMPLOYEESALARYRECORD sr = e.Row.DataContext as T_HR_EMPLOYEESALARYRECORD;
             if (sr.EMPLOYEEID != string.Empty && sr.SALARYYEAR != string.Empty && sr.SALARYMONTH != string.Empty)
             {
@@ -924,6 +924,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
         }
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
+            //Utility.CreateFormFromEngine("28ff8802-055a-4044-bc76-44de877f41fd", "SMT.HRM.UI.Form.Salary.SalaryRecordMassAudit", "Audit");
             LoadSalaryRecordData();
             //LoadData();
         }
@@ -1117,7 +1118,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             {
                 gdSalaryRecord.Children.Remove(uiRemove);
             }
-            
+
             DtGriddy = new DataGrid();
             DtGriddy.Name = "DtGriddy";
 
@@ -1138,7 +1139,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             //为DtGriddy附加属性：Grid.Row = 0, Grid.Column = 4
             Grid.SetRow(DtGriddy, 0);
             Grid.SetColumn(DtGriddy, 4);
-            
+
             DtGriddy.IsReadOnly = true;
             DtGriddy.FrozenColumnCount = 4;
             #region  初始化必需项 NEW
@@ -1215,7 +1216,8 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             TextBlock tborder = DtGriddy.Columns[1].GetCellContent(e.Row).FindName("tbNO") as TextBlock;
             if (tborder != null)
             {
-                tborder.Text = (e.Row.GetIndex() + 1).ToString();
+                int count = dataPager.PageIndex * 20 - 20;
+                tborder.Text = (e.Row.GetIndex() + 1 + count).ToString();
             }
         }
 

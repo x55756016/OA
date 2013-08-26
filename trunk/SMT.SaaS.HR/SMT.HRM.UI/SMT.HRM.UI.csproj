@@ -558,6 +558,9 @@
     <Compile Include="Form\Salary\PaymentForm.xaml.cs">
       <DependentUpon>PaymentForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\Salary\EmployeeAddImportForm.xaml.cs">
+      <DependentUpon>EmployeeAddImportForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\Salary\PerformanceRewardForm.xaml.cs">
       <DependentUpon>PerformanceRewardForm.xaml</DependentUpon>
     </Compile>
@@ -1575,6 +1578,10 @@
     <Page Include="Form\Salary\PaymentForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Salary\EmployeeAddImportForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

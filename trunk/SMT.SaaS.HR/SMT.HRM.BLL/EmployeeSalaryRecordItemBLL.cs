@@ -312,12 +312,13 @@ namespace SMT.HRM.BLL
             decimal banlanceYear = Convert.ToDecimal(year);
             decimal banlanceMonth = Convert.ToDecimal(month);
             var ents = from c in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
-                       join f in dal.GetObjects<T_HR_ATTENDMONTHLYBALANCE>() on c.EMPLOYEEID equals f.EMPLOYEEID
+                      // join f in dal.GetObjects<T_HR_ATTENDMONTHLYBALANCE>() on c.EMPLOYEEID equals f.EMPLOYEEID
                        join e in dal.GetObjects<T_HR_EMPLOYEE>() on c.EMPLOYEEID equals e.EMPLOYEEID
                        // join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on c.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
-                       join b in dal.GetObjects<T_HR_POST>() on f.OWNERPOSTID equals b.POSTID
+                       join b in dal.GetObjects<T_HR_POST>() on e.OWNERPOSTID equals b.POSTID
                        join d in dal.GetObjects<T_HR_COMPANY>() on c.OWNERCOMPANYID equals d.COMPANYID
-                       where f.BALANCEYEAR == banlanceYear && f.BALANCEMONTH == banlanceMonth
+                       //where f.BALANCEYEAR == banlanceYear && f.BALANCEMONTH == banlanceMonth
+                       where c.SALARYYEAR == year && c.SALARYMONTH == month
                        select new SalryRecordView
                        {
                            orgName = d.CNAME,
@@ -423,7 +424,7 @@ namespace SMT.HRM.BLL
                      //  join f in dal.GetObjects<T_HR_ATTENDMONTHLYBALANCE>() on c.EMPLOYEEID equals f.EMPLOYEEID
                        join e in dal.GetObjects<T_HR_EMPLOYEE>() on c.EMPLOYEEID equals e.EMPLOYEEID
                        // join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on c.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
-                       join b in dal.GetObjects<T_HR_POST>() on c.OWNERPOSTID equals b.POSTID
+                       join b in dal.GetObjects<T_HR_POST>() on e.OWNERPOSTID equals b.POSTID//员工个人档案里面部门和岗位
                        join d in dal.GetObjects<T_HR_COMPANY>() on c.OWNERCOMPANYID equals d.COMPANYID
                       // where f.BALANCEYEAR == banlanceYear && f.BALANCEMONTH == banlanceMonth && c.ATTENDANCEUNUSUALTIMES == f.OWNERCOMPANYID
                       // where c.SALARYYEAR == year && c.SALARYMONTH == month && c.ATTENDANCEUNUSUALTIMES == f.OWNERCOMPANYID

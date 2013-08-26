@@ -133,7 +133,11 @@ namespace SMT.HRM.UI.Form.Attendance
                 LoadData();
                 if (FormType == FormTypes.Browse)
                 {
-                    this.IsEnabled = false;
+                    dpStarDate.IsEnabled = false;
+                    dpEndDate.IsEnabled = false;
+                    txtRemark.IsReadOnly = true;
+                    //this.IsEnabled = false;//这里this.IsEnabled会定义该窗口所有控件的IsEnabled属性，有好处，有坏处
+
                 }
             }
         }
@@ -287,7 +291,6 @@ namespace SMT.HRM.UI.Form.Attendance
             
         }
         /// <summary>
-        /// xiedx
         /// 2012-09-25
         /// Utility.ObjListToXml这个方法里面有一些参数没写进去，生成传入流程的xml文件不完整
         /// 使得我的单据中没有考取方案分配，缺的是
@@ -846,10 +849,10 @@ namespace SMT.HRM.UI.Form.Attendance
                 lkAttSol.IsEnabled = false;
                 cbxkAssignedObjectType.IsEnabled = false;
                 lkAssignObject.IsEnabled = false;
-                if (entAttendanceSolutionAsign.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
-                {
-                    this.IsEnabled = false;
-                }
+                //if (entAttendanceSolutionAsign.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
+                //{
+                //    //this.IsEnabled = false;
+                //}
             }
             else
             {
@@ -1046,6 +1049,9 @@ namespace SMT.HRM.UI.Form.Attendance
 
                 tbAssignedObjectID.Text = strIds;
                 lkAssignObject.TxtLookUp.Text = strNames;
+                lkAssignObject.IsEnabled = true;
+                lkAssignObject.SearchButton.IsEnabled = false;
+                lkAssignObject.TipTextValue = strNames;//设置Tip
             }
             else
             {

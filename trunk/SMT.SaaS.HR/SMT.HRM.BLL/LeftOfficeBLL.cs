@@ -171,7 +171,7 @@ namespace SMT.HRM.BLL
                 //dal.Add(ent);
                 //xiedx
                 //2012-8-27
-                bool i = Add(ent,ent.CREATEUSERID);
+                bool i = Add(ent, ent.CREATEUSERID);
 
             }
             catch (Exception ex)
@@ -252,8 +252,8 @@ namespace SMT.HRM.BLL
                             epchangeBLL.EmployeePostChangeAdd(postChange, ref Msg);
                             #endregion
                             //通知及时通讯
-                            DelImstantMember(entity.T_HR_EMPLOYEE.EMPLOYEEID, epost.T_HR_POST.POSTID); 
-                            
+                            DelImstantMember(entity.T_HR_EMPLOYEE.EMPLOYEEID, epost.T_HR_POST.POSTID);
+
                         }
                         else
                         {
@@ -266,7 +266,10 @@ namespace SMT.HRM.BLL
                             {
                                 EmployeeBLL bll = new EmployeeBLL();
                                 var employeetmp = employeetmps.FirstOrDefault();
-                                employeetmp.EMPLOYEESTATE = "3";
+                                if (employeetmp.EMPLOYEESTATE != "2")//已离职，如果已经离职则不要再改为离职中
+                                {
+                                    employeetmp.EMPLOYEESTATE = "3";//离职中
+                                }
                                 bll.EmployeeUpdate(employeetmp, ref tmpstr);
                             }
 
@@ -284,7 +287,7 @@ namespace SMT.HRM.BLL
                             new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_EMPLOYEEPOST", "EMPLOYEEPOSTID", entity.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID);
                     }
                     //dal.Update(ent);
-                    Update(ent,ent.CREATEPOSTID);
+                    Update(ent, ent.CREATEPOSTID);
                 }
             }
             catch (Exception ex)
@@ -378,16 +381,16 @@ namespace SMT.HRM.BLL
         /// <param name="EmployeeID">员工ID</param>
         /// <param name="PostID">岗位ID</param>
         /// <returns></returns>
-        public T_HR_LEFTOFFICE GetLeftOfficeByEmployeeIDAndPostID(string EmployeeID,string PostID)
+        public T_HR_LEFTOFFICE GetLeftOfficeByEmployeeIDAndPostID(string EmployeeID, string PostID)
         {
             var ents = (from ent in dal.GetObjects().Include("T_HR_EMPLOYEE").Include("T_HR_EMPLOYEEPOST").Include("T_HR_EMPLOYEEPOST.T_HR_POST")
-                       where ent.T_HR_EMPLOYEE.EMPLOYEEID == EmployeeID
-                       && ent.T_HR_EMPLOYEEPOST.T_HR_POST.POSTID == PostID
-                       && ent.CHECKSTATE =="2" 
-                       select ent).FirstOrDefault();
+                        where ent.T_HR_EMPLOYEE.EMPLOYEEID == EmployeeID
+                        && ent.T_HR_EMPLOYEEPOST.T_HR_POST.POSTID == PostID
+                        && ent.CHECKSTATE == "2"
+                        select ent).FirstOrDefault();
 
             return ents;
-            
+
         }
         public int UpdateCheckState(string strEntityName, string EntityKeyName, string EntityKeyValue, string CheckState)
         {

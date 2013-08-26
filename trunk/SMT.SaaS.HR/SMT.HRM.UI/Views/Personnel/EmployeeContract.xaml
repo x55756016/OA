@@ -40,7 +40,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmpName" Grid.Row="0" Grid.Column="1" Width="120" />
-                            <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="2" Margin="20,0,0,0" Width="50" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="GridPager_Click" />
+                            <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="2" Margin="20,0,0,0" Width="50" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="btnFind_Click" />
                         </Grid>
                     </DataTemplate>
                 </controlsToolkit:Expander.HeaderTemplate>

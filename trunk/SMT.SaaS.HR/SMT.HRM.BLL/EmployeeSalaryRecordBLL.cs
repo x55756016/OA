@@ -1917,7 +1917,8 @@ namespace SMT.HRM.BLL
                 var ents = from archiveItem in dal.GetObjects<T_HR_SALARYARCHIVEITEM>().Include("T_HR_SALARYARCHIVE")
                            join tmpItem in dal.GetObjects<T_HR_SALARYITEM>() on archiveItem.SALARYITEMID equals tmpItem.SALARYITEMID
                            join salaryItem in commonSalaryItems on tmpItem.SALARYITEMNAME equals salaryItem.SALARYITEMNAME
-                           where archiveItem.T_HR_SALARYARCHIVE.EMPLOYEEID == employeeID && archiveItem.T_HR_SALARYARCHIVE.SALARYARCHIVEID == GenerateCompanyEmployeeArchive.SALARYARCHIVEID
+                           where archiveItem.T_HR_SALARYARCHIVE.EMPLOYEEID == employeeID 
+                           && archiveItem.T_HR_SALARYARCHIVE.SALARYARCHIVEID == GenerateCompanyEmployeeArchive.SALARYARCHIVEID
                            orderby salaryItem.SALARYITEMCODE
                            select new { archiveItem, salaryItem, salaryArchive = archiveItem.T_HR_SALARYARCHIVE };
 
@@ -4664,7 +4665,18 @@ namespace SMT.HRM.BLL
                 {
                     salaryItemValue = ExecuteSqlScalar(strcode);
                     salaryItemCaches.Add(strcode, salaryItemValue);
-                    //SMT.Foundation.Log.Tracer.Debug("Endtime:" + DateTime.Now.ToLongTimeString());
+
+                    try
+                    {                      
+                        if (System.Configuration.ConfigurationSettings.AppSettings.Get("TraceSalarySql") == "true")
+                        {
+                            Tracer.Debug("执行的sql:" + strcode + " 结果：" + salaryItemValue);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Tracer.Debug(ex.ToString());
+                    }
                 }
                 else
                 {

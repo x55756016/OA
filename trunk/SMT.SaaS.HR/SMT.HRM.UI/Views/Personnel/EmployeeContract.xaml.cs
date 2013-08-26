@@ -160,6 +160,8 @@ namespace SMT.HRM.UI.Views.Personnel
 
         void btnNew_Click(object sender, RoutedEventArgs e)
         {
+            //Utility.OpenNewTask("SMT.HRM.UI.Form.Personnel.EmployeeContractForm,SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",null);
+
             EmployeeContractForm form = new EmployeeContractForm(FormTypes.New, "");
             EntityBrowser browser = new EntityBrowser(form);
             form.MinHeight = 450;
@@ -323,5 +325,16 @@ namespace SMT.HRM.UI.Views.Personnel
             throw new NotImplementedException();
         }
         #endregion
+
+        /// <summary>
+        /// 查找按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            dataPager.PageIndex = 1;//查找后默认跳到第一页
+            LoadData();
+        }
     }
 }

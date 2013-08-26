@@ -79,16 +79,18 @@ namespace SMT.HRM.BLL
                 if (type != null)
                 {
                     IOperate bll = (IOperate)Activator.CreateInstance(type);
-                    //SMT.Foundation.Log.Tracer.Debug("UpdateCheckState start;" + bll.GetType().Name);
+                    SMT.Foundation.Log.Tracer.Debug("UpdateCheckState start;" + bll.GetType().Name);
                     i = bll.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
-                    bll.Dispose();                    
-                    //SMT.Foundation.Log.Tracer.Debug("手机调用业务逻辑层 bll.Dispose();");
+                    bll.Dispose();
+                    SMT.Foundation.Log.Tracer.Debug("UpdateCheckState 返回结果;" + i.ToString());
+                    SMT.Foundation.Log.Tracer.Debug("手机调用业务逻辑层 bll.Dispose();");
                 }
             }
             catch (Exception ex)
             {
-                SMT.Foundation.Log.Tracer.Debug("UpdateCheckState错误： strEntityName：" + strEntityName
-                    +" EntityKeyValue：" + EntityKeyValue+" 异常信息："+ex.ToString());
+                SMT.Foundation.Log.Tracer.Debug("strEntityName：" + strEntityName);
+                SMT.Foundation.Log.Tracer.Debug("EntityKeyValue：" + EntityKeyValue);
+                SMT.Foundation.Log.Tracer.Debug(ex.ToString());
             }
 
             return i;
@@ -140,7 +142,8 @@ namespace SMT.HRM.BLL
                 EntityRelation.Add("T_HR_SALARYSOLUTION", "SalarySolutionBLL");
                 EntityRelation.Add("T_HR_SALARYSOLUTIONASSIGN", "SalarySolutionAssignBLL");
                 EntityRelation.Add("T_HR_SALARYRECORDBATCH", "SalaryRecordBatchBLL");
-                EntityRelation.Add("T_HR_SALARYSYSTEM", typeof(SalarySystemBLL).Name);
+                EntityRelation.Add("T_HR_SALARYSYSTEM", "SalarySystemBLL");
+
             }
         }
         /// <summary>
@@ -682,9 +685,12 @@ namespace SMT.HRM.BLL
             return rslt;
         }
 
+        /// <summary>
+        /// 添加定时触发
+        /// </summary>
+        /// <param name="paras"></param>
         public static void SendEngineEventTriggerData(IList<object> paras)
         {
-            try{
             StringBuilder strRes = new StringBuilder();
             EngineWS.T_WF_TIMINGTRIGGERACTIVITY trigger = new EngineWS.T_WF_TIMINGTRIGGERACTIVITY();
             trigger.TRIGGERID = System.Guid.NewGuid().ToString();
@@ -709,44 +715,57 @@ namespace SMT.HRM.BLL
             trigger.TRIGGERTYPE = "user";
             
 
-            strRes.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
-            strRes.Append("<System>");
-            strRes.Append("<CompanyCode>" + paras[0].ToString() + "</CompanyCode>");
-            strRes.Append("<SystemCode>" + paras[1].ToString() + "</SystemCode>");
-            strRes.Append("<ModelCode>" + paras[2].ToString() + "</ModelCode>");
-            strRes.Append("<ApplicationOrderCode>" + paras[3].ToString() + "</ApplicationOrderCode>");
-            //strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
-            if(paras[4].ToString().IndexOf(':')<0)
-                strRes.Append("<TaskStartDate>" + paras[4].ToString()+" 8:00:00" + "</TaskStartDate>");
-            else
-                strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
-            //strRes.Append("<TaskStartDate>" + Convert.ToDateTime("2012/12/6 16:40:26").ToString() + "</TaskStartDate>");
-            strRes.Append("<TaskStartTime>" + paras[5].ToString() + "</TaskStartTime>");
-            strRes.Append("<ProcessCycle>" + paras[6].ToString() + "</ProcessCycle>");
-            strRes.Append("<ReceiveUser>" + paras[7].ToString() + "</ReceiveUser>");
-            strRes.Append("<MessageBody>" + paras[8].ToString() + "</MessageBody>");
-            strRes.Append("<MsgLinkUrl>" + paras[9].ToString() + "</MsgLinkUrl>");
-            strRes.Append("<ProcessWcfUrl>" + "EngineTriggerService.svc" + "</ProcessWcfUrl>");
-            strRes.Append("<WcfFuncName>" + paras[11].ToString() + "</WcfFuncName>");
-            strRes.Append("<WcfFuncParamter>" + paras[12].ToString() + "</WcfFuncParamter>");
-            strRes.Append("<WcfParamSplitChar>" + paras[13].ToString() + "</WcfParamSplitChar>");
-            strRes.Append("<WcfBinding>" + paras[14].ToString() + "</WcfBinding>");
-            strRes.Append("</System>");
+            //strRes.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+            //strRes.Append("<System>");
+            //strRes.Append("<CompanyCode>" + paras[0].ToString() + "</CompanyCode>");
+            //strRes.Append("<SystemCode>" + paras[1].ToString() + "</SystemCode>");
+            //strRes.Append("<ModelCode>" + paras[2].ToString() + "</ModelCode>");
+            //strRes.Append("<ApplicationOrderCode>" + paras[3].ToString() + "</ApplicationOrderCode>");
+            ////strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
+            //if(paras[4].ToString().IndexOf(':')<0)
+            //    strRes.Append("<TaskStartDate>" + paras[4].ToString()+" 8:00:00" + "</TaskStartDate>");
+            //else
+            //    strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
+            ////strRes.Append("<TaskStartDate>" + Convert.ToDateTime("2012/12/6 16:40:26").ToString() + "</TaskStartDate>");
+            //strRes.Append("<TaskStartTime>" + paras[5].ToString() + "</TaskStartTime>");
+            //strRes.Append("<ProcessCycle>" + paras[6].ToString() + "</ProcessCycle>");
+            //strRes.Append("<ReceiveUser>" + paras[7].ToString() + "</ReceiveUser>");
+            //strRes.Append("<MessageBody>" + paras[8].ToString() + "</MessageBody>");
+            //strRes.Append("<MsgLinkUrl>" + paras[9].ToString() + "</MsgLinkUrl>");
+            //strRes.Append("<ProcessWcfUrl>" + "EngineTriggerService.svc" + "</ProcessWcfUrl>");
+            //strRes.Append("<WcfFuncName>" + paras[11].ToString() + "</WcfFuncName>");
+            //strRes.Append("<WcfFuncParamter>" + paras[12].ToString() + "</WcfFuncParamter>");
+            //strRes.Append("<WcfParamSplitChar>" + paras[13].ToString() + "</WcfParamSplitChar>");
+            //strRes.Append("<WcfBinding>" + paras[14].ToString() + "</WcfBinding>");
+            //strRes.Append("</System>");
 
             //return strRes.ToString();
-            //SMT.Foundation.Log.Tracer.Debug("发出合同提醒定时触发数据:\r\n"+strRes.ToString());
+            SMT.Foundation.Log.Tracer.Debug("发出合同提醒定时触发数据:\r\n"+strRes.ToString());
             EngineWS.EngineWcfGlobalFunctionClient EngineClient = new EngineWS.EngineWcfGlobalFunctionClient();
             //EngineClient.SaveEventData(strRes.ToString());
-            SMT.Foundation.Log.Tracer.Debug("发出合同提醒定时触发数据,调用方法：" + EngineClient.Endpoint.Address.ToString()
-                + "WFAddTimingTrigger:" + strRes.ToString());
             EngineClient.WFAddTimingTrigger(trigger);
             //EngineClient.WFAddTimingTrigger(trigger);
-            }catch(Exception ex)
-            {
-                Tracer.Debug(ex.ToString());
-            }
         }
 
+        /// <summary>
+        /// 根据业务系统主键ID删除定时触发
+        /// </summary>
+        ///  <param name="entityName">业务系统模块名</param>
+        /// <param name="businessID">业务系统主键ID(即定时触发表里面的BUSINESSID)</param>
+        public static void DeleteTrigger(string entityName, string businessID)
+        {
+            try
+            {
+                SMT.Foundation.Log.Tracer.Debug("业务模块: " + entityName + " 主键ID: " + businessID + " 调用流程删除定时触发方法");
+                EngineWS.EngineWcfGlobalFunctionClient EngineClient = new EngineWS.EngineWcfGlobalFunctionClient();
+                EngineClient.DeleteTrigger(businessID);//没有返回值，就不判断了
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("业务模块: " + entityName + " 主键ID: " + businessID + "调用流程删除定时触发方法出错  " + ex.Message);
+            }
+           
+        }
         /// <summary>
         /// AES算法加密数据
         /// </summary>
@@ -815,30 +834,22 @@ namespace SMT.HRM.BLL
         public static string ObjListToXml<T>(T objectdata, string SystemCode, string currentUserName)
         {
             StringBuilder sb = new StringBuilder();
-            try
-            {                
-                sb.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-                sb.AppendLine("<System>");
-                Type objtype = objectdata.GetType();
-                sb.AppendLine("<Name>" + SystemCode + "</Name>");
-                sb.AppendLine("<Object Name=\"Approval\" Description=\"\">");
-                PropertyInfo[] propinfos = objtype.GetProperties();
-                foreach (PropertyInfo propinfo in propinfos)
-                {
-                    if (propinfo.Name.ToUpper() != "CHECKSTATE" && propinfo.Name.ToUpper() != "ACTUALLYPAY")
-                    {
-                        sb.AppendLine("<Attribute Name=\"" + propinfo.Name + "\" Description=\"" + "" + "\" DataType=\"" + GetDataTypeName(propinfo.PropertyType) + "\" DataValue=\"" + propinfo.GetValue(objectdata, null) + "\"/>");
-                    }
-                }
-                sb.AppendLine("<Attribute Name=\"" + "CURRENTEMPLOYEENAME" + "\" Description=\"" + "提交者" + "\" DataType=\"" + string.Empty + "\" DataValue=\"" + currentUserName + "\"/>");
-                sb.AppendLine("</Object>");
-                sb.AppendLine("</System>");
-            }
-            catch (Exception ex)
+            sb.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+            sb.AppendLine("<System>");
+            Type objtype = objectdata.GetType();
+            sb.AppendLine("<Name>" + SystemCode + "</Name>");
+            sb.AppendLine("<Object Name=\"Approval\" Description=\"\">");
+            PropertyInfo[] propinfos = objtype.GetProperties();
+            foreach (PropertyInfo propinfo in propinfos)
             {
-                Utility.SaveLog("向员工" + currentUserName
-                    + "发送薪资发放确认提醒的消息及邮件失败！错误信息为APPXML生成失败：" + ex.ToString()); 
+                if (propinfo.Name.ToUpper() != "CHECKSTATE" && propinfo.Name.ToUpper() != "ACTUALLYPAY")
+                {
+                    sb.AppendLine("<Attribute Name=\"" + propinfo.Name + "\" Description=\"" + "" + "\" DataType=\"" + GetDataTypeName(propinfo.PropertyType) + "\" DataValue=\"" + propinfo.GetValue(objectdata, null) + "\"/>");
+                }
             }
+            sb.AppendLine("<Attribute Name=\"" + "CURRENTEMPLOYEENAME" + "\" Description=\"" + "提交者" + "\" DataType=\"" + string.Empty + "\" DataValue=\"" + currentUserName + "\"/>");
+            sb.AppendLine("</Object>");
+            sb.AppendLine("</System>");
             return sb.ToString();
 
         }
@@ -898,6 +909,23 @@ namespace SMT.HRM.BLL
             }
         }
 
-
+        /// <summary>
+        /// 关闭引擎异常消息提醒
+        /// </summary>
+        /// <param name="strModelCode">模块实体名</param>
+        /// <param name="strEmployeeId">接受消息的员工Id</param>
+        public static void CloseAttendAbnormAlarmMsg(string strModelCode, string strEmployeeId)
+        {
+            try
+            {
+                EngineWS.EngineWcfGlobalFunctionClient clientEngine = new EngineWS.EngineWcfGlobalFunctionClient();
+                clientEngine.ModelMsgClose(strModelCode, strEmployeeId);
+            }
+            catch (Exception ex)
+            {
+                SaveLog("关闭引擎异常消息提醒发生错误，接受参数：strModelCode：" + strModelCode + ", strEmployeeId:" 
+                    + strEmployeeId + "。出错详细信息如下：" + ex.ToString());
+            }
+        }
     }
 }

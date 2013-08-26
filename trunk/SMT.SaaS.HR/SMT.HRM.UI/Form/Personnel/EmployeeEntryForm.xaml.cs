@@ -569,7 +569,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, EmployeeEntry);
 
             Dictionary<string, string> paraIDs = new Dictionary<string, string>();
-            paraIDs.Add("CreateUserID", EmployeeEntry.CREATEUSERID);
+            paraIDs.Add("CreateUserID", EmployeeEntry.OWNERID);//改为该单入职的员工ID
             paraIDs.Add("CreatePostID", EmployeeEntry.OWNERPOSTID);
             paraIDs.Add("CreateDepartmentID", EmployeeEntry.OWNERDEPARTMENTID);
             paraIDs.Add("CreateCompanyID", EmployeeEntry.OWNERCOMPANYID);

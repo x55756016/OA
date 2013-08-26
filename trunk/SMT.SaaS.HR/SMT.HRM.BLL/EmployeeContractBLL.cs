@@ -289,6 +289,20 @@ namespace SMT.HRM.BLL
         }
 
         /// <summary>
+        /// 根据员工ID获取改员工所有的员工合同
+        /// </summary>
+        /// <param name="employeeID">员工ID</param>
+        /// <returns></returns>
+        public List<T_HR_EMPLOYEECONTRACT> GetListEmpContractByEmpID(string employeeID)
+        {
+            var ent = from e in dal.GetObjects().Include("T_HR_EMPLOYEE")
+                      where e.T_HR_EMPLOYEE.EMPLOYEEID == employeeID
+                      && e.CHECKSTATE == "2"//审核通过
+                      select e;
+            return ent != null ? ent.ToList() : null;
+        }
+
+        /// <summary>
         /// 员工合同到期提醒
         /// </summary>
         /// <param name="employeeCheck"></param>

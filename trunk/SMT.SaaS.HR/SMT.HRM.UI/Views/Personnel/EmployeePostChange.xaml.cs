@@ -361,5 +361,11 @@ namespace SMT.HRM.UI.Views.Personnel
             throw new NotImplementedException();
         }
         #endregion
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            dataPager.PageIndex = 1;//查找后默认跳到第一页
+            LoadData();
+        }
     }
 }

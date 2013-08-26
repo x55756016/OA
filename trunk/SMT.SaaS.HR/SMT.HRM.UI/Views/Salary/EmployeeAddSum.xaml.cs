@@ -23,6 +23,7 @@ using SMT.SaaS.Globalization;
 using SMT.Saas.Tools.OrganizationWS;
 using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
 using SMT.SAAS.Main.CurrentContext;
+using SMT.HRM.UI.Form.Salary;
 
 namespace SMT.HRM.UI.Views.Salary
 {
@@ -82,12 +83,28 @@ namespace SMT.HRM.UI.Views.Salary
             this.Loaded += new RoutedEventHandler(Left_Loaded);
             ToolBar.cbxCheckState.SelectionChanged += new SelectionChangedEventHandler(cbxCheckState_SelectionChanged);
             ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
+            //航信版本发布时需要打开
+            //ToolBar.btnImport.Visibility = Visibility.Visible;
+            //ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
 
             treeOrganization.SelectedClick += new EventHandler(treeOrganization_SelectedClick);
             //orgClient = new SMT.Saas.Tools.OrganizationWS.OrganizationServiceClient();
             //orgClient.GetCompanyActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetCompanyActivedCompletedEventArgs>(orgClient_GetCompanyActivedCompleted);
             //orgClient.GetDepartmentActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetDepartmentActivedCompletedEventArgs>(orgClient_GetDepartmentActivedCompleted);
             //orgClient.GetPostActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetPostActivedCompletedEventArgs>(orgClient_GetPostActivedCompleted);
+        }
+
+        void btnImport_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeAddImportForm form = new EmployeeAddImportForm();
+            EntityBrowser browser = new EntityBrowser(form);
+            form.MinHeight = 260;
+            form.MinWidth = 400;
+
+
+            browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
+            browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
+       
         }
 
         void treeOrganization_SelectedClick(object sender, EventArgs e)

@@ -77,7 +77,7 @@ namespace SMT.HRM.UI.Form.Salary
 
         void SalaryRecordMassAudit_Loaded(object sender, RoutedEventArgs e)
         {
-            if (FormType == FormTypes.Audit && !string.IsNullOrWhiteSpace(FormID))
+            if ((FormType == FormTypes.Audit || FormType == FormTypes.Resubmit) && !string.IsNullOrWhiteSpace(FormID))
             {
                 InitParas();
                 //  basePage.GetEntityLogo("T_HR_SALARYRECORDBATCH");
@@ -271,6 +271,7 @@ namespace SMT.HRM.UI.Form.Salary
 
                 if (dataSet == null)
                 {
+                    RefreshUI(RefreshedTypes.HideProgressBar);
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("WARNING"), Utility.GetResourceStr("NODATA") + ",请检查是否未获得员工月薪生成的权限，或提交数据已被更改。", Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                     return;
                 }
@@ -284,7 +285,7 @@ namespace SMT.HRM.UI.Form.Salary
                 DtGriddy.RowStyle = Application.Current.Resources["DataGridRowStyle"] as Style;
 
 
-                DtGriddy.FrozenColumnCount = 7;
+                DtGriddy.FrozenColumnCount = 8;
 
                 if (recordCount >= 17) //数据少了  固定高度 空白太多
                 {
@@ -323,7 +324,7 @@ namespace SMT.HRM.UI.Form.Salary
                 {
                     foreach (DataColumnInfo column in e.Result.Tables[0].Columns)
                     {
-                        #region
+                        #region 注释
                         //if (column.DisplayIndex != -1)
                         //{
                         //    DataGridColumn col;
@@ -619,9 +620,14 @@ namespace SMT.HRM.UI.Form.Salary
             }
 
             TextBlock tborder = DtGriddy.Columns[1].GetCellContent(e.Row).FindName("tbNO") as TextBlock;
+            string strName = ent.GetFieldValue("COMPANY").ToString();
             if (tborder != null)
             {
                 tborder.Text = (e.Row.GetIndex() + 1).ToString();
+                if (strName == "合计")
+                {
+                    tborder.Text = string.Empty;
+                }
             }
         }
 
@@ -1146,7 +1152,7 @@ namespace SMT.HRM.UI.Form.Salary
                     state = Utility.GetCheckState(CheckStates.UnApproved);
                     strEditState = Convert.ToInt32(EditStates.Canceled).ToString();
                     break;
-            }            
+            }
 
             if (SalaryRecordBatch.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
             {
@@ -1159,7 +1165,7 @@ namespace SMT.HRM.UI.Form.Salary
 
             SalaryRecordBatch.EDITSTATE = strEditState;
             SalaryRecordBatch.CHECKSTATE = state;
-            
+
             RefreshUI(RefreshedTypes.HideProgressBar);
 
         }
@@ -1454,10 +1460,10 @@ namespace SMT.HRM.UI.Form.Salary
                     {
                         var ent = etu.Current as CustomerDataObject;
                         string recordID = ent.GetFieldValue("EMPLOYEESALARYRECORDID").ToString();
-                        
+
                         if (string.IsNullOrWhiteSpace(recordID))
                         {
-                            string strName = ent.GetFieldValue("DEPARTMENT").ToString();
+                            string strName = ent.GetFieldValue("COMPANY").ToString();
                             if (strName == "合计")
                             {
                                 ent.SetFieldValue("ACTUALLYPAY", dActSum.ToString());
@@ -1496,7 +1502,7 @@ namespace SMT.HRM.UI.Form.Salary
                 }
                 else
                 {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "请勾选要提交的人员，再选择预算扣除部门", Utility.GetResourceStr("CONFIRM"), MessageIcon.Error); 
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "请勾选要提交的人员，再选择预算扣除部门", Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 }
             };
 

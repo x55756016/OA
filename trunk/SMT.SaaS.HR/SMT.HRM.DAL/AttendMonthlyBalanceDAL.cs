@@ -192,15 +192,24 @@ namespace SMT.HRM.DAL
 
             switch (sType)
             {
-                //case "Company":
+                //1和Company表示公司
+                case "Company":
+                    ents = GetBlanceByCompanyId(sValue);
+                    break;
                 case "1":
                     ents = GetBlanceByCompanyId(sValue);
                     break;
-               // case "Department":
+                //2和Department表示部门
+                case "Department":
+                      ents = GetBlanceByDepartmentId(sValue);
+                    break;
                 case "2":
                     ents = GetBlanceByDepartmentId(sValue);
                     break;
-                //case "Post":
+                //3和Post表示岗位
+                case "Post":
+                      ents = GetBlanceByPostId(sValue);
+                    break;
                 case "3":
                     ents = GetBlanceByPostId(sValue);
                     break;

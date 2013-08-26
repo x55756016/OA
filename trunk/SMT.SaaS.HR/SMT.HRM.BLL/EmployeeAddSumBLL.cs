@@ -10,6 +10,10 @@ using System.Linq.Expressions;
 using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
 using BLLCommonServices = SMT.SaaS.BLLCommonServices;
+using System.Data;
+using System.Reflection;
+using Excel = Microsoft.Office.Interop.Excel;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -593,6 +597,300 @@ namespace SMT.HRM.BLL
                 SMT.Foundation.Log.Tracer.Debug("FormID:" + EntityKeyValue + " UpdateCheckState:" + e.Message);
                 return 0;
             }
+        }
+
+        /// <summary>
+        /// 导入员工社保记录并返回显示
+        /// </summary>
+        /// <param name="strPath">路径</param>
+        /// <param name="paras">参数字典</param>
+        /// <param name="strMsg">返回的参数</param>
+        public List<T_HR_EMPLOYEEADDSUM> ImportEmployeeAddSumFromExcelForShow(string strPath, Dictionary<string, string> paras, ref string strMsg, bool IsPreview)
+        {
+           
+            try
+            {
+                return ImportDataFromFile(strPath, paras, ref strMsg,IsPreview);
+
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + " ImportPensionByImportExcel:" + ex.Message);
+
+            }
+            return null;
+        }
+
+
+        /// <summary>
+        /// 读取指定路径的Excel，将数据导入到DataTable内(依靠Office组件读取)
+        /// </summary>
+        /// <param name="strPath"></param>
+        /// <param name="strMsg"></param>
+        /// <returns></returns>
+        private List<T_HR_EMPLOYEEADDSUM> ImportDataFromFile(string strPath, Dictionary<string, string> paras, ref string strMsg, bool IsPreview)
+        {
+            List<T_HR_EMPLOYEEADDSUM> ListEmployeeAddSum = new List<T_HR_EMPLOYEEADDSUM>();
+
+            Excel.Application xApp = new Excel.ApplicationClass();
+            xApp.Visible = true;
+            try
+            {
+                Excel.Workbook xBook = xApp.Workbooks._Open(strPath,
+                Missing.Value, Missing.Value, Missing.Value, Missing.Value
+                , Missing.Value, Missing.Value, Missing.Value, Missing.Value
+                , Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+
+                Excel.Worksheet xSheet = (Excel.Worksheet)xBook.Sheets[1];
+                int iCount = xSheet.UsedRange.Rows.Count;
+                if (iCount < 1)
+                {
+                    strMsg = "员工加扣款导入失败：无导入数据";
+                    Tracer.Debug(strMsg);
+                    return null;
+                }
+
+                for (int i = 0; i < iCount; i++)
+                {
+                    int iRowIndex = i + 2;  //Excel起始列从1开始计数，首列为标题列，因此数据列计数应先加2
+
+                    Excel.Range rngCompany = (Excel.Range)xSheet.Cells[iRowIndex, 1];         //所属公司
+                    Excel.Range rngDep = (Excel.Range)xSheet.Cells[iRowIndex, 2];         //所属部门
+                    Excel.Range rngPost = (Excel.Range)xSheet.Cells[iRowIndex, 3];         //所属岗位
+                    Excel.Range rngEmpName = (Excel.Range)xSheet.Cells[iRowIndex, 4];     //员工姓名
+                    Excel.Range rngProjectName = (Excel.Range)xSheet.Cells[iRowIndex, 5];         //项目名
+                    Excel.Range rngProjectValue = (Excel.Range)xSheet.Cells[iRowIndex, 6];         //项目金额
+                    Excel.Range rngRemark = (Excel.Range)xSheet.Cells[iRowIndex, 7];        //备注
+
+
+                    T_HR_EMPLOYEEADDSUM employeeAddSum = new T_HR_EMPLOYEEADDSUM();
+                    employeeAddSum.ADDSUMID = Guid.NewGuid().ToString();
+                    //公司
+                    T_HR_COMPANY com = null;
+                    if (rngCompany.Text != null)
+                    {
+                        string cname = rngCompany.Text.ToString().Trim();
+                        com = (from ent in dal.GetObjects<T_HR_COMPANY>()
+                                   where ent.CNAME == cname
+                                   select ent).FirstOrDefault();
+                        if (com != null)
+                        {
+                            employeeAddSum.OWNERCOMPANYID = com.COMPANYID;
+                        }
+                        else
+                        {
+                            strMsg = "员工加扣款导入失败：行号：" + iRowIndex + " 列号：1 导入的公司系统中不存在";
+                            Tracer.Debug(strMsg);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        strMsg="员工加扣款导入失败：行号：" + iRowIndex+" 列号：1 值为空";
+                        Tracer.Debug(strMsg);
+                        break;
+                    }
+
+                    //部门
+                    T_HR_DEPARTMENT dep = null; 
+                    if (rngDep.Text != null)
+                    {
+                        string depname = rngDep.Text.ToString().Trim();
+                        dep = (from ent in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_DEPARTMENTDICTIONARY")
+                                   where ent.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME == depname
+                                   && ent.T_HR_COMPANY.COMPANYID==com.COMPANYID
+                                   select ent).FirstOrDefault();
+                        if (dep != null)
+                        {
+                            employeeAddSum.OWNERDEPARTMENTID = dep.DEPARTMENTID;
+                        }
+                        else
+                        {
+                            strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：2 导入的部门系统中不存在";
+                            Tracer.Debug(strMsg);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：2 值为空 部门名称为空";
+                        Tracer.Debug(strMsg);
+                        break;
+                    }
+                    //岗位
+                    T_HR_POST pos = null;
+                    if (rngPost.Text != null)
+                    {
+                        string postname = rngPost.Text.ToString().Trim();
+                        pos = (from ent in dal.GetObjects<T_HR_POST>().Include("T_HR_POSTDICTIONARY")
+                                   where ent.T_HR_POSTDICTIONARY.POSTNAME == postname
+                                   && ent.T_HR_DEPARTMENT.DEPARTMENTID==dep.DEPARTMENTID
+                                   && ent.COMPANYID==com.COMPANYID
+                                   select ent).FirstOrDefault();
+                        if (pos != null)
+                        {
+                            employeeAddSum.OWNERPOSTID = pos.POSTID;
+                        }
+                        else
+                        {
+                            strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：3 导入的岗位系统不存在";
+                            Tracer.Debug(strMsg);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：3 值为空 部门名称为空";
+                        Tracer.Debug(strMsg);
+                        break;
+                    }
+
+                    //员工
+                    T_HR_EMPLOYEE employee = null;
+                    if (rngEmpName.Text != null)
+                    {
+                        string employeeName = rngEmpName.Text.ToString().Trim();
+
+                        employee = (from ent in dal.GetObjects<T_HR_EMPLOYEE>()
+                                    join empPost in dal.GetObjects<T_HR_EMPLOYEEPOST>() on ent.EMPLOYEEID equals empPost.T_HR_EMPLOYEE.EMPLOYEEID
+                                    join post in dal.GetObjects<T_HR_POST>() on empPost.T_HR_POST.POSTID equals post.POSTID
+                                    where ent.EMPLOYEECNAME == employeeName && post.POSTID == pos.POSTID
+                               select ent).FirstOrDefault();
+                        if (employee != null)
+                        {
+                            employeeAddSum.EMPLOYEEID = employee.EMPLOYEEID;
+                            employeeAddSum.EMPLOYEENAME = employee.EMPLOYEECNAME;
+                        }
+                        else
+                        {
+                            strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：4 导入的员工系统不存在";
+                            Tracer.Debug(strMsg);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                       strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：4 值为空 员工名称为空";
+                       Tracer.Debug(strMsg);
+                        break;
+                    }
+
+                    //项目名
+                    if (rngProjectName.Text != null)
+                    {
+                        employeeAddSum.PROJECTNAME = rngProjectName.Text.ToString().Trim();
+                    }
+                    else
+                    {
+                        strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：5 值为空 项目名称为空";
+                        Tracer.Debug(strMsg);
+                        break;
+                    }
+
+                    //项目金额
+                    if (rngProjectValue.Text != null)
+                    {
+                        employeeAddSum.PROJECTMONEY =decimal.Parse(rngProjectValue.Text.ToString().Trim());
+                    }
+                    else
+                    {
+                        strMsg = "员工加扣款导入失败：行号：" + iRowIndex + " 列号：6 值为空 项目金额为空";
+                        Tracer.Debug(strMsg);
+                        break;
+                    }
+
+                    //项目备注
+                    if (rngRemark.Text != null)
+                    {
+                        employeeAddSum.REMARK = rngRemark.Text.ToString().Trim();
+                    }
+                    else
+                    {
+                         strMsg = "员工加扣款导入失败：行号：" + iRowIndex + " 列号：7 值为空 项目备注为空";
+                         Tracer.Debug(strMsg);
+                        break;
+                    }
+                    employeeAddSum.DEALYEAR = paras["YEAR"].ToString();
+                    employeeAddSum.DEALYEAR = paras["MONTH"].ToString();
+
+                    employeeAddSum.CREATEUSERID = paras["CREATEUSERID"].ToString();
+                    employeeAddSum.CREATEPOSTID = paras["CREATEPOSTID"].ToString();
+                    employeeAddSum.CREATEDEPARTMENTID = paras["CREATEDEPARTMENTID"].ToString();
+                    employeeAddSum.CREATECOMPANYID = paras["CREATECOMPANYID"].ToString();
+
+
+                    employeeAddSum.CREATEDATE = DateTime.Now;
+                    employeeAddSum.UPDATEDATE = DateTime.Now;
+
+                    if (IsPreview == false)
+                    {
+                       dal.Add(employeeAddSum);
+                    }
+                    else
+                    {
+                        ListEmployeeAddSum.Add(employeeAddSum);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.SaveLog(ex.ToString());
+            }
+            finally
+            {
+                xApp.Quit();
+            }
+
+            return ListEmployeeAddSum;
+        }
+
+
+        /// <summary>
+        /// 构建导入的DataTable
+        /// </summary>
+        /// <returns></returns>
+        private DataTable MakeTableForImport()
+        {
+            T_HR_EMPLOYEEADDSUM addSum=new T_HR_EMPLOYEEADDSUM();
+            
+            DataTable dt = new DataTable();
+
+            DataColumn colDepartment = new DataColumn();
+            colDepartment.ColumnName = Utility.GetResourceStr(addSum.OWNERCOMPANYID.GetType().Name);
+            colDepartment.DataType = typeof(string);
+            dt.Columns.Add(colDepartment);
+
+            DataColumn colEmployeename = new DataColumn();
+            colEmployeename.ColumnName = Utility.GetResourceStr(addSum.OWNERDEPARTMENTID.GetType().Name);
+            colEmployeename.DataType = typeof(string);
+            dt.Columns.Add(colEmployeename);
+
+            DataColumn colFingerprintid = new DataColumn();
+            colFingerprintid.ColumnName = Utility.GetResourceStr(addSum.OWNERPOSTID.GetType().Name);
+            colFingerprintid.DataType = typeof(string);
+            dt.Columns.Add(colFingerprintid);
+
+            DataColumn colPunchdate = new DataColumn();
+            colPunchdate.ColumnName = Utility.GetResourceStr(addSum.OWNERID.GetType().Name);
+            colPunchdate.DataType = typeof(string);
+            dt.Columns.Add(colPunchdate);
+
+            DataColumn colClockID = new DataColumn();
+            colClockID.ColumnName = Utility.GetResourceStr(addSum.PROJECTNAME.GetType().Name);
+            colClockID.DataType = typeof(string);
+            dt.Columns.Add(colClockID);
+
+            DataColumn colPROJECTMONEY = new DataColumn();
+            colPROJECTMONEY.ColumnName = Utility.GetResourceStr(addSum.PROJECTMONEY.GetType().Name);
+            colPROJECTMONEY.DataType = typeof(string);
+            dt.Columns.Add(colPROJECTMONEY);
+
+            DataColumn colREMARK = new DataColumn();
+            colREMARK.ColumnName = Utility.GetResourceStr(addSum.REMARK.GetType().Name);
+            colREMARK.DataType = typeof(string);
+            dt.Columns.Add(colREMARK);
+
+            return dt;
         }
     }
 }

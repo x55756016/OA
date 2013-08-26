@@ -462,12 +462,13 @@ namespace SMT.HRM.BLL
                     var ent = dal.GetObjects().FirstOrDefault(s => s.CANCELLEAVEID == id);
                     if (ent != null)
                     {
-                        dal.DeleteFromContext(ent);
+                        //dal.DeleteFromContext(ent);
+                        Delete(ent);
                     }
 
                     //根据id删除代办信息
-                    EngineWcfGlobalFunctionClient wcfClient=new EngineWcfGlobalFunctionClient();
-                    wcfClient.DeleteTrigger(id);
+                    //EngineWcfGlobalFunctionClient wcfClient=new EngineWcfGlobalFunctionClient();
+                    //wcfClient.DeleteTrigger(id);
                 }
                 return dal.SaveContextChanges();
             }

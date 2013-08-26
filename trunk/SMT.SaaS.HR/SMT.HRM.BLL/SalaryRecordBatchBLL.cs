@@ -512,6 +512,41 @@ namespace SMT.HRM.BLL
                 return null;
             }
         }
+        /// <summary>
+        /// 获取公司名称（优先选取简称）
+        /// </summary>
+        /// <param name="company"></param>
+        /// <returns></returns>
+        private string GetCompany(T_HR_COMPANY company)
+        {
+            string strCompanyName = string.Empty;
+            if (string.IsNullOrWhiteSpace(company.BRIEFNAME))
+            {
+                strCompanyName = company.CNAME;
+            }
+            else
+            {
+                strCompanyName = company.BRIEFNAME;
+            }
+            return strCompanyName;
+        }
+
+        /// <summary>
+        /// 获取薪资批量审核数据
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="sort"></param>
+        /// <param name="filterString"></param>
+        /// <param name="paras"></param>
+        /// <param name="pageCount"></param>
+        /// <param name="starttime"></param>
+        /// <param name="endtime"></param>
+        /// <param name="orgtype"></param>
+        /// <param name="orgid"></param>
+        /// <param name="strCheckState"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public DataSetData GetAuditSalaryRecords(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, DateTime starttime, DateTime endtime, int orgtype, string orgid, string strCheckState, string userID)
         {
 
@@ -522,6 +557,7 @@ namespace SMT.HRM.BLL
                 #region 查询数据
                 var ents = from a in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
                            join b in dal.GetObjects<T_HR_EMPLOYEE>() on a.EMPLOYEEID equals b.EMPLOYEEID
+                           join ec in dal.GetObjects<T_HR_COMPANY>() on b.OWNERCOMPANYID equals ec.COMPANYID
                            join c in dal.GetObjects<T_HR_DEPARTMENT>() on b.OWNERDEPARTMENTID equals c.OWNERDEPARTMENTID
                            join d in dal.GetObjects<T_HR_POST>() on b.OWNERPOSTID equals d.OWNERPOSTID
                            join e in dal.GetObjects<T_HR_SALARYARCHIVE>() on a.ABSENTTIMES equals e.SALARYARCHIVEID
@@ -534,6 +570,7 @@ namespace SMT.HRM.BLL
                                SALARYYEAR = a.SALARYYEAR,
                                SALARYMONTH = a.SALARYMONTH,
                                ACTUALLYPAY = a.ACTUALLYPAY,
+                               COMPANY = c.T_HR_COMPANY.BRIEFNAME == null ? c.T_HR_COMPANY.CNAME : c.T_HR_COMPANY.BRIEFNAME,
                                DEPARTMENT = c.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                                POST = d.T_HR_POSTDICTIONARY.POSTNAME,
                                MONTHLYBATCHID = a.T_HR_SALARYRECORDBATCH.MONTHLYBATCHID,
@@ -567,7 +604,7 @@ namespace SMT.HRM.BLL
                 {
                     ents = ents.Where(filterString, queryParas.ToArray());
                 }
-                
+
                 string year = starttime.Year.ToString();
                 string month = starttime.Month.ToString();
                 ents = ents.Where(m => m.SALARYYEAR == year && m.SALARYMONTH == month);
@@ -627,10 +664,13 @@ namespace SMT.HRM.BLL
                 DataColumnInfo col1 = new DataColumnInfo { ColumnName = "EMPLOYEEID", ColumnTitle = "员工ID", DataTypeName = typeof(string).FullName, MaxLength = 50, IsKey = false, IsReadOnly = true, IsRequired = false, IsEncrypt = false, IsShow = false, IsNeedSum = false };
                 tableInfo.Columns.Add(col1);
 
+                DataColumnInfo col14 = new DataColumnInfo { ColumnName = "COMPANY", ColumnTitle = "公司", DataTypeName = typeof(string).FullName, MaxLength = 50, IsKey = false, IsReadOnly = true, IsRequired = true, IsEncrypt = false, IsShow = true, IsNeedSum = false };
+                tableInfo.Columns.Add(col14);
+
                 DataColumnInfo col6 = new DataColumnInfo { ColumnName = "DEPARTMENT", ColumnTitle = "部门", DataTypeName = typeof(string).FullName, MaxLength = 50, IsKey = false, IsReadOnly = true, IsRequired = true, IsEncrypt = false, IsShow = true, IsNeedSum = false };
                 tableInfo.Columns.Add(col6);
 
-                DataColumnInfo col7 = new DataColumnInfo { ColumnName = "POST", ColumnTitle = "工作岗位", DataTypeName = typeof(string).FullName, MaxLength = 50, IsKey = false, IsReadOnly = true, IsRequired = true, IsEncrypt = false, IsShow = true, IsNeedSum = false };
+                DataColumnInfo col7 = new DataColumnInfo { ColumnName = "POST", ColumnTitle = "岗位", DataTypeName = typeof(string).FullName, MaxLength = 50, IsKey = false, IsReadOnly = true, IsRequired = true, IsEncrypt = false, IsShow = true, IsNeedSum = false };
                 tableInfo.Columns.Add(col7);
 
                 DataColumnInfo col2 = new DataColumnInfo { ColumnName = "EMPLOYEENAME", ColumnTitle = "姓名", DataTypeName = typeof(string).FullName, MaxLength = 50, IsKey = false, IsReadOnly = true, IsRequired = true, IsEncrypt = false, IsShow = true, IsNeedSum = false };
@@ -711,6 +751,7 @@ namespace SMT.HRM.BLL
                     sb.Append("<SALARYYEAR>" + entItem.SALARYYEAR + "</SALARYYEAR>");
                     sb.Append("<SALARYMONTH>" + entItem.SALARYMONTH + "</SALARYMONTH>");
                     sb.Append("<ACTUALLYPAY>" + entItem.ACTUALLYPAY + "</ACTUALLYPAY>");
+                    sb.Append("<COMPANY>" + entItem.COMPANY + "</COMPANY>");
                     sb.Append("<DEPARTMENT>" + entItem.DEPARTMENT + "</DEPARTMENT>");
                     sb.Append("<POST>" + entItem.POST + "</POST>");
                     sb.Append("<POSTCODE>" + PostCode + "</POSTCODE>");
@@ -763,7 +804,8 @@ namespace SMT.HRM.BLL
                 sb.Append("<SALARYYEAR>" + "" + "</SALARYYEAR>");
                 sb.Append("<SALARYMONTH>" + "" + "</SALARYMONTH>");
                 sb.Append("<ACTUALLYPAY>" + AES.AESEncrypt(tempTotalMoney.ToString()) + "</ACTUALLYPAY>");
-                sb.Append("<DEPARTMENT>" + "合计" + "</DEPARTMENT>");
+                sb.Append("<COMPANY>" + "合计" + "</COMPANY>");
+                sb.Append("<DEPARTMENT>" + "--" + "</DEPARTMENT>");
                 sb.Append("<POST>" + "--" + "</POST>");
                 sb.Append("<POSTCODE>" + "--" + "</POSTCODE>");
                 //sb.Append("<MONTHLYBATCHID>" + "" + "</MONTHLYBATCHID>");
@@ -1245,7 +1287,7 @@ namespace SMT.HRM.BLL
                 dal.CommitTransaction();
 
                 //当单据审核通过时，调用FB服务，生成一张对应公司的活动经费下拨单_____2012/8/10 9:50:24注释，暂停使用
-                string strMsg=string.Empty;
+                string strMsg = string.Empty;
                 AssignPersonMoney(CheckState, recordBatch.OWNERCOMPANYID, ref strMsg);
 
                 return i;
@@ -1270,11 +1312,11 @@ namespace SMT.HRM.BLL
                 if (strCheckState == Convert.ToInt32(CheckStates.Approved).ToString())
                 {
                     CompanyBLL bllComp = new CompanyBLL();
-                    var entComp =from ent in  dal.GetTable<T_HR_COMPANY>()
-                                          where ent.COMPANYID==strCompanyID
-                                              select ent;
+                    var entComp = from ent in dal.GetTable<T_HR_COMPANY>()
+                                  where ent.COMPANYID == strCompanyID
+                                  select ent;
                     string strAssignCompanyID = System.Configuration.ConfigurationManager.AppSettings["PersonMoneyAssignCompany"];
-                    if (entComp.Count()<1)
+                    if (entComp.Count() < 1)
                     {
                         strMsg = "下拨公司(公司ID:" + strCompanyID + ")不存在，生成下拨公司(公司ID:" + strCompanyID + ")的活动经费下拨单失败";
                         SMT.Foundation.Log.Tracer.Debug(strMsg);

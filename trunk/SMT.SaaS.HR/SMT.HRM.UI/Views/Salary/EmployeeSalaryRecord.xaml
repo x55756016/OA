@@ -128,7 +128,7 @@
                 </data:DataGrid>
                 <controls:GridSplitter Grid.RowSpan="2" Grid.Column="3"   HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Width="1"></controls:GridSplitter>-->
                 <!--</StackPanel>-->
-                
+
                 <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" LoadingRow="DtGrid_LoadingRow"  Visibility="Collapsed"
                             Grid.Row="0" Grid.Column="1" Style="{StaticResource DataGridStyle}"
                         CellStyle="{StaticResource DataGridCellStyle}"  RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
@@ -261,7 +261,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <HyperlinkButton x:Name="hbClose" Click="hbClose_Click" Content="X" HorizontalAlignment="Right" ></HyperlinkButton>
                                     <TextBlock x:Name="txtbDetail" HorizontalAlignment="Left" Width="680"></TextBlock>
-                                    
+
                                 </StackPanel>
                                 <ScrollViewer  Height="100" Width="690" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
                                     <StackPanel Orientation="Vertical">

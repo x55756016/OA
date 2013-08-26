@@ -27,28 +27,31 @@ using System.IO;
 using SMT.SaaS.FrameworkUI;
 using SMT.SaaS.FrameworkUI.OrganizationControl;
 using System.Windows.Data;
+using SMT.Saas.Tools.PermissionWS;
+using SMT.SAAS.Main.CurrentContext;
 
 
 namespace SMT.HRM.UI.Views.Attendance
 {
-    public partial class ClockInRd : BasePage,IClient
+    public partial class ClockInRd : BasePage, IClient
     {
         #region 全局变量
         AttendanceServiceClient clientAtt;
         byte[] byExport;
         private SMTLoading loadbar = new SMTLoading();
         OrganizationServiceClient orgClient;
-
+        PermissionServiceClient PermClient = new PermissionServiceClient();
         private List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> allCompanys;
         private List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> allDepartments;
         private List<SMT.Saas.Tools.OrganizationWS.T_HR_POST> allPositions;
+        private T_SYS_ENTITYMENUCUSTOMPERM customerPermission;
         #endregion
 
         #region 初始化
         public ClockInRd()
         {
             InitializeComponent();
-            this.Loaded+=new RoutedEventHandler(ClockInRd_Loaded);
+            this.Loaded += new RoutedEventHandler(ClockInRd_Loaded);
         }
 
         // 当用户导航到此页面时执行。
@@ -80,7 +83,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 dpClockInRdEndDate.Text = dtNow.ToString("yyyy-M") + "-" + iMaxDay.ToString();
             }
 
-            toolbar1.btnImport.Visibility = Visibility.Visible;
+            //toolbar1.btnImport.Visibility = Visibility.Visible;
             toolbar1.btnOutExcel.Visibility = Visibility.Visible;
 
 
@@ -92,9 +95,42 @@ namespace SMT.HRM.UI.Views.Attendance
 
             clientAtt.GetClockInRdListByMultSearchCompleted += new EventHandler<GetClockInRdListByMultSearchCompletedEventArgs>(clientAtt_GetClockInRdListByMultSearchCompleted);
             clientAtt.OutClockInRdListByMultSearchCompleted += new EventHandler<OutClockInRdListByMultSearchCompletedEventArgs>(clientAtt_OutClockInRdListByMultSearchCompleted);
-
+            PermClient.GetCustomerPermissionByUserIDAndEntityCodeCompleted += new EventHandler<GetCustomerPermissionByUserIDAndEntityCodeCompletedEventArgs>(PermClient_GetCustomerPermissionByUserIDAndEntityCodeCompleted);
+            if (customerPermission == null)
+                PermClient.GetCustomerPermissionByUserIDAndEntityCodeAsync(Common.CurrentLoginUserInfo.SysUserID, "T_HR_EMPLOYEECLOCKINRECORD");
         }
-
+        /// <summary>
+        /// 读取自定义权限
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void PermClient_GetCustomerPermissionByUserIDAndEntityCodeCompleted(object sender, GetCustomerPermissionByUserIDAndEntityCodeCompletedEventArgs e)
+        {
+            toolbar1.btnImport.Visibility = Visibility.Visible;//首先显示，为了读取失败之后不影响原有操作。
+            try
+            {
+                if (e.Error == null)
+                {
+                    if (e.Result != null)
+                    {
+                        customerPermission = new T_SYS_ENTITYMENUCUSTOMPERM();
+                        customerPermission = e.Result;
+                    }
+                    else
+                    {
+                        toolbar1.btnImport.Visibility = Visibility.Collapsed;//没有自定义权限则隐藏
+                    }
+                }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Error.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), ex.Message);
+            }
+        }
         /// <summary>
         /// 组织架构树的选择事件
         /// </summary>
@@ -132,7 +168,7 @@ namespace SMT.HRM.UI.Views.Attendance
         /// </summary>
         private void InitPage()
         {
-           // BindTree();
+            // BindTree();
             BindClockInRdList();
         }
 
@@ -210,7 +246,7 @@ namespace SMT.HRM.UI.Views.Attendance
 
             if (dpClockInRdStartTime.Value != null)
             {
-                dtTimeFrom = dpClockInRdStartTime.Value.Value;                
+                dtTimeFrom = dpClockInRdStartTime.Value.Value;
             }
 
             if (dpClockInRdEndTime.Value != null)
@@ -278,9 +314,9 @@ namespace SMT.HRM.UI.Views.Attendance
             loadbar.Stop();
         }
 
-        
 
-       
+
+
 
         /// <summary>
         /// 加载图片
@@ -298,7 +334,7 @@ namespace SMT.HRM.UI.Views.Attendance
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void lkEmpName_FindClick(object sender, EventArgs e)
-        {           
+        {
             OrganizationLookup lookup = new OrganizationLookup();
 
             lookup.SelectedObjType = OrgTreeItemTypes.Personnel;
@@ -417,7 +453,7 @@ namespace SMT.HRM.UI.Views.Attendance
                     MessageBox.Show("未获取到任何数据。");
                 }
             }
-           
+
         }
         /// <summary>
         /// 获取导出数据流
@@ -436,7 +472,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 }
 
                 byExport = e.Result;
-                
+
             }
             else
             {

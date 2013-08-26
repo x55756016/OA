@@ -90,11 +90,6 @@ namespace SMT.HRM.BLL
             return ent;
         }
 
-        /// <summary>
-        /// 获取员工主岗位所在公司
-        /// </summary>
-        /// <param name="strEmployeeID"></param>
-        /// <returns></returns>
         public T_HR_COMPANY GetCompanyByEmployeeID(string strEmployeeID)
         {
             IQueryable<T_HR_COMPANY> ents = from c in dal.GetObjects()
@@ -103,9 +98,6 @@ namespace SMT.HRM.BLL
                                             join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST") on p.POSTID equals ep.T_HR_POST.POSTID
                                             join e in dal.GetObjects<T_HR_EMPLOYEE>() on ep.T_HR_EMPLOYEE.EMPLOYEEID equals e.EMPLOYEEID
                                             where e.EMPLOYEEID == strEmployeeID
-                                            && ep.ISAGENCY=="0"
-                                            && ep.EDITSTATE=="1"
-                                            && ep.CHECKSTATE=="2"
                                             select c;
 
             T_HR_COMPANY ent = new T_HR_COMPANY();
@@ -809,7 +801,7 @@ namespace SMT.HRM.BLL
             var ents = from a in dal.GetObjects()
                        where a.T_HR_COMPANY2.COMPANYID == companyID
                        select a;
-            if (ents.Count() > 0)
+            if (ents != null && ents.Count() > 0)
             {
                 foreach (var ent in ents)
                 {
@@ -832,6 +824,100 @@ namespace SMT.HRM.BLL
             }
             return true;
         }
+
+        /// <summary>
+        /// 根据员工ID获取员工所有岗位的公司ID（包括父级公司）
+        /// </summary>
+        /// <param name="employeeID">员工ID</param>
+        /// <returns>公司string集合</returns>
+        public List<string> GetAllParentsCompamy(string employeeID)
+        {
+            try
+            {
+                EmployeeBLL bll = new EmployeeBLL();
+                List<V_EMPLOYEEPOSTBRIEF> listBrief = bll.GetEmployeeDetailView(employeeID).EMPLOYEEPOSTS;
+                List<string> listCompanyID = new List<string>();
+                if (listBrief != null && listBrief.Count > 0)
+                {
+                    listBrief.ForEach(it =>
+                        {
+                            var ents = from a in dal.GetObjects()
+                                       where a.COMPANYID == it.CompanyID
+                                       select a;
+                            if (ents != null && ents.Count() > 0)
+                            {
+                                ents.ToList().ForEach(item =>
+                                    {
+                                        List<string> tempList = new List<string>();
+                                        this.GetParentsCompanyID(item.COMPANYID,item.FATHERTYPE, ref tempList);
+                                        listCompanyID.AddRange(tempList);
+                                    });
+                            }
+                        });
+                }
+                listCompanyID = listCompanyID.Distinct().ToList();
+                return listCompanyID;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("活动员工所有公司 GetAllParentsCompamy出错" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 递归获取某个公司或部门机构的所有父级公司
+        /// </summary>
+        /// <param name="orgID">机构ID</param>
+        /// <param name="type">机构类型（0公司，1部门）</param>
+        /// <param name="listCompanyID"></param>
+        /// <returns></returns>
+        public List<string> GetParentsCompanyID(string orgID,  string type, ref List<string> listCompanyID)
+        {
+            try
+            {
+                if (type == "0")
+                {
+                    listCompanyID.Add(orgID);
+                    var entCom = from a in dal.GetObjects()
+                                 where a.COMPANYID == orgID
+                                 select a;
+                    if (entCom != null && entCom.Count() > 0)
+                    {
+                        T_HR_COMPANY company = entCom.FirstOrDefault();
+                        if (!string.IsNullOrEmpty(company.FATHERID))
+                        {
+                            this.GetParentsCompanyID(company.FATHERID, company.FATHERTYPE, ref listCompanyID);
+                        }
+                    }
+                }
+                else if (type == "1")
+                {
+                    var entDep = from a in dal.GetObjects<T_HR_DEPARTMENT>()
+                                 where a.DEPARTMENTID == orgID
+                                 select a;
+                    if (entDep != null && entDep.Count() > 0)
+                    {
+                        T_HR_DEPARTMENT dep = entDep.FirstOrDefault();
+                        if (!string.IsNullOrEmpty(dep.FATHERID))
+                        {
+                            this.GetParentsCompanyID(dep.FATHERID, dep.FATHERTYPE, ref listCompanyID);
+                        }
+                    }
+                }
+                else//没有上级部门
+                {
+                    listCompanyID.Add(orgID);
+                }
+                return listCompanyID;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("活动员工所有公司 GetAllParentsCompamy出错" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return listCompanyID;
+            }
+        }
+       
         /// <summary>
         /// 当前公司有字公司的数量
         /// </summary>

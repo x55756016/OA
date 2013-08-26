@@ -360,6 +360,29 @@ namespace SMT.HRM.Services
                 return ents.Count() > 0 ? ents.ToList() : null;
             }
         }
+
+        /// <summary>
+        /// 根据员工ID获取员工所有岗位的公司ID（包括父级公司）
+        /// </summary>
+        /// <param name="employeeID">员工ID</param>
+        /// <returns>公司string集合</returns>
+        [OperationContract]
+        public List<string> GetAllParentsCompamy(string employeeID)
+        {
+            using (CompanyBLL bll = new CompanyBLL())
+            {
+                List<string> ents = bll.GetAllParentsCompamy(employeeID);
+                if (ents != null)
+                {
+                    return ents.Count() > 0 ? ents.ToList() : null;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         /// <summary>
         /// 根据公司ID获取子公司
         /// </summary>
@@ -388,23 +411,15 @@ namespace SMT.HRM.Services
         {
             using (CompanyBLL bll = new CompanyBLL())
             {
-                try
+                IQueryable<T_HR_COMPANY> ents = bll.CompanyPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, checkState);
+                if (ents != null)
                 {
-                    IQueryable<T_HR_COMPANY> ents = bll.CompanyPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, checkState);
-                    if (ents != null)
-                    {
-                        return ents.Count() > 0 ? ents.ToList() : null;
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                    return ents.Count() > 0 ? ents.ToList() : null;
                 }
-                catch (Exception ex)
+                else
                 {
-                    Tracer.Debug(ex.ToString());
+                    return null;
                 }
-                return null;
             }
             // return ents.Count() > 0 ? ents.ToList() : null;
         }

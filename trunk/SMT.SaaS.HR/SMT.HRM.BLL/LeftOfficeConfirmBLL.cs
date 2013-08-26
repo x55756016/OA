@@ -271,6 +271,16 @@ namespace SMT.HRM.BLL
                                     conbll.EmployeeContractUpdate(contract);
                                 }
                                 #endregion
+                                #region 删除员工合同到期提醒的定时触发
+                                List<T_HR_EMPLOYEECONTRACT> contractList = conbll.GetListEmpContractByEmpID(ent.EMPLOYEEID);
+                                if (contractList != null && contractList.Count > 0)
+                                {
+                                    contractList.ForEach(it =>
+                                        {
+                                            Utility.DeleteTrigger("T_HR_EMPLOYEECONTRACT", it.EMPLOYEECONTACTID);
+                                        });
+                                }
+                                #endregion
                                 #region 入职信息设为无效
                                 //根据员工ID查询员工入职表
                                 var employeeEntrys = from c in dal.GetObjects<T_HR_EMPLOYEEENTRY>()
@@ -448,6 +458,7 @@ namespace SMT.HRM.BLL
                                     }
                                 }
                                 #endregion
+
                             }
                             else
                             {

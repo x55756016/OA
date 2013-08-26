@@ -145,7 +145,8 @@ namespace SMT.HRM.UI.Form.Attendance
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "CHECKSTATE", "1", checkState));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERPOSTNAME", tbOrgName.Text.Trim(), tbOrgName.Text.Trim()));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "POSTLEVEL", tbEmpLevel.Text.Trim(), postLevelName));
-            AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "EMPLOYEENAME", Info.EMPLOYEENAME, tbEmpName.Text));
+            AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "EMPLOYEEORGNAME", Info.EMPLOYEENAME, tbEmpName.Text));
+            AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "EMPLOYEENAME", Info.EMPLOYEENAME, Info.EMPLOYEENAME));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "TOTALADJUSTLEAVEDAYS", nudTotalAdjustLeaveDays.Value.ToString(), nudTotalAdjustLeaveDays.Value.ToString()));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "DEDUCTDAYS", nudDeductDays.Value.ToString(), nudDeductDays.Value.ToString()));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "TOTALVACATIONDAYS", nudTotalVacationDays.Value.ToString(), nudTotalVacationDays.Value.ToString()));

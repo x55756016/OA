@@ -96,54 +96,54 @@
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
         contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
 
-      <endpoint address="http://10.10.0.57/New/Services/HR/OrganizationService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/HR/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
       
-      <endpoint address="http://10.10.0.57/New/Services/smtflow/SMT.FlowWFService.Service.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/smtflow/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
-      <endpoint address="http://10.10.0.57/New/Services/System/PermissionService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/System/PermissionService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
         contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
-      <endpoint address="http://10.10.0.57/New/Services/OA/ContractManagementServiceFrom.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/OA/ContractManagementServiceFrom.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ContractManagementServiceFrom"
         contract="ContractAppWS.ContractManagementServiceFrom" name="CustomBinding_ContractManagementServiceFrom" />
-      <endpoint address="http://10.10.0.57/New/Services/OA/WelfareStandardService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/OA/WelfareStandardService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_WelfareStandardService"
         contract="WelfareStandardWS.WelfareStandardService" name="CustomBinding_WelfareStandardService" />
-      <endpoint address="http://10.10.0.57/New/Services/HR/HrCommonService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/HR/HrCommonService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
         contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
       
-      <endpoint address="http://10.10.0.57/New/Services/HR/PerformanceService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/HR/PerformanceService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
         contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
-      <endpoint address="http://10.10.0.57/New/Services/System/FileUploadManager.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/System/FileUploadManager.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
         contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
-      <endpoint address="http://10.10.0.57/New/Services/SMTFlowDesigner/Service.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/SMTFlowDesigner/Service.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Service"
         contract="FlowDesignerWS.Service" name="CustomBinding_Service" />
       <endpoint address="http://localhost:12168/AttendanceService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
         contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
-      <endpoint address="http://10.10.0.57/New/Services/FB/FBService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/FB/FBService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
         contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
-      <endpoint address="http://10.10.0.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="BasicHttpBinding_IEngineWcfGlobalFunction" />
-      <endpoint address="http://10.10.0.57/New/Services/SMTEngine/PersonalRecordService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/SMTEngine/PersonalRecordService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
         contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
-      <endpoint address="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/PublicInterface/PublicService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
         contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
-      <endpoint address="http://10.10.0.57/New/Services/HR/Report/ChartReportService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/HR/Report/ChartReportService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ChartReportService"
         contract="ChartReportsServiceWS.ChartReportService" name="BasicHttpBinding_ChartReportService" />
-      <endpoint address="http://10.10.0.57/New/Services/HR/Report/ReportChartService.svc"
+      <endpoint address="http://192.168.242.129:8080/New/Services/HR/Report/ReportChartService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ReportChartService"
         contract="ReportChartServiceWS.ReportChartService" name="BasicHttpBinding_ReportChartService" />
       <!--FBA-->

@@ -15,7 +15,7 @@
             如果您希望利用文件和注册表虚拟化提供
             向后兼容性，请删除 requestedExecutionLevel 节点。
         -->
-        <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />
+        <!--<requestedExecutionLevel level="requireAdministrator" uiAccess="false" />-->
         <!--<requestedExecutionLevel level="asInvoker" uiAccess="false" />-->
       </requestedPrivileges>
       <applicationRequestMinimum>

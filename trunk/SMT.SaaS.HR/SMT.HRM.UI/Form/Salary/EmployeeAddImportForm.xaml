@@ -1,0 +1,86 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Salary.EmployeeAddImportForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    >
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <!--<TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=IMPORTSETMASTER}" Grid.Row="0" Grid.Column="0"  ></TextBlock>
+        <smt:LookUp DataContext="{Binding Path=SALARYSYSTEMNAME, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Height="24"
+                    FindClick="lkSalarySystem_FindClick" Name="lkImportsetMaster" Margin="0,0,0,0" DisplayMemberPath="SALARYSYSTEMNAME">
+        </smt:LookUp>-->
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COUNTYTYPEORAREA}" 
+                   Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" ></TextBlock>
+        <!--<ComboBox Name="cbxCountry" Grid.Row="1" Grid.Column="1" SelectionChanged="cbxCountry_SelectionChanged" Style="{StaticResource ComboBoxStyle}" Width="auto" HorizontalAlignment="Stretch"></ComboBox>-->
+        <!--<appCtr:DictionaryComboBox  x:Name="cbxCountry" IsShowNull="False" Category="COUNTYTYPE" SelectionChanged="cbxCountry_SelectionChanged" SelectedValue="{Binding COUNTYTYPE, Mode=TwoWay}" 
+                Grid.Row="0" Grid.Column="1" Width="auto" HorizontalAlignment="Stretch"/>-->
+
+
+        <!--Row 2-->
+        <!--省
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROVINCES}" 
+                   Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" ></TextBlock>
+        <ComboBox Name="cbxProvince" Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStyle}" SelectionChanged="ComboBox_SelectionChanged" Width="auto" HorizontalAlignment="Stretch"></ComboBox>
+	-->
+	<!--城市
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CITY}" 
+                   Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" ></TextBlock>
+        <ComboBox Name="cbxCity" Grid.Row="1" Grid.Column="4" Style="{StaticResource ComboBoxStyle}" Width="auto" HorizontalAlignment="Stretch"></ComboBox>
+        -->
+	<inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="auto" HorizontalAlignment="Stretch" Minimum="1900" Maximum="5000"  Grid.Column="1" Grid.Row="2" x:Name="Nuyear" Loaded="Nuyear_Loaded"></inputToolkit:NumericUpDown>
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center"  Grid.Column="2" Grid.Row="2"></TextBlock>
+        <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}"  Width="auto" HorizontalAlignment="Stretch" Maximum="12" Grid.Column="4" Grid.Row="2" x:Name="NuStartmounth" Loaded="NuStartmounth_Loaded"></inputToolkit:NumericUpDown>
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}"  VerticalAlignment="Center" Grid.Column="5" Grid.Row="2"></TextBlock>
+       
+        <Button x:Name="BrowseFiles" Style="{StaticResource CommonButtonStyle}" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left"  Margin="5" Content="{Binding Converter={StaticResource ResourceConveter}, Source= BROWSEFILES}" Click="BrowseFiles_Click" Height="22" />
+        <TextBlock x:Name="tbFileName" Text="" Style="{StaticResource SysTextBlockStyle}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4" />
+
+        <Button x:Name="Add" Style="{StaticResource CommonButtonStyle}" Visibility="Collapsed"  Grid.Column="4" Grid.Row="3" Width="auto" Content="{Binding Converter={StaticResource ResourceConveter}, Source=IMPORT}" Click="Add_Click" Height="22" />
+
+       
+        <TextBlock x:Name="txtUploadResMsg" Text="" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" />
+        <!--社保导入-->
+        <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  LoadingRow="DtGrid_LoadingRow" FrozenColumnCount="4"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Grid.Row="5" Grid.ColumnSpan="6" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn  Header="序号" IsReadOnly="True">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="tbNo" Width="16" Height="16"></TextBlock>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="OWNERCOMPANYID" Binding="{Binding OWNERCOMPANYID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="OWNERDEPARTMENTID" Binding="{Binding OWNERDEPARTMENTID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="OWNERPOSTID" Binding="{Binding OWNERPOSTID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="PROJECTNAME" Binding="{Binding PROJECTNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="PROJECTMONEY" Binding="{Binding PROJECTMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="REMARK" Binding="{Binding REMARK}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                   
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <!--<smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="6"></smt:GridPager>-->
+    </Grid>
+</smtLocal:BaseForm>

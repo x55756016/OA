@@ -1460,6 +1460,39 @@ namespace SMT.HRM.Services
             }
         }
 
+
+        /// <summary>
+        /// 导入Excel的员工社保记录返回并显示  ljx
+        /// </summary>
+        /// <param name="UploadFile">上传载体</param>
+        /// <param name="paras">传递的参数</param>
+        /// <param name="strMsg">消息</param>
+        /// <param name="IsPreview">是否预览</param>
+        /// <returns>返回导入结果</returns>
+        [OperationContract]
+        public List<T_HR_EMPLOYEEADDSUM> ImportEmployeeAddSumFromExcelForShow(UploadFileModel UploadFile, Dictionary<string, string> paras, ref string strMsg, bool IsPreview)
+        {
+            List<T_HR_EMPLOYEEADDSUM> ListResult = new List<T_HR_EMPLOYEEADDSUM>();
+            try
+            {
+                Tracer.Debug("import start" + paras.Count.ToString());
+                string strPath = string.Empty;
+                SaveFile(UploadFile, out strPath);
+                string strPhysicalPath = HttpContext.Current.Server.MapPath(strPath);
+
+                using (EmployeeAddSumBLL bll = new EmployeeAddSumBLL())
+                {
+                    ListResult = bll.ImportEmployeeAddSumFromExcelForShow(strPhysicalPath, paras, ref strMsg,IsPreview);
+                }
+                Tracer.Debug("import sucess");
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("ImportClockInRdListFromExcelWS:" + ex.Message);
+            }
+            return ListResult;
+        }
+
         /// <summary>
         /// 批量添加员工加扣款
         /// </summary>

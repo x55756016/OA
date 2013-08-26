@@ -90,6 +90,8 @@ namespace SMT.HRM.UI.Form
             cbxCheckState.IsEnabled = false;
             //cbxDepartMent.IsEnabled = false;
             acbDepName.IsEnabled = false;
+            acbDepName.ToggleButton.IsEnabled = false;
+            acbDepName.TxtLookUp.IsReadOnly = true;
             this.rbtYes.IsEnabled = false;
             this.rbtNo.IsEnabled = false;
             if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue("T_HR_DEPARTMENT", SMT.SaaS.FrameworkUI.Common.Permissions.Edit) < 0)
@@ -337,6 +339,8 @@ namespace SMT.HRM.UI.Form
                     {
                         lkFather.IsEnabled = false;
                         acbDepName.IsEnabled = false;
+                        acbDepName.ToggleButton.IsEnabled = false;
+                        acbDepName.TxtLookUp.IsReadOnly = true;
                         Department.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
                         if (Department.EDITSTATE != Convert.ToInt32(EditStates.PendingCanceled).ToString())
                         {
@@ -533,7 +537,10 @@ namespace SMT.HRM.UI.Form
                         }
                     }
                 }
-                ToolTipService.SetToolTip(this.deptName, deptName);
+                acbDepName.IsEnabled = true;
+                //acbDepName.ToggleButton.IsEnabled = false;
+                //acbDepName.TxtLookUp.IsReadOnly = true;
+                ToolTipService.SetToolTip(this.acbDepName.TxtLookUp, deptName);
             }
         }
 
