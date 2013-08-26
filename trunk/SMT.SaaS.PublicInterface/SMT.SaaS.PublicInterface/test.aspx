@@ -8,6 +8,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="写日志测试" />
+    <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="新闻测试" />
     </form>
 </body>
 </html>

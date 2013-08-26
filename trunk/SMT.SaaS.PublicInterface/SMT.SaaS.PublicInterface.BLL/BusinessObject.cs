@@ -5,6 +5,7 @@ using System.Text;
 using System.Configuration;
 using System.IO;
 using System.Xml.Linq;
+using SMT.Foundation.Log;
 
 
 namespace SMT.SaaS.PublicInterface.BLL
@@ -13,20 +14,29 @@ namespace SMT.SaaS.PublicInterface.BLL
     {
          public string GetBusinessObject(string SystemCode, string BusinessObjectName)
         {
-            if (SystemCode == null || SystemCode == "" || BusinessObjectName == null || BusinessObjectName == "")
-                return null;
-            var Path = ConfigurationManager.AppSettings["BOPath"];
-            var BusinessObjectFolder = GetBusinessObjectFolder(Path, SystemCode);
+            string text = string.Empty;
+            try
+            {
+                if (SystemCode == null || SystemCode == "" || BusinessObjectName == null || BusinessObjectName == "")
+                    return null;
+                var Path = ConfigurationManager.AppSettings["BOPath"];
+                var BusinessObjectFolder = GetBusinessObjectFolder(Path, SystemCode);
 
-            if (BusinessObjectFolder == null || BusinessObjectFolder == "")
-                return null;
-            Path = Path + "\\" + BusinessObjectFolder + "\\" + BusinessObjectName + ".xml";
-            if (!File.Exists(Path))
-                return null;
-            StreamReader file = new StreamReader(Path);
-           var text= file.ReadToEnd();
-           file.Close();
-           file.Dispose();
+                if (BusinessObjectFolder == null || BusinessObjectFolder == "")
+                    return null;
+                Path = Path + "\\" + BusinessObjectFolder + "\\" + BusinessObjectName + ".xml";
+                Tracer.Debug("GetBusinessObject,filePath" + Path);
+                if (!File.Exists(Path))
+                    return null;
+                StreamReader file = new StreamReader(Path);
+                text = file.ReadToEnd();
+                file.Close();
+                file.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
            return text;
         }
 
