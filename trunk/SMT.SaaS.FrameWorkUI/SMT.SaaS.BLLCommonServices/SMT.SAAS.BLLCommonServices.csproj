@@ -60,11 +60,8 @@
     <DocumentationFile>bin\Release\SMT.SaaS.BLLCommonServices.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.Foundation.Core">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.Foundation.Log">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -294,7 +291,7 @@
     <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction15.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction16.xsd">
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction17.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction8.xsd">
@@ -309,10 +306,10 @@
     <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_FLOW_ENGINENOTES1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK.datasource">
+    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.UserInfo.datasource">
+    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.UserInfo1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FbDailyUpdateCheckStateWS\DailyUpdateCheckStateService.wsdl" />
@@ -383,7 +380,7 @@
     <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_FLOWRECORDMASTER_T.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_MODELFLOWRELATION_T.datasource">
+    <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_MODELFLOWRELATION_T1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.TaskInfo.datasource">
@@ -392,31 +389,31 @@
     <None Include="Service References\FlowWFService\SMT.SaaS.BLLCommonServices.FlowWFService.T_WF_PERSONALRECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FlowWFService\SMT.xsd">
+    <None Include="Service References\FlowWFService\SMT10.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT1.xsd">
+    <None Include="Service References\FlowWFService\SMT11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT2.xsd">
+    <None Include="Service References\FlowWFService\SMT12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT3.xsd">
+    <None Include="Service References\FlowWFService\SMT13.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT4.xsd">
+    <None Include="Service References\FlowWFService\SMT14.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT5.xsd">
+    <None Include="Service References\FlowWFService\SMT15.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FlowWFService\SMT6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FlowWFService\SMT7.xsd">
+    <None Include="Service References\FlowWFService\SMT16.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\FlowWFService\SMT8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowWFService\SMT9.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\GSCommonWS\GSCommonServices.wsdl" />
@@ -1124,20 +1121,35 @@
     <None Include="Service References\TokenServiceWS\TokenService5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\VMServiceWS\SMT.SaaS.BLLCommonServices.VMServiceWS.QueryResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\VMServiceWS\SMT.SaaS.BLLCommonServices.VMServiceWS.ResultObject.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\VMServiceWS\VMServices.wsdl" />
-    <None Include="Service References\VMServiceWS\VMServices.xsd">
+    <None Include="Service References\VMServiceWS\SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VMServiceWS\VMServices1.wsdl" />
+    <None Include="Service References\VMServiceWS\VMServices4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VMServiceWS\VMServices1.xsd">
+    <None Include="Service References\VMServiceWS\VMServices41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VMServiceWS\VMServices2.xsd">
+    <None Include="Service References\VMServiceWS\VMServices42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VMServiceWS\VMServices3.xsd">
+    <None Include="Service References\VMServiceWS\VMServices43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VMServiceWS\VMServices44.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VMServiceWS\VMServices45.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VMServiceWS\VMServices46.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WPServicesWS\SMT.SaaS.BLLCommonServices.WPServicesWS.QueryResult.datasource">
@@ -1524,6 +1536,7 @@
     <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices1.disco" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\VMServiceWS\VMServices1.disco" />
     <None Include="Service References\TKServicesWS\TKServices1.disco" />
     <None Include="Service References\TMServicesWS\TMServices1.disco" />
     <None Include="Service References\RMServicesWS\RMServices1.disco" />
@@ -1547,7 +1560,6 @@
     </None>
     <None Include="Service References\VMServiceWS\configuration.svcinfo" />
     <None Include="Service References\VMServiceWS\configuration91.svcinfo" />
-    <None Include="Service References\VMServiceWS\VMServices.disco" />
     <None Include="Service References\TMServicesWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -1618,7 +1630,6 @@
     </None>
     <None Include="Service References\MVCCacheSV\CacheService.disco" />
     <None Include="Service References\EMServiceWS\EMServices1.disco" />
-    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction1.disco" />
     <None Include="Service References\MailService\MailService.disco" />
     <None Include="Service References\MailService\configuration91.svcinfo" />
     <None Include="Service References\MailService\configuration.svcinfo" />
@@ -1626,7 +1637,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\FlowWFService\SMT.disco" />
+    <None Include="Service References\FlowWFService\SMT1.disco" />
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction1.disco" />
     <Content Include="Service References\PersonalRecordWS\PersonalRecordService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

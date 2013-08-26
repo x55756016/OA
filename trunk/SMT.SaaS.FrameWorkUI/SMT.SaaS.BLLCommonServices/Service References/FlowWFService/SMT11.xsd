@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://172.30.50.83:5102/SmtOnline/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
-  <xs:import schemaLocation="http://172.30.50.83:5102/SmtOnline/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
-  <xs:import schemaLocation="http://172.30.50.83:5102/SmtOnline/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
   <xs:element name="AddConsultation">
     <xs:complexType>
       <xs:sequence>
@@ -160,7 +161,7 @@
   <xs:element name="IsExistFlowDataByUserIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="IsExistFlowDataByUserIDResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="IsExistFlowDataByUserIDResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -189,6 +190,98 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetFlowDefineResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="personalrecordid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetPersonalRecordByIDResult" nillable="true" type="q15:T_WF_PERSONALRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FlowID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetFlowBranchResult" nillable="true" type="q16:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsFreeFlowAndIsCancel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsFreeFlowAndIsCancelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IsFreeFlowAndIsCancelResult" nillable="true" type="q17:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelFlowRelationInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q18:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelFlowRelationInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="GetModelFlowRelationInfosListBySearchResult" nillable="true" type="q19:ArrayOfFLOW_MODELFLOWRELATION_T" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMetadataByFormid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="formid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMetadataByFormidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMetadataByFormidResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMetadataByFormid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="formid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMetadataByFormidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateMetadataByFormidResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

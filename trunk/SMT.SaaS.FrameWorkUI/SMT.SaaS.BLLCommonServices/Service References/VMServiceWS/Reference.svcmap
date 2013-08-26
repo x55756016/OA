@@ -18,15 +18,18 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.0.12/Services/VM/VMServices.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="VMServices.xsd" MetadataType="Schema" ID="0bf64a5a-301d-49c8-b30f-c447f3aee93b" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?xsd=xsd1" />
-    <MetadataFile FileName="VMServices1.xsd" MetadataType="Schema" ID="c6757269-8040-43a4-b7d1-3ddc2b0103e6" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?xsd=xsd0" />
-    <MetadataFile FileName="VMServices2.xsd" MetadataType="Schema" ID="ca72123c-ca53-489a-9072-b0629757722f" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?xsd=xsd2" />
-    <MetadataFile FileName="VMServices.wsdl" MetadataType="Wsdl" ID="2e375e1b-aa46-4069-a846-ce58224ca6c8" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?wsdl" />
-    <MetadataFile FileName="VMServices3.xsd" MetadataType="Schema" ID="e6577d16-837d-4de1-aa3c-d3c9850de646" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?xsd=xsd3" />
-    <MetadataFile FileName="VMServices.disco" MetadataType="Disco" ID="ca1e8408-9bd4-40f1-a147-66bf8596bd8a" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/VM/VMServices.svc?disco" />
+    <MetadataFile FileName="VMServices4.xsd" MetadataType="Schema" ID="98748273-1aa6-40c8-b5cb-5f888004379e" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="VMServices41.xsd" MetadataType="Schema" ID="d4e81c2d-55dd-44b4-906d-a8a0c4c9f974" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="VMServices42.xsd" MetadataType="Schema" ID="569d2c9d-e8fc-4320-85dc-94fab7f01384" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="VMServices1.wsdl" MetadataType="Wsdl" ID="6bf0fee9-f744-4f2d-9de9-67f01f4b3d4c" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?wsdl" />
+    <MetadataFile FileName="VMServices1.disco" MetadataType="Disco" ID="f8cb3acb-b2d8-4819-9d8f-482ba32722fc" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?disco" />
+    <MetadataFile FileName="VMServices43.xsd" MetadataType="Schema" ID="b19acdd1-94d9-412a-8775-375fa6cf8934" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="VMServices44.xsd" MetadataType="Schema" ID="30948fd3-1937-49c8-9a44-5c4b242a8d11" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="VMServices45.xsd" MetadataType="Schema" ID="901478e8-5b6f-47b9-ae4f-e932a873c9d3" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="VMServices46.xsd" MetadataType="Schema" ID="01c6501b-2031-4f1f-9ffa-00a7d7fe3026" SourceId="1" SourceUrl="http://10.10.0.12/Services/VM/VMServices.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

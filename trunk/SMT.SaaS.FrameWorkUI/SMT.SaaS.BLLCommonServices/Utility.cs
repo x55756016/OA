@@ -1406,7 +1406,7 @@ namespace SMT.SaaS.BLLCommonServices
                 //目前修改为只新增
                 if (client.AddPersonalRecord(entSubmit))
                 {
-                    //Tracer.Debug("模块" + entSubmit.MODELCODE + " ID:" + entSubmit.MODELID + "调用了我的单据新建服务成功BLLCOMMONSERVICES！");
+                    Tracer.Debug("模块" + entSubmit.MODELCODE + " ID:" + entSubmit.MODELID + "调用了我的单据新建服务成功BLLCOMMONSERVICES！");
                 }
                 else
                 {
@@ -2077,7 +2077,7 @@ namespace SMT.SaaS.BLLCommonServices
             try
             {
                 Tracer.Debug("系统名称：" + SysType);
-                Tracer.Debug("手机版修改审核状态UpdateFormCheckState" + System.DateTime.Now.ToString() + "实体名: " + EntityType);
+                Tracer.Debug("手机版修改审核状态UpdateFormCheckState" + "实体名: " + EntityType);
                 Tracer.Debug("表单ID名:" + EntityKey + "表单值：" + EntityId);
                 Tracer.Debug("审核状态：" + ((int)CheckState).ToString());
                 switch (SysType)
@@ -2217,7 +2217,7 @@ namespace SMT.SaaS.BLLCommonServices
                     VMServiceWS.VMServicesClient vmClient = new VMServiceWS.VMServicesClient();
                     Tracer.Debug("调用了车辆系统中的：EntityType:" + EntityType + " EntityKey:" + EntityKey + "\r\n" + " EntityId:" + EntityId + " CheckState:" + CheckState + " URL:" + vmClient.Endpoint.Address + " strXmlParams:" + strXmlParams);
 
-                    int i = vmClient.UpdateCheckState(EntityType, EntityKey, EntityId, ((int)CheckState));
+                    int i = vmClient.UpdateCheckState(EntityType, EntityKey, EntityId, ((int)CheckState), strXmlParams);
                     Tracer.Debug("调用车辆系统返回结果" + i.ToString());
                     if (i > 0)
                     {

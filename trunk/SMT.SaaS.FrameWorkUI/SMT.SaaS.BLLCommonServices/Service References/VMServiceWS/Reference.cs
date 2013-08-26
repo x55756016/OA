@@ -146,6 +146,670 @@ namespace SMT.SaaS.BLLCommonServices.VMServiceWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultBaseOfArrayOfanyTypeuHEDJ7Dj", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.VMServiceWS.SaveExpression))]
+    public partial class ResultBaseOfArrayOfanyTypeuHEDJ7Dj : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExceptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] InnerResultField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsChangedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Exception {
+            get {
+                return this.ExceptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExceptionField, value) != true)) {
+                    this.ExceptionField = value;
+                    this.RaisePropertyChanged("Exception");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] InnerResult {
+            get {
+                return this.InnerResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InnerResultField, value) != true)) {
+                    this.InnerResultField = value;
+                    this.RaisePropertyChanged("InnerResult");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsChanged {
+            get {
+                return this.IsChangedField;
+            }
+            set {
+                if ((this.IsChangedField.Equals(value) != true)) {
+                    this.IsChangedField = value;
+                    this.RaisePropertyChanged("IsChanged");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SaveExpression", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common")]
+    [System.SerializableAttribute()]
+    public partial class SaveExpression : SMT.SaaS.BLLCommonServices.VMServiceWS.ResultBaseOfArrayOfanyTypeuHEDJ7Dj {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.VMServiceWS.SaveAction ActionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TokenField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.VMServiceWS.SaveAction Action {
+            get {
+                return this.ActionField;
+            }
+            set {
+                if ((this.ActionField.Equals(value) != true)) {
+                    this.ActionField = value;
+                    this.RaisePropertyChanged("Action");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Token {
+            get {
+                return this.TokenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TokenField, value) != true)) {
+                    this.TokenField = value;
+                    this.RaisePropertyChanged("Token");
+                }
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SaveAction", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common")]
+    public enum SaveAction : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Save = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SaveAndSumbit = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Audit = 3,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultBaseOfanyType", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.VMServiceWS.QueryResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResultOfanyType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResult))]
+    public partial class ResultBaseOfanyType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExceptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] InnerResultField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsChangedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Exception {
+            get {
+                return this.ExceptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExceptionField, value) != true)) {
+                    this.ExceptionField = value;
+                    this.RaisePropertyChanged("Exception");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] InnerResult {
+            get {
+                return this.InnerResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InnerResultField, value) != true)) {
+                    this.InnerResultField = value;
+                    this.RaisePropertyChanged("InnerResult");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsChanged {
+            get {
+                return this.IsChangedField;
+            }
+            set {
+                if ((this.IsChangedField.Equals(value) != true)) {
+                    this.IsChangedField = value;
+                    this.RaisePropertyChanged("IsChanged");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QueryResult", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common.Query")]
+    [System.SerializableAttribute()]
+    public partial class QueryResult : SMT.SaaS.BLLCommonServices.VMServiceWS.ResultBaseOfanyType {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.VMServiceWS.QueryPager PagerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.VMServiceWS.ResultState StateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.VMServiceWS.QueryPager Pager {
+            get {
+                return this.PagerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PagerField, value) != true)) {
+                    this.PagerField = value;
+                    this.RaisePropertyChanged("Pager");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.VMServiceWS.ResultState State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((this.StateField.Equals(value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SaveResultOfanyType", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResult))]
+    public partial class SaveResultOfanyType : SMT.SaaS.BLLCommonServices.VMServiceWS.ResultBaseOfanyType {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResultState StateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResultState State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((this.StateField.Equals(value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SaveResult", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common")]
+    [System.SerializableAttribute()]
+    public partial class SaveResult : SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResultOfanyType {
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SaveResultState", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common")]
+    public enum SaveResultState : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Fail = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Success = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Warning = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Exception = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 4,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QueryPager", Namespace="SMT.QueryObjects", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class QueryPager : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsCheckRightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PageCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PageIndexField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PageSizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RowCountField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsCheckRight {
+            get {
+                return this.IsCheckRightField;
+            }
+            set {
+                if ((this.IsCheckRightField.Equals(value) != true)) {
+                    this.IsCheckRightField = value;
+                    this.RaisePropertyChanged("IsCheckRight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PageCount {
+            get {
+                return this.PageCountField;
+            }
+            set {
+                if ((this.PageCountField.Equals(value) != true)) {
+                    this.PageCountField = value;
+                    this.RaisePropertyChanged("PageCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PageIndex {
+            get {
+                return this.PageIndexField;
+            }
+            set {
+                if ((this.PageIndexField.Equals(value) != true)) {
+                    this.PageIndexField = value;
+                    this.RaisePropertyChanged("PageIndex");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PageSize {
+            get {
+                return this.PageSizeField;
+            }
+            set {
+                if ((this.PageSizeField.Equals(value) != true)) {
+                    this.PageSizeField = value;
+                    this.RaisePropertyChanged("PageSize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RowCount {
+            get {
+                return this.RowCountField;
+            }
+            set {
+                if ((this.RowCountField.Equals(value) != true)) {
+                    this.RowCountField = value;
+                    this.RaisePropertyChanged("RowCount");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultState", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common")]
+    public enum ResultState : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Fail = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Success = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Warning = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Exception = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimeOut = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 5,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QueryExpression", Namespace="SMT.QueryObjects", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class QueryExpression : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ElementTypeNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Xml.Linq.XElement ExpressionXElementField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsCheckRightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.VMServiceWS.QueryPager PagerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, object> ParametersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TokenField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ElementTypeName {
+            get {
+                return this.ElementTypeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ElementTypeNameField, value) != true)) {
+                    this.ElementTypeNameField = value;
+                    this.RaisePropertyChanged("ElementTypeName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Xml.Linq.XElement ExpressionXElement {
+            get {
+                return this.ExpressionXElementField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExpressionXElementField, value) != true)) {
+                    this.ExpressionXElementField = value;
+                    this.RaisePropertyChanged("ExpressionXElement");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsCheckRight {
+            get {
+                return this.IsCheckRightField;
+            }
+            set {
+                if ((this.IsCheckRightField.Equals(value) != true)) {
+                    this.IsCheckRightField = value;
+                    this.RaisePropertyChanged("IsCheckRight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.VMServiceWS.QueryPager Pager {
+            get {
+                return this.PagerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PagerField, value) != true)) {
+                    this.PagerField = value;
+                    this.RaisePropertyChanged("Pager");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, object> Parameters {
+            get {
+                return this.ParametersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ParametersField, value) != true)) {
+                    this.ParametersField = value;
+                    this.RaisePropertyChanged("Parameters");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Token {
+            get {
+                return this.TokenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TokenField, value) != true)) {
+                    this.TokenField = value;
+                    this.RaisePropertyChanged("Token");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VMServiceWS.IApplicationService")]
+    public interface IApplicationService {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IApplicationService/CallApplicationService")]
+        void CallApplicationService(string strXml);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationService/CallWaitAppService", ReplyAction="http://tempuri.org/IApplicationService/CallWaitAppServiceResponse")]
+        string CallWaitAppService(string strXml);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IApplicationServiceChannel : SMT.SaaS.BLLCommonServices.VMServiceWS.IApplicationService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ApplicationServiceClient : System.ServiceModel.ClientBase<SMT.SaaS.BLLCommonServices.VMServiceWS.IApplicationService>, SMT.SaaS.BLLCommonServices.VMServiceWS.IApplicationService {
+        
+        public ApplicationServiceClient() {
+        }
+        
+        public ApplicationServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ApplicationServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ApplicationServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ApplicationServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void CallApplicationService(string strXml) {
+            base.Channel.CallApplicationService(strXml);
+        }
+        
+        public string CallWaitAppService(string strXml) {
+            return base.Channel.CallWaitAppService(strXml);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VMServiceWS.IEventTriggerProcess")]
+    public interface IEventTriggerProcess {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEventTriggerProcess/EventTriggerProcess")]
+        void EventTriggerProcess(string param);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IEventTriggerProcessChannel : SMT.SaaS.BLLCommonServices.VMServiceWS.IEventTriggerProcess, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EventTriggerProcessClient : System.ServiceModel.ClientBase<SMT.SaaS.BLLCommonServices.VMServiceWS.IEventTriggerProcess>, SMT.SaaS.BLLCommonServices.VMServiceWS.IEventTriggerProcess {
+        
+        public EventTriggerProcessClient() {
+        }
+        
+        public EventTriggerProcessClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public EventTriggerProcessClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public EventTriggerProcessClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public EventTriggerProcessClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void EventTriggerProcess(string param) {
+            base.Channel.EventTriggerProcess(param);
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VMServiceWS.IVMServices")]
     public interface IVMServices {
@@ -154,7 +818,13 @@ namespace SMT.SaaS.BLLCommonServices.VMServiceWS {
         SMT.SaaS.BLLCommonServices.VMServiceWS.ResultObject Execute(SMT.SaaS.BLLCommonServices.VMServiceWS.BaseObject baseObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVMServices/UpdateCheckState", ReplyAction="http://tempuri.org/IVMServices/UpdateCheckStateResponse")]
-        int UpdateCheckState(string EntityType, string EntityKey, string EntityId, int CheckState);
+        int UpdateCheckState(string EntityType, string EntityKey, string EntityId, int CheckState, string xmlDoc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVMServices/Save", ReplyAction="http://tempuri.org/IVMServices/SaveResponse")]
+        SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResult Save(SMT.SaaS.BLLCommonServices.VMServiceWS.SaveExpression expression);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVMServices/Query", ReplyAction="http://tempuri.org/IVMServices/QueryResponse")]
+        SMT.SaaS.BLLCommonServices.VMServiceWS.QueryResult Query(SMT.SaaS.BLLCommonServices.VMServiceWS.QueryExpression expression);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -188,8 +858,16 @@ namespace SMT.SaaS.BLLCommonServices.VMServiceWS {
             return base.Channel.Execute(baseObject);
         }
         
-        public int UpdateCheckState(string EntityType, string EntityKey, string EntityId, int CheckState) {
-            return base.Channel.UpdateCheckState(EntityType, EntityKey, EntityId, CheckState);
+        public int UpdateCheckState(string EntityType, string EntityKey, string EntityId, int CheckState, string xmlDoc) {
+            return base.Channel.UpdateCheckState(EntityType, EntityKey, EntityId, CheckState, xmlDoc);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.VMServiceWS.SaveResult Save(SMT.SaaS.BLLCommonServices.VMServiceWS.SaveExpression expression) {
+            return base.Channel.Save(expression);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.VMServiceWS.QueryResult Query(SMT.SaaS.BLLCommonServices.VMServiceWS.QueryExpression expression) {
+            return base.Channel.Query(expression);
         }
     }
 }

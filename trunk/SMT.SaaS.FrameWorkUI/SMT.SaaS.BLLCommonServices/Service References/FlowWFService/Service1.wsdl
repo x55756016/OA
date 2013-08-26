@@ -9,15 +9,15 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_AddConsultation_InputMessage">
@@ -370,9 +370,9 @@
   </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="WSHttpBinding_IService" binding="tns:WSHttpBinding_IService">
-      <soap12:address location="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc" />
+      <soap12:address location="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc</wsa10:Address>
+        <wsa10:Address>http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>
