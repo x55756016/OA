@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.UControls.SearchTree"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    d:DesignHeight="500" d:DesignWidth="200">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <TextBlock Text="项目" VerticalAlignment="Top" Margin="6,5,0,0" FontWeight="Bold"/>
+        <telerik:RadWatermarkTextBox Width="182" Height="24" VerticalAlignment="Top" Margin="6,26,0,0" 
+                 HorizontalAlignment="Left" WatermarkContent="搜索"></telerik:RadWatermarkTextBox>
+       
+        <telerik:RadTreeView SelectionMode="Extended" IsLineEnabled="True"
+				
+				IsRootLinesEnabled="True" Margin="0,55,0,0" x:Name="RadTreeView1"
+                             IsTriStateMode="True">
+            <telerik:RadTreeViewItem Header="全部系统"
+					DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png"
+					IsExpanded="True">
+                <telerik:RadTreeViewItem Header="人力资源系统" IsExpanded="True"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" >
+                    <telerik:RadTreeViewItem Header="社保查询"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" />
+                    <telerik:RadTreeViewItem Header="员工请假"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" />
+                </telerik:RadTreeViewItem>
+                <telerik:RadTreeViewItem Header="办公系统" IsExpanded="True"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" >
+                    <telerik:RadTreeViewItem Header="车辆管理"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" />
+                    <telerik:RadTreeViewItem Header="会议申请"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" />
+                </telerik:RadTreeViewItem>
+                <telerik:RadTreeViewItem Header="物流系统" IsExpanded="True"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" >
+                    <telerik:RadTreeViewItem Header="查询"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" />
+                    <telerik:RadTreeViewItem Header="查询"
+						DefaultImageSrc="/SMT.Workflow;component/Images/Toolbar/16_edit.png" />
+                </telerik:RadTreeViewItem>
+
+
+            </telerik:RadTreeViewItem>
+        </telerik:RadTreeView>
+    </Grid>
+</UserControl>
+

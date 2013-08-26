@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{060003E7-5A4D-4B47-91D1-32D1A356014A}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.Workflow.Platform.Designer</RootNamespace>
+    <AssemblyName>SMT.Workflow.Platform.Designer</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>zh-Hans</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>SMT.Workflow.Platform.Designer.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>SMT.Workflow.Platform.Designer.App</SilverlightAppEntry>
+    <TestPageFileName>SMT.Workflow.Platform.DesignerTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="SMT.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.AnimationEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.AnimationEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Application">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Behaviors">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.ClientServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.ClientUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.ClientUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.CommonReportsModel">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.CommonReportsModel.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Controls.Toolkit">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.FrameworkUI">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.FrameworkUI.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Globalization">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Images">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Images.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.LocalData">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Assembly\SMT.SaaS.LocalData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContext">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Main.CurrentContext.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Themes">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Saas.Tools, Version=1.1.1.1220, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.Saas.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.Window">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.Window.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit.Internals, Version=4.0.5.0, Culture=neutral, PublicKeyToken=2c5c654d367bf4a7, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityProperty\ActivityProperty.xaml.cs">
+      <DependentUpon>ActivityProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityProperty\BeginProperty.xaml.cs">
+      <DependentUpon>BeginProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityProperty\FinishProperty.xaml.cs">
+      <DependentUpon>FinishProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityProperty\FlowProperty.xaml.cs">
+      <DependentUpon>FlowProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityProperty\IProperty.cs" />
+    <Compile Include="ActivityProperty\LineProperty.xaml.cs">
+      <DependentUpon>LineProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppContext.cs" />
+    <Compile Include="Class\Converter\BaseConverter.cs" />
+    <Compile Include="Class\Converter\CheckStateConverter.cs" />
+    <Compile Include="Class\Converter\CustomDateConverter.cs" />
+    <Compile Include="Class\Converter\CycleConverter.cs" />
+    <Compile Include="Class\Converter\DictionaryConverter.cs" />
+    <Compile Include="Class\Converter\LendFlagConverter.cs" />
+    <Compile Include="Class\Converter\MsgTypeConverter.cs" />
+    <Compile Include="Class\Converter\TriggerConverter.cs" />
+    <Compile Include="Class\Converter\TriggerTypeConverter.cs" />
+    <Compile Include="Class\FlowSystemModel.cs" />
+    <Compile Include="Class\MsgType.cs" />
+    <Compile Include="Class\ParamOperate.cs" />
+    <Compile Include="Common\CategoryComparer.cs" />
+    <Compile Include="Common\CommType.cs" />
+    <Compile Include="Common\CompareCondition.cs" />
+    <Compile Include="Common\EnumType.cs" />
+    <Compile Include="Common\TreeItem.cs" />
+    <Compile Include="DesignerControl\ActivityControl.xaml.cs">
+      <DependentUpon>ActivityControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerControl\ActivityProperty.cs" />
+    <Compile Include="DesignerControl\BeginControl.xaml.cs">
+      <DependentUpon>BeginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerControl\Enums.cs" />
+    <Compile Include="DesignerControl\FinishControl.xaml.cs">
+      <DependentUpon>FinishControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerControl\IControlBase.cs" />
+    <Compile Include="DesignerControl\LineControl.xaml.cs">
+      <DependentUpon>LineControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerShape\ActivityShape.xaml.cs">
+      <DependentUpon>ActivityShape.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerShape\BeginShape.xaml.cs">
+      <DependentUpon>BeginShape.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerShape\FinishShape.xaml.cs">
+      <DependentUpon>FinishShape.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerShape\IShape.cs" />
+    <Compile Include="DesignerShape\LineShape.xaml.cs">
+      <DependentUpon>LineShape.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerShape\TriangleArrow.cs" />
+    <Compile Include="DesignerTools\ActivityToolBox.xaml.cs">
+      <DependentUpon>ActivityToolBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerTools\BeginToolBox.xaml.cs">
+      <DependentUpon>BeginToolBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerTools\FinishToolBox.xaml.cs">
+      <DependentUpon>FinishToolBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerTools\IToolBase.cs" />
+    <Compile Include="DesignerTools\LineToolBox.xaml.cs">
+      <DependentUpon>LineToolBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerView\Container.xaml.cs">
+      <DependentUpon>Container.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerView\ContainerInterface.cs" />
+    <Compile Include="DesignerView\ContainerPM.cs" />
+    <Compile Include="DesignerView\IContainer.cs" />
+    <Compile Include="Dialogs\FlowRoleDefineDialog.xaml.cs">
+      <DependentUpon>FlowRoleDefineDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FlowRuleDefineDialog.xaml.cs">
+      <DependentUpon>FlowRuleDefineDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FlowTypeDialog.xaml.cs">
+      <DependentUpon>FlowTypeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\PlatformService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\DoTaskRuleDetailEdit.xaml.cs">
+      <DependentUpon>DoTaskRuleDetailEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\DoTaskRuleEdit.xaml.cs">
+      <DependentUpon>DoTaskRuleEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ParamRow.xaml.cs">
+      <DependentUpon>ParamRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Utility.cs" />
+    <Compile Include="Login\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="THost.xaml.cs">
+      <DependentUpon>THost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\DataGridEx.xaml.cs">
+      <DependentUpon>DataGridEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\ProgressBar.xaml.cs">
+      <DependentUpon>ProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\ImgButton.cs" />
+    <Compile Include="UControls\NormalToolBar.cs" />
+    <Compile Include="UControls\SearchTree.xaml.cs">
+      <DependentUpon>SearchTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\TelerikTreeView.xaml.cs">
+      <DependentUpon>TelerikTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\ToolBar.xaml.cs">
+      <DependentUpon>ToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\TreeControl.xaml.cs">
+      <DependentUpon>TreeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\ZoomControl.xaml.cs">
+      <DependentUpon>ZoomControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\BubbleSorter.cs" />
+    <Compile Include="Utils\DesignerUtils.cs" />
+    <Compile Include="Utils\WfUtils.cs" />
+    <Compile Include="Utils\XmlUtils.cs" />
+    <Compile Include="Views\Engine\DefaultMessgeEdit.xaml.cs">
+      <DependentUpon>DefaultMessgeEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\DefaultMessgeList.xaml.cs">
+      <DependentUpon>DefaultMessgeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\EngineMain.xaml.cs">
+      <DependentUpon>EngineMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\LooKUP.xaml.cs">
+      <DependentUpon>LooKUP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\MessageRuleList.xaml.cs">
+      <DependentUpon>MessageRuleList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\TimingTriggerEdit.xaml.cs">
+      <DependentUpon>TimingTriggerEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\TriggerDefine.xaml.cs">
+      <DependentUpon>TriggerDefine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\TriggerEdit.xaml.cs">
+      <DependentUpon>TriggerEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\TriggerList.xaml.cs">
+      <DependentUpon>TriggerList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Engine\UserLooKUP.xaml.cs">
+      <DependentUpon>UserLooKUP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlowDesign\FlowList.xaml.cs">
+      <DependentUpon>FlowList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlowDesign\FlowPane.xaml.cs">
+      <DependentUpon>FlowPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlowDesign\FlowSetting.xaml.cs">
+      <DependentUpon>FlowSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlowDesign\FlowView.xaml.cs">
+      <DependentUpon>FlowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Message\DefaultList.xaml.cs">
+      <DependentUpon>DefaultList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Message\EditDefaultMessage.xaml.cs">
+      <DependentUpon>EditDefaultMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelDefine\CompanyLookUp.xaml.cs">
+      <DependentUpon>CompanyLookUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelDefine\ModelCodeEdit.xaml.cs">
+      <DependentUpon>ModelCodeEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelDefine\ModelCodeList.xaml.cs">
+      <DependentUpon>ModelCodeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="文件注释说明.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="ActivityProperty\ActivityProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ActivityProperty\BeginProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ActivityProperty\FinishProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ActivityProperty\FlowProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActivityProperty\LineProperty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerControl\ActivityControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerControl\BeginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerControl\FinishControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerControl\LineControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerShape\ActivityShape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerShape\BeginShape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerShape\FinishShape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerShape\LineShape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerTools\ActivityToolBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerTools\BeginToolBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerTools\FinishToolBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerTools\LineToolBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesignerView\Container.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\FlowRoleDefineDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\FlowRuleDefineDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\FlowTypeDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Engine\DoTaskRuleDetailEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\DoTaskRuleEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\ParamRow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="THost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UControls\DataGridEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UControls\ProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UControls\SearchTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UControls\TelerikTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UControls\ToolBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UControls\TreeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UControls\ZoomControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\DefaultMessgeEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\DefaultMessgeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\EngineMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\LooKUP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\MessageRuleList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\TimingTriggerEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\TriggerDefine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Engine\TriggerEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Engine\TriggerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Engine\UserLooKUP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FlowDesign\FlowList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FlowDesign\FlowPane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FlowDesign\FlowSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FlowDesign\FlowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Message\DefaultList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Message\EditDefaultMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModelDefine\CompanyLookUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModelDefine\ModelCodeEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModelDefine\ModelCodeList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\SMT.Saas.Tools.EngineWS.T_FLOW_CUSTOMFLOWDEFINE.datasource" />
+    <None Include="Service References\PlatformService\PlatformServices6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.AppFunc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.AppModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.AppSystem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.FLOW_MODELDEFINE_FLOWCANCLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.FLOW_MODELDEFINE_FREEFLOW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.FLOW_MODELDEFINE_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.TableColumn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.T_FLOW_CUSTOMFLOWDEFINE1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.T_WF_DEFAULTMESSAGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.T_WF_DOTASKRULE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.T_WF_DOTASKRULEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.T_WF_MESSAGEBODYDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.T_WF_TIMINGTRIGGERACTIVITY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.T_WF_TIMINGTRIGGERCONFIG.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.V_DotaskRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.V_FlowDefine.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.V_FLOWDEFINITION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformService\SMT.Workflow.Platform.Designer.PlatformService.WFBOAttribute.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Resource Include="Images\loading_1.png" />
+    <Content Include="ActivityProperty\XMLFile1.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Properties\AppManifest.xml" />
+    <None Include="Service References\PlatformService\PlatformServices.disco" />
+    <None Include="Service References\PlatformService\configuration91.svcinfo" />
+    <None Include="Service References\PlatformService\configuration.svcinfo" />
+    <None Include="Service References\PlatformService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Toolbar\16_add.png" />
+    <Resource Include="Images\Toolbar\16_delete.png" />
+    <Resource Include="Images\Toolbar\16_edit.png" />
+    <Resource Include="Images\Toolbar\16_print.png" />
+    <Resource Include="Images\Toolbar\16_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\activity.jpg" />
+    <Resource Include="Images\begin.jpg" />
+    <Resource Include="Images\end.jpg" />
+    <Resource Include="Images\line.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\activity_noselect.jpg" />
+    <Resource Include="Images\begin_noselect.jpg" />
+    <Resource Include="Images\end_noselect.jpg" />
+    <Resource Include="Images\line_noselect.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Toolbar\16_save.png" />
+    <Resource Include="Images\Toolbar\18_clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\PlatformService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PlatformService\PlatformServices.wsdl" />
+    <None Include="Service References\PlatformService\PlatformServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformService\PlatformServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformService\PlatformServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformService\PlatformServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformService\PlatformServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformService\PlatformServices5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

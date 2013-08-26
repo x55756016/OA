@@ -1,0 +1,97 @@
+﻿<controls:ChildWindow x:Class="SMT.Workflow.Platform.Designer.Views.Engine.DoTaskRuleDetailEdit"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+            xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:control="clr-namespace:SMT.Workflow.Platform.Designer.UControls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:smtClass="clr-namespace:SMT.Workflow.Platform.Designer.Class.Converter"  
+             xmlns:local="clr-namespace:SMT.Workflow.Platform.Designer.Utils"
+           Width="600" Height="500" 
+           Title="消息规则">   
+    <Grid x:Name="LayoutRoot" Margin="2">
+        
+        <Grid.Resources>
+            <local:BaseConverter x:Key="BaseConverter"/>
+            <smtClass:CustomDateConverter x:Key="DateConvert" />
+            <smtClass:TriggerConverter x:Key="Convert" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="30"/>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="NormalButton3" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal" Background="#6e7683" Height="30">
+            <control:ImgButton Content="保存" x:Name="btnAddCategory" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_add.png" Foreground="White" Click="btnSave_Click" />
+            <control:ImgButton Content="关闭" x:Name="btnEditFlow" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_edit.png" Foreground="White" Click="btnClose_Click" />
+        </StackPanel>
+         <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Right" Text="系统名称:" VerticalAlignment="Center" ></TextBlock>
+            <ComboBox  Grid.Row="0" Grid.Column="1" x:Name="cbSystemName"    Width="230" HorizontalAlignment="Left"  SelectionChanged="cbSystemName_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Width="Auto"
+                                               Text="{Binding Path=SYSTEMCODE}"
+                                               Visibility="Collapsed" />
+                            <TextBlock Width="Auto" Text="{Binding Path=SYSTEMNAME}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Right" Text="模块名称:" VerticalAlignment="Center" ></TextBlock>
+            <ComboBox  Grid.Row="1" Grid.Column="1" x:Name="cbModelName"  Width="230" HorizontalAlignment="Left"  >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Width="Auto"
+                                               Text="{Binding Path=MODELCODE}"
+                                               Visibility="Collapsed" />
+                            <TextBlock Width="Auto" Text="{Binding Path=DESCRIPTION}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Right" Text="条件:" VerticalAlignment="Center" ></TextBlock>
+            <ComboBox  Grid.Row="2" Grid.Column="1" Name="cbCondition"    SelectedIndex="0"  Width="230" HorizontalAlignment="Left" >
+                <sys:String>请选择.......</sys:String>
+                <sys:String>审核中</sys:String>
+                <sys:String>审核通过</sys:String>
+                <sys:String>审核不通过</sys:String>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="2" Name="DetailItem">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="30"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="NormalButton4" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal" Background="#6e7683" Height="30">
+                <control:ImgButton Content="新增消息" x:Name="btnDetailAdd" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_add.png" Foreground="White" Click="btnDetailAdd_Click" />
+                <control:ImgButton Content="修改消息" x:Name="btnDetailEdit" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_edit.png" Foreground="White" Click="btnDetailEdit_Click" />
+                <control:ImgButton Content="删除消息" x:Name="btnDetailDelete" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_edit.png" Foreground="White" Click="btnDetailDelete_Click" />
+                <sdk:Label  Content="注：默认消息只能有一个" Foreground="#FFDBDD48" Margin="180,0,10,0" HorizontalAlignment="Stretch" />
+            </StackPanel>
+                 <control:DataGridEx AutoGenerateColumns="False" Grid.Row="2" HorizontalAlignment="Stretch" 
+                            Margin="0" x:Name="DoTaskRuleDetailDataGrid" VerticalAlignment="Stretch" IsReadOnly="True">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="系统名称" Binding="{Binding SYSTEMNAME}"/>
+                    <sdk:DataGridTextColumn Header="模块名称" Binding="{Binding MODELNAME}"/>                 
+                    <sdk:DataGridTextColumn Header="消息" Binding="{Binding MESSAGEBODY}"/>
+                    <sdk:DataGridTextColumn Header="接收岗位" Binding="{Binding RECEIVEUSERNAME}"/>
+                    <sdk:DataGridTextColumn Header="默认消息" Binding="{Binding ISDEFAULTMSG,Converter={StaticResource BaseConverter},ConverterParameter=ISDEFAULTMSG}"/>
+                    <sdk:DataGridTextColumn Header="创建日期" Binding="{Binding CREATEDATETIME,Converter={StaticResource DateConvert},ConverterParameter=DATE}"/>
+                </sdk:DataGrid.Columns>
+            </control:DataGridEx>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

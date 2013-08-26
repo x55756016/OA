@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.DesignerShape.BeginShape"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   >
+
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" >
+        <!--<Ellipse Name="ellipseBorder" Width="52" Height="52" Stroke="Black"  StrokeThickness="2" Canvas.ZIndex="80" />
+        <Ellipse Name="ellipseBegin" Width="50" Height="50" Fill="Green" Stroke="White" StrokeThickness="2" Canvas.ZIndex="80" />
+        <TextBlock x:Name="txtBeginTitle" Foreground="Black" FontSize="12" Canvas.ZIndex="80" TextAlignment="Center"    
+                VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" MaxWidth="90" Text="开始" >
+        </TextBlock>-->
+        <Border CornerRadius="100" MinWidth="50"
+            MinHeight="50" Background="Green" Name="bdrName2" >
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Border  Name="bdrName"  CornerRadius="100" BorderThickness="1"  Background="Green" >
+                <TextBlock Name="StateName" Text="" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="4"/>
+            </Border>
+        </Border>
+
+        <Ellipse Name="ellipseBorder" Width="50" Height="50" Fill="Green" Stroke="Green" StrokeThickness="1" Canvas.ZIndex="80" />
+        <Ellipse Name="ellipseBegin" Width="50" Height="50" Fill="Green" Stroke="Green" StrokeThickness="1" Canvas.ZIndex="80" />
+
+        <TextBlock x:Name="txtBeginTitle" Foreground="Black" FontSize="12" Canvas.ZIndex="80" TextAlignment="Center"    
+                VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" MaxWidth="90" Text="开始" >
+        </TextBlock>
+        <Canvas  Name="cnHotspot"  Canvas.ZIndex="80" >
+            <Rectangle Name="HotspotLeft" Width="8" Height="8" Canvas.ZIndex="80" Fill="Blue" Stroke="White" Canvas.Top="22" Canvas.Left="-6"
+                   StrokeThickness="1" RadiusX="0" RadiusY="0" Opacity="1.0">
+            </Rectangle>
+            <Rectangle Name="HotspotTop" Width="8" Height="8" Canvas.ZIndex="80" Fill="Blue" Stroke="White" Canvas.Left="22" Canvas.Top="-6"
+                   StrokeThickness="1" RadiusX="0" RadiusY="0" Opacity="1.0">
+            </Rectangle>
+            <Rectangle Name="HotspotRight" Width="8" Height="8" Canvas.ZIndex="80" Fill="Blue" Stroke="White" Canvas.Left="48" Canvas.Top="22"
+                   StrokeThickness="1" RadiusX="0" RadiusY="0" Opacity="1.0">
+            </Rectangle>
+            <Rectangle Name="HotspotBottom" Width="8" Height="8" Canvas.ZIndex="80" Fill="Blue" Stroke="White" Canvas.Left="22" Canvas.Top="48"
+                   StrokeThickness="1" RadiusX="0" RadiusY="0" Opacity="1.0">
+            </Rectangle>
+        </Canvas>
+    </Grid>
+</UserControl>

@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.UI.OrganizationControl.Power"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    >
+    <Grid x:Name="LayoutRoot">
+        <Ellipse Stroke="Black" Width="16" Height="16">
+            <Ellipse.Fill>
+                <RadialGradientBrush x:Name="ControlBrush">
+                    <GradientStop Color="#FFFFFF" Offset="0"/>
+                    <GradientStop Color="#FFFFFF" Offset="1"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+    </Grid>
+</UserControl>

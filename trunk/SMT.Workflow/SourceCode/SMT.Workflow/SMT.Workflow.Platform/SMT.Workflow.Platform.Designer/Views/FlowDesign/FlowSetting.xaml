@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.Views.FlowDesign.FlowSetting"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Property="clr-namespace:SMT.Workflow.Platform.Designer.ActivityProperty"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="200">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28" />
+            <RowDefinition Height="*" />            
+        </Grid.RowDefinitions>
+
+        <Border Background="#e3e3e3" HorizontalAlignment="Stretch" Grid.Row="0">
+            <TextBlock x:Name="txtTitle" Text="流程设置" VerticalAlignment="Center" Margin="5 0 0 0" FontWeight="Bold" />
+        </Border>
+
+        <Property:FlowProperty x:Name="flowProperty" Grid.Row="1" Canvas.ZIndex="4"  Visibility="Visible" />
+        <Property:BeginProperty x:Name="beginProperty" Grid.Row="1" Canvas.ZIndex="4"  Visibility="Collapsed" />
+        <Property:FinishProperty x:Name="finishProperty" Grid.Row="1" Canvas.ZIndex="4" Visibility="Collapsed"  />
+        <Property:ActivityProperty x:Name="activityProperty" Grid.Row="1" Canvas.ZIndex="4" Visibility="Collapsed"  />
+        <Property:LineProperty x:Name="lineProperty" Grid.Row="1" Canvas.ZIndex="4" Visibility="Collapsed"  />
+
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,202 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IEngineWcfGlobalFunction" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_PersonnelService" receiveTimeout="00:10:00"
+                    maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_SalaryService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647" />
+                <binding name="BasicHttpBinding_FBService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647" />
+                <binding name="BasicHttpBinding_AttendanceService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647" />
+                <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IFlowEvent1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IMessageBodyDefine" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDoTaskRule" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ITimingTrigger" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDefaultMessage" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IFlowDefine" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ICuostomFlowsDefine" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IFlowEvent" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IFlowCategory" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IEngine" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IFlowXmlDefine" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IFlowTrigger" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ITriggerDefine" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IFlow_ModelDefine" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IMessageBodyDefine1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDoTaskRule1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ITimingTrigger1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDefaultMessage1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+            <customBinding>
+                <binding name="WSHttpBinding_IService">
+                    <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_OrganizationService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_PermissionService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_SmtOACommonAdmin" closeTimeout="00:10:00"
+                    openTimeout="00:10:00" sendTimeout="00:10:00">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_SmtOADocumentAdmin" closeTimeout="00:10:00"
+                    openTimeout="00:10:00" sendTimeout="00:10:00">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_PerformanceService" closeTimeout="00:10:00"
+                    openTimeout="00:10:00" sendTimeout="00:10:00">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_HrCommonService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://172.16.1.57/New/Services/HR/OrganizationService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+                contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+            <endpoint address="http://172.16.1.57/New/Services/HR/PersonnelService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+                contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+            <endpoint address="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+                binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
+                contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+            <endpoint address="http://172.16.1.57/New/Services/HR/SalaryService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
+                contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
+            <endpoint address="http://172.16.1.57/New/Services/System/PermissionService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+                contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+            <endpoint address="http://172.16.1.57/New/Services/HR/AttendanceService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
+                contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
+            <endpoint address="http://172.16.1.57/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEngineWcfGlobalFunction"
+                contract="EngineWS.IEngineWcfGlobalFunction" name="BasicHttpBinding_IEngineWcfGlobalFunction" />
+            <endpoint address=" http://172.16.1.57/New/Services/HR/HrCommonService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
+                contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
+            <endpoint address="http://172.16.1.57/New/Services/PublicInterface/PublicService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+                contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+            <endpoint address="http://172.16.1.57/New/Services/HR/PerformanceService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
+                contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IFlowDefine"
+                contract="PlatformService.IFlowDefine" name="BasicHttpBinding_IFlowDefine" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICuostomFlowsDefine"
+                contract="PlatformService.ICuostomFlowsDefine" name="BasicHttpBinding_ICuostomFlowsDefine" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IFlowEvent"
+                contract="PlatformService.IFlowEvent" name="BasicHttpBinding_IFlowEvent" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IFlowCategory"
+                contract="PlatformService.IFlowCategory" name="BasicHttpBinding_IFlowCategory" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEngine"
+                contract="PlatformService.IEngine" name="BasicHttpBinding_IEngine" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IFlowXmlDefine"
+                contract="PlatformService.IFlowXmlDefine" name="BasicHttpBinding_IFlowXmlDefine" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IFlowTrigger"
+                contract="PlatformService.IFlowTrigger" name="BasicHttpBinding_IFlowTrigger" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ITriggerDefine"
+                contract="PlatformService.ITriggerDefine" name="BasicHttpBinding_ITriggerDefine" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IFlow_ModelDefine"
+                contract="PlatformService.IFlow_ModelDefine" name="BasicHttpBinding_IFlow_ModelDefine" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMessageBodyDefine1"
+                contract="PlatformService.IMessageBodyDefine" name="BasicHttpBinding_IMessageBodyDefine" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDoTaskRule1"
+                contract="PlatformService.IDoTaskRule" name="BasicHttpBinding_IDoTaskRule" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ITimingTrigger1"
+                contract="PlatformService.ITimingTrigger" name="BasicHttpBinding_ITimingTrigger" />
+            <endpoint address="http://localhost:1810/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDefaultMessage1"
+                contract="PlatformService.IDefaultMessage" name="BasicHttpBinding_IDefaultMessage" />
+        </client>
+    </system.serviceModel>
+</configuration>

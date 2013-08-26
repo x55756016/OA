@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" />
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" />
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" />
+  <xs:element name="GetFlowDefineList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowDefineListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="GetFlowDefineListResult" nillable="true" type="q1:ArrayOfV_FlowDefine" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFlowDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" minOccurs="0" name="flow" nillable="true" type="q2:V_FLOWDEFINITION" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFlowDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddFlowDefineResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="flowCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" minOccurs="0" name="GetFlowEntityResult" nillable="true" type="q3:V_FLOWDEFINITION" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="flowCodeList" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFlowResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCuostomFlowsDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCuostomFlowsDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetCuostomFlowsDefineResult" nillable="true" type="q5:ArrayOfT_FLOW_CUSTOMFLOWDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListCuostomFlowsDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListCuostomFlowsDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetListCuostomFlowsDefineResult" nillable="true" type="q6:ArrayOfT_FLOW_CUSTOMFLOWDEFINE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCuostomFlowsDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="ListCuostomFlowsDefine" nillable="true" type="q7:ArrayOfT_FLOW_CUSTOMFLOWDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCuostomFlowsDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCuostomFlowsDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetsCuostomFlowsDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="CTDefine" nillable="true" type="q8:CuostomFlowsDefine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetsCuostomFlowsDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetsCuostomFlowsDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCuostomFlowsDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="ListCuostomFlowsDefine" nillable="true" type="q9:ArrayOfT_FLOW_CUSTOMFLOWDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCuostomFlowsDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCuostomFlowsDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCuostomFlowsDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="ListCuostomFlowsDefine" nillable="true" type="q10:ArrayOfT_FLOW_CUSTOMFLOWDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCuostomFlowsDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteCuostomFlowsDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FlowEventAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="FlowMsg" nillable="true" type="q11:T_WF_MESSAGEBODYDEFINE" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="ListFlowProecss" nillable="true" type="q12:ArrayOfT_WF_DOTASKRULE" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="ListCuostomFlowsDefine" nillable="true" type="q13:ArrayOfT_FLOW_CUSTOMFLOWDEFINE" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="ListFlowTrigger" nillable="true" type="q14:ArrayOfT_WF_TIMINGTRIGGERCONFIG" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FlowEventAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FlowEventAllResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFlowCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="entity" nillable="true" type="q15:FLOW_FLOWCATEGORY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFlowCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddFlowCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFlowCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="entity" nillable="true" type="q16:FLOW_FLOWCATEGORY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFlowCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateFlowCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistsFlowCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistsFlowCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetExistsFlowCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CategoryID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFlowCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowMsgDefine">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowMsgDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetFlowMsgDefineResult" nillable="true" type="q17:ArrayOfT_WF_MESSAGEBODYDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListFlowMsgDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListFlowMsgDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetListFlowMsgDefineResult" nillable="true" type="q18:ArrayOfT_WF_MESSAGEBODYDEFINE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListFlowMsgBodyDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moduleCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListFlowMsgBodyDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetListFlowMsgBodyDefineResult" nillable="true" type="q19:T_WF_MESSAGEBODYDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFlowMsgDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="FlowMsg" nillable="true" type="q20:T_WF_MESSAGEBODYDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFlowMsgDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddFlowMsgDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFlowMsgDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="FlowMsg" nillable="true" type="q21:T_WF_MESSAGEBODYDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFlowMsgDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateFlowMsgDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowMsgDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="FlowMsglList" nillable="true" type="q22:ArrayOfT_WF_MESSAGEBODYDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowMsgDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFlowMsgDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSystem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSystemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="ListSystemResult" nillable="true" type="q23:ArrayOfAppSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AppModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObjectFolder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AppModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="AppModelResult" nillable="true" type="q24:ArrayOfAppModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObjectFolder" nillable="true" type="q25:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="ListModelResult" nillable="true" type="q26:ArrayOfAppModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListTableColumn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObjectFolder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListTableColumnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="ListTableColumnResult" nillable="true" type="q27:ArrayOfTableColumn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListFuncTableColumn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObjectFolder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MsgLinkUrl" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListFuncTableColumnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListFuncTableColumnResult" nillable="true" type="q28:ArrayOfKeyValueOfArrayOfAppFuncArrayOfTableColumnW4V0huGE" />
+        <xs:element minOccurs="0" name="MsgLinkUrl" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSystemBOAttributeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="systemName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="objectName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSystemBOAttributeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="GetSystemBOAttributeListResult" nillable="true" type="q29:ArrayOfWFBOAttribute" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSystemFunc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObjectFolder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFolderName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MsgLinkUrl" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSystemFuncResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="ListSystemFuncResult" nillable="true" type="q30:ArrayOfAppFunc" />
+        <xs:element minOccurs="0" name="MsgLinkUrl" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowTrigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowTriggerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" minOccurs="0" name="GetFlowTriggerResult" nillable="true" type="q31:ArrayOfV_DotaskRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListFlowTrigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListFlowTriggerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" minOccurs="0" name="GetListFlowTriggerResult" nillable="true" type="q32:ArrayOfV_DotaskRule" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowTrigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="ListFlowTrigger" nillable="true" type="q33:ArrayOfT_WF_DOTASKRULEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowTriggerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFlowTriggerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowTriggerRlues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="TRules" nillable="true" type="q34:FlowTriggerRules" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowTriggerRluesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFlowTriggerRluesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowTriggerDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowTriggerDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetFlowTriggerDefineResult" nillable="true" type="q35:ArrayOfT_WF_TIMINGTRIGGERCONFIG" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListFlowTriggerDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListFlowTriggerDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetListFlowTriggerDefineResult" nillable="true" type="q36:ArrayOfT_WF_TIMINGTRIGGERCONFIG" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTriggerDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="TDefine" nillable="true" type="q37:TriggDefine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTriggerDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTriggerDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTriggerDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="ListFlowTrigger" nillable="true" type="q38:ArrayOfT_WF_TIMINGTRIGGERCONFIG" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTriggerDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTriggerDefineResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelDefineList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelDefineListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="GetModelDefineListResult" nillable="true" type="q39:ArrayOfFLOW_MODELDEFINE_T" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddModelDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="FlowModel" nillable="true" type="q40:FLOW_MODELDEFINE_T" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddModelDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddModelDefineResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateModelDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="FlowModel" nillable="true" type="q41:FLOW_MODELDEFINE_T" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateModelDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateModelDefineResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteModelDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="deleteList" nillable="true" type="q42:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteModelDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteModelDefineResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSystemCodeModelCodeList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSystemCodeModelCodeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="GetSystemCodeModelCodeListResult" nillable="true" type="q43:ArrayOfFLOW_MODELDEFINE_T" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeFlowList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeFlowListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="GetFreeFlowListResult" nillable="true" type="q44:ArrayOfFLOW_MODELDEFINE_FREEFLOW" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowCancleList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowCancleListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="GetFlowCancleListResult" nillable="true" type="q45:ArrayOfFLOW_MODELDEFINE_FLOWCANCLE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFreeFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFreeFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFreeFlowResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowCancle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFlowCancleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFlowCancleResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultMessgeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultMessgeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetDefaultMessgeListResult" nillable="true" type="q46:ArrayOfT_WF_MESSAGEBODYDEFINE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDefaultMessge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="entity" nillable="true" type="q47:T_WF_MESSAGEBODYDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDefaultMessgeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddDefaultMessgeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDefaultMessge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="entity" nillable="true" type="q48:T_WF_MESSAGEBODYDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDefaultMessgeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditDefaultMessgeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDefaultMessge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDefaultMessgeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDefaultMessgeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGetDoTaskList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGetDoTaskListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetGetDoTaskListResult" nillable="true" type="q49:ArrayOfT_WF_DOTASKRULE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDoTaskRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="entity" nillable="true" type="q50:T_WF_DOTASKRULE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDoTaskRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddDoTaskRuleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDoTaskRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="entity" nillable="true" type="q51:T_WF_DOTASKRULE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDoTaskRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditDoTaskRuleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDoTaskRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ruleID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDoTaskRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDoTaskRuleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoTaskRuleDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RuleID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoTaskRuleDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetDoTaskRuleDetailResult" nillable="true" type="q52:ArrayOfT_WF_DOTASKRULEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoTaskRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RuleID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoTaskRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetDoTaskRuleResult" nillable="true" type="q53:T_WF_DOTASKRULE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDoTaskRuleDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="Detail" nillable="true" type="q54:T_WF_DOTASKRULEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDoTaskRuleDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddDoTaskRuleDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDoTaskRuleDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="Detail" nillable="true" type="q55:T_WF_DOTASKRULEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditDoTaskRuleDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditDoTaskRuleDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDoTaskRuleDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DetailID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDoTaskRuleDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDoTaskRuleDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimingTriggerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimingTriggerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="GetTimingTriggerListResult" nillable="true" type="q56:ArrayOfT_WF_TIMINGTRIGGERACTIVITY" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTimingActivity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="timingID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTimingActivityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTimingActivityResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditTimingActivity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="entity" nillable="true" type="q57:T_WF_TIMINGTRIGGERACTIVITY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditTimingActivityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditTimingActivityResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTimingActivity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="entity" nillable="true" type="q58:T_WF_TIMINGTRIGGERACTIVITY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTimingActivityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddTimingActivityResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="GetMessageResult" nillable="true" type="q59:ArrayOfT_WF_DEFAULTMESSAGE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitMessage">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InitMessageResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="entity" nillable="true" type="q60:T_WF_DEFAULTMESSAGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMessageResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="entity" nillable="true" type="q61:T_WF_DEFAULTMESSAGE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditMessageResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MessageID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteMessageResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

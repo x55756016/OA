@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.Views.Engine.TriggerList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:smtClass="clr-namespace:SMT.Workflow.Platform.Designer.Class.Converter"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:control="clr-namespace:SMT.Workflow.Platform.Designer.UControls">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.Resources>
+            <smtClass:CustomDateConverter x:Key="DateConvert" />
+            <smtClass:CycleConverter x:Key="CycleConverter"/>
+            <smtClass:TriggerTypeConverter x:Key="TriggerTypeConverter"/>
+        </Grid.Resources>
+        <control:ProgressBar x:Name="pBar" Grid.Row="0"></control:ProgressBar>
+        <Grid  x:Name="moduleColumns">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="NormalButton" Grid.Row="0" Orientation="Horizontal" Background="#6e7683" Height="30">
+                <control:ImgButton Content="新建" x:Name="btnAddCategory" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_add.png" Foreground="White" Click="btnAdd_Click" />
+                <control:ImgButton Content="编辑" x:Name="btnEditFlow" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_edit.png" Foreground="White" Click="btnEdit_Click" />
+                <control:ImgButton Content="删除" x:Name="btnDeleteFlow" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_delete.png" Foreground="White" Click="btnDelect_Click" />
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Background="#e8e9eb">
+                <TextBlock Text="所属系统:" Margin="10,8,10,0"></TextBlock>
+                <ComboBox HorizontalAlignment="Center" Margin="0,4,10,3" Name="cbSystemCode" Width="auto" MinWidth="150" SelectionChanged="cbSystemCode_SelectionChanged"   >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Width="Auto"
+                                               Text="{Binding Path=SYSTEMCODE}"
+                                               Visibility="Collapsed" />
+                                <TextBlock Width="Auto" Text="{Binding Path=SYSTEMNAME}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="模块名称：" Margin="10,8,10,0"></TextBlock>
+                <ComboBox HorizontalAlignment="Center" Margin="0,4,10,3" Name="cbModelCode" VerticalAlignment="Center" Width="auto" MinWidth="150" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Width="Auto"
+                                               Text="{Binding Path=MODELCODE}"
+                                               Visibility="Collapsed" />
+                                <TextBlock Width="Auto" Text="{Binding Path=DESCRIPTION}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Content="查询" x:Name="btnSearch"  Width="70" Margin="5 3 5 2" Click="btnSearch_Click" ></Button>
+            </StackPanel>
+            <!--DataShow-->
+            <control:DataGridEx AutoGenerateColumns="False" Grid.Row="2" HorizontalAlignment="Stretch" 
+                            Margin="0" x:Name="TimingTriggerDataGrid" VerticalAlignment="Stretch" IsReadOnly="True">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="定时编号" Binding="{Binding TRIGGERID}" Visibility="Collapsed"/>
+                    <sdk:DataGridTextColumn Header="定时名称" Binding="{Binding TRIGGERNAME}"/>
+                    <sdk:DataGridTextColumn Header="系统名称" Binding="{Binding SYSTEMNAME}"/>
+                    <sdk:DataGridTextColumn Header="模块名称" Binding="{Binding MODELNAME}"/>
+                    <sdk:DataGridTextColumn Header="开始日期" Binding="{Binding TRIGGERTIME,Converter={StaticResource DateConvert},ConverterParameter=DATE}"/>
+                    <sdk:DataGridTextColumn Header="执行周期" Binding="{Binding TRIGGERROUND,Converter={StaticResource CycleConverter},ConverterParameter=PROCESSCYCLE}"/>
+                    <sdk:DataGridTextColumn Header="定时级别" Binding="{Binding TRIGGERTYPE,Converter={StaticResource TriggerTypeConverter},ConverterParameter=TRIGGERTYPE}"/>
+                    <sdk:DataGridTextColumn Header="创建日期" Binding="{Binding CREATEDATETIME,Converter={StaticResource DateConvert},ConverterParameter=DATE}"/>
+                </sdk:DataGrid.Columns>
+            </control:DataGridEx>
+            <smt:GridPager Name="dataPager1" PageSize="15" Grid.Row="3" VerticalAlignment="Bottom" Click="dataPager1_Click"></smt:GridPager>
+        </Grid>
+    </Grid>
+</UserControl>

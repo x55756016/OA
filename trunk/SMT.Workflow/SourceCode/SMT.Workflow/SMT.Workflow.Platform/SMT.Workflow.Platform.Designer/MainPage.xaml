@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.MainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Engine="clr-namespace:SMT.Workflow.Platform.Designer.Views.Engine"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+             xmlns:TFlow="clr-namespace:SMT.Workflow.Platform.Designer.Views.FlowDesign"
+             xmlns:TModule="clr-namespace:SMT.Workflow.Platform.Designer.Views.ModelDefine"
+             d:DesignHeight="768"
+             d:DesignWidth="1000"
+             mc:Ignorable="d">
+
+    <Grid x:Name="Parent" ShowGridLines="False">
+        <Grid x:Name="LayoutRoot" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>              
+                <Grid x:Name="gridContent" Grid.Row="1">
+                    <sdk:TabControl Name="tabControl1"
+                                    Margin="2 2 0 0" SelectionChanged="tabControl1_SelectionChanged"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                        <sdk:TabItem Name="tabItem1" Header="模块定义">
+                            <TModule:ModelCodeList x:Name="ModelCode" Margin="-2" />
+                        </sdk:TabItem>
+
+                        <sdk:TabItem Name="tabItem2" Header="消息定义">
+                           <Engine:EngineMain x:Name="Engine" Margin="-2" />
+
+
+                        </sdk:TabItem>
+                        <sdk:TabItem Name="tabItem3" Header="流程设计">
+                            <TFlow:FlowView x:Name="TFlowPane"
+                                            Margin="-2"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch" />                         
+                        </sdk:TabItem>
+                    </sdk:TabControl>
+                </Grid>
+            </Grid>
+            <Canvas x:Name="windowParent" />
+        </Grid>
+    </Grid>
+</UserControl>

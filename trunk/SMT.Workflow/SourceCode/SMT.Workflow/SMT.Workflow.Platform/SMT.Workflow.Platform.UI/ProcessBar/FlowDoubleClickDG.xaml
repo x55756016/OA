@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.UI.ProcessBar.FlowDoubleClickDG"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:control="clr-namespace:SMT.Workflow.Platform.UI.ProcessBar"
+    xmlns:Data="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+
+    d:DesignHeight="300" d:DesignWidth="400">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <control:DoubleClickDataGrid x:Name="MyDataGrid" DoubleClickTime="300" 
+         RowClicked="MyDataGrid_RowClicked" RowDoubleClicked="MyDataGrid_RowDoubleClicked"
+                                     AutoGenerateColumns="False" IsReadOnly="True">
+            <Data:DataGrid.Columns>
+                <Data:DataGridTextColumn Header="流程描述" Binding="{Binding Txt1}"/>
+                <Data:DataGridTextColumn Header="流程类型" Binding="{Binding Txt2}"/>
+                <Data:DataGridTextColumn Header="创建人" Binding="{Binding Txt3}"/>
+                <Data:DataGridTextColumn Header="创建日期" Binding="{Binding Txt4}"/>
+            </Data:DataGrid.Columns>
+        </control:DoubleClickDataGrid>
+
+    </Grid>
+</UserControl>

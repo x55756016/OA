@@ -1,0 +1,28 @@
+<swc:Window x:Class="SMT.Workflow.Platform.UI.OrganizationControl.OrganizationLookup" 
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                       
+                      xmlns:common="clr-namespace:System.Windows;assembly=System.Windows.Controls"
+                      xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+                     
+                      xmlns:orgControl="clr-namespace:SMT.Workflow.Platform.UI.OrganizationControl"
+                      TitleContent="{Binding Converter={StaticResource ResourceConveter}, Source=ORGANIZATION}"
+                      MinWidth="420" MinHeight="450">
+  
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="0">
+            <orgControl:OrganizationTree x:Name="orgTree" />
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <Button  x:Name="OKButton" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=OKBUTTON}" Click="OKButton_Click" Margin="5,0,5,0" />
+            <Button  x:Name="CancelButton" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCELBUTTON}" Click="CancelButton_Click" Margin="5,0,5,0" />
+            <Button  x:Name="btnRefresh" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=REFRESH}" Click="btnRefresh_Click"  Margin="5,0,5,0" HorizontalAlignment="Right"/>
+        </StackPanel>
+
+    </Grid>
+</swc:Window>

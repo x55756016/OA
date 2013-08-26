@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.UControls.TreeControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls">
+
+    <UserControl.Resources>        
+        <DataTemplate x:Key="Organization">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" FontFamily="Arial,SimSun" FontSize="12" />
+            </StackPanel>
+        </DataTemplate>
+        
+        <telerik:HierarchicalDataTemplate x:Key="Department" ItemsSource="{Binding Children}"
+				ItemTemplate="{StaticResource Organization}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" FontFamily="Arial,SimSun" FontSize="12"  />
+            </StackPanel>
+        </telerik:HierarchicalDataTemplate>
+        
+        <telerik:HierarchicalDataTemplate x:Key="Person" ItemsSource="{Binding Children}"
+				ItemTemplate="{StaticResource Department}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" FontFamily="Arial,SimSun" FontSize="12" />
+            </StackPanel>
+        </telerik:HierarchicalDataTemplate>
+
+        <DataTemplate x:Key="contextMenuItemTemplate">
+            <telerik:ContainerBinding.ContainerBindings>
+                <telerik:ContainerBindingCollection>
+                    <telerik:ContainerBinding PropertyName="Icon"
+                                                  Binding="{Binding Icon}" />
+                    <telerik:ContainerBinding PropertyName="IsSeparator"
+                                                  Binding="{Binding IsSeparator}" />
+                </telerik:ContainerBindingCollection>
+            </telerik:ContainerBinding.ContainerBindings>
+
+            <TextBlock Text="{Binding Header}" FontFamily="Arial,SimSun" FontSize="12" />
+        </DataTemplate>
+
+        <Style x:Key="contextMenuItemStyle" TargetType="telerik:RadMenuItem">
+            <Setter Property="Width" Value="100" />
+        </Style>
+
+    </UserControl.Resources>
+
+    <telerikQuickStart:QuickStart.ExampleHeader>
+        <Grid>
+            <TextBlock Text="Context Menu" Margin="8"/>
+        </Grid>
+    </telerikQuickStart:QuickStart.ExampleHeader>    
+
+
+    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+        <telerikQuickStart:QuickStart.ExampleHeader>
+            <Grid>
+                <TextBlock Text="Organizations" Margin="8" FontFamily="Arial,SimSun" FontSize="12"  />
+            </Grid>
+        </telerikQuickStart:QuickStart.ExampleHeader>
+
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0"
+          telerikQuickStart:ThemeAwareBackgroundBehavior.IsEnabled="True">
+            <telerik:RadTreeView x:Name="treeView" IsEditable="true" IsLineEnabled="True"
+			 	ItemTemplate="{StaticResource Person}" Margin="0 5 0 0" Cursor="Hand">
+                <telerik:RadTreeView.ItemEditTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Text="{Binding Name, Mode=TwoWay}" FontFamily="Arial,SimSun" FontSize="12" />                            
+                        </StackPanel>
+                    </DataTemplate>
+                </telerik:RadTreeView.ItemEditTemplate>
+
+                <telerik:RadContextMenu.ContextMenu>
+                    <telerik:RadContextMenu x:Name="radContextMenu" ItemClick="radContextMenu_ItemClick"
+                                            Opened="RadContextMenu_Opened"
+                                            ItemTemplate="{StaticResource contextMenuItemTemplate}"
+                                            ItemContainerStyle="{StaticResource contextMenuItemStyle}" />
+                </telerik:RadContextMenu.ContextMenu>
+            </telerik:RadTreeView>
+        </Grid>
+    </Grid>
+</UserControl>

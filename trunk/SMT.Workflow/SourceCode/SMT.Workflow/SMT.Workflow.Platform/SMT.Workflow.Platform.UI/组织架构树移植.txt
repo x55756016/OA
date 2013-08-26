@@ -1,0 +1,10 @@
+需要的dll
+
+	
+	SMT.SaaS.Globalization 		中文字转换需要
+	SMT.Saas.Tools			服务读取
+	SMT.SaaS.Window			窗口调用
+	SMT.SAAS.AnimationEngine	窗口动画
+
+	SMT.SAAS.Main.CurrentContext	当前登录用户
+	System.Windows.Controls  	窗口所在的承载控件

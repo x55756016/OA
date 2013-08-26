@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" />
+  <xs:complexType name="ArrayOfV_FlowDefine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_FlowDefine" nillable="true" type="tns:V_FlowDefine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_FlowDefine" nillable="true" type="tns:ArrayOfV_FlowDefine" />
+  <xs:complexType name="V_FlowDefine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlowCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlowName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_FlowDefine" nillable="true" type="tns:V_FlowDefine" />
+  <xs:complexType name="FLOW_FLOWDEFINE_T">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BUSINESSOBJECT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWDEFINEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LAYOUT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RULES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WFLAYOUT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XOML" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FLOW_FLOWDEFINE_T" nillable="true" type="tns:FLOW_FLOWDEFINE_T" />
+  <xs:complexType name="FLOW_MODELFLOWRELATION_T">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLAG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOW_FLOWDEFINE_T" nillable="true" type="tns:FLOW_FLOWDEFINE_T" />
+      <xs:element minOccurs="0" name="FLOW_MODELDEFINE_T" nillable="true" type="tns:FLOW_MODELDEFINE_T" />
+      <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELFLOWRELATIONID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FLOW_MODELFLOWRELATION_T" nillable="true" type="tns:FLOW_MODELFLOWRELATION_T" />
+  <xs:complexType name="FLOW_MODELDEFINE_T">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlowCancelCompanyList" nillable="true" type="tns:ArrayOfFLOW_MODELDEFINE_FLOWCANCLE" />
+      <xs:element minOccurs="0" name="FreeFlowCompanyList" nillable="true" type="tns:ArrayOfFLOW_MODELDEFINE_FREEFLOW" />
+      <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELDEFINEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENTMODELCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SYSTEMNAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FLOW_MODELDEFINE_T" nillable="true" type="tns:FLOW_MODELDEFINE_T" />
+  <xs:complexType name="ArrayOfFLOW_MODELDEFINE_FLOWCANCLE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FLOW_MODELDEFINE_FLOWCANCLE" nillable="true" type="tns:FLOW_MODELDEFINE_FLOWCANCLE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFLOW_MODELDEFINE_FLOWCANCLE" nillable="true" type="tns:ArrayOfFLOW_MODELDEFINE_FLOWCANCLE" />
+  <xs:complexType name="FLOW_MODELDEFINE_FLOWCANCLE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELDEFINEFLOWCANCLEID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FLOW_MODELDEFINE_FLOWCANCLE" nillable="true" type="tns:FLOW_MODELDEFINE_FLOWCANCLE" />
+  <xs:complexType name="ArrayOfFLOW_MODELDEFINE_FREEFLOW">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FLOW_MODELDEFINE_FREEFLOW" nillable="true" type="tns:FLOW_MODELDEFINE_FREEFLOW" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFLOW_MODELDEFINE_FREEFLOW" nillable="true" type="tns:ArrayOfFLOW_MODELDEFINE_FREEFLOW" />
+  <xs:complexType name="FLOW_MODELDEFINE_FREEFLOW">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELDEFINEFREEFLOWID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FLOW_MODELDEFINE_FREEFLOW" nillable="true" type="tns:FLOW_MODELDEFINE_FREEFLOW" />
+  <xs:complexType name="CuostomFlowsDefine">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="APPFUNC" nillable="true" type="q1:ArrayOfAppFunc" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="APPMODEL" nillable="true" type="q2:ArrayOfAppModel" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATETIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUNCTIONDES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FUNCTIONNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGEBODY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="PARAMCOLLECTION" nillable="true" type="q3:ArrayOfParam" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="PARAMETER" nillable="true" type="q4:ArrayOfParameter" />
+      <xs:element minOccurs="0" name="PARAMETERVALUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROCESSID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECEIVEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTAPPFUNC" nillable="true" type="q5:AppFunc" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTAPPMODEL" nillable="true" type="q6:AppModel" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTPARAMETER" nillable="true" type="q7:Parameter" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTSYSTEMCODE" nillable="true" type="q8:AppSystem" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTTABLECOLUMN" nillable="true" type="q9:TableColumn" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SYSTEMCODE" nillable="true" type="q10:ArrayOfAppSystem" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="TABLECOLUMN" nillable="true" type="q11:ArrayOfTableColumn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CuostomFlowsDefine" nillable="true" type="tns:CuostomFlowsDefine" />
+  <xs:complexType name="FLOW_FLOWCATEGORY">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWCATEGORYDESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWCATEGORYID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FLOW_FLOWCATEGORY" nillable="true" type="tns:FLOW_FLOWCATEGORY" />
+  <xs:complexType name="FlowTriggerRules">
+    <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="APPFUNC" nillable="true" type="q12:ArrayOfAppFunc" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="APPMODEL" nillable="true" type="q13:ArrayOfAppModel" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="APPMODELMASTER" nillable="true" type="q14:ArrayOfAppModel" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="APPMODELS" nillable="true" type="q15:ArrayOfAppModel" />
+      <xs:element minOccurs="0" name="AVAILABILITYPROCESSDATES" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CREATEDATETIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEFAULTMSG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOTASKRULEDETAILID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOTASKRULEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISENABLED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGEBODY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OTHER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="PARAMCOLLECTION" nillable="true" type="q16:ArrayOfParam" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="PARAMETER" nillable="true" type="q17:ArrayOfParameter" />
+      <xs:element minOccurs="0" name="PARAMETERVALUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECEIVEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTAPPFUNC" nillable="true" type="q18:AppFunc" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTAPPMODEL" nillable="true" type="q19:AppModel" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTAPPMODELMASTER" nillable="true" type="q20:AppModel" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTMCODE" nillable="true" type="q21:AppSystem" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTMODEL" nillable="true" type="q22:AppModel" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTPARAMETER" nillable="true" type="q23:Parameter" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTSYSTEMCODE" nillable="true" type="q24:AppSystem" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTSYSTEMCODEMASTER" nillable="true" type="q25:AppSystem" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTTABLECOLUMN" nillable="true" type="q26:TableColumn" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SYSTEMCODE" nillable="true" type="q27:ArrayOfAppSystem" />
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SYSTEMCODEMASTER" nillable="true" type="q28:ArrayOfAppSystem" />
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="TABLECOLUMN" nillable="true" type="q29:ArrayOfTableColumn" />
+      <xs:element minOccurs="0" name="TRIGGERCONDITION" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlowTriggerRules" nillable="true" type="tns:FlowTriggerRules" />
+  <xs:complexType name="TriggDefine">
+    <xs:sequence>
+      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="APPFUNC" nillable="true" type="q30:ArrayOfAppFunc" />
+      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="APPMODEL" nillable="true" type="q31:ArrayOfAppModel" />
+      <xs:element minOccurs="0" name="CREATEDATETIME" type="xs:dateTime" />
+      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="CYCLETYPE" nillable="true" type="q32:ArrayOfCycle" />
+      <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="PARAMCOLLECTION" nillable="true" type="q33:ArrayOfParam" />
+      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="PARAMETER" nillable="true" type="q34:ArrayOfParameter" />
+      <xs:element minOccurs="0" name="PARAMETERVALUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROCESSID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROCESSSTARTDATES" type="xs:dateTime" />
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTAPPFUNC" nillable="true" type="q35:AppFunc" />
+      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTAPPMODEL" nillable="true" type="q36:AppModel" />
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTCYCLETYPE" nillable="true" type="q37:Cycle" />
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTPARAMETER" nillable="true" type="q38:Parameter" />
+      <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SELECTSYSTEMCODE" nillable="true" type="q39:AppSystem" />
+      <xs:element minOccurs="0" name="SERVICETYPE" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SMSTYPE" type="xs:boolean" />
+      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" minOccurs="0" name="SYSTEMCODE" nillable="true" type="q40:ArrayOfAppSystem" />
+      <xs:element minOccurs="0" name="SYSTEMTRIGGER" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TRIGGERACTIVITYTYPE" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TRIGGERDESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRIGGERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USERTRIGGERTYPE" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TriggDefine" nillable="true" type="tns:TriggDefine" />
+  <xs:complexType name="ArrayOfFLOW_MODELDEFINE_T">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FLOW_MODELDEFINE_T" nillable="true" type="tns:FLOW_MODELDEFINE_T" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFLOW_MODELDEFINE_T" nillable="true" type="tns:ArrayOfFLOW_MODELDEFINE_T" />
+  <xs:complexType name="ArrayOfT_WF_DEFAULTMESSAGE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_WF_DEFAULTMESSAGE" nillable="true" type="tns:T_WF_DEFAULTMESSAGE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_WF_DEFAULTMESSAGE" nillable="true" type="tns:ArrayOfT_WF_DEFAULTMESSAGE" />
+  <xs:complexType name="T_WF_DEFAULTMESSAGE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPLICATIONURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUDITSTATE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGECONTENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODELNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SYSTEMNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_WF_DEFAULTMESSAGE" nillable="true" type="tns:T_WF_DEFAULTMESSAGE" />
+</xs:schema>

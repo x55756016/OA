@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" />
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+  <xs:complexType name="V_FLOWDEFINITION">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="FlowDefinition" nillable="true" type="q1:FLOW_FLOWDEFINE_T" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" minOccurs="0" name="ModelRelation" nillable="true" type="q2:FLOW_MODELFLOWRELATION_T" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_FLOWDEFINITION" nillable="true" type="tns:V_FLOWDEFINITION" />
+  <xs:complexType name="ArrayOfV_DotaskRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_DotaskRule" nillable="true" type="tns:V_DotaskRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_DotaskRule" nillable="true" type="tns:ArrayOfV_DotaskRule" />
+  <xs:complexType name="V_DotaskRule">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="DOTASKRULE" nillable="true" type="q3:T_WF_DOTASKRULE" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" minOccurs="0" name="DOTASKRULEDETAIL" nillable="true" type="q4:T_WF_DOTASKRULEDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_DotaskRule" nillable="true" type="tns:V_DotaskRule" />
+</xs:schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3be752b4-c9cd-4aba-bf58-38c9bc2963d8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="SMT.Extensions" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1810/PlatformServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PlatformServices.xsd" MetadataType="Schema" ID="96f500ba-27c6-4c78-bb93-ed41148860fb" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="PlatformServices1.xsd" MetadataType="Schema" ID="fd4cf268-76fd-435d-9203-32f5d4714874" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="PlatformServices2.xsd" MetadataType="Schema" ID="695f71a8-1986-43cf-8f1c-7d42f987c670" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="PlatformServices3.xsd" MetadataType="Schema" ID="05f465cd-1510-4607-a5d9-0947c4995482" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="PlatformServices4.xsd" MetadataType="Schema" ID="5f8be73e-b6fb-4f1d-99c1-8df7a08fe5a2" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="PlatformServices.wsdl" MetadataType="Wsdl" ID="6f1ee816-a4cd-4ba2-ac5b-96755305262e" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?wsdl" />
+    <MetadataFile FileName="PlatformServices5.xsd" MetadataType="Schema" ID="eef284f6-1ff7-4a79-850e-3f614ea8f0f3" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="PlatformServices.disco" MetadataType="Disco" ID="45cd1c07-a374-4fcc-b9b6-ba9530dd10a0" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?disco" />
+    <MetadataFile FileName="PlatformServices6.xsd" MetadataType="Schema" ID="7206e3a3-bfab-49aa-b43c-e3060356815f" SourceId="1" SourceUrl="http://localhost:1810/PlatformServices.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

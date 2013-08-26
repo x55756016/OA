@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.UI.ProcessBar.FlowprogressBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Storyboard x:Name="spinStBoard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="wait" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(RotateTransform.Angle)" BeginTime="00:00:00">
+                <SplineDoubleKeyFrame KeyTime="00:00:1.1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="#25000000">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Canvas x:Name="wait"
+            HorizontalAlignment="Center" 
+            Width="61" 
+            Height="61" 
+            RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="scale"/>
+                    <RotateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Image Margin="0" Source="/SMT.Workflow.Platform.UI;component/Images/loading_1.png" Stretch="Fill" Width="61" Height="61" />
+        </Canvas>
+    </Grid>
+</UserControl>
+

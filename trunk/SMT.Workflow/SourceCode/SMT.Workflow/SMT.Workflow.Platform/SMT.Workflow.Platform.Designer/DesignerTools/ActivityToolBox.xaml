@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.DesignerTools.ActivityToolBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ShapeTool="clr-namespace:SMT.Workflow.Platform.Designer.DesignerShape">
+
+    <Grid x:Name="LayoutRoot">
+        <Canvas  Name="cnContainer"  Canvas.ZIndex="10">
+            <Rectangle Name="Shadow" Canvas.Left="3" Canvas.Top="3"  Width="100" Height="56"  Canvas.ZIndex="10"  Visibility="Collapsed"
+                Stroke="Black" StrokeThickness="0.5" RadiusX="10" RadiusY="10" Opacity="0.5" >
+            </Rectangle>
+
+            <!--<ShapeTool:ActivityShape x:Name="ShapeActivity" Width="106" Height="66" Canvas.ZIndex="80" Opacity="0.8"
+                MouseEnter="Shape_MouseEnter"  MouseLeave="Shape_MouseLeave"
+                MouseLeftButtonDown="Shape_MouseLeftButtonDown"  MouseMove="Shape_MouseMove"  MouseLeftButtonUp="Shape_MouseLeftButtonUp">
+            </ShapeTool:ActivityShape>-->
+            <Image x:Name="ShapeActivity" Source="/SMT.Workflow.Platform.Designer;component/Images/activity_noselect.jpg" Width="28" Height="24" Canvas.Left="40" Canvas.Top="18"
+                    MouseEnter="Shape_MouseEnter"  MouseLeave="Shape_MouseLeave"
+                    MouseLeftButtonDown="Shape_MouseLeftButtonDown"  MouseMove="Shape_MouseMove"  MouseLeftButtonUp="Shape_MouseLeftButtonUp"
+                />
+        </Canvas>
+    </Grid>
+</UserControl>

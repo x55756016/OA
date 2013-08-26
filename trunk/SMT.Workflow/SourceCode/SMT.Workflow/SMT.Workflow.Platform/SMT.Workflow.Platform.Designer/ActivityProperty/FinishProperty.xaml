@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.ActivityProperty.FinishProperty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+
+    <UserControl.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness" Value="0 0 1 1"/>
+            <Setter Property="BorderBrush" Value="#FFF2ECEC" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0 0 0 0"/>
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0 0 0 0" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="5 0" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="0">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="65*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0">
+            <TextBlock Text="节点名称" />
+        </Border>
+
+        <Border Grid.Row="0" Grid.Column="1">
+            <TextBlock Name="txtName" />
+        </Border>
+    </Grid>
+    
+</UserControl>

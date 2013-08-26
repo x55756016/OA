@@ -1,0 +1,140 @@
+﻿<controls:ChildWindow x:Class="SMT.Workflow.Platform.Designer.Views.ModelDefine.ModelCodeEdit"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:control="clr-namespace:SMT.Workflow.Platform.Designer.UControls"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"    
+          xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+           Title="模块编辑"
+           Width="600"  Height="450">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="0" /><!--隐藏撤单功能-->
+            <RowDefinition Height="0"  />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+           
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="NormalButton3" Grid.Row="0" Grid.ColumnSpan="6" Orientation="Horizontal" Background="#6e7683" Height="30">
+            <control:ImgButton Content="保存" x:Name="btnAddCategory" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_add.png" Foreground="White" Click="btnSave_Click" />
+            <control:ImgButton Content="关闭" x:Name="btnEditFlow" Icon="/SMT.Workflow.Platform.Designer;component/Images/Toolbar/16_edit.png" Foreground="White" Click="btnClose_Click" />
+        </StackPanel>
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="所属系统:" />
+        <ComboBox Name="cbSystemCode"
+                  Grid.Row="2"
+                  Grid.Column="2"
+                  Width="auto"
+                  MinWidth="150"
+                  HorizontalAlignment="Left" SelectionChanged="cbSYSTEMCODE_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Width="Auto"
+                                   Text="{Binding Path=Name}"
+                                   Visibility="Collapsed" />
+                        <TextBlock Width="Auto" Text="{Binding Path=Description}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Grid.Row="2"
+                   Grid.Column="3"
+                   VerticalAlignment="Center"
+                   Text="模块名称:" />
+        <ComboBox Name="cbModelCode"
+                  Grid.Row="2"
+                  Grid.Column="5"
+                  Width="auto"
+                  MinWidth="150"
+                  HorizontalAlignment="Left" SelectionChanged="cbModelCode_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Width="Auto"
+                                   Text="{Binding Path=Name}"
+                                   Visibility="Collapsed" />
+                        <TextBlock Width="Auto" Text="{Binding Path=Description}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="模块代码:" />
+        <TextBox Name="txtModelCode"  Grid.Row="4" Grid.Column="2"  IsEnabled="False"  Margin="0,0,20,0"/>
+        <TextBlock  Text="*" Grid.Row="4" Grid.Column="2"  Foreground="Red"  VerticalAlignment="Center"   HorizontalAlignment="Right" Margin="0,0,10,0"/>
+        <TextBlock Grid.Row="4"
+                   Grid.Column="3"
+                   VerticalAlignment="Center"
+                   Text="模块名称:" />
+        <TextBox Name="txtModelName"  Grid.Row="4" Grid.Column="5"   IsEnabled="False"  Margin="0,0,20,0"/>            
+        <TextBlock  Text="*" Grid.Row="4" Grid.Column="6"  Foreground="Red"  VerticalAlignment="Center"   HorizontalAlignment="Right" Margin="0,0,10,0"/>
+            
+            
+            <Button  x:Name="btnSelect1" Grid.Row="6" Grid.Column="0"  Content="选择公司" Click="btnSelect1_Click"/>
+            <TextBlock x:Name="tbCancel"  Grid.Row="6" Grid.Column="1"  Grid.ColumnSpan="5" Text="允许提单人撒回流程的公司" Foreground="Red"  Margin="10"  VerticalAlignment="Center"/>
+            <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="7" Grid.Column="0"  Grid.ColumnSpan="9" 
+                            Margin="0" x:Name="dgCompany1" VerticalAlignment="Stretch" IsReadOnly="True">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="公司名称" Binding="{Binding COMPANYNAME}"/>
+
+                    <sdk:DataGridTemplateColumn Header="操作" >
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal"  VerticalAlignment="Stretch" >
+                                    <Button  x:Name="btnDel1" Tag="{Binding COMPANYID}"  Content="删除" VerticalAlignment="Center" Click="btnDel1_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+            <smt:GridPager Name="dataPager1" PageSize="10" Grid.Row="8"  Grid.Column="0"  Grid.ColumnSpan="9"  Click="dataPager1_Click"  VerticalAlignment="Bottom" ></smt:GridPager>
+
+
+            <Button  x:Name="btnSelect2" Grid.Row="9" Grid.Column="0"  Content="选择公司" Click="btnSelect2_Click"/>
+            <TextBlock   x:Name="tbFree"  Text=" 该模块允许【自选流程】的公司" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="5"  Foreground="Red" Margin="10" VerticalAlignment="Center"/>
+            <sdk:DataGrid AutoGenerateColumns="False" Grid.Row="10" Grid.Column="0"  Grid.ColumnSpan="9" 
+                            Margin="0" x:Name="dgCompany2" VerticalAlignment="Stretch" IsReadOnly="True"  Height="200" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="公司名称" Width="500" Binding="{Binding COMPANYNAME}"/>
+                    <sdk:DataGridTemplateColumn Header="操作" Width="50">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                                    <Button  x:Name="btnDel2" Tag="{Binding COMPANYID}"  Content="删除" VerticalAlignment="Center" Click="btnDel2_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+            <smt:GridPager Name="dataPager2" PageSize="20" Grid.Row="11"  Grid.Column="0"  Grid.ColumnSpan="9"  Click="dataPager2_Click"  VerticalAlignment="Bottom" ></smt:GridPager>
+        </Grid>
+        <control:ProgressBar x:Name="pBar" Grid.Row="0"></control:ProgressBar>
+    </Grid>
+</controls:ChildWindow>

@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.ActivityProperty.ActivityProperty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"       
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+
+    <UserControl.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness" Value="0 0 1 1"/>
+            <Setter Property="BorderBrush" Value="#FFF2ECEC" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0 0 0 0"/>
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0 0 0 0" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="5 0" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+
+
+        <Style TargetType="RadioButton">
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Name="grdBaseProperty" Canvas.ZIndex="4" Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />      
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="60*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0">
+            <TextBlock Text="节点角色：" />
+        </Border>
+
+        <Border x:Name="boBox" Grid.Row="0" Grid.Column="1">
+            <ComboBox x:Name="cboRoles"  Height="22" Visibility="Visible"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" DisplayMemberPath="StateName" Margin="0,0,5,0" SelectionChanged="cboRoles_SelectionChanged" />
+        </Border>
+        <Border x:Name="boTxt" Grid.Row="0" Grid.Column="1" Visibility="Collapsed">
+            <TextBox Name="txtActivityName" IsEnabled="False" TextChanged="txtActivityName_TextChanged" />          
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="是否会签节点：" />
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1">   
+            <CheckBox x:Name="chkGroupAudit" Margin="4" Click="chkGroupAudit_Click" />
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="0">
+            <TextBlock Text="指定公司：" />
+            
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <CheckBox x:Name="cbOtherCompany" Margin="4" Width="20" Click="cbOtherCompany_Click"></CheckBox>
+            <ComboBox x:Name="cboOtherCompany" Visibility="Collapsed"  Height="22"  HorizontalAlignment="Stretch" DisplayMemberPath="StateName"  SelectionChanged="cboOtherCompany_SelectionChanged" />
+            </StackPanel >
+        </Border>        
+       
+
+        <Border Grid.Row="3" Grid.Column="0">
+            <TextBlock Text="用户类型：" />
+        </Border>
+
+        <Border Grid.Row="3" Grid.Column="1">
+            <ComboBox x:Name="cboUserType" Height="22" DisplayMemberPath="TypeName" SelectionChanged="cboUserType_SelectionChanged" />
+        </Border>
+
+        <Border Grid.Row="4" Grid.Column="0">
+            <TextBlock Text="会签类型：" />
+        </Border>
+
+        <Border Grid.Row="4" Grid.Column="1">
+            <ComboBox x:Name="cboRule"  Height="22" SelectionChanged="cboRule_SelectionChanged">
+                <ComboBoxItem Content="所有同意即为通过" IsSelected="True" />
+                <ComboBoxItem Content="一个同意即为通过" />
+            </ComboBox>
+        </Border>
+
+        <Border Grid.Row="5" Grid.Column="0">
+            <TextBlock Text="会签审核角色：" />
+        </Border>
+        <Border Grid.Row="5" Grid.Column="1">
+            <ComboBox x:Name="cboCountersignRoles"  Height="22"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" DisplayMemberPath="StateName"  />
+        </Border>
+
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnOk"  Content="添加角色" Height="22" Width="60" HorizontalAlignment="Left" Margin="5 0 10 0" Click="btnOk_Click" />
+                <Button x:Name="btnClear"  Content="删除角色" Height="22" Width="60" HorizontalAlignment="Left" Margin="10 0 5 0" Click="btnClear_Click" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+            <sdk:DataGrid x:Name="dgCountersign" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="处理角色"  MaxWidth="160"  IsReadOnly="True"  Binding="{Binding StateName}"/>
+                    <sdk:DataGridTextColumn Header="用户类型"  MaxWidth="90" IsReadOnly="True" Binding="{Binding TypeName}"/>
+                    <sdk:DataGridTextColumn Header="所属公司"   MinWidth="90" IsReadOnly="True" Binding="{Binding OtherCompanyName}"/>
+                    
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+        </Border>
+    </Grid>
+
+    
+</UserControl>

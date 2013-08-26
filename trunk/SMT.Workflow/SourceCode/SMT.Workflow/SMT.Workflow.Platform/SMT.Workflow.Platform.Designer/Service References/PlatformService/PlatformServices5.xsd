@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfAppFunc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppFunc" nillable="true" type="tns:AppFunc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppFunc" nillable="true" type="tns:ArrayOfAppFunc" />
+  <xs:complexType name="AppFunc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Binding" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FuncName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parameter" nillable="true" type="tns:ArrayOfParameter" />
+      <xs:element minOccurs="0" name="SplitChar" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppFunc" nillable="true" type="tns:AppFunc" />
+  <xs:complexType name="ArrayOfParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" nillable="true" type="tns:Parameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameter" nillable="true" type="tns:ArrayOfParameter" />
+  <xs:complexType name="Parameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parameter" nillable="true" type="tns:Parameter" />
+  <xs:complexType name="ArrayOfAppModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppModel" nillable="true" type="tns:AppModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppModel" nillable="true" type="tns:ArrayOfAppModel" />
+  <xs:complexType name="AppModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectFolder" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppModel" nillable="true" type="tns:AppModel" />
+  <xs:complexType name="ArrayOfParam">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Param" nillable="true" type="tns:Param" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParam" nillable="true" type="tns:ArrayOfParam" />
+  <xs:complexType name="Param">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FieldID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FieldName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParamID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParamName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Param" nillable="true" type="tns:Param" />
+  <xs:complexType name="AppSystem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectFolder" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppSystem" nillable="true" type="tns:AppSystem" />
+  <xs:complexType name="TableColumn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FieldName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TableColumn" nillable="true" type="tns:TableColumn" />
+  <xs:complexType name="ArrayOfAppSystem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppSystem" nillable="true" type="tns:AppSystem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppSystem" nillable="true" type="tns:ArrayOfAppSystem" />
+  <xs:complexType name="ArrayOfTableColumn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TableColumn" nillable="true" type="tns:TableColumn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTableColumn" nillable="true" type="tns:ArrayOfTableColumn" />
+  <xs:complexType name="ArrayOfWFBOAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WFBOAttribute" nillable="true" type="tns:WFBOAttribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWFBOAttribute" nillable="true" type="tns:ArrayOfWFBOAttribute" />
+  <xs:complexType name="WFBOAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="WFBOAttribute" nillable="true" type="tns:WFBOAttribute" />
+  <xs:complexType name="ArrayOfCycle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cycle" nillable="true" type="tns:Cycle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCycle" nillable="true" type="tns:ArrayOfCycle" />
+  <xs:complexType name="Cycle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CycleType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cycle" nillable="true" type="tns:Cycle" />
+</xs:schema>

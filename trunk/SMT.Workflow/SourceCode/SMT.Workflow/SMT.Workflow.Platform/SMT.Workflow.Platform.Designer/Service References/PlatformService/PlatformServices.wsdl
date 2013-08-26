@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlatformServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" />
+      <xsd:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" />
+      <xsd:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+      <xsd:import schemaLocation="http://localhost:1810/PlatformServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFlowDefine_GetFlowDefineList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowDefineList" />
+  </wsdl:message>
+  <wsdl:message name="IFlowDefine_GetFlowDefineList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowDefineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowDefine_AddFlowDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFlowDefine" />
+  </wsdl:message>
+  <wsdl:message name="IFlowDefine_AddFlowDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFlowDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowDefine_GetFlowEntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowEntity" />
+  </wsdl:message>
+  <wsdl:message name="IFlowDefine_GetFlowEntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowDefine_DeleteFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlow" />
+  </wsdl:message>
+  <wsdl:message name="IFlowDefine_DeleteFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_GetCuostomFlowsDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuostomFlowsDefine" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_GetCuostomFlowsDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuostomFlowsDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_GetListCuostomFlowsDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCuostomFlowsDefine" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_GetListCuostomFlowsDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListCuostomFlowsDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_AddCuostomFlowsDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCuostomFlowsDefine" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_AddCuostomFlowsDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCuostomFlowsDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_GetsCuostomFlowsDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetsCuostomFlowsDefine" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_GetsCuostomFlowsDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetsCuostomFlowsDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_UpdateCuostomFlowsDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCuostomFlowsDefine" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_UpdateCuostomFlowsDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCuostomFlowsDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_DeleteCuostomFlowsDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCuostomFlowsDefine" />
+  </wsdl:message>
+  <wsdl:message name="ICuostomFlowsDefine_DeleteCuostomFlowsDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCuostomFlowsDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowEvent_FlowEventAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FlowEventAll" />
+  </wsdl:message>
+  <wsdl:message name="IFlowEvent_FlowEventAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FlowEventAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowCategory_AddFlowCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFlowCategory" />
+  </wsdl:message>
+  <wsdl:message name="IFlowCategory_AddFlowCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFlowCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowCategory_UpdateFlowCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlowCategory" />
+  </wsdl:message>
+  <wsdl:message name="IFlowCategory_UpdateFlowCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlowCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowCategory_GetExistsFlowCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistsFlowCategory" />
+  </wsdl:message>
+  <wsdl:message name="IFlowCategory_GetExistsFlowCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistsFlowCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowCategory_DeleteFlowCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowCategory" />
+  </wsdl:message>
+  <wsdl:message name="IFlowCategory_DeleteFlowCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_GetFlowMsgDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowMsgDefine" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_GetFlowMsgDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowMsgDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_GetListFlowMsgDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListFlowMsgDefine" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_GetListFlowMsgDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListFlowMsgDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_GetListFlowMsgBodyDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListFlowMsgBodyDefine" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_GetListFlowMsgBodyDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListFlowMsgBodyDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_AddFlowMsgDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFlowMsgDefine" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_AddFlowMsgDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFlowMsgDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_UpdateFlowMsgDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlowMsgDefine" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_UpdateFlowMsgDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlowMsgDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_DeleteFlowMsgDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowMsgDefine" />
+  </wsdl:message>
+  <wsdl:message name="IEngine_DeleteFlowMsgDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowMsgDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListSystem_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListSystem" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListSystem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListSystemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_AppModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:AppModel" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_AppModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AppModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListModel" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListTableColumn_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListTableColumn" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListTableColumn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListTableColumnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListFuncTableColumn_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListFuncTableColumn" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListFuncTableColumn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListFuncTableColumnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_GetSystemBOAttributeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemBOAttributeList" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_GetSystemBOAttributeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemBOAttributeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListSystemFunc_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListSystemFunc" />
+  </wsdl:message>
+  <wsdl:message name="IFlowXmlDefine_ListSystemFunc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListSystemFuncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowTrigger_GetFlowTrigger_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowTrigger" />
+  </wsdl:message>
+  <wsdl:message name="IFlowTrigger_GetFlowTrigger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowTriggerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowTrigger_GetListFlowTrigger_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListFlowTrigger" />
+  </wsdl:message>
+  <wsdl:message name="IFlowTrigger_GetListFlowTrigger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListFlowTriggerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowTrigger_DeleteFlowTrigger_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowTrigger" />
+  </wsdl:message>
+  <wsdl:message name="IFlowTrigger_DeleteFlowTrigger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowTriggerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowTrigger_GetFlowTriggerRlues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowTriggerRlues" />
+  </wsdl:message>
+  <wsdl:message name="IFlowTrigger_GetFlowTriggerRlues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowTriggerRluesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITriggerDefine_GetFlowTriggerDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowTriggerDefine" />
+  </wsdl:message>
+  <wsdl:message name="ITriggerDefine_GetFlowTriggerDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowTriggerDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITriggerDefine_GetListFlowTriggerDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListFlowTriggerDefine" />
+  </wsdl:message>
+  <wsdl:message name="ITriggerDefine_GetListFlowTriggerDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListFlowTriggerDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITriggerDefine_GetTriggerDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriggerDefine" />
+  </wsdl:message>
+  <wsdl:message name="ITriggerDefine_GetTriggerDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTriggerDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITriggerDefine_DeleteTriggerDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTriggerDefine" />
+  </wsdl:message>
+  <wsdl:message name="ITriggerDefine_DeleteTriggerDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTriggerDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_GetModelDefineList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelDefineList" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_GetModelDefineList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelDefineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_AddModelDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModelDefine" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_AddModelDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModelDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_UpdateModelDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModelDefine" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_UpdateModelDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModelDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_DeleteModelDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteModelDefine" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_DeleteModelDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteModelDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_GetSystemCodeModelCodeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemCodeModelCodeList" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_GetSystemCodeModelCodeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemCodeModelCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_GetFreeFlowList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFreeFlowList" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_GetFreeFlowList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFreeFlowListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_GetFlowCancleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowCancleList" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_GetFlowCancleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowCancleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_DeleteFreeFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFreeFlow" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_DeleteFreeFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFreeFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_DeleteFlowCancle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowCancle" />
+  </wsdl:message>
+  <wsdl:message name="IFlow_ModelDefine_DeleteFlowCancle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFlowCancleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBodyDefine_GetDefaultMessgeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultMessgeList" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBodyDefine_GetDefaultMessgeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultMessgeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBodyDefine_AddDefaultMessge_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDefaultMessge" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBodyDefine_AddDefaultMessge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDefaultMessgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBodyDefine_EditDefaultMessge_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDefaultMessge" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBodyDefine_EditDefaultMessge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDefaultMessgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBodyDefine_DeleteDefaultMessge_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDefaultMessge" />
+  </wsdl:message>
+  <wsdl:message name="IMessageBodyDefine_DeleteDefaultMessge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDefaultMessgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_GetGetDoTaskList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGetDoTaskList" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_GetGetDoTaskList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGetDoTaskListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_AddDoTaskRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoTaskRule" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_AddDoTaskRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoTaskRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_EditDoTaskRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDoTaskRule" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_EditDoTaskRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDoTaskRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_DeleteDoTaskRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDoTaskRule" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_DeleteDoTaskRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDoTaskRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_GetDoTaskRuleDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoTaskRuleDetail" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_GetDoTaskRuleDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoTaskRuleDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_GetDoTaskRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoTaskRule" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_GetDoTaskRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoTaskRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_AddDoTaskRuleDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoTaskRuleDetail" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_AddDoTaskRuleDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoTaskRuleDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_EditDoTaskRuleDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDoTaskRuleDetail" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_EditDoTaskRuleDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDoTaskRuleDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_DeleteDoTaskRuleDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDoTaskRuleDetail" />
+  </wsdl:message>
+  <wsdl:message name="IDoTaskRule_DeleteDoTaskRuleDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDoTaskRuleDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimingTrigger_GetTimingTriggerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimingTriggerList" />
+  </wsdl:message>
+  <wsdl:message name="ITimingTrigger_GetTimingTriggerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimingTriggerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimingTrigger_DeleteTimingActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTimingActivity" />
+  </wsdl:message>
+  <wsdl:message name="ITimingTrigger_DeleteTimingActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTimingActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimingTrigger_EditTimingActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditTimingActivity" />
+  </wsdl:message>
+  <wsdl:message name="ITimingTrigger_EditTimingActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditTimingActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITimingTrigger_AddTimingActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTimingActivity" />
+  </wsdl:message>
+  <wsdl:message name="ITimingTrigger_AddTimingActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTimingActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_GetMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_GetMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_InitMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_InitMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_AddMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_AddMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_EditMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_EditMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_DeleteMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDefaultMessage_DeleteMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFlowDefine">
+    <wsdl:operation name="GetFlowDefineList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowDefine/GetFlowDefineList" message="tns:IFlowDefine_GetFlowDefineList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowDefine/GetFlowDefineListResponse" message="tns:IFlowDefine_GetFlowDefineList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFlowDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowDefine/AddFlowDefine" message="tns:IFlowDefine_AddFlowDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowDefine/AddFlowDefineResponse" message="tns:IFlowDefine_AddFlowDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowEntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowDefine/GetFlowEntity" message="tns:IFlowDefine_GetFlowEntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowDefine/GetFlowEntityResponse" message="tns:IFlowDefine_GetFlowEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowDefine/DeleteFlow" message="tns:IFlowDefine_DeleteFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowDefine/DeleteFlowResponse" message="tns:IFlowDefine_DeleteFlow_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICuostomFlowsDefine">
+    <wsdl:operation name="GetCuostomFlowsDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/GetCuostomFlowsDefine" message="tns:ICuostomFlowsDefine_GetCuostomFlowsDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/GetCuostomFlowsDefineResponse" message="tns:ICuostomFlowsDefine_GetCuostomFlowsDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCuostomFlowsDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/GetListCuostomFlowsDefine" message="tns:ICuostomFlowsDefine_GetListCuostomFlowsDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/GetListCuostomFlowsDefineResponse" message="tns:ICuostomFlowsDefine_GetListCuostomFlowsDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCuostomFlowsDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/AddCuostomFlowsDefine" message="tns:ICuostomFlowsDefine_AddCuostomFlowsDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/AddCuostomFlowsDefineResponse" message="tns:ICuostomFlowsDefine_AddCuostomFlowsDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetsCuostomFlowsDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/GetsCuostomFlowsDefine" message="tns:ICuostomFlowsDefine_GetsCuostomFlowsDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/GetsCuostomFlowsDefineResponse" message="tns:ICuostomFlowsDefine_GetsCuostomFlowsDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCuostomFlowsDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/UpdateCuostomFlowsDefine" message="tns:ICuostomFlowsDefine_UpdateCuostomFlowsDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/UpdateCuostomFlowsDefineResponse" message="tns:ICuostomFlowsDefine_UpdateCuostomFlowsDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCuostomFlowsDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/DeleteCuostomFlowsDefine" message="tns:ICuostomFlowsDefine_DeleteCuostomFlowsDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICuostomFlowsDefine/DeleteCuostomFlowsDefineResponse" message="tns:ICuostomFlowsDefine_DeleteCuostomFlowsDefine_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IFlowEvent">
+    <wsdl:operation name="FlowEventAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowEvent/FlowEventAll" message="tns:IFlowEvent_FlowEventAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowEvent/FlowEventAllResponse" message="tns:IFlowEvent_FlowEventAll_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IFlowCategory">
+    <wsdl:operation name="AddFlowCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowCategory/AddFlowCategory" message="tns:IFlowCategory_AddFlowCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowCategory/AddFlowCategoryResponse" message="tns:IFlowCategory_AddFlowCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlowCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowCategory/UpdateFlowCategory" message="tns:IFlowCategory_UpdateFlowCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowCategory/UpdateFlowCategoryResponse" message="tns:IFlowCategory_UpdateFlowCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistsFlowCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowCategory/GetExistsFlowCategory" message="tns:IFlowCategory_GetExistsFlowCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowCategory/GetExistsFlowCategoryResponse" message="tns:IFlowCategory_GetExistsFlowCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowCategory/DeleteFlowCategory" message="tns:IFlowCategory_DeleteFlowCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowCategory/DeleteFlowCategoryResponse" message="tns:IFlowCategory_DeleteFlowCategory_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IEngine">
+    <wsdl:operation name="GetFlowMsgDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngine/GetFlowMsgDefine" message="tns:IEngine_GetFlowMsgDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngine/GetFlowMsgDefineResponse" message="tns:IEngine_GetFlowMsgDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListFlowMsgDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngine/GetListFlowMsgDefine" message="tns:IEngine_GetListFlowMsgDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngine/GetListFlowMsgDefineResponse" message="tns:IEngine_GetListFlowMsgDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListFlowMsgBodyDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngine/GetListFlowMsgBodyDefine" message="tns:IEngine_GetListFlowMsgBodyDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngine/GetListFlowMsgBodyDefineResponse" message="tns:IEngine_GetListFlowMsgBodyDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFlowMsgDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngine/AddFlowMsgDefine" message="tns:IEngine_AddFlowMsgDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngine/AddFlowMsgDefineResponse" message="tns:IEngine_AddFlowMsgDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlowMsgDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngine/UpdateFlowMsgDefine" message="tns:IEngine_UpdateFlowMsgDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngine/UpdateFlowMsgDefineResponse" message="tns:IEngine_UpdateFlowMsgDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowMsgDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngine/DeleteFlowMsgDefine" message="tns:IEngine_DeleteFlowMsgDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngine/DeleteFlowMsgDefineResponse" message="tns:IEngine_DeleteFlowMsgDefine_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IFlowXmlDefine">
+    <wsdl:operation name="ListSystem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListSystem" message="tns:IFlowXmlDefine_ListSystem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListSystemResponse" message="tns:IFlowXmlDefine_ListSystem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AppModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowXmlDefine/AppModel" message="tns:IFlowXmlDefine_AppModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowXmlDefine/AppModelResponse" message="tns:IFlowXmlDefine_AppModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListModel" message="tns:IFlowXmlDefine_ListModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListModelResponse" message="tns:IFlowXmlDefine_ListModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListTableColumn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListTableColumn" message="tns:IFlowXmlDefine_ListTableColumn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListTableColumnResponse" message="tns:IFlowXmlDefine_ListTableColumn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListFuncTableColumn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListFuncTableColumn" message="tns:IFlowXmlDefine_ListFuncTableColumn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListFuncTableColumnResponse" message="tns:IFlowXmlDefine_ListFuncTableColumn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemBOAttributeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowXmlDefine/GetSystemBOAttributeList" message="tns:IFlowXmlDefine_GetSystemBOAttributeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowXmlDefine/GetSystemBOAttributeListResponse" message="tns:IFlowXmlDefine_GetSystemBOAttributeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSystemFunc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListSystemFunc" message="tns:IFlowXmlDefine_ListSystemFunc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowXmlDefine/ListSystemFuncResponse" message="tns:IFlowXmlDefine_ListSystemFunc_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IFlowTrigger">
+    <wsdl:operation name="GetFlowTrigger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowTrigger/GetFlowTrigger" message="tns:IFlowTrigger_GetFlowTrigger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowTrigger/GetFlowTriggerResponse" message="tns:IFlowTrigger_GetFlowTrigger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListFlowTrigger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowTrigger/GetListFlowTrigger" message="tns:IFlowTrigger_GetListFlowTrigger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowTrigger/GetListFlowTriggerResponse" message="tns:IFlowTrigger_GetListFlowTrigger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowTrigger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowTrigger/DeleteFlowTrigger" message="tns:IFlowTrigger_DeleteFlowTrigger_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowTrigger/DeleteFlowTriggerResponse" message="tns:IFlowTrigger_DeleteFlowTrigger_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowTriggerRlues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlowTrigger/GetFlowTriggerRlues" message="tns:IFlowTrigger_GetFlowTriggerRlues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlowTrigger/GetFlowTriggerRluesResponse" message="tns:IFlowTrigger_GetFlowTriggerRlues_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ITriggerDefine">
+    <wsdl:operation name="GetFlowTriggerDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITriggerDefine/GetFlowTriggerDefine" message="tns:ITriggerDefine_GetFlowTriggerDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITriggerDefine/GetFlowTriggerDefineResponse" message="tns:ITriggerDefine_GetFlowTriggerDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListFlowTriggerDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITriggerDefine/GetListFlowTriggerDefine" message="tns:ITriggerDefine_GetListFlowTriggerDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITriggerDefine/GetListFlowTriggerDefineResponse" message="tns:ITriggerDefine_GetListFlowTriggerDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTriggerDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITriggerDefine/GetTriggerDefine" message="tns:ITriggerDefine_GetTriggerDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITriggerDefine/GetTriggerDefineResponse" message="tns:ITriggerDefine_GetTriggerDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTriggerDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITriggerDefine/DeleteTriggerDefine" message="tns:ITriggerDefine_DeleteTriggerDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITriggerDefine/DeleteTriggerDefineResponse" message="tns:ITriggerDefine_DeleteTriggerDefine_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IFlow_ModelDefine">
+    <wsdl:operation name="GetModelDefineList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/GetModelDefineList" message="tns:IFlow_ModelDefine_GetModelDefineList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/GetModelDefineListResponse" message="tns:IFlow_ModelDefine_GetModelDefineList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddModelDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/AddModelDefine" message="tns:IFlow_ModelDefine_AddModelDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/AddModelDefineResponse" message="tns:IFlow_ModelDefine_AddModelDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModelDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/UpdateModelDefine" message="tns:IFlow_ModelDefine_UpdateModelDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/UpdateModelDefineResponse" message="tns:IFlow_ModelDefine_UpdateModelDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModelDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/DeleteModelDefine" message="tns:IFlow_ModelDefine_DeleteModelDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/DeleteModelDefineResponse" message="tns:IFlow_ModelDefine_DeleteModelDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemCodeModelCodeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/GetSystemCodeModelCodeList" message="tns:IFlow_ModelDefine_GetSystemCodeModelCodeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/GetSystemCodeModelCodeListResponse" message="tns:IFlow_ModelDefine_GetSystemCodeModelCodeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeFlowList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/GetFreeFlowList" message="tns:IFlow_ModelDefine_GetFreeFlowList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/GetFreeFlowListResponse" message="tns:IFlow_ModelDefine_GetFreeFlowList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowCancleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/GetFlowCancleList" message="tns:IFlow_ModelDefine_GetFlowCancleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/GetFlowCancleListResponse" message="tns:IFlow_ModelDefine_GetFlowCancleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFreeFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/DeleteFreeFlow" message="tns:IFlow_ModelDefine_DeleteFreeFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/DeleteFreeFlowResponse" message="tns:IFlow_ModelDefine_DeleteFreeFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowCancle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFlow_ModelDefine/DeleteFlowCancle" message="tns:IFlow_ModelDefine_DeleteFlowCancle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFlow_ModelDefine/DeleteFlowCancleResponse" message="tns:IFlow_ModelDefine_DeleteFlowCancle_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMessageBodyDefine">
+    <wsdl:operation name="GetDefaultMessgeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageBodyDefine/GetDefaultMessgeList" message="tns:IMessageBodyDefine_GetDefaultMessgeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageBodyDefine/GetDefaultMessgeListResponse" message="tns:IMessageBodyDefine_GetDefaultMessgeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDefaultMessge">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageBodyDefine/AddDefaultMessge" message="tns:IMessageBodyDefine_AddDefaultMessge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageBodyDefine/AddDefaultMessgeResponse" message="tns:IMessageBodyDefine_AddDefaultMessge_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDefaultMessge">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageBodyDefine/EditDefaultMessge" message="tns:IMessageBodyDefine_EditDefaultMessge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageBodyDefine/EditDefaultMessgeResponse" message="tns:IMessageBodyDefine_EditDefaultMessge_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDefaultMessge">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageBodyDefine/DeleteDefaultMessge" message="tns:IMessageBodyDefine_DeleteDefaultMessge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageBodyDefine/DeleteDefaultMessgeResponse" message="tns:IMessageBodyDefine_DeleteDefaultMessge_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDoTaskRule">
+    <wsdl:operation name="GetGetDoTaskList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/GetGetDoTaskList" message="tns:IDoTaskRule_GetGetDoTaskList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/GetGetDoTaskListResponse" message="tns:IDoTaskRule_GetGetDoTaskList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDoTaskRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/AddDoTaskRule" message="tns:IDoTaskRule_AddDoTaskRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/AddDoTaskRuleResponse" message="tns:IDoTaskRule_AddDoTaskRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDoTaskRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/EditDoTaskRule" message="tns:IDoTaskRule_EditDoTaskRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/EditDoTaskRuleResponse" message="tns:IDoTaskRule_EditDoTaskRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoTaskRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/DeleteDoTaskRule" message="tns:IDoTaskRule_DeleteDoTaskRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/DeleteDoTaskRuleResponse" message="tns:IDoTaskRule_DeleteDoTaskRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoTaskRuleDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/GetDoTaskRuleDetail" message="tns:IDoTaskRule_GetDoTaskRuleDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/GetDoTaskRuleDetailResponse" message="tns:IDoTaskRule_GetDoTaskRuleDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoTaskRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/GetDoTaskRule" message="tns:IDoTaskRule_GetDoTaskRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/GetDoTaskRuleResponse" message="tns:IDoTaskRule_GetDoTaskRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDoTaskRuleDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/AddDoTaskRuleDetail" message="tns:IDoTaskRule_AddDoTaskRuleDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/AddDoTaskRuleDetailResponse" message="tns:IDoTaskRule_AddDoTaskRuleDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDoTaskRuleDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/EditDoTaskRuleDetail" message="tns:IDoTaskRule_EditDoTaskRuleDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/EditDoTaskRuleDetailResponse" message="tns:IDoTaskRule_EditDoTaskRuleDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoTaskRuleDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoTaskRule/DeleteDoTaskRuleDetail" message="tns:IDoTaskRule_DeleteDoTaskRuleDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoTaskRule/DeleteDoTaskRuleDetailResponse" message="tns:IDoTaskRule_DeleteDoTaskRuleDetail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ITimingTrigger">
+    <wsdl:operation name="GetTimingTriggerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimingTrigger/GetTimingTriggerList" message="tns:ITimingTrigger_GetTimingTriggerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimingTrigger/GetTimingTriggerListResponse" message="tns:ITimingTrigger_GetTimingTriggerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTimingActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimingTrigger/DeleteTimingActivity" message="tns:ITimingTrigger_DeleteTimingActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimingTrigger/DeleteTimingActivityResponse" message="tns:ITimingTrigger_DeleteTimingActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditTimingActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimingTrigger/EditTimingActivity" message="tns:ITimingTrigger_EditTimingActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimingTrigger/EditTimingActivityResponse" message="tns:ITimingTrigger_EditTimingActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTimingActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITimingTrigger/AddTimingActivity" message="tns:ITimingTrigger_AddTimingActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITimingTrigger/AddTimingActivityResponse" message="tns:ITimingTrigger_AddTimingActivity_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDefaultMessage">
+    <wsdl:operation name="GetMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDefaultMessage/GetMessage" message="tns:IDefaultMessage_GetMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDefaultMessage/GetMessageResponse" message="tns:IDefaultMessage_GetMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDefaultMessage/InitMessage" message="tns:IDefaultMessage_InitMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDefaultMessage/InitMessageResponse" message="tns:IDefaultMessage_InitMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDefaultMessage/AddMessage" message="tns:IDefaultMessage_AddMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDefaultMessage/AddMessageResponse" message="tns:IDefaultMessage_AddMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDefaultMessage/EditMessage" message="tns:IDefaultMessage_EditMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDefaultMessage/EditMessageResponse" message="tns:IDefaultMessage_EditMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDefaultMessage/DeleteMessage" message="tns:IDefaultMessage_DeleteMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDefaultMessage/DeleteMessageResponse" message="tns:IDefaultMessage_DeleteMessage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFlowDefine" type="tns:IFlowDefine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFlowDefineList">
+      <soap:operation soapAction="http://tempuri.org/IFlowDefine/GetFlowDefineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFlowDefine">
+      <soap:operation soapAction="http://tempuri.org/IFlowDefine/AddFlowDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowEntity">
+      <soap:operation soapAction="http://tempuri.org/IFlowDefine/GetFlowEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlow">
+      <soap:operation soapAction="http://tempuri.org/IFlowDefine/DeleteFlow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ICuostomFlowsDefine" type="tns:ICuostomFlowsDefine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCuostomFlowsDefine">
+      <soap:operation soapAction="http://tempuri.org/ICuostomFlowsDefine/GetCuostomFlowsDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCuostomFlowsDefine">
+      <soap:operation soapAction="http://tempuri.org/ICuostomFlowsDefine/GetListCuostomFlowsDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCuostomFlowsDefine">
+      <soap:operation soapAction="http://tempuri.org/ICuostomFlowsDefine/AddCuostomFlowsDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetsCuostomFlowsDefine">
+      <soap:operation soapAction="http://tempuri.org/ICuostomFlowsDefine/GetsCuostomFlowsDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCuostomFlowsDefine">
+      <soap:operation soapAction="http://tempuri.org/ICuostomFlowsDefine/UpdateCuostomFlowsDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCuostomFlowsDefine">
+      <soap:operation soapAction="http://tempuri.org/ICuostomFlowsDefine/DeleteCuostomFlowsDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IFlowEvent" type="tns:IFlowEvent">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FlowEventAll">
+      <soap:operation soapAction="http://tempuri.org/IFlowEvent/FlowEventAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IFlowCategory" type="tns:IFlowCategory">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddFlowCategory">
+      <soap:operation soapAction="http://tempuri.org/IFlowCategory/AddFlowCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlowCategory">
+      <soap:operation soapAction="http://tempuri.org/IFlowCategory/UpdateFlowCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistsFlowCategory">
+      <soap:operation soapAction="http://tempuri.org/IFlowCategory/GetExistsFlowCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowCategory">
+      <soap:operation soapAction="http://tempuri.org/IFlowCategory/DeleteFlowCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IEngine" type="tns:IEngine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFlowMsgDefine">
+      <soap:operation soapAction="http://tempuri.org/IEngine/GetFlowMsgDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListFlowMsgDefine">
+      <soap:operation soapAction="http://tempuri.org/IEngine/GetListFlowMsgDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListFlowMsgBodyDefine">
+      <soap:operation soapAction="http://tempuri.org/IEngine/GetListFlowMsgBodyDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFlowMsgDefine">
+      <soap:operation soapAction="http://tempuri.org/IEngine/AddFlowMsgDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlowMsgDefine">
+      <soap:operation soapAction="http://tempuri.org/IEngine/UpdateFlowMsgDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowMsgDefine">
+      <soap:operation soapAction="http://tempuri.org/IEngine/DeleteFlowMsgDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IFlowXmlDefine" type="tns:IFlowXmlDefine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListSystem">
+      <soap:operation soapAction="http://tempuri.org/IFlowXmlDefine/ListSystem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppModel">
+      <soap:operation soapAction="http://tempuri.org/IFlowXmlDefine/AppModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListModel">
+      <soap:operation soapAction="http://tempuri.org/IFlowXmlDefine/ListModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListTableColumn">
+      <soap:operation soapAction="http://tempuri.org/IFlowXmlDefine/ListTableColumn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListFuncTableColumn">
+      <soap:operation soapAction="http://tempuri.org/IFlowXmlDefine/ListFuncTableColumn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemBOAttributeList">
+      <soap:operation soapAction="http://tempuri.org/IFlowXmlDefine/GetSystemBOAttributeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSystemFunc">
+      <soap:operation soapAction="http://tempuri.org/IFlowXmlDefine/ListSystemFunc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IFlowTrigger" type="tns:IFlowTrigger">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFlowTrigger">
+      <soap:operation soapAction="http://tempuri.org/IFlowTrigger/GetFlowTrigger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListFlowTrigger">
+      <soap:operation soapAction="http://tempuri.org/IFlowTrigger/GetListFlowTrigger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowTrigger">
+      <soap:operation soapAction="http://tempuri.org/IFlowTrigger/DeleteFlowTrigger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowTriggerRlues">
+      <soap:operation soapAction="http://tempuri.org/IFlowTrigger/GetFlowTriggerRlues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ITriggerDefine" type="tns:ITriggerDefine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFlowTriggerDefine">
+      <soap:operation soapAction="http://tempuri.org/ITriggerDefine/GetFlowTriggerDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListFlowTriggerDefine">
+      <soap:operation soapAction="http://tempuri.org/ITriggerDefine/GetListFlowTriggerDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTriggerDefine">
+      <soap:operation soapAction="http://tempuri.org/ITriggerDefine/GetTriggerDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTriggerDefine">
+      <soap:operation soapAction="http://tempuri.org/ITriggerDefine/DeleteTriggerDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IFlow_ModelDefine" type="tns:IFlow_ModelDefine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetModelDefineList">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/GetModelDefineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddModelDefine">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/AddModelDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModelDefine">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/UpdateModelDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModelDefine">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/DeleteModelDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemCodeModelCodeList">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/GetSystemCodeModelCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeFlowList">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/GetFreeFlowList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowCancleList">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/GetFlowCancleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFreeFlow">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/DeleteFreeFlow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFlowCancle">
+      <soap:operation soapAction="http://tempuri.org/IFlow_ModelDefine/DeleteFlowCancle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IMessageBodyDefine" type="tns:IMessageBodyDefine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDefaultMessgeList">
+      <soap:operation soapAction="http://tempuri.org/IMessageBodyDefine/GetDefaultMessgeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDefaultMessge">
+      <soap:operation soapAction="http://tempuri.org/IMessageBodyDefine/AddDefaultMessge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDefaultMessge">
+      <soap:operation soapAction="http://tempuri.org/IMessageBodyDefine/EditDefaultMessge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDefaultMessge">
+      <soap:operation soapAction="http://tempuri.org/IMessageBodyDefine/DeleteDefaultMessge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IDoTaskRule" type="tns:IDoTaskRule">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGetDoTaskList">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/GetGetDoTaskList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoTaskRule">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/AddDoTaskRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDoTaskRule">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/EditDoTaskRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoTaskRule">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/DeleteDoTaskRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoTaskRuleDetail">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/GetDoTaskRuleDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoTaskRule">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/GetDoTaskRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoTaskRuleDetail">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/AddDoTaskRuleDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDoTaskRuleDetail">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/EditDoTaskRuleDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoTaskRuleDetail">
+      <soap:operation soapAction="http://tempuri.org/IDoTaskRule/DeleteDoTaskRuleDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ITimingTrigger" type="tns:ITimingTrigger">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTimingTriggerList">
+      <soap:operation soapAction="http://tempuri.org/ITimingTrigger/GetTimingTriggerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTimingActivity">
+      <soap:operation soapAction="http://tempuri.org/ITimingTrigger/DeleteTimingActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditTimingActivity">
+      <soap:operation soapAction="http://tempuri.org/ITimingTrigger/EditTimingActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTimingActivity">
+      <soap:operation soapAction="http://tempuri.org/ITimingTrigger/AddTimingActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IDefaultMessage" type="tns:IDefaultMessage">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://tempuri.org/IDefaultMessage/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitMessage">
+      <soap:operation soapAction="http://tempuri.org/IDefaultMessage/InitMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <soap:operation soapAction="http://tempuri.org/IDefaultMessage/AddMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMessage">
+      <soap:operation soapAction="http://tempuri.org/IDefaultMessage/EditMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <soap:operation soapAction="http://tempuri.org/IDefaultMessage/DeleteMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PlatformServices">
+    <wsdl:port name="BasicHttpBinding_IFlowDefine" binding="tns:BasicHttpBinding_IFlowDefine">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ICuostomFlowsDefine" binding="tns:BasicHttpBinding_ICuostomFlowsDefine">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IFlowEvent" binding="tns:BasicHttpBinding_IFlowEvent">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IFlowCategory" binding="tns:BasicHttpBinding_IFlowCategory">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IEngine" binding="tns:BasicHttpBinding_IEngine">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IFlowXmlDefine" binding="tns:BasicHttpBinding_IFlowXmlDefine">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IFlowTrigger" binding="tns:BasicHttpBinding_IFlowTrigger">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ITriggerDefine" binding="tns:BasicHttpBinding_ITriggerDefine">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IFlow_ModelDefine" binding="tns:BasicHttpBinding_IFlow_ModelDefine">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IMessageBodyDefine" binding="tns:BasicHttpBinding_IMessageBodyDefine">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IDoTaskRule" binding="tns:BasicHttpBinding_IDoTaskRule">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ITimingTrigger" binding="tns:BasicHttpBinding_ITimingTrigger">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IDefaultMessage" binding="tns:BasicHttpBinding_IDefaultMessage">
+      <soap:address location="http://localhost:1810/PlatformServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,775 @@
+﻿<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+
+        <binding name="BasicHttpBinding_Common" receiveTimeout="00:10:00"
+         maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
+                  maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_AttendanceService" receiveTimeout="00:10:00"
+          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_SalaryService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_PersonnelService" receiveTimeout="00:10:00"
+          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FBCommonService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FBService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IEngineWcfGlobalFunction" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_RMCommonService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_StorageService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IEngineWcfGlobalFunction_Eegine"
+          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_FileUploadManager" closeTimeout="00:01:00"
+          openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00"
+          maxBufferSize="4194304" maxReceivedMessageSize="4194304" textEncoding="utf-8">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPlatformServices" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_TMCommonService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_SmtOAPersonOffice" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IEntityService" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPublishService" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPersonalRecordService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_OaInterface" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+
+      </basicHttpBinding>
+      <customBinding>
+        <binding name="CustomBinding_Common">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IUploadService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IBasicinfo">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IGoodsInput">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IGoodsOutput">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IStockCount">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IWarehouseManagement">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IReceiveGoods">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IService">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_TestFlowService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PermissionService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_OrganizationService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOACommonOffice">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOACommonAdmin">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOADocumentAdmin">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOADocumentAdmin1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_TestUsersService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ContractManagementServiceFrom">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_HrCommonService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_WelfareStandardService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PermissionService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_Service">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IAssetsAdJustMent">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IAssstPurchase">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IFixedAsset">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IAssetsMaintain">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ISaleOfAssets">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ILossOnAassets">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ICategoryMaster">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IOfficeSupplies">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ISuppliesHandle">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ISuppliesTransaction">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ITaskReport">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ITaskDetail">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ITaskType">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ITaskParticipants">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ICateDictionary">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IAssetsPrefix">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ITaskMain">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IAssetsCategoryTree">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IFlowXmlService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IFlowTrigger">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IMsgBodyDefine">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IFlowProcessDefine">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBindingTask_IFlowTrigger">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_ICustomFlowDefine">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PerformanceService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_Service1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IKpiSetting">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_AgentServices">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_MainUIServices">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+      </customBinding>
+    </bindings>
+    <client>
+      <!--物流 开始-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/SiteOperate/BasicinfoService.svc"
+               binding="customBinding" bindingConfiguration="CustomBinding_Common"
+               contract="BasicInfoWS.IBasicinfo" name="CustomBinding_IBasicinfo" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomer" name="CustomBinding_ICustomer" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomerAddress" name="CustomBinding_ICustomerAddress" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomerBank" name="CustomBinding_ICustomerBank" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomerLinkMan" name="CustomBinding_ICustomerLinkMan" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomerProject" name="CustomBinding_ICustomerProject" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomerUser" name="CustomBinding_ICustomerUser" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.IAppeal" name="CustomBinding_IAppeal" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.IIngerDient" name="CustomBinding_IIngerDient" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomerPurView" name="CustomBinding_ICustomerPurView" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.IOperateLog" name="CustomBinding_IOperateLog" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomersAppeal" name="CustomBinding_ICustomersAppeal" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.ICustomerFactor" name="CustomBinding_ICustomerFactor" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.IAddress" name="CustomBinding_IAddress" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/CustomService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="CustomWS.IComplaint" name="CustomBinding_IComplaint" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/SiteOperate/GoodsInputService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="GoodsInputWS.IGoodsInput" name="CustomBinding_IGoodsInput" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/SiteOperate/GoodsOutputService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="GoodsOutputWS.IGoodsOutput" name="CustomBinding_IGoodsOutput" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/NodeService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="NodeWS.INode" name="CustomBinding_INode" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/NodeService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="NodeWS.ISalesMan" name="CustomBinding_ISalesMan" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/NodeService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="NodeWS.INodeBank" name="CustomBinding_INodeBank" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/NodeService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="NodeWS.IDistrictMaster" name="CustomBinding_IDistrictMaster" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/NodeService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="NodeWS.ICompanyRelation" name="CustomBinding_ICompanyRelation" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/NodeService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="NodeWS.IAcceptSendArea" name="CustomBinding_IAcceptSendArea" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/NodeService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="NodeWS.INormalTimeliness" name="CustomBinding_INormalTimeliness" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IOrderImei" name="CustomBinding_IOrderImei" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IOrderRequest" name="CustomBinding_IOrderRequest" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IRefuseOrder" name="CustomBinding_IRefuseOrder" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IAlertMessage" name="CustomBinding_IAlertMessage" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IAlertMessageLog" name="CustomBinding_IAlertMessageLog" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IFollowInfo" name="CustomBinding_IFollowInfo" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.ICarrySign" name="CustomBinding_ICarrySign" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.ICarrysignRecord" name="CustomBinding_ICarrysignRecord" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IOrderTrack" name="CustomBinding_IOrderTrack" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IDeliveryMaster" name="CustomBinding_IDeliveryMaster" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IDeliveryDetail" name="CustomBinding_IDeliveryDetail" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IDispatchMaster" name="CustomBinding_IDispatchMaster" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IDispatchDetail" name="CustomBinding_IDispatchDetail" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IInventoryMaster" name="CustomBinding_IInventoryMaster" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IInventoryDetail" name="CustomBinding_IInventoryDetail" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IReturnMaster" name="CustomBinding_IReturnMaster" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IReturnDetail" name="CustomBinding_IReturnDetail" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IStorageMaster" name="CustomBinding_IStorageMaster" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IStorageDetail" name="CustomBinding_IStorageDetail" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IProcessingMaster" name="CustomBinding_IProcessingMaster" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IProcessingDetail" name="CustomBinding_IProcessingDetail" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IOrderFactor" name="CustomBinding_IOrderFactor" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IOrderCharge" name="CustomBinding_IOrderCharge" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IOrderFollow" name="CustomBinding_IOrderFollow" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IOrders" name="CustomBinding_IOrders" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/CustomerService/OrderService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="OrderWS.IAcceptOrder" name="CustomBinding_IAcceptOrder" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/SiteOperate/ReceiveGoodsService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="ReceiveGoodsWS.IReceiveGoods" name="CustomBinding_IReceiveGoods" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/SiteOperate/StockCountService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="StockCountWS.IStockCount" name="CustomBinding_IStockCount" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/SiteOperate/WarehouseManagementService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="WareHouseManagementWS.IWarehouseManagement" name="CustomBinding_IWarehouseManagement" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/EntityService/EntityService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="EntityWS.IEntityService" name="CustomBinding_IEntityService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/LM/PublishService/PublishService.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="FinancialScheduleWS.IPublishService" name="CustomBinding_IPublishService" />
+      <!--物流 结束-->
+
+      <!--HR 开始-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/HR/PersonnelService.svc"
+     binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+     contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/HR/OrganizationService.svc"
+   binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+   contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/HR/TestUsersService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_TestUsersService"
+        contract="TestUsersWS.TestUsersService" name="CustomBinding_TestUsersService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/HR/HrCommonService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
+        contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/HR/SalaryService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
+        contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/HR/AttendanceService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
+        contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/HR/PerformanceService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
+        contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
+      <!--HR 结束-->
+
+      <!--SYSTEM 开始-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/System/FileUploadManager.svc"
+             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
+             contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <!--SYSTEM 结束-->
+
+      <!--OA 开始-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/OA/ContractManagementServiceFrom.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ContractManagementServiceFrom"
+        contract="ContractAppWS.ContractManagementServiceFrom" name="CustomBinding_ContractManagementServiceFrom" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/OA/WelfareStandardService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_WelfareStandardService"
+        contract="WelfareStandardWS.WelfareStandardService" name="CustomBinding_WelfareStandardService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/OA/SmtOACommonOffice.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonOffice"
+        contract="SmtOACommonOfficeService.SmtOACommonOffice" name="CustomBinding_SmtOACommonOffice" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/OA/SmtOAPersonOffice.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
+        contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/OA/SmtOACommonAdmin.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonAdmin"
+        contract="SmtOACommonAdminService.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/OA/SmtOADocumentAdmin.svc"
+       binding="customBinding" bindingConfiguration="CustomBinding_SmtOADocumentAdmin"
+       contract="SmtOADocumentAdminWS.SmtOADocumentAdmin" name="CustomBinding_SmtOADocumentAdmin" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/OA/SmtOADocumentAdmin.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_SmtOADocumentAdmin"
+        contract="SmtOADocumentAdminService.SmtOADocumentAdmin" name="CustomBinding_SmtOADocumentAdmin1" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/OA/AgentServices.svc"
+     binding="customBinding" bindingConfiguration="CustomBinding_AgentServices"
+     contract="AgentChannel.AgentServices" name="CustomBinding_AgentServices" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/SMTFBAService/OaInterface.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_OaInterface"
+        contract="TravelExpApplyMaster.OaInterface" name="BasicHttpBinding_OaInterface" />
+      <!--OA 结束-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
+        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
+        contract="PermissionService.PermissionService" name="CustomBinding_PermissionService1" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FB/FBCommonService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBCommonService"
+        contract="FBCommonWS.FBCommonService" name="BasicHttpBinding_FBCommonService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FB/FBService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
+        contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/SMTFlowDesigner/Service.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_Service"
+        contract="FlowDesignerService.Service" name="CustomBinding_Service" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/RM/RMCommonService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_RMCommonService"
+        contract="RMCommonWS.RMCommonService" name="BasicHttpBinding_RMCommonService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EngineConfig/FlowXmlServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IFlowXmlService"
+        contract="FlowXmlService.IFlowXmlService" name="CustomBinding_IFlowXmlService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EngineConfig/EGPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IFlowTrigger"
+        contract="EGServices.IFlowTrigger" name="CustomBinding_IFlowTrigger" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EngineConfig/EGPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IMsgBodyDefine"
+        contract="EGServices.IMsgBodyDefine" name="CustomBinding_IMsgBodyDefine" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EngineConfig/EGPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IFlowProcessDefine"
+        contract="EGServices.IFlowProcessDefine" name="CustomBinding_IFlowProcessDefine" />
+
+      <!--FAM 开始-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ISaleOfAssets"
+        contract="FAMPerCellServices.ISaleOfAssets" name="CustomBinding_ISaleOfAssets" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IAssetsAdJustMent"
+        contract="FAMPerCellServices.IAssetsAdJustMent" name="CustomBinding_IAssetsAdJustMent" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IAssstPurchase"
+        contract="FAMPerCellServices.IAssstPurchase" name="CustomBinding_IAssstPurchase" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IFixedAsset"
+        contract="FAMPerCellServices.IFixedAsset" name="CustomBinding_IFixedAsset" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IAssetsMaintain"
+        contract="FAMPerCellServices.IAssetsMaintain" name="CustomBinding_IAssetsMaintain" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ILossOnAassets"
+        contract="FAMPerCellServices.ILossOnAassets" name="CustomBinding_ILossOnAassets" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/SuppliesServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ICategoryMaster"
+        contract="SuppliesPerCellServices.ICategoryMaster" name="CustomBinding_ICategoryMaster" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/SuppliesServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IOfficeSupplies"
+        contract="SuppliesPerCellServices.IOfficeSupplies" name="CustomBinding_IOfficeSupplies" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/SuppliesServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ISuppliesHandle"
+        contract="SuppliesPerCellServices.ISuppliesHandle" name="CustomBinding_ISuppliesHandle" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/SuppliesServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ISuppliesTransaction"
+        contract="SuppliesPerCellServices.ISuppliesTransaction" name="CustomBinding_ISuppliesTransaction" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMSingleService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IAssetsCategoryTree"
+        contract="FAMSingleService.IAssetsCategoryTree" name="CustomBinding_IAssetsCategoryTree" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMSingleService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IAssetsPrefix"
+        contract="FAMSingleService.IAssetsPrefix" name="CustomBinding_IAssetsPrefix" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/FAMSingleService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ICateDictionary"
+        contract="FAMSingleService.ICateDictionary" name="CustomBinding_ICateDictionary" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/TaskPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ITaskParticipants"
+        contract="TaskPerCellServices.ITaskParticipants" name="CustomBinding_ITaskParticipants" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/TaskPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ITaskType"
+        contract="TaskPerCellServices.ITaskType" name="CustomBinding_ITaskType" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/TaskPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ITaskDetail"
+        contract="TaskPerCellServices.ITaskDetail" name="CustomBinding_ITaskDetail" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/TaskPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ITaskMain"
+        contract="TaskPerCellServices.ITaskMain" name="CustomBinding_ITaskMain" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/TaskPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ITaskReport"
+        contract="TaskPerCellServices.ITaskReport" name="CustomBinding_ITaskReport" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/TaskPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBindingTask_IFlowTrigger"
+        contract="TaskPerCellServices.IFlowTrigger" name="CustomBindingTask_IFlowTrigger" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FAM/TaskPerCellServices.svc"
+  binding="customBinding" bindingConfiguration="CustomBinding_IKpiSetting"
+  contract="TaskPerCellServices.IKpiSetting" name="CustomBinding_IKpiSetting" />
+      <!--FAM 结束-->
+
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EngineConfig/EGPerCellServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_ICustomFlowDefine"
+        contract="EGServices.ICustomFlowDefine" name="CustomBinding_ICustomFlowDefine" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEngineWcfGlobalFunction"
+        contract="EngineWS.IEngineWcfGlobalFunction" name="BasicHttpBinding_IEngineWcfGlobalFunction_Eegine" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/SMTFlowDesigner/Service.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_Service1"
+        contract="FlowDesignerWS.Service" name="CustomBinding_Service1" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/TM/TMCommonService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_TMCommonService"
+        contract="TMCommonWS.TMCommonService" name="BasicHttpBinding_TMCommonService" />
+      
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/FileUploadService/FileUpLoad.svc" binding="customBinding"
+              bindingConfiguration="CustomBinding_IUploadService" contract="UploadService.IUploadService"
+              name="CustomBinding_IUploadService" />
+
+      <!--EDM进销存管理系统 Begin-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EDM/SmtEDMCommonService.svc"
+       binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+       contract="SmtEDMBaseData.SmtEDMCommonService" name="BasicHttpBinding_SmtEDMCommonService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EDM/SmtEDMStockService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SmtEDMStock.SmtEDMStockService" name="BasicHttpBinding_SmtEDMStockService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EDM/SmtEDMBaseDataService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SmtEDMBaseData.SmtEDMBaseDataService" name="BasicHttpBinding_Common" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EDM/SmtEDMBuyService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SmtEDMBuy.SmtEDMBuyService" name="BasicHttpBinding_SmtEDMBuyService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EDM/SmtEDMCommonService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SmtEDMCommon.SmtEDMCommonService" name="BasicHttpBinding_SmtEDMCommonService1" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EDM/SmtEDMSellService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SmtEDMSell.SmtEDMSellService" name="BasicHttpBinding_SmtEDMSellService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EDM/SmtEDMSuppliersService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SmtEDMSuppliers.SmtEDMSuppliersService" name="BasicHttpBinding_SmtEDMSuppliersService" />
+      <!--EDM进销存管理系统 End-->
+    
+      <!-- HR-EM-->
+
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IExamPaper"
+        name="BasicHttpBinding_IExamPaper" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IExamPaperType"
+        name="BasicHttpBinding_IExamPaperType" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IQuestionAndType"
+        name="BasicHttpBinding_IQuestionAndType" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IQuestion"
+        name="BasicHttpBinding_IQuestion" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IExamQuestion"
+        name="BasicHttpBinding_IExamQuestion" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IQuestionList"
+        name="BasicHttpBinding_IQuestionList" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common"
+        contract="SMTEM.IExamQuestionOption" name="BasicHttpBinding_IExamQuestionOption" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IQuestionType"
+        name="BasicHttpBinding_IQuestionType" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IGrade"
+        name="BasicHttpBinding_IGrade" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IScoreReport"
+        name="BasicHttpBinding_IScoreReport" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc " binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IExam"
+        name="BasicHttpBinding_IExam" />
+      <endpoint address=" http://172.30.50.13/SmtOnline/Develop/Services/EM/EMTrainService.svc"
+              binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+              contract="SMTEMExam.IEMTrainService" name="BasicHttpBinding_IEMTrainService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/EM/SMTEMService.svc" binding="basicHttpBinding"
+                   bindingConfiguration="BasicHttpBinding_Common" contract="SMTEM.IExamTask"
+                   name="BasicHttpBinding_IExamTask" />
+
+      <!-- HR-EM-->
+
+      <!--HR-TM-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/TM/SMTMTrainingImplemetaionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_Common"
+        contract="SMTMTrainingImplemetaion.SMTMTrainingImplemetaionService"
+        name="CustomBinding_SMTMTrainingImplemetaionService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/TM/SMTTMTrainingSummaryService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_Common"
+        contract="SMTTMTrainingSummary.SMTTMTrainingSummaryService"
+        name="CustomBinding_SMTTMTrainingSummaryService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/TM/SMTTMTrainingPlanService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SMTTMTrainingPlan.SMTTMTrainingPlanService" name="BasicHttpBinding_SMTTMTrainingPlanService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/TM/SMTTMSystemSetupService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SMTTMSystem.SMTTMSystemSetupService" name="BasicHttpBinding_SMTTMSystemSetupService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/TM/SMTTMTrainingResourceService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SMTTMTrainingResource.SMTTMTrainingResourceService"
+        name="BasicHttpBinding_SMTTMTrainingResourceService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/TM/SMTTMTrainingReportService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="SMTTMTrainingReport.SMTTMTrainingReportService" name="BasicHttpBinding_SMTTMTrainingReportService" />
+      <!--HR-TM-->
+
+      <!-- HR-RM-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/RM/RequireServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="ReqServices.RequireServices" name="BasicHttpBinding_RequireServices2" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/RM/InterViewServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="InterViewServices.InterViewServices" name="BasicHttpBinding_InterViewServices" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/RM/ResumeService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+                contract="ResumeService.ResumeService" name="BasicHttpBinding_ResumeService" />
+      
+      <!--平台服务 Begin-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/Main/PlatformServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
+        contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />
+      
+      
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_MainUIServices"
+        contract="CheckUserWS.MainUIServices" name="CustomBinding_MainUIServices" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/smtengine/PersonalRecordService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
+        contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
+      
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEngineWcfGlobalFunction"
+         contract="EngineDataSource.IEngineWcfGlobalFunction" name="BasicHttpBinding_IEngineWcfGlobalFunction" />
+     
+      <!--平台服务 End-->
+
+      <!--FBA Begin-->
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/SMTFBAService/FBAnalysisService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+                contract="FBAnalysisWS.FBAnalysisService" name="BasicHttpBinding_FBAnalysisService" />
+      <endpoint address="http://172.30.50.13/SmtOnline/Develop/Services/SMTFBAService/DailyManagementServices.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_Common"
+          contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
+
+      <endpoint address=" http://172.30.50.13/SmtOnline/Develop/Services/PublicInterface/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+      <!--FBA End-->
+      
+    </client>
+  </system.serviceModel>
+</configuration>

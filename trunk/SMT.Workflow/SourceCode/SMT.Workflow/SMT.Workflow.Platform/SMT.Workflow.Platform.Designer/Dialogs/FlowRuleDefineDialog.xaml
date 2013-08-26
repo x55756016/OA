@@ -1,0 +1,79 @@
+﻿<controls:ChildWindow x:Class="SMT.Workflow.Platform.Designer.Dialogs.FlowRuleDefineDialog"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"                       
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="480" Height="350" Title="规则条件定义">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="条件字段" Grid.Row="0" Grid.Column="0" />
+            <ComboBox x:Name="cboField" Width="120" Height="22" DisplayMemberPath="Description" Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Left" SelectionChanged="cboField_SelectionChanged" />
+            
+            <TextBlock Text="比较操作" Grid.Row="0" Grid.Column="2" />
+            <ComboBox x:Name="cboOperate" Width="80" Height="22"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" >
+                <ComboBoxItem Content="&gt;" />
+                <ComboBoxItem Content="=="/>
+                <ComboBoxItem Content="&lt;"/>
+                <ComboBoxItem Content="&gt;="/>
+                <ComboBoxItem Content="&lt;="/>
+                <ComboBoxItem Content="&lt;&gt;"/>
+            </ComboBox>
+            
+            <TextBlock Text="比较值" Grid.Row="0" Grid.Column="4" />
+            <TextBox x:Name="txtCompareValue" TextWrapping="Wrap" Height="22" Width="100" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Left"/>
+            <StackPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2"  Orientation="Horizontal">
+            <Button  x:Name="btnLookUp" HorizontalAlignment="Right"  VerticalAlignment="Center" Click="btnLookUp_Click" >
+                <Image Name="imgQuery" Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+            </Button>
+                <ComboBox Name="cboPostLevel" SelectionChanged="cboPostLevel_SelectionChanged" />
+            </StackPanel>
+            <Button x:Name="btnAddCondition" Height="23" Width="60" Content="添加条件" Grid.Column="7" Grid.Row="2" Click="btnAddCondition_Click" />
+        </Grid>
+
+        <sdk:DataGrid x:Name="dgCodition" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="条件名称" Width="150" IsReadOnly="True"  Binding="{Binding Description}"/>
+                <sdk:DataGridTextColumn Header="比较操作" Width="100" IsReadOnly="True" Binding="{Binding Operate}"/>
+                <sdk:DataGridTextColumn Header="比较值" Width="100" IsReadOnly="True" Binding="{Binding CompareValue}"/>
+                <sdk:DataGridTemplateColumn Width="80" Header="删除条件" >
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="删除条件" x:Name="btnDelCodition" Tag="{Binding Name}"  VerticalAlignment="Top" Margin="2 2 5 2" HorizontalAlignment="Center" Width="60" Height="20"  Click="btnRemoveCondition_Click"   />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>                
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="10 10 10 0">
+            <Button x:Name="btnOk" Content="确定" Width="75" Height="23" HorizontalAlignment="Right" Margin="5 0 5 0" Click="btnOk_Click" />
+            <Button x:Name="btnCancel" Content="取消" Width="75" Height="23" HorizontalAlignment="Right" Click="btnCancel_Click" />            
+        </StackPanel>
+
+        
+    </Grid>
+</controls:ChildWindow>

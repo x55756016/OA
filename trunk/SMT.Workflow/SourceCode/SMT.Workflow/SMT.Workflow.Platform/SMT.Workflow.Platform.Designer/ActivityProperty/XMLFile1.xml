@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ns0:SMTStateMachineWorkflowActivity x:Name="16eef12149a549f6a6fb3d225cd2bde7"  InitialStateName="StartFlow"
+              CompletedStateName="EndFlow" DynamicUpdateCondition="{x:Null}" xmlns:ns0="clr-namespace:SMT.WFLib;Assembly=SMT.WFLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+    <StateActivity x:Name="StartFlow">
+        <EventDrivenActivity x:Name="EdaStartFlow0">
+            <ns0:SMTSubmitEvent ApproveInfo="{x:Null}" x:Name="EventStartFlow0" EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" />
+            <SetStateActivity x:Name="TsStartFlow0" TargetStateName="State8f4b532a5f3a4671821ce011bc00c3e7" />
+        </EventDrivenActivity>
+    </StateActivity>
+    <StateActivity x:Name="State8f4b532a5f3a4671821ce011bc00c3e7">
+        <EventDrivenActivity x:Name="EdaState8f4b532a5f3a4671821ce011bc00c3e71">
+            <ns0:SMTSubmitEvent ApproveInfo="{x:Null}" x:Name="EventState8f4b532a5f3a4671821ce011bc00c3e71" EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" />
+            <SetStateActivity x:Name="TsState8f4b532a5f3a4671821ce011bc00c3e71" TargetStateName="EndFlow" />
+        </EventDrivenActivity>
+    </StateActivity>
+    <StateActivity x:Name="EndFlow" />
+</ns0:SMTStateMachineWorkflowActivity>
+
+{"ORA-06550: 第 1 行, 第 7 列: \nPLS-00201: 必须声明标识符 'WORKFLOW_TRACKING_PKG.GETTRACKINGPROFILE'\nORA-06550: 第 1 行, 第 7 列: \nPL/SQL: Statement ignored\n"}
+
+<ns0:SMTStateMachineWorkflowActivity x:Name="Flow4f798f604f414ef48fa5a2f97fc8bb09"  InitialStateName="StartFlow"
+              CompletedStateName="EndFlow" DynamicUpdateCondition="{x:Null}" xmlns:ns0="clr-namespace:SMT.WFLib;Assembly=SMT.WFLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+    <StateActivity x:Name="StartFlow">
+        <EventDrivenActivity x:Name="EdaStartFlow0">
+            <ns0:SMTSubmitEvent ApproveInfo="{x:Null}" x:Name="EventStartFlow0" EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" />
+            <SetStateActivity x:Name="TsStartFlow0" TargetStateName="Stateff8e858066c642b68bb8e5138987a2d0" />
+        </EventDrivenActivity>
+    </StateActivity>
+    <StateActivity x:Name="Stateff8e858066c642b68bb8e5138987a2d0">
+        <EventDrivenActivity x:Name="EdaStateff8e858066c642b68bb8e5138987a2d01">
+            <ns0:SMTSubmitEvent ApproveInfo="{x:Null}" x:Name="EventStateff8e858066c642b68bb8e5138987a2d01" EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" />
+            <SetStateActivity x:Name="TsStateff8e858066c642b68bb8e5138987a2d01" TargetStateName="EndFlow" />
+        </EventDrivenActivity>
+    </StateActivity>
+    <StateActivity x:Name="EndFlow" />
+</ns0:SMTStateMachineWorkflowActivity>

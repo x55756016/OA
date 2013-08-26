@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="SMT.Workflow.Platform.Designer.ActivityProperty.LineProperty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"     
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+
+    <UserControl.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness" Value="0 0 1 1"/>
+            <Setter Property="BorderBrush" Value="#FFF2ECEC" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="1"/>
+           
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0 0 0 0" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="5 0" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Name="grdBaseProperty" Canvas.ZIndex="4" Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="auto"  />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="70*" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0">
+            <TextBlock Text="条件名称：" />
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1"  >
+            <ComboBox x:Name="cboField"  Height="22" DisplayMemberPath="Description" SelectionChanged="cboField_SelectionChanged"
+                      HorizontalAlignment="Stretch"  />
+
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="比 较 符：" />
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1">
+            <ComboBox x:Name="cboOperate"  Height="22"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" >
+                <ComboBoxItem Content="大于" Tag="&gt;"  IsSelected="True" />
+                <ComboBoxItem Content="等于" Tag="==" />
+                <ComboBoxItem Content="小于" Tag="&lt;"/>
+                <ComboBoxItem Content="大于等于" Tag="&gt;="/>
+                <ComboBoxItem Content="小于等于"  Tag="&lt;="/>
+                <ComboBoxItem Content="不等于"  Tag="&lt;&gt;"/>
+            </ComboBox>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0">
+            <TextBlock Text="比 较 值：" />
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1">    
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtCompareValue" TextWrapping="Wrap" Height="22"    HorizontalAlignment="Stretch"/>
+                <Button  x:Name="btnLookUp" HorizontalAlignment="Right"     VerticalAlignment="Center" Click="btnLookUp_Click" >
+                    <Image Name="imgQuery" Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+                </Button>
+                <ComboBox Name="cboPostLevel"  Width="40"  HorizontalAlignment="Right" SelectionChanged="cboPostLevel_SelectionChanged" />
+            </Grid>
+           
+            <!--<StackPanel  Orientation="Horizontal" HorizontalAlignment="Right">
+               
+               
+            </StackPanel>-->          
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  >
+            <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Content="添加" Height="23" Name="but_Add" Width="60" Margin="8,0,0,0"  Click="but_Add_Click" />
+                <Button Content="删除" Height="23" Name="but_Delete" Width="60" Margin="15,0,0,0" Click="but_Delete_Click" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="2">
+            <sdk:DataGrid x:Name="dgCodition" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="条件名称"  MinWidth="80"  IsReadOnly="True"  Binding="{Binding Description}"/>
+                    <sdk:DataGridTextColumn Header="比较操作" MinWidth="30" IsReadOnly="True" Binding="{Binding Operate}"/>
+                    <sdk:DataGridTextColumn Header="比较值" MinWidth="40" IsReadOnly="True" Binding="{Binding CompareValue}"/>                   
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+        </Border> 
+    </Grid>
+</UserControl>
