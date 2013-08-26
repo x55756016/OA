@@ -345,14 +345,14 @@ namespace SMT.SAAS.Platform.WebParts.Views
         }
 
         /// <summary>
-        /// 选择审核人
+        /// 选择发布对象，只能选公司
         /// </summary>
         private void btnLookUpDepartment_Click(object sender, RoutedEventArgs e)
         {
             this.txtAuditName.Text = string.Empty;
             this.txtAuditId.Text = string.Empty;
             SMT.SaaS.FrameworkUI.OrganizationControl.OrganizationLookup lookup = new SMT.SaaS.FrameworkUI.OrganizationControl.OrganizationLookup();
-            lookup.SelectedObjType = SMT.SaaS.FrameworkUI.OrgTreeItemTypes.All;
+            lookup.SelectedObjType = SMT.SaaS.FrameworkUI.OrgTreeItemTypes.Company;
             lookup.SelectedClick += (obj, ev) =>
             {
                 List<SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj> ent = lookup.SelectedObj as List<SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj>;

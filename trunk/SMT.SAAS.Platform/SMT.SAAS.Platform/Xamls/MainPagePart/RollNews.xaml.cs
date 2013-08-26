@@ -59,10 +59,14 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
             client = services.PlatformClient;
             if (client != null)
             {
-                client.GetNewsListByParamsCompleted += new EventHandler<GetNewsListByParamsCompletedEventArgs>(client_GetNewsListByParamsCompleted);
-                client.GetNewsListByParamsAsync("0|1", 10, "1");
+                //client.GetNewsListByParamsCompleted += new EventHandler<GetNewsListByParamsCompletedEventArgs>(client_GetNewsListByParamsCompleted);
+                //client.GetNewsListByParamsAsync("0|1", 10, "1");
+                client.GetNewsListByEmployeeIDCompleted += new EventHandler<GetNewsListByEmployeeIDCompletedEventArgs>(client_GetNewsListByEmployeeIDCompleted);
+                client.GetNewsListByEmployeeIDAsync("0|1", 10, "1", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
             }
         }
+
+      
 
         void tblRollnews_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -86,6 +90,27 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
 
         #region 加载新闻服务端数据
 
+        /// <summary>
+        /// 根据员工ID获取新闻
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void client_GetNewsListByEmployeeIDCompleted(object sender, GetNewsListByEmployeeIDCompletedEventArgs e)
+        {
+            _listnews = new List<NewsModel>();
+            if (e.Result != null)
+            {
+                foreach (var item in e.Result)
+                {
+                    _listnews.Add(new NewsModel()
+                    {
+                        Titel = item.NEWSTITEL,
+                        DataContent = item
+                    });
+                }
+                InitNewInfo();
+            }
+        }
         void client_GetNewsListByParamsCompleted(object sender, GetNewsListByParamsCompletedEventArgs e)
         {
             _listnews = new List<NewsModel>();

@@ -52,10 +52,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="SMT.SaaS.LocalData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=33351ad8ec2dd7d7, processorArchitecture=MSIL" />
-    <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, PublicKeyToken=7cc70637b746d9be, processorArchitecture=MSIL" />
+    <Reference Include="SMT.SaaS.LocalData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=33351ad8ec2dd7d7, processorArchitecture=MSIL">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, PublicKeyToken=7cc70637b746d9be, processorArchitecture=MSIL">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
+    </Reference>
     <Reference Include="SMT.Saas.Tools">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.Saas.Tools.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />

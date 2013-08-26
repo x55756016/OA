@@ -86,8 +86,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.SaaS.LocalData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=33351ad8ec2dd7d7, processorArchitecture=MSIL" />
-    <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, PublicKeyToken=7cc70637b746d9be, processorArchitecture=MSIL" />
+    <Reference Include="SMT.SaaS.LocalData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=33351ad8ec2dd7d7, processorArchitecture=MSIL">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
@@ -101,7 +102,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Wintellect.Sterling">
-      <HintPath>..\..\..\..\SMT.SAAS.FrameWork\SMT.SaaS.FrameworkUI.Dlls\SMT.SaaS.LocalData\Dll\Wintellect.Sterling.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Wintellect.Sterling.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -366,6 +367,12 @@
     <WCFMetadataStorage Include="Service References\EmployeeInfoWS\" />
     <WCFMetadataStorage Include="Service References\MainUIWS\" />
     <WCFMetadataStorage Include="Service References\PermissionWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
+      <Project>{4B5991D6-D3C6-4BCF-B788-95AFC5323523}</Project>
+      <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

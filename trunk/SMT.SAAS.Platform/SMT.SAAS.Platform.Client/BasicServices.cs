@@ -57,23 +57,23 @@ namespace SMT.SAAS.Platform.Client
             };
         }
 
-        private static EndpointAddress CreateAddress(string svcName)
-        {
-            if (!string.IsNullOrEmpty(SMT.SAAS.Main.CurrentContext.Common.HostAddress))
-            {
-                StringBuilder addressBuilder = new StringBuilder();
-                addressBuilder.Append("http://");
-                addressBuilder.Append(SMT.SAAS.Main.CurrentContext.Common.HostAddress.ToString());
-                addressBuilder.Append(svcName);
-                serviceAddress = addressBuilder.ToString();
-            }
-            else
-            {
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("系统全局IP HostAddress参数为空 ");
-            }
+        //private static EndpointAddress CreateAddress(string svcName)
+        //{
+        //    if (!string.IsNullOrEmpty(SMT.SAAS.Main.CurrentContext.Common.HostAddress))
+        //    {
+        //        StringBuilder addressBuilder = new StringBuilder();
+        //        addressBuilder.Append("http://");
+        //        addressBuilder.Append(SMT.SAAS.Main.CurrentContext.Common.HostAddress.ToString());
+        //        addressBuilder.Append(svcName);
+        //        serviceAddress = addressBuilder.ToString();
+        //    }
+        //    else
+        //    {
+        //        SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("系统全局IP HostAddress参数为空 ");
+        //    }
 
-            return new EndpointAddress(serviceAddress);
-        }
+        //    return new EndpointAddress(serviceAddress);
+        //}
 
         private static PlatformWS.PlatformServicesClient CreateClient()
         {
@@ -81,14 +81,16 @@ namespace SMT.SAAS.Platform.Client
             //EndpointAddress address = new EndpointAddress("http://localhost:15739/PlatformServices.svc");
             //return new PlatformWS.PlatformServicesClient(CreateBasicBinding(), address);
 
-            return new PlatformWS.PlatformServicesClient(CreateBasicBinding(), CreateAddress(PLATFORM_SVC_NAME));
+            //return new PlatformWS.PlatformServicesClient(CreateBasicBinding(), CreateAddress(PLATFORM_SVC_NAME));
+            return new PlatformWS.PlatformServicesClient();
         }
 
         private static PermissionServiceClient CreatePermissionClient()
         {
             //EndpointAddress address = new EndpointAddress("http://172.30.50.13/SmtOnline/Develop/Services/System/PermissionService.svc");
 
-            return new PermissionServiceClient(CreateCustomBinding(), CreateAddress(PERMISSION_SVC_NAME));
+            //return new PermissionServiceClient(CreateCustomBinding(), CreateAddress(PERMISSION_SVC_NAME));
+            return new PermissionServiceClient();
         }
 
         private static UserLoginWS.MainUIServicesClient CreateUserLoginClient()
@@ -96,8 +98,8 @@ namespace SMT.SAAS.Platform.Client
             //http://portal.smt-online.net/Services/System/MainUIServices.svc
 
             //EndpointAddress address = new EndpointAddress("http://172.30.50.13/SmtOnline/Develop/Services/System/MainUIServices.svc");
-            UserLoginWS.MainUIServicesClient client = new UserLoginWS.MainUIServicesClient(CreateCustomBinding(), CreateAddress(USERLOGIN_SVC_NAME));
-            return client;
+            //UserLoginWS.MainUIServicesClient client = new UserLoginWS.MainUIServicesClient(CreateCustomBinding(), CreateAddress(USERLOGIN_SVC_NAME));
+            return new UserLoginWS.MainUIServicesClient();
         }
 
         /// <summary>

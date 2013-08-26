@@ -123,9 +123,7 @@ namespace SMT.SAAS.Platform.Xamls
                 SMT.SAAS.Main.CurrentContext.AppContext.IsLoadingCompleted = true;
             }
         }
-
-
-
+        
         /// <summary>
         /// 默认加载公共字典，后续将由相关控件自身处理，
         /// </summary>

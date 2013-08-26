@@ -1,16 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlatformServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlatformServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SAAS.Platform.Services" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.SAAS.Platform.Services" />
+      <xsd:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IPlatformServices_GetImageNewsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageNewsList" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetImageNewsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetNewsListByPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByPage" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetNewsListByPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetWebPartList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWebPartList" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetWebPartList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWebPartListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetWebPartListByState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWebPartListByState" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetWebPartListByState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWebPartListByStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetUserWebPartsByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserWebPartsByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetUserWebPartsByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserWebPartsByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetUserShortCutByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserShortCutByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetUserShortCutByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserShortCutByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_RefreshUserWebPartList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshUserWebPartList" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_RefreshUserWebPartList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshUserWebPartListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_RefreshUserShortCutList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshUserShortCutList" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_RefreshUserShortCutList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshUserShortCutListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetPopupNewsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPopupNewsList" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetPopupNewsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPopupNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetNewsListByMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByMobile" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetNewsListByMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByMobileResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlatformServices_GetRssSource_InputMessage">
     <wsdl:part name="parameters" element="tns:GetRssSource" />
   </wsdl:message>
@@ -167,67 +227,59 @@
   <wsdl:message name="IPlatformServices_GetNewsListByParams_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsListByParamsResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetNewsListByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetNewsListByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByEmployeeIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlatformServices_GetNewsListByState_InputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsListByState" />
   </wsdl:message>
   <wsdl:message name="IPlatformServices_GetNewsListByState_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsListByStateResponse" />
   </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetImageNewsList_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetImageNewsList" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetImageNewsList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetImageNewsListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetNewsListByPage_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetNewsListByPage" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetNewsListByPage_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetNewsListByPageResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetWebPartList_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetWebPartList" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetWebPartList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetWebPartListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetWebPartListByState_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetWebPartListByState" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetWebPartListByState_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetWebPartListByStateResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetUserWebPartsByUserID_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserWebPartsByUserID" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetUserWebPartsByUserID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserWebPartsByUserIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetUserShortCutByUserID_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserShortCutByUserID" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetUserShortCutByUserID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUserShortCutByUserIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_RefreshUserWebPartList_InputMessage">
-    <wsdl:part name="parameters" element="tns:RefreshUserWebPartList" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_RefreshUserWebPartList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RefreshUserWebPartListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_RefreshUserShortCutList_InputMessage">
-    <wsdl:part name="parameters" element="tns:RefreshUserShortCutList" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_RefreshUserShortCutList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RefreshUserShortCutListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetPopupNewsList_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPopupNewsList" />
-  </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetPopupNewsList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPopupNewsListResponse" />
-  </wsdl:message>
   <wsdl:portType name="IPlatformServices">
+    <wsdl:operation name="GetImageNewsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetImageNewsList" message="tns:IPlatformServices_GetImageNewsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetImageNewsListResponse" message="tns:IPlatformServices_GetImageNewsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListByPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByPage" message="tns:IPlatformServices_GetNewsListByPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByPageResponse" message="tns:IPlatformServices_GetNewsListByPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWebPartList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetWebPartList" message="tns:IPlatformServices_GetWebPartList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetWebPartListResponse" message="tns:IPlatformServices_GetWebPartList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWebPartListByState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetWebPartListByState" message="tns:IPlatformServices_GetWebPartListByState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetWebPartListByStateResponse" message="tns:IPlatformServices_GetWebPartListByState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWebPartsByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetUserWebPartsByUserID" message="tns:IPlatformServices_GetUserWebPartsByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetUserWebPartsByUserIDResponse" message="tns:IPlatformServices_GetUserWebPartsByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserShortCutByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetUserShortCutByUserID" message="tns:IPlatformServices_GetUserShortCutByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetUserShortCutByUserIDResponse" message="tns:IPlatformServices_GetUserShortCutByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshUserWebPartList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/RefreshUserWebPartList" message="tns:IPlatformServices_RefreshUserWebPartList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/RefreshUserWebPartListResponse" message="tns:IPlatformServices_RefreshUserWebPartList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshUserShortCutList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/RefreshUserShortCutList" message="tns:IPlatformServices_RefreshUserShortCutList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/RefreshUserShortCutListResponse" message="tns:IPlatformServices_RefreshUserShortCutList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopupNewsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetPopupNewsList" message="tns:IPlatformServices_GetPopupNewsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetPopupNewsListResponse" message="tns:IPlatformServices_GetPopupNewsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListByMobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByMobile" message="tns:IPlatformServices_GetNewsListByMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByMobileResponse" message="tns:IPlatformServices_GetNewsListByMobile_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetRssSource">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetRssSource" message="tns:IPlatformServices_GetRssSource_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetRssSourceResponse" message="tns:IPlatformServices_GetRssSource_OutputMessage" />
@@ -332,49 +384,107 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByParams" message="tns:IPlatformServices_GetNewsListByParams_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByParamsResponse" message="tns:IPlatformServices_GetNewsListByParams_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetNewsListByEmployeeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByEmployeeID" message="tns:IPlatformServices_GetNewsListByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByEmployeeIDResponse" message="tns:IPlatformServices_GetNewsListByEmployeeID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetNewsListByState">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByState" message="tns:IPlatformServices_GetNewsListByState_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByStateResponse" message="tns:IPlatformServices_GetNewsListByState_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetImageNewsList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetImageNewsList" message="tns:IPlatformServices_GetImageNewsList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetImageNewsListResponse" message="tns:IPlatformServices_GetImageNewsList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetNewsListByPage">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByPage" message="tns:IPlatformServices_GetNewsListByPage_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByPageResponse" message="tns:IPlatformServices_GetNewsListByPage_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetWebPartList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetWebPartList" message="tns:IPlatformServices_GetWebPartList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetWebPartListResponse" message="tns:IPlatformServices_GetWebPartList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetWebPartListByState">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetWebPartListByState" message="tns:IPlatformServices_GetWebPartListByState_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetWebPartListByStateResponse" message="tns:IPlatformServices_GetWebPartListByState_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetUserWebPartsByUserID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetUserWebPartsByUserID" message="tns:IPlatformServices_GetUserWebPartsByUserID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetUserWebPartsByUserIDResponse" message="tns:IPlatformServices_GetUserWebPartsByUserID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetUserShortCutByUserID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetUserShortCutByUserID" message="tns:IPlatformServices_GetUserShortCutByUserID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetUserShortCutByUserIDResponse" message="tns:IPlatformServices_GetUserShortCutByUserID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RefreshUserWebPartList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/RefreshUserWebPartList" message="tns:IPlatformServices_RefreshUserWebPartList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/RefreshUserWebPartListResponse" message="tns:IPlatformServices_RefreshUserWebPartList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RefreshUserShortCutList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/RefreshUserShortCutList" message="tns:IPlatformServices_RefreshUserShortCutList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/RefreshUserShortCutListResponse" message="tns:IPlatformServices_RefreshUserShortCutList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPopupNewsList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetPopupNewsList" message="tns:IPlatformServices_GetPopupNewsList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetPopupNewsListResponse" message="tns:IPlatformServices_GetPopupNewsList_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPlatformServices" type="tns:IPlatformServices">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetImageNewsList">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetImageNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListByPage">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetNewsListByPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebPartList">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetWebPartList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebPartListByState">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetWebPartListByState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWebPartsByUserID">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetUserWebPartsByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserShortCutByUserID">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetUserShortCutByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshUserWebPartList">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/RefreshUserWebPartList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshUserShortCutList">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/RefreshUserShortCutList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopupNewsList">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetPopupNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListByMobile">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetNewsListByMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetRssSource">
       <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetRssSource" style="document" />
       <wsdl:input>
@@ -609,89 +719,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetNewsListByEmployeeID">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetNewsListByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetNewsListByState">
       <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetNewsListByState" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetImageNewsList">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetImageNewsList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetNewsListByPage">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetNewsListByPage" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetWebPartList">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetWebPartList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetWebPartListByState">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetWebPartListByState" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUserWebPartsByUserID">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetUserWebPartsByUserID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUserShortCutByUserID">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetUserShortCutByUserID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RefreshUserWebPartList">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/RefreshUserWebPartList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RefreshUserShortCutList">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/RefreshUserShortCutList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPopupNewsList">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetPopupNewsList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -702,7 +740,7 @@
   </wsdl:binding>
   <wsdl:service name="PlatformServices">
     <wsdl:port name="BasicHttpBinding_IPlatformServices" binding="tns:BasicHttpBinding_IPlatformServices">
-      <soap:address location="http://172.16.1.57/New/Services/Main/PlatformServices.svc" />
+      <soap:address location="http://localhost:15739/PlatformServices.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

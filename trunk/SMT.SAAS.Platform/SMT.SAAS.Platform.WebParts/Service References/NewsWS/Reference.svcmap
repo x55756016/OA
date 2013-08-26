@@ -20,18 +20,18 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://172.16.1.57/new/Services/Main/PlatformServices.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:15739/PlatformServices.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PlatformServices7.xsd" MetadataType="Schema" ID="b0698c08-a421-4ae4-af3c-00c49da0f755" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd1" />
-    <MetadataFile FileName="PlatformServices1.wsdl" MetadataType="Wsdl" ID="c82f68d0-c096-4dae-9d12-7f1bcd5c1394" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?wsdl" />
-    <MetadataFile FileName="PlatformServices8.xsd" MetadataType="Schema" ID="e79b4aff-4f72-449a-a109-ab350c90ca3d" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd0" />
-    <MetadataFile FileName="PlatformServices9.xsd" MetadataType="Schema" ID="64ba591f-59ff-4c33-9543-57f93b989a32" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd3" />
-    <MetadataFile FileName="PlatformServices10.xsd" MetadataType="Schema" ID="47652891-4db5-44cf-9d44-59b1284b3854" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd2" />
-    <MetadataFile FileName="PlatformServices11.xsd" MetadataType="Schema" ID="20e27498-ecb0-4958-892a-606c995ced6e" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd5" />
-    <MetadataFile FileName="PlatformServices12.xsd" MetadataType="Schema" ID="6736b2ac-1279-4593-9715-b9cf697c7352" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd4" />
-    <MetadataFile FileName="PlatformServices13.xsd" MetadataType="Schema" ID="4a65e3ce-c534-42a3-9356-d0c3914aca14" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd6" />
-    <MetadataFile FileName="PlatformServices1.disco" MetadataType="Disco" ID="e45ea26e-2174-428b-b30e-1c6a99cab582" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/Main/PlatformServices.svc?disco" />
+    <MetadataFile FileName="PlatformServices7.xsd" MetadataType="Schema" ID="f6dd433f-74a6-49df-89fb-d26e9660d3cb" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="PlatformServices8.xsd" MetadataType="Schema" ID="cc95920b-7637-4bdf-ba73-3e033626d280" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="PlatformServices9.xsd" MetadataType="Schema" ID="715049bd-86e6-42d6-81d7-5ee5acd4b918" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="PlatformServices10.xsd" MetadataType="Schema" ID="9a121523-865b-4901-8936-89745031eee4" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="PlatformServices1.wsdl" MetadataType="Wsdl" ID="fd36f141-eb34-4edd-b568-88a1a6ef1c19" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?wsdl" />
+    <MetadataFile FileName="PlatformServices1.disco" MetadataType="Disco" ID="30814fc2-93dd-4a04-8eed-f89f6751ddc9" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?disco" />
+    <MetadataFile FileName="PlatformServices11.xsd" MetadataType="Schema" ID="c1ee4966-5f65-4d4c-aadc-9fc626839af8" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="PlatformServices12.xsd" MetadataType="Schema" ID="3f6749b4-c9fc-4a89-9757-34cec22e8fd2" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="PlatformServices13.xsd" MetadataType="Schema" ID="e41b1e04-d406-4899-9f80-08cb00027564" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

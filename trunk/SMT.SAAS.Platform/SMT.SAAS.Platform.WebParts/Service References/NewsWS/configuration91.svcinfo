@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="BNOyqK/cZUAfxNJ+2yhO6fV6JQ8=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="NUJHQMu1RuFJVQYhDZZ/zp6yNQE=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IPlatformServices">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IPlatformServices" contract="NewsWS.IPlatformServices" bindingType="basicHttpBinding" address="http://172.16.1.57/New/Services/Main/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IPlatformServices">
+    <endpoint name="BasicHttpBinding_IPlatformServices" contract="NewsWS.IPlatformServices" bindingType="basicHttpBinding" address="http://localhost:15739/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IPlatformServices">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://172.16.1.57/New/Services/Main/PlatformServices.svc</serializedValue>
+          <serializedValue>http://localhost:15739/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

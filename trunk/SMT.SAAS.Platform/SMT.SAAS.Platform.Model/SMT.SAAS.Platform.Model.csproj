@@ -55,13 +55,13 @@
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="SMT.SaaS.LocalData">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.LocalData.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Main.CurrentContext">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Main.CurrentContext.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
     </Reference>
     <Reference Include="SMT.Saas.Tools">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.Saas.Tools.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />

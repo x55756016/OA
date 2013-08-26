@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://172.16.1.57/New/Services/Main/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="EntityKey">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" />
+  <xs:complexType name="ArrayOfKeyValueOfT_PF_NEWSArrayOfT_PF_DISTRIBUTEUSER1bTbSugR">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="0" name="EntityContainerName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EntityKeyValues" nillable="true" type="tns:ArrayOfEntityKeyMember" />
-      <xs:element minOccurs="0" name="EntitySetName" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="EntityKey" nillable="true" type="tns:EntityKey" />
-  <xs:complexType name="ArrayOfEntityKeyMember">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfEntityKeyMember" nillable="true" type="tns:ArrayOfEntityKeyMember" />
-  <xs:complexType name="EntityKeyMember">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfT_PF_NEWSArrayOfT_PF_DISTRIBUTEUSER1bTbSugR">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" name="Key" nillable="true" type="q1:T_PF_NEWS" />
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" name="Value" nillable="true" type="q2:ArrayOfT_PF_DISTRIBUTEUSER" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+  <xs:element name="ArrayOfKeyValueOfT_PF_NEWSArrayOfT_PF_DISTRIBUTEUSER1bTbSugR" nillable="true" type="tns:ArrayOfKeyValueOfT_PF_NEWSArrayOfT_PF_DISTRIBUTEUSER1bTbSugR" />
 </xs:schema>

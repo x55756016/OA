@@ -62,26 +62,48 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
         private void InitDate()
         {
-            client.GetNewsListByParamsCompleted += (obj, args) =>
-           {
-               loading.Stop();
-               if (args.Error == null)
-               {
-                   if (args.Result != null)
-                   {
-                       if (args.Result.Count > 0)
-                       {
-                           if (args.Result.Count >= topCount)
-                               btnMore.Visibility = Visibility.Visible;
+           // client.GetNewsListByParamsCompleted += (obj, args) =>
+           //{
+           //    loading.Stop();
+           //    if (args.Error == null)
+           //    {
+           //        if (args.Result != null)
+           //        {
+           //            if (args.Result.Count > 0)
+           //            {
+           //                if (args.Result.Count >= topCount)
+           //                    btnMore.Visibility = Visibility.Visible;
 
-                           NewsList.ItemsSource = null;
-                           NewsList.ItemsSource = args.Result.ToList();
-                       }
-                   }
-               }
-           };
+           //                NewsList.ItemsSource = null;
+           //                NewsList.ItemsSource = args.Result.ToList();
+           //            }
+           //        }
+           //    }
+           //};
+           // loading.Start();
+           // client.GetNewsListByParamsAsync(NewsType, topCount, "1");
+
+            client.GetNewsListByEmployeeIDCompleted += (obj, args) =>
+            {
+                loading.Stop();
+                if (args.Error == null)
+                {
+                    if (args.Result != null)
+                    {
+                        if (args.Result.Count > 0)
+                        {
+                            if (args.Result.Count >= topCount)
+                                btnMore.Visibility = Visibility.Visible;
+
+                            NewsList.ItemsSource = null;
+                            NewsList.ItemsSource = args.Result.ToList();
+                           
+                        }
+                    }
+                }
+            };
             loading.Start();
-            client.GetNewsListByParamsAsync(NewsType, topCount, "1");
+            client.GetNewsListByEmployeeIDAsync(NewsType, topCount, "1",SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
         }
 
         private void CheckServices()

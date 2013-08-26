@@ -58,10 +58,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SMT.Foundation.Core">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\NewDllTemp\SMT.Foundation.Core.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
     </Reference>
     <Reference Include="SMT.Foundation.Log">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

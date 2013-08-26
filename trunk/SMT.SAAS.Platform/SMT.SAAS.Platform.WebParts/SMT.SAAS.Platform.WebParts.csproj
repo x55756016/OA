@@ -52,45 +52,45 @@
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="SMT.FileUpLoad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.FileUpLoad.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.FileUpLoad.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Behaviors">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Behaviors.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Controls.Toolkit.Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.DatePager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.DatePager.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.DatePager.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Extensions.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.FrameworkUI, Version=1.1.1.1218, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.FrameworkUI.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.Globalization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.Globalization.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Globalization.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.LocalData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=33351ad8ec2dd7d7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.LocalData.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, PublicKeyToken=7cc70637b746d9be, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Main.CurrentContext.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.PublicControls">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.PublicControls.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.PublicControls.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Themes, Version=1.0.0.402, Culture=neutral, PublicKeyToken=c155d018b0456927, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Themes.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
     </Reference>
     <Reference Include="SMT.Saas.Tools">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.Saas.Tools.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.Window, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.Window.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
@@ -109,59 +109,59 @@
     <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Controls, Version=2011.1.329.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.Data, Version=2011.1.329.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.Data.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.Data.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.GridView, Version=2011.1.329.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.GridView.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.GridView.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.Input, Version=2011.1.329.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.Input.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.Navigation, Version=2011.1.329.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.Navigation.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.Navigation.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.RibbonBar, Version=2011.1.329.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.RibbonBar.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.RibbonBar.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2010.3.1613.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Data, Version=2011.1.329.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Data.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Data.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Documents, Version=2010.3.1613.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Documents.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Documents.FormatProviders.Html, Version=2010.3.1613.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml, Version=2010.3.1613.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf, Version=2010.3.1613.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Documents.FormatProviders.Xaml, Version=2010.3.1613.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Documents.FormatProviders.Xaml.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.FormatProviders.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Documents.Proofing.Dictionaries.En-US, Version=2010.3.1613.1040, Culture=neutral, PublicKeyToken=d3625f8bf04286d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SMT.SaaS.CommonDll\RadConctrol\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\Telerik\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

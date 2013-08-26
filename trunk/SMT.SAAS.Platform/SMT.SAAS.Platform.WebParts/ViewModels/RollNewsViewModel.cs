@@ -28,9 +28,16 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
 
             if (client != null)
             {
-                client.GetNewsListByParamsCompleted += new EventHandler<GetNewsListByParamsCompletedEventArgs>(client_GetNewsListByParamsCompleted);
-                client.GetNewsListByParamsAsync("0|1", 10, "1");
+                //client.GetNewsListByParamsCompleted += new EventHandler<GetNewsListByParamsCompletedEventArgs>(client_GetNewsListByParamsCompleted);
+                //client.GetNewsListByParamsAsync("0|1", 10, "1");
+                client.GetNewsListByEmployeeIDCompleted += new EventHandler<GetNewsListByEmployeeIDCompletedEventArgs>(client_GetNewsListByEmployeeIDCompleted);
+                client.GetNewsListByEmployeeIDAsync("0|1", 10, "1", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
             }
+        }
+
+        void client_GetNewsListByEmployeeIDCompleted(object sender, GetNewsListByEmployeeIDCompletedEventArgs e)
+        {
+            
         }
 
         void client_GetNewsListByParamsCompleted(object sender, GetNewsListByParamsCompletedEventArgs e)
