@@ -2482,6 +2482,11 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="NewsWS.IPlatformServices")]
     public interface IPlatformServices {
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetNewsListByState", ReplyAction="http://tempuri.org/IPlatformServices/GetNewsListByStateResponse")]
+        System.IAsyncResult BeginGetNewsListByState(string state, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> EndGetNewsListByState(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetImageNewsList", ReplyAction="http://tempuri.org/IPlatformServices/GetImageNewsListResponse")]
         System.IAsyncResult BeginGetImageNewsList(int topCount, string state, System.AsyncCallback callback, object asyncState);
         
@@ -2667,14 +2672,33 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
         
         System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> EndGetNewsListByEmployeeID(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetNewsListByState", ReplyAction="http://tempuri.org/IPlatformServices/GetNewsListByStateResponse")]
-        System.IAsyncResult BeginGetNewsListByState(string state, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetNewsListByPageAndEmpID", ReplyAction="http://tempuri.org/IPlatformServices/GetNewsListByPageAndEmpIDResponse")]
+        System.IAsyncResult BeginGetNewsListByPageAndEmpID(int pageIndex, int pageSize, string sort, string filterString, ref int pageCount, string employeeID, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> EndGetNewsListByState(System.IAsyncResult result);
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView> EndGetNewsListByPageAndEmpID(ref int pageCount, System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IPlatformServicesChannel : SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetNewsListByStateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetNewsListByStateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS>)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3365,19 +3389,26 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetNewsListByStateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetNewsListByPageAndEmpIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetNewsListByStateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public GetNewsListByPageAndEmpIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
-        public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> Result {
+        public int pageCount {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS>)(this.results[0]));
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView>)(this.results[1]));
             }
         }
     }
@@ -3385,6 +3416,12 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class PlatformServicesClient : System.ServiceModel.ClientBase<SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices>, SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices {
+        
+        private BeginOperationDelegate onBeginGetNewsListByStateDelegate;
+        
+        private EndOperationDelegate onEndGetNewsListByStateDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetNewsListByStateCompletedDelegate;
         
         private BeginOperationDelegate onBeginGetImageNewsListDelegate;
         
@@ -3608,11 +3645,11 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
         
         private System.Threading.SendOrPostCallback onGetNewsListByEmployeeIDCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetNewsListByStateDelegate;
+        private BeginOperationDelegate onBeginGetNewsListByPageAndEmpIDDelegate;
         
-        private EndOperationDelegate onEndGetNewsListByStateDelegate;
+        private EndOperationDelegate onEndGetNewsListByPageAndEmpIDDelegate;
         
-        private System.Threading.SendOrPostCallback onGetNewsListByStateCompletedDelegate;
+        private System.Threading.SendOrPostCallback onGetNewsListByPageAndEmpIDCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -3665,6 +3702,8 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
                 }
             }
         }
+        
+        public event System.EventHandler<GetNewsListByStateCompletedEventArgs> GetNewsListByStateCompleted;
         
         public event System.EventHandler<GetImageNewsListCompletedEventArgs> GetImageNewsListCompleted;
         
@@ -3740,11 +3779,57 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
         
         public event System.EventHandler<GetNewsListByEmployeeIDCompletedEventArgs> GetNewsListByEmployeeIDCompleted;
         
-        public event System.EventHandler<GetNewsListByStateCompletedEventArgs> GetNewsListByStateCompleted;
+        public event System.EventHandler<GetNewsListByPageAndEmpIDCompletedEventArgs> GetNewsListByPageAndEmpIDCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices.BeginGetNewsListByState(string state, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetNewsListByState(state, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices.EndGetNewsListByState(System.IAsyncResult result) {
+            return base.Channel.EndGetNewsListByState(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetNewsListByState(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string state = ((string)(inValues[0]));
+            return ((SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices)(this)).BeginGetNewsListByState(state, callback, asyncState);
+        }
+        
+        private object[] OnEndGetNewsListByState(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> retVal = ((SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices)(this)).EndGetNewsListByState(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetNewsListByStateCompleted(object state) {
+            if ((this.GetNewsListByStateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetNewsListByStateCompleted(this, new GetNewsListByStateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetNewsListByStateAsync(string state) {
+            this.GetNewsListByStateAsync(state, null);
+        }
+        
+        public void GetNewsListByStateAsync(string state, object userState) {
+            if ((this.onBeginGetNewsListByStateDelegate == null)) {
+                this.onBeginGetNewsListByStateDelegate = new BeginOperationDelegate(this.OnBeginGetNewsListByState);
+            }
+            if ((this.onEndGetNewsListByStateDelegate == null)) {
+                this.onEndGetNewsListByStateDelegate = new EndOperationDelegate(this.OnEndGetNewsListByState);
+            }
+            if ((this.onGetNewsListByStateCompletedDelegate == null)) {
+                this.onGetNewsListByStateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetNewsListByStateCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetNewsListByStateDelegate, new object[] {
+                        state}, this.onEndGetNewsListByStateDelegate, this.onGetNewsListByStateCompletedDelegate, userState);
+        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices.BeginGetImageNewsList(int topCount, string state, System.AsyncCallback callback, object asyncState) {
@@ -5483,49 +5568,61 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices.BeginGetNewsListByState(string state, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetNewsListByState(state, callback, asyncState);
+        System.IAsyncResult SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices.BeginGetNewsListByPageAndEmpID(int pageIndex, int pageSize, string sort, string filterString, ref int pageCount, string employeeID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetNewsListByPageAndEmpID(pageIndex, pageSize, sort, filterString, ref pageCount, employeeID, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices.EndGetNewsListByState(System.IAsyncResult result) {
-            return base.Channel.EndGetNewsListByState(result);
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView> SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices.EndGetNewsListByPageAndEmpID(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndGetNewsListByPageAndEmpID(ref pageCount, result);
         }
         
-        private System.IAsyncResult OnBeginGetNewsListByState(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string state = ((string)(inValues[0]));
-            return ((SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices)(this)).BeginGetNewsListByState(state, callback, asyncState);
+        private System.IAsyncResult OnBeginGetNewsListByPageAndEmpID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            int pageCount = ((int)(inValues[4]));
+            string employeeID = ((string)(inValues[5]));
+            return ((SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices)(this)).BeginGetNewsListByPageAndEmpID(pageIndex, pageSize, sort, filterString, ref pageCount, employeeID, callback, asyncState);
         }
         
-        private object[] OnEndGetNewsListByState(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> retVal = ((SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices)(this)).EndGetNewsListByState(result);
+        private object[] OnEndGetNewsListByPageAndEmpID(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView> retVal = ((SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices)(this)).EndGetNewsListByPageAndEmpID(ref pageCount, result);
             return new object[] {
+                    pageCount,
                     retVal};
         }
         
-        private void OnGetNewsListByStateCompleted(object state) {
-            if ((this.GetNewsListByStateCompleted != null)) {
+        private void OnGetNewsListByPageAndEmpIDCompleted(object state) {
+            if ((this.GetNewsListByPageAndEmpIDCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetNewsListByStateCompleted(this, new GetNewsListByStateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.GetNewsListByPageAndEmpIDCompleted(this, new GetNewsListByPageAndEmpIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetNewsListByStateAsync(string state) {
-            this.GetNewsListByStateAsync(state, null);
+        public void GetNewsListByPageAndEmpIDAsync(int pageIndex, int pageSize, string sort, string filterString, int pageCount, string employeeID) {
+            this.GetNewsListByPageAndEmpIDAsync(pageIndex, pageSize, sort, filterString, pageCount, employeeID, null);
         }
         
-        public void GetNewsListByStateAsync(string state, object userState) {
-            if ((this.onBeginGetNewsListByStateDelegate == null)) {
-                this.onBeginGetNewsListByStateDelegate = new BeginOperationDelegate(this.OnBeginGetNewsListByState);
+        public void GetNewsListByPageAndEmpIDAsync(int pageIndex, int pageSize, string sort, string filterString, int pageCount, string employeeID, object userState) {
+            if ((this.onBeginGetNewsListByPageAndEmpIDDelegate == null)) {
+                this.onBeginGetNewsListByPageAndEmpIDDelegate = new BeginOperationDelegate(this.OnBeginGetNewsListByPageAndEmpID);
             }
-            if ((this.onEndGetNewsListByStateDelegate == null)) {
-                this.onEndGetNewsListByStateDelegate = new EndOperationDelegate(this.OnEndGetNewsListByState);
+            if ((this.onEndGetNewsListByPageAndEmpIDDelegate == null)) {
+                this.onEndGetNewsListByPageAndEmpIDDelegate = new EndOperationDelegate(this.OnEndGetNewsListByPageAndEmpID);
             }
-            if ((this.onGetNewsListByStateCompletedDelegate == null)) {
-                this.onGetNewsListByStateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetNewsListByStateCompleted);
+            if ((this.onGetNewsListByPageAndEmpIDCompletedDelegate == null)) {
+                this.onGetNewsListByPageAndEmpIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetNewsListByPageAndEmpIDCompleted);
             }
-            base.InvokeAsync(this.onBeginGetNewsListByStateDelegate, new object[] {
-                        state}, this.onEndGetNewsListByStateDelegate, this.onGetNewsListByStateCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginGetNewsListByPageAndEmpIDDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        pageCount,
+                        employeeID}, this.onEndGetNewsListByPageAndEmpIDDelegate, this.onGetNewsListByPageAndEmpIDCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -5602,6 +5699,19 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
             
             public PlatformServicesClientChannel(System.ServiceModel.ClientBase<SMT.SAAS.Platform.WebParts.NewsWS.IPlatformServices> client) : 
                     base(client) {
+            }
+            
+            public System.IAsyncResult BeginGetNewsListByState(string state, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = state;
+                System.IAsyncResult _result = base.BeginInvoke("GetNewsListByState", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> EndGetNewsListByState(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS>)(base.EndInvoke("GetNewsListByState", _args, result)));
+                return _result;
             }
             
             public System.IAsyncResult BeginGetImageNewsList(int topCount, string state, System.AsyncCallback callback, object asyncState) {
@@ -6107,16 +6217,24 @@ namespace SMT.SAAS.Platform.WebParts.NewsWS {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetNewsListByState(string state, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = state;
-                System.IAsyncResult _result = base.BeginInvoke("GetNewsListByState", _args, callback, asyncState);
+            public System.IAsyncResult BeginGetNewsListByPageAndEmpID(int pageIndex, int pageSize, string sort, string filterString, ref int pageCount, string employeeID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[6];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = pageCount;
+                _args[5] = employeeID;
+                System.IAsyncResult _result = base.BeginInvoke("GetNewsListByPageAndEmpID", _args, callback, asyncState);
+                pageCount = ((int)(_args[4]));
                 return _result;
             }
             
-            public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> EndGetNewsListByState(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS>)(base.EndInvoke("GetNewsListByState", _args, result)));
+            public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView> EndGetNewsListByPageAndEmpID(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView>)(base.EndInvoke("GetNewsListByPageAndEmpID", _args, result)));
+                pageCount = ((int)(_args[0]));
                 return _result;
             }
         }

@@ -56,7 +56,8 @@ namespace SMT.SAAS.ClientServices
         }
         private static PermissionServiceClient CreatePermissionClient()
         {
-            return new PermissionServiceClient(CreateCustomBinding(), CreateAddress(PERMISSION_SVC_NAME));
+            //return new PermissionServiceClient(CreateCustomBinding(), CreateAddress(PERMISSION_SVC_NAME));
+            return new PermissionServiceClient();
         }
 
         /// <summary>

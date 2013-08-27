@@ -21,7 +21,7 @@ namespace SMT.SAAS.Platform.Model.Services
     /// </summary>
     public class LoginUser : Interface.ILoginUser
     {
-        private MainUIServicesClient _client = BasicServices.UserLoginClient;
+        private MainUIServicesClient _client = new MainUIServicesClient();
         private string result = string.Empty;
         private UserLogin _userLogin;
 

@@ -22,7 +22,7 @@ namespace SMT.SAAS.Platform.Core.Modularity
     /// </summary>
     public class WCFFileDownloader : IFileDownloader
     {
-        private readonly PlatformServicesClient wcfClient = BasicServices.PlatformClient;
+        private readonly PlatformServicesClient wcfClient =  new PlatformServicesClient();
         private event EventHandler<DownloadProgressChangedEventArgs> _downloadProgressChanged;
         private event EventHandler<DownloadCompletedEventArgs> _downloadCompleted;
 

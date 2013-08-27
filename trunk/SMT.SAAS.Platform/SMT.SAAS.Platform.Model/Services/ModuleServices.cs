@@ -7,7 +7,7 @@ namespace SMT.SAAS.Platform.Model.Services
 {
     public class ModuleServices
     {
-        private Platform.Client.PlatformWS.PlatformServicesClient _client = BasicServices.PlatformClient;
+        private Platform.Client.PlatformWS.PlatformServicesClient _client = new Client.PlatformWS.PlatformServicesClient();
 
         public event EventHandler<GetEntityListEventArgs<Model.ModuleInfo>> OnGetModulesCompleted;
 

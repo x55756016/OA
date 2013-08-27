@@ -21,7 +21,7 @@ namespace SMT.SAAS.Platform.Model.Services
 
         public event EventHandler<ExecuteNoQueryEventArgs> OnGetUserCustomerPermissionCompleted;
 
-        private PermissionServiceClient _client = Client.BasicServices.PermissionClient;
+        private PermissionServiceClient _client = new PermissionServiceClient();
         private SMT.Saas.Tools.PermissionWS.PermissionServiceClient _toolsClient = null;
         public static bool HasNewsPublish = false;
 

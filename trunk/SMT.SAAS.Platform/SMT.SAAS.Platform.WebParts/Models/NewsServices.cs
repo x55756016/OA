@@ -56,8 +56,9 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
             //获取所有新闻列表
             client.GetNewsListsCompleted += new EventHandler<GetNewsListsCompletedEventArgs>(client_GetNewsListsCompleted);
             //分页获取新闻
-            client.GetNewsListByPageCompleted += new EventHandler<GetNewsListByPageCompletedEventArgs>(client_GetNewsListByPageCompleted);
-
+            //client.GetNewsListByPageCompleted += new EventHandler<GetNewsListByPageCompletedEventArgs>(client_GetNewsListByPageCompleted);
+            client.GetNewsListByPageAndEmpIDCompleted += new EventHandler<GetNewsListByPageAndEmpIDCompletedEventArgs>(client_GetNewsListByPageAndEmpIDCompleted);
+            
             client.AddNewsCompleted += new EventHandler<AddNewsCompletedEventArgs>(client_AddNewsCompleted);
             client.DeleteNewsCompleted += new EventHandler<DeleteNewsCompletedEventArgs>(client_DeleteNewsCompleted);
             client.GetPopupNewsListCompleted += new EventHandler<GetPopupNewsListCompletedEventArgs>(client_GetPopupNewsListCompleted);
@@ -65,6 +66,26 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
             publicWS.UpdateContentCompleted += new EventHandler<Saas.Tools.PublicInterfaceWS.UpdateContentCompletedEventArgs>(publicWS_UpdateContentCompleted);
             publicWS.DeleteContentCompleted += new EventHandler<Saas.Tools.PublicInterfaceWS.DeleteContentCompletedEventArgs>(publicWS_DeleteContentCompleted);
             publicWS.GetContentCompleted += new EventHandler<Saas.Tools.PublicInterfaceWS.GetContentCompletedEventArgs>(publicWS_GetContentCompleted);
+        }
+
+        void client_GetNewsListByPageAndEmpIDCompleted(object sender, GetNewsListByPageAndEmpIDCompletedEventArgs e)
+        {
+            ObservableCollection<NewsModel> list = new ObservableCollection<NewsModel>();
+            if (e.Error == null)
+            {
+                if (e.Result.IsNotNull())
+                {
+                    if (e.Result.Count > 0)
+                    {
+                        foreach (var item in e.Result)
+                        {
+                            list.Add(EntityViewToModel(item));
+                        }
+                    }
+                }
+                if (OnGetNewsListCompleted != null)
+                    OnGetNewsListCompleted(this, new GetEntityListEventArgs<NewsModel>(list, e.Error, e.pageCount));
+            }
         }
 
         void client_GetPopupNewsListCompleted(object sender, GetPopupNewsListCompletedEventArgs e)
@@ -343,7 +364,8 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
 
         public void GetNewsListByPage(int pageIndex, int pageSize, string sortString, string filterString, int pageCount)
         {
-            client.GetNewsListByPageAsync(pageIndex, pageSize, sortString, filterString, pageCount);
+            //client.GetNewsListByPageAsync(pageIndex, pageSize, sortString, filterString, pageCount);
+            client.GetNewsListByPageAndEmpIDAsync(pageIndex, pageSize, sortString, filterString, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
         }
 
         /// <summary>
@@ -458,25 +480,25 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
                 OnGetNewsListCompleted(this, new GetEntityListEventArgs<NewsModel>(list, e.Error));
         }
 
-        private void client_GetNewsListByPageCompleted(object sender, GetNewsListByPageCompletedEventArgs e)
-        {
-            ObservableCollection<NewsModel> list = new ObservableCollection<NewsModel>();
-            if (e.Error == null)
-            {
-                if (e.Result.IsNotNull())
-                {
-                    if (e.Result.Count > 0)
-                    {
-                        foreach (var item in e.Result)
-                        {
-                            list.Add(EntityViewToModel(item));
-                        }
-                    }
-                }
-                if (OnGetNewsListCompleted != null)
-                    OnGetNewsListCompleted(this, new GetEntityListEventArgs<NewsModel>(list, e.Error, e.pageCount));
-            }
-        }
+        //private void client_GetNewsListByPageCompleted(object sender, GetNewsListByPageCompletedEventArgs e)
+        //{
+        //    ObservableCollection<NewsModel> list = new ObservableCollection<NewsModel>();
+        //    if (e.Error == null)
+        //    {
+        //        if (e.Result.IsNotNull())
+        //        {
+        //            if (e.Result.Count > 0)
+        //            {
+        //                foreach (var item in e.Result)
+        //                {
+        //                    list.Add(EntityViewToModel(item));
+        //                }
+        //            }
+        //        }
+        //        if (OnGetNewsListCompleted != null)
+        //            OnGetNewsListCompleted(this, new GetEntityListEventArgs<NewsModel>(list, e.Error, e.pageCount));
+        //    }
+        //}
 
         private void client_GetNewsDetailsByIDCompleted(object sender, GetNewsDetailsByIDCompletedEventArgs e)
         {

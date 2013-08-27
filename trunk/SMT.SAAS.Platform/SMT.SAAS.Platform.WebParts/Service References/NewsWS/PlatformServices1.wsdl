@@ -11,6 +11,12 @@
       <xsd:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IPlatformServices_GetNewsListByState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByState" />
+  </wsdl:message>
+  <wsdl:message name="IPlatformServices_GetNewsListByState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByStateResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlatformServices_GetImageNewsList_InputMessage">
     <wsdl:part name="parameters" element="tns:GetImageNewsList" />
   </wsdl:message>
@@ -233,13 +239,17 @@
   <wsdl:message name="IPlatformServices_GetNewsListByEmployeeID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewsListByEmployeeIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetNewsListByState_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetNewsListByState" />
+  <wsdl:message name="IPlatformServices_GetNewsListByPageAndEmpID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByPageAndEmpID" />
   </wsdl:message>
-  <wsdl:message name="IPlatformServices_GetNewsListByState_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetNewsListByStateResponse" />
+  <wsdl:message name="IPlatformServices_GetNewsListByPageAndEmpID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewsListByPageAndEmpIDResponse" />
   </wsdl:message>
   <wsdl:portType name="IPlatformServices">
+    <wsdl:operation name="GetNewsListByState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByState" message="tns:IPlatformServices_GetNewsListByState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByStateResponse" message="tns:IPlatformServices_GetNewsListByState_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetImageNewsList">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetImageNewsList" message="tns:IPlatformServices_GetImageNewsList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetImageNewsListResponse" message="tns:IPlatformServices_GetImageNewsList_OutputMessage" />
@@ -388,13 +398,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByEmployeeID" message="tns:IPlatformServices_GetNewsListByEmployeeID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByEmployeeIDResponse" message="tns:IPlatformServices_GetNewsListByEmployeeID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetNewsListByState">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByState" message="tns:IPlatformServices_GetNewsListByState_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByStateResponse" message="tns:IPlatformServices_GetNewsListByState_OutputMessage" />
+    <wsdl:operation name="GetNewsListByPageAndEmpID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByPageAndEmpID" message="tns:IPlatformServices_GetNewsListByPageAndEmpID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlatformServices/GetNewsListByPageAndEmpIDResponse" message="tns:IPlatformServices_GetNewsListByPageAndEmpID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPlatformServices" type="tns:IPlatformServices">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewsListByState">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetNewsListByState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetImageNewsList">
       <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetImageNewsList" style="document" />
       <wsdl:input>
@@ -728,8 +747,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetNewsListByState">
-      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetNewsListByState" style="document" />
+    <wsdl:operation name="GetNewsListByPageAndEmpID">
+      <soap:operation soapAction="http://tempuri.org/IPlatformServices/GetNewsListByPageAndEmpID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

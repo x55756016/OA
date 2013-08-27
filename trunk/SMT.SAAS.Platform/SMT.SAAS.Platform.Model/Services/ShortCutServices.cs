@@ -15,7 +15,7 @@ namespace SMT.SAAS.Platform.Model.Services
 {
     public class ShortCutServices
     {
-        private Platform.Client.PlatformWS.PlatformServicesClient _client = BasicServices.PlatformClient;
+        private Platform.Client.PlatformWS.PlatformServicesClient _client = new Client.PlatformWS.PlatformServicesClient();
 
         public event EventHandler<GetEntityListEventArgs<Model.ShortCut>> OnGetShortCutCompleted;
 

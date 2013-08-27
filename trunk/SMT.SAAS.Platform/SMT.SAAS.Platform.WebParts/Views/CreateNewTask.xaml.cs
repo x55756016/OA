@@ -38,7 +38,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
         private void InitDate()
         {
-            _services = SMT.SAAS.Platform.Client.BasicServices.PlatformClient;
+            _services = new PlatformServicesClient();
             _services.GetTaskConfigInfoByUserCompleted += new EventHandler<Client.PlatformWS.GetTaskConfigInfoByUserCompletedEventArgs>(_services_GetTaskConfigInfoByUserCompleted);
             //_services.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:15739/PlatformServices.svc");
             _services.GetTaskConfigInfoByUserAsync(Common.CurrentLoginUserInfo.SysUserID);
