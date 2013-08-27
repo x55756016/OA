@@ -64,6 +64,23 @@ namespace SMT.HRM.UI.Views.Personnel
             _ImgButtonViewBasicInfo.VerticalAlignment = VerticalAlignment.Center;
             _ImgButtonViewBasicInfo.AddButtonAction("/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1055.png", Utility.GetResourceStr("员工异动报表")).Click += new RoutedEventHandler(_ImgButtonViewBasicInfo_Click);
             ToolBar.stpOtherAction.Children.Add(_ImgButtonViewBasicInfo);
+
+            Button ButtonMainpostChange = new Button();
+            ButtonMainpostChange.VerticalAlignment = VerticalAlignment.Center;
+            ButtonMainpostChange.Content = "员工主兼职岗位互换";
+            ButtonMainpostChange.Click += new RoutedEventHandler(ButtonMainpostChange_Click);
+            ToolBar.stpOtherAction.Children.Add(ButtonMainpostChange);
+        }
+
+        //
+        void ButtonMainpostChange_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeePostChangeForm form = new EmployeePostChangeForm(FormTypes.New, "");
+            form.isMainPostChanged = true;
+            EntityBrowser browser = new EntityBrowser(form);
+            //  form.MinHeight = 390;
+            browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
+            browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
         }
 
         void _ImgButtonViewBasicInfo_Click(object sender, RoutedEventArgs e)

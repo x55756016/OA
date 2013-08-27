@@ -190,7 +190,7 @@
 
             </Grid.RowDefinitions>
             <Border Height="1" BorderBrush="#FF6D8193" BorderThickness="1" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"  HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="5,2,5,2"  />
-            <TextBlock   Grid.Row="1" Grid.Column="0" Margin="5,0,0,0" 
+            <TextBlock   Grid.Row="1" Grid.Column="0" Margin="5,0,0,0" x:Name="IsAgencyLabel"
                     			Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISAGENCY}" />
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
                 <CheckBox x:Name="chkIsAgency" Margin="5,0,0,0" Style="{StaticResource CheckBoxStyle}" Click="chkIsAgency_Click"/>

@@ -31,6 +31,14 @@ namespace SMT.ImportClockInRdCustomServies
         int iMachineNumber = 1;
         bool bIsNewDevice = false;
         private static readonly ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private string TestMode = string.Empty;
+        private string TestCompanyIp = string.Empty;
+        private string strElapsedHour =string.Empty;
+        private string TestElapsedHour = string.Empty;
+        private bool isReadToRead = true;
+        private string strNewDevices = string.Empty;
+        private string strIPs = string.Empty;
+        private string strCompanyIDs =string.Empty;
 
         public ImportRdService()
         {
@@ -40,15 +48,41 @@ namespace SMT.ImportClockInRdCustomServies
         protected override void OnStart(string[] args)
         {
             //服务启动
-            this.timerImportRd.Enabled = true;
-            Tracer.Debug(DateTime.Now.ToString() + "，启动服务成功");
+            this.timerImportRd.Enabled = true;   
+            Tracer.Debug("启动服务成功");
+            strElapsedHour = ConfigurationManager.AppSettings["ElapsedHour"].ToString();
+
+            TestMode = "False";
+            TestCompanyIp = string.Empty;
+            TestMode = ConfigurationManager.AppSettings["TestMode"].ToString();
+            strNewDevices = ConfigurationManager.AppSettings["newDevice"].ToString();
+            iPort = int.Parse(ConfigurationManager.AppSettings["clockPort"].ToString());
+            strIPs = ConfigurationManager.AppSettings["clockIp"].ToString();
+            strCompanyIDs = ConfigurationManager.AppSettings["companyID"].ToString();
+
+            if (TestMode == "true")
+            {
+                string Interval = ConfigurationManager.AppSettings["TestInterval"].ToString();
+                timerImportRd.Interval = int.Parse(Interval);
+                TestCompanyIp = ConfigurationManager.AppSettings["TestCompanyIp"].ToString();
+                TestElapsedHour = ConfigurationManager.AppSettings["TestElapsedHour"].ToString();
+
+                Tracer.Debug("测试模式已开启"
+                    + ",Interval=" + timerImportRd.Interval
+                    + ",TestCompanyIp="
+                    + TestCompanyIp
+                    + ",TestElapsedHour=" + TestElapsedHour);
+            }
+             
         }
 
         protected override void OnStop()
         {
             //服务停止
             this.timerImportRd.Enabled = false;
-            Tracer.Debug(DateTime.Now.ToString() + "，关闭服务成功");
+            Tracer.Debug("服务已停止");
+            TestMode = "False";
+            TestCompanyIp = string.Empty;
         }
 
         /// <summary>
@@ -58,15 +92,38 @@ namespace SMT.ImportClockInRdCustomServies
         /// <param name="e"></param>
         private void timerImportRd_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            ImportRd();
+           
+                if (isReadToRead)
+                {
+                    try
+                    {
+                        isReadToRead = false;
+                        ImportRd();                        
+                        Tracer.Debug("读取打卡机记录完成，已释放资源。");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Tracer.Debug(ex.ToString());
+                    }
+                    finally
+                    {
+                        isReadToRead = true;
+                    }
+                }
+                else
+                {
+                    Tracer.Debug("正在读取打卡机记录，等待中......");
+                    return;
+                }
+            
         }
 
         private void ImportRd()
         {
             if (clientAtt==null) clientAtt = new AttendanceServiceClient();
 
-            DateTime dtCur = DateTime.Now;
-            string strElapsedHour = ConfigurationManager.AppSettings["ElapsedHour"].ToString();
+            DateTime dtCur = DateTime.Now;          
 
             if (string.IsNullOrWhiteSpace(strElapsedHour))
             {
@@ -74,52 +131,59 @@ namespace SMT.ImportClockInRdCustomServies
                 return;
             }
 
-            if (dtCur.Hour != Convert.ToInt32(ConfigurationManager.AppSettings["ElapsedHour"]))
-            {
-                Tracer.Debug(DateTime.Now.ToString() + "，导入打卡记录未在指定时间内");
-                return;
-            }
-
-            iPort = int.Parse(ConfigurationManager.AppSettings["clockPort"].ToString());
-
-            Tracer.Debug(DateTime.Now.ToString() + "，开始导入打卡记录,设置的导入时间点为每天：" + strElapsedHour+" 点,导入的端口为："
-                +iPort);
-
-            #region 导入初始化
-
-
-            string strIPs = ConfigurationManager.AppSettings["clockIp"].ToString();
-            string strCompanyIDs = ConfigurationManager.AppSettings["companyID"].ToString();
             string[] ips = strIPs.Split(',');
-            
-            foreach (string str in ips)
-            {
-                strImportIPs.Add(str);
-                Tracer.Debug(DateTime.Now.ToString() + "，导入的打卡机ip包括：" + str);
-            }
-
             string[] companyIDs = strCompanyIDs.Split(',');
+
             foreach (string companyID in companyIDs)
             {
                 strImportCompanys.Add(companyID);
-                Tracer.Debug(DateTime.Now.ToString() + "，导入的公司ip包括：" + companyID);
             }
 
+            if (TestMode == "true")
+            {
+                if (dtCur.Hour.ToString() != TestElapsedHour)
+                {
+                    Tracer.Debug(DateTime.Now.ToString() + "，导入打卡记录未在指定时间内");
+                    return;
+                }
+                strImportIPs.Clear();
+                strImportIPs.Add(TestCompanyIp);
+                Tracer.Debug("测试模式下，导入的公司ip为：" + strImportIPs[0].ToString() + ",导入开始");
+            }
+            else
+            {
+                if (dtCur.Hour != Convert.ToInt32(ConfigurationManager.AppSettings["ElapsedHour"]))
+                {
+                    Tracer.Debug(DateTime.Now.ToString() + "，导入打卡记录未在指定时间内");
+                    return;
+                }
+                Tracer.Debug(DateTime.Now.ToString() + "，开始导入打卡记录,设置的导入时间点为每天：" + strElapsedHour + " 点,导入的端口为："
+                    + iPort);
+                foreach (string str in ips)
+                {
+                    strImportIPs.Add(str);
+                    Tracer.Debug(DateTime.Now.ToString() + "，导入的打卡机ip包括：" + str);
+                }
 
-            #endregion
-
+                foreach (string companyID in companyIDs)
+                {
+                    //strImportCompanys.Add(companyID);
+                    Tracer.Debug(DateTime.Now.ToString() + "，导入的公司ip包括：" + companyID);
+                }
+            }
+            
             try
             {
                 foreach (string strCurIP in strImportIPs)
                 {
                     bool bIsConnected = false;
-                    string strNewDevices = ConfigurationManager.AppSettings["newDevice"].ToString();
+                    
                     bIsNewDevice = false;
-
+                    Tracer.Debug("开始连接打卡机，打卡机IP为：" + strCurIP + " 端口号：" + iPort);
                     bIsConnected = axCZKEM1.Connect_Net(strCurIP, iPort);
                     if (bIsConnected == true)
                     {
-                        Tracer.Debug(DateTime.Now.ToString() + "，连接打卡机成功，打卡机IP为：" + strCurIP);
+                        Tracer.Debug("连接打卡机成功，打卡机IP为：" + strCurIP);
                         axCZKEM1.RegEvent(iMachineNumber, 65535);
 
                         if (!string.IsNullOrWhiteSpace(strNewDevices))
@@ -129,7 +193,7 @@ namespace SMT.ImportClockInRdCustomServies
                                 bIsNewDevice = true;
                             }
                         }
-
+                        Tracer.Debug("开始下载打卡记录，打卡机IP为：" + strCurIP);
                         GetGeneralLogDataAndUpload(bIsConnected, strCurIP);
                     }
                     else
@@ -151,7 +215,7 @@ namespace SMT.ImportClockInRdCustomServies
             {
                 if (bIsConnected == false)
                 {
-                    Tracer.Debug(DateTime.Now.ToString() + "，连接打卡机失败，打卡机IP为：" + strCurIP);
+                    Tracer.Debug("连接打卡机失败，打卡机IP为：" + strCurIP);
                     return;
                 }
 
@@ -159,9 +223,14 @@ namespace SMT.ImportClockInRdCustomServies
                 DateTime dtTo = new DateTime();
 
                 DateTime.TryParse(DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), out dtFrom);
-                //DateTime.TryParse(DateTime.Now.AddSeconds(-1).ToString(), out dtTo);
                 dtTo = dtFrom.AddDays(1).AddSeconds(-1);
-
+                if (TestMode == "true")
+                {
+                    Tracer.Debug("测试模式下开始下载打卡记录：下载时间段：" + dtFrom.ToString("yyyy-MM-dd HH:mm:ss") + " 截止日期："
+                        + dtTo.ToString("yyyy-MM-dd HH:mm:ss"));
+                }
+                //DateTime.TryParse(DateTime.Now.AddSeconds(-1).ToString(), out dtTo);
+                
                 int idwTMachineNumber = 0;
                 int idwEnrollNumber = 0;
                 int idwEMachineNumber = 0;
@@ -241,20 +310,30 @@ namespace SMT.ImportClockInRdCustomServies
                 }
                 axCZKEM1.EnableDevice(iMachineNumber, true);//enable the device
                 axCZKEM1.Disconnect();
-
+                Tracer.Debug("下载打卡记录成功，打卡机IP为：" + strCurIP + "。已断开打卡机连接。下载记录数："+entTempList.Count());
                 string strMsg = string.Empty;
                 List<string> companyIds = new List<string>();
 
                 companyIds = GetCompanyID(strCurIP);
                 foreach (var strCompanyId in companyIds)
                 {
-                    clientAtt.ImportClockInRdListByWSRealTime(strCompanyId, entTempList.ToArray(), dtFrom, dtTo, strCurIP, ref strMsg);
-                    Tracer.Debug(DateTime.Now.ToString() + "，导入打卡记录成功，打卡机IP为：" + strCurIP + "。导入的公司ID为：" + strCompanyId);
+                    if (TestMode == "true")
+                    {
+                        foreach (var ent in entTempList)
+                        {
+                            Tracer.Debug("员工指纹编码："+ent.FINGERPRINTID + " 打卡时间："+ ent.PUNCHDATE +":"+ ent.PUNCHTIME);
+                        }
+                    }
+                    else
+                    {
+                        clientAtt.ImportClockInRdListByWSRealTime(strCompanyId, entTempList.ToArray(), dtFrom, dtTo, strCurIP, ref strMsg);
+                    }
+                    Tracer.Debug("导入打卡记录成功，打卡机IP为：" + strCurIP + "。导入的公司ID为：" + strCompanyId);
                 }
             }
             catch (Exception ex)
             {
-                Tracer.Debug(DateTime.Now.ToString() + "，导入打卡记录失败，打卡机IP为：" + strCurIP + "。失败原因为：" + ex.ToString());
+                Tracer.Debug("导入打卡记录失败，打卡机IP为：" + strCurIP + "。失败原因为：" + ex.ToString());
             }
         }
 

@@ -32,6 +32,8 @@ namespace SMT.HRM.UI.Form.Personnel
         private SMT.Saas.Tools.OrganizationWS.T_HR_POST ent;
         private string fromPostLevel = string.Empty;
         private string toPostLevel = string.Empty;
+        public bool isMainPostChanged = false;
+
         public T_HR_EMPLOYEEPOSTCHANGE PostChange
         {
             get { return postChange; }
@@ -143,6 +145,11 @@ namespace SMT.HRM.UI.Form.Personnel
                 lkEmployeeName.IsEnabled = false;
                 client.GetEmployeePostChangeByIDAsync(changeID);
                 
+            }
+            if (isMainPostChanged)
+            {
+                this.chkIsAgency.Visibility=Visibility.Collapsed;
+                IsAgencyLabel.Text = "员工主兼职互换操作";
             }
         }
 
@@ -1080,11 +1087,19 @@ namespace SMT.HRM.UI.Form.Personnel
                         epost.ISAGENCY = "0";
                         PostChange.ISAGENCY = "0";
                         //GetPersonAccountData();
-                        //判断是否有正在进行的出差（包括未提交、审核中的出差申请和出差报销
-                        if (PostChange.FROMPOSTID != PostChange.TOPOSTID)
-                            client.CheckBusinesstripAsync(PostChange.T_HR_EMPLOYEE.EMPLOYEEID);
+                        //判断是否是主兼职岗位互换
+                        if (isMainPostChanged == false)
+                        {
+                            //判断是否有正在进行的出差（包括未提交、审核中的出差申请和出差报销
+                            if (PostChange.FROMPOSTID != PostChange.TOPOSTID)
+                                client.CheckBusinesstripAsync(PostChange.T_HR_EMPLOYEE.EMPLOYEEID);
+                            else
+                                SaveChange();
+                        }
                         else
+                        {
                             SaveChange();
+                        }
                     }
                     
                 }
@@ -1300,6 +1315,20 @@ namespace SMT.HRM.UI.Form.Personnel
                 ent = lookup.SelectedObj as SMT.Saas.Tools.OrganizationWS.T_HR_POST;
                 if (ent != null)
                 {
+                    if (isMainPostChanged == true)
+                    {
+                        var q = from item in SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts
+                                where item.PostID == ent.POSTID
+                                && item.IsAgency==true
+                                select item;
+                        if (q.FirstOrDefault()==null)
+                        {
+                            MessageBox.Show("请选择有效的兼职岗位");
+                            return;
+                        }
+
+
+                    }
                     orgClient.GetPostNumberAsync(ent.POSTID);
                     //lkPost.DataContext = ent;
                     //HandlePostChanged(ent);
@@ -1594,6 +1623,10 @@ namespace SMT.HRM.UI.Form.Personnel
         #endregion
         void SaveChange()
         {
+            if (isMainPostChanged == true)
+            {
+                PostChange.ISAGENCY = "3";//用此表示为主兼职岗位互换
+            }
             
             string strMsg = string.Empty;
             if (FormType == FormTypes.New)

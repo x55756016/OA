@@ -521,8 +521,9 @@ namespace SMT.HRM.BLL
                                         select c).FirstOrDefault();
                         if (employee != null)
                         {
-                            //判断异动类型 且不是代理
-                            if (employeePostChange.POSTCHANGCATEGORY == "0" && employeePostChange.ISAGENCY == "0")
+                            //判断异动类型 且不是代理(或主兼职互换)
+                            if (employeePostChange.ISAGENCY=="3"
+                                || (employeePostChange.POSTCHANGCATEGORY == "0" && employeePostChange.ISAGENCY == "0"))
                             {
                                 //内部异动
                                 employee.OWNERPOSTID = employeePostChange.TOPOSTID;
@@ -627,6 +628,16 @@ namespace SMT.HRM.BLL
                             if (eOldPost != null)
                             {
                                 eOldPost.EDITSTATE = Convert.ToInt32(EditStates.UnActived).ToString();
+                            }
+
+                            //主兼职互换操作
+                            if (employeePostChange.ISAGENCY == "3")
+                            {
+                                eOldPost.ISAGENCY = "1";//主岗位设为代理
+                                eOldPost.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+
+                                epost.ISAGENCY = "0";//新岗位设为主岗位
+                                epost.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
                             }
                             dal.UpdateFromContext(eOldPost);
                         }
