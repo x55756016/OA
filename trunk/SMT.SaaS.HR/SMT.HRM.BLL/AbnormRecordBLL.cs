@@ -2222,7 +2222,7 @@ namespace SMT.HRM.BLL
 
                                             //如果请假时间包括了第一段上班时间，那么消除异常
                                             if (datLevestart <= ShiftstartDateAndTime
-                                                && dtLeveEnd >= FirstEndDateAndTime)
+                                                && dtLeveEnd >= ShiftstartDateAndTime)
                                             {
                                                 Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡时间被请假时间覆盖，消除异常"
                                                     + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
@@ -2310,7 +2310,7 @@ namespace SMT.HRM.BLL
                                             DateTime SencondEndTime = DateTime.Parse(defineTime.SECONDENDTIME);
                                             DateTime SencondEndDateAndTime = new DateTime(dtDateAbnorm.Year, dtDateAbnorm.Month, dtDateAbnorm.Day, SencondEndTime.Hour, SencondEndTime.Minute, SencondEndTime.Second);
 
-                                            if (datLevestart <= SecondStartDateAndTime
+                                            if (datLevestart <= SencondEndDateAndTime
                                                 && dtLeveEnd >= SencondEndDateAndTime)
                                             {
                                                 Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡时间被请假时间覆盖，消除异常"

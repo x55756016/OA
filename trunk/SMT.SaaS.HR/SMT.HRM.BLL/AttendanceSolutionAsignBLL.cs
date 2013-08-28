@@ -1546,14 +1546,19 @@ namespace SMT.HRM.BLL
                                 continue;
                             }
 
-                            if (entEntry.ENTRYDATE.Value > dtInitAttandRecordStartDate && entEntry.ENTRYDATE.Value < dtInitAttandRecordEndDate)
+                            if (entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate && entEntry.ONPOSTDATE.Value < dtInitAttandRecordEndDate)
                             {
-                                dtInitAttandRecordStartDate = entEntry.ENTRYDATE.Value;
+                                Tracer.Debug("初始化员工考勤记录开始日期被修改：entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate" + "，员工姓名" + item_emp.EMPLOYEEENAME
+                                  + " 入职日期：" + entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
+                                  + " 到岗日期：" + entEntry.ONPOSTDATE.Value.ToString("yyyy-MM-dd"));
+                                dtInitAttandRecordStartDate = entEntry.ONPOSTDATE.Value;
                             }
 
-                            if (entEntry.ENTRYDATE.Value > dtInitAttandRecordEndDate)
+                            if (entEntry.ONPOSTDATE.Value > dtInitAttandRecordEndDate)
                             {
-                                Tracer.Debug("初始化员工考勤记录被跳过：entEntry.ENTRYDATE.Value > dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过：entEntry.ONPOSTDATE.Value > dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME
+                                    +" 入职日期："+entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
+                                    + " 到岗日期：" + entEntry.ONPOSTDATE.Value.ToString("yyyy-MM-dd"));
                                 continue;
                             }
                         }
@@ -1566,9 +1571,12 @@ namespace SMT.HRM.BLL
                                 continue;
                             }
 
-                            if (entEntry.ENTRYDATE.Value > dtInitAttandRecordStartDate && entEntry.ENTRYDATE.Value < dtInitAttandRecordEndDate)
+                            if (entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate && entEntry.ONPOSTDATE.Value < dtInitAttandRecordEndDate)
                             {
-                                dtInitAttandRecordStartDate = entEntry.ENTRYDATE.Value;
+                                Tracer.Debug("初始化员工考勤记录开始日期被修改：entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate" + "，员工姓名" + item_emp.EMPLOYEEENAME
+                                    + " 入职日期：" + entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
+                                    + " 到岗日期：" + entEntry.ONPOSTDATE.Value.ToString("yyyy-MM-dd"));
+                                dtInitAttandRecordStartDate = entEntry.ONPOSTDATE.Value;
                             }
 
                             if (entEntry.ENTRYDATE.Value > dtInitAttandRecordEndDate)
