@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="SMT.SaaS.DatePager.SmtPager"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:SmtButton="clr-namespace:SMT.SaaS.DatePager" 
+    >
+
+    <StackPanel Height="25" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <SmtButton:SMTButton Margin="2"  Height="12" Width="12" x:Name="FirstIcon" NormalImage="Images/page_FL1.png"  HoverImage="Images/page_FL1.png" ClickImage="Images/page_FL1.png" />
+        <SmtButton:SMTButton Margin="2"  Height="12" Width="12" x:Name="PreIcon" NormalImage="Images/page_L1.png"  HoverImage="Images/page_L1.png" ClickImage="Images/page_L1.png" />
+
+        <TextBlock Margin="2"  Height="12" Width="15" x:Name="PrePager" Text="..." Cursor="Hand"  Visibility="Collapsed" ></TextBlock>
+        <!--<SmtButton:SMTButton Margin="2,2,3,2"   Height="21" Width="16" x:Name="PrePager" Visibility="Collapsed" NormalImage="Images/pager.png"  HoverImage="Images/pager.png" ClickImage="Images/pager.png" />-->
+        <Canvas  x:Name="numbersCanvas"  >
+            <Border x:Name="block" BorderThickness="1"  Background="White" Margin="0,2,0,0" />
+            <StackPanel x:Name="spPager" Orientation="Horizontal" Margin="0,2,0,0"  />
+            <Canvas.Resources>
+                <Storyboard x:Name="storyboard">
+                    <DoubleAnimation Storyboard.TargetName="spPager" Storyboard.TargetProperty="(Canvas.Left)" Duration="0:0:0.4"/>
+                    <DoubleAnimation Storyboard.TargetName="block" Storyboard.TargetProperty="(Canvas.Left)" Duration="0:0:0.6"/>
+                    <DoubleAnimation Storyboard.TargetName="block" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1"/>
+                    <DoubleAnimation Storyboard.TargetName="spPager" Storyboard.TargetProperty="Opacity" Duration="0:0:0.6"/>
+                </Storyboard>
+            </Canvas.Resources>
+        </Canvas>
+        <TextBlock Margin="2"  Height="12" Width="15" x:Name="NextPager" Text="..." Cursor="Hand" Visibility="Collapsed" ></TextBlock>
+        <!--<SmtButton:SMTButton Margin="3,2,3,2"  Height="21" Width="16" x:Name="NextPager" Visibility="Collapsed"  NormalImage="Images/pager.png"  HoverImage="Images/pager.png" ClickImage="Images/pager.png" />-->
+        <SmtButton:SMTButton Margin="2"  Height="12" Width="12" x:Name="NextIcon" NormalImage="Images/page_R1.png"  HoverImage="Images/page_R1.png" ClickImage="Images/page_R1.png" />
+        <SmtButton:SMTButton Margin="2"  Height="12" Width="12" x:Name="LastIcon" NormalImage="Images/page_FL2.png"  HoverImage="Images/page_FL2.png" ClickImage="Images/page_FL2.png" />
+    </StackPanel>
+</UserControl>
