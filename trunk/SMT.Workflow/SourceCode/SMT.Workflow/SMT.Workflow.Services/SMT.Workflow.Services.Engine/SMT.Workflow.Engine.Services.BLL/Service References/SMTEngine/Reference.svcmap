@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2da0b409-5413-4571-b714-b2d57ebd3610" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="mscorlib" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4441/EngineWcfGlobalFunction.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EngineWcfGlobalFunction.xsd" MetadataType="Schema" ID="c78ea0f4-c7e7-41cf-b775-3deb6dbe9866" SourceId="1" SourceUrl="http://localhost:4441/EngineWcfGlobalFunction.svc?xsd=xsd4" />
+    <MetadataFile FileName="EngineWcfGlobalFunction.disco" MetadataType="Disco" ID="03cd90d9-c3e7-4fed-9364-85544c585049" SourceId="1" SourceUrl="http://localhost:4441/EngineWcfGlobalFunction.svc?disco" />
+    <MetadataFile FileName="EngineWcfGlobalFunction.wsdl" MetadataType="Wsdl" ID="a982d483-a4fe-42ee-b3e3-e76fd8112006" SourceId="1" SourceUrl="http://localhost:4441/EngineWcfGlobalFunction.svc?wsdl" />
+    <MetadataFile FileName="EngineWcfGlobalFunction1.xsd" MetadataType="Schema" ID="59263f94-1aa2-4ce7-9d51-365070f720f1" SourceId="1" SourceUrl="http://localhost:4441/EngineWcfGlobalFunction.svc?xsd=xsd5" />
+    <MetadataFile FileName="EngineWcfGlobalFunction2.xsd" MetadataType="Schema" ID="123e728c-dd12-4086-90a5-63a94118aaed" SourceId="1" SourceUrl="http://localhost:4441/EngineWcfGlobalFunction.svc?xsd=xsd2" />
+    <MetadataFile FileName="EngineWcfGlobalFunction3.xsd" MetadataType="Schema" ID="1a859b84-e729-4eed-9b67-9b79e6b5b821" SourceId="1" SourceUrl="http://localhost:4441/EngineWcfGlobalFunction.svc?xsd=xsd3" />
+    <MetadataFile FileName="EngineWcfGlobalFunction4.xsd" MetadataType="Schema" ID="ee2ca958-3886-4e3d-8abe-a16141e82ae3" SourceId="1" SourceUrl="http://localhost:4441/EngineWcfGlobalFunction.svc?xsd=xsd0" />
+    <MetadataFile FileName="EngineWcfGlobalFunction5.xsd" MetadataType="Schema" ID="a32e48cc-1d3d-4760-b958-9e5b03a56736" SourceId="1" SourceUrl="http://localhost:4441/EngineWcfGlobalFunction.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

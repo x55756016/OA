@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+  <xs:complexType name="ArrayOfKeyValueOfRole_UserTypeArrayOfUserInfo7XTFRAOD">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfRole_UserTypeArrayOfUserInfo7XTFRAOD">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" name="Key" nillable="true" type="q1:Role_UserType" />
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" name="Value" nillable="true" type="q2:ArrayOfUserInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfRole_UserTypeArrayOfUserInfo7XTFRAOD" nillable="true" type="tns:ArrayOfKeyValueOfRole_UserTypeArrayOfUserInfo7XTFRAOD" />
+  <xs:complexType name="ArrayOfKeyValueOfUserInfoUserInfo7XTFRAOD">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfUserInfoUserInfo7XTFRAOD">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" name="Key" nillable="true" type="q3:UserInfo" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" name="Value" nillable="true" type="q4:UserInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfUserInfoUserInfo7XTFRAOD" nillable="true" type="tns:ArrayOfKeyValueOfUserInfoUserInfo7XTFRAOD" />
+  <xs:complexType name="ArrayOfstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+  <xs:complexType name="ArrayOfanyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType" />
+</xs:schema>

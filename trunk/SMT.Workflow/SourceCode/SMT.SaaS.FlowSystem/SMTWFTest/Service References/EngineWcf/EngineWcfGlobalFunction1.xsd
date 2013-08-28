@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EngineDataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EngineDataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOfT_FLOW_ENGINEMSGLIST">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FLOW_ENGINEMSGLIST" nillable="true" type="tns:T_FLOW_ENGINEMSGLIST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FLOW_ENGINEMSGLIST" nillable="true" type="tns:ArrayOfT_FLOW_ENGINEMSGLIST" />
+  <xs:complexType name="T_FLOW_ENGINEMSGLIST">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATIONCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="APPLICATIONURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BEFOREPROCESSDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATETIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENGINECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MAILSTATUS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MESSAGEBODY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MESSAGEID" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MESSAGESTATUS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OPERATIONDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OPERATIONTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OPERATIONUSER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORDERNODECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECEIVEDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECEIVETIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECEIVEUSER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATETIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FLOW_ENGINEMSGLIST" nillable="true" type="tns:T_FLOW_ENGINEMSGLIST" />
+  <xs:complexType name="ArrayOfT_FLOW_ENGINENOTES">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FLOW_ENGINENOTES" nillable="true" type="tns:T_FLOW_ENGINENOTES" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FLOW_ENGINENOTES" nillable="true" type="tns:ArrayOfT_FLOW_ENGINENOTES" />
+  <xs:complexType name="T_FLOW_ENGINENOTES">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLICATIONCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="APPLICATIONORDERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATETIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MESSAGEBODY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MESSAGESTATUS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NOTESID" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RECEIVEDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECEIVETIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECEIVEUSER" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FLOW_ENGINENOTES" nillable="true" type="tns:T_FLOW_ENGINENOTES" />
+  <xs:complexType name="ArrayOfT_FLOW_CUSTOMFLOWDEFINE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FLOW_CUSTOMFLOWDEFINE" nillable="true" type="tns:T_FLOW_CUSTOMFLOWDEFINE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FLOW_CUSTOMFLOWDEFINE" nillable="true" type="tns:ArrayOfT_FLOW_CUSTOMFLOWDEFINE" />
+  <xs:complexType name="T_FLOW_CUSTOMFLOWDEFINE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="COMPANYCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATETIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FUNCTIONDES" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FUNCTIONNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MESSAGEBODY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODELNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MSGLINKURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAMETERSPLITCHAR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROCESSFUNCNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROCESSFUNCPAMETER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROCESSID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROCESSWCFURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECEIVEUSER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECEIVEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SYSTEMNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WCFBINDINGCONTRACT" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FLOW_CUSTOMFLOWDEFINE" nillable="true" type="tns:T_FLOW_CUSTOMFLOWDEFINE" />
+</xs:schema>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EngineWcfGlobalFunction" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEngineWcfGlobalFunction_phyroot_InputMessage">
+    <wsdl:part name="parameters" element="tns:phyroot" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_phyroot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:phyrootResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_SaveFlowTriggerData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFlowTriggerData" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_SaveFlowTriggerData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFlowTriggerDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_PendingTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:PendingTasks" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_PendingTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PendingTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_EngineNotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:EngineNotes" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_EngineNotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EngineNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_CancelEventTriggerData_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelEventTriggerData" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_CancelEventTriggerData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelEventTriggerDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_SaveEventData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEventData" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_MsgTrigger_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsgTrigger" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_TaskMsgClose_InputMessage">
+    <wsdl:part name="parameters" element="tns:TaskMsgClose" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_ApplicationMsgTrigger_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApplicationMsgTrigger" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_CustomFlowDefineList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomFlowDefineList" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_CustomFlowDefineList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomFlowDefineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_CallCustomFlowTrigger_InputMessage">
+    <wsdl:part name="parameters" element="tns:CallCustomFlowTrigger" />
+  </wsdl:message>
+  <wsdl:portType name="IEngineWcfGlobalFunction">
+    <wsdl:operation name="phyroot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/phyroot" message="tns:IEngineWcfGlobalFunction_phyroot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/phyrootResponse" message="tns:IEngineWcfGlobalFunction_phyroot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFlowTriggerData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/SaveFlowTriggerData" message="tns:IEngineWcfGlobalFunction_SaveFlowTriggerData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/SaveFlowTriggerDataResponse" message="tns:IEngineWcfGlobalFunction_SaveFlowTriggerData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PendingTasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/PendingTasks" message="tns:IEngineWcfGlobalFunction_PendingTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/PendingTasksResponse" message="tns:IEngineWcfGlobalFunction_PendingTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EngineNotes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/EngineNotes" message="tns:IEngineWcfGlobalFunction_EngineNotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/EngineNotesResponse" message="tns:IEngineWcfGlobalFunction_EngineNotes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelEventTriggerData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/CancelEventTriggerData" message="tns:IEngineWcfGlobalFunction_CancelEventTriggerData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/CancelEventTriggerDataResponse" message="tns:IEngineWcfGlobalFunction_CancelEventTriggerData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEventData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/SaveEventData" message="tns:IEngineWcfGlobalFunction_SaveEventData_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsgTrigger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/MsgTrigger" message="tns:IEngineWcfGlobalFunction_MsgTrigger_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TaskMsgClose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/TaskMsgClose" message="tns:IEngineWcfGlobalFunction_TaskMsgClose_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMsgTrigger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/ApplicationMsgTrigger" message="tns:IEngineWcfGlobalFunction_ApplicationMsgTrigger_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomFlowDefineList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/CustomFlowDefineList" message="tns:IEngineWcfGlobalFunction_CustomFlowDefineList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/CustomFlowDefineListResponse" message="tns:IEngineWcfGlobalFunction_CustomFlowDefineList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CallCustomFlowTrigger">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/CallCustomFlowTrigger" message="tns:IEngineWcfGlobalFunction_CallCustomFlowTrigger_InputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEngineWcfGlobalFunction" type="tns:IEngineWcfGlobalFunction">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="phyroot">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/phyroot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFlowTriggerData">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/SaveFlowTriggerData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PendingTasks">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/PendingTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EngineNotes">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/EngineNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelEventTriggerData">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/CancelEventTriggerData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEventData">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/SaveEventData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MsgTrigger">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/MsgTrigger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="TaskMsgClose">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/TaskMsgClose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMsgTrigger">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/ApplicationMsgTrigger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CustomFlowDefineList">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/CustomFlowDefineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallCustomFlowTrigger">
+      <soap:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/CallCustomFlowTrigger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EngineWcfGlobalFunction">
+    <wsdl:port name="BasicHttpBinding_IEngineWcfGlobalFunction" binding="tns:BasicHttpBinding_IEngineWcfGlobalFunction">
+      <soap:address location="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

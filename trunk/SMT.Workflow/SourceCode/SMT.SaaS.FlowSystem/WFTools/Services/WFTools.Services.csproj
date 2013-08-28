@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AFDBD4BB-BC33-421E-8086-68BD23AC90A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WFTools.Services</RootNamespace>
+    <AssemblyName>WFTools.Services</AssemblyName>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\WFTools.Services.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\WFTools.Services.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Workflow.Activities, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Workflow.ComponentModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Workflow.Runtime, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Batching\Ado\AdoWorkBatchService.cs" />
+    <Compile Include="Batching\GenericWorkBatchService.cs" />
+    <Compile Include="Common\Ado\AdoDbType.cs" />
+    <Compile Include="Common\Ado\IAdoResourceProvider.cs" />
+    <Compile Include="Common\LogHelper.cs" />
+    <Compile Include="Common\State\InMemoryStateProvider.cs" />
+    <Compile Include="Common\State\IStateProvider.cs" />
+    <Compile Include="Persistence\Ado\PersistenceNameResolverFactory.cs" />
+    <Compile Include="Common\Ado\AdoResourceProviderFactory.cs" />
+    <Compile Include="Persistence\Ado\AdoPersistenceService.cs" />
+    <Compile Include="Persistence\Ado\PersistenceCommandName.cs" />
+    <Compile Include="Common\Ado\AdoValueReaderFactory.cs" />
+    <Compile Include="Common\Ado\Configuration\CommonAdoProviderSettings.cs" />
+    <Compile Include="Common\Ado\DefaultAdoValueReader.cs" />
+    <Compile Include="Common\Ado\Configuration\ProviderNameTypeMapping.cs" />
+    <Compile Include="Common\Ado\Configuration\ProviderNameTypeMappingCollection.cs" />
+    <Compile Include="Persistence\Ado\IPersistenceNameResolver.cs" />
+    <Compile Include="Common\Ado\IAdoValueReader.cs" />
+    <Compile Include="Persistence\Ado\Oracle\OraclePersistenceNameResolver.cs" />
+    <Compile Include="Common\Ado\Oracle\OracleResourceProvider.cs" />
+    <Compile Include="Common\Ado\Oracle\OracleValueReader.cs" />
+    <Compile Include="Persistence\Ado\PersistenceParameterName.cs" />
+    <Compile Include="Persistence\Ado\AdoPersistenceResourceAccessor.cs" />
+    <Compile Include="Common\Ado\DefaultAdoResourceProvider.cs" />
+    <Compile Include="Persistence\Ado\Sql\SqlPersistenceNameResolver.cs" />
+    <Compile Include="Common\Ado\Sql\SqlValueReader.cs" />
+    <Compile Include="Persistence\GenericPersistenceService.cs" />
+    <Compile Include="Persistence\IPersistenceResourceAccessor.cs" />
+    <Compile Include="Common\IResourceProvider.cs" />
+    <Compile Include="Persistence\PendingWorkItem.cs" />
+    <Compile Include="Persistence\SmartTimer.cs" />
+    <Compile Include="Persistence\PersistenceException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Persistence\Ado\Configuration\PersistenceAdoProviderSettings.cs" />
+    <Compile Include="Tracking\Ado\AdoTrackingResourceAccessorFactory.cs" />
+    <Compile Include="Tracking\Ado\AdoTrackingProfileManager.cs" />
+    <Compile Include="Tracking\Ado\AdoTrackingResourceAccessor.cs" />
+    <Compile Include="Tracking\Ado\Configuration\TrackingAdoProviderSettings.cs" />
+    <Compile Include="Tracking\Ado\Sql\SqlTrackingResourceAccessor.cs" />
+    <Compile Include="Tracking\Entity\ActivitySummary.cs" />
+    <Compile Include="Tracking\Entity\SerialisableActivityAddedAction.cs" />
+    <Compile Include="Tracking\Entity\SerialisableActivityChangeAction.cs" />
+    <Compile Include="Tracking\Entity\SerialisableActivityRemovedAction.cs" />
+    <Compile Include="Tracking\Entity\SerialisableActivityTrackingRecord.cs" />
+    <Compile Include="Tracking\Ado\TrackingNameResolverFactory.cs" />
+    <Compile Include="Tracking\Ado\AdoTrackingChannel.cs" />
+    <Compile Include="Tracking\Ado\AdoTrackingService.cs" />
+    <Compile Include="Tracking\Ado\TrackingCommandName.cs" />
+    <Compile Include="Tracking\Ado\ITrackingNameResolver.cs" />
+    <Compile Include="Tracking\Ado\Oracle\OracleTrackingNameResolver.cs" />
+    <Compile Include="Tracking\Ado\TrackingParameterName.cs" />
+    <Compile Include="Tracking\Ado\Sql\SqlTrackingNameResolver.cs" />
+    <Compile Include="Tracking\Entity\SerialisableTrackingWorkflowChangedEventArgs.cs" />
+    <Compile Include="Tracking\Entity\SerialisableWorkflowChangeAction.cs" />
+    <Compile Include="Tracking\Entity\TrackingProfileChange.cs" />
+    <Compile Include="Tracking\Entity\WorkflowTypeSummary.cs" />
+    <Compile Include="Tracking\GenericTrackingChannel.cs" />
+    <Compile Include="Tracking\GenericTrackingProfileManager.cs" />
+    <Compile Include="Tracking\GenericTrackingService.cs" />
+    <Compile Include="Tracking\ITrackingChannelResourceAccessor.cs" />
+    <Compile Include="Tracking\ITrackingProfileResourceAccessor.cs" />
+    <Compile Include="Tracking\ITrackingServiceResourceAccessor.cs" />
+    <Compile Include="Tracking\Entity\SerialisableData.cs" />
+    <Compile Include="Tracking\Entity\SerialisableTrackingDataItem.cs" />
+    <Compile Include="Tracking\TrackingRecordType.cs" />
+    <Compile Include="Tracking\Entity\SerialisableUserTrackingRecord.cs" />
+    <Compile Include="Tracking\Entity\SerialisableWorkflowChangeRecord.cs" />
+    <Compile Include="Tracking\Entity\WorkflowInstanceSummary.cs" />
+    <Compile Include="Tracking\TrackingException.cs" />
+    <Compile Include="Tracking\Entity\SerialisableWorkflowTrackingRecord.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\WFTools.Resources.csproj">
+      <Project>{6485DC3F-08A9-4BC9-AEC0-FD37E2717604}</Project>
+      <Name>WFTools.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\WFTools.Utilities.csproj">
+      <Project>{CB650825-DA70-4B89-9F00-CC5FEA845E26}</Project>
+      <Name>WFTools.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

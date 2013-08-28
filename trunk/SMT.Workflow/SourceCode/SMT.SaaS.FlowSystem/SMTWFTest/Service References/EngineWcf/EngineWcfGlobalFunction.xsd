@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
+  <xs:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://smtonlineserver/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" />
+  <xs:element name="phyroot">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="phyrootResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="phyrootResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFlowTriggerData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFlowMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strBOObject" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFlowTriggerDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveFlowTriggerDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PendingTasks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iTop" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PendingTasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="PendingTasksResult" nillable="true" type="q1:ArrayOfT_FLOW_ENGINEMSGLIST" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EngineNotes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iTop" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EngineNotesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="EngineNotesResult" nillable="true" type="q2:ArrayOfT_FLOW_ENGINENOTES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelEventTriggerData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strApplicationOrderCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelEventTriggerDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CancelEventTriggerDataResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveEventData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strEventXml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsgTrigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="recevieUser" nillable="true" type="q3:ArrayOfstring" />
+        <xs:element minOccurs="0" name="SystemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MsgKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strXml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TaskMsgClose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSystemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFormID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplicationMsgTrigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" minOccurs="0" name="UserAndForm" nillable="true" type="q4:ArrayOfCustomUserMsg" />
+        <xs:element minOccurs="0" name="SystemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strXml" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" minOccurs="0" name="msgType" type="q5:MsgType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomFlowDefineList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q6:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomFlowDefineListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="CustomFlowDefineListResult" nillable="true" type="q7:ArrayOfT_FLOW_CUSTOMFLOWDEFINE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CallCustomFlowTrigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="define" nillable="true" type="q8:T_FLOW_CUSTOMFLOWDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

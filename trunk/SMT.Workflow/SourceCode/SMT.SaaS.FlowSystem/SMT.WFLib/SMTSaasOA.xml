@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<System>
+	<Name>OA</Name>
+	<Object Name="Test">
+		<Attribute>
+			<Name>Name</Name>
+			<DataType>String</DataType>
+			<DataVale>user</DataVale>
+		</Attribute>
+		<Attribute>
+			<Name>Price</Name>
+			<DataType>decimal</DataType>
+			<DataVale>100</DataVale>
+		</Attribute>
+	</Object>
+	<Object Name="Test2">
+		<Attribute>
+			<Name>UserID</Name>
+			<DataType>String</DataType>
+			<DataVale>user</DataVale>
+		</Attribute>
+		<Attribute>
+			<Name>Date</Name>
+			<DataType>decimal</DataType>
+			<DataVale>1</DataVale>
+		</Attribute>
+	</Object>
+</System>
+

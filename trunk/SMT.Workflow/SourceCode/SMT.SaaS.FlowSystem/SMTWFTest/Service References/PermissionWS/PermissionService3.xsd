@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="LoginUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="companyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="departmentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="departmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="postID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="postName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginUserInfo" nillable="true" type="tns:LoginUserInfo" />
+  <xs:complexType name="ArrayOfCustomerPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerPermission" nillable="true" type="tns:CustomerPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerPermission" nillable="true" type="tns:ArrayOfCustomerPermission" />
+  <xs:complexType name="CustomerPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityMenuId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionValue" nillable="true" type="tns:ArrayOfPermissionValue" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="CustomerPermission" nillable="true" type="tns:CustomerPermission" />
+  <xs:complexType name="ArrayOfPermissionValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PermissionValue" nillable="true" type="tns:PermissionValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermissionValue" nillable="true" type="tns:ArrayOfPermissionValue" />
+  <xs:complexType name="PermissionValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrgObjects" nillable="true" type="tns:ArrayOfOrgObject" />
+      <xs:element minOccurs="0" name="Permission" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PermissionValue" nillable="true" type="tns:PermissionValue" />
+  <xs:complexType name="ArrayOfOrgObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrgObject" nillable="true" type="tns:OrgObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrgObject" nillable="true" type="tns:ArrayOfOrgObject" />
+  <xs:complexType name="OrgObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrgID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrgType" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="OrgObject" nillable="true" type="tns:OrgObject" />
+</xs:schema>

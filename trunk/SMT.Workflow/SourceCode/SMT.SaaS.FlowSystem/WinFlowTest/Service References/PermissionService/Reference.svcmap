@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f43106b3-f243-4a8d-a7a0-32bb36d840eb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PermissionService.wsdl" MetadataType="Wsdl" ID="007af75a-22ae-469b-9419-e447fb9aadc2" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?wsdl" />
+    <MetadataFile FileName="PermissionService.xsd" MetadataType="Schema" ID="150d5ff4-8cdf-4888-a443-455a5aadf712" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd8" />
+    <MetadataFile FileName="PermissionService1.xsd" MetadataType="Schema" ID="7789a0f4-7bf4-4e54-bdd9-f5848e3b7ceb" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd9" />
+    <MetadataFile FileName="PermissionService2.xsd" MetadataType="Schema" ID="61174774-982d-4d80-810f-fcc5898b17dd" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PermissionService3.xsd" MetadataType="Schema" ID="885b4098-04ee-43ce-957f-c0ec6ac6ed95" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PermissionService4.xsd" MetadataType="Schema" ID="0d67b97b-c889-4ebd-811c-a65e72185caf" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PermissionService5.xsd" MetadataType="Schema" ID="d7154cc8-a897-43b6-9ccb-8964cf738be9" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PermissionService6.xsd" MetadataType="Schema" ID="a6751286-3aeb-4c3d-aaee-92c5cce9c5d3" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PermissionService7.xsd" MetadataType="Schema" ID="b9a5caca-891e-41fa-9084-0ba8f0cc6e40" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PermissionService8.xsd" MetadataType="Schema" ID="105474c8-1ec8-484c-9ee8-f018117973f1" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PermissionService9.xsd" MetadataType="Schema" ID="3a9705f0-3ea5-4037-8647-c67609ebe382" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PermissionService.disco" MetadataType="Disco" ID="cf8b473b-90ae-43f9-a97a-5e59487c23d5" SourceId="1" SourceUrl="http://172.30.50.83:5102/SmtOnline/Services/System/PermissionService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

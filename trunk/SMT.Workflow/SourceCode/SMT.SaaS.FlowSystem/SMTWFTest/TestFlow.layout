@@ -1,0 +1,60 @@
+﻿<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Name="TestFlow" Location="30, 30" Size="732, 437" AutoSize="False" AutoSizeMargin="16, 24" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<StateMachineWorkflowDesigner.DesignerConnectors>
+		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="EndFlow" SourceConnectionIndex="0" TargetConnectionEdge="Top" SetStateName="setStateActivity3" SourceStateName="Hr" SourceConnectionEdge="Left" TargetActivity="EndFlow" SourceActivity="Hr" EventHandlerName="eventDrivenActivity3">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="257" Y="319" />
+				<ns0:Point X="141" Y="319" />
+				<ns0:Point X="141" Y="357" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="Hr" SourceConnectionIndex="0" TargetConnectionEdge="Top" SetStateName="setStateActivity2" SourceStateName="Account" SourceConnectionEdge="Right" TargetActivity="Hr" SourceActivity="Account" EventHandlerName="eventDrivenActivity2">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="396" Y="191" />
+				<ns0:Point X="421" Y="191" />
+				<ns0:Point X="421" Y="266" />
+				<ns0:Point X="333" Y="266" />
+				<ns0:Point X="333" Y="278" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="Account" SourceConnectionIndex="0" TargetConnectionEdge="Top" SetStateName="setStateActivity1" SourceStateName="StartFlow" SourceConnectionEdge="Right" TargetActivity="Account" SourceActivity="StartFlow" EventHandlerName="eventDrivenActivity1">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="195" Y="110" />
+				<ns0:Point X="330" Y="110" />
+				<ns0:Point X="330" Y="150" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+	</StateMachineWorkflowDesigner.DesignerConnectors>
+	<StateMachineWorkflowDesigner.Designers>
+		<StateDesigner Name="Hr" Location="253, 278" Size="160, 80" AutoSize="False" AutoSizeMargin="16, 24">
+			<StateDesigner.Designers>
+				<EventDrivenDesigner Size="150, 182" Name="eventDrivenActivity3" Location="321, 148">
+					<EventDrivenDesigner.Designers>
+						<HandleExternalEventActivityDesigner Size="130, 41" Name="HrEvent" Location="331, 210" />
+						<SetStateDesigner Size="130, 41" Name="setStateActivity3" Location="331, 270" />
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Name="Account" Location="250, 150" Size="160, 80" AutoSizeMargin="16, 24">
+			<StateDesigner.Designers>
+				<EventDrivenDesigner Size="150, 182" Name="eventDrivenActivity2" Location="258, 181">
+					<EventDrivenDesigner.Designers>
+						<HandleExternalEventActivityDesigner Size="130, 41" Name="AccountEvent" Location="268, 243" />
+						<SetStateDesigner Size="130, 41" Name="setStateActivity2" Location="268, 303" />
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Name="StartFlow" Location="49, 69" Size="160, 80" AutoSizeMargin="16, 24">
+			<StateDesigner.Designers>
+				<EventDrivenDesigner Size="150, 182" Name="eventDrivenActivity1" Location="57, 100">
+					<EventDrivenDesigner.Designers>
+						<HandleExternalEventActivityDesigner Size="130, 41" Name="StartEvent" Location="67, 162" />
+						<SetStateDesigner Size="130, 41" Name="setStateActivity1" Location="67, 222" />
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Name="EndFlow" Location="61, 357" Size="160, 80" AutoSizeMargin="16, 24" />
+	</StateMachineWorkflowDesigner.Designers>
+</StateMachineWorkflowDesigner>

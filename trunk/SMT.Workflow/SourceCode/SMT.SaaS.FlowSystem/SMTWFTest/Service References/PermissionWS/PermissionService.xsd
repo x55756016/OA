@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+  <xs:complexType name="ArrayOfV_UserLoginRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_UserLoginRecord" nillable="true" type="tns:V_UserLoginRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_UserLoginRecord" nillable="true" type="tns:ArrayOfV_UserLoginRecord" />
+  <xs:complexType name="V_UserLoginRecord">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="sysuser" nillable="true" type="q1:T_SYS_USER" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="userloginrecord" nillable="true" type="q2:T_SYS_USERLOGINRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_UserLoginRecord" nillable="true" type="tns:V_UserLoginRecord" />
+  <xs:complexType name="ArrayOfV_UserLoginRecordHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_UserLoginRecordHistory" nillable="true" type="tns:V_UserLoginRecordHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_UserLoginRecordHistory" nillable="true" type="tns:ArrayOfV_UserLoginRecordHistory" />
+  <xs:complexType name="V_UserLoginRecordHistory">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="historyrecord" nillable="true" type="q3:T_SYS_USERLOGINRECORDHIS" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="sysuser" nillable="true" type="q4:T_SYS_USER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_UserLoginRecordHistory" nillable="true" type="tns:V_UserLoginRecordHistory" />
+</xs:schema>

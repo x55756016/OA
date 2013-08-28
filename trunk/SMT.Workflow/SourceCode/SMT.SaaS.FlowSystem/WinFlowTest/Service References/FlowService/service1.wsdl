@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_AddConsultation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddConsultation" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddConsultation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddConsultationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ReplyConsultation_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReplyConsultation" />
+  </wsdl:message>
+  <wsdl:message name="IService_ReplyConsultation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReplyConsultationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SubimtFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubimtFlow" />
+  </wsdl:message>
+  <wsdl:message name="IService_SubimtFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubimtFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowRecordMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowRecordMaster" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowRecordMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowRecordMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlow" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowInfo" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetWaitingApprovalForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWaitingApprovalForm" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetWaitingApprovalForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWaitingApprovalFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTaskInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskInfo" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTaskInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsExistFlowDataByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistFlowDataByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsExistFlowDataByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistFlowDataByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowDataByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowDataByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowDataByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowDataByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowDefine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowDefine" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowDefine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPersonalRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonalRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPersonalRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonalRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetFlowBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsFreeFlowAndIsCancel_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsFreeFlowAndIsCancel" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsFreeFlowAndIsCancel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsFreeFlowAndIsCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetModelFlowRelationInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelFlowRelationInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetModelFlowRelationInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelFlowRelationInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="AddConsultation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddConsultation" message="tns:IService_AddConsultation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddConsultationResponse" message="tns:IService_AddConsultation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplyConsultation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ReplyConsultation" message="tns:IService_ReplyConsultation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ReplyConsultationResponse" message="tns:IService_ReplyConsultation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubimtFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SubimtFlow" message="tns:IService_SubimtFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SubimtFlowResponse" message="tns:IService_SubimtFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAppUser" message="tns:IService_GetAppUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAppUserResponse" message="tns:IService_GetAppUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowRecordMaster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetFlowRecordMaster" message="tns:IService_GetFlowRecordMaster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetFlowRecordMasterResponse" message="tns:IService_GetFlowRecordMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateFlow" message="tns:IService_UpdateFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateFlowResponse" message="tns:IService_UpdateFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetFlowInfo" message="tns:IService_GetFlowInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetFlowInfoResponse" message="tns:IService_GetFlowInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWaitingApprovalForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetWaitingApprovalForm" message="tns:IService_GetWaitingApprovalForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetWaitingApprovalFormResponse" message="tns:IService_GetWaitingApprovalForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetTaskInfo" message="tns:IService_GetTaskInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetTaskInfoResponse" message="tns:IService_GetTaskInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistFlowDataByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/IsExistFlowDataByUserID" message="tns:IService_IsExistFlowDataByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/IsExistFlowDataByUserIDResponse" message="tns:IService_IsExistFlowDataByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDataByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetFlowDataByUserID" message="tns:IService_GetFlowDataByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetFlowDataByUserIDResponse" message="tns:IService_GetFlowDataByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDefine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetFlowDefine" message="tns:IService_GetFlowDefine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetFlowDefineResponse" message="tns:IService_GetFlowDefine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalRecordByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPersonalRecordByID" message="tns:IService_GetPersonalRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPersonalRecordByIDResponse" message="tns:IService_GetPersonalRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetFlowBranch" message="tns:IService_GetFlowBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetFlowBranchResponse" message="tns:IService_GetFlowBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFreeFlowAndIsCancel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/IsFreeFlowAndIsCancel" message="tns:IService_IsFreeFlowAndIsCancel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/IsFreeFlowAndIsCancelResponse" message="tns:IService_IsFreeFlowAndIsCancel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelFlowRelationInfosListBySearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetModelFlowRelationInfosListBySearch" message="tns:IService_GetModelFlowRelationInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetModelFlowRelationInfosListBySearchResponse" message="tns:IService_GetModelFlowRelationInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IService" type="tns:IService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddConsultation">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddConsultation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplyConsultation">
+      <soap12:operation soapAction="http://tempuri.org/IService/ReplyConsultation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubimtFlow">
+      <soap12:operation soapAction="http://tempuri.org/IService/SubimtFlow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppUser">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAppUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowRecordMaster">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetFlowRecordMaster" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFlow">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateFlow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowInfo">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetFlowInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWaitingApprovalForm">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetWaitingApprovalForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskInfo">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetTaskInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistFlowDataByUserID">
+      <soap12:operation soapAction="http://tempuri.org/IService/IsExistFlowDataByUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDataByUserID">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetFlowDataByUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDefine">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetFlowDefine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalRecordByID">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPersonalRecordByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowBranch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetFlowBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFreeFlowAndIsCancel">
+      <soap12:operation soapAction="http://tempuri.org/IService/IsFreeFlowAndIsCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelFlowRelationInfosListBySearch">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetModelFlowRelationInfosListBySearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="WSHttpBinding_IService" binding="tns:WSHttpBinding_IService">
+      <soap12:address location="http://localhost:8008/FlowWFService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8008/FlowWFService.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

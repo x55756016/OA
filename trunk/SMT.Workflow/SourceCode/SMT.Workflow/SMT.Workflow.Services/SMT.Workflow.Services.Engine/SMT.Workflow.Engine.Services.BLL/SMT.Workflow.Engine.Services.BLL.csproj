@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C6AB590-1072-4EA7-B7DA-FC33B765EE2D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.Workflow.Engine.Services.BLL</RootNamespace>
+    <AssemblyName>SMT.Workflow.Engine.Services.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMT.SaaS.BLLCommonServices">
+      <HintPath>..\..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="EngineServicesBLL.cs" />
+    <Compile Include="PersonalRecordBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\PersonnelWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SMTEngine\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SMT.Workflow.Common\SMT.Workflow.Common.DataAccess\SMT.Workflow.Common.DataAccess.csproj">
+      <Project>{D080370C-EE36-4E5A-B761-FAE6A078C7E4}</Project>
+      <Name>SMT.Workflow.Common.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SMT.Workflow.Common\SMT.Workflow.Common.Model\SMT.Workflow.Common.Model.csproj">
+      <Project>{AA1B3B25-A276-4B58-A255-79B71B01B048}</Project>
+      <Name>SMT.Workflow.Common.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SMT.Workflow.Common\SMT.Workflow.SMTCache\SMT.Workflow.SMTCache.csproj">
+      <Project>{7B000B9A-4C3D-484B-AA43-82280A5226FC}</Project>
+      <Name>SMT.Workflow.SMTCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SMT.Workflow.Engine\SMT.Workflow.Engine.BLL\SMT.Workflow.Engine.BLL.csproj">
+      <Project>{069C7DF7-469D-4D57-A3FE-E4C03C1C3C16}</Project>
+      <Name>SMT.Workflow.Engine.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.Workflow.Engine.Services.DAL\SMT.Workflow.Engine.Services.DAL.csproj">
+      <Project>{A7327528-F1EA-414B-A5AE-DE76FFD4379B}</Project>
+      <Name>SMT.Workflow.Engine.Services.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\PersonnelService2.wsdl" />
+    <None Include="Service References\PersonnelWS\PersonnelService21.wsdl" />
+    <None Include="Service References\PersonnelWS\PersonnelService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService81.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService82.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService83.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService84.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService85.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService86.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService87.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.EmployeeContactWays.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_ASSESSMENTFORMMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_BLACKLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_CHECKPOINTLEVELSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_CHECKPOINTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_CHECKPROJECTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EDUCATEHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EMPLOYEECHECK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EMPLOYEECONTRACT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EMPLOYEEINSURANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_EXPERIENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_IMPORTSETDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_IMPORTSETMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_LEFTOFFICE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_LEFTOFFICECONFIRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_PENSIONDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_PENSIONMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.T_HR_RESUME.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EmployeeBasicInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EmployeeChangeInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPLOYEEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPLOYEEFUNDS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EmployeeLeftOfficeInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPLOYEEPOSTFORFB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPLOYEESTATICINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPLOYEEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_EMPOYEEPOSTLEVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_FlowUserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_LEFTOFFICEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_MOBILEEMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.Workflow.Engine.Services.BLL.PersonnelWS.V_PROJECTPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SMTEngine\EngineWcfGlobalFunction.wsdl" />
+    <None Include="Service References\SMTEngine\EngineWcfGlobalFunction.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SMTEngine\EngineWcfGlobalFunction1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SMTEngine\EngineWcfGlobalFunction2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SMTEngine\EngineWcfGlobalFunction3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SMTEngine\EngineWcfGlobalFunction4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SMTEngine\EngineWcfGlobalFunction5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SMTEngine\SMT.Workflow.Engine.Services.BLL.SMTEngine.T_FLOW_CUSTOMFLOWDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SMTEngine\SMT.Workflow.Engine.Services.BLL.SMTEngine.T_FLOW_ENGINEMSGLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SMTEngine\SMT.Workflow.Engine.Services.BLL.SMTEngine.T_FLOW_ENGINENOTES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\PersonnelWS\" />
+    <WCFMetadataStorage Include="Service References\SMTEngine\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonnelWS\PersonnelService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SMTEngine\EngineWcfGlobalFunction.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SMTEngine\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SMTEngine\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SMTEngine\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

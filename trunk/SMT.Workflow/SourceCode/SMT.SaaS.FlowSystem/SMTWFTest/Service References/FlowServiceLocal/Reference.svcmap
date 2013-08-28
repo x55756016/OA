@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1348c043-90f4-4a0a-afb3-6979ca475484" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/SMTFLOW/SMT.FlowWFService.Service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SMT.xsd" MetadataType="Schema" ID="84d52f7e-c38a-49b7-907d-d70b23afb5c6" SourceId="1" SourceUrl="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="SMT1.xsd" MetadataType="Schema" ID="8dcc001e-5bf0-48f9-b1d7-da535d1f73b0" SourceId="1" SourceUrl="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="SMT2.xsd" MetadataType="Schema" ID="d956b710-fb9e-47ad-827a-5b0ecd58e870" SourceId="1" SourceUrl="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="SMT3.xsd" MetadataType="Schema" ID="ec82d9fc-446e-4b30-9563-1925b7d69247" SourceId="1" SourceUrl="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="SMT4.xsd" MetadataType="Schema" ID="f8835615-c3af-4094-9fd1-cc60722d9ca6" SourceId="1" SourceUrl="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="SMT5.xsd" MetadataType="Schema" ID="55e48c9a-0014-4769-a31f-8de6fa2b8e80" SourceId="1" SourceUrl="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="08eb65bf-1845-442a-bf95-0d0746768aed" SourceId="1" SourceUrl="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?wsdl" />
+    <MetadataFile FileName="SMT.disco" MetadataType="Disco" ID="3135ae25-024e-49d3-ac41-aed0cb95d108" SourceId="1" SourceUrl="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

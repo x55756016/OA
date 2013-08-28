@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkFlow><System>OA</System> 
+<Activitys>
+<Activity Name="StartFlow" X="-3" Y="90" RoleName="" UserType="" Remark="">
+</Activity>
+<Activity Name="EndFlow" X="397" Y="85" RoleName="" UserType="" Remark="">
+</Activity>
+<Activity Name="Statedefc214506c847ae8896f583ff225d6d" X="125" Y="43" RoleName="Superior" UserType="CREATEUSER" Remark="直接上级">
+</Activity>
+<Activity Name="Statecc20ed7dd45249c59b00fbef9544eaf2" X="254" Y="34" RoleName="DepartHead" UserType="CREATEUSER" Remark="部门负责人">
+</Activity>
+<Activity Name="Statec93a72329894474a8a3ff26df46ce961" X="208" Y="132" RoleName="644b87e7-e2c3-440f-925e-86aaefad3a11" UserType="CREATEUSER" Remark="人力资源部部长">
+</Activity>
+<Activity Name="Stated8eb91a6b907495f96c98e71b0934223" X="295" Y="132" RoleName="d5066d91-692b-4c32-b027-a8572f112c64" UserType="CREATEUSER" Remark="总裁">
+</Activity>
+<Activity Name="State401f0615af38460d9956126ab5a7274a" X="116" Y="146" RoleName="Superior" UserType="CREATEUSER" Remark="直接上级2">
+</Activity>
+</Activitys>
+<Rules>
+<Rule Name="9df78e23-4772-46b0-bc19-79dc73fccccc" StrStartActive="StartFlow" StrEndActive="Statedefc214506c847ae8896f583ff225d6d">
+</Rule>
+<Rule Name="52f3da1d-2c4c-499b-a4d6-43dc8ddb8842" StrStartActive="Statedefc214506c847ae8896f583ff225d6d" StrEndActive="Statecc20ed7dd45249c59b00fbef9544eaf2">
+</Rule>
+<Rule Name="80848651-f709-4757-bc5e-0067d15a3c53" StrStartActive="Statecc20ed7dd45249c59b00fbef9544eaf2" StrEndActive="EndFlow">
+</Rule>
+<Rule Name="135e843f-3fcf-477a-8e52-ab24982d02ad" StrStartActive="StartFlow" StrEndActive="State401f0615af38460d9956126ab5a7274a">
+<Conditions Name="62870a18-947b-43fd-adc9-e58abbba7767" Object="ApprovalForm" CodiCombMode="AND"><Condition Name="4cdbfb19-7433-43b9-a962-9267efa13fbe" Description="事项类型" CompAttr="TYPEAPPROVAL" DataType="string" Operate="==" CompareValue="2"></Condition></Conditions></Rule>
+<Rule Name="b29252b8-1bd8-4716-a4b1-ce62704a84ed" StrStartActive="State401f0615af38460d9956126ab5a7274a" StrEndActive="Statec93a72329894474a8a3ff26df46ce961">
+</Rule>
+<Rule Name="bd1d1e82-d28b-4da2-b087-bcc9758ab31e" StrStartActive="Statec93a72329894474a8a3ff26df46ce961" StrEndActive="Stated8eb91a6b907495f96c98e71b0934223">
+</Rule>
+<Rule Name="95a6f800-4da1-464c-90a9-39cfdea4834e" StrStartActive="Stated8eb91a6b907495f96c98e71b0934223" StrEndActive="EndFlow">
+</Rule>
+</Rules>
+</WorkFlow>

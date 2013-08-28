@@ -1,0 +1,13 @@
+﻿<SequentialWorkflowActivity x:Class="WFTools.Samples.WorkFlow.SequentialWorkFlow" x:Name="SequentialWorkFlow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<CodeActivity x:Name="codeActivity1" ExecuteCode="codeActivity1_ExecuteCode" />
+	<WhileActivity x:Name="whileActivity1">
+		<WhileActivity.Condition>
+			<RuleConditionReference ConditionName="Loop Condition" />
+		</WhileActivity.Condition>
+		<CompensatableSequenceActivity x:Name="compensatableSequenceActivity1">
+			<CodeActivity x:Name="loopActivity" ExecuteCode="codeActivity2_ExecuteCode" />
+		</CompensatableSequenceActivity>
+	</WhileActivity>
+	<DelayActivity TimeoutDuration="00:00:20" x:Name="delayActivity" />
+	<CodeActivity x:Name="codeActivity3" ExecuteCode="codeActivity3_ExecuteCode" />
+</SequentialWorkflowActivity>

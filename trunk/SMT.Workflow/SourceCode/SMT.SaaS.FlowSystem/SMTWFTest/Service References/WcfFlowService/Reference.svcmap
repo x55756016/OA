@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f00cd469-841f-47d0-8be4-92f33a02de7e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/SMT.FlowWFService/Service/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="23d70769-e806-4543-a133-8033fb9ba960" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/SMT.FlowWFService/Service/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="497051c6-d7cd-4b33-bb6e-03032707e0a8" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/SMT.FlowWFService/Service/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7d30eb13-17c5-4bd5-a7a5-83169b80f0d7" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/SMT.FlowWFService/Service/mex" />
+    <MetadataFile FileName="SMT.FlowWFService.xsd" MetadataType="Schema" ID="b6c2b943-88ca-4194-85b3-1dae58deb864" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/SMT.FlowWFService/Service/mex" />
+    <MetadataFile FileName="SMT.EntityFlowSys.xsd" MetadataType="Schema" ID="30a35621-d48d-4a39-ac13-fe4ec0a86ad8" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/SMT.FlowWFService/Service/mex" />
+    <MetadataFile FileName="System.Data.Objects.DataClasses.xsd" MetadataType="Schema" ID="f75d7c4a-e2e2-4d6b-b684-b96ea241a6c8" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/SMT.FlowWFService/Service/mex" />
+    <MetadataFile FileName="System.Data.xsd" MetadataType="Schema" ID="3e0e4263-7be9-444b-b47f-5d67726da23d" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/SMT.FlowWFService/Service/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

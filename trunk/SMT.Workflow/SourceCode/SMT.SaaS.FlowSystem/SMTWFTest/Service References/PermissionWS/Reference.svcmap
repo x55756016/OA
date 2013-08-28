@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3c916e7e-69ab-4980-ac3d-ea5e29d52ce2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PermissionService.xsd" MetadataType="Schema" ID="53dee628-6b75-4a8c-b6a2-09c9b416e6a6" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd9" />
+    <MetadataFile FileName="PermissionService1.xsd" MetadataType="Schema" ID="674d96a0-8373-4f36-b745-43553cc30edb" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PermissionService2.xsd" MetadataType="Schema" ID="73a19b57-b92f-4f3a-884f-b54c8f723874" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PermissionService.disco" MetadataType="Disco" ID="4b43c414-caa0-497d-b73a-bd509d15a302" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?disco" />
+    <MetadataFile FileName="PermissionService.wsdl" MetadataType="Wsdl" ID="8b6c2e66-c373-4868-b255-b3232494ad24" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?wsdl" />
+    <MetadataFile FileName="PermissionService3.xsd" MetadataType="Schema" ID="cec7f576-ddb7-42f3-b30d-1d98abae7353" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PermissionService4.xsd" MetadataType="Schema" ID="6e53634c-9939-408d-b239-aeb7de0c626d" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PermissionService5.xsd" MetadataType="Schema" ID="0154ca76-9d83-4fb0-af0f-458a4faa415f" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PermissionService6.xsd" MetadataType="Schema" ID="6a05c3ea-86f9-41a4-9ec1-ccef390b1f0b" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PermissionService7.xsd" MetadataType="Schema" ID="dc89fe9a-b7ce-4537-ad17-45aa668a1560" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd8" />
+    <MetadataFile FileName="PermissionService8.xsd" MetadataType="Schema" ID="26f1123f-7134-43ef-8206-43791eb85018" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PermissionService9.xsd" MetadataType="Schema" ID="a1b175f4-816b-41d0-936e-d5e0f04d20c6" SourceId="1" SourceUrl="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

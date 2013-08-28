@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4DCD0A7-520B-41AC-9688-F5EA14345A78}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WinFlowTest</RootNamespace>
+    <AssemblyName>WinFlowTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\FlowService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OAUpdateCheckWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PermissionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PersonnelServiceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WcfPermissionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Form_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_New.Designer.cs">
+      <DependentUpon>Form_New.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Form_New.resx">
+      <DependentUpon>Form_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\FlowService\Arrays1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\service1.wsdl" />
+    <None Include="Service References\FlowService\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\SMT.EntityFlowSys1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\SMT.FlowWFService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\SMT.Workflow.Common.Model.FlowEngine.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\SMT_System_EFModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\System.Data.Objects.DataClasses1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\System.Data1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowService\WinFlowTest.FlowService.DataResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowService\WinFlowTest.FlowService.FLOW_FLOWRECORDDETAIL_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowService\WinFlowTest.FlowService.FLOW_FLOWRECORDMASTER_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowService\WinFlowTest.FlowService.FLOW_MODELFLOWRELATION_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowService\WinFlowTest.FlowService.TaskInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowService\WinFlowTest.FlowService.T_WF_PERSONALRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices.wsdl" />
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices1.wsdl" />
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService.wsdl" />
+    <None Include="Service References\PermissionService\PermissionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.CustomerPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.FlowUserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_COUNTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_DICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_ENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_ENTITYMENUCUSTOMPERM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_FBADMIN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_PERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_ROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_ROLEENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_ROLEMENUPERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_USER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_USERLOGINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.T_SYS_USERROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_Dictionary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_EntityMenu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_FBAdmin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_MenuSetRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_OnlineUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_Permission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_ProvinceCity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_RoleEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_UserLoginRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_UserLoginRecordHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_UserMenuPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_UserPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_UserPermissionRoleID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionService\WinFlowTest.PermissionService.V_UserPermissionUI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService.wsdl" />
+    <None Include="Service References\PersonnelServiceWS\PersonnelService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService1.wsdl" />
+    <None Include="Service References\PersonnelServiceWS\PersonnelService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.EmployeeContactWays.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_ASSESSMENTFORMDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_ASSESSMENTFORMMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_BLACKLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_CHECKPOINTLEVELSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_CHECKPOINTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_CHECKPROJECTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EDUCATEHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EMPLOYEECHECK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EMPLOYEECONTRACT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EMPLOYEEINSURANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_EXPERIENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_IMPORTSETDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_IMPORTSETMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_LEFTOFFICE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_LEFTOFFICECONFIRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_PENSIONDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_PENSIONMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.T_HR_RESUME.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPLOYEEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPLOYEEFUNDS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPLOYEEPOSTFORFB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPLOYEESTATICINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPLOYEEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_EMPOYEEPOSTLEVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_LEFTOFFICEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_MOBILEEMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\WinFlowTest.PersonnelServiceWS.V_PROJECTPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService.wsdl" />
+    <None Include="Service References\WcfPermissionService\PermissionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.CustomerPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_COUNTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_DICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_ENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_ENTITYMENUCUSTOMPERM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_FBADMIN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_PERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_ROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_ROLEENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_ROLEMENUPERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_USER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_USERLOGINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.T_SYS_USERROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_Dictionary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_EntityMenu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_FBAdmin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_MenuSetRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_OnlineUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_Permission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_ProvinceCity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_RoleEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_UserLoginRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_UserLoginRecordHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_UserMenuPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_UserPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_UserPermissionRoleID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfPermissionService\WinFlowTest.WcfPermissionService.V_UserPermissionUI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\FlowService\" />
+    <WCFMetadataStorage Include="Service References\OAUpdateCheckWS\" />
+    <WCFMetadataStorage Include="Service References\PermissionService\" />
+    <WCFMetadataStorage Include="Service References\PersonnelServiceWS\" />
+    <WCFMetadataStorage Include="Service References\WcfPermissionService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FlowService\configuration91.svcinfo" />
+    <None Include="Service References\FlowService\configuration.svcinfo" />
+    <None Include="Service References\FlowService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OAUpdateCheckWS\OAUpdateCheckServices.disco" />
+    <None Include="Service References\OAUpdateCheckWS\configuration91.svcinfo" />
+    <None Include="Service References\OAUpdateCheckWS\configuration.svcinfo" />
+    <None Include="Service References\OAUpdateCheckWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PersonnelServiceWS\PersonnelService.disco" />
+    <None Include="Service References\PersonnelServiceWS\configuration91.svcinfo" />
+    <None Include="Service References\PersonnelServiceWS\configuration.svcinfo" />
+    <None Include="Service References\PersonnelServiceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WcfPermissionService\PermissionService.disco" />
+    <None Include="Service References\WcfPermissionService\configuration91.svcinfo" />
+    <None Include="Service References\WcfPermissionService\configuration.svcinfo" />
+    <None Include="Service References\WcfPermissionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PermissionService\PermissionService.disco" />
+    <None Include="Service References\PermissionService\configuration91.svcinfo" />
+    <None Include="Service References\PermissionService\configuration.svcinfo" />
+    <None Include="Service References\PermissionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="XMLFile1.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SMT.Workflow\SMT.Workflow.Common\SMT.Workflow.Common.DataAccess\SMT.Workflow.Common.DataAccess.csproj">
+      <Project>{D080370C-EE36-4E5A-B761-FAE6A078C7E4}</Project>
+      <Name>SMT.Workflow.Common.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

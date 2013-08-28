@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SystemList>
+	<System Name="HR" Description="人力资源管理系统" ObjectFolder="HRBO">
+	</System>
+	<System Name="FB" Description="预算管理系统" ObjectFolder="FBBO">
+	</System>
+	<System Name="OA" Description="办公自动化系统" ObjectFolder="OABO">
+	</System>
+        <System Name="RM" Description="招聘系统" ObjectFolder="RMBO"/>
+         <System Name="TM" Description="培训系统" ObjectFolder="TMBO"/>
+        <System Name="EM" Description="考试系统" ObjectFolder="EMBO"/>
+         <System Name="TEST" Description="考试系统22" ObjectFolder="TESTBO"/>
+
+</SystemList>

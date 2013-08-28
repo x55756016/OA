@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01E1800E-4ED3-4A0B-88D7-B278FCD72E40}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SMTWFTest</RootNamespace>
+    <AssemblyName>SMTWFTest</AssemblyName>
+    <ProjectTypeGuids>{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMT.EntityFlowSys, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\SMT.EntityFlowSys.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Log">
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Workflow.Activities">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Workflow.ComponentModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Workflow.Runtime">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.WorkflowServices">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WFTools.Resources, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WFTools\Resources\bin\Debug\WFTools.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="WFTools.Resources.resources, Version=0.3.0.0, Culture=en-GB, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>en-GB\WFTools.Resources.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="WFTools.Services, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WFTools\Services\bin\Debug\WFTools.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="WFTools.Utilities, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WFTools\Utilities\bin\Debug\WFTools.Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Service References\EngineWcf\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FlowServiceLocal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OAWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PermissionWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PersonnelWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WcfFlowService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction.wsdl" />
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EngineWcf\SMTWFTest.EngineWcf.T_FLOW_CUSTOMFLOWDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineWcf\SMTWFTest.EngineWcf.T_FLOW_ENGINEMSGLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineWcf\SMTWFTest.EngineWcf.T_FLOW_ENGINENOTES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowServiceLocal\Service.wsdl" />
+    <None Include="Service References\FlowServiceLocal\SMT.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMT1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMT2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMT3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMT4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMT5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMTWFTest.FlowServiceLocal.DataResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMTWFTest.FlowServiceLocal.FLOW_FLOWRECORDDETAIL_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMTWFTest.FlowServiceLocal.FLOW_FLOWRECORDMASTER_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMTWFTest.FlowServiceLocal.TaskInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OAWS\AgentServices2.wsdl" />
+    <None Include="Service References\OAWS\AgentServices21.wsdl" />
+    <None Include="Service References\OAWS\AgentServices8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices81.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices82.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices83.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices84.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices85.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices86.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices87.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\SMTWFTest.OAWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService.wsdl" />
+    <None Include="Service References\PermissionWS\PermissionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.CustomerPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_DICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_ENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_PERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_ROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_ROLEENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_ROLEMENUPERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_USER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_USERLOGINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.T_SYS_USERROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.V_Permission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.V_UserLoginRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.V_UserLoginRecordHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.V_UserPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.V_UserPermissionRoleID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMTWFTest.PermissionWS.V_UserPermissionUI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService.wsdl" />
+    <None Include="Service References\PersonnelWS\PersonnelService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService1.wsdl" />
+    <None Include="Service References\PersonnelWS\PersonnelService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_ASSESSMENTFORMMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_BLACKLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_CHECKPOINTLEVELSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_CHECKPOINTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_CHECKPROJECTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EDUCATEHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EMPLOYEECHECK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EMPLOYEECONTRACT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EMPLOYEEINSURANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_EXPERIENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_IMPORTSETDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_IMPORTSETMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_LEFTOFFICE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_LEFTOFFICECONFIRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_PENSIONDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_PENSIONMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.T_HR_RESUME.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.V_EMPLOYEEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.V_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.V_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.V_EMPOYEEPOSTLEVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.V_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMTWFTest.PersonnelWS.V_PROJECTPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfFlowService\service.wsdl" />
+    <None Include="Service References\WcfFlowService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfFlowService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfFlowService\SMT.EntityFlowSys.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfFlowService\SMT.FlowWFService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfFlowService\SMTWFTest.WcfFlowService.DataResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfFlowService\SMTWFTest.WcfFlowService.FLOW_FLOWRECORDDETAIL_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfFlowService\SMTWFTest.WcfFlowService.FLOW_FLOWRECORDMASTER_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfFlowService\SMTWFTest.WcfFlowService.TaskInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WcfFlowService\System.Data.Objects.DataClasses.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfFlowService\System.Data.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SMT.Workflow\SMT.Workflow.Common\SMT.Workflow.Common.DataAccess\SMT.Workflow.Common.DataAccess.csproj">
+      <Project>{D080370C-EE36-4E5A-B761-FAE6A078C7E4}</Project>
+      <Name>SMT.Workflow.Common.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.FlowDAL\SMT.FlowDAL.csproj">
+      <Project>{6B61ACF2-41B8-45FA-AED3-1AC9D5950135}</Project>
+      <Name>SMT.FlowDAL %28业务系统\SMT.FlowDAL\SMT.FlowDAL%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.WFLib\SMT.WFLib.csproj">
+      <Project>{39945946-45EE-418B-8B20-8BFAC13AB2F8}</Project>
+      <Name>SMT.WFLib %28业务系统\SMT.WFLib\SMT.WFLib%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestFlow\TestFlow.csproj">
+      <Project>{E6A6E092-6D09-4F7A-B73B-46AC6D82240D}</Project>
+      <Name>TestFlow</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestFlow.layout">
+      <DependentUpon>TestFlow.xml</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow2.layout">
+      <DependentUpon>TestFlow.xml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XMLFile1.xml" />
+    <None Include="Properties\DataSources\SMT.EntityFlowSys.FLOW_FLOWRECORDDETAIL_T.datasource" />
+    <None Include="Properties\DataSources\SMT.EntityFlowSys.FLOW_FLOWRECORDMASTER_T.datasource" />
+    <None Include="Properties\DataSources\SMT.EntityFlowSys.Flow_FlowRecord_T.datasource" />
+    <None Include="Properties\DataSources\SMT.EntityFlowSys.Flow_ModelFlowRelation_T.datasource" />
+    <None Include="Properties\DataSources\SMT.EntityFlowSys.FLOW_MODELFLOWRELATION_T1.datasource" />
+    <None Include="Properties\DataSources\SMT.FlowWFService.CompositeType.datasource" />
+    <None Include="Properties\DataSources\SMT.FlowWFService.DataResult.datasource" />
+    <None Include="Properties\DataSources\SMT.FlowWFService.UserInfo.datasource" />
+    <Content Include="en-GB\WFTools.Resources.resources.dll" />
+    <None Include="Service References\WcfFlowService\configuration91.svcinfo" />
+    <None Include="Service References\WcfFlowService\configuration.svcinfo" />
+    <None Include="Service References\WcfFlowService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EngineWcf\EngineWcfGlobalFunction.disco" />
+    <None Include="Service References\EngineWcf\configuration91.svcinfo" />
+    <None Include="Service References\EngineWcf\configuration.svcinfo" />
+    <None Include="Service References\EngineWcf\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OAWS\configuration91.svcinfo" />
+    <None Include="Service References\OAWS\configuration.svcinfo" />
+    <None Include="Service References\OAWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService.disco" />
+    <None Include="Service References\PermissionWS\configuration91.svcinfo" />
+    <None Include="Service References\PermissionWS\configuration.svcinfo" />
+    <None Include="Service References\PermissionWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PersonnelWS\PersonnelService.disco" />
+    <None Include="Service References\PersonnelWS\configuration91.svcinfo" />
+    <None Include="Service References\PersonnelWS\configuration.svcinfo" />
+    <None Include="Service References\PersonnelWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\FlowServiceLocal\SMT.disco" />
+    <None Include="Service References\FlowServiceLocal\configuration91.svcinfo" />
+    <None Include="Service References\FlowServiceLocal\configuration.svcinfo" />
+    <None Include="Service References\FlowServiceLocal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OAWS\AgentServices1.disco" />
+    <Content Include="TestFlow.xml">
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EngineWcf\" />
+    <WCFMetadataStorage Include="Service References\FlowServiceLocal\" />
+    <WCFMetadataStorage Include="Service References\OAWS\" />
+    <WCFMetadataStorage Include="Service References\PermissionWS\" />
+    <WCFMetadataStorage Include="Service References\PersonnelWS\" />
+    <WCFMetadataStorage Include="Service References\WcfFlowService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <Import Project="$(MSBuildToolsPath)\Workflow.Targets" />
+</Project>

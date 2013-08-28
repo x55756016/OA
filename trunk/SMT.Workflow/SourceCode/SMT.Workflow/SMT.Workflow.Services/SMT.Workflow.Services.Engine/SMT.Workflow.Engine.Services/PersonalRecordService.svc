@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SMT.Workflow.Engine.Services.PersonalRecordService" CodeBehind="PersonalRecordService.svc.cs" %>

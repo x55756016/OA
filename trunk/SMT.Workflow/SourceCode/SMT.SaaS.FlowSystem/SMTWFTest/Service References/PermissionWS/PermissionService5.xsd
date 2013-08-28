@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+  <xs:complexType name="ArrayOfV_Permission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_Permission" nillable="true" type="tns:V_Permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_Permission" nillable="true" type="tns:ArrayOfV_Permission" />
+  <xs:complexType name="V_Permission">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="EntityMenu" nillable="true" type="q1:T_SYS_ENTITYMENU" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="EntityRole" nillable="true" type="q2:T_SYS_ROLEENTITYMENU" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="Permission" nillable="true" type="q3:T_SYS_PERMISSION" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="Role" nillable="true" type="q4:T_SYS_ROLE" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="RoleMenuPermission" nillable="true" type="q5:T_SYS_ROLEMENUPERMISSION" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="SysUser" nillable="true" type="q6:T_SYS_USER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_Permission" nillable="true" type="tns:V_Permission" />
+  <xs:complexType name="ArrayOfV_UserPermissionUI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_UserPermissionUI" nillable="true" type="tns:V_UserPermissionUI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_UserPermissionUI" nillable="true" type="tns:ArrayOfV_UserPermissionUI" />
+  <xs:complexType name="V_UserPermissionUI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityMenuCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EntityMenuID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionDataRange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleMenuPermissionValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_UserPermissionUI" nillable="true" type="tns:V_UserPermissionUI" />
+  <xs:complexType name="ArrayOfV_UserPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_UserPermission" nillable="true" type="tns:V_UserPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_UserPermission" nillable="true" type="tns:ArrayOfV_UserPermission" />
+  <xs:complexType name="V_UserPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityMenuID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EntityRoleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionDataRange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleMenuPermissionValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SysUserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_UserPermission" nillable="true" type="tns:V_UserPermission" />
+  <xs:complexType name="ArrayOfV_UserPermissionRoleID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_UserPermissionRoleID" nillable="true" type="tns:V_UserPermissionRoleID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_UserPermissionRoleID" nillable="true" type="tns:ArrayOfV_UserPermissionRoleID" />
+  <xs:complexType name="V_UserPermissionRoleID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityMenuID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionDataRange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleEntityMenuID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleEntityPermissionID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SysUserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_UserPermissionRoleID" nillable="true" type="tns:V_UserPermissionRoleID" />
+</xs:schema>

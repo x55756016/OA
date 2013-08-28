@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+  <xs:import schemaLocation="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+  <xs:element name="StartFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FlowGUID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CreateUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CreateUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NextStateCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AppUserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AppUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AppOpt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xml" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" minOccurs="0" name="SubmitType" type="q1:SubmitType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" minOccurs="0" name="StartFlowResult" nillable="true" type="q2:DataResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubimtFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" minOccurs="0" name="ApprovalData" nillable="true" type="q3:SubmitData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubimtFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" minOccurs="0" name="SubimtFlowResult" nillable="true" type="q4:DataResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FlowGUID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAppUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" minOccurs="0" name="GetAppUserResult" nillable="true" type="q5:DataResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowRecordMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FlowGUID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EditUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowRecordMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="GetFlowRecordMasterResult" nillable="true" type="q6:ArrayOfFLOW_FLOWRECORDMASTER_T" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="entity" nillable="true" type="q7:FLOW_FLOWRECORDDETAIL_T" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateFlowResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FlowGUID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EditUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFlowInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="GetFlowInfoResult" nillable="true" type="q8:ArrayOfFLOW_FLOWRECORDDETAIL_T" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FlowGUID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EditUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" minOccurs="0" name="GetTaskInfoResult" nillable="true" type="q9:ArrayOfTaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

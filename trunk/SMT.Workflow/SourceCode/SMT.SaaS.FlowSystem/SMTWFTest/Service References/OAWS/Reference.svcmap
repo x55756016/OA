@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2cd5bb91-bb20-47ef-a8a9-3d1ffe80d7e9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.40.183:8061/SmtOnline/Services/OA/AgentServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AgentServices8.xsd" MetadataType="Schema" ID="25ad9f0b-9ebd-4d9a-9869-1f7e25fa256d" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="AgentServices2.wsdl" MetadataType="Wsdl" ID="0624a878-5922-4058-8466-98e2dc1b3e05" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AgentServices81.xsd" MetadataType="Schema" ID="b89c591a-f166-4113-bcc9-f42bcea251a0" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="AgentServices82.xsd" MetadataType="Schema" ID="cff1c0ce-8c19-4b82-a916-020cd49d2441" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="AgentServices83.xsd" MetadataType="Schema" ID="d13d6b81-4719-4043-9ee1-b10d1c1ed9e7" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="AgentServices1.disco" MetadataType="Disco" ID="3287acfa-c90a-4911-98fe-5dbd49b5c74e" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?disco" />
+    <MetadataFile FileName="AgentServices84.xsd" MetadataType="Schema" ID="aa053294-e012-46e3-adb3-db375d91d594" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?xsd=xsd7" />
+    <MetadataFile FileName="AgentServices85.xsd" MetadataType="Schema" ID="c9c61b64-925b-456c-8c62-38f672826c92" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="AgentServices86.xsd" MetadataType="Schema" ID="4b136d05-6941-4cc3-a62a-3cb0974fb4eb" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="AgentServices21.wsdl" MetadataType="Wsdl" ID="cf60e61d-bc15-41b9-bb2b-c6bebfce9975" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?wsdl" />
+    <MetadataFile FileName="AgentServices87.xsd" MetadataType="Schema" ID="e5827260-89c0-4c71-8fd7-81dd7a02b886" SourceId="1" SourceUrl="http://smtonline-test:8061/SmtOnline/Services/OA/AgentServices.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

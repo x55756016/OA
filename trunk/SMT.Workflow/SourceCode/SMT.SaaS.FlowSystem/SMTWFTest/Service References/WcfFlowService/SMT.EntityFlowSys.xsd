@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOfFLOW_FLOWRECORDMASTER_T">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FLOW_FLOWRECORDMASTER_T" nillable="true" type="tns:FLOW_FLOWRECORDMASTER_T" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFLOW_FLOWRECORDMASTER_T" nillable="true" type="tns:ArrayOfFLOW_FLOWRECORDMASTER_T" />
+  <xs:complexType name="FLOW_FLOWRECORDMASTER_T">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACTIVEROLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BUSINESSOBJECT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWRECORDMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWSELECTTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOW_FLOWRECORDDETAIL_T" nillable="true" type="tns:ArrayOfFLOW_FLOWRECORDDETAIL_T" />
+          <xs:element minOccurs="0" name="FORMID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INSTANCEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FLOW_FLOWRECORDMASTER_T" nillable="true" type="tns:FLOW_FLOWRECORDMASTER_T" />
+  <xs:complexType name="ArrayOfFLOW_FLOWRECORDDETAIL_T">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FLOW_FLOWRECORDDETAIL_T" nillable="true" type="tns:FLOW_FLOWRECORDDETAIL_T" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFLOW_FLOWRECORDDETAIL_T" nillable="true" type="tns:ArrayOfFLOW_FLOWRECORDDETAIL_T" />
+  <xs:complexType name="FLOW_FLOWRECORDDETAIL_T">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AGENTEDITDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AGENTERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AGENTUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EDITDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLAG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWRECORDDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOW_CONSULTATION_T" nillable="true" type="tns:ArrayOfFLOW_CONSULTATION_T" />
+          <xs:element minOccurs="0" name="FLOW_FLOWRECORDMASTER_T" nillable="true" type="tns:FLOW_FLOWRECORDMASTER_T" />
+          <xs:element minOccurs="0" name="FLOW_FLOWRECORDMASTER_TReference" nillable="true" type="q2:EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK" />
+          <xs:element minOccurs="0" name="PARENTSTATEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STATECODE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FLOW_FLOWRECORDDETAIL_T" nillable="true" type="tns:FLOW_FLOWRECORDDETAIL_T" />
+  <xs:complexType name="ArrayOfFLOW_CONSULTATION_T">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FLOW_CONSULTATION_T" nillable="true" type="tns:FLOW_CONSULTATION_T" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFLOW_CONSULTATION_T" nillable="true" type="tns:ArrayOfFLOW_CONSULTATION_T" />
+  <xs:complexType name="FLOW_CONSULTATION_T">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CONSULTATIONCONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONSULTATIONDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CONSULTATIONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONSULTATIONUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONSULTATIONUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLAG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOW_FLOWRECORDDETAIL_T" nillable="true" type="tns:FLOW_FLOWRECORDDETAIL_T" />
+          <xs:element minOccurs="0" name="FLOW_FLOWRECORDDETAIL_TReference" nillable="true" type="q3:EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK" />
+          <xs:element minOccurs="0" name="REPLYCONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPLYDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="REPLYUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPLYUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FLOW_CONSULTATION_T" nillable="true" type="tns:FLOW_CONSULTATION_T" />
+</xs:schema>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+  <xs:complexType name="SubmitData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApprovalContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovalResult" type="tns:ApprovalResult" />
+      <xs:element minOccurs="0" name="ApprovalUser" nillable="true" type="tns:UserInfo" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DictCounterUser" nillable="true" type="q1:ArrayOfKeyValueOfRole_UserTypeArrayOfUserInfo7XTFRAOD" />
+      <xs:element minOccurs="0" name="FlowSelectType" type="tns:FlowSelectType" />
+      <xs:element minOccurs="0" name="FlowType" type="tns:FlowType" />
+      <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextApprovalUser" nillable="true" type="tns:UserInfo" />
+      <xs:element minOccurs="0" name="NextStateCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmitFlag" type="tns:SubmitFlag" />
+      <xs:element minOccurs="0" name="SumbitCompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SumbitDeparmentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SumbitPostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SumbitUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SumbitUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XML" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmitData" nillable="true" type="tns:SubmitData" />
+  <xs:simpleType name="ApprovalResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoPass" />
+      <xs:enumeration value="Pass" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApprovalResult" nillable="true" type="tns:ApprovalResult" />
+  <xs:complexType name="UserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsHead" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuperior" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="Roles" nillable="true" type="q2:ArrayOfT_SYS_ROLE" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:complexType name="Role_UserType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsOtherCompany" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtherCompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Role_UserType" nillable="true" type="tns:Role_UserType" />
+  <xs:complexType name="ArrayOfUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserInfo" nillable="true" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserInfo" nillable="true" type="tns:ArrayOfUserInfo" />
+  <xs:simpleType name="FlowSelectType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FixedFlow" />
+      <xs:enumeration value="FreeFlow" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlowSelectType" nillable="true" type="tns:FlowSelectType" />
+  <xs:simpleType name="FlowType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Approval" />
+      <xs:enumeration value="Task" />
+      <xs:enumeration value="Pending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlowType" nillable="true" type="tns:FlowType" />
+  <xs:simpleType name="SubmitFlag">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New" />
+      <xs:enumeration value="Approval" />
+      <xs:enumeration value="Cancel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubmitFlag" nillable="true" type="tns:SubmitFlag" />
+  <xs:complexType name="DataResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentUserInfo" nillable="true" type="tns:UserInfo" />
+      <xs:element minOccurs="0" name="AppState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountersignType" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DictAgentUserInfo" nillable="true" type="q3:ArrayOfKeyValueOfUserInfoUserInfo7XTFRAOD" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DictCounterUser" nillable="true" type="q4:ArrayOfKeyValueOfRole_UserTypeArrayOfUserInfo7XTFRAOD" />
+      <xs:element minOccurs="0" name="Err" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrNum" type="xs:int" />
+      <xs:element minOccurs="0" name="FlowResult" type="tns:FlowResult" />
+      <xs:element minOccurs="0" name="IsCountersign" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCountersignComplete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ModelFlowRelationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RunTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubModelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmitFlag" type="tns:SubmitFlag" />
+      <xs:element minOccurs="0" name="UserInfo" nillable="true" type="tns:ArrayOfUserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataResult" nillable="true" type="tns:DataResult" />
+  <xs:simpleType name="FlowResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FAIL" />
+      <xs:enumeration value="SUCCESS" />
+      <xs:enumeration value="END" />
+      <xs:enumeration value="MULTIUSER" />
+      <xs:enumeration value="Countersign" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlowResult" nillable="true" type="tns:FlowResult" />
+  <xs:complexType name="ArrayOfTaskInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskInfo" nillable="true" type="tns:TaskInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskInfo" nillable="true" type="tns:ArrayOfTaskInfo" />
+  <xs:complexType name="TaskInfo">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="FlowInfo" nillable="true" type="q5:FLOW_FLOWRECORDDETAIL_T" />
+      <xs:element minOccurs="0" name="SubModelCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskInfo" nillable="true" type="tns:TaskInfo" />
+</xs:schema>

@@ -1,0 +1,21 @@
+﻿<ns0:SMTStateMachineWorkflowActivity InitialStateName="StartFlow" x:Name="TestFlow" DynamicUpdateCondition="{x:Null}" FlowData="{x:Null}" CompletedStateName="EndFlow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:SMT.WFLib;Assembly=SMT.WFLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+	<StateActivity x:Name="Hr">
+		<EventDrivenActivity x:Name="eventDrivenActivity3">
+			<ns0:SMTSubmitEvent ApproveInfo="{x:Null}" x:Name="HrEvent" EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" />
+			<SetStateActivity x:Name="setStateActivity3" TargetStateName="EndFlow" />
+		</EventDrivenActivity>
+	</StateActivity>
+	<StateActivity x:Name="Account">
+		<EventDrivenActivity x:Name="eventDrivenActivity2">
+			<ns0:SMTSubmitEvent ApproveInfo="{x:Null}" x:Name="AccountEvent" EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" />
+			<SetStateActivity x:Name="setStateActivity2" TargetStateName="Hr" />
+		</EventDrivenActivity>
+	</StateActivity>
+	<StateActivity x:Name="StartFlow">
+		<EventDrivenActivity x:Name="eventDrivenActivity1">
+			<ns0:SMTSubmitEvent ApproveInfo="{x:Null}" x:Name="StartEvent" EventName="DoFlow" InterfaceType="{x:Type ns0:IFlowEvent}" />
+			<SetStateActivity x:Name="setStateActivity1" TargetStateName="Account" />
+		</EventDrivenActivity>
+	</StateActivity>
+	<StateActivity x:Name="EndFlow" />
+</ns0:SMTStateMachineWorkflowActivity>

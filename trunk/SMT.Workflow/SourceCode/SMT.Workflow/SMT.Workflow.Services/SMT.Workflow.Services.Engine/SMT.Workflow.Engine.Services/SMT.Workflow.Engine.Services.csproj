@@ -6,18 +6,18 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{31EA4738-0BEE-4ACC-B1AA-0CC422F08078}</ProjectGuid>
+    <ProjectGuid>{8F3DBFF0-D1D6-4C1E-A11C-6D4C730E9E3B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SMT.FlowWFService.Host</RootNamespace>
-    <AssemblyName>SMT.FlowWFService.Host</AssemblyName>
+    <RootNamespace>SMT.Workflow.Engine.Services</RootNamespace>
+    <AssemblyName>SMT.Workflow.Engine.Services</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
     <SccProjectName>Svn</SccProjectName>
     <SccLocalPath>Svn</SccLocalPath>
     <SccAuxPath>Svn</SccAuxPath>
     <SccProvider>SubversionScc</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,9 +38,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="SMT.Foundation.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    <Reference Include="SMT.SaaS.Common">
+      <HintPath>..\..\..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.SaaS.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -61,14 +60,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="clientaccesspolicy.xml" />
-    <Content Include="crossdomain.xml" />
-    <Content Include="FlowWFService.svc" />
-    <Content Include="FreeFlow.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SMT.FlowWFService.Service.svc" />
-    <Content Include="TestEngineUpdateCheckState.aspx" />
+    <Content Include="EngineWcfGlobalFunction.svc" />
+    <Content Include="PersonalRecordService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -78,29 +71,43 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EngineWcfGlobalFunction.svc.cs">
+      <DependentUpon>EngineWcfGlobalFunction.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IEngineWcfGlobalFunction.cs" />
+    <Compile Include="IPersonalRecordService.cs" />
+    <Compile Include="PersonalRecordService.svc.cs">
+      <DependentUpon>PersonalRecordService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Record.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
-      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
-      <Name>SMT.SAAS.BLLCommonServices</Name>
+    <ProjectReference Include="..\..\..\SMT.Workflow.Common\SMT.Workflow.Common.Model\SMT.Workflow.Common.Model.csproj">
+      <Project>{AA1B3B25-A276-4B58-A255-79B71B01B048}</Project>
+      <Name>SMT.Workflow.Common.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SMT.FlowWFService\SMT.FlowWFService.csproj">
-      <Project>{10EFAFD0-B2C8-4F13-B8F5-68FB97EB4117}</Project>
-      <Name>SMT.FlowWFService</Name>
+    <ProjectReference Include="..\..\..\SMT.Workflow.Common\SMT.Workflow.SMTCache\SMT.Workflow.SMTCache.csproj">
+      <Project>{7B000B9A-4C3D-484B-AA43-82280A5226FC}</Project>
+      <Name>SMT.Workflow.SMTCache</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="TestEngineUpdateCheckState.aspx.cs">
-      <DependentUpon>TestEngineUpdateCheckState.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestEngineUpdateCheckState.aspx.designer.cs">
-      <DependentUpon>TestEngineUpdateCheckState.aspx</DependentUpon>
-    </Compile>
+    <ProjectReference Include="..\SMT.Workflow.Engine.Services.BLL\SMT.Workflow.Engine.Services.BLL.csproj">
+      <Project>{9C6AB590-1072-4EA7-B7DA-FC33B765EE2D}</Project>
+      <Name>SMT.Workflow.Engine.Services.BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -110,7 +117,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>8008</DevelopmentServerPort>
+          <DevelopmentServerPort>4441</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

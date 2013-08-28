@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1d8e388c-c9dd-41e9-90fe-3db570d94db4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PersonnelService.xsd" MetadataType="Schema" ID="c0fd41d1-4077-49a8-9e0a-074202ba7ddd" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PersonnelService.wsdl" MetadataType="Wsdl" ID="70057a0e-e7b8-4151-9c67-0f19e00c3554" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?wsdl" />
+    <MetadataFile FileName="PersonnelService1.xsd" MetadataType="Schema" ID="bd04eb1a-2f5f-4e6d-864f-d9959c88fe13" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PersonnelService2.xsd" MetadataType="Schema" ID="b9634153-34a5-4e1c-b895-f971b83d12a8" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PersonnelService1.wsdl" MetadataType="Wsdl" ID="11b7e66e-fb11-47cc-be80-6ae7d6372719" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="PersonnelService3.xsd" MetadataType="Schema" ID="a31a2820-a2c4-4b1f-9414-450b2ab5dca0" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PersonnelService.disco" MetadataType="Disco" ID="6e8955a4-dae2-4071-85b8-399d63761db0" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?disco" />
+    <MetadataFile FileName="PersonnelService4.xsd" MetadataType="Schema" ID="42bc8bac-5f51-41c5-ad02-5914a0208cd3" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PersonnelService5.xsd" MetadataType="Schema" ID="392bb07c-696f-4cba-b67f-18e1abcd7396" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PersonnelService6.xsd" MetadataType="Schema" ID="ae829436-b43c-41c0-9ba3-04c327c78778" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PersonnelService7.xsd" MetadataType="Schema" ID="629bfc74-f963-4b1e-8033-673ae7d5650f" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

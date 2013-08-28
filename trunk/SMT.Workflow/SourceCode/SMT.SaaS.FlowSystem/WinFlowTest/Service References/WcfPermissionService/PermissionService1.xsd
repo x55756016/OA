@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="EntityNames">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SysDictionary" />
+      <xs:enumeration value="SysMenu" />
+      <xs:enumeration value="SysPermission" />
+      <xs:enumeration value="SysPermMenu" />
+      <xs:enumeration value="SysRole" />
+      <xs:enumeration value="SysRolePerm" />
+      <xs:enumeration value="SysUserRole" />
+      <xs:enumeration value="SysUser" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EntityNames" nillable="true" type="tns:EntityNames" />
+</xs:schema>

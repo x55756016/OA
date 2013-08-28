@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="00c5ac2d-bd99-42c0-aece-7622a49d1fd2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://portal.smt-online.net/New/Services/System/PermissionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PermissionService.xsd" MetadataType="Schema" ID="e4c3e50e-1b50-4bc3-bda4-31d982232ca7" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PermissionService1.xsd" MetadataType="Schema" ID="d388a739-6b54-4292-a5f1-3a0a1fc54f27" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd9" />
+    <MetadataFile FileName="PermissionService2.xsd" MetadataType="Schema" ID="ade2462e-2bc7-42ad-a40d-58c16fd21d05" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PermissionService3.xsd" MetadataType="Schema" ID="ec6e698a-e366-4db8-8ccf-c8d6a9aa1ed4" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PermissionService.wsdl" MetadataType="Wsdl" ID="0a2431e6-7400-4954-b047-fef3c2cd68fc" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?wsdl" />
+    <MetadataFile FileName="PermissionService4.xsd" MetadataType="Schema" ID="9f530b8b-bcc2-4f9a-9d35-92e4faac1133" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd8" />
+    <MetadataFile FileName="PermissionService5.xsd" MetadataType="Schema" ID="5b24f142-c194-4a47-9e33-69ef80caf26b" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PermissionService6.xsd" MetadataType="Schema" ID="a331d690-94dc-4a40-9b2d-db5d8d835168" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PermissionService7.xsd" MetadataType="Schema" ID="25734e23-1758-4856-99e6-9291db7d8eea" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PermissionService.disco" MetadataType="Disco" ID="85eb2936-8a0f-41b7-ab2e-ca08c29a881d" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?disco" />
+    <MetadataFile FileName="PermissionService8.xsd" MetadataType="Schema" ID="2e397936-cfec-43d0-884f-13955d1f08ed" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PermissionService9.xsd" MetadataType="Schema" ID="65b321a3-a8e7-4b36-ad88-30f560229cdd" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/System/PermissionService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

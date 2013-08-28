@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://asus/SMTFLOW/SMT.FlowWFService.Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+  <xs:simpleType name="SubmitType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Approval">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Pending">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubmitType" nillable="true" type="tns:SubmitType" />
+  <xs:complexType name="DataResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentUserInfo" nillable="true" type="tns:UserInfo" />
+      <xs:element minOccurs="0" name="AppState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Err" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrNum" type="xs:int" />
+      <xs:element minOccurs="0" name="FlowResult" type="tns:FlowResult" />
+      <xs:element minOccurs="0" name="ModelFlowRelationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RunTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubModelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserInfo" nillable="true" type="tns:ArrayOfUserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataResult" nillable="true" type="tns:DataResult" />
+  <xs:complexType name="UserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:simpleType name="FlowResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FAIL" />
+      <xs:enumeration value="SUCCESS" />
+      <xs:enumeration value="END" />
+      <xs:enumeration value="MULTIUSER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlowResult" nillable="true" type="tns:FlowResult" />
+  <xs:complexType name="ArrayOfUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserInfo" nillable="true" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserInfo" nillable="true" type="tns:ArrayOfUserInfo" />
+  <xs:complexType name="SubmitData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApprovalContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovalResult" type="tns:ApprovalResult" />
+      <xs:element minOccurs="0" name="ApprovalUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovalUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlowSelectType" type="tns:FlowSelectType" />
+      <xs:element minOccurs="0" name="FlowType" type="tns:FlowType" />
+      <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextApprovalUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextApprovalUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextStateCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmitFlag" type="tns:SubmitFlag" />
+      <xs:element minOccurs="0" name="XML" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmitData" nillable="true" type="tns:SubmitData" />
+  <xs:simpleType name="ApprovalResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoPass" />
+      <xs:enumeration value="Pass" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApprovalResult" nillable="true" type="tns:ApprovalResult" />
+  <xs:simpleType name="FlowSelectType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FixedFlow" />
+      <xs:enumeration value="FreeFlow" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlowSelectType" nillable="true" type="tns:FlowSelectType" />
+  <xs:simpleType name="FlowType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Approval" />
+      <xs:enumeration value="Task" />
+      <xs:enumeration value="Pending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlowType" nillable="true" type="tns:FlowType" />
+  <xs:simpleType name="SubmitFlag">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New" />
+      <xs:enumeration value="Approval" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubmitFlag" nillable="true" type="tns:SubmitFlag" />
+  <xs:complexType name="ArrayOfTaskInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskInfo" nillable="true" type="tns:TaskInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskInfo" nillable="true" type="tns:ArrayOfTaskInfo" />
+  <xs:complexType name="TaskInfo">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" minOccurs="0" name="FlowInfo" nillable="true" type="q1:FLOW_FLOWRECORDDETAIL_T" />
+      <xs:element minOccurs="0" name="SubModelCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskInfo" nillable="true" type="tns:TaskInfo" />
+</xs:schema>

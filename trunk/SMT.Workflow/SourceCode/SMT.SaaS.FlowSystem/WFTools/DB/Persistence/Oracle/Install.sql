@@ -1,0 +1,3 @@
+@@Tables\COMPLETED_SCOPE.sql
+@@Tables\INSTANCE_STATE.sql
+@@Packages\WORKFLOW_PERSISTENCE_PKG.sql

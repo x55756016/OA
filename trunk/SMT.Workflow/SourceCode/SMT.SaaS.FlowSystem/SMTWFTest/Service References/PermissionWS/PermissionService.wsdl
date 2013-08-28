@@ -1,0 +1,2034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PermissionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_PermissionService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" />
+      <xsd:import schemaLocation="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PermissionService_GetSysLeftMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysLeftMenu" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysLeftMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysLeftMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysLeftMenuFilterPermission_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysLeftMenuFilterPermission" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysLeftMenuFilterPermission_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysLeftMenuFilterPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuByTypePaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuByTypePaging" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuByTypePaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuByTypePagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuByEntityCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuByEntityCode" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuByEntityCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuByEntityCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetOASysMenuByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOASysMenuByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetOASysMenuByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOASysMenuByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetHRSysMenuByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHRSysMenuByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetHRSysMenuByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHRSysMenuByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetFBSysMenuByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFBSysMenuByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetFBSysMenuByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFBSysMenuByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetLMSysMenuByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMSysMenuByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetLMSysMenuByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMSysMenuByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetPMSysMenuByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPMSysMenuByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetPMSysMenuByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPMSysMenuByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuByID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuInfosListByParentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuInfosListByParentID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysMenuInfosListByParentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysMenuInfosListByParentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysMenuAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysMenuAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysMenuAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysMenuAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysMenuUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysMenuUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysMenuUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysMenuUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysMenuDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysMenuDelete" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysMenuDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysMenuDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRoleEntityMenuByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleEntityMenuByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRoleEntityMenuByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleEntityMenuByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRoleEntityMenuByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleEntityMenuByID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRoleEntityMenuByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleEntityMenuByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_RoleEntityMenuAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:RoleEntityMenuAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_RoleEntityMenuAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RoleEntityMenuAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_RoleEntityMenuUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RoleEntityMenuUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_RoleEntityMenuUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RoleEntityMenuUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_BatchAddRoleEntityPermissionInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddRoleEntityPermissionInfos" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_BatchAddRoleEntityPermissionInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddRoleEntityPermissionInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_RoleEntityMenuDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:RoleEntityMenuDelete" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_RoleEntityMenuDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RoleEntityMenuDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRoleEntityIDListInfosByRoleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleEntityIDListInfosByRoleID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRoleEntityIDListInfosByRoleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleEntityIDListInfosByRoleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysPermissionAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysPermissionAll" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysPermissionAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysPermissionAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysCommonPermissionAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysCommonPermissionAll" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysCommonPermissionAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysCommonPermissionAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysPermissionByEntityID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysPermissionByEntityID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysPermissionByEntityID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysPermissionByEntityIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysPermissionAllPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysPermissionAllPaging" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysPermissionAllPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysPermissionAllPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_FindSysPermissionByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSysPermissionByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_FindSysPermissionByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSysPermissionByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysPermissionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysPermissionByID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysPermissionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysPermissionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysPermissionAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysPermissionAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysPermissionAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysPermissionAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysPermissionUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysPermissionUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysPermissionUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysPermissionUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysPermissionDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysPermissionDelete" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysPermissionDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysPermissionDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_FindSysPermissionByStr_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSysPermissionByStr" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_FindSysPermissionByStr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSysPermissionByStrResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysRoleInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysRoleInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysRoleInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysRoleInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_IsExistSysRoleInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistSysRoleInfo" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_IsExistSysRoleInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistSysRoleInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_IsExistSysRoleInfoByRoleNameAndCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistSysRoleInfoByRoleNameAndCompany" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_IsExistSysRoleInfoByRoleNameAndCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistSysRoleInfoByRoleNameAndCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysRoleInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysRoleInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysRoleInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysRoleInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysRoleSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysRoleSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysRoleSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysRoleSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysRoleInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysRoleInfos" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysRoleInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysRoleInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysRoleInfosPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysRoleInfosPaging" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysRoleInfosPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysRoleInfosPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysRoleInfosPagingByCompanyIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysRoleInfosPagingByCompanyIDs" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysRoleInfosPagingByCompanyIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysRoleInfosPagingByCompanyIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysRoleBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysRoleBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysRoleBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysRoleBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByCategory" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByFatherID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByFatherID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByFatherID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByFatherIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByCategoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByCategoryList" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByCategoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByCategoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysDictionaryAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysDictionaryAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysDictionaryAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysDictionaryAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysDictionaryUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysDictionaryUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysDictionaryUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysDictionaryUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysDictionaryDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysDictionaryDelete" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysDictionaryDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysDictionaryDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryCategory" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionarySysType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionarySysType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionarySysType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionarySysTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByFilter" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByFilterPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByFilterPaging" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysDictionaryByFilterPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysDictionaryByFilterPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCutomterPermissionObj_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCutomterPermissionObj" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCutomterPermissionObj_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCutomterPermissionObjResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SetCutomterPermissionObj_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCutomterPermissionObj" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SetCutomterPermissionObj_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCutomterPermissionObjResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetEntityMenuCustomPermByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityMenuCustomPermByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetEntityMenuCustomPermByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityMenuCustomPermByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetEntityMenuCustomPermByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityMenuCustomPermByID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetEntityMenuCustomPermByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityMenuCustomPermByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_EntityMenuCustomPermAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:EntityMenuCustomPermAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_EntityMenuCustomPermAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EntityMenuCustomPermAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_EntityMenuCustomPermUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:EntityMenuCustomPermUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_EntityMenuCustomPermUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EntityMenuCustomPermUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_EntityMenuCustomPermDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:EntityMenuCustomPermDelete" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_EntityMenuCustomPermDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EntityMenuCustomPermDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCustomerPermissionByUserIDAndEntityCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerPermissionByUserIDAndEntityCode" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCustomerPermissionByUserIDAndEntityCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerPermissionByUserIDAndEntityCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCustomPostMenuPerms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomPostMenuPerms" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCustomPostMenuPerms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomPostMenuPermsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCustomDepartMenuPerms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomDepartMenuPerms" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCustomDepartMenuPerms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomDepartMenuPermsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCustomCompanyMenuPerms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomCompanyMenuPerms" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetCustomCompanyMenuPerms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomCompanyMenuPermsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByType" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByUser" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserByRole" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_UserRoleBatchAddInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserRoleBatchAddInfos" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_UserRoleBatchAddInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserRoleBatchAddInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_BatchAddUserRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddUserRole" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_BatchAddUserRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_UserRoleUpdateInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserRoleUpdateInfo" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_UserRoleUpdateInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserRoleUpdateInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserRoleUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserRoleUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserRoleUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserRoleUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserRoleDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserRoleDelete" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserRoleDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserRoleDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserPermissionByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPermissionByUser" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserPermissionByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPermissionByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserPermissionByUserToUI_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPermissionByUserToUI" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserPermissionByUserToUI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPermissionByUserToUIResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserMenuPerms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuPerms" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserMenuPerms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuPermsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserMenuPermsByUserPermission_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuPermsByUserPermission" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserMenuPermsByUserPermission_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuPermsByUserPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetPermissionByRoleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPermissionByRoleID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetPermissionByRoleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPermissionByRoleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetPermissionByRoleIDSecond_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPermissionByRoleIDSecond" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetPermissionByRoleIDSecond_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPermissionByRoleIDSecondResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserPermissionAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPermissionAll" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserPermissionAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPermissionAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetLookupOjbects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupOjbects" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetLookupOjbects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupOjbectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_IsExistSysUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistSysUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_IsExistSysUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistSysUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserAllInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserAllInfos" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserAllInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserAllInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserAllInfosPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserAllInfosPaging" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserAllInfosPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserAllInfosPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserAllInfosPagingByCompanyIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserAllInfosPagingByCompanyIDs" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserAllInfosPagingByCompanyIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserAllInfosPagingByCompanyIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserBatchDel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserBatchDel" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserBatchDel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserBatchDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserBatchUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserBatchUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserBatchUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserBatchUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserLoginRecordInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserLoginRecordInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserLoginRecordInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserLoginRecordInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserLoginRecordInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserLoginRecordInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserLoginRecordInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserLoginRecordInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginRecordInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginRecordInfos" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginRecordInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginRecordInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginRecordInfosPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginRecordInfosPaging" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginRecordInfosPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginRecordInfosPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginRecordInfosBySearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginRecordInfosBySearch" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginRecordInfosBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginRecordInfosBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserLoginRecordByEmployeeIDAndDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserLoginRecordByEmployeeIDAndDate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetUserLoginRecordByEmployeeIDAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserLoginRecordByEmployeeIDAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserLoginHistoryRecordInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserLoginHistoryRecordInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserLoginHistoryRecordInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserLoginHistoryRecordInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserLoginHistoryRecordInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserLoginHistoryRecordInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SysUserLoginHistoryRecordInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SysUserLoginHistoryRecordInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginHistoryRecordAllInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginHistoryRecordAllInfos" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginHistoryRecordAllInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginHistoryRecordAllInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginHistoryRecordAllInfosPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginHistoryRecordAllInfosPaging" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserLoginHistoryRecordAllInfosPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserLoginHistoryRecordAllInfosPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRoleEntityPermissionByRoleEntityID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleEntityPermissionByRoleEntityID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRoleEntityPermissionByRoleEntityID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleEntityPermissionByRoleEntityIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRolePerms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolePerms" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetRolePerms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolePermsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSystemTypeByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemTypeByUserID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSystemTypeByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemTypeByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_ReturnIpAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnIpAddress" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_ReturnIpAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnIpAddressResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PermissionService">
+    <wsdl:operation name="GetSysLeftMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysLeftMenu" message="tns:PermissionService_GetSysLeftMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysLeftMenuResponse" message="tns:PermissionService_GetSysLeftMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysLeftMenuFilterPermission">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysLeftMenuFilterPermission" message="tns:PermissionService_GetSysLeftMenuFilterPermission_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysLeftMenuFilterPermissionResponse" message="tns:PermissionService_GetSysLeftMenuFilterPermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuByType" message="tns:PermissionService_GetSysMenuByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuByTypeResponse" message="tns:PermissionService_GetSysMenuByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuByTypePaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuByTypePaging" message="tns:PermissionService_GetSysMenuByTypePaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuByTypePagingResponse" message="tns:PermissionService_GetSysMenuByTypePaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuByEntityCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuByEntityCode" message="tns:PermissionService_GetSysMenuByEntityCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuByEntityCodeResponse" message="tns:PermissionService_GetSysMenuByEntityCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOASysMenuByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetOASysMenuByType" message="tns:PermissionService_GetOASysMenuByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetOASysMenuByTypeResponse" message="tns:PermissionService_GetOASysMenuByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHRSysMenuByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetHRSysMenuByType" message="tns:PermissionService_GetHRSysMenuByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetHRSysMenuByTypeResponse" message="tns:PermissionService_GetHRSysMenuByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFBSysMenuByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetFBSysMenuByType" message="tns:PermissionService_GetFBSysMenuByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetFBSysMenuByTypeResponse" message="tns:PermissionService_GetFBSysMenuByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLMSysMenuByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetLMSysMenuByType" message="tns:PermissionService_GetLMSysMenuByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetLMSysMenuByTypeResponse" message="tns:PermissionService_GetLMSysMenuByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPMSysMenuByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetPMSysMenuByType" message="tns:PermissionService_GetPMSysMenuByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetPMSysMenuByTypeResponse" message="tns:PermissionService_GetPMSysMenuByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuByID" message="tns:PermissionService_GetSysMenuByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuByIDResponse" message="tns:PermissionService_GetSysMenuByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuInfosListByParentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuInfosListByParentID" message="tns:PermissionService_GetSysMenuInfosListByParentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysMenuInfosListByParentIDResponse" message="tns:PermissionService_GetSysMenuInfosListByParentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysMenuAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysMenuAdd" message="tns:PermissionService_SysMenuAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysMenuAddResponse" message="tns:PermissionService_SysMenuAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysMenuUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysMenuUpdate" message="tns:PermissionService_SysMenuUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysMenuUpdateResponse" message="tns:PermissionService_SysMenuUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysMenuDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysMenuDelete" message="tns:PermissionService_SysMenuDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysMenuDeleteResponse" message="tns:PermissionService_SysMenuDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleEntityMenuByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetRoleEntityMenuByType" message="tns:PermissionService_GetRoleEntityMenuByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetRoleEntityMenuByTypeResponse" message="tns:PermissionService_GetRoleEntityMenuByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleEntityMenuByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetRoleEntityMenuByID" message="tns:PermissionService_GetRoleEntityMenuByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetRoleEntityMenuByIDResponse" message="tns:PermissionService_GetRoleEntityMenuByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleEntityMenuAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/RoleEntityMenuAdd" message="tns:PermissionService_RoleEntityMenuAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/RoleEntityMenuAddResponse" message="tns:PermissionService_RoleEntityMenuAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleEntityMenuUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/RoleEntityMenuUpdate" message="tns:PermissionService_RoleEntityMenuUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/RoleEntityMenuUpdateResponse" message="tns:PermissionService_RoleEntityMenuUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddRoleEntityPermissionInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/BatchAddRoleEntityPermissionInfos" message="tns:PermissionService_BatchAddRoleEntityPermissionInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/BatchAddRoleEntityPermissionInfosResponse" message="tns:PermissionService_BatchAddRoleEntityPermissionInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleEntityMenuDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/RoleEntityMenuDelete" message="tns:PermissionService_RoleEntityMenuDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/RoleEntityMenuDeleteResponse" message="tns:PermissionService_RoleEntityMenuDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleEntityIDListInfosByRoleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetRoleEntityIDListInfosByRoleID" message="tns:PermissionService_GetRoleEntityIDListInfosByRoleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetRoleEntityIDListInfosByRoleIDResponse" message="tns:PermissionService_GetRoleEntityIDListInfosByRoleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysPermissionAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysPermissionAll" message="tns:PermissionService_GetSysPermissionAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysPermissionAllResponse" message="tns:PermissionService_GetSysPermissionAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysCommonPermissionAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysCommonPermissionAll" message="tns:PermissionService_GetSysCommonPermissionAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysCommonPermissionAllResponse" message="tns:PermissionService_GetSysCommonPermissionAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysPermissionByEntityID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysPermissionByEntityID" message="tns:PermissionService_GetSysPermissionByEntityID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysPermissionByEntityIDResponse" message="tns:PermissionService_GetSysPermissionByEntityID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysPermissionAllPaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysPermissionAllPaging" message="tns:PermissionService_GetSysPermissionAllPaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysPermissionAllPagingResponse" message="tns:PermissionService_GetSysPermissionAllPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSysPermissionByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/FindSysPermissionByType" message="tns:PermissionService_FindSysPermissionByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/FindSysPermissionByTypeResponse" message="tns:PermissionService_FindSysPermissionByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysPermissionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysPermissionByID" message="tns:PermissionService_GetSysPermissionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysPermissionByIDResponse" message="tns:PermissionService_GetSysPermissionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysPermissionAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysPermissionAdd" message="tns:PermissionService_SysPermissionAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysPermissionAddResponse" message="tns:PermissionService_SysPermissionAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysPermissionUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysPermissionUpdate" message="tns:PermissionService_SysPermissionUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysPermissionUpdateResponse" message="tns:PermissionService_SysPermissionUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysPermissionDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysPermissionDelete" message="tns:PermissionService_SysPermissionDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysPermissionDeleteResponse" message="tns:PermissionService_SysPermissionDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSysPermissionByStr">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/FindSysPermissionByStr" message="tns:PermissionService_FindSysPermissionByStr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/FindSysPermissionByStrResponse" message="tns:PermissionService_FindSysPermissionByStr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysRoleInfoAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysRoleInfoAdd" message="tns:PermissionService_SysRoleInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysRoleInfoAddResponse" message="tns:PermissionService_SysRoleInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistSysRoleInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/IsExistSysRoleInfo" message="tns:PermissionService_IsExistSysRoleInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/IsExistSysRoleInfoResponse" message="tns:PermissionService_IsExistSysRoleInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistSysRoleInfoByRoleNameAndCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/IsExistSysRoleInfoByRoleNameAndCompany" message="tns:PermissionService_IsExistSysRoleInfoByRoleNameAndCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/IsExistSysRoleInfoByRoleNameAndCompanyResponse" message="tns:PermissionService_IsExistSysRoleInfoByRoleNameAndCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysRoleInfoUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysRoleInfoUpdate" message="tns:PermissionService_SysRoleInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysRoleInfoUpdateResponse" message="tns:PermissionService_SysRoleInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysRoleSingleInfoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysRoleSingleInfoById" message="tns:PermissionService_GetSysRoleSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysRoleSingleInfoByIdResponse" message="tns:PermissionService_GetSysRoleSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysRoleInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysRoleInfos" message="tns:PermissionService_GetSysRoleInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysRoleInfosResponse" message="tns:PermissionService_GetSysRoleInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysRoleInfosPaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysRoleInfosPaging" message="tns:PermissionService_GetSysRoleInfosPaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysRoleInfosPagingResponse" message="tns:PermissionService_GetSysRoleInfosPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysRoleInfosPagingByCompanyIDs">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysRoleInfosPagingByCompanyIDs" message="tns:PermissionService_GetSysRoleInfosPagingByCompanyIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysRoleInfosPagingByCompanyIDsResponse" message="tns:PermissionService_GetSysRoleInfosPagingByCompanyIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysRoleBatchDel">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysRoleBatchDel" message="tns:PermissionService_SysRoleBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysRoleBatchDelResponse" message="tns:PermissionService_SysRoleBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByCategory" message="tns:PermissionService_GetSysDictionaryByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByCategoryResponse" message="tns:PermissionService_GetSysDictionaryByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByFatherID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByFatherID" message="tns:PermissionService_GetSysDictionaryByFatherID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByFatherIDResponse" message="tns:PermissionService_GetSysDictionaryByFatherID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByCategoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByCategoryList" message="tns:PermissionService_GetSysDictionaryByCategoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByCategoryListResponse" message="tns:PermissionService_GetSysDictionaryByCategoryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysDictionaryAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysDictionaryAdd" message="tns:PermissionService_SysDictionaryAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysDictionaryAddResponse" message="tns:PermissionService_SysDictionaryAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysDictionaryUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysDictionaryUpdate" message="tns:PermissionService_SysDictionaryUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysDictionaryUpdateResponse" message="tns:PermissionService_SysDictionaryUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysDictionaryDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysDictionaryDelete" message="tns:PermissionService_SysDictionaryDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysDictionaryDeleteResponse" message="tns:PermissionService_SysDictionaryDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryCategory" message="tns:PermissionService_GetSysDictionaryCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryCategoryResponse" message="tns:PermissionService_GetSysDictionaryCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionarySysType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionarySysType" message="tns:PermissionService_GetSysDictionarySysType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionarySysTypeResponse" message="tns:PermissionService_GetSysDictionarySysType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByID" message="tns:PermissionService_GetSysDictionaryByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByIDResponse" message="tns:PermissionService_GetSysDictionaryByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByFilter" message="tns:PermissionService_GetSysDictionaryByFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByFilterResponse" message="tns:PermissionService_GetSysDictionaryByFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByFilterPaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByFilterPaging" message="tns:PermissionService_GetSysDictionaryByFilterPaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryByFilterPagingResponse" message="tns:PermissionService_GetSysDictionaryByFilterPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCutomterPermissionObj">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetCutomterPermissionObj" message="tns:PermissionService_GetCutomterPermissionObj_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetCutomterPermissionObjResponse" message="tns:PermissionService_GetCutomterPermissionObj_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCutomterPermissionObj">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SetCutomterPermissionObj" message="tns:PermissionService_SetCutomterPermissionObj_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SetCutomterPermissionObjResponse" message="tns:PermissionService_SetCutomterPermissionObj_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityMenuCustomPermByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetEntityMenuCustomPermByType" message="tns:PermissionService_GetEntityMenuCustomPermByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetEntityMenuCustomPermByTypeResponse" message="tns:PermissionService_GetEntityMenuCustomPermByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityMenuCustomPermByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetEntityMenuCustomPermByID" message="tns:PermissionService_GetEntityMenuCustomPermByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetEntityMenuCustomPermByIDResponse" message="tns:PermissionService_GetEntityMenuCustomPermByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EntityMenuCustomPermAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/EntityMenuCustomPermAdd" message="tns:PermissionService_EntityMenuCustomPermAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/EntityMenuCustomPermAddResponse" message="tns:PermissionService_EntityMenuCustomPermAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EntityMenuCustomPermUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/EntityMenuCustomPermUpdate" message="tns:PermissionService_EntityMenuCustomPermUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/EntityMenuCustomPermUpdateResponse" message="tns:PermissionService_EntityMenuCustomPermUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EntityMenuCustomPermDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/EntityMenuCustomPermDelete" message="tns:PermissionService_EntityMenuCustomPermDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/EntityMenuCustomPermDeleteResponse" message="tns:PermissionService_EntityMenuCustomPermDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerPermissionByUserIDAndEntityCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetCustomerPermissionByUserIDAndEntityCode" message="tns:PermissionService_GetCustomerPermissionByUserIDAndEntityCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetCustomerPermissionByUserIDAndEntityCodeResponse" message="tns:PermissionService_GetCustomerPermissionByUserIDAndEntityCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomPostMenuPerms">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetCustomPostMenuPerms" message="tns:PermissionService_GetCustomPostMenuPerms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetCustomPostMenuPermsResponse" message="tns:PermissionService_GetCustomPostMenuPerms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomDepartMenuPerms">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetCustomDepartMenuPerms" message="tns:PermissionService_GetCustomDepartMenuPerms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetCustomDepartMenuPermsResponse" message="tns:PermissionService_GetCustomDepartMenuPerms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomCompanyMenuPerms">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetCustomCompanyMenuPerms" message="tns:PermissionService_GetCustomCompanyMenuPerms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetCustomCompanyMenuPermsResponse" message="tns:PermissionService_GetCustomCompanyMenuPerms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserRoleByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByType" message="tns:PermissionService_GetSysUserRoleByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByTypeResponse" message="tns:PermissionService_GetSysUserRoleByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserRoleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByID" message="tns:PermissionService_GetSysUserRoleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByIDResponse" message="tns:PermissionService_GetSysUserRoleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserRoleByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByUser" message="tns:PermissionService_GetSysUserRoleByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByUserResponse" message="tns:PermissionService_GetSysUserRoleByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserByRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserByRole" message="tns:PermissionService_GetSysUserByRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserByRoleResponse" message="tns:PermissionService_GetSysUserByRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserRoleBatchAddInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/UserRoleBatchAddInfos" message="tns:PermissionService_UserRoleBatchAddInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/UserRoleBatchAddInfosResponse" message="tns:PermissionService_UserRoleBatchAddInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddUserRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/BatchAddUserRole" message="tns:PermissionService_BatchAddUserRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/BatchAddUserRoleResponse" message="tns:PermissionService_BatchAddUserRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserRoleUpdateInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/UserRoleUpdateInfo" message="tns:PermissionService_UserRoleUpdateInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/UserRoleUpdateInfoResponse" message="tns:PermissionService_UserRoleUpdateInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserRoleUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserRoleUpdate" message="tns:PermissionService_SysUserRoleUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserRoleUpdateResponse" message="tns:PermissionService_SysUserRoleUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserRoleDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserRoleDelete" message="tns:PermissionService_SysUserRoleDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserRoleDeleteResponse" message="tns:PermissionService_SysUserRoleDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserInfo" message="tns:PermissionService_GetUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserInfoResponse" message="tns:PermissionService_GetUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserByID" message="tns:PermissionService_GetUserByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserByIDResponse" message="tns:PermissionService_GetUserByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmployeeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserByEmployeeID" message="tns:PermissionService_GetUserByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserByEmployeeIDResponse" message="tns:PermissionService_GetUserByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissionByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserPermissionByUser" message="tns:PermissionService_GetUserPermissionByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserPermissionByUserResponse" message="tns:PermissionService_GetUserPermissionByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissionByUserToUI">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserPermissionByUserToUI" message="tns:PermissionService_GetUserPermissionByUserToUI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserPermissionByUserToUIResponse" message="tns:PermissionService_GetUserPermissionByUserToUI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuPerms">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserMenuPerms" message="tns:PermissionService_GetUserMenuPerms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserMenuPermsResponse" message="tns:PermissionService_GetUserMenuPerms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuPermsByUserPermission">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserMenuPermsByUserPermission" message="tns:PermissionService_GetUserMenuPermsByUserPermission_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserMenuPermsByUserPermissionResponse" message="tns:PermissionService_GetUserMenuPermsByUserPermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissionByRoleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetPermissionByRoleID" message="tns:PermissionService_GetPermissionByRoleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetPermissionByRoleIDResponse" message="tns:PermissionService_GetPermissionByRoleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissionByRoleIDSecond">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetPermissionByRoleIDSecond" message="tns:PermissionService_GetPermissionByRoleIDSecond_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetPermissionByRoleIDSecondResponse" message="tns:PermissionService_GetPermissionByRoleIDSecond_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissionAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserPermissionAll" message="tns:PermissionService_GetUserPermissionAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserPermissionAllResponse" message="tns:PermissionService_GetUserPermissionAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupOjbects">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetLookupOjbects" message="tns:PermissionService_GetLookupOjbects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetLookupOjbectsResponse" message="tns:PermissionService_GetLookupOjbects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserInfoAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserInfoAdd" message="tns:PermissionService_SysUserInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserInfoAddResponse" message="tns:PermissionService_SysUserInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistSysUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/IsExistSysUserInfo" message="tns:PermissionService_IsExistSysUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/IsExistSysUserInfoResponse" message="tns:PermissionService_IsExistSysUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserInfoUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserInfoUpdate" message="tns:PermissionService_SysUserInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserInfoUpdateResponse" message="tns:PermissionService_SysUserInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserAllInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserAllInfos" message="tns:PermissionService_GetSysUserAllInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserAllInfosResponse" message="tns:PermissionService_GetSysUserAllInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserAllInfosPaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPaging" message="tns:PermissionService_GetSysUserAllInfosPaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingResponse" message="tns:PermissionService_GetSysUserAllInfosPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserAllInfosPagingByCompanyIDs">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDs" message="tns:PermissionService_GetSysUserAllInfosPagingByCompanyIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDsResponse" message="tns:PermissionService_GetSysUserAllInfosPagingByCompanyIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserBatchDel">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserBatchDel" message="tns:PermissionService_SysUserBatchDel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserBatchDelResponse" message="tns:PermissionService_SysUserBatchDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserBatchUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserBatchUpdate" message="tns:PermissionService_SysUserBatchUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserBatchUpdateResponse" message="tns:PermissionService_SysUserBatchUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserLoginRecordInfoAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserLoginRecordInfoAdd" message="tns:PermissionService_SysUserLoginRecordInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserLoginRecordInfoAddResponse" message="tns:PermissionService_SysUserLoginRecordInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserLoginRecordInfoUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserLoginRecordInfoUpdate" message="tns:PermissionService_SysUserLoginRecordInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserLoginRecordInfoUpdateResponse" message="tns:PermissionService_SysUserLoginRecordInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginRecordInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfos" message="tns:PermissionService_GetSysUserLoginRecordInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosResponse" message="tns:PermissionService_GetSysUserLoginRecordInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginRecordInfosPaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosPaging" message="tns:PermissionService_GetSysUserLoginRecordInfosPaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosPagingResponse" message="tns:PermissionService_GetSysUserLoginRecordInfosPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginRecordInfosBySearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosBySearch" message="tns:PermissionService_GetSysUserLoginRecordInfosBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosBySearchResponse" message="tns:PermissionService_GetSysUserLoginRecordInfosBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserLoginRecordByEmployeeIDAndDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetUserLoginRecordByEmployeeIDAndDate" message="tns:PermissionService_GetUserLoginRecordByEmployeeIDAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetUserLoginRecordByEmployeeIDAndDateResponse" message="tns:PermissionService_GetUserLoginRecordByEmployeeIDAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserLoginHistoryRecordInfoAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserLoginHistoryRecordInfoAdd" message="tns:PermissionService_SysUserLoginHistoryRecordInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserLoginHistoryRecordInfoAddResponse" message="tns:PermissionService_SysUserLoginHistoryRecordInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SysUserLoginHistoryRecordInfoUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysUserLoginHistoryRecordInfoUpdate" message="tns:PermissionService_SysUserLoginHistoryRecordInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysUserLoginHistoryRecordInfoUpdateResponse" message="tns:PermissionService_SysUserLoginHistoryRecordInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginHistoryRecordAllInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfos" message="tns:PermissionService_GetSysUserLoginHistoryRecordAllInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfosResponse" message="tns:PermissionService_GetSysUserLoginHistoryRecordAllInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginHistoryRecordAllInfosPaging">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfosPaging" message="tns:PermissionService_GetSysUserLoginHistoryRecordAllInfosPaging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfosPagingResponse" message="tns:PermissionService_GetSysUserLoginHistoryRecordAllInfosPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleEntityPermissionByRoleEntityID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetRoleEntityPermissionByRoleEntityID" message="tns:PermissionService_GetRoleEntityPermissionByRoleEntityID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetRoleEntityPermissionByRoleEntityIDResponse" message="tns:PermissionService_GetRoleEntityPermissionByRoleEntityID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolePerms">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetRolePerms" message="tns:PermissionService_GetRolePerms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetRolePermsResponse" message="tns:PermissionService_GetRolePerms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemTypeByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSystemTypeByUserID" message="tns:PermissionService_GetSystemTypeByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSystemTypeByUserIDResponse" message="tns:PermissionService_GetSystemTypeByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnIpAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/ReturnIpAddress" message="tns:PermissionService_ReturnIpAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/ReturnIpAddressResponse" message="tns:PermissionService_ReturnIpAddress_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_PermissionService" type="tns:PermissionService">
+    <wsp:PolicyReference URI="#CustomBinding_PermissionService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSysLeftMenu">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysLeftMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysLeftMenuFilterPermission">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysLeftMenuFilterPermission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysMenuByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuByTypePaging">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysMenuByTypePaging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuByEntityCode">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysMenuByEntityCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOASysMenuByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetOASysMenuByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHRSysMenuByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetHRSysMenuByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFBSysMenuByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetFBSysMenuByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLMSysMenuByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetLMSysMenuByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPMSysMenuByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetPMSysMenuByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuByID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysMenuByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysMenuInfosListByParentID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysMenuInfosListByParentID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysMenuAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysMenuAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysMenuUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysMenuUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysMenuDelete">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysMenuDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleEntityMenuByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetRoleEntityMenuByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleEntityMenuByID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetRoleEntityMenuByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleEntityMenuAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/RoleEntityMenuAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleEntityMenuUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/RoleEntityMenuUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddRoleEntityPermissionInfos">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/BatchAddRoleEntityPermissionInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleEntityMenuDelete">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/RoleEntityMenuDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleEntityIDListInfosByRoleID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetRoleEntityIDListInfosByRoleID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysPermissionAll">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysPermissionAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysCommonPermissionAll">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysCommonPermissionAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysPermissionByEntityID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysPermissionByEntityID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysPermissionAllPaging">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysPermissionAllPaging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSysPermissionByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/FindSysPermissionByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysPermissionByID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysPermissionByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysPermissionAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysPermissionAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysPermissionUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysPermissionUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysPermissionDelete">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysPermissionDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSysPermissionByStr">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/FindSysPermissionByStr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysRoleInfoAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysRoleInfoAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistSysRoleInfo">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/IsExistSysRoleInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistSysRoleInfoByRoleNameAndCompany">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/IsExistSysRoleInfoByRoleNameAndCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysRoleInfoUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysRoleInfoUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysRoleSingleInfoById">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysRoleSingleInfoById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysRoleInfos">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysRoleInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysRoleInfosPaging">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysRoleInfosPaging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysRoleInfosPagingByCompanyIDs">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysRoleInfosPagingByCompanyIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysRoleBatchDel">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysRoleBatchDel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByCategory">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionaryByCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByFatherID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionaryByFatherID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByCategoryList">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionaryByCategoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysDictionaryAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysDictionaryAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysDictionaryUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysDictionaryUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysDictionaryDelete">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysDictionaryDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryCategory">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionaryCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionarySysType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionarySysType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionaryByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByFilter">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionaryByFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDictionaryByFilterPaging">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionaryByFilterPaging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCutomterPermissionObj">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetCutomterPermissionObj" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCutomterPermissionObj">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SetCutomterPermissionObj" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityMenuCustomPermByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetEntityMenuCustomPermByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityMenuCustomPermByID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetEntityMenuCustomPermByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntityMenuCustomPermAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/EntityMenuCustomPermAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntityMenuCustomPermUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/EntityMenuCustomPermUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntityMenuCustomPermDelete">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/EntityMenuCustomPermDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerPermissionByUserIDAndEntityCode">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetCustomerPermissionByUserIDAndEntityCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomPostMenuPerms">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetCustomPostMenuPerms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomDepartMenuPerms">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetCustomDepartMenuPerms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomCompanyMenuPerms">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetCustomCompanyMenuPerms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserRoleByType">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserRoleByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserRoleByID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserRoleByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserRoleByUser">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserRoleByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserByRole">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserByRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserRoleBatchAddInfos">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/UserRoleBatchAddInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddUserRole">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/BatchAddUserRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserRoleUpdateInfo">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/UserRoleUpdateInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserRoleUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserRoleUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserRoleDelete">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserRoleDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmployeeID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissionByUser">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserPermissionByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissionByUserToUI">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserPermissionByUserToUI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuPerms">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserMenuPerms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuPermsByUserPermission">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserMenuPermsByUserPermission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissionByRoleID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetPermissionByRoleID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissionByRoleIDSecond">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetPermissionByRoleIDSecond" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissionAll">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserPermissionAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupOjbects">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetLookupOjbects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserInfoAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserInfoAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistSysUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/IsExistSysUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserInfoUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserInfoUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserAllInfos">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserAllInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserAllInfosPaging">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserAllInfosPaging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserAllInfosPagingByCompanyIDs">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserBatchDel">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserBatchDel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserBatchUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserBatchUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserLoginRecordInfoAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserLoginRecordInfoAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserLoginRecordInfoUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserLoginRecordInfoUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginRecordInfos">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginRecordInfosPaging">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosPaging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginRecordInfosBySearch">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosBySearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserLoginRecordByEmployeeIDAndDate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetUserLoginRecordByEmployeeIDAndDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserLoginHistoryRecordInfoAdd">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserLoginHistoryRecordInfoAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SysUserLoginHistoryRecordInfoUpdate">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SysUserLoginHistoryRecordInfoUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginHistoryRecordAllInfos">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserLoginHistoryRecordAllInfosPaging">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfosPaging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleEntityPermissionByRoleEntityID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetRoleEntityPermissionByRoleEntityID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolePerms">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetRolePerms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemTypeByUserID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSystemTypeByUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnIpAddress">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/ReturnIpAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PermissionService">
+    <wsdl:port name="CustomBinding_PermissionService" binding="tns:CustomBinding_PermissionService">
+      <soap12:address location="http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://172.30.40.220:5555/SmtOnline/Services/System/PermissionService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
