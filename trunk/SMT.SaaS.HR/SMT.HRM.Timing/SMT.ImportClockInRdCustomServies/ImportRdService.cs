@@ -23,9 +23,9 @@ namespace SMT.ImportClockInRdCustomServies
     public partial class ImportRdService : ServiceBase
     {
         AttendanceServiceClient clientAtt;
-        List<string> strImportIPs = new List<string>();
-        List<string> strImportCompanys = new List<string>();
-        List<string> strImportCheck = new List<string>();
+        List<string> listImportIPs = new List<string>();
+        List<string> listImportCompanys = new List<string>();
+        List<string> listImportCheck = new List<string>();
         public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
         int iPort = 4370;
         int iMachineNumber = 1;
@@ -75,6 +75,61 @@ namespace SMT.ImportClockInRdCustomServies
             }
              
         }
+        #region 测试
+        public void test()
+        {
+            //服务启动
+            this.timerImportRd.Enabled = true;
+            Tracer.Debug("启动服务成功");
+            strElapsedHour = ConfigurationManager.AppSettings["ElapsedHour"].ToString();
+
+            TestMode = "False";
+            TestCompanyIp = string.Empty;
+            TestMode = ConfigurationManager.AppSettings["TestMode"].ToString();
+            strNewDevices = ConfigurationManager.AppSettings["newDevice"].ToString();
+            iPort = int.Parse(ConfigurationManager.AppSettings["clockPort"].ToString());
+            strIPs = ConfigurationManager.AppSettings["clockIp"].ToString();
+            strCompanyIDs = ConfigurationManager.AppSettings["companyID"].ToString();
+
+            if (TestMode == "true")
+            {
+                string Interval = ConfigurationManager.AppSettings["TestInterval"].ToString();
+                timerImportRd.Interval = int.Parse(Interval);
+                TestCompanyIp = ConfigurationManager.AppSettings["TestCompanyIp"].ToString();
+                TestElapsedHour = ConfigurationManager.AppSettings["TestElapsedHour"].ToString();
+
+                Tracer.Debug("测试模式已开启"
+                    + ",Interval=" + timerImportRd.Interval
+                    + ",TestCompanyIp="
+                    + TestCompanyIp
+                    + ",TestElapsedHour=" + TestElapsedHour);
+            }
+
+            if (isReadToRead)
+            {
+                try
+                {
+                    isReadToRead = false;
+                    ImportRd();
+                    Tracer.Debug("读取打卡机记录完成，已释放资源。");
+
+                }
+                catch (Exception ex)
+                {
+                    Tracer.Debug(ex.ToString());
+                }
+                finally
+                {
+                    isReadToRead = true;
+                }
+            }
+            else
+            {
+                Tracer.Debug("正在读取打卡机记录，等待中......");
+                return;
+            }
+        }
+        #endregion
 
         protected override void OnStop()
         {
@@ -134,9 +189,10 @@ namespace SMT.ImportClockInRdCustomServies
             string[] ips = strIPs.Split(',');
             string[] companyIDs = strCompanyIDs.Split(',');
 
+            listImportCompanys.Clear();
             foreach (string companyID in companyIDs)
             {
-                strImportCompanys.Add(companyID);
+                listImportCompanys.Add(companyID);
             }
 
             if (TestMode == "true")
@@ -146,9 +202,9 @@ namespace SMT.ImportClockInRdCustomServies
                     Tracer.Debug(DateTime.Now.ToString() + "，导入打卡记录未在指定时间内");
                     return;
                 }
-                strImportIPs.Clear();
-                strImportIPs.Add(TestCompanyIp);
-                Tracer.Debug("测试模式下，导入的公司ip为：" + strImportIPs[0].ToString() + ",导入开始");
+                listImportIPs.Clear();
+                listImportIPs.Add(TestCompanyIp);
+                Tracer.Debug("测试模式下，导入的公司ip为：" + listImportIPs[0].ToString() + ",导入开始");
             }
             else
             {
@@ -161,7 +217,7 @@ namespace SMT.ImportClockInRdCustomServies
                     + iPort);
                 foreach (string str in ips)
                 {
-                    strImportIPs.Add(str);
+                    listImportIPs.Add(str);
                     Tracer.Debug(DateTime.Now.ToString() + "，导入的打卡机ip包括：" + str);
                 }
 
@@ -174,7 +230,7 @@ namespace SMT.ImportClockInRdCustomServies
             
             try
             {
-                foreach (string strCurIP in strImportIPs)
+                foreach (string strCurIP in listImportIPs)
                 {
                     bool bIsConnected = false;
                     
@@ -347,19 +403,18 @@ namespace SMT.ImportClockInRdCustomServies
             List<string> companyIds = new List<string>();
             try
             {
-                if (strImportCompanys.Count() == 0)
+                if (listImportCompanys.Count() == 0)
                 {
                     Tracer.Debug(DateTime.Now.ToString() + "，当前打卡机IP为：" + strCurIP + "无对应的公司，请检查配置项(Key = companyID)是否存在");
                     return companyIds;
                 }
 
-                foreach (string companyID in strImportCompanys)
+                foreach (string companyID in listImportCompanys)
                 {
                     if (companyID.Contains(strCurIP))
                     {
                         string strCompanyId = companyID.Replace("(" + strCurIP + ")", string.Empty);
                         companyIds.Add(strCompanyId);
-                        break;
                     }
                 }
             }
