@@ -70,7 +70,7 @@ namespace SMT.SAAS.Platform.Xamls
         SAAS.ClientUtility.DictionaryManager dicManager = new ClientUtility.DictionaryManager();
         #endregion
 
-        #region 初始化页面
+        #region 初始化页面 MVC初始化silverlight时调用
         private bool bMVCOpen = false;
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace SMT.SAAS.Platform.Xamls
             {
                 SMT.SAAS.Main.CurrentContext.AppContext.IsLoadingCompleted = true;
             }
-
+            //MVC初始化silverlight时调用
             LoadPublicDic();
         }
         
@@ -138,7 +138,6 @@ namespace SMT.SAAS.Platform.Xamls
         {
             ayTools.BeginRun();
         }
-       
 
         /// <summary>
         /// 初始化系统所需参数.用于为窗口系统提供支持

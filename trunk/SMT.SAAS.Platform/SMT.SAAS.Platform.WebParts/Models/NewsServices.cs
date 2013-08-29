@@ -223,7 +223,8 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
             {
                 foreach (var item in disentity)
                 {
-                    _viewer.Add(new Model.DISTR() { MODELNAMES = item.MODELNAME, VIEWERS = item.FORMID });
+                    //_viewer.Add(new Model.DISTR() { MODELNAMES = item.MODELNAME, VIEWERS = item.FORMID });//我去，这种事情会发生
+                    _viewer.Add(new Model.DISTR() { MODELNAMES = item.MODELNAME, VIEWERS = item.VIEWER });
                 }
             }
 

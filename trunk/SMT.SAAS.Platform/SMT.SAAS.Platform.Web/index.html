@@ -87,9 +87,9 @@
             var plugin = document.getElementById("SMTPlatform");
             //执行SilverLight项目中已经注册的可被Javascript调用的方法
             var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>	<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>	<ProcessName>CreateFormFromMVC</ProcessName>	<PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>a096c077-6c54-4548-9ccb-684147956416</ApplicationOrder>	<FormTypes>Edit</FormTypes></System>";
-            strConfig="<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.HRM.UI</AssemblyName><PublicClass>SMT.HRM.UI.Utility</PublicClass><ProcessName>CreateFormFromEngine</ProcessName><PageParameter>SMT.HRM.UI.Form.Attendance.TerminateLeaveForm</PageParameter><ApplicationOrder>5c4546ce-cca3-4808-855e-84e69c94a452</ApplicationOrder><FormTypes>Resubmit</FormTypes></System>"
+            strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.HRM.UI</AssemblyName><PublicClass>SMT.HRM.UI.Utility</PublicClass><ProcessName>CreateFormFromEngine</ProcessName><PageParameter>SMT.HRM.UI.Form.CompanyForm</PageParameter><ApplicationOrder>41a8a7df-625f-491b-b6c5-55a21ec564bc</ApplicationOrder><FormTypes>Resubmit</FormTypes></System>";
             //t_sys_user sysuserid
-            plugin.content.MvcToSl.OpenModuleWithMVC("", "RECORD", strConfig, strConfig);
+            plugin.content.MvcToSl.OpenModuleWithMVC("", "record", strConfig, strConfig);
         }
 
         function loadCompletedSL(options) {

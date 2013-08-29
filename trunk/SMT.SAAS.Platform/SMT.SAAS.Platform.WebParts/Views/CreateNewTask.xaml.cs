@@ -14,6 +14,7 @@ using SMT.SAAS.Platform.Client.PlatformWS;
 using System.Reflection;
 using System.Globalization;
 using SMT.SAAS.Controls.Toolkit.Windows;
+using SMT.SaaS.FrameworkUI;
 
 namespace SMT.SAAS.Platform.WebParts.Views
 {

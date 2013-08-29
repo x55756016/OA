@@ -14,6 +14,7 @@ using System.Reflection;
 using SMT.Saas.Tools.PersonalRecordWS;
 using System.Windows.Browser;
 using System.Threading;
+using SMT.SaaS.FrameworkUI;
 
 
 namespace SMT.SAAS.Platform.WebParts.Views
