@@ -640,11 +640,16 @@ namespace SMT.SaaS.FrameworkUI
                             return;
                         }
 
-                        string strOwnerID = string.Empty, strXmlObjectSource = string.Empty;
+                        string strOwnerID = string.Empty, strXmlObjectSource = string.Empty, strAppInfo = string.Empty;
                         strXmlObjectSource = AuditCtrl.AuditEntity.XmlObject;
 
                         strOwnerID = GetValueFromXMLObjectSource("Attribute", "Name", "OWNERID", "DataValue", strXmlObjectSource);
-
+                        //如果为事项审批，则获取单号
+                        if (AuditCtrl.AuditEntity.ModelCode.Equals("T_OA_APPROVALINFO"))
+                        {
+                            //事项审批单号
+                            strAppInfo = GetValueFromXMLObjectSource("Attribute", "Name", "APPROVALCODE", "DataValue", strXmlObjectSource);
+                        }
                         if (string.IsNullOrWhiteSpace(strOwnerID))
                         {
                             strExceptionMsg = "转发人信息未正常获取";
@@ -697,7 +702,7 @@ namespace SMT.SaaS.FrameworkUI
                                         entPersonalRecord.CREATEDATE = DateTime.Now;
                                         entPersonalRecord.UPDATEDATE = DateTime.Now;
                                         entPersonalRecord.CONFIGINFO = SetSubmitXmlObj(strDBName, strFormName, strModelId, "VIEW");
-                                        entPersonalRecord.MODELDESCRIPTION = string.Format("{0}于{1}向您转发了一张{2}单，请查阅！", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName, entPersonalRecord.CREATEDATE.Value.ToString("yyyy年MM月dd日HH:mm:ss"), entPersonalRecord.MODELCODE);
+                                        entPersonalRecord.MODELDESCRIPTION = string.Format("{0}于{1}向您转发了一张{2}单{3}，请查阅！", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName, entPersonalRecord.CREATEDATE.Value.ToString("yyyy年MM月dd日HH:mm:ss"), entPersonalRecord.MODELCODE, strAppInfo);
                                         entPersonalRecord.ISFORWARD = "1";
                                         entPersonalRecord.ISVIEW = "0";
 
