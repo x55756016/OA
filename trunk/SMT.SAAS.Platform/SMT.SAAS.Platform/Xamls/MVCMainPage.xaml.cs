@@ -63,11 +63,14 @@ namespace SMT.SAAS.Platform.Xamls
         private bool _fromMenu = false;
 
         SMT.SAAS.Platform.WebParts.AsyncTools ayTools = new SMT.SAAS.Platform.WebParts.AsyncTools();
-        #endregion
 
         DateTime dtstart = DateTime.Now;
         DateTime dtend = DateTime.Now;
 
+        SAAS.ClientUtility.DictionaryManager dicManager = new ClientUtility.DictionaryManager();
+        #endregion
+
+        #region 初始化页面
         private bool bMVCOpen = false;
 
         /// <summary>
@@ -81,6 +84,7 @@ namespace SMT.SAAS.Platform.Xamls
             //vm.InitCompleted += new EventHandler(vm_InitCompleted);
             vm.Run(new List<ModuleInfo>());         //伪初始化容器，加速MainPage加载,仅实际加载平台样式文件
 
+            dicManager.OnDictionaryLoadCompleted += dicManager_OnDictionaryLoadCompleted;
             InitializeComponent();
 
             HtmlPage.RegisterScriptableObject("MvcToSl", this);
@@ -94,26 +98,17 @@ namespace SMT.SAAS.Platform.Xamls
             ViewModel.Context.Managed.OnLoadModuleCompleted += new EventHandler<ViewModel.LoadModuleEventArgs>(Managed_OnLoadModuleCompleted);
             vm.InitCompleted += new EventHandler(vm_InitCompleted);
 
-            ayTools.BeginRun();
-
             if (System.Windows.Application.Current.Resources["CurrentSysUserID"] != null && System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
             {
                 ayTools.InitAsyncCompleted += new EventHandler(ayTools_InitAsyncCompleted);
                 bMVCOpen = true;
             }
-
             ViewModel.Context.MainPanel = WorkHost;
-            ViewModel.Context.MainPanel.DefaultContent = WebPartHost;
+            //ViewModel.Context.MainPanel.DefaultContent = WebPartHost;
             WorkHost.Back += new EventHandler(WorkHost_Back);
             //IsPopupHelper();
-
-            
-
-            LoadPublicDic();
-
             
             InitSystemParams();
-
             dtend = DateTime.Now;
             string strmsg = "初始化MainPage耗时： " + (dtend - dtstart).Milliseconds.ToString() + " 毫秒";
             SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(strmsg);
@@ -122,6 +117,8 @@ namespace SMT.SAAS.Platform.Xamls
             {
                 SMT.SAAS.Main.CurrentContext.AppContext.IsLoadingCompleted = true;
             }
+
+            LoadPublicDic();
         }
         
         /// <summary>
@@ -129,75 +126,31 @@ namespace SMT.SAAS.Platform.Xamls
         /// </summary>
         private void LoadPublicDic()
         {
-            SAAS.ClientUtility.DictionaryManager dicManager = new ClientUtility.DictionaryManager();
             List<string> dicCategorys = new List<string>();
             dicCategorys.Add("CHECKSTATE");
             dicCategorys.Add("MANUALTYPE");
-
+            showLoadingBar();
             dicManager.LoadDictionary(dicCategorys);
+           
         }
+
+        void dicManager_OnDictionaryLoadCompleted(object sender, OnDictionaryLoadArgs e)
+        {
+            ayTools.BeginRun();
+        }
+       
 
         /// <summary>
         /// 初始化系统所需参数.用于为窗口系统提供支持
         /// </summary>
         private void InitSystemParams()
         {
-            System.Windows.Controls.Window.Parent = this.windowParent;
-            System.Windows.Controls.Window.TaskBar = this.taskbar;
+            //System.Windows.Controls.Window.Parent = this.windowParent;
+            //System.Windows.Controls.Window.TaskBar = this.taskbar;//任务栏
             System.Windows.Controls.Window.Wrapper = this;
             System.Windows.Controls.Window.IsShowtitle = true;
         }
-
-        public void NavigationWorkPanel(string tag)
-        {
-            try
-            {
-                WorkHost.PanelContent = null;
-                if (!bMVCOpen)
-                {
-                    WorkHost.Visibility = Visibility.Visible;
-                }
-                WebPartHost.Visibility = Visibility.Collapsed;
-                WebPartHost.Stop();
-
-                UserControl workitem = null;
-                string titel = "";
-                switch (tag)
-                {
-                    case "NewsManager": workitem = new WebParts.Views.NewsManager(); titel = "新闻管理"; break;
-                    case "SystemLog": workitem = new SMT.SAAS.Platform.Xamls.SystemLogger(); titel = " 系统日志"; break;
-                    case "CustomMenusSet":
-                        {
-                            titel = "菜单列表";
-                            if (_mainMenu == null)
-                            {
-                                _mainMenu = new Xamls.MainPagePart.CustomMenusSet();
-                                _mainMenu.ShortCutClick += new EventHandler<OnShortCutClickEventArgs>(menu_ShortCutClick);
-                                workitem = _mainMenu;
-                            }
-                            else
-                            {
-                                workitem = _mainMenu;
-                            }
-                            break;
-                        }
-                    default: break;
-                }
-
-                WorkHost.Navigation(workitem, titel);
-                Common.AppContext.IsMenuOpen = _fromMenu;
-               
-            }
-            catch (Exception ex)
-            {
-                string strmsg = "点击菜单时发生错误，原因：" + ex.ToString();
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(strmsg);
-            }
-            finally
-            {
-                loading.Stop();
-            }
-        }
+        #endregion
 
         #region 快捷键控制
         
@@ -252,62 +205,62 @@ namespace SMT.SAAS.Platform.Xamls
             ShowModule();
         }
 
-        /// <summary>
-        /// 打开菜单
-        /// </summary>
-        private void ShowModule()
+
+        public void NavigationWorkPanel(string tag)
         {
-            ModuleInfo moduleinfo = ViewModel.Context.Managed.Catalog.FirstOrDefault(m => m.ModuleID == strCurModuleID);
-            if (moduleinfo != null)
+            try
             {
-                if (moduleinfo.ModuleCode == "GiftApplyMaster" || moduleinfo.ModuleCode == "GiftPlan" || moduleinfo.ModuleCode == "SumGiftPlan")
+                WorkHost.PanelContent = null;
+                if (!bMVCOpen)
                 {
-                    string strUrl = string.Empty;
-                    try
-                    {
-                        HtmlWindow wd = HtmlPage.Window;
-                        strUrl = moduleinfo.ModuleType.Substring(moduleinfo.ModuleType.IndexOf("[mvc]")).Replace("[mvc]", "");
-                        strUrl = strUrl.Split(',')[0].Replace('.', '/');
-                        if (strUrl.IndexOf('?') > -1)
-                        {
-                            strUrl = strUrl + "&uid=" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                        }
-                        else
-                        {
-                            strUrl = strUrl + "?uid=" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                        }
-                        string strHost = SMT.SAAS.Main.CurrentContext.Common.HostAddress.ToString().Split('/')[0];
-                        strUrl = "http://" + strHost + "/" + strUrl;
-                        Uri uri = new Uri(strUrl);
-                        HtmlPopupWindowOptions options = new HtmlPopupWindowOptions();
-                        options.Directories = false;
-                        options.Location = false;
-                        options.Menubar = false;
-                        options.Status = false;
-                        options.Toolbar = false;
-                        options.Left = 280;
-                        options.Top = 100;
-                        options.Width = 800;
-                        options.Height = 600;
-                        //HtmlPage.PopupWindow(uri, moduleinfo.ModuleCode, options);
-                        //wd.Navigate(uri, "_bank");
-                        string strWindow = System.DateTime.Now.ToString("yyMMddHHmsssfff");
-                        wd.Navigate(uri, strWindow, "directories=no,fullscreen=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=no,toolbar=no");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("模块链接异常：" + moduleinfo.ModuleType);
-                    }
+                    WorkHost.Visibility = Visibility.Visible;
                 }
-                else
+                //WebPartHost.Visibility = Visibility.Collapsed;
+                //WebPartHost.Stop();
+
+                UserControl workitem = null;
+                string titel = "";
+                switch (tag)
                 {
-                    CheckPermission(moduleinfo);
+                    case "NewsManager": workitem = new WebParts.Views.NewsManager(); titel = "新闻管理"; break;
+                    case "SystemLog": workitem = new SMT.SAAS.Platform.Xamls.SystemLogger(); titel = " 系统日志"; break;
+                    case "CustomMenusSet":
+                        {
+                            titel = "菜单列表";
+                            if (_mainMenu == null)
+                            {
+                                _mainMenu = new Xamls.MainPagePart.CustomMenusSet();
+                                _mainMenu.ShortCutClick += new EventHandler<OnShortCutClickEventArgs>(menu_ShortCutClick);
+                                workitem = _mainMenu;
+                            }
+                            else
+                            {
+                                workitem = _mainMenu;
+                            }
+                            break;
+                        }
+                    default: break;
                 }
+
+                WorkHost.Navigation(workitem, titel);
+                Common.AppContext.IsMenuOpen = _fromMenu;
+
+            }
+            catch (Exception ex)
+            {
+                string strmsg = "点击菜单时发生错误，原因：" + ex.ToString();
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(strmsg);
+            }
+            finally
+            {
+                hideLoadingBar();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
             }
         }
         #endregion
 
-        #region 模块加载、快捷方式、菜单
+        #region 无用代码
+        #region 导航到菜单时触发
         private void menu_ShortCutClick(object sender, OnShortCutClickEventArgs e)
         {
             //礼品特殊处理
@@ -369,6 +322,344 @@ namespace SMT.SAAS.Platform.Xamls
             }
         }
 
+
+
+        private void _services_OnGetMenuPermissionCompleted(object sender, EventArgs e)
+        {
+            GetPermissionInfoUIByLocal();
+        }
+
+
+
+        #endregion
+
+        private void WorkHost_Back(object sender, EventArgs e)
+        {
+            //处理关闭动作，判断导航模式
+            if (Common.AppContext.IsMenuOpen)
+            {
+                _fromMenu = false;
+                NavigationWorkPanel("CustomMenusSet");
+            }
+            else
+            {
+                //WebPartHost.Star();
+                //WebPartHost.Visibility = Visibility.Visible;
+
+                WorkHost.Visibility = Visibility.Collapsed;
+                var content = WorkHost.PanelContent;
+            }
+        }
+        #endregion
+
+        #region mvc平台专属调用
+
+        /// <summary>
+        /// 打开指定的菜单，待办任务，新闻或我的单据记录
+        /// </summary>
+        /// <param name="strModuleid"></param>
+        /// <param name="strOptType"></param>
+        /// <param name="strMessageid"></param>
+        /// <param name="strConfig"></param>
+        [ScriptableMember]
+        public void OpenModuleWithMVC(string strModuleid, string strOptType, string strMessageid, string strConfig)
+        {
+            AppContext.SystemMessage("strModuleid:" + strModuleid
+                + "strOptType:" + strOptType
+                   + "strMessageid:" + strMessageid
+                      + "strConfig:" + strConfig);
+            try
+            {
+                showLoadingBar();
+                if (string.IsNullOrWhiteSpace(strOptType))
+                {
+                    return;
+                }
+
+                switch (strOptType.ToUpper())
+                {
+                    case "MODULE":
+                        LoadModule(strModuleid);
+                        break;
+                    case "TASK":
+                        LoadTask(strMessageid, strConfig);
+                        break;
+                    case "RECORD":
+                        //if (strConfig.Length > 40)
+                        //{
+                        //    LoadMyRecordByConfig(strConfig);
+                        //}
+                        //else
+                        //{
+                        //    LoadMyRecord(strConfig);
+                        //}
+                        LoadMyRecord(strConfig);
+                        break;
+                    case "NEWSMANAGER":
+                        LoadNews(strModuleid);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                hideLoadingBar();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+                AppContext.SystemMessage(ex.ToString());
+                AppContext.ShowSystemMessageText();
+            }
+        }
+
+        void ayTools_InitAsyncCompleted(object sender, EventArgs e)
+        {
+            string strModuleid = string.Empty, strOptType = string.Empty, strMessageid = string.Empty, strConfig = string.Empty;
+            List<string> strMvcSource = new List<string>();
+            if (System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
+            {
+                strMvcSource = System.Windows.Application.Current.Resources["MvcOpenRecordSource"] as List<string>;
+            }
+            
+            if (strMvcSource == null)
+            {
+                return;
+            }
+
+            if (strMvcSource.Count() != 4)
+            {
+                return;
+            }
+
+            strModuleid = strMvcSource[0];
+            strOptType = strMvcSource[1];
+            strMessageid = strMvcSource[2];
+            strConfig = strMvcSource[3];
+
+            OpenModuleWithMVC(strModuleid, strOptType, strMessageid, strConfig);
+        }
+
+        /// <summary>
+        /// 打开我的单据,工作计划中打开出差我的单据
+        /// </summary>
+        /// <param name="strConfig"></param>
+        [ScriptableMember]
+        public void LoadMyRecordByConfig(string strConfig)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(strConfig))
+                {
+                    hideLoadingBar();
+                    HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+                    return;
+                }
+
+                SMT.SAAS.Platform.WebParts.Views.MyRecord myRecordView = new WebParts.Views.MyRecord();
+                myRecordView.ShowMyRecord(strConfig);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                hideLoadingBar();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+            }
+        }
+
+        /// <summary>
+        /// 打开新闻
+        /// </summary>
+        /// <param name="strModuleid"></param>
+        private void LoadNews(string strModuleid)
+        {
+            if (string.IsNullOrWhiteSpace(strModuleid))
+            {
+                return;
+            }
+
+            NavigationWorkPanel(strModuleid);
+        }
+
+        /// <summary>
+        /// 打开待办任务
+        /// </summary>
+        /// <param name="strMessageid"></param>
+        /// <param name="strConfig"></param>
+        private void LoadTask(string strMessageid, string strConfig)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(strMessageid) || string.IsNullOrWhiteSpace(strConfig))
+                {
+                    return;
+                }
+
+                SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager(strMessageid, "open");
+                pendingTaskView.isMyrecord = false;
+                if (ViewModel.Context.MainPanel != null)
+                {
+                    if (ViewModel.Context.MainPanel.DefaultContent != null)
+                    {
+                        IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
+                        if (webpart != null)
+                            webpart.Stop();
+
+                    }
+                    ViewModel.Context.MainPanel.Navigation(pendingTaskView, "待办任务");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = string.Format("打开模块'{0}'失败,请联系管理员！", ex.ToString());
+                AppContext.SystemMessage(message);
+                AppContext.ShowSystemMessageText();
+            }
+            finally
+            {
+                hideLoadingBar();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+
+            }
+        }
+
+        /// <summary>
+        /// 打开我的单据
+        /// </summary>
+        /// <param name="strConfig"></param>
+        private void LoadMyRecord(string strConfig)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(strConfig))
+                {
+                    return;
+                }
+                SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager("", "open");
+                pendingTaskView.isMyrecord = true;
+                pendingTaskView.applicationUrl = strConfig;
+                if (ViewModel.Context.MainPanel != null)
+                {
+                    if (ViewModel.Context.MainPanel.DefaultContent != null)
+                    {
+                        IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
+                        if (webpart != null)
+                            webpart.Stop();
+
+                    }
+                    ViewModel.Context.MainPanel.Navigation(pendingTaskView, "我的单据");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = string.Format("打开模块'{0}'失败,请联系管理员！", ex.ToString());
+                AppContext.SystemMessage(message);
+                AppContext.ShowSystemMessageText();
+            }
+            finally
+            {
+                hideLoadingBar();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+            }
+        }
+
+        /// <summary>
+        /// 打开菜单
+        /// </summary>
+        /// <param name="strModuleid"></param>
+        private void LoadModule(string strModuleid)
+        {
+            if (string.IsNullOrWhiteSpace(strModuleid))
+            {
+                return;
+            }
+
+            _fromMenu = false;
+            strCurModuleID = strModuleid;
+
+            if (strModuleid == "NewsManager" || strModuleid == "SystemLog" || strModuleid == "CustomMenusSet")
+            {
+                NavigationWorkPanel(strModuleid);
+            }
+            else
+            {
+                if (ViewModel.Context.Managed != null)
+                {
+                    if (ViewModel.Context.Managed.Catalog != null)
+                    {
+                        if (ViewModel.Context.Managed.Catalog.Count > 0)
+                        {
+                            bIsModuleLoaded = true;
+                        }
+                    }
+                }
+
+                if (!bIsModuleLoaded)
+                {
+                    vm.GetModules();
+                    return;
+                }
+
+                ShowModule();
+            }
+        }
+        #endregion
+
+        #region 显示模块
+        /// <summary>
+        /// 打开菜单
+        /// </summary>
+        private void ShowModule()
+        {
+            ModuleInfo moduleinfo = ViewModel.Context.Managed.Catalog.FirstOrDefault(m => m.ModuleID == strCurModuleID);
+            if (moduleinfo != null)
+            {
+                if (moduleinfo.ModuleCode == "GiftApplyMaster" || moduleinfo.ModuleCode == "GiftPlan" || moduleinfo.ModuleCode == "SumGiftPlan")
+                {
+                    string strUrl = string.Empty;
+                    try
+                    {
+                        HtmlWindow wd = HtmlPage.Window;
+                        strUrl = moduleinfo.ModuleType.Substring(moduleinfo.ModuleType.IndexOf("[mvc]")).Replace("[mvc]", "");
+                        strUrl = strUrl.Split(',')[0].Replace('.', '/');
+                        if (strUrl.IndexOf('?') > -1)
+                        {
+                            strUrl = strUrl + "&uid=" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                        }
+                        else
+                        {
+                            strUrl = strUrl + "?uid=" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                        }
+                        string strHost = SMT.SAAS.Main.CurrentContext.Common.HostAddress.ToString().Split('/')[0];
+                        strUrl = "http://" + strHost + "/" + strUrl;
+                        Uri uri = new Uri(strUrl);
+                        HtmlPopupWindowOptions options = new HtmlPopupWindowOptions();
+                        options.Directories = false;
+                        options.Location = false;
+                        options.Menubar = false;
+                        options.Status = false;
+                        options.Toolbar = false;
+                        options.Left = 280;
+                        options.Top = 100;
+                        options.Width = 800;
+                        options.Height = 600;
+                        //HtmlPage.PopupWindow(uri, moduleinfo.ModuleCode, options);
+                        //wd.Navigate(uri, "_bank");
+                        string strWindow = System.DateTime.Now.ToString("yyMMddHHmsssfff");
+                        wd.Navigate(uri, strWindow, "directories=no,fullscreen=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=no,toolbar=no");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("模块链接异常：" + moduleinfo.ModuleType);
+                    }
+                }
+                else
+                {
+                    CheckPermission(moduleinfo);
+                }
+            }
+        }
+
         private void CheckPermission(ModuleInfo module)
         {
             _currentClickModule = module;
@@ -404,11 +695,6 @@ namespace SMT.SAAS.Platform.Xamls
 
                 GetPermissionInfoUIByLocal();
             }
-        }
-
-        private void _services_OnGetMenuPermissionCompleted(object sender, EventArgs e)
-        {
-            GetPermissionInfoUIByLocal();
         }
 
         private void GetPermissionInfoUIByLocal()
@@ -527,7 +813,7 @@ namespace SMT.SAAS.Platform.Xamls
             }
             catch (Exception ex)
             {
-                loading.Stop();
+              
                 AppContext.SystemMessage(string.Format("打开模块'{0}'产生异常！", description) + ex.ToString());
                 AppContext.ShowSystemMessageText();
                 if (_mainMenu != null)
@@ -564,9 +850,8 @@ namespace SMT.SAAS.Platform.Xamls
                         if (content.Parent == null)
                         {
                             WorkHost.Visibility = Visibility.Visible;
-                            WebPartHost.Visibility = Visibility.Collapsed;
-                            WebPartHost.Stop();
-
+                            //WebPartHost.Visibility = Visibility.Collapsed;
+                            //WebPartHost.Stop();
                             WorkHost.Navigation(content, e.ModuleInfo.Description);
                             Common.AppContext.IsMenuOpen = _fromMenu;
                         }
@@ -588,272 +873,25 @@ namespace SMT.SAAS.Platform.Xamls
             }
             finally
             {
-                loading.Stop();
+                hideLoadingBar();
                 HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
             }
         }
         #endregion
 
-        private void WorkHost_Back(object sender, EventArgs e)
+        #region 进度条控制
+        private void showLoadingBar()
         {
-            //处理关闭动作，判断导航模式
-            if (Common.AppContext.IsMenuOpen)
-            {
-                _fromMenu = false;
-                NavigationWorkPanel("CustomMenusSet");
-            }
-            else
-            {
-                WebPartHost.Star();
-                WebPartHost.Visibility = Visibility.Visible;
-
-                WorkHost.Visibility = Visibility.Collapsed;
-                var content = WorkHost.PanelContent;
-            }
-        }        
-
-        #region mvc平台专属调用
-
-        void ayTools_InitAsyncCompleted(object sender, EventArgs e)
-        {
-            loading.Stop();
-            string strModuleid = string.Empty, strOptType = string.Empty, strMessageid = string.Empty, strConfig = string.Empty;
-            List<string> strMvcSource = new List<string>();
-            if (System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
-            {
-                strMvcSource = System.Windows.Application.Current.Resources["MvcOpenRecordSource"] as List<string>;
-            }
-
-            //bool isFirst = false;
-            //if (System.Windows.Application.Current.Resources["isFirstOpen"] != null)
-            //{
-            //    isFirst = (bool)System.Windows.Application.Current.Resources["isFirstOpen"];
-            //}
-            //if (isFirst)
-            //{
-              
-                //return;
-            //}
-
-
-            if (strMvcSource == null)
-            {
-                return;
-            }
-
-            if (strMvcSource.Count() != 4)
-            {
-                return;
-            }
-
-            strModuleid = strMvcSource[0];
-            strOptType = strMvcSource[1];
-            strMessageid = strMvcSource[2];
-            strConfig = strMvcSource[3];
-
-            OpenModuleWithMVC(strModuleid, strOptType, strMessageid, strConfig);
-        }
-
-        /// <summary>
-        /// 打开我的单据,工作计划中打开出差我的单据
-        /// </summary>
-        /// <param name="strConfig"></param>
-        [ScriptableMember]
-        public void LoadMyRecordByConfig(string strConfig)
-        {
-            if (string.IsNullOrWhiteSpace(strConfig))
-            {
-                return;
-            }
-
-            SMT.SAAS.Platform.WebParts.Views.MyRecord myRecordView = new WebParts.Views.MyRecord();
-            myRecordView.ShowMyRecord(strConfig);
-        }
-
-        /// <summary>
-        /// 打开指定的菜单，待办任务，新闻或我的单据记录
-        /// </summary>
-        /// <param name="strModuleid"></param>
-        /// <param name="strOptType"></param>
-        /// <param name="strMessageid"></param>
-        /// <param name="strConfig"></param>
-        [ScriptableMember]
-        public void OpenModuleWithMVC(string strModuleid, string strOptType, string strMessageid, string strConfig)
-        {
-            AppContext.SystemMessage("strModuleid:" + strModuleid
-                + "strOptType:" + strOptType
-                   + "strMessageid:" + strMessageid
-                      + "strConfig:" + strConfig);
-
+            WorkHost.Visibility = Visibility.Collapsed;
+            loading.Visibility = Visibility.Visible;
             loading.Start();
-            //AppContext.ShowSystemMessageText();
-            if (string.IsNullOrWhiteSpace(strOptType))
-            {
-                return;
-            }
-
-            switch (strOptType.ToUpper())
-            {
-                case "MODULE":
-                    LoadModule(strModuleid);
-                    break;
-                case "TASK":
-                    LoadTask(strMessageid, strConfig);
-                    break;
-                case "RECORD":
-                    if (strConfig.Length > 40)
-                    {
-                        LoadMyRecordByConfig(strConfig);
-                    }
-                    else
-                    {
-                        LoadMyRecord(strConfig);
-                    }
-                    break;
-                case "NEWSMANAGER":
-                    LoadNews(strModuleid);
-                    break;
-            }
         }
-
-        /// <summary>
-        /// 打开新闻
-        /// </summary>
-        /// <param name="strModuleid"></param>
-        private void LoadNews(string strModuleid)
+        private void hideLoadingBar()
         {
-            if (string.IsNullOrWhiteSpace(strModuleid))
-            {
-                return;
-            }
-
-            NavigationWorkPanel(strModuleid);
-        }
-
-        /// <summary>
-        /// 打开待办任务
-        /// </summary>
-        /// <param name="strMessageid"></param>
-        /// <param name="strConfig"></param>
-        private void LoadTask(string strMessageid, string strConfig)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(strMessageid) || string.IsNullOrWhiteSpace(strConfig))
-                {
-                    return;
-                }
-
-                SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager(strMessageid, "open");
-                pendingTaskView.isMyrecord = false;
-                if (ViewModel.Context.MainPanel != null)
-                {
-                    if (ViewModel.Context.MainPanel.DefaultContent != null)
-                    {
-                        IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
-                        if (webpart != null)
-                            webpart.Stop();
-
-                    }
-                    ViewModel.Context.MainPanel.Navigation(pendingTaskView, "待办任务");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                string message = string.Format("打开模块'{0}'失败,请联系管理员！", ex.ToString());
-                AppContext.SystemMessage(message);
-                AppContext.ShowSystemMessageText();
-            }
-            finally
-            {
-                loading.Stop();
-                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
-            }
-        }
-
-        /// <summary>
-        /// 打开我的单据
-        /// </summary>
-        /// <param name="strConfig"></param>
-        private void LoadMyRecord(string strConfig)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(strConfig))
-                {
-                    return;
-                }
-                SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager("", "open");
-                pendingTaskView.isMyrecord = true;
-                pendingTaskView.applicationUrl = strConfig;
-                if (ViewModel.Context.MainPanel != null)
-                {
-                    if (ViewModel.Context.MainPanel.DefaultContent != null)
-                    {
-                        IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
-                        if (webpart != null)
-                            webpart.Stop();
-
-                    }
-                    ViewModel.Context.MainPanel.Navigation(pendingTaskView, "我的单据");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                string message = string.Format("打开模块'{0}'失败,请联系管理员！", ex.ToString());
-                AppContext.SystemMessage(message);
-                AppContext.ShowSystemMessageText();
-            }
-            finally
-            {
-                loading.Stop();
-                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
-            }
-        }
-
-        /// <summary>
-        /// 打开菜单
-        /// </summary>
-        /// <param name="strModuleid"></param>
-        private void LoadModule(string strModuleid)
-        {
-            if (string.IsNullOrWhiteSpace(strModuleid))
-            {
-                return;
-            }
-
-            _fromMenu = false;
-            strCurModuleID = strModuleid;
-
-            if (strModuleid == "NewsManager" || strModuleid == "SystemLog" || strModuleid == "CustomMenusSet")
-            {
-                NavigationWorkPanel(strModuleid);
-            }
-            else
-            {
-                if (ViewModel.Context.Managed != null)
-                {
-                    if (ViewModel.Context.Managed.Catalog != null)
-                    {
-                        if (ViewModel.Context.Managed.Catalog.Count > 0)
-                        {
-                            bIsModuleLoaded = true;
-                        }
-                    }
-                }
-
-                if (!bIsModuleLoaded)
-                {
-                    vm.GetModules();
-                    return;
-                }
-
-                ShowModule();
-            }
+            WorkHost.Visibility = Visibility.Visible;
+            loading.Visibility = Visibility.Collapsed;
+            loading.Stop();
         }
         #endregion
-
     }
 }
