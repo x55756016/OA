@@ -4171,7 +4171,9 @@ namespace SMT.FB.BLL
             QueryExpression qeOwner = QueryExpression.Equal(FieldName.OwnerID, OWNERID);
             QueryExpression qeBudgetMonth = QueryExpression.Equal("BUDGETARYMONTH", budgetMonth);
             QueryExpression qeCheckState = QueryExpression.NotEqual(FieldName.CheckStates, Convert.ToInt32(CheckStates.UnApproved).ToString());
+            QueryExpression qeCreateUserID = QueryExpression.Equal(FieldName.CreateUserID, "001");//自动创建的单创建人为001
 
+            qeCheckState.RelatedExpression = qeCreateUserID;
             qeBudgetMonth.RelatedExpression = qeCheckState;
             qeOwner.RelatedExpression = qeBudgetMonth;
             qeAssignComp.RelatedExpression = qeOwner;
