@@ -12,6 +12,51 @@ namespace SMT.HRM.BLL
     public class PensionMasterBLL : BaseBll<T_HR_PENSIONMASTER>, IOperate
     {
         /// <summary>
+        /// 员工社保缴交日期字段数据导入到员工个人档案里去（PL/SQL也可以）
+        /// </summary>
+        public void PensionMaterToEmployee()
+        {
+            try
+            {
+                //社保有数据，员工档案没数据，这就是要导入的数据
+                var entPen = from p in dal.GetObjects()
+                             join e in dal.GetObjects<T_HR_EMPLOYEE>() on p.T_HR_EMPLOYEE.EMPLOYEEID equals e.EMPLOYEEID
+                             where p.SOCIALSERVICEYEAR != null && e.SOCIALSERVICEYEAR == null && p.CHECKSTATE == "2"
+                             select p;
+                //没有社保的员工档案信息
+                var entEmp = from e in dal.GetObjects<T_HR_EMPLOYEE>()
+                             where e.SOCIALSERVICEYEAR == null
+                             select e;
+                int count = 0;
+                SMT.Foundation.Log.Tracer.Debug("更新开始时间："+System.DateTime.Now.ToString());
+                if (entEmp != null && entPen != null && entPen.Count() > 0 && entEmp.Count() > 0)
+                {
+                    //慢慢替换进去
+                    foreach (var itEmp in entEmp)
+                    {
+                        foreach (var itPen in entPen)
+                        {
+                            if (itPen.OWNERID != null && itPen.OWNERID == itEmp.EMPLOYEEID)
+                            {
+                                itEmp.SOCIALSERVICEYEAR = itPen.SOCIALSERVICEYEAR;
+                                dal.Update(itEmp);
+                                count++;
+                                break;
+                            }
+                        }
+                    }
+                }
+                SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "PensionMaterToEmployee更新社保进档案总共: " + count+" 条数据");
+                SMT.Foundation.Log.Tracer.Debug("更新结束时间：" + System.DateTime.Now.ToString());
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "PensionMaterToEmployee更新社保进档案异常:" + ex.Message);
+            }
+           
+        }
+
+        /// <summary>
         /// 新增社保档案记录
         /// </summary>
         /// <param name="entity">社保档案实体</param>
@@ -168,20 +213,10 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public T_HR_PENSIONMASTER GetPensionMasterByEmployeeID(string employeeID)
         {
-            string checkState = Convert.ToInt32(CheckStates.Approved).ToString();
             var ents = from a in dal.GetObjects().Include("T_HR_EMPLOYEE")
                        where a.T_HR_EMPLOYEE.EMPLOYEEID == employeeID
-                       && a.CHECKSTATE == checkState
                        select a;
-            if (ents.Count() > 0)
-            {
-                var q = ents.ToList().OrderBy(c => c.UPDATEDATE).FirstOrDefault();
-                return q;
-            }
-            else
-            {
-                return null;
-            }
+            return ents.Count() > 0 ? ents.FirstOrDefault() : null;
         }
         /// <summary>
         /// 用于实体Grid中显示数据的分页查询

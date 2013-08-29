@@ -1383,6 +1383,25 @@ namespace SMT.HRM.Services
             }
             // return q.Count() > 0 ? q.ToList() : null;
         }
+
+        /// <summary>
+        /// 员工社保缴交日期字段数据导入到员工个人档案里去（PL/SQL也可以）
+        /// </summary>
+        [OperationContract]
+        public void PensionMaterToEmployee()
+        {
+            try
+            {
+                using (PensionMasterBLL bll = new PensionMasterBLL())
+                {
+                    bll.PensionMaterToEmployee();
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.Message);
+            }
+        }
         /// <summary>
         /// 新增社保档案记录
         /// </summary>
@@ -3136,7 +3155,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                //Tracer.Debug("进入GetFlowUserInfoPostBriefByEmployeeID："+employeeids.Count().ToString());
+                Tracer.Debug("进入GetFlowUserInfoPostBriefByEmployeeID："+employeeids.Count().ToString());
                 return bll.GetFlowUserInfoPostBriefByEmployeeID(employeeids);
             }
             
@@ -3167,7 +3186,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                Tracer.Debug("进入GetSuperiorByPostID：" + postID);
+                //Tracer.Debug("进入GetSuperiorByPostID：" + postID);
                 return bll.GetSuperiorByPostID(postID);
             }
         }

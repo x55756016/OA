@@ -19,8 +19,18 @@ namespace SMT.SaaS.FrameworkUI.OrganizationTreeView
 {
     public partial class OrganizationTreeView : UserControl
     {
+        /// <summary>
+        /// 组织架构类型
+        /// </summary>
         public string sType = "";
+        /// <summary>
+        /// 对应组织架构ID
+        /// </summary>
         public string sValue = "";
+        /// <summary>
+        /// 对应组织架构名称
+        /// </summary>
+        public string sName = "";
         public event EventHandler SelectedClick;
         OrganizationServiceClient orgClient;
         private List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> allCompanys;
@@ -667,11 +677,13 @@ namespace SMT.SaaS.FrameworkUI.OrganizationTreeView
                         T_HR_COMPANY company = selectedItem.DataContext as T_HR_COMPANY;
                         sType = "Company";
                         sValue = company.COMPANYID;
+                        sName = company.CNAME;
                         break;
                     case "Department":
                         T_HR_DEPARTMENT department = selectedItem.DataContext as T_HR_DEPARTMENT;
                         sType = "Department";
                         sValue = department.DEPARTMENTID;
+                        sName = department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
                         if (depIDsCach.ContainsKey(sValue)) return;
                         BindPosition(sValue, selectedItem);
                         break;
@@ -679,6 +691,7 @@ namespace SMT.SaaS.FrameworkUI.OrganizationTreeView
                         T_HR_POST post = selectedItem.DataContext as T_HR_POST;
                         sType = "Post";
                         sValue = post.POSTID;
+                        sName = post.T_HR_POSTDICTIONARY.POSTNAME;
                         break;
                 }
                 if (this.SelectedClick != null)

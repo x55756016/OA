@@ -31,6 +31,7 @@ namespace SMT.HRM.UI.Views.Salary
     {
         SalaryServiceClient client;
         SMTLoading loadbar = new SMTLoading();
+        string companyName = string.Empty, companyID = string.Empty;//全局记录所要初始化公司信息
         //OrganizationServiceClient orgClient;
         //private List<T_HR_COMPANY> allCompanys;
         //private List<T_HR_DEPARTMENT> allDepartments;
@@ -103,22 +104,22 @@ namespace SMT.HRM.UI.Views.Salary
         //初始化薪资完成事件
         void client_ExecuteSalaryItemSqlCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-           
-                if (e.Error != null)
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                }
-                else
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("CREATESUCCESS", "SALARYITEM"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
-                    //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "SALARYITEM"));
-                    LoadData();
-                }
-            
-           
+
+            if (e.Error != null)
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("CREATESUCCESS", "SALARYITEM"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "SALARYITEM"));
+                LoadData();
+            }
+
+
         }
-        
-      
+
+
         /// <summary>
         /// 2012-8-24
         /// xiedx
@@ -130,24 +131,48 @@ namespace SMT.HRM.UI.Views.Salary
             ComfirmWindow com = new ComfirmWindow();
             T_HR_SALARYITEM temp = new T_HR_SALARYITEM();
             temp.SALARYITEMID = Guid.NewGuid().ToString();
-            temp.OWNERCOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+            if (string.IsNullOrWhiteSpace(companyID))
+            {
+                temp.OWNERCOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                companyName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+            }
+            else
+            {
+                temp.OWNERCOMPANYID = companyID;
+            }
             temp.OWNERDEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
             temp.OWNERPOSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID;
             temp.OWNERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
             temp.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-          
+
             com.OnSelectionBoxClosed += (obj, result) =>
             {
                 ObservableCollection<string> ids = new ObservableCollection<string>();
                 client.ExecuteSalaryItemSqlAsync(temp);
             };
 
-            com.SelectionBox(Utility.GetResourceStr("CAUTION"), "该选项会生成新的薪资，请向相关部门确认先", ComfirmWindow.titlename, Result);
+            com.SelectionBox(Utility.GetResourceStr("CAUTION"), "该选项会初始化 "+companyName+" 的薪资，请向相关部门确认先", ComfirmWindow.titlename, Result);
         }
 
         void treeOrganization_SelectedClick(object sender, EventArgs e)
         {
+            InitCompanyInfo();
             LoadData();
+        }
+
+        private void InitCompanyInfo()
+        {
+            if (treeOrganization.sType=="Company")
+            {
+                companyID = treeOrganization.sValue;
+                companyName = treeOrganization.sName;
+            }
+            else
+            {
+                companyID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                companyName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+            }
+          
         }
 
         void _ImgButtonRecoverySalaryItem_Click(object sender, RoutedEventArgs e)
