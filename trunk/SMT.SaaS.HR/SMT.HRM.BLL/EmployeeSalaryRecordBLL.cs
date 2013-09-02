@@ -1702,6 +1702,7 @@ namespace SMT.HRM.BLL
             T_HR_EMPLOYEESALARYRECORD record = (from r in dal.GetTable()
                                                 where r.EMPLOYEEID == employeeID 
                                                 && r.SALARYMONTH == month && r.SALARYYEAR == year
+                                                && r.OWNERCOMPANYID == GenerateCompanyid
                                                 select r).FirstOrDefault();
             if (record != null)
             {
