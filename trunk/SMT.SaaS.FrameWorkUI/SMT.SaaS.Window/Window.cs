@@ -153,6 +153,9 @@ namespace System.Windows.Controls
             //this._window = ProgramManager.ShowProgram(TitleContent.ToString(), "", Guid.NewGuid().ToString(), this, isResizable, false, null);
             this.Show<TResult>(windowmodel, this, result, close, true,Guid.NewGuid().ToString());
         }
+       
+        
+
         /// <summary>
         /// 显示窗口
         /// </summary>
@@ -175,6 +178,18 @@ namespace System.Windows.Controls
         {
             this._window = ProgramManager.ShowProgram(TitleContent.ToString(), string.Empty, GUID, this, isResizable, isSysApp, null);
         }
+
+        /// <summary>
+        /// 显示窗口
+        /// 兼容MVC 平台弹出窗口
+        /// Author:傅意成
+        /// Date:2012-07-12
+        /// </summary>
+        public void ShowMvcPlat<TResult>(DialogMode windowmodel, FrameworkElement parent, TResult result, Action<TResult> close)
+        {
+            this._window = ProgramManager.ShowMvcProgram(TitleContent.ToString(), string.Empty, Guid.NewGuid().ToString(),this,false,true, null);
+        }
+
         /// <summary>
         /// 关闭当前窗口
         /// </summary>
@@ -267,6 +282,27 @@ namespace System.Windows.Controls
         /// 应用程序模式对话框，当前应用程序
         /// </summary>
         ApplicationModal
+    }
+    #endregion
+
+    #region 枚举 窗口消失扩展
+    /// <summary>
+    /// 窗口自动消失
+    /// </summary>
+    public enum AutoDisappear
+    {
+        /// <summary>
+        /// 消失
+        /// </summary>
+        Yes,
+        /// <summary>
+        ///停留，不消失 
+        /// </summary>
+        No,
+        /// <summary>
+        /// 原使用方式
+        /// </summary>
+        Normal
     }
     #endregion
 }

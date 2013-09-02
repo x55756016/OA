@@ -304,6 +304,24 @@ namespace System.Windows.Controls
         {
             MessageWindow.Show<TResult>(DialogMode.ApplicationModal, null, caption, content, icon, result, defaultResult, buttons);
         }
+
+        /// <summary>
+        /// 重载模态化窗口
+        /// </summary>
+        /// <typeparam name="TResult">返回结果的类型</typeparam>
+        /// <param name="caption">标题</param>
+        /// <param name="content">内容</param>
+        /// <param name="icon">标示</param>
+        /// <param name="result">结果</param>
+        /// <param name="defaultResult">默认结果</param>
+        /// <param name="IsAutoDisappear">是否自动消失</param>
+        /// <param name="buttons">显示按钮</param>
+        public static void Show<TResult>(string caption, object content, MessageIcon icon, Action<TResult> result, TResult defaultResult,AutoDisappear autoDisappear, params TResult[] buttons)
+        {
+            MessageWindow.Show<TResult>(DialogMode.ApplicationModal, null, caption, content, icon, result, defaultResult, autoDisappear, buttons);
+        }
+
+
         /// <summary>
         /// 打开一个窗口
         /// </summary>
@@ -317,7 +335,7 @@ namespace System.Windows.Controls
         /// <param name="result">点击按钮执行的Action</param>
         /// <param name="defaultResult">默认结果</param>
         /// <param name="buttons">要显示的按钮.一般使用String集合</param>
-        public static void Show<TResult>(DialogMode dialogMode, FrameworkElement container, string caption, object content, MessageIcon icon, Action<TResult> result, TResult defaultResult, params TResult[] buttons)
+        public static void Show<TResult>(DialogMode dialogMode, FrameworkElement container, string caption, object content, MessageIcon icon, Action<TResult> result, TResult defaultResult,AutoDisappear autoDisappear, params TResult[] buttons)
         {
             SMT.SAAS.Controls.Toolkit.Windows.Window window = null;
             _DialogMode = dialogMode;
@@ -488,9 +506,9 @@ namespace System.Windows.Controls
                         TextWrapping = TextWrapping.Wrap,
                         FontSize = 12,
                         BorderThickness = new Thickness(0),
-                        IsReadOnly=true,
                         HorizontalAlignment = HorizontalAlignment.Left,
                         VerticalAlignment = VerticalAlignment.Top,
+                        IsReadOnly = true,
                         Text = content.ToString()
                     };
                     contentElement = new ScrollViewer()
@@ -559,31 +577,57 @@ namespace System.Windows.Controls
             }
             #endregion
 
-            //Storyboard _fStroyboard1 = CreatOpacty(window);
-            //if (icon == MessageIcon.Exclamation || icon==MessageIcon.Information)
-            //{
-            //    _fStroyboard1.Begin();
-            //}
+            Storyboard _fStroyboard1 = CreatOpacty(window);
+            switch (autoDisappear)
+            { 
+                case AutoDisappear.Yes:
+                    _fStroyboard1.Begin();
+                    break;
+                case AutoDisappear.No:
+                    break;
+                case AutoDisappear.Normal:
+                    if (icon == MessageIcon.Exclamation || icon == MessageIcon.Information)
+                    {
+                        _fStroyboard1.Begin();
+                    }
+                    break;
 
-            //#region 动画完成关闭
+            }
 
-            //_fStroyboard1.Completed += (o, e) =>
-            //{
-            //    Popup.IsOpen = false;
-            //    window.Close();
-            //};
-            //window.MouseEnter += (obj, args) =>
-            //{
-            //    _fStroyboard1.Pause();
-            //};
-            //window.MouseLeave += (obj, args) =>
-            //{
-            //    _fStroyboard1.Begin();
-            //};
+            #region 动画完成关闭
+
+            _fStroyboard1.Completed += (o, e) =>
+            {
+                Popup.IsOpen = false;
+                window.Close();
+            };
+            window.MouseEnter += (obj, args) =>
+            {
+                _fStroyboard1.Pause();
+            };
+            window.MouseLeave += (obj, args) =>
+            {
+                _fStroyboard1.Begin();
+            };
             
-            //#endregion
+            #endregion
         }
-
+        /// <summary>
+        /// 重载Show函数，增加一个是否弹出框自动消失参数
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="dialogMode"></param>
+        /// <param name="container"></param>
+        /// <param name="caption"></param>
+        /// <param name="content"></param>
+        /// <param name="icon"></param>
+        /// <param name="result"></param>
+        /// <param name="defaultResult"></param>
+        /// <param name="buttons"></param>
+        public static void Show<TResult>(DialogMode dialogMode, FrameworkElement container, string caption, object content, MessageIcon icon, Action<TResult> result, TResult defaultResult, params TResult[] buttons)
+        { 
+            Show<TResult>(dialogMode, container, caption, content, icon,  result,  defaultResult,AutoDisappear.Normal, buttons);
+        }
         #region 创建窗口的动画
         public static Storyboard CreatOpacty(object obj)
         {

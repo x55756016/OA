@@ -2443,7 +2443,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
-      <Project>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</Project>
+      <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>
       <Name>SMT.SAAS.FrameworkUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.Saas.Tools\SMT.Saas.Tools.csproj">

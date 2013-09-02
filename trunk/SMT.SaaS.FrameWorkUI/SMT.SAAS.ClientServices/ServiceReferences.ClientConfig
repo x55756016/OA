@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_PermissionService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://portal.smt-online.net/new/Services/System/PermissionService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+                contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+        </client>
+    </system.serviceModel>
+</configuration>

@@ -144,8 +144,8 @@ namespace SMT.SAAS.Platform.Xamls
         /// </summary>
         private void InitSystemParams()
         {
-            //System.Windows.Controls.Window.Parent = this.windowParent;
-            //System.Windows.Controls.Window.TaskBar = this.taskbar;//任务栏
+            System.Windows.Controls.Window.Parent = this.windowParent;
+            System.Windows.Controls.Window.TaskBar = this.taskbar;//任务栏
             System.Windows.Controls.Window.Wrapper = this;
             System.Windows.Controls.Window.IsShowtitle = true;
         }
@@ -881,13 +881,21 @@ namespace SMT.SAAS.Platform.Xamls
         #region 进度条控制
         private void showLoadingBar()
         {
-            WorkHost.Visibility = Visibility.Collapsed;
+            gridBottom.Visibility = Visibility.Collapsed;
+            body.Visibility = Visibility.Collapsed;
+            taskbar.Visibility = Visibility.Collapsed;
+            windowParent.Visibility = Visibility.Collapsed;
+            WorkPanel.Visibility = Visibility.Collapsed;
             loading.Visibility = Visibility.Visible;
             loading.Start();
         }
         private void hideLoadingBar()
         {
-            WorkHost.Visibility = Visibility.Visible;
+            gridBottom.Visibility = Visibility.Visible;
+            body.Visibility = Visibility.Visible;
+            taskbar.Visibility = Visibility.Visible;
+            windowParent.Visibility = Visibility.Visible;
+            WorkPanel.Visibility = Visibility.Visible;
             loading.Visibility = Visibility.Collapsed;
             loading.Stop();
         }

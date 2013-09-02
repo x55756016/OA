@@ -14,18 +14,77 @@
              d:DesignHeight="600"
              d:DesignWidth="1000"
              mc:Ignorable="d">
-    <Grid x:Name="Parent" ShowGridLines="true">
+
+    <Grid x:Name="Parent" ShowGridLines="False">
+        <Grid.Background>
+            <SolidColorBrush Color="#9ED9F4"></SolidColorBrush>
+        </Grid.Background>
         <Grid x:Name="grdMain"
               Margin="0,8,8,8"
               ShowGridLines="False">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <!--<Canvas x:Name="windowParent" Grid.RowSpan="1" Margin="6" IsHitTestVisible="True" Visibility="Visible" />-->
-            <Grid x:Name="WorkPanel" >                
-                <Xamls:ParentPanel x:Name="WorkHost" Visibility="Collapsed" /><!--导航区域-->
-            </Grid>            
+            <!--  第一行  -->           
+            <Grid x:Name="body"
+                  Grid.Row="1"
+                  Margin="0"
+                  Background="Transparent">
+                <!--  中间区域  -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="LeftColumn1"
+                            Grid.Column="0"
+                            Width="8"
+                            Visibility="Visible" />                    
+                    <!--  主面板  -->
+                    <Grid Grid.Column="2">
+                        <Border Margin="0"
+                                Background="White"
+                                BorderBrush="White"
+                                BorderThickness="0"
+                                CornerRadius="3" />
+                        <Grid Margin="1" Background="Transparent">
+                            <!--  工作区  -->
+                            <Grid x:Name="WorkPanel">
+                                <part:WebPartHost x:Name="WebPartHost" Visibility="Collapsed" />
+                                <Xamls:ParentPanel x:Name="WorkHost"
+                                                   Background="White"
+                                                   Visibility="Collapsed" />
+                            </Grid>
+                            <!--  bottom  -->
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!--  第二行  -->
+            <Grid x:Name="gridBottom"
+                  Grid.Row="2"
+                  Margin="0,3,0,0"
+                  Canvas.ZIndex="5">
+                <Border Margin="0"
+                        BorderBrush="#2b3c50"
+                        BorderThickness="0,0,0,1"
+                        Canvas.ZIndex="2"
+                        CornerRadius="3,0,0,3" />                
+            </Grid>
             <ld:SMTLoading x:Name="loading" Grid.RowSpan="4" Visibility="Visible"/>
+
         </Grid>
+
+        <Canvas x:Name="windowParent"
+                Grid.RowSpan="4"
+                Margin="6"
+                IsHitTestVisible="True"
+                Visibility="Collapsed" />        
+        <StackPanel x:Name="taskbar"
+                    Grid.RowSpan="4"
+                    Margin="6"
+                    Visibility="Collapsed" />
     </Grid>
 </UserControl>

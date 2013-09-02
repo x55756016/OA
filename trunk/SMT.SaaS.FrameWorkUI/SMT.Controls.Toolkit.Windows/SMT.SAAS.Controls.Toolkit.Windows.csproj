@@ -64,7 +64,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.SAAS.AnimationEngine">
+    <Reference Include="SMT.SAAS.AnimationEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.AnimationEngine.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Utility">

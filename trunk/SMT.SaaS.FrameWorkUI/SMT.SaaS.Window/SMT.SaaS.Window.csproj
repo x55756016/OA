@@ -70,11 +70,19 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SMT.SAAS.Window.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.SAAS.AnimationEngine">
+    <Reference Include="SMT.SAAS.AnimationEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=82f241c0c887c443, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.AnimationEngine.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Extensions">
+    <Reference Include="SMT.SAAS.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=327d0bcc46626938, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
@@ -120,8 +128,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="SMT.SaaS.Window.snk" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
-      <Project>{E0139D17-5B27-42C0-9F44-AA2A693A8442}</Project>
+      <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
       <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>
     </ProjectReference>
   </ItemGroup>

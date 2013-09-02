@@ -89,7 +89,8 @@
             var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>	<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>	<ProcessName>CreateFormFromMVC</ProcessName>	<PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>a096c077-6c54-4548-9ccb-684147956416</ApplicationOrder>	<FormTypes>Edit</FormTypes></System>";
             strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.HRM.UI</AssemblyName><PublicClass>SMT.HRM.UI.Utility</PublicClass><ProcessName>CreateFormFromEngine</ProcessName><PageParameter>SMT.HRM.UI.Form.CompanyForm</PageParameter><ApplicationOrder>41a8a7df-625f-491b-b6c5-55a21ec564bc</ApplicationOrder><FormTypes>Resubmit</FormTypes></System>";
             //t_sys_user sysuserid
-            plugin.content.MvcToSl.OpenModuleWithMVC("", "record", strConfig, strConfig);
+            strConfig = "";
+            plugin.content.MvcToSl.OpenModuleWithMVC("4185C4FC-7FA0-424c-89D3-BA6C63A0D537", "Module", strConfig, strConfig);
         }
 
         function loadCompletedSL(options) {
@@ -109,12 +110,12 @@
     <div id="silverlightControlHost" style="width:100%;">
         <object id="SMTPlatform" data="data:application/x-silverlight-2," type="application/x-silverlight-2"
             width="100%" height="100%" name="SilverlightHost">
-            <param name="source" value="ClientBin/SMT.SAAS.Loading.xap?var=2011071402" />
+            <param name="source" value="ClientBin/SMT.SAAS.Loading.xap?var=2011071403" />
             <param name="onerror" value="onSilverlightError" />
             <param name="background" value="white" />
             <param name="minRuntimeVersion" value="4.0.50917.0" />
             <param name="initparams" 
-            value="p1=10.10.0.12:8080,p2=.New.Services
+            value="p1=10.10.0.93:8030,p2=.New.Services
             ,PhoneDownloadUrl=http://l13g.smtsoft.net/download
             ,IMDownloadUrl=http://smtim.smtsoft.net/download/SMTIM.exe
             ,UpdateVersionUrl=http://l1.smtsoft.net/imprint.html" />

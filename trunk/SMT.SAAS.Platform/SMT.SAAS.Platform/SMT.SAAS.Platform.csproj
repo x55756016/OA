@@ -99,6 +99,7 @@
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.FileUpLoad.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.AnimationEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.AnimationEngine.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Application">
@@ -119,14 +120,8 @@
     <Reference Include="SMT.SAAS.Controls.Toolkit">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SaaS.FrameworkUI">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.Globalization">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Globalization.dll</HintPath>
@@ -152,9 +147,6 @@
     </Reference>
     <Reference Include="SMT.SAAS.Utility">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Utility.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SaaS.Window">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.Composition.Initialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -422,9 +414,21 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
+      <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
+      <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
+      <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>
+      <Name>SMT.SAAS.FrameworkUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
       <Project>{4B5991D6-D3C6-4BCF-B788-95AFC5323523}</Project>
       <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.Window\SMT.SaaS.Window.csproj">
+      <Project>{15406e6e-a265-4be9-afb3-e45433e7252c}</Project>
+      <Name>SMT.SaaS.Window</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.Application\SMT.SAAS.Platform.Application.csproj">
       <Project>{B81C7425-5713-4CEA-A5B3-0F010C132984}</Project>

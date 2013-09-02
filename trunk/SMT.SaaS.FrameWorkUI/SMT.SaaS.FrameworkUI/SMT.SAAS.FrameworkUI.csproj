@@ -90,9 +90,6 @@
     <Reference Include="SMT.SAAS.ClientUtility">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
     </Reference>
@@ -105,8 +102,9 @@
     <Reference Include="SMT.SAAS.Main.CurrentContext">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.Window, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
+    <Reference Include="SMT.Saas.Tools, Version=1.1.1.1220, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.Composition.Initialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -1133,13 +1131,17 @@
     <Resource Include="Images\jxc\需方信息.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
-      <Project>{9484C541-B0A2-437A-8C6F-0BFD7E13934E}</Project>
-      <Name>SMT.Saas.Tools</Name>
-    </ProjectReference>
+    <Resource Include="FileUpload\Img\tick.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="FileUpload\Img\tick.png" />
+    <ProjectReference Include="..\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
+      <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
+      <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.SaaS.Window\SMT.SaaS.Window.csproj">
+      <Project>{15406e6e-a265-4be9-afb3-e45433e7252c}</Project>
+      <Name>SMT.SaaS.Window</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
