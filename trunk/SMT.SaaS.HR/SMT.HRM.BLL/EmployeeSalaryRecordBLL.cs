@@ -1465,61 +1465,98 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="postid"></param>
         /// <returns></returns>
-        private void GenerateLeftOfficeEmployeeSalary(string leftemployeeid, string strBalanceEmployeeID,string GenerateEmployeePostid, int year, int month,string strCompanyid)
+        private void GenerateLeftOfficeEmployeeSalary(string leftemployeeid, string strBalanceEmployeeID, string GenerateEmployeePostid, int year, int month, string GenerateCompanyid)
         {
-            var emp = (from ent in dal.GetObjects<T_HR_EMPLOYEE>()
+            try
+            {
+                var emp = (from ent in dal.GetObjects<T_HR_EMPLOYEE>()
                            where ent.EMPLOYEEID == leftemployeeid
                            select ent).FirstOrDefault();
-            Tracer.Debug("开始结算离职人员薪资，结算年月："+year+"-"+month+"：员工id：" + leftemployeeid + "，员工姓名：" + emp.EMPLOYEECNAME + " 员工状态(2为已离职)：" + emp.EMPLOYEESTATE);
-            //查询在职的结算岗位为指定岗位的员工及员工薪资档案
-            var q = from employee in dal.GetObjects<T_HR_EMPLOYEE>().Include("T_HR_SALARYARCHIVE")
-                    join salaryAhive in dal.GetTable<T_HR_SALARYARCHIVE>()
-                        on employee.EMPLOYEEID equals salaryAhive.EMPLOYEEID
-                    where salaryAhive.OWNERID == leftemployeeid 
-                    && salaryAhive.CHECKSTATE == "2"
-                    && employee.EMPLOYEESTATE == "2"//已离职
-                    && salaryAhive.PAYCOMPANY == strCompanyid
-                    && salaryAhive.OTHERSUBJOIN <= year
-                    && (salaryAhive.OTHERSUBJOIN < year
-                    || (salaryAhive.OTHERSUBJOIN == year
-                    && salaryAhive.OTHERADDDEDUCT <= month))
-                    select salaryAhive;
-
-            if (q.Count() > 0)
-            {
-                Tracer.Debug("获取离职员工： " + leftemployeeid + " 上的员工薪资档案，共 " + q.Count().ToString() + "条");
-
-                List<T_HR_SALARYARCHIVE> salarylist = q.ToList();
-                var employees = (from ent in salarylist
-                                 select new { ent.EMPLOYEEID, ent.EMPLOYEENAME }).Distinct().ToList();
-                int i = 1;
-                foreach (var employee in employees)
+                Tracer.Debug("开始结算离职人员薪资，结算年月：" + year + "-" + month + "：员工id：" + leftemployeeid + "，员工姓名：" + emp.EMPLOYEECNAME + " 员工状态(2为已离职)：" + emp.EMPLOYEESTATE);
+                //查询在职的结算岗位为指定岗位的员工及员工薪资档案
+                //找出最新一条离职确认记录并通过离职的岗位找到所属公司。
+                var leftConfimList = (from ent in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>()
+                                  where ent.EMPLOYEEID == leftemployeeid
+                                  select ent).ToList();//.OrderByDescending(c=>c.STOPPAYMENTDATE).FirstOrDefault();
+                var leftConfim = (from item in leftConfimList
+                                  orderby item.STOPPAYMENTDATE descending
+                                  select item).FirstOrDefault();
+                if (leftConfim == null)
                 {
-                    try
+                    Tracer.Debug("员工离职信息为空，跳过结算薪资" + "，员工姓名：" + emp.EMPLOYEECNAME);
+                    return;
+                }
+                //只有当月离职或上月离职可结算出结果
+                if (leftConfim.STOPPAYMENTDATE.Value <= new DateTime(DateTime.Now.Year,DateTime.Now.Month-1,1))
+                {
+                    Tracer.Debug("结算离职薪资，非当月或上月离职员工，跳过结算薪资" + "，员工姓名：" 
+                        + emp.EMPLOYEECNAME
+                        + " 离职日期：" + leftConfim.STOPPAYMENTDATE.Value.ToString("yyyy-MM-dd"));
+                    return;
+                }
+                var lastCompanyid = (from ent in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_POST")
+                                     where ent.EMPLOYEEPOSTID == leftConfim.EMPLOYEEPOSTID
+                                     select ent.T_HR_POST.COMPANYID).FirstOrDefault();
+                if (string.IsNullOrEmpty(lastCompanyid))
+                {
+                    Tracer.Debug("结算离职薪资，离职公司id为空，跳过结算薪资" + "，员工姓名：" + emp.EMPLOYEECNAME);
+                    return;
+                }
+                //获取离职公司的最后一条薪资记录
+                var q = from employee in dal.GetObjects<T_HR_EMPLOYEE>().Include("T_HR_SALARYARCHIVE")
+                        join salaryAhive in dal.GetTable<T_HR_SALARYARCHIVE>()
+                            on employee.EMPLOYEEID equals salaryAhive.EMPLOYEEID
+                        where salaryAhive.OWNERID == leftemployeeid
+                        && salaryAhive.CHECKSTATE == "2"
+                        //&& employee.EMPLOYEESTATE == "2"//已离职
+                        && salaryAhive.OWNERCOMPANYID == lastCompanyid
+                        && salaryAhive.OTHERSUBJOIN <= year
+                        && (salaryAhive.OTHERSUBJOIN < year
+                        || (salaryAhive.OTHERSUBJOIN == year
+                        && salaryAhive.OTHERADDDEDUCT <= month))
+                        select salaryAhive;
+
+                if (q.Count() > 0)
+                {
+                    Tracer.Debug("获取离职员工： " + leftemployeeid + " 上的员工薪资档案，共 " + q.Count().ToString() + "条");
+
+                    List<T_HR_SALARYARCHIVE> salarylist = q.ToList();
+                    var employees = (from ent in salarylist
+                                     select new { ent.EMPLOYEEID, ent.EMPLOYEENAME }).Distinct().ToList();
+                    int i = 1;
+                    foreach (var employee in employees)
                     {
-                        T_HR_SALARYARCHIVE salaryArchive
-                            = salarylist.Where(c => c.EMPLOYEEID == employee.EMPLOYEEID).OrderByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT).ThenByDescending(s => s.CREATEDATE).FirstOrDefault();
-                        if (!string.IsNullOrEmpty(salaryArchive.BALANCEPOSTID))
+                        try
                         {
-                            if (salaryArchive.BALANCEPOSTID != GenerateEmployeePostid)
+                            T_HR_SALARYARCHIVE salaryArchive
+                                = salarylist.Where(c => c.EMPLOYEEID == employee.EMPLOYEEID).OrderByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT).ThenByDescending(s => s.CREATEDATE).FirstOrDefault();
+                            if (!string.IsNullOrEmpty(salaryArchive.BALANCEPOSTID))
                             {
-                                Tracer.Debug("结算离职员工薪资，该员工被跳过，因为该员工的薪资档案设置的结算岗位跟结算人的主岗位不符," + "员工姓名：" + employee.EMPLOYEENAME + ",员工id：" + employee.EMPLOYEEID + " 发薪机构id" + strCompanyid);
-                                continue;
+                                if (salaryArchive.BALANCEPOSTID != GenerateEmployeePostid)
+                                {
+                                    Tracer.Debug("结算离职员工薪资，该员工被跳过，因为该员工的薪资档案设置的结算岗位跟结算人的主岗位不符," + "员工姓名：" 
+                                        + employee.EMPLOYEENAME + ",员工id：" + employee.EMPLOYEEID + " 发薪机构id" + GenerateCompanyid);
+                                    continue;
+                                }
                             }
+                            GenerateEmployeeSalary(i, salaryArchive, strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), GenerateCompanyid);
+                            i++;
                         }
-                        GenerateEmployeeSalary(i, salaryArchive, strBalanceEmployeeID, employee.EMPLOYEEID, year.ToString(), month.ToString(), strCompanyid);
-                        i++;
-                    }
-                    catch (Exception ex)
-                    {
-                        Tracer.Debug("结算离职员工薪资异常,员工id" + employee + " 异常原因：" + ex.ToString());
-                        continue;
+                        catch (Exception ex)
+                        {
+                            Tracer.Debug("结算离职员工薪资异常,员工id" + employee + " 异常原因：" + ex.ToString());
+                            continue;
+                        }
                     }
                 }
+                else
+                {
+                    Tracer.Debug("开始结算离职人员薪资：员工id：" + leftemployeeid + "未获取到薪资档案，跳过，发薪机构：" + GenerateCompanyid);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Tracer.Debug("开始结算离职人员薪资：员工id：" + leftemployeeid + "未获取到薪资档案，跳过，发薪机构：" + strCompanyid);
+                Tracer.Debug(ex.ToString());
             }
         }
         
