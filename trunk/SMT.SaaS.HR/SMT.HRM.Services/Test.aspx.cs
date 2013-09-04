@@ -31,11 +31,29 @@ namespace SMT.HRM.Services
             //XElement.Parse(xml);
             //eg.CallWaitAppService(xml);
 
-            using (AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL())
+            using (AttendanceRecordBLL bll = new AttendanceRecordBLL())
             {
-                bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("1", "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716", "2013-09");
+                DateTime dtstart=new DateTime(2013,09,01);
+                DateTime dtend = dtstart.AddMonths(1).AddDays(-1);
+                string smtmsg
+                    = bll.CompulsoryInitialization("0", "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716", dtstart, dtend);
+
+                //return smtmsg;
             }
-            return;
+
+            //using (AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL())
+            //{
+            //    //bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("1", "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716", "2013-09");     
+            //    bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", "24a358f9-8539-4faa-aee6-d5cbc8ea450d", "2013-09");
+            //}
+            //return;
+
+            ////初始化集团打卡记录
+            //using (AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL())
+            //{
+            //    bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("1", "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716", "2013-09");     
+            //    //bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", "24a358f9-8539-4faa-aee6-d5cbc8ea450d", "2013-09");
+            //}
 
             using (ClockInRecordBLL bllClockInRecord = new ClockInRecordBLL())
             {
