@@ -1376,35 +1376,55 @@ namespace SMT.HRM.BLL
 
                 if (strOrgType == (Convert.ToInt32(Common.AssignedObjectType.Company) + 1).ToString())
                 {
-                    var ents = from n in dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION")
-                               where n.OWNERCOMPANYID == strOrgId && n.CHECKSTATE == strCheckStates && n.ENDDATE > dtAsignDate
-                               orderby n.ASSIGNEDOBJECTTYPE ascending
-                               select n;
+                    //var ents = from n in dal.GetObjects().Include("T_HR_ATTENDANCESOLUTION")
+                    //           where n.OWNERCOMPANYID == strOrgId && n.CHECKSTATE == strCheckStates && n.ENDDATE > dtAsignDate
+                    //           orderby n.ASSIGNEDOBJECTTYPE ascending
+                    //           select n;
 
-                    List<T_HR_ATTENDANCESOLUTIONASIGN> entList = ents.ToList();
-                    var comps = entList.Where(c => c.ASSIGNEDOBJECTTYPE == "1").OrderBy(c => c.UPDATEDATE);
-                    var deps = entList.Where(c => c.ASSIGNEDOBJECTTYPE == "2").OrderBy(c => c.UPDATEDATE);
-                    var poss = entList.Where(c => c.ASSIGNEDOBJECTTYPE == "3").OrderBy(c => c.UPDATEDATE);
-                    var pers = entList.Where(c => c.ASSIGNEDOBJECTTYPE == "4").OrderBy(c => c.UPDATEDATE);
+                    //List<T_HR_ATTENDANCESOLUTIONASIGN> entList = ents.ToList();
+                    //var comps = entList.Where(c => c.ASSIGNEDOBJECTTYPE == "1").OrderBy(c => c.UPDATEDATE);
+                    //var deps = entList.Where(c => c.ASSIGNEDOBJECTTYPE == "2").OrderBy(c => c.UPDATEDATE);
+                    //var poss = entList.Where(c => c.ASSIGNEDOBJECTTYPE == "3").OrderBy(c => c.UPDATEDATE);
+                    //var pers = entList.Where(c => c.ASSIGNEDOBJECTTYPE == "4").OrderBy(c => c.UPDATEDATE);
 
-                    foreach (T_HR_ATTENDANCESOLUTIONASIGN item in comps)
+                    //foreach (T_HR_ATTENDANCESOLUTIONASIGN item in comps)
+                    //{
+                    //    AsignAttendanceSolution(item, dtAsignDate);
+                    //}
+
+                    //foreach (T_HR_ATTENDANCESOLUTIONASIGN item in deps)
+                    //{
+                    //    AsignAttendanceSolution(item, dtAsignDate);
+                    //}
+
+                    //foreach (T_HR_ATTENDANCESOLUTIONASIGN item in poss)
+                    //{
+                    //    AsignAttendanceSolution(item, dtAsignDate);
+                    //}
+
+                    //foreach (T_HR_ATTENDANCESOLUTIONASIGN item in pers)
+                    //{
+                    //    AsignAttendanceSolution(item, dtAsignDate);
+                    //}
+                    var employees = from ent in dal.GetObjects<T_HR_EMPLOYEE>()
+                                    join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on ent.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
+                                    join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
+                                    where ep.ISAGENCY == "0"//主岗位
+                                    && ep.EDITSTATE == "1"//生效中
+                                    && ep.CHECKSTATE == strCheckStates//审核通过
+                                    && p.COMPANYID == strOrgId
+                                    select ent;
+
+                    if (employees.Count() > 0)
                     {
-                        AsignAttendanceSolution(item, dtAsignDate);
+                        foreach (var emp in employees)
+                        {
+                            AsignAttendanceSolutionForEmployeeByDate(emp, dtAsignDate);
+                        }
                     }
-
-                    foreach (T_HR_ATTENDANCESOLUTIONASIGN item in deps)
+                    else
                     {
-                        AsignAttendanceSolution(item, dtAsignDate);
-                    }
-
-                    foreach (T_HR_ATTENDANCESOLUTIONASIGN item in poss)
-                    {
-                        AsignAttendanceSolution(item, dtAsignDate);
-                    }
-
-                    foreach (T_HR_ATTENDANCESOLUTIONASIGN item in pers)
-                    {
-                        AsignAttendanceSolution(item, dtAsignDate);
+                        Tracer.Debug("通过公司生成考勤初始化记录失败，获取的员工数为0，公司di：" + strOrgId);
                     }
                     string str=" 考勤初始化执行完毕";
                     Tracer.Debug(strMessage+str);
@@ -1520,7 +1540,7 @@ namespace SMT.HRM.BLL
                         {
                             AttendNoCheck = true;
                             //return "初始化员工考勤记录被跳过,考勤方案设置为不考勤，员工姓名："
-                            //    + entEmployees.FirstOrDefault().EMPLOYEEENAME
+                            //    + entEmployees.FirstOrDefault().EMPLOYEECNAME
                             //    + " 考勤方案名：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME;
                         }
                         #endregion
@@ -1530,25 +1550,26 @@ namespace SMT.HRM.BLL
 
                         if (dtInitAttandRecordStartDate >= dtInitAttandRecordEndDate)
                         {
-                            Tracer.Debug("初始化员工考勤记录被跳过，dtInitAttandRecordStartDate >= dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                            Tracer.Debug("初始化员工考勤记录被跳过，dtInitAttandRecordStartDate >= dtEnd" + "，员工姓名" + item_emp.EMPLOYEECNAME);
                             continue;
                         }
                         #endregion
 
                         #region 判断员工状态，是否有入职记录，是否已离职,入职，离职日期
-                        Tracer.Debug("初始化员工考勤记录：员工状态：" + item_emp.EMPLOYEESTATE + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                        Tracer.Debug("初始化员工考勤记录：员工状态：" + item_emp.EMPLOYEESTATE + "，员工姓名" + item_emp.EMPLOYEECNAME
+                            + ",使用的考勤方案：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME);
                         if (item_emp.EMPLOYEESTATE == "0")
                         {
                             T_HR_EMPLOYEEENTRY entEntry = bllEntry.GetEmployeeEntryByEmployeeID(item_emp.EMPLOYEEID);
                             if (entEntry == null)
                             {
-                                Tracer.Debug("初始化员工考勤记录被跳过,该员工入职为空" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过,该员工入职为空" + "，员工姓名" + item_emp.EMPLOYEECNAME);
                                 continue;
                             }
 
                             if (entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate && entEntry.ONPOSTDATE.Value < dtInitAttandRecordEndDate)
                             {
-                                Tracer.Debug("初始化员工考勤记录开始日期被修改：entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate" + "，员工姓名" + item_emp.EMPLOYEEENAME
+                                Tracer.Debug("初始化员工考勤记录开始日期被修改：entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate" + "，员工姓名" + item_emp.EMPLOYEECNAME
                                   + " 入职日期：" + entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
                                   + " 到岗日期：" + entEntry.ONPOSTDATE.Value.ToString("yyyy-MM-dd"));
                                 dtInitAttandRecordStartDate = entEntry.ONPOSTDATE.Value;
@@ -1556,7 +1577,7 @@ namespace SMT.HRM.BLL
 
                             if (entEntry.ONPOSTDATE.Value > dtInitAttandRecordEndDate)
                             {
-                                Tracer.Debug("初始化员工考勤记录被跳过：entEntry.ONPOSTDATE.Value > dtEnd" + "，员工姓名" + item_emp.EMPLOYEEENAME
+                                Tracer.Debug("初始化员工考勤记录被跳过：entEntry.ONPOSTDATE.Value > dtEnd" + "，员工姓名" + item_emp.EMPLOYEECNAME
                                     +" 入职日期："+entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
                                     + " 到岗日期：" + entEntry.ONPOSTDATE.Value.ToString("yyyy-MM-dd"));
                                 continue;
@@ -1567,13 +1588,13 @@ namespace SMT.HRM.BLL
                             T_HR_EMPLOYEEENTRY entEntry = bllEntry.GetEmployeeEntryByEmployeeID(item_emp.EMPLOYEEID);
                             if (entEntry == null)
                             {
-                                Tracer.Debug("该员工入职为空" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("该员工入职为空" + "，员工姓名" + item_emp.EMPLOYEECNAME);
                                 continue;
                             }
 
                             if (entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate && entEntry.ONPOSTDATE.Value < dtInitAttandRecordEndDate)
                             {
-                                Tracer.Debug("初始化员工考勤记录开始日期被修改：entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate" + "，员工姓名" + item_emp.EMPLOYEEENAME
+                                Tracer.Debug("初始化员工考勤记录开始日期被修改：entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate" + "，员工姓名" + item_emp.EMPLOYEECNAME
                                     + " 入职日期：" + entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
                                     + " 到岗日期：" + entEntry.ONPOSTDATE.Value.ToString("yyyy-MM-dd"));
                                 dtInitAttandRecordStartDate = entEntry.ONPOSTDATE.Value;
@@ -1581,7 +1602,7 @@ namespace SMT.HRM.BLL
 
                             if (entEntry.ENTRYDATE.Value > dtInitAttandRecordEndDate)
                             {
-                                Tracer.Debug("初始化员工考勤记录被跳过,员工入职日期大于本月最后一天" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过,员工入职日期大于本月最后一天" + "，员工姓名" + item_emp.EMPLOYEECNAME);
                                 continue;
                             }
                         }
@@ -1590,7 +1611,7 @@ namespace SMT.HRM.BLL
                             T_HR_LEFTOFFICECONFIRM entConfirm = bllConfirm.GetLeftOfficeConfirmByEmployeeId(item_emp.EMPLOYEEID);
                             if (entConfirm.STOPPAYMENTDATE !=null && entConfirm.STOPPAYMENTDATE.Value < dtStart)
                             {
-                                Tracer.Debug("初始化员工考勤记录被跳过,entConfirm.STOPPAYMENTDATE !=null && entConfirm.STOPPAYMENTDATE.Value < dtStart" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过,entConfirm.STOPPAYMENTDATE !=null && entConfirm.STOPPAYMENTDATE.Value < dtStart" + "，员工姓名" + item_emp.EMPLOYEECNAME);
                                 continue;
                             }
 
@@ -1601,7 +1622,7 @@ namespace SMT.HRM.BLL
 
                             if (entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value < dtStart)
                             {
-                                Tracer.Debug("初始化员工考勤记录被跳过,entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value < dtStart" + "，员工姓名" + item_emp.EMPLOYEEENAME);
+                                Tracer.Debug("初始化员工考勤记录被跳过,entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value < dtStart" + "，员工姓名" + item_emp.EMPLOYEECNAME);
                                 continue;
                             }
                         }
@@ -1687,7 +1708,7 @@ namespace SMT.HRM.BLL
                                     T_HR_ATTENDANCERECORD entUpdate = qc.FirstOrDefault();
                                     if (entUpdate == null)
                                     {
-                                        Tracer.Debug("开始新增员工T_HR_ATTENDANCERECORD记录,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEEENAME);
+                                        Tracer.Debug("开始新增员工T_HR_ATTENDANCERECORD记录,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEECNAME);
                                         T_HR_ATTENDANCERECORD entAttRd = new T_HR_ATTENDANCERECORD();
                                         entAttRd.ATTENDANCERECORDID = System.Guid.NewGuid().ToString().ToUpper();
                                         entAttRd.ATTENDANCESOLUTIONID = entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID;
@@ -1738,15 +1759,18 @@ namespace SMT.HRM.BLL
                                     }
                                     else
                                     {
-                                        Tracer.Debug("初始化考勤记录已存在，跳过，" + " 员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd"));
-                                        continue;//如果存在直接跳过
-
-                                        if (!string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
+                                        if (AttendNoCheck)
                                         {
-                                            Tracer.Debug("更新考勤初始化记录，ATTENDANCESTATE考勤状态不为空，跳过，" + "，员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd"));
-                                            continue;
+                                            entUpdate.ATTENDANCESTATE = "1";//免打卡员工
                                         }
-                                        Tracer.Debug("更新考勤初始化记录，ATTENDANCESTATE考勤状态为空,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEEENAME);
+                                        else
+                                        {   //非免打卡员工，跳过
+                                            Tracer.Debug("初始化考勤记录已存在且已修改状态，跳过，" + " 员工姓名" + item_emp.EMPLOYEECNAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd"));
+                                            continue;//如果存在直接跳过
+
+                                        }                                    
+                                        Tracer.Debug("更新考勤初始化记录，ATTENDANCESTATE考勤状态为空,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEECNAME
+                                            + "，初始化考勤状态：" + entUpdate.ATTENDANCESTATE);
                                         entUpdate.ATTENDANCESOLUTIONID = entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID;
                                         entUpdate.EMPLOYEEID = item_emp.EMPLOYEEID;
                                         entUpdate.EMPLOYEECODE = item_emp.EMPLOYEECODE;
@@ -1916,12 +1940,12 @@ namespace SMT.HRM.BLL
                     entAttRd.CREATEPOSTID = entTemp.CREATEPOSTID;
                     if (AttendNoCheck) entAttRd.ATTENDANCESTATE = "1";//免打卡员工
                     dal.Add(entAttRd);
-                    Tracer.Debug("初始化设置的例外工作日考勤记录新增记录，" + " 员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + dtCurDate.ToString("yyyy-MM-dd"));
+                    Tracer.Debug("初始化设置的例外工作日考勤记录新增记录，" + " 员工姓名" + item_emp.EMPLOYEECNAME + " 考勤初始化日期：" + dtCurDate.ToString("yyyy-MM-dd"));
                     
                 }
                 else
                 {
-                    Tracer.Debug("初始化设置的例外工作日考勤记录已存在，跳过，" + " 员工姓名" + item_emp.EMPLOYEEENAME + " 考勤初始化日期：" + dtCurDate.ToString("yyyy-MM-dd"));
+                    Tracer.Debug("初始化设置的例外工作日考勤记录已存在，跳过，" + " 员工姓名" + item_emp.EMPLOYEECNAME + " 考勤初始化日期：" + dtCurDate.ToString("yyyy-MM-dd"));
                     continue;//如果存在直接跳过
                     if (!string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
                     {

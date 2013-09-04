@@ -31,6 +31,12 @@ namespace SMT.HRM.Services
             //XElement.Parse(xml);
             //eg.CallWaitAppService(xml);
 
+            using (AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL())
+            {
+                bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("1", "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716", "2013-09");
+            }
+            return;
+
             using (ClockInRecordBLL bllClockInRecord = new ClockInRecordBLL())
             {
                 EmployeeBLL bll = new EmployeeBLL();

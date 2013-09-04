@@ -1664,7 +1664,8 @@ namespace SMT.HRM.BLL
                           {
                               EMPLOYEEENAME = b.EMPLOYEECNAME,
                               EMPLOYEEID = b.EMPLOYEEID,
-                              CompanyID = c.OWNERCOMPANYID
+                              CompanyID = c.OWNERCOMPANYID,
+                              EMPLOYEECNAME = b.EMPLOYEECNAME
 
                           };
             if (emplist.Count() <= 0) return 0;
@@ -1675,18 +1676,18 @@ namespace SMT.HRM.BLL
                 {
                     if (!checkEmployeeHaveMainPostInCompany(emp.EMPLOYEEID, emp.CompanyID))
                     {
-                        Tracer.Debug("根据组织架构结算员工薪资，该员工被跳过，因为该员工在结算人所在的公司没有生效的主岗位,," + "员工姓名：" + emp.EMPLOYEEENAME + ",员工id：" + emp.EMPLOYEEID + " 公司id" + emp.CompanyID);
+                        Tracer.Debug("根据组织架构结算员工薪资，该员工被跳过，因为该员工在结算人所在的公司没有生效的主岗位," + "员工姓名：" + emp.EMPLOYEECNAME + ",员工id：" + emp.EMPLOYEEID + " 公司id" + emp.CompanyID);
                         continue;
                     }
                     T_HR_SALARYARCHIVE salaryArchive = GetEmployeeAcitiveSalaryArchive(emp.EMPLOYEEID, GenerateEmployeePostid,emp.CompanyID, int.Parse(year), int.Parse(month));
                     if (salaryArchive != null)
                     {
                         DateTime startTime = DateTime.Now;
-                        SMT.Foundation.Log.Tracer.Debug("根据岗位开始生成员工" + emp.EMPLOYEEENAME + "薪资------------------------------------------");
+                        SMT.Foundation.Log.Tracer.Debug("根据岗位开始生成员工" + emp.EMPLOYEECNAME + "薪资------------------------------------------");
                         result += GenerateEmployeeSalary(i,salaryArchive, strBalanceEmployeeID, emp.EMPLOYEEID, year, month, emp.CompanyID);
                         i++;
                         DateTime endTime = DateTime.Now;
-                        SMT.Foundation.Log.Tracer.Debug("根据岗位结束生成员工" + emp.EMPLOYEEENAME + "薪资------------------------------------------" + "耗时：" + (endTime - startTime).TotalSeconds + "秒");
+                        SMT.Foundation.Log.Tracer.Debug("根据岗位结束生成员工" + emp.EMPLOYEECNAME + "薪资------------------------------------------" + "耗时：" + (endTime - startTime).TotalSeconds + "秒");
 
                         
                     }

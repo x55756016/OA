@@ -129,7 +129,8 @@ namespace SMT.SaaS.FrameworkUI
 
         private void Item_MouseEnter(object sender, MouseEventArgs e)
         {
-            Item.Background = Application.Current.Resources["CommonStyleYellow"] as Brush;
+            //Item.Background = Application.Current.Resources["CommonStyleYellow"] as Brush;
+            Item.Background = new SolidColorBrush(Colors.Yellow);
             ItemBorder.BorderThickness = new Thickness(1);
         }
 
