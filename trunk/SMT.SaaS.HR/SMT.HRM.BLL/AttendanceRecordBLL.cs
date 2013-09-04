@@ -671,49 +671,75 @@ namespace SMT.HRM.BLL
             string strMsg = string.Empty;
             try
             {
-                List<T_HR_EMPLOYEE> employees = new List<T_HR_EMPLOYEE>();
+                //List<T_HR_EMPLOYEE> employees = new List<T_HR_EMPLOYEE>();
                 EmployeeBLL empbll = new EmployeeBLL();
                 AttendanceSolutionAsignBLL bll = new AttendanceSolutionAsignBLL();
 
                 switch (objType)
                 {
                     case "0":
-                        employees = empbll.GetEmployeeByCompanyID(objId).ToList();
+                        var employees = from ent in dal.GetObjects<T_HR_EMPLOYEE>()
+                                        join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on ent.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
+                                        join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
+                                        where ep.ISAGENCY == "0"//主岗位
+                                        && ep.EDITSTATE == "1"//生效中
+                                        && ep.CHECKSTATE == "2"//审核通过
+                                        && p.COMPANYID == objId
+                                        select ent;
+
+                        if (employees.Count() > 0)
+                        {
+                            foreach (var emp in employees)
+                            {
+                                T_HR_ATTENDANCESOLUTIONASIGN entAttendanceSolution = bll.GetAttendanceSolutionAsignByEmployeeIDAndDate(emp.EMPLOYEEID, dtStar);
+
+                                if (entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//考勤方案设置为不考勤
+                                {
+                                    Tracer.Debug("开始强制删除考勤初始化记录，员工姓名：" + emp.EMPLOYEECNAME + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME
+                                        + ",考勤打卡设置为：" + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE);
+                                }
+                                else
+                                {
+                                    Tracer.Debug("员工处理被跳过，需要打卡，员工姓名：" + emp.EMPLOYEECNAME + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME
+                                          + ",考勤打卡设置为：" + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE);
+                               
+                                    continue;
+                                }
+                                strMsg = "开始强制删除考勤初始化记录，员工姓名：" + emp.EMPLOYEECNAME;
+                                var q = from ent in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+                                        where ent.EMPLOYEEID == emp.EMPLOYEEID
+                                        && ent.ATTENDANCEDATE >= dtStar
+                                        && ent.ATTENDANCEDATE <= dtEnd
+                                        select ent;
+                                if (q.Count() > 0)
+                                {
+                                    List<T_HR_ATTENDANCERECORD> attlist = q.ToList();
+                                    RemoveWrongSignRds(attlist);
+                                    foreach (var att in attlist)
+                                    {
+                                        dal.Delete(att);
+                                        strMsg += "强制删除考勤初始化记录,员工姓名：" + att.EMPLOYEENAME
+                                            + " 考勤日期：" + att.ATTENDANCEDATE.ToString()
+                                            + " 考勤状态：" + att.ATTENDANCESTATE;
+
+                                        Tracer.Debug("强制删除考勤初始化记录,员工姓名：" + att.EMPLOYEENAME
+                                            + " 考勤日期：" + att.ATTENDANCEDATE.ToString()
+                                            + " 考勤状态：" + att.ATTENDANCESTATE);
+                                    }
+                                }
+
+                                bll.AsignAttendanceSolutionForEmployeeByDate(emp, dtStar);
+                                strMsg += "强制删除考勤初始化记录，初始化考勤记录成功！,员工姓名：" + emp.EMPLOYEECNAME;
+                                Tracer.Debug("强制删除考勤初始化记录，初始化考勤记录成功！,员工姓名：" + emp.EMPLOYEECNAME);
+                            }
+                        };
                         break;
                     case "4":
-                        employees.Add(empbll.GetEmployeeByID(objId));
+                        //employees.Add(empbll.GetEmployeeByID(objId));
                         break;
                 }
 
-                foreach (var emp in employees)
-                {
-                    strMsg ="开始强制删除考勤初始化记录，员工姓名："+ emp.EMPLOYEECNAME;
-                    var q = from ent in dal.GetObjects<T_HR_ATTENDANCERECORD>()
-                            where ent.EMPLOYEEID == emp.EMPLOYEEID
-                            && ent.ATTENDANCEDATE >= dtStar
-                            && ent.ATTENDANCEDATE <= dtEnd
-                            select ent;
-                    if (q.Count() > 0)
-                    {
-                        List<T_HR_ATTENDANCERECORD> attlist = q.ToList();
-                        RemoveWrongSignRds(attlist);
-                        foreach (var att in attlist)
-                        {
-                            dal.Delete(att);
-                            strMsg += "强制删除考勤初始化记录,员工姓名：" + att.EMPLOYEENAME
-                                + " 考勤日期：" + att.ATTENDANCEDATE.ToString()
-                                + " 考勤状态：" + att.ATTENDANCESTATE;
 
-                            Tracer.Debug("强制删除考勤初始化记录,员工姓名："+att.EMPLOYEENAME
-                                +" 考勤日期："+att.ATTENDANCEDATE.ToString()
-                                +" 考勤状态："+att.ATTENDANCESTATE);
-                        }
-                    }
-
-                    bll.AsignAttendanceSolutionForEmployeeByDate(emp, dtStar);
-                    strMsg += "强制删除考勤初始化记录，初始化考勤记录成功！,员工姓名：" + emp.EMPLOYEECNAME;
-                    Tracer.Debug("强制删除考勤初始化记录，初始化考勤记录成功！,员工姓名：" + emp.EMPLOYEECNAME);
-                }
             }
             catch (Exception ex)
             {

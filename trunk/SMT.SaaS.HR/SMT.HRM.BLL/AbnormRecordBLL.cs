@@ -553,14 +553,16 @@ namespace SMT.HRM.BLL
                 IQueryable<T_HR_ATTENDANCERECORD> entAttRds 
                     = bllAttendanceRecord.GetAttendanceRecordByEmployeeIDAndDate(entEmployee.OWNERCOMPANYID
                     , strEmployeeID, dtStart, dtEnd);
+
+                string dealType = "检查异常考勤，员工姓名：" + entEmployee.EMPLOYEECNAME;
                 //如果没有找到考勤初始化记录，初始考勤一次。
                 if (entAttRds.Count() == 0)
                 {
-                    string dealType = "检查异常考勤";
                     try
                     {                       
                         string dtInit = dtStart.Year.ToString() + "-" + dtStart.Month.ToString();
-                        Tracer.Debug(dealType + " 没有查到考勤初始化数据，开始初始化员工考勤：" + dtInit);
+                        Tracer.Debug(dealType + dtStart.ToString("yyyy-MM-dd") +" 至 "+ dtEnd.ToString("yyyy-MM-dd")
+                            +" 没有查到考勤初始化数据，开始初始化员工考勤：" + dtInit);
                         AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL();
                         //初始化该员工当月考勤记录
                         bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", entEmployee.EMPLOYEEID
@@ -584,7 +586,14 @@ namespace SMT.HRM.BLL
                     Tracer.Debug("导入打卡记录没有找到初始化考勤记录，未修改考勤初始化记录状态。");
                     continue;
                 }
-
+                AttendanceSolutionAsignBLL asbll = new AttendanceSolutionAsignBLL();
+                T_HR_ATTENDANCESOLUTIONASIGN entAttendanceSolution = asbll.GetAttendanceSolutionAsignByEmployeeIDAndDate(entEmployee.EMPLOYEEID, dtStart);
+                if (entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//考勤方案设置为不考勤
+                {
+                    Tracer.Debug(dealType + ",被跳过，该员工使用的考勤方案为免打卡方案，考勤方案名："
+                        +entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME);
+                    continue;
+                }
                 //查询打卡记录
                 string strSortKey = "PUNCHDATE";
                 ClockInRecordBLL bllClockInRecord = new ClockInRecordBLL();
@@ -678,6 +687,7 @@ namespace SMT.HRM.BLL
                 {
                     //获取对应的考勤方案
                     T_HR_ATTENDANCESOLUTION entAttSol = bllAttSol.GetAttendanceSolutionByID(item.ATTENDANCESOLUTIONID);
+
                     if (entAttSol == null)
                     {
                         continue;
@@ -1378,11 +1388,13 @@ namespace SMT.HRM.BLL
             //GetAbnormRecordRdListByEmpIdAndDate(strEmployeeId, strAbnormCategory, strSignState, dtStart, dtEnd, strOrderKey);
             if (entAbnormRecords == null)
             {
+                Tracer.Debug(entEmployeeDetail.EMPLOYEENAME + " 未找到未签卡的漏打卡考勤异常记录,不再生成签卡记录及待办任务。");
                 return;
             }
 
             if (entAbnormRecords.Count() == 0)
             {
+                Tracer.Debug(entEmployeeDetail.EMPLOYEENAME + " 未找到未签卡的漏打卡考勤异常记录,不再生成签卡记录及待办任务。");
                 return;
             }
 
@@ -1402,7 +1414,7 @@ namespace SMT.HRM.BLL
             //全部异常都已生成签卡明细，返回
             if (!needCreateSignInRecord)
             {
-                Tracer.Debug(entEmployeeDetail.EMPLOYEENAME + " 所有异常都已生成签卡。");
+                Tracer.Debug(entEmployeeDetail.EMPLOYEENAME + " 所有异常都已生成签卡,不再生成待办任务。");
                 return;
             }
             

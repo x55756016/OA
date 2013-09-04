@@ -22,6 +22,7 @@ using SMT_HRM_EFModel;
 using SMT.HRM.DAL;
 using SMT.HRM.CustomModel;
 using SMT.Foundation.Log;
+using System.Threading;
 
 namespace SMT.HRM.BLL
 {
@@ -1404,7 +1405,7 @@ namespace SMT.HRM.BLL
 
                     //foreach (T_HR_ATTENDANCESOLUTIONASIGN item in pers)
                     //{
-                    //    AsignAttendanceSolution(item, dtAsignDate);
+                        //AsignAttendanceSolution(item, dtAsignDate);
                     //}
                     var employees = from ent in dal.GetObjects<T_HR_EMPLOYEE>()
                                     join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on ent.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
@@ -1539,9 +1540,9 @@ namespace SMT.HRM.BLL
                         if (entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//考勤方案设置为不考勤
                         {
                             AttendNoCheck = true;
-                            //return "初始化员工考勤记录被跳过,考勤方案设置为不考勤，员工姓名："
-                            //    + entEmployees.FirstOrDefault().EMPLOYEECNAME
-                            //    + " 考勤方案名：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME;
+                            Tracer.Debug("初始化员工,考勤方案设置为免打卡，员工姓名："
+                                + entEmployees.FirstOrDefault().EMPLOYEECNAME
+                                + " 考勤方案名：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME);
                         }
                         #endregion
 
@@ -1556,8 +1557,10 @@ namespace SMT.HRM.BLL
                         #endregion
 
                         #region 判断员工状态，是否有入职记录，是否已离职,入职，离职日期
+                        string usedAttendSolutionName = ",使用的考勤方案：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME
+                            + "，当前线程id：" +Thread.CurrentThread.ManagedThreadId;
                         Tracer.Debug("初始化员工考勤记录：员工状态：" + item_emp.EMPLOYEESTATE + "，员工姓名" + item_emp.EMPLOYEECNAME
-                            + ",使用的考勤方案：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME);
+                            + usedAttendSolutionName);
                         if (item_emp.EMPLOYEESTATE == "0")
                         {
                             T_HR_EMPLOYEEENTRY entEntry = bllEntry.GetEmployeeEntryByEmployeeID(item_emp.EMPLOYEEID);
@@ -1708,7 +1711,8 @@ namespace SMT.HRM.BLL
                                     T_HR_ATTENDANCERECORD entUpdate = qc.FirstOrDefault();
                                     if (entUpdate == null)
                                     {
-                                        Tracer.Debug("开始新增员工T_HR_ATTENDANCERECORD记录,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEECNAME);
+                                        Tracer.Debug("开始新增员工T_HR_ATTENDANCERECORD记录,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEECNAME
+                                             + usedAttendSolutionName);
                                         T_HR_ATTENDANCERECORD entAttRd = new T_HR_ATTENDANCERECORD();
                                         entAttRd.ATTENDANCERECORDID = System.Guid.NewGuid().ToString().ToUpper();
                                         entAttRd.ATTENDANCESOLUTIONID = entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID;
@@ -1765,12 +1769,13 @@ namespace SMT.HRM.BLL
                                         }
                                         else
                                         {   //非免打卡员工，跳过
-                                            Tracer.Debug("初始化考勤记录已存在且已修改状态，跳过，" + " 员工姓名" + item_emp.EMPLOYEECNAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd"));
+                                            Tracer.Debug("初始化考勤记录已存在，" + " 员工姓名" + item_emp.EMPLOYEECNAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
+                                                 +usedAttendSolutionName);
                                             continue;//如果存在直接跳过
 
                                         }                                    
                                         Tracer.Debug("更新考勤初始化记录，ATTENDANCESTATE考勤状态为空,日期：" + dtCurDate.ToString("yyyy-MM-dd") + "，员工姓名:" + item_emp.EMPLOYEECNAME
-                                            + "，初始化考勤状态：" + entUpdate.ATTENDANCESTATE);
+                                            + "，初始化考勤状态：" + entUpdate.ATTENDANCESTATE + usedAttendSolutionName);
                                         entUpdate.ATTENDANCESOLUTIONID = entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID;
                                         entUpdate.EMPLOYEEID = item_emp.EMPLOYEEID;
                                         entUpdate.EMPLOYEECODE = item_emp.EMPLOYEECODE;
@@ -1793,9 +1798,7 @@ namespace SMT.HRM.BLL
 
                                         //第四段工作时间
                                         entUpdate.FOURTHENDTIME = item.T_HR_SHIFTDEFINE.FOURTHENDTIME;
-                                        entUpdate.FOURTHSTARTTIME = item.T_HR_SHIFTDEFINE.FOURTHSTARTTIME;
-
-                                        entUpdate.ATTENDANCESTATE = string.Empty;    //新生成的考勤记录，出勤状态为空
+                                        entUpdate.FOURTHSTARTTIME = item.T_HR_SHIFTDEFINE.FOURTHSTARTTIME;                                                                              
 
                                         //权限
                                         entUpdate.OWNERCOMPANYID = item_emp.OWNERCOMPANYID;
@@ -1812,7 +1815,7 @@ namespace SMT.HRM.BLL
                                 }
                                 catch (Exception ex)
                                 {
-                                    Tracer.Debug("生成考勤初始化记录出错：" + item_emp.EMPLOYEECNAME + ex.ToString());
+                                    Tracer.Debug("生成考勤初始化记录出错：" + item_emp.EMPLOYEECNAME + ex.ToString() + usedAttendSolutionName);
                                     continue;
                                 }
                                 #endregion
@@ -1821,7 +1824,8 @@ namespace SMT.HRM.BLL
                         //bllLevelDayCount.CalculateEmployeeLevelDayCount(entTemp, item_emp, strOperationType);
                         //int saveCount=dal.SaveContextChanges();
                         Tracer.Debug(n + "生成员工：" + item_emp.EMPLOYEECNAME + " 考勤记录成功,开始日期" + dtStart.ToString("yyyy-MM-dd") + "结束日期：" 
-                            + dtInitAttandRecordEndDate.ToString("yyyy-MM-dd") + "共新增考勤记录" + addCount.ToString() + " 更新记录条数：" + updateCount);
+                            + dtInitAttandRecordEndDate.ToString("yyyy-MM-dd") + "共新增考勤记录" + addCount.ToString() + " 更新记录条数：" + updateCount
+                            + usedAttendSolutionName);
                     }
                     catch (Exception ex)
                     {
