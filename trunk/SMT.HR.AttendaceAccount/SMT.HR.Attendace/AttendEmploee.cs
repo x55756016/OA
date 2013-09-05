@@ -1511,7 +1511,96 @@ namespace SmtPortalSetUp
         }
         #endregion
 
+        #region 查询员工权限
+        private void btnSelectPermission_Click(object sender, EventArgs e)
+        {
+            string sql = @"select distinct t.employeename 员工名,
+                            r.rolename 角色名,
+                            en.menuname 菜单名,
+                            p.permissionname 权限名,
+                            case
+                              when rep.datarange = 1 then
+                               '本公司'
+                              when rep.datarange = 2 then
+                               '本部门'
+                              when rep.datarange = 3 then
+                               '本岗位'
+                              when rep.datarange=4 then
+                               '个人' end 权限范围,
+                            rep.datarange
+              from smtsystem.t_sys_user t
+             inner join smtsystem.t_sys_userrole ur
+                on t.sysuserid = ur.sysuserid
+             inner join smtsystem.t_sys_role r
+                on ur.roleid = r.roleid
+             inner join smtsystem.t_sys_roleentitymenu re
+                on r.roleid = re.roleid
+             inner join smtsystem.t_sys_entitymenu en
+                on re.entitymenuid = en.entitymenuid
+             inner join smtsystem.t_sys_rolemenupermission rep
+                on re.roleentitymenuid = rep.roleentitymenuid
+             inner join smtsystem.t_sys_permission p
+                on rep.permissionid = p.permissionid
+             where t.employeename = '" + GlobalParameters.employeeName + @"'";
+            if (!string.IsNullOrEmpty(txtMenuName.Text))
+            {
+                sql = sql + " and en.menuname = '" + txtMenuName.Text + "'";
+            }
 
+            sql = sql + " order by r.rolename ,en.menuname,p.permissionname, rep.datarange";
+            OracleHelp.Connect();
+            DataTable dt = OracleHelp.getTable(sql);
+            SetLog("查询员工权限完毕。");
+            OracleHelp.close();
+            dtGridPermission.DataSource = dt;
+
+            //查询自定义权限
+            string sqlcustomPermission = @"select distinct t.employeename 员工名,
+                                            r.rolename 角色名,
+                                            ecm.menuname 菜单名,
+                                            cp.permissionname 权限名,
+                                            c.cname 公司,
+                                            dd.departmentname 部门,
+                                            pd.postname 岗位,
+                                            ecp.departmentid,
+                                            ecp.postid
+                                from smtsystem.t_sys_user t
+                                inner join smtsystem.t_sys_userrole ur
+                                on t.sysuserid = ur.sysuserid
+                                inner join smtsystem.t_sys_role r
+                                on ur.roleid = r.roleid
+                                inner join smtsystem.t_sys_entitymenucustomperm ecp
+                                on r.roleid = ecp.roleid
+                                inner join smtsystem.t_sys_entitymenu ecm
+                                on ecp.entitymenuid = ecm.entitymenuid
+                                inner join smtsystem.t_sys_permission cp
+                                on ecp.permissionid = cp.permissionid
+                                left join smthrm.t_hr_company c
+                                on ecp.companyid = c.companyid
+                                left join smthrm.t_hr_department d
+                                on ecp.departmentid = d.departmentid
+                                left join smthrm.t_hr_departmentdictionary dd
+                                on d.departmentdictionaryid = dd.departmentdictionaryid
+                                left join smthrm.t_hr_post p
+                                on ecp.postid = p.postid
+                                left join smthrm.t_hr_postdictionary pd
+                                on p.postdictionaryid = pd.postdictionaryid
+             where t.employeename = '" + GlobalParameters.employeeName + @"'";
+            if (!string.IsNullOrEmpty(txtMenuName.Text))
+            {
+                sqlcustomPermission = sqlcustomPermission + " and  ecm.menuname  = '" + txtMenuName.Text + "'";
+            }
+
+            sqlcustomPermission = sqlcustomPermission
+                + " order by r.rolename,ecm.menuname,cp.permissionname, c.cname, dd.departmentname";
+            OracleHelp.Connect();
+            DataTable dtcustom = OracleHelp.getTable(sqlcustomPermission);
+            SetLog("查询员工权限完毕。");
+            OracleHelp.close();
+            dtGridCustomPermission.DataSource = dtcustom;
+        }
+
+        #endregion
 
     }
 

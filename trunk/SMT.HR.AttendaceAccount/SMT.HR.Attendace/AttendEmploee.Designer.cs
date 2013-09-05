@@ -122,6 +122,12 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.txtSql = new System.Windows.Forms.TextBox();
             this.btnExcute = new System.Windows.Forms.Button();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtMenuName = new System.Windows.Forms.TextBox();
+            this.dtGridCustomPermission = new System.Windows.Forms.DataGridView();
+            this.dtGridPermission = new System.Windows.Forms.DataGridView();
+            this.btnSelectPermission = new System.Windows.Forms.Button();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.btnGernerateInsertSql = new System.Windows.Forms.Button();
@@ -129,6 +135,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGClockRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGEmployeeLeaveRecord)).BeginInit();
@@ -151,6 +158,9 @@
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDotask)).BeginInit();
             this.tabPage6.SuspendLayout();
+            this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridCustomPermission)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridPermission)).BeginInit();
             this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -519,6 +529,7 @@
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(this.tabPage11);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Location = new System.Drawing.Point(16, 66);
@@ -971,6 +982,66 @@
             this.btnExcute.UseVisualStyleBackColor = true;
             this.btnExcute.Click += new System.EventHandler(this.btnExcute_Click);
             // 
+            // tabPage11
+            // 
+            this.tabPage11.Controls.Add(this.label18);
+            this.tabPage11.Controls.Add(this.label17);
+            this.tabPage11.Controls.Add(this.txtMenuName);
+            this.tabPage11.Controls.Add(this.dtGridCustomPermission);
+            this.tabPage11.Controls.Add(this.dtGridPermission);
+            this.tabPage11.Controls.Add(this.btnSelectPermission);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(938, 407);
+            this.tabPage11.TabIndex = 10;
+            this.tabPage11.Text = "查询员工权限";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(205, 11);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 12);
+            this.label17.TabIndex = 24;
+            this.label17.Text = "菜单名";
+            // 
+            // txtMenuName
+            // 
+            this.txtMenuName.Location = new System.Drawing.Point(252, 8);
+            this.txtMenuName.Name = "txtMenuName";
+            this.txtMenuName.Size = new System.Drawing.Size(125, 21);
+            this.txtMenuName.TabIndex = 23;
+            // 
+            // dtGridCustomPermission
+            // 
+            this.dtGridCustomPermission.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridCustomPermission.Location = new System.Drawing.Point(496, 35);
+            this.dtGridCustomPermission.Name = "dtGridCustomPermission";
+            this.dtGridCustomPermission.RowTemplate.Height = 23;
+            this.dtGridCustomPermission.Size = new System.Drawing.Size(436, 358);
+            this.dtGridCustomPermission.TabIndex = 21;
+            // 
+            // dtGridPermission
+            // 
+            this.dtGridPermission.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridPermission.Location = new System.Drawing.Point(19, 35);
+            this.dtGridPermission.Name = "dtGridPermission";
+            this.dtGridPermission.RowTemplate.Height = 23;
+            this.dtGridPermission.Size = new System.Drawing.Size(459, 358);
+            this.dtGridPermission.TabIndex = 21;
+            // 
+            // btnSelectPermission
+            // 
+            this.btnSelectPermission.Location = new System.Drawing.Point(19, 6);
+            this.btnSelectPermission.Name = "btnSelectPermission";
+            this.btnSelectPermission.Size = new System.Drawing.Size(123, 23);
+            this.btnSelectPermission.TabIndex = 22;
+            this.btnSelectPermission.Text = "查询";
+            this.btnSelectPermission.UseVisualStyleBackColor = true;
+            this.btnSelectPermission.Click += new System.EventHandler(this.btnSelectPermission_Click);
+            // 
             // tabPage10
             // 
             this.tabPage10.Controls.Add(this.txtUserName);
@@ -1039,6 +1110,15 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "如果检查不出异常，请先清空考勤初始化记录状态后再检查异常";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(499, 20);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(89, 12);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "自定义权限范围";
+            // 
             // AttendEmploee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1104,6 +1184,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtDotask)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridCustomPermission)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridPermission)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             this.ResumeLayout(false);
@@ -1206,6 +1290,13 @@
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Button btnGernerateInsertSql;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.DataGridView dtGridCustomPermission;
+        private System.Windows.Forms.DataGridView dtGridPermission;
+        private System.Windows.Forms.Button btnSelectPermission;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtMenuName;
+        private System.Windows.Forms.Label label18;
     }
 }
 
