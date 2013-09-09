@@ -1504,7 +1504,6 @@ namespace SMT.HRM.BLL
                     //加班部分
                     int iOverTimeTimes = 0;
                     decimal? dOverTimeSumHours = 0, dOvertimeSumDays = 0;
-
                     CalculateEmployeeOverTimeDays(entAttSol, strEmployeeID, dtRealStart, dtRealEnd, strCheckState, dWorkTimePerDay, ref iOverTimeTimes, ref dOverTimeSumHours, ref dOvertimeSumDays);
 
                     entAttendMonthlyBalance.OVERTIMETIMES = iOverTimeTimes;
@@ -1514,8 +1513,12 @@ namespace SMT.HRM.BLL
                     //出差部分
                     decimal? dEvectionTime = 0;
                     CalculateEmployeeEvectionTime(entAttSol, entAttRds, strEmployeeID, dtRealStart, dtRealEnd, dWorkTimePerDay, ref dEvectionTime);
-
                     entAttendMonthlyBalance.EVECTIONTIME = dEvectionTime;
+
+                    //外出申请时长计算部分
+                    decimal? dOutApplyTime = 0;
+                    CalculateEmployeeOutApplyTime(entAttSol, entAttRds, strEmployeeID, dtRealStart, dtRealEnd, dWorkTimePerDay, ref dOutApplyTime);
+                    entAttendMonthlyBalance.OUTAPPLYTIME = dOutApplyTime;
 
                     //权限
                     entAttendMonthlyBalance.OWNERCOMPANYID = item.OWNERCOMPANYID;
@@ -2424,6 +2427,7 @@ namespace SMT.HRM.BLL
             return dRes;
         }
 
+        #region 计算加班，出差，外出申请时长
         /// <summary>
         /// 计算指定员工一段时间内的加班情况
         /// </summary>
@@ -2828,6 +2832,61 @@ namespace SMT.HRM.BLL
                 Utility.SaveLog(ex.ToString());
             }
         }
+
+        /// <summary>
+        /// 计算指定员工一段时间内的外出申请情况
+        /// </summary>
+        /// <param name="entAttSol"></param>
+        /// <param name="strEmployeeID"></param>
+        /// <param name="dtStart"></param>
+        /// <param name="dtEnd"></param>
+        /// <param name="dWorkTimePerDay"></param>
+        /// <param name="dOutApplyHours"></param>
+        private void CalculateEmployeeOutApplyTime(T_HR_ATTENDANCESOLUTION entAttSol, IQueryable<T_HR_ATTENDANCERECORD> entAttRds, string strEmployeeID, DateTime dtStart, DateTime dtEnd, decimal? dWorkTimePerDay, ref decimal? dOutApplyHours)
+        {
+            try
+            {
+                string strAttState = (Convert.ToInt32(Common.AttendanceState.OutApply) + 1).ToString();
+                //考勤结算时计算同时存在考勤异常和出差天数
+                string strAttendStateMix = (Convert.ToInt32(Common.AttendanceState.MixOutApplyAbnormal) + 1).ToString();
+                IQueryable<T_HR_ATTENDANCERECORD> entAttRdTemps = from r in entAttRds
+                                                                  where r.ATTENDANCESTATE == strAttState
+                                                                  || r.ATTENDANCESTATE == strAttendStateMix
+                                                                  select r;
+
+                if (entAttRdTemps.Count() == 0)
+                {
+                    return;
+                }
+
+                //decimal? dCurEvecDays = entAttRdTemps.Count();
+
+                IQueryable<T_HR_EMPLOYEEOUTAPPLIECRECORD> entEvecRds = from n in dal.GetObjects<T_HR_EMPLOYEEOUTAPPLIECRECORD>()
+                                                                     where n.EMPLOYEEID == strEmployeeID 
+                                                                     && n.STARTDATE >= dtStart
+                                                                     && n.ENDDATE<=dtEnd
+                                                                     select n;
+
+                if (entEvecRds.Count() == 0)
+                {
+                    return;
+                }
+                //decimal? dCheckEveDays = 0;
+                //DateTime dtCheckStart = new DateTime(), dtCheckEnd = new DateTime();
+                foreach (T_HR_EMPLOYEEOUTAPPLIECRECORD item in entEvecRds)
+                {
+                    decimal dHOURS = 0;
+                    decimal.TryParse(item.OVERTIMEHOURS,out dHOURS);
+                    dOutApplyHours += dHOURS;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.SaveLog(ex.ToString());
+            }
+        }
+
+        #endregion
 
         /// <summary>
         /// 无需打卡，但需要审核的加班，计算其加班时长

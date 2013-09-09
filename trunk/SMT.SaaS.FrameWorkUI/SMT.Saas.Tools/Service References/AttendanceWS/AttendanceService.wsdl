@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="/Imports">
       <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd0" />
@@ -13,6 +13,12 @@
       <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByIDResponse" />
+  </wsdl:message>
   <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByMonthlyBalanceId_InputMessage">
     <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByMonthlyBalanceId" />
   </wsdl:message>
@@ -252,6 +258,12 @@
   </wsdl:message>
   <wsdl:message name="AttendanceService_GetAttendanceSolutionAsignByEmployeeIDAndDate_OutputMessage">
     <wsdl:part name="parameters" element="GetAttendanceSolutionAsignByEmployeeIDAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetByID_InputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetByID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetFreeLeaveDaySetByIDResponse" />
   </wsdl:message>
   <wsdl:message name="AttendanceService_GetFreeLeaveDaySetRdListForAttendanceSolution_InputMessage">
     <wsdl:part name="parameters" element="GetFreeLeaveDaySetRdListForAttendanceSolution" />
@@ -757,12 +769,6 @@
   <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_OutputMessage">
     <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByCompanyIDResponse" />
   </wsdl:message>
-  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByID_InputMessage">
-    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByID" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_GetAttendMonthlyBatchBalanceByID_OutputMessage">
-    <wsdl:part name="parameters" element="GetAttendMonthlyBatchBalanceByIDResponse" />
-  </wsdl:message>
   <wsdl:message name="AttendanceService_DoWork_InputMessage">
     <wsdl:part name="parameters" element="DoWork" />
   </wsdl:message>
@@ -846,6 +852,12 @@
   </wsdl:message>
   <wsdl:message name="AttendanceService_OutClockInRdListByMultSearch_OutputMessage">
     <wsdl:part name="parameters" element="OutClockInRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CompulsoryInitialization_InputMessage">
+    <wsdl:part name="parameters" element="CompulsoryInitialization" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CompulsoryInitialization_OutputMessage">
+    <wsdl:part name="parameters" element="CompulsoryInitializationResponse" />
   </wsdl:message>
   <wsdl:message name="AttendanceService_GetAttendanceSolutionByID_InputMessage">
     <wsdl:part name="parameters" element="GetAttendanceSolutionByID" />
@@ -1267,13 +1279,11 @@
   <wsdl:message name="AttendanceService_RemoveAttendanceSolutionDeduct_OutputMessage">
     <wsdl:part name="parameters" element="RemoveAttendanceSolutionDeductResponse" />
   </wsdl:message>
-  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetByID_InputMessage">
-    <wsdl:part name="parameters" element="GetFreeLeaveDaySetByID" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_GetFreeLeaveDaySetByID_OutputMessage">
-    <wsdl:part name="parameters" element="GetFreeLeaveDaySetByIDResponse" />
-  </wsdl:message>
   <wsdl:portType name="AttendanceService">
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByID" message="AttendanceService_GetAttendMonthlyBatchBalanceByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByIDResponse" message="AttendanceService_GetAttendMonthlyBatchBalanceByID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAttendMonthlyBatchBalanceByMonthlyBalanceId">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMonthlyBalanceId" message="AttendanceService_GetAttendMonthlyBatchBalanceByMonthlyBalanceId_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMonthlyBalanceIdResponse" message="AttendanceService_GetAttendMonthlyBatchBalanceByMonthlyBalanceId_OutputMessage" />
@@ -1433,6 +1443,10 @@
     <wsdl:operation name="GetAttendanceSolutionAsignByEmployeeIDAndDate">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionAsignByEmployeeIDAndDate" message="AttendanceService_GetAttendanceSolutionAsignByEmployeeIDAndDate_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendanceSolutionAsignByEmployeeIDAndDateResponse" message="AttendanceService_GetAttendanceSolutionAsignByEmployeeIDAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetByID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetByID" message="AttendanceService_GetFreeLeaveDaySetByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetByIDResponse" message="AttendanceService_GetFreeLeaveDaySetByID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetFreeLeaveDaySetRdListForAttendanceSolution">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetRdListForAttendanceSolution" message="AttendanceService_GetFreeLeaveDaySetRdListForAttendanceSolution_InputMessage" />
@@ -1770,10 +1784,6 @@
       <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAttendMonthlyBatchBalanceByID">
-      <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByID" message="AttendanceService_GetAttendMonthlyBatchBalanceByID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBatchBalanceByIDResponse" message="AttendanceService_GetAttendMonthlyBatchBalanceByID_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="urn:AttendanceService/DoWork" message="AttendanceService_DoWork_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/DoWorkResponse" message="AttendanceService_DoWork_OutputMessage" />
@@ -1829,6 +1839,10 @@
     <wsdl:operation name="OutClockInRdListByMultSearch">
       <wsdl:input wsaw:Action="urn:AttendanceService/OutClockInRdListByMultSearch" message="AttendanceService_OutClockInRdListByMultSearch_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/OutClockInRdListByMultSearchResponse" message="AttendanceService_OutClockInRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompulsoryInitialization">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CompulsoryInitialization" message="AttendanceService_CompulsoryInitialization_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CompulsoryInitializationResponse" message="AttendanceService_CompulsoryInitialization_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAttendanceSolutionByID">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendanceSolutionByID" message="AttendanceService_GetAttendanceSolutionByID_InputMessage" />
@@ -2109,10 +2123,6 @@
     <wsdl:operation name="RemoveAttendanceSolutionDeduct">
       <wsdl:input wsaw:Action="urn:AttendanceService/RemoveAttendanceSolutionDeduct" message="AttendanceService_RemoveAttendanceSolutionDeduct_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/RemoveAttendanceSolutionDeductResponse" message="AttendanceService_RemoveAttendanceSolutionDeduct_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetFreeLeaveDaySetByID">
-      <wsdl:input wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetByID" message="AttendanceService_GetFreeLeaveDaySetByID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/GetFreeLeaveDaySetByIDResponse" message="AttendanceService_GetFreeLeaveDaySetByID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

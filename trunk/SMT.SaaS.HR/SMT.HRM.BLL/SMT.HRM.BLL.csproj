@@ -232,7 +232,7 @@
     <Compile Include="SalarySolutionAssignBLL.cs" />
     <Compile Include="SalaryArchiveBLL.cs" />
     <Compile Include="EmployeeSalaryRecordBLL.cs" />
-    <Compile Include="OutAppliecationBLL.cs" />
+    <Compile Include="OutApplyBLL.cs" />
     <Compile Include="缓存 CompanyBLL.cs" />
     <Compile Include="缓存 DepartmentBLL.cs" />
     <Compile Include="缓存 PostBLL.cs" />

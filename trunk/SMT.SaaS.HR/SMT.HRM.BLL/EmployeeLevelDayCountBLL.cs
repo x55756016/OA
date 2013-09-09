@@ -1706,32 +1706,45 @@ namespace SMT.HRM.BLL
                 }
 
                 #region 获取该员工本年应休假天数
+                string dSOCIALSERVICE=string.Empty;
 
-                var q = (from t in dal.GetObjects<T_HR_PENSIONMASTER>()
-                         where t.T_HR_EMPLOYEE.EMPLOYEEID == EMPLOYEEID
-                         && t.CHECKSTATE == "2"
-                         select t).ToList();
-                //根据员工ID查询社保档案表
-                T_HR_PENSIONMASTER p = q.OrderByDescending(c => c.UPDATEDATE).FirstOrDefault();
-                //社保缴交起始时间
-                string dSOCIALSERVICE;
-                if (p != null)
+                var emp = from ent in dal.GetObjects<T_HR_EMPLOYEE>()
+                          where ent.EMPLOYEEID == EMPLOYEEID
+                          select ent;
+                if (emp.FirstOrDefault() != null)
                 {
-                    if (string.IsNullOrEmpty(p.SOCIALSERVICEYEAR))
+                    dSOCIALSERVICE = emp.FirstOrDefault().SOCIALSERVICEYEAR;
+                }
+                //如果员工档案未获取到员工社保缴交日期，从社保档案获取
+                if (string.IsNullOrEmpty(dSOCIALSERVICE))
+                {
+
+                    var q = (from t in dal.GetObjects<T_HR_PENSIONMASTER>()
+                             where t.T_HR_EMPLOYEE.EMPLOYEEID == EMPLOYEEID
+                             && t.CHECKSTATE == "2"
+                             select t).ToList();
+                    //根据员工ID查询社保档案表
+                    T_HR_PENSIONMASTER p = q.OrderByDescending(c => c.UPDATEDATE).FirstOrDefault();
+                    //社保缴交起始时间
+
+                    if (p != null)
                     {
-                        Tracer.Debug("生成员工带薪年假：获取的员工社保缴交起始时间为空");
-                        dSOCIALSERVICE = null;
+                        if (string.IsNullOrEmpty(p.SOCIALSERVICEYEAR))
+                        {
+                            Tracer.Debug("生成员工带薪年假：获取的员工社保缴交起始时间为空");
+                            dSOCIALSERVICE = null;
+                        }
+                        else
+                        {
+                            dSOCIALSERVICE = p.SOCIALSERVICEYEAR.ToString();
+                            Tracer.Debug("生成员工带薪年假：获取的员工社保缴交起始时间：" + dSOCIALSERVICE);
+                        }
                     }
                     else
                     {
-                        dSOCIALSERVICE = p.SOCIALSERVICEYEAR.ToString();
-                        Tracer.Debug("生成员工带薪年假：获取的员工社保缴交起始时间：" + dSOCIALSERVICE);
+                        Tracer.Debug("生成员工带薪年假：获取的员工社保档案为空");
+                        dSOCIALSERVICE = null;
                     }
-                }
-                else
-                {
-                    Tracer.Debug("生成员工带薪年假：获取的员工社保档案为空");
-                    dSOCIALSERVICE = null;
                 }
                 //DateTime DateTime.Now = DateTime.Now;
                 TimeSpan needTimeSpan;
@@ -1790,47 +1803,6 @@ namespace SMT.HRM.BLL
                         Tracer.Debug("员工入职刚满一年：生成年假天数：" + totalDays);
                     }
                 }
-
-                //var allday = from ent in dal.GetObjects<T_HR_EMPLOYEELEAVERECORD>()
-                //        join levType in dal.GetObjects<T_HR_LEAVETYPESET>() 
-                //        on ent.T_HR_LEAVETYPESET.LEAVETYPESETID equals levType.LEAVETYPESETID
-                //        where ent.EMPLOYEEID == EMPLOYEEID
-                //        && ent.OWNERCOMPANYID == ownerCompanyid
-                //        && ent.T_HR_LEAVETYPESET.LEAVETYPEVALUE=="4"//年假
-                //        && ent.CHECKSTATE=="2"
-                //        && ent.STARTDATETIME >= thisYearFirstDay
-                //       select ent;
-                //if (allday.Count() > 0)
-                //{
-                //    try
-                //    {
-                //        var AttSolution = from v in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
-                //                          where v.ATTENDANCESOLUTIONASIGNID == AttSolAsignId
-                //                          select v.T_HR_ATTENDANCESOLUTION;
-                //        if (AttSolution.Count() > 0)
-                //        {
-                //            foreach (var item in allday)
-                //            {
-                //                if (item.LEAVEDAYS != null && item.LEAVEDAYS > 0)
-                //                {
-                //                    totalDays = totalDays - item.LEAVEDAYS.Value;
-                //                    Tracer.Debug("生成年假总天数减去已请年假：" + item.LEAVEDAYS.Value+" 天");
-                //                }
-                //                if (item.LEAVEHOURS != null && item.LEAVEHOURS > 0)
-                //                {
-                //                    totalDays = (totalDays * AttSolution.FirstOrDefault().WORKTIMEPERDAY.Value
-                //                        - item.LEAVEHOURS.Value) / AttSolution.FirstOrDefault().WORKTIMEPERDAY.Value;
-                //                    Tracer.Debug("生成年假总天数减去已请年假：" + item.LEAVEHOURS.Value + " 小时");
-                //                }
-                //            }
-                //        }
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        Tracer.Debug("生成带薪年假扣减已请天数异常：" + ex.ToString());
-                //        totalDays = 0;
-                //    }
-                //}
 
 
 

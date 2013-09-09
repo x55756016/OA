@@ -31,7 +31,7 @@ namespace SMT.HRM.Services
         [OperationContract]
         public List<T_HR_EMPLOYEEOUTAPPLIECRECORD> EmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID)
         {
-            using (OutAppliecationBLL bllOverTimeRecord = new OutAppliecationBLL())
+            using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
                 var ents = bllOverTimeRecord.EmployeeOverTimeRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID);
 
@@ -52,7 +52,7 @@ namespace SMT.HRM.Services
         [OperationContract]
         public T_HR_EMPLOYEEOUTAPPLIECRECORD GetOverTimeRdByID(string strOverTimeRecordId)
         {
-            using (OutAppliecationBLL bllOverTimeRecord = new OutAppliecationBLL())
+            using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
                 return bllOverTimeRecord.GetOverTimeRdByID(strOverTimeRecordId);
             }
@@ -66,7 +66,7 @@ namespace SMT.HRM.Services
         [OperationContract]
         public string AddOverTimeRd(T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd)
         {
-            using (OutAppliecationBLL bllOverTimeRecord = new OutAppliecationBLL())
+            using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
                 return bllOverTimeRecord.OverTimeRecordAdd(entOTRd);
             }
@@ -80,7 +80,7 @@ namespace SMT.HRM.Services
         [OperationContract]
         public string ModifyOverTimeRd(T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd)
         {
-            using (OutAppliecationBLL bllOverTimeRecord = new OutAppliecationBLL())
+            using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
                 return bllOverTimeRecord.ModifyOverTimeRd(entOTRd);
             }
@@ -94,7 +94,7 @@ namespace SMT.HRM.Services
         [OperationContract]
         public bool RemoveOverTimeRd(string[] strOverTimeRecordId)
         {
-            using (OutAppliecationBLL bllOverTimeRecord = new OutAppliecationBLL())
+            using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
                 int rslt = bllOverTimeRecord.DeleteOverTimeRd(strOverTimeRecordId);
                 return (rslt > 0);
@@ -110,7 +110,7 @@ namespace SMT.HRM.Services
         [OperationContract]
         public string AuditOverTimeRd(string strOverTimeRecordID, string strCheckState)
         {
-            using (OutAppliecationBLL bllOverTimeRecord = new OutAppliecationBLL())
+            using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
                 string rslt = bllOverTimeRecord.AuditOverTimeRd(strOverTimeRecordID, strCheckState);
                 return rslt;

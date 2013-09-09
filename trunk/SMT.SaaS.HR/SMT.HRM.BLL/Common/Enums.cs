@@ -518,7 +518,15 @@ namespace SMT.HRM.BLL.Common
         /// <summary>
         /// 混合状态(针对一天内同时出现出差，考勤异常)实际枚举值加1=8
         /// </summary>
-        MixTravelAbnormal
+        MixTravelAbnormal,
+        /// <summary>
+        /// 外出申请实际枚举值加1=9
+        /// </summary>
+        OutApply,
+        /// <summary>
+        /// 混合状态(针对一天内同时出现外出申请，考勤异常)实际枚举值加1=10
+        /// </summary>
+        MixOutApplyAbnormal
     }
     /// <summary>
     /// 考勤异常类型(异常记录明细表专用)

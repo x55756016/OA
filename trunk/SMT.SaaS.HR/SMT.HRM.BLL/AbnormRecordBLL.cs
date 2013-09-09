@@ -2123,6 +2123,12 @@ namespace SMT.HRM.BLL
                     + "----" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss");
             }
 
+            if (attState == (Convert.ToInt32(Common.AttendanceState.OutApply) + 1).ToString())
+            {
+                dealType = "员工：" + emp + " 外出申请消除异常," + "时间区间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                    + "----" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss");
+            }
+
             Tracer.Debug(dealType+" 开始");
 
             DateTime dtStart = new DateTime(datLevestart.Year,datLevestart.Month,datLevestart.Day);
@@ -2237,7 +2243,7 @@ namespace SMT.HRM.BLL
                                                 && dtLeveEnd >= ShiftstartDateAndTime)
                                             {
                                                 Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第一段开始上班时间需打卡时间被请假时间覆盖，消除异常"
-                                                    + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                                                    + " 消除异常，开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
                                             + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             ShiftstartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + FirstEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
                                                 //消除第一段异常生成的签卡
@@ -2281,7 +2287,7 @@ namespace SMT.HRM.BLL
                                                 && dtLeveEnd >= SecondStartDateAndTime)
                                             {
                                                 Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段开始上班时间需打卡时间被请假时间覆盖，消除异常"
-                                                    + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                                                    + " 消除异常，开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
                                             + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             SecondStartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + SencondEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
 
@@ -2326,7 +2332,7 @@ namespace SMT.HRM.BLL
                                                 && dtLeveEnd >= SencondEndDateAndTime)
                                             {
                                                 Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "考勤班次定义T_HR_SHIFTDEFINE第二段结束上班时间需打卡时间被请假时间覆盖，消除异常"
-                                                     + " 请假消除异常，请假开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                                                     + " 消除异常，开始时间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
                                             + " 结束时间：" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班开始时间：" +
                                             SecondStartDateAndTime.ToString("yyyy-MM-dd HH:mm:ss") + "定义的上班结束时间:" + SencondEndDateAndTime.ToString("yyyy-MM-dd HH:mm:ss"));
 
@@ -2355,7 +2361,7 @@ namespace SMT.HRM.BLL
                         }
                         else
                         {
-                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "请假消除异常，通过异常记录获取到考勤初始化记录但通过考勤初始化记录获取的考勤班次定义T_HR_SHIFTDEFINE为空");
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + "消除异常，通过异常记录获取到考勤初始化记录但通过考勤初始化记录获取的考勤班次定义T_HR_SHIFTDEFINE为空");
                         }
                         #endregion
                     }
@@ -2371,10 +2377,14 @@ namespace SMT.HRM.BLL
                             {
                                 item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixTravelAbnormal) + 1).ToString();
                             }
+                            if (attState == (Convert.ToInt32(Common.AttendanceState.OutApply) + 1).ToString())
+                            {
+                                item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixOutApplyAbnormal) + 1).ToString();
+                            }
                             item.UPDATEDATE = DateTime.Now;
                             item.REMARK = item.REMARK+dealType;
                             dal.Update(item);
-                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查请假出差修改状态完成，员工姓名：" + item.EMPLOYEENAME
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 消除异常修改状态完成，员工姓名：" + item.EMPLOYEENAME
                             + ",修改的状态为：" + item.ATTENDANCESTATE);
                         }
                         else if (thisDayAttendState.Values.Contains(AttendanceState.Leave) && !thisDayAttendState.Values.Contains(AttendanceState.Abnormal))
@@ -2386,7 +2396,7 @@ namespace SMT.HRM.BLL
                             item.UPDATEDATE = DateTime.Now;
                             item.REMARK = item.REMARK + dealType;
                             dal.Update(item);
-                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查请假出差修改状态完成，员工姓名：" + item.EMPLOYEENAME
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 消除异常修改状态完成，员工姓名：" + item.EMPLOYEENAME
                             + ",修改的状态为：" + item.ATTENDANCESTATE);
                         }
                     }

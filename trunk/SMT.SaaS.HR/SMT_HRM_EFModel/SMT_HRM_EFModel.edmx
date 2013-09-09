@@ -1,4 +1,4 @@
-﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
 <edmx:Runtime>
 <edmx:StorageModels>
 <Schema Namespace="SMT_HRM_EFModel.Store" Alias="Self" Provider="EFOracleProvider" ProviderManifestToken="11g" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
@@ -1073,6 +1073,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="ABSENTMINUTES" Type="number" />
     <Property Name="PRENATALCARELEAVEDAYS" Type="number" />
     <Property Name="REALNEEDATTENDDAYS" Type="number" />
+    <Property Name="OUTAPPLYTIME" Type="number" />
   </EntityType>
   <EntityType Name="T_HR_ATTENDMONTHLYBATCHBALANCE">
     <Key>
@@ -6140,6 +6141,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="ABSENTMINUTES" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="PRENATALCARELEAVEDAYS" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="REALNEEDATTENDDAYS" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OUTAPPLYTIME" Type="Decimal" Precision="18" Scale="0" />
     <NavigationProperty Name="T_HR_ATTENDMONTHLYBATCHBALANCE" Relationship="SMT_HRM_EFModel.FK_T_HR_ATT_BATCH_ATT" FromRole="T_HR_ATTENDMONTHLYBALANCE" ToRole="T_HR_ATTENDMONTHLYBATCHBALANCE" />
   </EntityType>
   <EntityType Name="T_HR_ATTENDMONTHLYBATCHBALANCE">
@@ -9941,6 +9943,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
           <ScalarProperty Name="ABSENTMINUTES" ColumnName="ABSENTMINUTES" />
           <ScalarProperty Name="PRENATALCARELEAVEDAYS" ColumnName="PRENATALCARELEAVEDAYS" />
           <ScalarProperty Name="REALNEEDATTENDDAYS" ColumnName="REALNEEDATTENDDAYS" />
+          <ScalarProperty Name="OUTAPPLYTIME" ColumnName="OUTAPPLYTIME" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -13757,231 +13760,5 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
 <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
 <Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
 <edmx:Options />
-<edmx:Diagrams >
-      <Diagram DiagramId="433a35033feb47218f08a928d4da1110" Name="关系图1" ZoomLevel="55">
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ADJUSTLEAVE" Width="1.5" PointX="14.5" PointY="47.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_AREAALLOWANCE" Width="1.5" PointX="20" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_AREACITY" Width="1.5" PointX="20" PointY="29.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_AREADIFFERENCE" Width="1.5" PointX="17.75" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ASSESSMENTFORMDETAIL" Width="1.5" PointX="12.75" PointY="36.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ASSESSMENTFORMMASTER" Width="1.5" PointX="10.5" PointY="37.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDANCEDEDUCTDETAIL" Width="1.5" PointX="15.25" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDANCEDEDUCTMASTER" Width="1.5" PointX="13" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDANCERECORD" Width="1.5" PointX="13" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDANCESOLUTION" Width="1.5" PointX="10" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDANCESOLUTIONASIGN" Width="1.5" PointX="12.25" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDANCESOLUTIONDEDUCT" Width="1.5" PointX="15.25" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDFREELEAVE" Width="1.5" PointX="12.25" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDMACHINESET" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDMONTHLYBALANCE" Width="1.5" PointX="25" PointY="37.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDMONTHLYBATCHBALANCE" Width="1.5" PointX="22.75" PointY="39.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDMONTHLYLEAVE" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ATTENDYEARLYBALANCE" Width="1.5" PointX="7.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_BLACKLIST" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_CHECKPOINTLEVELSET" Width="1.5" PointX="12.75" PointY="62" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_CHECKPOINTSET" Width="1.5" PointX="10.5" PointY="32.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_CHECKPROJECTSET" Width="1.5" PointX="8.25" PointY="33" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_COMPANY" Width="1.5" PointX="1.5" PointY="81.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_COMPANYHISTORY" Width="1.5" PointX="3.75" PointY="100.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_CUSTOMGUERDON" Width="1.5" PointX="26.75" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_CUSTOMGUERDONARCHIVE" Width="1.5" PointX="29" PointY="24.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_CUSTOMGUERDONARCHIVEHIS" Width="1.5" PointX="20" PointY="35.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_CUSTOMGUERDONRECORD" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_CUSTOMGUERDONSET" Width="1.5" PointX="24.5" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_DEPARTMENT" Width="1.5" PointX="3.75" PointY="85.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_DEPARTMENTDICTIONARY" Width="1.5" PointX="1.5" PointY="90.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_DEPARTMENTHISTORY" Width="1.5" PointX="3.75" PointY="79.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EDUCATEHISTORY" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEE" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEABNORMRECORD" Width="1.5" PointX="15.25" PointY="27.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEADDSUM" Width="1.5" PointX="30" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEADDSUMBATCH" Width="1.5" PointX="27.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEECANCELLEAVE" Width="1.5" PointX="14.5" PointY="53.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEECHANGEHISTORY" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEECHECK" Width="1.5" PointX="5.25" PointY="24" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEECLOCKINRECORD" Width="1.5" PointX="7.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEECONTRACT" Width="1.5" PointX="5.25" PointY="30.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEENTRY" Width="1.5" PointX="5.25" PointY="36.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEEVECTIONRECORD" Width="1.5" PointX="33.75" PointY="22.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEEVECTIONREPORT" Width="1.5" PointX="36" PointY="22.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEINSURANCE" Width="1.5" PointX="5.25" PointY="41.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEELEAVERECORD" Width="1.5" PointX="12.25" PointY="50.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEELEVELDAYCOUNT" Width="1.5" PointX="24.75" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEELEVELDAYDETAILS" Width="1.5" PointX="27" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEELOGINRECORD" Width="1.5" PointX="0.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEOUTAPPLIECRECORD" Width="1.5" PointX="36.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEOVERTIMEDETAILRD" Width="1.5" PointX="25" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEOVERTIMERECORD" Width="1.5" PointX="22.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEPOST" Width="1.5" PointX="8.25" PointY="42.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEPOSTCHANGE" Width="1.5" PointX="5.25" PointY="51.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEPOSTHISTORY" Width="1.5" PointX="26.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEESALARYRECORD" Width="1.5" PointX="34" PointY="34.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEESALARYRECORDITEM" Width="1.5" PointX="36.25" PointY="39" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEESIGNINDETAIL" Width="1.5" PointX="17.5" PointY="29.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEESIGNINRECORD" Width="1.5" PointX="15.25" PointY="33.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_EXPERIENCE" Width="1.5" PointX="3" PointY="71.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_FAMILYMEMBER" Width="1.5" PointX="5.25" PointY="59.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_FREELEAVEDAYSET" Width="1.5" PointX="12.25" PointY="56.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_IMPORTSETDETAIL" Width="1.5" PointX="17" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_IMPORTSETMASTER" Width="1.5" PointX="14.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_KPIPOINT" Width="1.5" PointX="36.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_KPIRECORD" Width="1.5" PointX="38.5" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_KPIRECORDCOMPLAIN" Width="1.5" PointX="40.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_KPIREMIND" Width="1.5" PointX="36.25" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_KPITYPE" Width="1.5" PointX="36.25" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_LEAVETYPESET" Width="1.5" PointX="10" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_LEFTOFFICE" Width="1.5" PointX="13.5" PointY="41.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_LEFTOFFICECONFIRM" Width="1.5" PointX="15.75" PointY="41.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_OUTPLANDAYS" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_OVERTIMEREWARD" Width="1.5" PointX="7.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_PENSIONALARMSET" Width="1.5" PointX="16.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_PENSIONDETAIL" Width="1.5" PointX="7.5" PointY="68.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_PENSIONMASTER" Width="1.5" PointX="5.25" PointY="71.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_PERFORMANCEDETAIL" Width="1.5" PointX="43.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_PERFORMANCERECORD" Width="1.5" PointX="41.5" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_PERFORMANCEREWARDRECORD" Width="1.5" PointX="38.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_PERFORMANCEREWARDSET" Width="1.5" PointX="29.5" PointY="39.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_PERSONASSIGNSET" Width="1.5" PointX="28.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_POST" Width="1.5" PointX="6" PointY="87.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_POSTDICTIONARY" Width="1.5" PointX="3.75" PointY="95.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_POSTHISTORY" Width="1.5" PointX="6" PointY="95.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_POSTLEVELDISTINCTION" Width="1.5" PointX="20" PointY="24.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_RAMDONGROUPPERSON" Width="1.5" PointX="34" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_RANDOMGROUP" Width="1.5" PointX="31.75" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_RELATIONPOST" Width="1.5" PointX="8.25" PointY="89.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_RESUME" Width="1.5" PointX="0.75" PointY="39.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYANDREWARDSUMMARYRD" Width="1.5" PointX="30.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYARCHIVE" Width="1.5" PointX="26.75" PointY="26.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYARCHIVEHIS" Width="1.5" PointX="17.75" PointY="37.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYARCHIVEHISITEM" Width="1.5" PointX="20" PointY="39.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYARCHIVEITEM" Width="1.5" PointX="29" PointY="29.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYITEM" Width="1.5" PointX="20" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYLEVEL" Width="1.5" PointX="22.25" PointY="24.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYRECORDBATCH" Width="1.5" PointX="31.75" PointY="38.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSOLUTION" Width="1.5" PointX="20" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSOLUTIONASSIGN" Width="1.5" PointX="22.25" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSOLUTIONITEM" Width="1.5" PointX="22.25" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSOLUTIONSTANDARD" Width="1.5" PointX="29.75" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSTANDARD" Width="1.5" PointX="24.5" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSTANDARDITEM" Width="1.5" PointX="31.75" PointY="24.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSYSTEM" Width="1.5" PointX="17.75" PointY="24" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYTAXES" Width="1.5" PointX="22.25" PointY="29.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SAMPLETABLE" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SAMPLETABLE2" Width="1.5" PointX="32.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SCHEDULINGTEMPLATEDETAIL" Width="1.5" PointX="13" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SCHEDULINGTEMPLATEMASTER" Width="1.5" PointX="7.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SCORETYPE" Width="1.5" PointX="34" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SHIFTDEFINE" Width="1.5" PointX="10.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_STANDARDPERFORMANCEREWARD" Width="1.5" PointX="31.75" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_STANDREWARDARCHIVE" Width="1.5" PointX="29" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_STANDREWARDARCHIVEHIS" Width="1.5" PointX="20" PointY="43.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SUMPERFORMANCERECORD" Width="1.5" PointX="39.25" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SYSTEMSETTING" Width="1.5" PointX="7.75" PointY="36.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_VACATIONSET" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_DEPARTMENT" Width="1.5" PointX="0.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEE" Width="1.5" PointX="33.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEEENTRYHIS" Width="1.5" PointX="38.75" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEELEFTHIS" Width="1.5" PointX="38.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEEPOSTCHANGEHIS" Width="1.5" PointX="38.75" PointY="39.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEESALARYCHANGEHIS" Width="1.5" PointX="40.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_ORAGNIZATION" Width="1.5" PointX="36.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_POST" Width="1.5" PointX="38.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ADJ_REFERENCE_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_AREADIFFERENCE_T_HR_ARE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ARE_AREACITY" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYSOLUTION_T_HR_ARE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ASSEDETAIL_HR_ASS" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ASS_REFERENCE_T_HR_CHE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ASS_EMPLOYEECHECK" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_FORMMASTER_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ATT_T_HR_DEDUCTMASTER" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_MASTER_T_HR_DETAIL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SIGNINDETAIL_T_HR_ATT" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ATT_REFERENCE_T_HR_SHI" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ATT_REFERENCE_T_HR_ATT" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ATT_REFERENCE_T_HR_OVE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ATT_REFERENCE_T_HR_SCH" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_SOLUTIONAPL_T_HR_ATT" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_SOLUTION_T_HR_ATT" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_ATTENDFREELEAVE_T_HR_LEA" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ATT_BATCH_ATT" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_CHE_POINTLEVEL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_CHE_REFERENCE_T_HR_CHE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_COMHIS_T_HR_COM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_COM_T_HR_COM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_DEP_REFERENCE_T_HR_COM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_CUSTOMGUERDON_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_CUS_GUERDONSET" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_GUERDONARCHIVE_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ARCHIVEHIS_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_DEP_T_HR_DEPDIC" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_POS_REFERENCE_T_HR_DEP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_POSTDICTIONARY_T_HR_DEP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_DEPHIS_T_HR_DEPDIC" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EDU_REFERENCE_T_HR_RES" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPBASE_T_HR_RES" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPCHANGE_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPCHANGE_T_HR_EMPBASE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPCONTRACT_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPENTRY_T_HR_EMPBASE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPLOYEECHECK_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPPOST_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPSIRECORD_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPSI_T_HR_EMPBASE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMP_REFERENCE_T_HR_PC" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_FAM_REFERENCE_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SIGNINDETAIL_ABNORMRECORD" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_EMPLOYEEADDSUMBATCH_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMP_REFERENCE_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMP_EVECTIONREPORT" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMP_REFERENCE_T_HR_LEA" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_LEVELDAYCOUNT_DETAILS" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPORD_T_HR_EMPODRD" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMP_REFERENCE_T_HR_POS" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_LEF_REFERENCE_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYRECORDBATCH_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYRECORDITEM_T_HR_EMP" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SIGNINDETAIL_SIGNINRECORD" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_EMPCAREER_T_HR_RES" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_FRE_REFERENCE_T_HR_LEA" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_IMPORTSETMASTER_DETAIL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_KPIPOINT_REFERENCE_T_HR_SCO" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_KPI_REFERENCE_T_HR_KPI" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_KPIRECORD_T_HR_KPI" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_PER_REFERENCE_T_HR_KPI" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_KPI_REFERENCE_T_HR_SCO" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_KPITYPE_T_HR_SCORETYPE" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_LEF_LEFTOFFICECONFIRM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_OUT_REFERENCE_T_HR_VAC" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_PEN_REFERENCE_T_HR_PEN" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_PER_REFERENCE_T_HR_PER" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_PER_REFERENCE_T_HR_SUM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_STA_REFERENCE_T_HR_PER" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_POS_T_HR_POSDIC" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_REL_REFERENCE_T_HR_POS" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_POSHIS_T_HR_POSDIC" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_POS_REFERENCE_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_SAL_REFERENCE_T_HR_POS" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_RAM_REFERENCE_T_HR_RAN" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_SCO_REFERENCE_T_HR_RAN" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYARCHIVEITEM_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYARCHIVE_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_ARCHIVE_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_REWARDARCHIVE_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYARCHIVEHIS_HISITEM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYSOLUTIONITEM_ITEM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYSTANDARD_SALARYITEM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYSTANDARD_SALARYLEVEL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYSOLUTIONITEM_SOLUTION" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYSOLUTION_SALARYSYSTEM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SALARYTAXES_SALARYSOLUTION" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SOLUTIONSTANDARD_SOLUTION" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_SAL_REFERENCE_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_SOLUTIONSTANDARD_STANDARD" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_SAL_SALARYSTANDARDITEM" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_STAREWARD_T_HR_SAL" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_SCH_REFERENCE_T_HR_SCH" ManuallyRouted="false" />
-        <AssociationConnector Association="SMT_HRM_EFModel.FK_T_HR_SCH_REFERENCE_T_HR_SHI" ManuallyRouted="false" />
-      </Diagram>
-    </edmx:Diagrams>
+<edmx:Diagrams />
 </edmx:Designer></edmx:Edmx>

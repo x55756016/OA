@@ -19384,6 +19384,15 @@ namespace SMT.SaaS.Globalization {
         }
         
         /// <summary>
+        ///   查找类似 外出时长(小时) 的本地化字符串。
+        /// </summary>
+        public static string OUTAPPLYTIME {
+            get {
+                return ResourceManager.GetString("OUTAPPLYTIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 超账期余额 的本地化字符串。
         /// </summary>
         public static string OUTDATEACCOUNT {

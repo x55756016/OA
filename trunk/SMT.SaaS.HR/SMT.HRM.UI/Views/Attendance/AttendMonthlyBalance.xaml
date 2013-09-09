@@ -101,6 +101,7 @@
                         <data:DataGridTextColumn Header="PRENATALCARELEAVEDAYS" Binding="{Binding PRENATALCARELEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                         <data:DataGridTextColumn Header="FUNERALLEAVEDAYS" Binding="{Binding FUNERALLEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                         <data:DataGridTextColumn Header="EVECTIONDAYS" Binding="{Binding EVECTIONTIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="OUTAPPLYTIME" Binding="{Binding OUTAPPLYTIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     </data:DataGrid.Columns>
                 </data:DataGrid>
                 <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="1" Grid.Column="1"></smtx:GridPager>

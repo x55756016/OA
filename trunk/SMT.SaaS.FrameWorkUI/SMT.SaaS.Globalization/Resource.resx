@@ -10816,4 +10816,7 @@
   <data name="SENDDOCCONTEXTERR" xml:space="preserve">
     <value>公文内容错误，请检查后重试!</value>
   </data>
+  <data name="OUTAPPLYTIME" xml:space="preserve">
+    <value>外出时长(小时)</value>
+  </data>
 </root>

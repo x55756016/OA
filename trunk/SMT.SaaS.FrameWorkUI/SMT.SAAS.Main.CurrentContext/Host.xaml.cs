@@ -31,6 +31,9 @@ namespace SMT.SAAS.Main.CurrentContext
         {
             //默认设置登录页面。
             SetRoot(userControl);
+
+
+              
         }
 
         /// <summary>
@@ -87,6 +90,16 @@ namespace SMT.SAAS.Main.CurrentContext
             systemMessageArea.Visibility = System.Windows.Visibility.Visible;
         }
 
-
+        /// <summary>
+        /// 显示系统提示信息输出框
+        /// </summary>
+        [ScriptableMember]
+        public void OpenHostMessage()
+        {
+            txtSystemMessage.Height = 100;
+            txtSystemMessage.Visibility = System.Windows.Visibility.Visible;
+            systemMessageArea.Height = 100;
+            systemMessageArea.Visibility = System.Windows.Visibility.Visible;
+        }
     }
 }

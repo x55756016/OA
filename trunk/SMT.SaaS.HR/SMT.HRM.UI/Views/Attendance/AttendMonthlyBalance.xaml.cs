@@ -463,7 +463,7 @@ namespace SMT.HRM.UI.Views.Attendance
             strMonthlyBalanceID = entAttBalance.MONTHLYBALANCEID;
             AttendMonthlyBalanceForm formAttBalance = new AttendMonthlyBalanceForm(FormTypes.Audit, strMonthlyBalanceID);
             EntityBrowser browser = new EntityBrowser(formAttBalance);
-
+            //entAttBalance.OUTAPPLYTIME
             browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
             browser.FormType = FormTypes.Audit;
             browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
