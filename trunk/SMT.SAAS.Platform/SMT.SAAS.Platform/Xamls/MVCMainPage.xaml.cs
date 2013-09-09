@@ -86,9 +86,9 @@ namespace SMT.SAAS.Platform.Xamls
 
             dicManager.OnDictionaryLoadCompleted += dicManager_OnDictionaryLoadCompleted;
             InitializeComponent();
-
             HtmlPage.RegisterScriptableObject("MvcToSl", this);
             this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+            
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)

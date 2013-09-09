@@ -70,8 +70,8 @@
             var plugin = document.getElementById("SMTPlatform");
             //执行SilverLight项目中已经注册的可被Javascript调用的方法
             var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>	<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter><ApplicationOrder>a096c077-6c54-4548-9ccb-684147956416</ApplicationOrder>	<FormTypes>Edit</FormTypes></System>";
-            //t_sys_user sysuserid
-            plugin.content.MvcToSl.StartSilverlight("出差管理", "Task", "da3ab1d4-478d-4689-83d0-2e097b897f83", strConfig, "39e1cd45-5b9f-4958-b0fd-0bec222d22b5", "smtwangl");
+            //StartSilverlight(string strmoduleid, string stropttype, string strmessageid, string strconfig, string strUid, string strUserName)
+            plugin.content.MvcToSl.StartSilverlight("AE69FC39-7091-4774-9225-F6B791F23B7E", "Module", "", "", "924a8a0f-0f75-4739-8934-a146b995fcbb", "smtwangl");
         }
 
         function openDoTaskForm() {
@@ -97,6 +97,11 @@
          alert("ＳＬ加载完毕");
         }
 
+        function OpenMessageBox(options) {
+            var plugin = document.getElementById("SMTPlatform");
+            plugin.content.MvcToSl.OpenHostMessage();
+        }
+
     </script>
 </head>
 <body onload="SetFocus()">
@@ -105,6 +110,7 @@
     <input type="button" onclick="openDoTaskForm();" value="调用silverlight打开待办任务方法" />
 
      <input type="button" onclick="openMyRecord();" value="调用silverlight打开我的单据方法" />
+     <input type="button" onclick="OpenMessageBox();" value="显示silverlight系统输出框" />
 
 
     <div id="silverlightControlHost" style="width:100%;">
@@ -115,7 +121,7 @@
             <param name="background" value="white" />
             <param name="minRuntimeVersion" value="4.0.50917.0" />
             <param name="initparams" 
-            value="p1=10.10.0.93:8030,p2=.New.Services
+            value="p1=portal.smt-online.net,p2=.New.Services
             ,PhoneDownloadUrl=http://l13g.smtsoft.net/download
             ,IMDownloadUrl=http://smtim.smtsoft.net/download/SMTIM.exe
             ,UpdateVersionUrl=http://l1.smtsoft.net/imprint.html" />

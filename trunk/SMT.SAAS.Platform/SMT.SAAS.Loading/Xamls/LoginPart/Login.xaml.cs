@@ -704,6 +704,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
 
                     StreamResourceInfo streamInfo;
                     //Assembly assemblyViewModel = null;
+                    string message = string.Empty;
                     foreach (XElement xElement in deploymentParts)
                     {
                         try
@@ -725,6 +726,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                 else
                                 {
                                     var a = asmPart.Load(streamInfo.Stream);
+                                    message = message + a.FullName + System.Environment.NewLine + "从DLL文件中直接加载程序集： "+a.FullName;
                                 }
                                 streamInfo.Stream.Close();
                             }
@@ -741,7 +743,9 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                     asmPart.Source = sDllSourceName.Replace("zip", "dll");
                                     var a = asmPart.Load(streamInfo.Stream);
                                     streamInfo.Stream.Close();
+                                    message = message + a.FullName + System.Environment.NewLine + "从Zip文件中加载程序集： " + a.FullName;
                                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("从Zip文件中加载程序集： " + a.FullName);
+
                                 }
                             }
                             dtend = DateTime.Now;
@@ -757,7 +761,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                             return;
                         }
                     }
-
+                    message = string.Empty; ;
                     #endregion
                 }
                 #endregion
@@ -769,6 +773,12 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                 {
                     //MainPage = asmMain.CreateInstance("SMT.SAAS.Platform.Xamls.MainPage") as UIElement;
                     uMainPage = asmMain.CreateInstance("SMT.SAAS.Platform.Xamls.MVCMainPage") as UIElement;
+                    if (uMainPage == null)
+                    {
+                        MessageBox.Show("系统加载错误，请清空silverlight缓存后再试，或联系管理员");
+                        setLoadmingMessage("系统加载错误，请清空silverlight缓存后再试，或联系管理员");
+                        return;
+                    }
                     AppContext.AppHost.SetRootVisual(uMainPage);
                 }                
             }
