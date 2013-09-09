@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8525a0f7-f787-4807-bb27-e5de684ad7ce" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12168/OutAppliecrecordService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OutAppliecrecordService.wsdl" MetadataType="Wsdl" ID="3a3ae943-b6e5-4362-ac6a-579d67c9c30d" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="OutAppliecrecordService.xsd" MetadataType="Schema" ID="9e0dfa85-5e47-40dc-b3ff-2560311d41be" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd5" />
+    <MetadataFile FileName="OutAppliecrecordService1.wsdl" MetadataType="Wsdl" ID="fe02fa5d-19ab-433e-92d0-0ac875176851" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?wsdl" />
+    <MetadataFile FileName="OutAppliecrecordService1.xsd" MetadataType="Schema" ID="b665493a-6a20-4e4c-ae38-2defe87ebb7d" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd2" />
+    <MetadataFile FileName="OutAppliecrecordService2.xsd" MetadataType="Schema" ID="d20d3989-b72f-416b-bdd9-d8d3c3be87ce" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd4" />
+    <MetadataFile FileName="OutAppliecrecordService3.xsd" MetadataType="Schema" ID="57db8224-7021-42f4-845d-2d01bc907036" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OutAppliecrecordService.disco" MetadataType="Disco" ID="9abd23fa-ce3a-4ffb-b5ba-71eed95eb1df" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?disco" />
+    <MetadataFile FileName="OutAppliecrecordService4.xsd" MetadataType="Schema" ID="4c48887c-6430-48dc-aa09-a64befb54794" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd3" />
+    <MetadataFile FileName="OutAppliecrecordService5.xsd" MetadataType="Schema" ID="3b83ccea-83d1-43fc-b546-a448d7d69c29" SourceId="1" SourceUrl="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

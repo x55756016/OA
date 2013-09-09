@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <System>
+    <Function Description="考勤月度结算审核" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_ATTENDMONTHLYBALANCE" Name="MONTHLYBALANCEID" Description="考勤月度结算ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+<MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Attendance.AttendMonthlyBalanceAudit</PageParameter>
+    <ApplicationOrder>{MONTHLYBALANCEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_ATTENDMONTHLYBALANCE" Description="考勤月度结算审核" Key="MONTHLYBALANCEID" id="">
+    <Attribute Name="MONTHLYBALANCEID" Description="考勤月度结算ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" Description="员工ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECODE" Description="员工编号" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="BALANCEYEAR" Description="结算年份" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="BALANCEMONTH" Description="结算月份" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="BALANCEDATE" Description="结算日期" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REALNEEDATTENDDAYS" Description="应出勤天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REALATTENDDAYS" Description="实际出勤天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="LATEDAYS" Description="迟到天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="LEAVEEARLYDAYS" Description="早退天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ABSENTDAYS" Description="旷工天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="AFFAIRLEAVEDAYS" Description="事假天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SICKLEAVEDAYS" Description="病假天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OTHERLEAVEDAYS" Description="其他假期天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OVERTIMETIMES" Description="加班次数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OVERTIMESUMHOURS" Description="加班累计时间" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OVERTIMESUMDAYS" Description="加班累计天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERID" Description="所属员工ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" Description="创建人" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" Description="创建时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REMARK" Description="备注" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" Description="修改人" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" Description="审核状态" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" Description="编辑状态" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="LATETIMES" Description="迟到次数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="LEAVEEARLYTIMES" Description="早退次数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FORGETCARDTIMES" Description="漏打卡次数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+  </Object>
+</System>
+

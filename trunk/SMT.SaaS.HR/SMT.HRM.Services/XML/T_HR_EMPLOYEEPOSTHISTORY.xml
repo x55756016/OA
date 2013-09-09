@@ -1,0 +1,32 @@
+﻿
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <System>
+    <Function Description="EmployeeposthistoryFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEEPOSTHISTORY" Name="RECORDSID" Description="记录ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <Object Name="HRFLOWCONFIG" Description="EmployeeposthistoryFlow" Key="RECORDSID" id="">
+    <Attribute Name="RECORDSID" Description="记录ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEPOSTID" Description="员工岗位id" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="POSTID" Description="岗位ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" Description="员工ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" Description="编辑状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" Description="创建人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" Description="创建时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" Description="修改人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERID" Description="所属员工ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" Description="所属岗位ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" Description="所属部门ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" Description="创建人岗位ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" Description="创建人公司ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+  </Object>
+</System>
+

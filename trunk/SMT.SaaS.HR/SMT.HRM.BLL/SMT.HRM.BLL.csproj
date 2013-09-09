@@ -77,9 +77,6 @@
     <Reference Include="SMT.SaaS.SmtOlineEn">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.SmtOlineEn.dll</HintPath>
     </Reference>
-    <Reference Include="SMT_HRM_EFModel">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT_HRM_EFModel.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -235,6 +232,7 @@
     <Compile Include="SalarySolutionAssignBLL.cs" />
     <Compile Include="SalaryArchiveBLL.cs" />
     <Compile Include="EmployeeSalaryRecordBLL.cs" />
+    <Compile Include="OutAppliecationBLL.cs" />
     <Compile Include="缓存 CompanyBLL.cs" />
     <Compile Include="缓存 DepartmentBLL.cs" />
     <Compile Include="缓存 PostBLL.cs" />
@@ -255,6 +253,10 @@
     <ProjectReference Include="..\SMT.HRM.IMServices\SMT.HRM.IMServices.csproj">
       <Project>{113E2BE3-0473-4BE2-A065-293A73391331}</Project>
       <Name>SMT.HRM.IMServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT_HRM_EFModel\SMT_HRM_EFModel.csproj">
+      <Project>{c07a351d-305d-4a97-958d-e6449b022f30}</Project>
+      <Name>SMT_HRM_EFModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

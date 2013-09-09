@@ -602,7 +602,7 @@ namespace SMT.HRM.Services
         /// <param name="strCompanyId">公司ID字符串，以‘，’分隔id</param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_DEPARTMENTSWITHCOMPANY> GetDepartmentByCompanyIDs(string strCompanyId)
+        public List<SMT.HRM.CustomModel.V_DEPARTMENTSWITHCOMPANY> GetDepartmentByCompanyIDs(string strCompanyId)
         {
             using (DepartmentBLL departmentBll = new DepartmentBLL())
             {
@@ -615,7 +615,7 @@ namespace SMT.HRM.Services
         /// <param name="userID"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_DEPARTMENT> GetAllDepartmentView(string userID)
+        public List<SMT.HRM.CustomModel.V_DEPARTMENT> GetAllDepartmentView(string userID)
         {
             using (DepartmentBLL bll = new DepartmentBLL())
             {
@@ -631,7 +631,7 @@ namespace SMT.HRM.Services
         /// <param name="entity"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_DEPARTMENT> GetDepartmentView(string userID, string perm, string entity)
+        public List<SMT.HRM.CustomModel.V_DEPARTMENT> GetDepartmentView(string userID, string perm, string entity)
         {
             using (DepartmentBLL bll = new DepartmentBLL())
             {
@@ -646,7 +646,7 @@ namespace SMT.HRM.Services
         /// <param name="userID"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_DEPARTMENT> GetDepartmentViewByDateAndUser(string startDate, string userID)
+        public List<SMT.HRM.CustomModel.V_DEPARTMENT> GetDepartmentViewByDateAndUser(string startDate, string userID)
         {
             using (DepartmentBLL bll = new DepartmentBLL())
             {
@@ -898,7 +898,7 @@ namespace SMT.HRM.Services
         /// <param name="userID"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_POST> GetAllPostView(string userID)
+        public List<SMT.HRM.CustomModel.V_POST> GetAllPostView(string userID)
         {
             using (PostBLL bll = new PostBLL())
             {
@@ -914,7 +914,7 @@ namespace SMT.HRM.Services
         /// <param name="entity"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_POST> GetPostView(string userID, string perm, string entity)
+        public List<SMT.HRM.CustomModel.V_POST> GetPostView(string userID, string perm, string entity)
         {
             using (PostBLL bll = new PostBLL())
             {
@@ -929,7 +929,7 @@ namespace SMT.HRM.Services
         /// <param name="userID"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_POST> GetPostViewByDateAndUser(string startDate, string userID)
+        public List<SMT.HRM.CustomModel.V_POST> GetPostViewByDateAndUser(string startDate, string userID)
         {
             using (PostBLL bll = new PostBLL())
             {

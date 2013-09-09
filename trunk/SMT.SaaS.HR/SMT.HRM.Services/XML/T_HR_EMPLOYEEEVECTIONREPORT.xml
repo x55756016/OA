@@ -1,0 +1,43 @@
+﻿
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <System>
+    <Function Description="EmployeeevectionreportFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEEEVECTIONREPORT" Name="EVECTIONRECORDID" Description="出差记录ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <Object Name="HRFLOWCONFIG" Description="EmployeeevectionreportFlow" Key="EVECTIONRECORDID" id="">
+    <Attribute Name="EVECTIONRECORDID" Description="出差记录ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" Description="员工ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEENAME" Description="员工姓名" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECODE" Description="员工编号" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EVECTIONRECORDCATEGORY" Description="出差类型" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="STARTTIME" Description="出差开始时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ENDTIME" Description="出差结束时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="STARTDATE" Description="出差开始日期" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ENDDATE" Description="出差结束日期" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="TOTALDAYS" Description="出差天数" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="DESTINATION" Description="出差目的地" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EVECTIONREASON" Description="出差原因" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REPLACEPEOPLE" Description="工作承接人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SUBSIDYTYPE" Description="0按次，1按天" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SUBSIDYVALUE" Description="补助金额" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERID" Description="所属员工ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" Description="所属岗位ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" Description="所属部门ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" Description="创建人岗位ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" Description="创建人公司ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" Description="创建人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" Description="创建时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" Description="修改人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+  </Object>
+</System>
+

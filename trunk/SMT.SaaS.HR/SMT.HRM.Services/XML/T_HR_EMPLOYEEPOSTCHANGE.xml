@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="员工异动" Address="EngineService.svc" FuncName="CallApplicationService" Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEEPOSTCHANGE" Name="POSTCHANGEID" Description="异动记录ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+	<AssemblyName>SMT.HRM.UI</AssemblyName>
+	<PublicClass>SMT.HRM.UI.Utility</PublicClass>
+	<ProcessName>CreateFormFromEngine</ProcessName>
+	<PageParameter>SMT.HRM.UI.Form.Personnel.EmployeePostChangeForm</PageParameter>
+	<ApplicationOrder>{POSTCHANGEID}</ApplicationOrder>
+	<FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_EMPLOYEEPOSTCHANGE" Description="员工异动" Key="POSTCHANGEID" id="">
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNER" LableResourceID="OWNER"  Description="所属人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECNAME" LableResourceID="EMPLOYEECNAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID"  Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTCHANGEID" LableResourceID="POSTCHANGEID" Description="异动记录ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTCHANGCATEGORY" LableResourceID="POSTCHANGCATEGORY" Description="异动类型" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTCHANGREASON" LableResourceID="POSTCHANGREASON" Description="异动原因" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FROMCOMPANYID" LableResourceID="FROMCOMPANYID" Description="异动前机构ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TOCOMPANYID" LableResourceID="TOCOMPANYID" Description="异动后机构ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FROMDEPARTMENTID" LableResourceID="FROMDEPARTMENTID" Description="异动前部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TODEPARTMENTID" LableResourceID="TODEPARTMENTID" Description="异动后部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FROMPOSTID" LableResourceID="FROMPOSTID" Description="异动前岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TOPOSTID" LableResourceID="TOPOSTID" Description="异动后岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="入职审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECODE" LableResourceID="EMPLOYEECODE" Description="员工编号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHANGEDATE" LableResourceID="CHANGEDATE" Description="异动日期" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FROMPOSTLEVEL" LableResourceID="POSTLEVEL" Description="异动前岗位等级" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FROMSALARYLEVEL" LableResourceID="FROMSALARYLEVEL" Description="异动前薪资等级" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ISAGENCY" LableResourceID="ISAGENCY" Description="是否代理岗位" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TOPOSTLEVEL" LableResourceID="POSTLEVEL" Description="异动后岗位等级" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TOSALARYLEVEL" LableResourceID="TOSALARYLEVEL" Description="异动后薪资等级" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEPOSTID" LableResourceID="EMPLOYEEPOSTID" Description="异动后员工岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ENDDATE" LableResourceID="ENDDATE" Description="结束日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ENDREASON" LableResourceID="ENDREASON" Description="结束原因" DataType="string" DataValue="" DataText=""></Attribute>
+  </Object>
+</System>

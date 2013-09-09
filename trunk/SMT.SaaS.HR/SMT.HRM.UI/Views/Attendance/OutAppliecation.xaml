@@ -1,0 +1,77 @@
+﻿<smtLocal:BasePage x:Class="SMT.HRM.UI.Views.Attendance.OutAppliecation" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+		   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+		   xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+		   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"           
+           Title="OverTime Page">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top"></smtx:ViewTitle>
+            <Grid Background="Transparent" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbEmpNameTiTle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <smtx:LookUp Name="lkEmpName" DataContext="{Binding T_HR_EMPLOYEE}"  Grid.Row="0" Grid.Column="1" DisplayMemberPath="EMPLOYEECNAME" FindClick="lkEmpName_FindClick" Margin="5,0,0,0" Height="24" Width="110" HorizontalAlignment="Left" />
+
+                <!--异常日期 -->
+                <TextBlock x:Name="tbCurDateMonthTitle" Grid.Row="0" Grid.Column="2" Text="外出日期" Style="{StaticResource FrameGridTextBlock1}" VerticalAlignment="Center"  />
+                <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtCurDateMonth" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left"  Margin="0" Width="110" Height="24"/>-->
+                <!--异常开始时间 -->
+                <controls:DatePicker x:Name="dpClockInRdStartDate" Grid.Row="0" Grid.Column="3" Width="120" Height="24" Margin="5,0,0,0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}" />
+                <!--至 -->
+                <TextBlock x:Name="tbtext" Grid.Row="0" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" />
+                <!--异常结束时间 -->
+                <controls:DatePicker x:Name="dpClockInRdEndDate" Grid.Row="0" Grid.Column="5" Width="120" Height="24" Margin="5,0,0,0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}" />
+
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnIsNull" Grid.Row="0" Grid.Column="6" Width="70" Content="重置" HorizontalAlignment="Left" VerticalAlignment="Center"  Click="btnIsNull_Click"/>
+                <Button x:Name="btnSearch" Grid.Column="7" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Grid.Row="1" Click="GridPager_Click"  VerticalAlignment="Center" Width="70" HorizontalAlignment="Left" Style="{StaticResource CommonButtonStyle}" />
+            </Grid>
+            <smtx:FormToolBar x:Name="toolbar1" Width="auto" Grid.Row="2"></smtx:FormToolBar>
+            <data:DataGrid x:Name="dgOTList" AutoGenerateColumns="false"  Grid.Row="3" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LoadingRow="dgOTList_LoadingRow"
+                       Style="{StaticResource DataGridStyle}"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding OVERTIMERECORDID}"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" />
+                    <data:DataGridTextColumn Header="外出时长" Binding="{Binding OVERTIMEHOURS}" />
+                    <data:DataGridTextColumn Header="STARTDATE" Binding="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
+                    <data:DataGridTextColumn Header="STARTTIME" Binding="{Binding STARTDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" />
+                    <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" />
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

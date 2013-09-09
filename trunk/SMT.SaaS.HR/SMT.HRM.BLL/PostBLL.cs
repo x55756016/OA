@@ -693,7 +693,7 @@ namespace SMT.HRM.BLL
         /// 获取全部可用的岗位视图
         /// </summary>
         /// <returns></returns>
-        public IQueryable<V_POST> GetAllPostView(string userID)
+        public IQueryable<SMT.HRM.CustomModel.V_POST> GetAllPostView(string userID)
         {
             #region 根据权限过滤数据
             List<object> paras = new List<object>();
@@ -713,7 +713,7 @@ namespace SMT.HRM.BLL
                 ents = ents.Where(filterString, paras.ToArray());
             }
             var postViews = from c in ents
-                            select new V_POST
+                            select new SMT.HRM.CustomModel.V_POST
                             {
                                 POSTID = c.POSTID,
                                 POSTNAME = c.T_HR_POSTDICTIONARY.POSTNAME,
@@ -735,7 +735,7 @@ namespace SMT.HRM.BLL
         /// <param name="startDate"></param>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public IQueryable<V_POST> GetPostViewByDateAndUser(string startDate, string userID)
+        public IQueryable<SMT.HRM.CustomModel.V_POST> GetPostViewByDateAndUser(string startDate, string userID)
         {
             #region 根据权限过滤数据
             List<object> paras = new List<object>();
@@ -760,7 +760,7 @@ namespace SMT.HRM.BLL
                 return null;
             var postViews = from c in ents
                             where c.UPDATEDATE >= start
-                            select new V_POST
+                            select new SMT.HRM.CustomModel.V_POST
                             {
                                 POSTID = c.POSTID,
                                 POSTNAME = c.T_HR_POSTDICTIONARY.POSTNAME,
@@ -784,7 +784,7 @@ namespace SMT.HRM.BLL
         /// <param name="perm"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public IQueryable<V_POST> GetPostView(string userID, string perm, string entity)
+        public IQueryable<SMT.HRM.CustomModel.V_POST> GetPostView(string userID, string perm, string entity)
         {
             #region 根据权限过滤数据
             if (string.IsNullOrEmpty(perm))
@@ -812,7 +812,7 @@ namespace SMT.HRM.BLL
                 ents = ents.Where(filterString, paras.ToArray());
             }
             var postViews = from c in ents
-                            select new V_POST
+                            select new SMT.HRM.CustomModel.V_POST
                             {
                                 POSTID = c.POSTID,
                                 POSTNAME = c.T_HR_POSTDICTIONARY.POSTNAME,

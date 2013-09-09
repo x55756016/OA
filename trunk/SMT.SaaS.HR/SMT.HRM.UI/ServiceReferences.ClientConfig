@@ -44,6 +44,10 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
+        <binding name="BasicHttpBinding_OutAppliecrecordService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
       </basicHttpBinding>
       <customBinding>
         <binding name="CustomBinding_WelfareStandardService">
@@ -79,27 +83,23 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-        <!--FBA-->
-        <binding name="CustomBinding_DailyManagementServices" sendTimeout="10:10:00" receiveTimeout="10:10:00">
+        <binding name="CustomBinding_DailyManagementServices" receiveTimeout="10:10:00"
+          sendTimeout="10:10:00">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-        <!--FBAEnd-->
       </customBinding>
     </bindings>
     <client>
       <endpoint address="http://localhost:12168/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
-      
       <endpoint address="http://localhost:12168/SalaryService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
         contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
-
       <endpoint address="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
-      
       <endpoint address="http://10.10.0.93:8080/New/Services/smtflow/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
@@ -115,7 +115,6 @@
       <endpoint address="http://10.10.0.93:8080/New/Services/HR/HrCommonService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
         contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
-      
       <endpoint address="http://10.10.0.93:8080/New/Services/HR/PerformanceService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
         contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
@@ -146,11 +145,12 @@
       <endpoint address="http://10.10.0.93:8080/New/Services/HR/Report/ReportChartService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ReportChartService"
         contract="ReportChartServiceWS.ReportChartService" name="BasicHttpBinding_ReportChartService" />
-      <!--FBA-->
       <endpoint address="http://localhost:1734/DailyManagementServices.svc"
-          binding="customBinding" bindingConfiguration="CustomBinding_DailyManagementServices"
-          contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
-      <!--FBAEnd-->
+        binding="customBinding" bindingConfiguration="CustomBinding_DailyManagementServices"
+        contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
+      <endpoint address="http://localhost:12168/OutAppliecrecordService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_OutAppliecrecordService"
+        contract="OutApplyWS.OutAppliecrecordService" name="BasicHttpBinding_OutAppliecrecordService" />
     </client>
 <!--http://172.30.50.83:5102/New/Services/PublicInterface/PublicService.svc-->
   </system.serviceModel>

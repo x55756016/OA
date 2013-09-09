@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="EmployeeaddsumFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEEADDSUM" Name="ADDSUMID" Description="加扣款ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+<MsgOpen>
+		<AssemblyName>SMT.HRM.UI</AssemblyName>
+	<PublicClass>SMT.HRM.UI.Utility</PublicClass>
+	<ProcessName>CreateFormFromEngine</ProcessName>
+	<PageParameter>SMT.HRM.UI.Form.Salary.EmployeeAddSumForm</PageParameter>
+		<ApplicationOrder>{ADDSUMID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+ </MsgOpen>
+  <Object Name="T_HR_EMPLOYEEADDSUM" Description="员工加扣款" Key="ADDSUMID" id="">
+	<Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ADDSUMID" LableResourceID="ADDSUMID" Description="加扣款ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID" Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECODE" LableResourceID="EMPLOYEECODE" Description="员工编号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PROJECTNAME" LableResourceID="PROJECTNAME" Description="项目名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PROJECTCODE" LableResourceID="PROJECTCODE" Description="项目编码" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PROJECTMONEY" LableResourceID="PROJECTMONEY" Description="项目金额" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SYSTEMTYPE" LableResourceID="HANDLETYPE" Description="处理类型" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEALYEAR" LableResourceID="DEALYEAR" Description="处理年份" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEALMONTH" LableResourceID="DEALMONTH" Description="处理月份" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+  </Object>
+</System>

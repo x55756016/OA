@@ -338,7 +338,7 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="companyIds">字符串的公司ID，以‘，’分隔各个ID</param>
         /// <returns></returns>
-        public List<V_DEPARTMENTSWITHCOMPANY> GetDepartmentByCompanyIDs(string companyIds)
+        public List<SMT.HRM.CustomModel.V_DEPARTMENTSWITHCOMPANY> GetDepartmentByCompanyIDs(string companyIds)
         {
             try
             {
@@ -348,7 +348,7 @@ namespace SMT.HRM.BLL
                     var QListDep = from c in dal.GetObjects<T_HR_COMPANY>()
                                    join d in dal.GetObjects<T_HR_DEPARTMENT>() on c.COMPANYID equals d.T_HR_COMPANY.COMPANYID
                                    where c.COMPANYID.Contains(companyIds) && d.EDITSTATE == "1"
-                                   select new V_DEPARTMENTSWITHCOMPANY
+                                   select new SMT.HRM.CustomModel.V_DEPARTMENTSWITHCOMPANY
                                    {
                                        DEPARTMENTID = d.DEPARTMENTID,
                                        COMPANYID = c.COMPANYID,
@@ -916,7 +916,7 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public IQueryable<V_DEPARTMENT> GetAllDepartmentView(string userID)
+        public IQueryable<SMT.HRM.CustomModel.V_DEPARTMENT> GetAllDepartmentView(string userID)
         {
             #region 按权限过滤
             List<object> paras = new List<object>();
@@ -935,7 +935,7 @@ namespace SMT.HRM.BLL
                 ents = ents.Where(filterString, paras.ToArray());
             }
             var departmentViews = from c in ents
-                                  select new V_DEPARTMENT
+                                  select new SMT.HRM.CustomModel.V_DEPARTMENT
                                  {
                                      DEPARTMENTID = c.DEPARTMENTID,
                                      DEPARTMENTNAME = c.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
@@ -960,7 +960,7 @@ namespace SMT.HRM.BLL
         /// <param name="startDate"></param>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public IQueryable<V_DEPARTMENT> GetDepartmentViewByDateAndUser(string startDate, string userID)
+        public IQueryable<SMT.HRM.CustomModel.V_DEPARTMENT> GetDepartmentViewByDateAndUser(string startDate, string userID)
         {
             #region 按权限过滤
             List<object> paras = new List<object>();
@@ -986,7 +986,7 @@ namespace SMT.HRM.BLL
                 return null;
             var departmentViews = from c in ents
                                   where c.UPDATEDATE >= start
-                                  select new V_DEPARTMENT
+                                  select new SMT.HRM.CustomModel.V_DEPARTMENT
                                   {
                                       DEPARTMENTID = c.DEPARTMENTID,
                                       DEPARTMENTNAME = c.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
@@ -1011,7 +1011,7 @@ namespace SMT.HRM.BLL
         /// <param name="perm"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public IQueryable<V_DEPARTMENT> GetDepartmentView(string userID, string perm, string entity)
+        public IQueryable<SMT.HRM.CustomModel.V_DEPARTMENT> GetDepartmentView(string userID, string perm, string entity)
         {
             #region 按权限过滤
             if (string.IsNullOrEmpty(perm))
@@ -1038,7 +1038,7 @@ namespace SMT.HRM.BLL
                 ents = ents.Where(filterString, paras.ToArray());
             }
             var departmentViews = from c in ents
-                                  select new V_DEPARTMENT
+                                  select new SMT.HRM.CustomModel.V_DEPARTMENT
                                   {
                                       DEPARTMENTID = c.DEPARTMENTID,
                                       DEPARTMENTNAME = c.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,

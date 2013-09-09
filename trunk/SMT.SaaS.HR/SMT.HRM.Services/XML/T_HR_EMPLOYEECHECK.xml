@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="员工转正" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEECHECK" Name="BEREGULARID" Description="转正表ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Personnel.EmployeeCheckForm</PageParameter>
+    <ApplicationOrder>{BEREGULARID}</ApplicationOrder>
+    <FormTypes>Edit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_EMPLOYEECHECK" Description="员工转正" Key="BEREGULARID" id="">
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNER" LableResourceID="OWNER"  Description="所属人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECNAME" LableResourceID="EMPLOYEECNAME" Description="员工中文名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID"  Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BEREGULARID" LableResourceID="BEREGULARID" Description="转正表ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PROBATIONPERIOD" LableResourceID="PROBATIONPERIOD" Description="试用期(月)" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKDATE" LableResourceID="CHECKDATE" Description="审核时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKUSER" LableResourceID="CHECKUSER" Description="审核人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKRESULT" LableResourceID="CHECKRESULT" Description="审核结果" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="入职审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REPORTDATE" LableResourceID="REPORTDATE" Description="入职时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECODE" LableResourceID="EMPLOYEECODE" Description="员工编号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ONDUTYDATE" LableResourceID="ONDUTYDATE" Description="到岗日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BEREGULARDATE" LableResourceID="BEREGULARDATE" Description="转正时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+  </Object>
+</System>

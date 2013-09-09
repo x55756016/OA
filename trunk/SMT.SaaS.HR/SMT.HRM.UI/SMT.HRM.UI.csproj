@@ -305,6 +305,9 @@
     <Compile Include="Form\Attendance\TerminateLeaveForm.xaml.cs">
       <DependentUpon>TerminateLeaveForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\Attendance\OutAppliecationForm.xaml.cs">
+      <DependentUpon>OutAppliecationForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\BaseFloatable.cs" />
     <Compile Include="Form\Organization\DepartmentDictionaryForms.xaml.cs">
       <DependentUpon>DepartmentDictionaryForms.xaml</DependentUpon>
@@ -653,6 +656,11 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ResourceWrapper.cs" />
+    <Compile Include="Service References\OutApplyWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ReportChartServiceWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -731,6 +739,9 @@
     </Compile>
     <Compile Include="Views\Attendance\TerminateLeave.xaml.cs">
       <DependentUpon>TerminateLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Attendance\OutAppliecation.xaml.cs">
+      <DependentUpon>OutAppliecation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BasePage.cs" />
     <Compile Include="Views\Home.xaml.cs">
@@ -1162,6 +1173,10 @@
     <Page Include="Form\Attendance\TerminateLeaveForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\OutAppliecationForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1911,6 +1926,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Attendance\OutAppliecation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Home.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -2347,6 +2366,29 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService.wsdl" />
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService1.wsdl" />
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OutApplyWS\SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ReportChartServiceWS\ReportChartService.wsdl" />
     <None Include="Service References\ReportChartServiceWS\ReportChartService.xsd">
       <SubType>Designer</SubType>
@@ -2382,6 +2424,13 @@
     </None>
     <Content Include="EntitysXML\SalaryItemXML.xml" />
     <Content Include="EntitysXML\SMT_HRM_EFModel.xml" />
+    <None Include="Service References\OutApplyWS\OutAppliecrecordService.disco" />
+    <None Include="Service References\OutApplyWS\configuration91.svcinfo" />
+    <None Include="Service References\OutApplyWS\configuration.svcinfo" />
+    <None Include="Service References\OutApplyWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>
@@ -2390,6 +2439,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\OutApplyWS\" />
     <WCFMetadataStorage Include="Service References\ReportChartServiceWS\" />
     <WCFMetadataStorage Include="Service References\WelfareStandardWS\" />
   </ItemGroup>

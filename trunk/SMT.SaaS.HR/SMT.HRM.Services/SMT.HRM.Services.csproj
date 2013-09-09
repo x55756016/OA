@@ -32,6 +32,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,10 +64,6 @@
     <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT_HRM_EFModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT_HRM_EFModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -101,6 +98,7 @@
     <Content Include="HRUpdateCheckStateServices.svc" />
     <Content Include="InstantMessagingService.svc" />
     <Content Include="OrganizationService.svc" />
+    <Content Include="OutAppliecrecordService.svc" />
     <Content Include="OutputInterface.svc" />
     <Content Include="PersonnelService.svc" />
     <Content Include="Report\ReportChartService.svc" />
@@ -111,6 +109,53 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="XML\BOList.xml" />
+    <Content Include="XML\T_HR_ATTENDANCERECORD.xml" />
+    <Content Include="XML\T_HR_ATTENDANCESOLUTION.xml" />
+    <Content Include="XML\T_HR_ATTENDANCESOLUTIONASIGN -20120301.xml" />
+    <Content Include="XML\T_HR_ATTENDANCESOLUTIONASIGN.xml" />
+    <Content Include="XML\T_HR_ATTENDMONTHLYBALANCE.xml" />
+    <Content Include="XML\T_HR_ATTENDMONTHLYBATCHBALANCE.xml" />
+    <Content Include="XML\T_HR_COMPANY.xml" />
+    <Content Include="XML\T_HR_CUSTOMGUERDONRECORD.xml" />
+    <Content Include="XML\T_HR_CUSTOMGUERDONSET.xml" />
+    <Content Include="XML\T_HR_DEPARTMENT.xml" />
+    <Content Include="XML\T_HR_DEPARTMENTDICTIONARY.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEABNORMRECORD.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEADDSUM.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEADDSUMBATCH.xml" />
+    <Content Include="XML\T_HR_EMPLOYEECANCELLEAVE.xml" />
+    <Content Include="XML\T_HR_EMPLOYEECHECK.xml" />
+    <Content Include="XML\T_HR_EMPLOYEECONTRACT.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEENTRY.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEEVECTIONRECORD.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEEVECTIONREPORT.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEINSURANCE.xml" />
+    <Content Include="XML\T_HR_EMPLOYEELEAVERECORD.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEOUTAPPLIECRECORD.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEOVERTIMERECORD.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEPOST.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEPOSTCHANGE.xml" />
+    <Content Include="XML\T_HR_EMPLOYEEPOSTHISTORY.xml" />
+    <Content Include="XML\T_HR_EMPLOYEESALARYRECORD.xml" />
+    <Content Include="XML\T_HR_EMPLOYEESALARYRECORDHIS.xml" />
+    <Content Include="XML\T_HR_EMPLOYEESALARYRECORDPAYMENT.xml" />
+    <Content Include="XML\T_HR_EMPLOYEESIGNINRECORD.xml" />
+    <Content Include="XML\T_HR_KPIRECORD.xml" />
+    <Content Include="XML\T_HR_LEFTOFFICE.xml" />
+    <Content Include="XML\T_HR_LEFTOFFICECONFIRM.xml" />
+    <Content Include="XML\T_HR_ORGANAZITIONCHANGE.xml" />
+    <Content Include="XML\T_HR_PENSIONMASTER.xml" />
+    <Content Include="XML\T_HR_PERFORMANCEREWARDRECORD.xml" />
+    <Content Include="XML\T_HR_PERFORMANCEREWARDSET.xml" />
+    <Content Include="XML\T_HR_POST.xml" />
+    <Content Include="XML\T_HR_POSTDICTIONARY.xml" />
+    <Content Include="XML\T_HR_SALARYARCHIVE.xml" />
+    <Content Include="XML\T_HR_SALARYRECORDBATCH.xml" />
+    <Content Include="XML\T_HR_SALARYSOLUTION.xml" />
+    <Content Include="XML\T_HR_SALARYSOLUTIONASSIGN.xml" />
+    <Content Include="XML\T_HR_SALARYSTANDARD.xml" />
+    <Content Include="XML\T_HR_SALARYSYSTEM.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttendanceService.svc.cs">
@@ -130,6 +175,9 @@
     </Compile>
     <Compile Include="OrganizationService.svc.cs">
       <DependentUpon>OrganizationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="OutAppliecrecordService.svc.cs">
+      <DependentUpon>OutAppliecrecordService.svc</DependentUpon>
     </Compile>
     <Compile Include="OutputInterface.svc.cs">
       <DependentUpon>OutputInterface.svc</DependentUpon>
@@ -172,6 +220,10 @@
     <ProjectReference Include="..\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
       <Project>{0E45B937-670F-49E1-8EF1-A4BD312B94DA}</Project>
       <Name>SMT.HRM.CustomModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT_HRM_EFModel\SMT_HRM_EFModel.csproj">
+      <Project>{c07a351d-305d-4a97-958d-e6449b022f30}</Project>
+      <Name>SMT_HRM_EFModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

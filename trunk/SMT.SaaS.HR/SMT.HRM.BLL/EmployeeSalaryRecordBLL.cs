@@ -1371,6 +1371,12 @@ namespace SMT.HRM.BLL
         /// <param name="strCompanyID"></param>
         private void GernerateSlaryByOrgType(int objectType, string strBalanceEmployeeID,string GenerateEmployeePostid, string objectID, int year, int month, string strCompanyID)
         {
+            var q=(from emp in dal.GetObjects<T_HR_EMPLOYEE>()
+                  select emp.EMPLOYEECNAME).FirstOrDefault();
+                  
+            string GernareateMsg = "按组织架构结算薪资，结算类型：" + objectType
+                + " 结算id：" + objectID+" 结算年月："+year+"-"+month
+                + " 结算员工：" + q;
             switch (objectType)
             {
                 case 0://公司

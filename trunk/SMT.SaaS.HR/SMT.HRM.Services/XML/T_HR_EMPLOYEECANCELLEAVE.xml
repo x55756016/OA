@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <System>
+    <Function Description="销假申请" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEECANCELLEAVE" Name="CANCELLEAVEID" Description="销假记录ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Attendance.TerminateLeaveForm</PageParameter>
+    <ApplicationOrder>{CANCELLEAVEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_EMPLOYEECANCELLEAVE" Description="销假申请" Key="CANCELLEAVEID" id="">
+    <Attribute Name="CANCELLEAVEID" Description="销假记录ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+	<Attribute Name="ENTITYKEY" Description="ENTITYKEY" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" Description="员工ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECODE" Description="员工编号" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="STARTDATETIME" Description="销假开始时间" DataType="DateTime" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ENDDATETIME" Description="销假结束时间" DataType="DateTime" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="LEAVEDAYS" Description="销假天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="LEAVEHOURS" Description="销假时长" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="TOTALHOURS" Description="销假合计时长" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REASON" Description="销假原因" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" Description="审核状态" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REMARK" Description="备注" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERID" Description="所属员工ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" Description="创建人" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" Description="修改人" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+  </Object>
+</System>
+
