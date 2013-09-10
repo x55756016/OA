@@ -10,7 +10,9 @@
     <form id="form1" runat="server">
     <div>
     
-    </div>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="考勤年结" />
+        员工id</div>
+        <asp:TextBox ID="txtEmployeeid" runat="server"></asp:TextBox>
     </form>
 </body>
 </html>

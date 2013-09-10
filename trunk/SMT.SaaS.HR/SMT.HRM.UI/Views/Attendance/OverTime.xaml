@@ -65,9 +65,9 @@
                         </data:DataGridTemplateColumn.CellTemplate>
                     </data:DataGridTemplateColumn>
                     <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" />
+                    <data:DataGridTextColumn Header="STARTDATE" Binding="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" />
+                    <data:DataGridTextColumn Header="ENDDATE" Binding="{Binding STARTDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" />
                     <data:DataGridTextColumn Header="OVERTIMETIMES" Binding="{Binding OVERTIMEHOURS}" />
-                    <data:DataGridTextColumn Header="STARTDATE" Binding="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
-                    <data:DataGridTextColumn Header="STARTTIME" Binding="{Binding STARTDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=TIME}" />
                     <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" />
                 </data:DataGrid.Columns>
             </data:DataGrid>

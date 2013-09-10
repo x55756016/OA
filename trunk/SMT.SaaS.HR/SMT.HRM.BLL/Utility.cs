@@ -927,5 +927,87 @@ namespace SMT.HRM.BLL
                     + strEmployeeId + "。出错详细信息如下：" + ex.ToString());
             }
         }
+
+        /// <summary>
+        /// 获取Excel里面的数据
+        /// </summary>
+        /// <param name="strPath">文件路径</param>
+        /// <param name="col">表示数据有多少列</param>
+        /// <param name="row">表示从第几行开始读数据</param>
+        /// <returns></returns>
+        public static DataTable GetDataFromFile(string strPath, int col, int row)
+        {
+            DataTable dtRes = MakeTableForImport(col);
+            if (!string.IsNullOrEmpty(strPath))
+            {
+                dtRes.Clear();
+                //应将引用的Mircosoft.Office.Intercrop.Excel的引用属性-嵌入式互操作类型 设置为false
+                Microsoft.Office.Interop.Excel.Application xApp = new Microsoft.Office.Interop.Excel.ApplicationClass();
+                xApp.Visible = false;
+                try
+                {
+                    Microsoft.Office.Interop.Excel.Workbook xBook = xApp.Workbooks._Open(strPath,
+                    Missing.Value, Missing.Value, Missing.Value, Missing.Value
+                    , Missing.Value, Missing.Value, Missing.Value, Missing.Value
+                    , Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+                    Microsoft.Office.Interop.Excel.Worksheet xSheet = (Microsoft.Office.Interop.Excel.Worksheet)xBook.Sheets[1];
+                    int iCount = xSheet.UsedRange.Rows.Count - 1;
+                    if (iCount < 1)
+                    {
+                        return dtRes;
+                    }
+                    for (int i = 0; i < iCount; i++)
+                    {
+                        int iRowIndex = i + row;  // //Excel起始行从1开始计数，首列为标题行，因此数据行计数应先加
+                        DataRow dr = dtRes.NewRow();
+                        for (int j = 1; j <= col; j++)
+                        {
+                            Microsoft.Office.Interop.Excel.Range rng = (Microsoft.Office.Interop.Excel.Range)xSheet.Cells[iRowIndex, j];
+                            if (rng.Text != null)
+                            {
+                                dr[j - 1] = rng.Text.ToString().Trim();
+                            }
+                        }
+                        dtRes.Rows.Add(dr);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    SMT.Foundation.Log.Tracer.Debug(" GetDataFromFile获取Excel数据错误:" + ex.ToString());
+                }
+                finally
+                {
+                    xApp.Quit();
+                }
+            }
+            return dtRes;
+        }
+
+        /// <summary>
+        /// 构建导入的DataTable，数据为string类，可以扩展
+        /// </summary>
+        /// <param name="col">表示数据有多少列</param>
+        /// <returns></returns>
+        private static DataTable MakeTableForImport(int col)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                for (int i = 0; i <= col; i++)
+                {
+                    DataColumn colName = new DataColumn();
+                    colName.ColumnName = "col" + i;//名字为列号，读取数据时注意
+                    colName.DataType = typeof(string);
+                    dt.Columns.Add(colName);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" MakeTableForImport构造DataTable数据错误:" + ex.ToString());
+                return null;
+            }
+
+        }
     }
 }

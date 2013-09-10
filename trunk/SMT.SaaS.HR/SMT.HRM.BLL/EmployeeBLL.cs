@@ -2304,6 +2304,281 @@ namespace SMT.HRM.BLL
             }
         }
 
+       /// <summary>
+        /// 导出员工档案（公司的非离职员工）
+       /// </summary>
+       /// <param name="companyID"></param>
+       /// <returns></returns>
+        public byte[] ExportEmployee(string companyID)
+        {
+            try
+            {
+                var company = (from e in dal.GetObjects<T_HR_COMPANY>()
+                               where e.COMPANYID == companyID
+                               select e).FirstOrDefault();
+                string companyName = company.CNAME;
+                IQueryable<T_HR_EMPLOYEE> entEmployee = this.GetEmployeeByCompanyID(companyID);
+                byte[] result;
+                DataTable dt = TableToExportInit();
+                if (entEmployee != null && entEmployee.Count() > 0)
+                {
+                    DataTable dttoExport = GetDataConversion(dt, entEmployee);
+                    result = Utility.OutFileStream(companyName+Utility.GetResourceStr(" 员工档案信息"), dttoExport);
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
+                #region 旧方法
+                //if (entEmployee!=null&&entEmployee.Count() > 0)
+                //{
+                //    #region 定义表头名字，添加表头后面要添加相应数据
+                //    List<string> colName = new List<string>();
+                //    colName.Add("员工姓名");
+                //    colName.Add("员工编号");
+                //    colName.Add("性别");
+                //    colName.Add("身份证号码");
+                //    colName.Add("指纹编号");
+                //    colName.Add("社保缴交起始时间");
+                //    colName.Add("民族");
+                //    colName.Add("身高");
+                //    colName.Add("出生日期");
+                //    colName.Add("血型");
+                //    colName.Add("手机号码");
+                //    colName.Add("开户银行");
+                //    colName.Add("银行账号");
+                //    colName.Add("籍贯");
+                //    colName.Add("电子邮件");
+                //    colName.Add("户口所在地");
+                //    colName.Add("家庭地址");
+                //    colName.Add("目前居住地");
+                //    colName.Add("员工状态");
+                //    colName.Add("备注");
+                //    #endregion
+                //    StringBuilder sb = new StringBuilder();
+                //    for (int i = 0; i < colName.Count; i++)
+                //    {
+                //        sb.Append(colName[i] + ",");
+                //    }
+                //    sb.Append("\r\n"); //换行
+                //    foreach (var ent in entEmployee)
+                //    {
+                //        #region 每一行加入数据
+                //        sb.Append(ent.EMPLOYEECNAME + ",");
+                //        sb.Append(ent.EMPLOYEECODE + ",");
+                //        sb.Append(ent.SEX + ",");
+                //        sb.Append(ent.IDNUMBER + ",");
+                //        sb.Append(ent.FINGERPRINTID + ",");
+                //        sb.Append(ent.SOCIALSERVICEYEAR + ",");
+                //        sb.Append(ent.NATION + ",");
+                //        sb.Append(ent.HEIGHT + ",");
+                //        sb.Append(ent.BIRTHDAY + ",");
+                //        sb.Append(ent.BLOODTYPE + ",");
+                //        sb.Append(ent.MOBILE + ",");
+                //        sb.Append(ent.BANKID + ",");
+                //        sb.Append(ent.BANKCARDNUMBER + ",");
+                //        sb.Append(ent.PROVINCE + ",");
+                //        sb.Append(ent.EMAIL + ",");
+                //        sb.Append(ent.REGRESIDENCE + ",");
+                //        sb.Append(ent.FAMILYADDRESS + ",");
+                //        sb.Append(ent.CURRENTADDRESS + ",");
+                //        sb.Append(ent.EMPLOYEESTATE + ",");
+                //        sb.Append(ent.REMARK + ",");
+                //        #endregion
+                //        sb.Append("\r\n");//换行
+                //    }
+                //    byte[] result = Encoding.GetEncoding("GB2312").GetBytes(sb.ToString());
+                //    return result;
+                //}
+                //else
+                //{
+                //    return null;
+                //}
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("ExportEmployee导出员工档案出错:" + ex.Message);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 数据组装
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="entEmployee"></param>
+        /// <returns></returns>
+        private DataTable GetDataConversion(DataTable dt, IQueryable<T_HR_EMPLOYEE> entEmployee)
+        {
+            dt.Rows.Clear();
+            foreach (var item in entEmployee)
+            {
+                try
+                {
+                    DataRow row = dt.NewRow();
+                    #region 每行数据
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0: row[i] = item.EMPLOYEECNAME; break;
+                            case 1: row[i] = item.EMPLOYEECODE; break;
+                            case 2: row[i] = item.SEX=="0"?"女":"男"; break;
+                            case 3: row[i] = item.IDNUMBER; break;
+                            case 4: row[i] = item.FINGERPRINTID; break;
+                            case 5: row[i] =item.SOCIALSERVICEYEAR; break;
+                            case 6: row[i] = item.HEIGHT; break;
+                            case 7: row[i] = Convert.ToDateTime(item.BIRTHDAY).ToString("yyyy-MM-dd"); break;
+                            case 8: row[i] = item.MOBILE; break;
+                            case 9: row[i] = item.BANKID; break;
+                            case 10: row[i] = item.BANKCARDNUMBER; break;
+                            case 11: row[i] = item.EMAIL; break;
+                            case 12: row[i] = item.REGRESIDENCE; break;
+                            case 13: row[i] = item.FAMILYADDRESS; break;
+                            case 14: row[i] = item.CURRENTADDRESS; break;
+                            case 15: 
+                                {
+                                    string state=string.Empty;
+                                    if (item.EMPLOYEESTATE == "1")
+                                        state = "在职";
+                                    else if (item.EMPLOYEESTATE == "2")
+                                    {
+                                         state = "已离职";
+                                    }
+                                    else if (item.EMPLOYEESTATE == "3")
+                                    {
+                                        state = "离职中";
+                                    }
+                                } row[i] = item.EMPLOYEESTATE; break;
+                            case 16: row[i] = item.REMARK; break;
+                        }
+                    }
+                    dt.Rows.Add(row);
+                    #endregion
+                }
+                catch (Exception ex)
+                {
+                    SMT.Foundation.Log.Tracer.Debug("ExportEmployee导出员工档案组装DataTable时出错:" + ex.Message);
+                    return null;
+                }
+            
+            }
+            return dt;
+        }
+
+        /// <summary>
+        /// 定义表头
+        /// </summary>
+        /// <returns></returns>
+        private DataTable TableToExportInit()
+        {
+            DataTable dt = new DataTable();
+            #region 定义表头名称
+            DataColumn colCordSD = new DataColumn();
+            colCordSD.ColumnName = "员工姓名";
+            colCordSD.DataType = typeof(string);
+            dt.Columns.Add(colCordSD);
+
+            DataColumn colCordED = new DataColumn();
+            colCordED.ColumnName = "员工编号";
+            colCordED.DataType = typeof(string);
+            dt.Columns.Add(colCordED);
+
+            DataColumn colCordFD = new DataColumn();
+            colCordFD.ColumnName = "性别";
+            colCordFD.DataType = typeof(string);
+            dt.Columns.Add(colCordFD);
+
+            DataColumn colCordYD = new DataColumn();
+            colCordYD.ColumnName = "身份证号码";
+            colCordYD.DataType = typeof(string);
+            dt.Columns.Add(colCordYD);
+
+            DataColumn colCordMD = new DataColumn();
+            colCordMD.ColumnName = "指纹编号";
+            colCordMD.DataType = typeof(string);
+            dt.Columns.Add(colCordMD);
+
+            DataColumn colCordBank = new DataColumn();
+            colCordBank.ColumnName = Utility.GetResourceStr("社保缴交起始时间");
+            colCordBank.DataType = typeof(string);
+            dt.Columns.Add(colCordBank);
+
+            //DataColumn colCordAddress = new DataColumn();
+            //colCordAddress.ColumnName = Utility.GetResourceStr("民族");
+            //colCordAddress.DataType = typeof(string);
+            //dt.Columns.Add(colCordAddress);
+
+            DataColumn colCordComments = new DataColumn();
+            colCordComments.ColumnName = Utility.GetResourceStr("身高");
+            colCordComments.DataType = typeof(string);
+            dt.Columns.Add(colCordComments);
+
+            DataColumn col1 = new DataColumn();
+            col1.ColumnName = Utility.GetResourceStr("出生日期");
+            col1.DataType = typeof(string);
+            dt.Columns.Add(col1);
+
+            //DataColumn col2 = new DataColumn();
+            //col2.ColumnName = Utility.GetResourceStr("血型");
+            //col2.DataType = typeof(string);
+            //dt.Columns.Add(col2);
+
+            DataColumn col3 = new DataColumn();
+            col3.ColumnName = Utility.GetResourceStr("手机号码");
+            col3.DataType = typeof(string);
+            dt.Columns.Add(col3);
+
+            DataColumn col4 = new DataColumn();
+            col4.ColumnName = Utility.GetResourceStr("开户银行");
+            col4.DataType = typeof(string);
+            dt.Columns.Add(col4);
+
+            DataColumn col5 = new DataColumn();
+            col5.ColumnName = Utility.GetResourceStr("银行账号");
+            col5.DataType = typeof(string);
+            dt.Columns.Add(col5);
+
+            //DataColumn col6 = new DataColumn();
+            //col6.ColumnName = Utility.GetResourceStr("籍贯");
+            //col6.DataType = typeof(string);
+            //dt.Columns.Add(col6);
+
+            DataColumn col7 = new DataColumn();
+            col7.ColumnName = Utility.GetResourceStr("电子邮件");
+            col7.DataType = typeof(string);
+            dt.Columns.Add(col7);
+
+            DataColumn col8 = new DataColumn();
+            col8.ColumnName = Utility.GetResourceStr("户口所在地");
+            col8.DataType = typeof(string);
+            dt.Columns.Add(col8);
+
+            DataColumn col9 = new DataColumn();
+            col9.ColumnName = Utility.GetResourceStr("家庭地址");
+            col9.DataType = typeof(string);
+            dt.Columns.Add(col9);
+
+            DataColumn col10 = new DataColumn();
+            col10.ColumnName = Utility.GetResourceStr("目前居住地");
+            col10.DataType = typeof(string);
+            dt.Columns.Add(col10);
+
+            DataColumn col11 = new DataColumn();
+            col11.ColumnName = Utility.GetResourceStr("员工状态");
+            col11.DataType = typeof(string);
+            dt.Columns.Add(col11);
+
+            DataColumn col12 = new DataColumn();
+            col12.ColumnName = Utility.GetResourceStr("备注");
+            col12.DataType = typeof(string);
+            dt.Columns.Add(col12);
+            #endregion
+            return dt;
+        }
+
         #region  手机端通讯录接口
         /// <summary>
         /// 获取权限内的所有员工

@@ -78,16 +78,32 @@ namespace SMT.HRM.UI.Views.Personnel
             ToolBar.btnAudit.Click += new RoutedEventHandler(btnAudit_Click);
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
             ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
+
+            ToolBar.btnImport.Visibility = Visibility.Visible;
+            ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
+
             this.Loaded += new RoutedEventHandler(EmployeeEntry_Loaded);
             treeOrganization.SelectedClick += new EventHandler(treeOrganization_SelectedClick);
         }
-
 
         void treeOrganization_SelectedClick(object sender, EventArgs e)
         {
             LoadData();
         }
 
+        /// <summary>
+        /// 批量导入员工入职
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnImport_Click(object sender, RoutedEventArgs e)
+        {
+            ImportEmployeeEntryForm form = new ImportEmployeeEntryForm();
+            EntityBrowser browser = new EntityBrowser(form);
+            form.MinHeight = 260;
+            form.MinWidth = 400;
+            browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
+        }
         void EmployeeEntry_Loaded(object sender, RoutedEventArgs e)
         {
             GetEntityLogo("T_HR_EMPLOYEEENTRY");

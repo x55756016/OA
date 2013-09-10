@@ -1468,5 +1468,562 @@ namespace SMT.HRM.BLL
             }
             return listEntry;
         }
+
+        #region 批量导入员工入职信息
+
+        /// <summary>
+        /// 批量添加员工入职信息
+        /// </summary>
+        /// <param name="listEmpEntry"></param>
+        /// <param name="companyID"></param>
+        /// <param name="strMsg">错误信息等</param>
+        /// <returns></returns>
+        public bool AddBatchEmployeeEntry(List<V_EmployeeEntryInfo> listEmpEntry, string companyID, ref string strMsg)
+        {
+            try
+            {
+                #region 变量定义及赋值
+                bool flag = true;
+                string tempStr = string.Empty;
+                var company = (from e in dal.GetObjects<T_HR_COMPANY>()
+                               where e.COMPANYID == companyID
+                               select e).FirstOrDefault();
+                string companyName = company.CNAME;
+                #endregion
+                string strRecord = string.Empty;//记录正确或错误人名
+                listEmpEntry.ForEach(it =>
+                    {
+                        string strTemp = string.Empty, ePostID=string.Empty;
+                        it.EmployeeID = Guid.NewGuid().ToString();
+                        AddEmployeeInfo(it, ref strTemp, ref ePostID);//添加员工入职信息,员工档案信息，员工岗位信息
+                        AddUser(it, ref strTemp);//添加系统用户信息
+                        AddEemployeeContact(it,ref strTemp);//员工合同
+                        AddEmployeeSalay(it, ePostID,ref strTemp);//员工薪资
+                        AddEmployeePension(it,ref strTemp);//员工社保
+                            //记录日志
+                        SMT.Foundation.Log.Tracer.Debug(" AddBatchEmployeeEntry批量添加部门岗位信息日志记录:员工ＩＤ和姓名为："+ it.EmployeeID+it.EmployeeName+ "输出信息为（ 空为正确）："+strTemp);
+                        if (string.IsNullOrWhiteSpace(strTemp))
+                        {
+                            strRecord += it.EmployeeName+"添加成功\n";
+                        }
+                        else
+                        {
+                            strRecord += it.EmployeeName + "添加失败\n";
+                            flag = false;
+                        }
+                    });
+                strMsg += strRecord;
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                strMsg += ex.ToString();
+                SMT.Foundation.Log.Tracer.Debug(" AddBatchEmployeeEntry批量添加部门岗位信息出错:" + ex.ToString());
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 添加员工社保档案
+        /// </summary>
+        /// <param name="empInfo"></param>
+        /// <param name="strMsg"></param>
+        private void AddEmployeePension(V_EmployeeEntryInfo empInfo, ref string strMsg)
+        {
+            try
+            {
+                T_HR_PENSIONMASTER entity = new T_HR_PENSIONMASTER();
+                entity.PENSIONMASTERID = Guid.NewGuid().ToString();
+                entity.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
+                entity.T_HR_EMPLOYEE.EMPLOYEEID = empInfo.EmployeeID;
+                entity.CARDID = string.Empty;
+                entity.COMPUTERNO = string.Empty;
+                entity.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
+                entity.EDITSTATE = ((int)EditStates.UnActived).ToString();
+                entity.CREATEDATE = DateTime.Now;
+                entity.OWNERID = empInfo.EmployeeID;
+                entity.OWNERPOSTID = empInfo.PostID;
+                entity.OWNERDEPARTMENTID = empInfo.DepartmentID;
+                entity.OWNERCOMPANYID = empInfo.CompamyID;
+                entity.CREATEUSERID = empInfo.OwnerID;
+                entity.CREATEPOSTID = empInfo.OwnerPostID;
+                entity.CREATEDEPARTMENTID = empInfo.OwnerDepartmentID;
+                entity.CREATECOMPANYID = empInfo.OwnerCompanyID;
+                PensionMasterBLL pmBll = new PensionMasterBLL();
+                pmBll.PensionMasterAdd(entity, ref strMsg);
+            }
+            catch (Exception ex)
+            {
+                strMsg += ex.ToString();
+                SMT.Foundation.Log.Tracer.Debug(" AddEemployeeContact批量导入员工入职信息-添加员工社保档案错误:" + ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 添加一个空的薪资档案
+        /// </summary>
+        /// <param name="empInfo"></param>
+        /// <param name="ePostID"></param>
+        /// <param name="strMsg"></param>
+        private void AddEmployeeSalay(V_EmployeeEntryInfo empInfo, string ePostID, ref string strMsg)
+        {
+            try
+            {
+                T_HR_SALARYARCHIVE entity = new T_HR_SALARYARCHIVE();
+                entity.SALARYARCHIVEID = Guid.NewGuid().ToString();
+                entity.EMPLOYEEID = empInfo.EmployeeID;
+                entity.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
+                entity.EDITSTATE = ((int)EditStates.UnActived).ToString();
+                entity.CREATEDATE = DateTime.Now;
+                entity.OWNERID = empInfo.EmployeeID;
+                entity.OWNERPOSTID = empInfo.PostID;
+                entity.OWNERDEPARTMENTID = empInfo.DepartmentID;
+                entity.OWNERCOMPANYID = empInfo.CompamyID;
+                entity.CREATEUSERID = empInfo.OwnerID;
+                entity.CREATEPOSTID = empInfo.OwnerPostID;
+                entity.CREATEDEPARTMENTID = empInfo.OwnerDepartmentID;
+                entity.CREATECOMPANYID = empInfo.OwnerCompanyID;
+                entity.EMPLOYEENAME = empInfo.EmployeeName;
+                entity.POSTLEVEL = Convert.ToDecimal(empInfo.PostLevel);
+                entity.EMPLOYEEPOSTID = ePostID;
+                SalaryArchiveBLL saBll = new SalaryArchiveBLL();
+                saBll.SalaryArchiveAdd(entity);
+            }
+            catch (Exception ex)
+            {
+                strMsg += ex.ToString();
+                SMT.Foundation.Log.Tracer.Debug(" AddEemployeeContact批量导入员工入职信息-添加薪资档案出错:" + ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 添加合同，创建一条空的合同
+        /// </summary>
+        /// <param name="empInfo"></param>
+        /// <param name="strMsg"></param>
+        private void AddEemployeeContact(V_EmployeeEntryInfo empInfo, ref string strMsg)
+        {
+            try
+            {
+                T_HR_EMPLOYEECONTRACT entity = new T_HR_EMPLOYEECONTRACT();
+                entity.EMPLOYEECONTACTID = Guid.NewGuid().ToString();
+                entity.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
+                entity.T_HR_EMPLOYEE.EMPLOYEEID = empInfo.EmployeeID;
+                SMT.Foundation.Log.Tracer.Debug("合同员工ID:" + entity.T_HR_EMPLOYEE.EMPLOYEEID);
+                entity.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
+                entity.EDITSTATE = ((int)EditStates.UnActived).ToString();
+                entity.CREATEDATE = DateTime.Now;
+                entity.OWNERID = empInfo.EmployeeID;
+                entity.OWNERPOSTID = empInfo.PostID;
+                entity.OWNERDEPARTMENTID = empInfo.DepartmentID;
+                entity.OWNERCOMPANYID = empInfo.CompamyID;
+                entity.CREATEUSERID = empInfo.OwnerID;
+                entity.CREATEPOSTID = empInfo.OwnerPostID;
+                entity.CREATEDEPARTMENTID = empInfo.OwnerDepartmentID;
+                entity.CREATECOMPANYID = empInfo.OwnerCompanyID;
+                EmployeeContractBLL ecBll = new EmployeeContractBLL();
+                ecBll.EmployeeContractAdd(entity, ref strMsg);
+            }
+            catch (Exception ex)
+            {
+                strMsg += ex.ToString();
+                SMT.Foundation.Log.Tracer.Debug(" AddEemployeeContact批量导入员工入职信息-添加合同失败:" + ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 添加系统用户
+        /// </summary>
+        /// <param name="empInfo"></param>
+        /// <param name="strMsg"></param>
+        private void AddUser(V_EmployeeEntryInfo empInfo,ref string strMsg)
+        {
+            try
+            {
+                T_SYS_USER sysUser = new T_SYS_USER();
+                sysUser.SYSUSERID = Guid.NewGuid().ToString();
+                sysUser.STATE = "1";//启用
+                sysUser.CREATEDATE = DateTime.Now;
+                sysUser.CREATEUSER = empInfo.OwnerID;
+                sysUser.USERNAME = empInfo.UserName;
+                sysUser.EMPLOYEEID = empInfo.EmployeeID;
+                sysUser.EMPLOYEENAME = empInfo.EmployeeName;
+                sysUser.OWNERID = empInfo.EmployeeID;
+                sysUser.OWNERPOSTID = empInfo.PostID;
+                sysUser.OWNERDEPARTMENTID = empInfo.DepartmentID;
+                sysUser.OWNERCOMPANYID = empInfo.CompamyID;
+                sysUser.PASSWORD = empInfo.PassWord;
+                PermissionServiceClient perclient = new PermissionServiceClient();
+                perclient.SysUserInfoAddORUpdate(sysUser, ref strMsg);
+            }
+            catch (Exception ex)
+            {
+                strMsg += ex.ToString();
+                SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + " AddUser:批量导入员工入职信息-添加系统用户出错" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 添加员工入职信息,员工档案信息，员工岗位信息，薪资密码
+        /// </summary>
+        /// <param name="empInfo"></param>
+        ///  <param name="strMsg"></param>
+        /// <param name="ePostID"></param>
+        public void AddEmployeeInfo(V_EmployeeEntryInfo empInfo, ref string strMsg, ref string ePostID)
+        {
+            try
+            {
+                #region 员工档案
+                T_HR_EMPLOYEE emp = new T_HR_EMPLOYEE();
+                emp.EMPLOYEEID = empInfo.EmployeeID;
+                emp.EMPLOYEECNAME = empInfo.EmployeeName;
+                emp.EMPLOYEEENAME = empInfo.UserName;
+                emp.SEX = Convert.ToString(empInfo.SexDic);
+                emp.IDNUMBER = empInfo.IdNumber;
+                emp.HEIGHT = empInfo.Height;
+                emp.BANKID = empInfo.Bank;
+                emp.BANKCARDNUMBER = empInfo.BankCardNumber;
+                emp.REGRESIDENCE = empInfo.RegResidence;
+                emp.EMAIL = empInfo.Email;
+                emp.MOBILE = empInfo.Mobile;
+                emp.CURRENTADDRESS = empInfo.CurrentAddress;
+                emp.FAMILYADDRESS = empInfo.FamilyAddress;
+                emp.FINGERPRINTID = empInfo.FingerPrintID;
+                emp.BIRTHDAY = Convert.ToDateTime(empInfo.Birthday);
+                emp.EMPLOYEESTATE = "1";//在职
+                emp.EDITSTATE = "1";//生效
+                emp.OWNERID = empInfo.EmployeeID;
+                emp.OWNERPOSTID = empInfo.PostID;
+                emp.OWNERDEPARTMENTID = empInfo.DepartmentID;
+                emp.OWNERCOMPANYID = empInfo.CompamyID;
+                emp.CREATEDATE = DateTime.Now;
+                emp.CREATEUSERID = empInfo.OwnerID;
+                emp.CREATEPOSTID = empInfo.OwnerPostID;
+                emp.CREATEDEPARTMENTID = empInfo.OwnerDepartmentID;
+                emp.CREATECOMPANYID = empInfo.OwnerCompanyID;
+                emp.SOCIALSERVICEYEAR = Convert.ToDateTime(empInfo.SocialServiceYear).ToString("yyyy-MM-dd");
+                #endregion
+                #region 员工岗位
+                T_HR_EMPLOYEEPOST ePost = new T_HR_EMPLOYEEPOST();
+                ePostID = Guid.NewGuid().ToString();
+                ePost.EMPLOYEEPOSTID = ePostID;
+                ePost.ISAGENCY = "0";//主岗位
+                ePost.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
+                ePost.T_HR_EMPLOYEE.EMPLOYEEID = empInfo.EmployeeID;
+                ePost.T_HR_POST = new T_HR_POST();
+                ePost.T_HR_POST.POSTID = empInfo.PostID;
+                ePost.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();//审核通过
+                ePost.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();//生效
+                ePost.CREATEUSERID = empInfo.OwnerID;
+                ePost.CREATEDATE = DateTime.Now;
+                ePost.POSTLEVEL = Convert.ToDecimal(empInfo.PostLevel);
+                #endregion
+                #region 员工入职
+                T_HR_EMPLOYEEENTRY eEntry = new T_HR_EMPLOYEEENTRY();
+                eEntry.EMPLOYEEENTRYID = Guid.NewGuid().ToString();
+                eEntry.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
+                eEntry.T_HR_EMPLOYEE.EMPLOYEEID = empInfo.EmployeeID;
+                eEntry.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();//审核通过
+                eEntry.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();//生效
+                eEntry.ENTRYDATE = Convert.ToDateTime(empInfo.EntryDate);
+                eEntry.ONPOSTDATE = Convert.ToDateTime(empInfo.OnPostDate);
+                eEntry.PROBATIONPERIOD = 0;//没有试用期
+                eEntry.OWNERID = empInfo.EmployeeID;
+                eEntry.OWNERPOSTID = empInfo.PostID;
+                eEntry.OWNERDEPARTMENTID = empInfo.DepartmentID;
+                eEntry.OWNERCOMPANYID = empInfo.CompamyID;
+                eEntry.CREATEDATE = DateTime.Now;
+                eEntry.CREATEUSERID = empInfo.OwnerID;
+                eEntry.CREATEPOSTID = empInfo.OwnerPostID;
+                eEntry.CREATEDEPARTMENTID = empInfo.OwnerDepartmentID;
+                eEntry.CREATECOMPANYID = empInfo.OwnerCompanyID;
+                eEntry.EMPLOYEEPOSTID = ePostID;
+                #endregion
+                string strRes = this.EmployeeEntryAdd(emp, eEntry, ePost);//原来的方法
+                if (strRes== "SAVED")//保存成功则添加薪资密码
+                {
+                    SalaryLoginBLL bll = new SalaryLoginBLL();
+                    bll.AddSalaryPassword(emp.EMPLOYEEID, emp.EMPLOYEECNAME, empInfo.PassWord);
+                }
+                #region 添加异动信息
+                T_HR_EMPLOYEEPOSTCHANGE postChange = new T_HR_EMPLOYEEPOSTCHANGE();
+                postChange = new T_HR_EMPLOYEEPOSTCHANGE();
+                postChange.POSTCHANGEID = Guid.NewGuid().ToString();
+                postChange.EMPLOYEENAME = emp.EMPLOYEECNAME;
+                postChange.EMPLOYEECODE = emp.EMPLOYEECODE;
+                postChange.T_HR_EMPLOYEEReference.EntityKey =
+                                   new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_EMPLOYEE", "EMPLOYEEID", emp.EMPLOYEEID);
+                postChange.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                postChange.TOCOMPANYID = eEntry.OWNERCOMPANYID;
+                postChange.TODEPARTMENTID = eEntry.OWNERDEPARTMENTID;
+                postChange.TOPOSTID = eEntry.OWNERPOSTID;
+                postChange.ISAGENCY = "0";
+                postChange.OWNERID = emp.EMPLOYEEID;
+                postChange.OWNERPOSTID = postChange.TOPOSTID;
+                postChange.OWNERDEPARTMENTID = postChange.TODEPARTMENTID;
+                postChange.OWNERCOMPANYID = postChange.TOCOMPANYID;
+                postChange.POSTCHANGCATEGORY = "2";
+                postChange.EMPLOYEEPOSTID = ePost.EMPLOYEEPOSTID;
+                postChange.POSTCHANGREASON = Utility.GetResourceStr("EMPLOYEEENTRY");
+                postChange.CHANGEDATE = eEntry.ENTRYDATE.ToString();
+                postChange.CREATEUSERID = eEntry.CREATEUSERID;
+                postChange.CREATECOMPANYID = eEntry.CREATECOMPANYID;
+                postChange.CREATEDEPARTMENTID = eEntry.CREATEDEPARTMENTID;
+                postChange.CREATEPOSTID = eEntry.CREATEPOSTID;
+                dal.AddToContext(postChange);
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                strMsg += ex.ToString();
+                SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + " AddEmployeeEntry:批量导入员工入职信息-添加员工入职信息错误" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 获取员工入职批量导入信息
+        /// </summary>
+        /// <param name="strPath"></param>
+        /// <param name="companyID"></param>
+        /// <param name="empInfoDic"></param>
+        /// <returns></returns>
+        public List<V_EmployeeEntryInfo> ImportEmployeeEntry(string strPath, string companyID, Dictionary<string, string> empInfoDic)
+        {
+            try
+            {
+                #region 获取Excel数据兵转换成V_EmployeeEntryInfo类型
+                DataTable dt = new DataTable();
+                dt = Utility.GetDataFromFile(strPath, 18, 2);
+                var ent = from o in dt.AsEnumerable()
+                          select new V_EmployeeEntryInfo
+                          {
+                              EmployeeName = o["col0"].ToString().Trim(),
+                              IdNumber = o["col1"].ToString().Trim(),
+                              Sex = o["col2"].ToString().Trim(),
+                              CompanyName = o["col3"].ToString().Trim(),
+                              DepartmentName = o["col4"].ToString().Trim(),
+                              PostName = o["col5"].ToString().Trim(),
+                              PostLevel = o["col6"].ToString().Trim(),
+                              EntryDate = o["col7"].ToString().Trim(),
+                              OnPostDate = o["col8"].ToString().Trim(),
+                              SocialServiceYear = o["col9"].ToString().Trim(),
+                              Birthday = o["col10"].ToString().Trim(),
+                              Height = o["col11"].ToString().Trim(),
+                              FingerPrintID = o["col12"].ToString().Trim(),
+                              Bank = o["col13"].ToString().Trim(),
+                              BankCardNumber = o["col14"].ToString().Trim(),
+                              RegResidence = o["col15"].ToString().Trim(),
+                              FamilyAddress = o["col16"].ToString().Trim(),
+                              CurrentAddress = o["col17"].ToString().Trim(),
+                              Mobile = o["col18"].ToString().Trim(),
+                              OwnerID = empInfoDic["ownerID"],
+                              OwnerPostID = empInfoDic["ownerPostID"],
+                              OwnerDepartmentID = empInfoDic["ownerDepartmentID"],
+                              OwnerCompanyID = empInfoDic["ownerCompanyID"]
+                          };
+                #endregion
+
+                if (ent != null && ent.Count() > 0)
+                {
+                    List<V_EmployeeEntryInfo> listEmpInfo = ent.ToList();
+                    var company = (from e in dal.GetObjects<T_HR_COMPANY>()
+                                   where e.COMPANYID == companyID
+                                   select e).FirstOrDefault();
+                    string companyName = company.CNAME;
+                    //遍历进行身份证验证，账号密码邮箱在前台进行生成
+                    foreach (var item in listEmpInfo)
+                    {
+                        string strMsg = string.Empty;
+                        ValidInfo(item, ref strMsg);//必填项验证
+                        #region 公司判断
+                        if (item.CompanyName != companyName)
+                        {
+                            strMsg += "模板公司与所选公司不一致";
+                        }
+                        item.CompamyID = companyID;
+                        #endregion
+                        #region 部门岗位判断，并返回部门ID和岗位ID
+                        string deptID=string.Empty,postID=string.Empty;
+                        bool isdepo = GetEmloyeePostInfo(item, ref strMsg, ref deptID,ref postID);
+                        if (isdepo)
+                        {
+                            item.DepartmentID = deptID;
+                            item.PostID = postID;
+                        }
+                        else
+                        {
+                            item.DepartmentName += "没有找到该部门";
+                            item.PostName += "没有找到该岗位";
+                        }
+                        #endregion
+                        #region 岗位编制判断
+                        PostBLL pBll = new PostBLL();
+                        if (!string.IsNullOrWhiteSpace(postID))
+                        {
+                            int num = pBll.GetPostNumber(postID);
+                            if (num<=0)
+                            {
+                                item.PostName += "该岗位人员编制已满";
+                            }
+                        }
+                        
+                        #endregion
+                        #region 身份证判断
+                        bool isExist = ValidEmployeeIdNumber(item.IdNumber, ref strMsg);
+                        if (!isExist)
+                        {
+                            item.IdNumber = "身份证不合法" + item.IdNumber;
+                        }
+                        #endregion
+                        #region 产生密码
+                        string strCarID = item.IdNumber;
+                        if (strCarID.Length > 6)
+                        {
+                           string strPassWord = "smt" + strCarID.Substring(strCarID.Length - 6);
+                           item.PassWord = Utility.Encrypt(strPassWord);
+                        }
+                        else
+                        {
+                            string strPassWord = "smt" + strCarID;
+                            item.PassWord = Utility.Encrypt(strPassWord);
+                        }
+                        #endregion
+                        item.ErrorMsg += strMsg;
+                    }
+                    return listEmpInfo;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" ImportEmployeeEntry获取员工入职批量导入信息Excel数据错误:" + ex.ToString());
+                return null;
+            }
+        }
+        /// <summary>
+        /// 获取员工部门ID，岗位ID等信息
+        /// </summary>
+        /// <param name="empInfo"></param>
+        /// <param name="strMsg"></param>
+        /// <param name="deptID"></param>
+        /// <param name="postID"></param>
+        /// <returns></returns>
+        private bool GetEmloyeePostInfo(V_EmployeeEntryInfo empInfo, ref string strMsg, ref string deptID, ref string postID)
+        {
+            try
+            {
+                bool flag = true;
+                var entDep = (from e in dal.GetObjects<T_HR_DEPARTMENT>()
+                              where e.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME == empInfo.DepartmentName
+                              && e.T_HR_COMPANY.COMPANYID == empInfo.CompamyID
+                              select e).FirstOrDefault();
+                if (entDep == null)
+                {
+                    flag = false;
+                }
+                if (entDep != null)
+                {
+                    var entPost = (from e in dal.GetObjects<T_HR_POST>()
+                                   where e.T_HR_POSTDICTIONARY.POSTNAME == empInfo.PostName
+                                   && e.COMPANYID == empInfo.CompamyID
+                                   && e.T_HR_DEPARTMENT.DEPARTMENTID == entDep.DEPARTMENTID
+                                   select e).FirstOrDefault();
+                    if (entPost == null)
+                    {
+                        strMsg += "没有找到员工入职的部门和岗位，请核查";
+                        flag = false;
+                    }
+                    else
+                    {
+                        deptID = entDep.DEPARTMENTID;
+                        postID = entPost.POSTID;
+                    }
+                }
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + " GetEmloyeePostInfo:批量导入员工入职信息-获取员工部门ID，岗位ID等信息" + ex.Message);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 验证用户名是否存在，存在则返回一个新的
+        /// </summary>
+        /// <param name="listEmpInfo"></param>
+        /// <returns></returns>
+        public List<V_EmployeeEntryInfo> ValidUserNameIsExist(List<V_EmployeeEntryInfo> listEmpInfo)
+        {
+            try
+            {
+                listEmpInfo.ForEach(it =>
+                    {
+                        SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perClient = new PermissionServiceClient();
+                        it.UserName = perClient.GetUserNameIsExistNameAddOne(it.UserName, "123abc");//这里员工ID用123abc代替，因为前面已经用员工身份证进行过判断，所以用户表里面的数据不会重复
+                    });
+                return listEmpInfo;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" ValidUserNameIsExist验证用户名是否存在错误:" + ex.ToString());
+                return null;
+            }
+        }
+        /// <summary>
+        /// 验证数据必填项
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="strMsg"></param>
+        /// <returns></returns>
+        private bool ValidInfo(V_EmployeeEntryInfo info, ref string strMsg)
+        {
+            bool flag = true;
+            if (string.IsNullOrWhiteSpace(info.EmployeeName) || string.IsNullOrWhiteSpace(info.IdNumber) || string.IsNullOrWhiteSpace(info.Sex))
+            {
+                flag = false;
+            }
+            if (string.IsNullOrWhiteSpace(info.CompanyName)||string.IsNullOrWhiteSpace(info.DepartmentName) || string.IsNullOrWhiteSpace(info.PostName) || string.IsNullOrWhiteSpace(info.PostLevel))
+            {
+                flag = false;
+            }
+            if (info.EntryDate==null||info.OnPostDate==null||info.SocialServiceYear==null)
+            {
+                flag = false;
+            }
+            if (!flag)
+            {
+                strMsg += "请检查必填项是否输入有效值";
+            }
+            return flag;
+        }
+        /// <summary>
+        /// 根据身份证号验证员工是否有入职信息
+        /// </summary>
+        /// <param name="IdNumber"></param>
+        /// <param name="strMsg"></param>
+        /// <returns></returns>
+        private bool ValidEmployeeIdNumber(string IdNumber, ref string strMsg)
+        {
+            //检查身份证
+            string blackMessage = "";
+            string[] leaveMessage = new string[2];
+            EmployeeBLL bll = new EmployeeBLL();
+            bool flag = bll.EmployeeIsEntry(IdNumber.Trim().ToUpper(), ref blackMessage, ref leaveMessage);
+            if (!false)
+            {
+                if (!string.IsNullOrWhiteSpace( leaveMessage[0]))
+                {
+                    leaveMessage[0] = "该身份证员工已经在职";
+                }
+                if (!string.IsNullOrWhiteSpace( leaveMessage[1]))
+                {
+                    leaveMessage[1] = "该身份证员工离职时间小于指定的时间";
+                }
+                strMsg += blackMessage + leaveMessage[0] + leaveMessage[1];
+            }
+            return flag;
+        }
+        #endregion
     }
 }

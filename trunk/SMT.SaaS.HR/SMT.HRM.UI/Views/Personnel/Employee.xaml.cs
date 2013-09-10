@@ -34,6 +34,9 @@ namespace SMT.HRM.UI.Views.Personnel
         private List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> allDepartments;
         private List<SMT.Saas.Tools.OrganizationWS.T_HR_POST> allPositions;
 
+        private SaveFileDialog dialog = new SaveFileDialog();
+        private bool? result;
+
         public Employee()
         {
             InitializeComponent();
@@ -62,8 +65,8 @@ namespace SMT.HRM.UI.Views.Personnel
 
                 //client.GetEmployeeViewsPagingCompleted += new EventHandler<GetEmployeeViewsPagingCompletedEventArgs>(client_GetEmployeeViewsPagingCompleted);
                 client.GetEmployeeBasicInfoPagingViewCompleted += new EventHandler<GetEmployeeBasicInfoPagingViewCompletedEventArgs>(client_GetEmployeeBasicInfoPagingViewCompleted);
-                
-                
+
+                client.ExportEmployeeCompleted += new EventHandler<ExportEmployeeCompletedEventArgs>(client_ExportEmployeeCompleted);
                 client.GetLeaveEmployeeViewsPagingCompleted += new EventHandler<GetLeaveEmployeeViewsPagingCompletedEventArgs>(client_GetLeaveEmployeeViewsPagingCompleted);
                 // orgClient = new SMT.Saas.Tools.OrganizationWS.OrganizationServiceClient();
                 //orgClient.GetCompanyActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetCompanyActivedCompletedEventArgs>(orgClient_GetCompanyActivedCompleted);
@@ -111,6 +114,9 @@ namespace SMT.HRM.UI.Views.Personnel
                 _ImgButtonReport.AddButtonAction("/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1055.png", Utility.GetResourceStr("薪酬保险缴交报表")).Click += new RoutedEventHandler(_ImgButtonReports_Click);
                 ToolBar.stpOtherAction.Children.Add(_ImgButtonReport);
 
+                ToolBar.btnOutExcel.Visibility = Visibility.Visible;
+                ToolBar.btnOutExcel.Click += new RoutedEventHandler(btnOutExcel_Click);
+
                 treeOrganization.SelectedClick += new EventHandler(treeOrganization_SelectedClick);
             }
             catch (Exception )
@@ -119,6 +125,69 @@ namespace SMT.HRM.UI.Views.Personnel
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
                  Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// 导出Excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void client_ExportEmployeeCompleted(object sender, ExportEmployeeCompletedEventArgs e)
+        {
+            try
+            {
+                if (result == true)
+                {
+                    if (e.Error == null)
+                    {
+                        if (e.Result != null)
+                        {
+                            using (System.IO.Stream stream = dialog.OpenFile())
+                            {
+                                stream.Write(e.Result, 0, e.Result.Length);
+                                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("导出成功"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                            }
+                        }
+                        else
+                        {
+                            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("没有数据可导出"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), ex.ToString(), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 导出员工档案
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnOutExcel_Click(object sender, RoutedEventArgs e)
+        {
+            //Form.Personnel.OutExcelEmployeeForm form = new Form.Personnel.OutExcelEmployeeForm();
+            //form.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
+            dialog.Filter = "MS Excel Files|*.xls";
+            dialog.FilterIndex = 1;
+            result = dialog.ShowDialog();
+            string sType = "", sValue = "";
+            sType = treeOrganization.sType;
+            sValue = treeOrganization.sValue;
+            if (sType!="Company")
+            {
+                  ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"),Utility.GetResourceStr("SELECTCOMPANY"),
+                      Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                  return;
+            }
+            string companyID = sValue;
+            client.ExportEmployeeAsync(companyID);
         }
 
         //weirui

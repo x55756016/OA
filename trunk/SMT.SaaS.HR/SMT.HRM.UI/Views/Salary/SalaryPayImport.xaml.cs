@@ -406,7 +406,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 Stream.Dispose();
                 Stream.Close();
 
-                UploadFileModel UploadFile = new UploadFileModel();
+                SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile = new SMT.Saas.Tools.SalaryWS.UploadFileModel();
                 UploadFile.FileName = OpenFileDialog.File.Name;
                 UploadFile.File = Buffer;
                 client.ImportExcelAsync(UploadFile,nuYear.Value.ToString(),nuStartmounth.Value.ToString(),_txtBox.Text.Trim());

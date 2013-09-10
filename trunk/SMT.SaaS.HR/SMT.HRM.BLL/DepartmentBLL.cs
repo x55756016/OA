@@ -11,7 +11,10 @@ using System.Linq.Dynamic;
 using System.Data.Objects;
 using SMT.Foundation.Log;
 using SMT.HRM.CustomModel;
-using SMT.HRM.IMServices.IMServiceWS;//即时通讯接口
+using SMT.HRM.IMServices.IMServiceWS;
+using System.Data;//即时通讯接口
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 namespace SMT.HRM.BLL
 {
     public class DepartmentBLL : BaseBll<T_HR_DEPARTMENT>, ILookupEntity, IOperate
@@ -1116,6 +1119,532 @@ namespace SMT.HRM.BLL
             }
 
         }
+
+        #region 部门岗位批量导入
+        /// <summary>
+        /// 批量添加部门岗位信息
+        /// </summary>
+        /// <param name="listOrgInfo"></param>
+        /// <param name="strMsg">错误信息等</param>
+        /// <returns></returns>
+        public bool AddBatchOrgInfo(List<V_ORGANIZATIONINFO> listOrgInfo,string companyID, ref string strMsg)
+        {
+            try
+            {
+                //dal.BeginTransaction();//开始事务
+                //dal.CommitTransaction();//提交
+                //dal.RollbackTransaction();//回滚
+                #region 变量定义及赋值
+                bool flag = true;
+                string tempStr = string.Empty;
+                var company = (from e in dal.GetObjects<T_HR_COMPANY>()
+                              where e.COMPANYID == companyID
+                              select e).FirstOrDefault();
+                string companyName = company.CNAME;
+                #endregion
+                listOrgInfo = listOrgInfo.OrderBy(t=>t.FatherIntType).ToList();
+                listOrgInfo.ForEach(it =>
+                    {
+                        string strTemp = string.Empty;
+                        string tempDeptID = AddDepartmentInfo(it, companyID, listOrgInfo, ref strTemp);//主要是要返回部门ID
+                        if (tempDeptID != null)
+                        {
+                            it.DepartmentID = tempDeptID;
+                            string tempPostID = AddPostInfo(it, companyID, listOrgInfo, ref strTemp);
+                            if (tempPostID != null)
+                            {
+                                it.PostID = tempPostID;
+                            }
+                        }
+                        if (string.IsNullOrWhiteSpace(it.PostID))//如果没有岗位ID则说明上面的操作出现错误
+                        {
+                            flag = false;
+                        }
+                    });
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                strMsg += ex.ToString();
+                SMT.Foundation.Log.Tracer.Debug(" AddBatchOrgInfo批量添加部门岗位信息出错:" + ex.ToString());
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 把部门信息和数据库进行比较，没有则添加，有并且没生效的进行生效操作
+        /// </summary>
+        /// <param name="orgInfo"></param>
+        /// <param name="companyID"></param>
+        /// <param name="vlistOrgInfo"></param>
+        /// <param name="strTemp"></param>
+        /// <returns></returns>
+        private string AddDepartmentInfo(V_ORGANIZATIONINFO orgInfo, string companyID, List<V_ORGANIZATIONINFO> vlistOrgInfo, ref string strTemp)
+        {
+            try
+            {
+                if (orgInfo.FatherIntType == 0)//上级机构为公司
+                {
+                    orgInfo.FatherID = companyID;
+                }
+                else if (orgInfo.FatherIntType == 1)//上级机构为部门,
+                {
+                    var q = (from ent in vlistOrgInfo
+                             where ent.DepartmentName == orgInfo.FatherName
+                             select ent).FirstOrDefault();
+                    if (q == null)
+                    {
+                        strTemp += "没有找到部门信息";
+                        return null;
+                    }
+                    orgInfo.FatherID = q.DepartmentID;
+                }
+                T_HR_DEPARTMENT temp = new T_HR_DEPARTMENT();
+                if (string.IsNullOrWhiteSpace(orgInfo.FatherID))
+                {
+                    temp = dal.GetObjects().FirstOrDefault(s => s.T_HR_COMPANY.COMPANYID == companyID
+             && s.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID == orgInfo.DepartmentDictionaryID);
+                }
+                else
+                {
+                    temp = dal.GetObjects().FirstOrDefault(s => s.T_HR_COMPANY.COMPANYID == companyID
+             && s.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID == orgInfo.DepartmentDictionaryID
+             && s.FATHERID == orgInfo.FatherID);
+                }
+                if (temp != null)
+                {
+                    #region 如果没生效并且不是在审核中的单据进行更新，否则直接返回改信息
+                    if (temp.EDITSTATE != Convert.ToInt32(EditStates.Actived).ToString() && temp.CHECKSTATE != Convert.ToInt32(CheckStates.Approving).ToString())
+                    {
+                        #region 更新部门信息
+                        //更新使其审核通过状态并且生效
+                        temp.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                        temp.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+                        temp.UPDATEDATE = DateTime.Now;
+                        temp.UPDATEUSERID = orgInfo.OwnerID;
+                        this.DepartmentUpdate(temp, ref strTemp);
+                        if (string.IsNullOrWhiteSpace(strTemp))
+                        {
+                            return  temp.DEPARTMENTID;
+                        }
+                        #endregion
+                    }
+                    else
+                    {
+                        return temp.DEPARTMENTID;
+                    }
+                    #endregion
+                }
+                else
+                {
+                    #region 添加部门信息
+                    T_HR_DEPARTMENT dept = new T_HR_DEPARTMENT();
+                    dept.DEPARTMENTID = Guid.NewGuid().ToString();
+                    dept.T_HR_COMPANY = new T_HR_COMPANY();
+                    dept.T_HR_COMPANY.COMPANYID = companyID;
+                    dept.T_HR_DEPARTMENTDICTIONARY = new T_HR_DEPARTMENTDICTIONARY();
+                    dept.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID = orgInfo.DepartmentDictionaryID;
+                    dept.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                    dept.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+                    dept.CREATEDATE = DateTime.Now;
+                    dept.CREATEUSERID = orgInfo.OwnerID;
+                    dept.CREATEPOSTID = orgInfo.OwnerPostID;
+                    dept.CREATEDEPARTMENTID = orgInfo.OwnerDepartmentID;
+                    dept.CREATECOMPANYID = orgInfo.OwnerCompanyID;
+                    dept.OWNERID = orgInfo.OwnerID;
+                    dept.OWNERPOSTID = orgInfo.OwnerPostID;
+                    dept.OWNERDEPARTMENTID = orgInfo.OwnerDepartmentID;
+                    dept.OWNERCOMPANYID = orgInfo.OwnerCompanyID;
+                    dept.FATHERID = orgInfo.FatherID;
+                    dept.FATHERTYPE = Convert.ToString(orgInfo.FatherIntType);
+                    this.DepartmentAdd(dept, ref strTemp);
+                    if (string.IsNullOrWhiteSpace(strTemp))
+                    {
+                        return dept.DEPARTMENTID;
+                    }
+                    #endregion
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" AddDepartmentInfo操作部门信息出错:" + ex.ToString());
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 把岗位信息和数据库进行比较，没有则添加，有并且没生效的进行生效操作
+        /// </summary>
+        /// <param name="orgInfo"></param>
+        /// <param name="companyID"></param>
+        /// <param name="vlistOrgInfo"></param>
+        /// <param name="strTemp"></param>
+        /// <returns></returns>
+        private string AddPostInfo(V_ORGANIZATIONINFO orgInfo, string companyID, List<V_ORGANIZATIONINFO> vlistOrgInfo, ref string strTemp)
+        {
+            try
+            {
+                var temp = dal.GetObjects<T_HR_POST>().FirstOrDefault(s => s.T_HR_DEPARTMENT.DEPARTMENTID == orgInfo.DepartmentID
+                && s.T_HR_POSTDICTIONARY.POSTDICTIONARYID==orgInfo.PostDictionaryID);
+                if (temp != null)
+                {
+                    #region 如果没生效并且不是在审核中的单据进行更新，否则直接返回改信息
+                    if (temp.EDITSTATE != Convert.ToInt32(EditStates.Actived).ToString() && temp.CHECKSTATE != Convert.ToInt32(CheckStates.Approving).ToString())
+                    {
+                        #region 更新岗位信息
+                        //更新使其审核通过状态并且生效
+                        temp.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                        temp.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+                        temp.UPDATEDATE = DateTime.Now;
+                        temp.UPDATEUSERID = orgInfo.OwnerID;
+                        PostBLL postBll = new PostBLL();
+                        postBll.PostUpdate(temp, ref strTemp);
+                        if (string.IsNullOrWhiteSpace(strTemp))
+                        {
+                            return temp.POSTID;
+                        }
+                        #endregion
+                    }
+                    else
+                    {
+                        return temp.POSTID;
+                    }
+                    #endregion
+                }
+                else
+                {
+                    #region 添加岗位信息
+                    T_HR_POST post = new T_HR_POST();
+                    post.POSTID = Guid.NewGuid().ToString();
+                    post.T_HR_POSTDICTIONARY = new T_HR_POSTDICTIONARY();
+                    post.T_HR_POSTDICTIONARY.POSTDICTIONARYID = orgInfo.PostDictionaryID;
+                    post.T_HR_POSTDICTIONARY.POSTCODE = orgInfo.PostCode;
+                    post.T_HR_DEPARTMENT = new  T_HR_DEPARTMENT();
+                    post.T_HR_DEPARTMENT.DEPARTMENTID = orgInfo.DepartmentID;
+                    post.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY = new T_HR_DEPARTMENTDICTIONARY();
+                    post.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID = orgInfo.DepartmentDictionaryID;
+                    post.DEPARTMENTNAME = orgInfo.DepartmentName;
+                    post.COMPANYID = companyID;
+                    post.POSTNUMBER =Convert.ToDecimal(orgInfo.PostNumber);
+                    post.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                    post.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+                    post.CREATEDATE = DateTime.Now;
+                    post.CREATEUSERID = orgInfo.OwnerID;
+                    post.CREATEPOSTID = orgInfo.OwnerPostID;
+                    post.CREATEDEPARTMENTID = orgInfo.OwnerDepartmentID;
+                    post.CREATECOMPANYID = orgInfo.OwnerCompanyID;
+                    post.OWNERID = orgInfo.OwnerID;
+                    post.OWNERPOSTID = orgInfo.OwnerPostID;
+                    post.OWNERDEPARTMENTID = orgInfo.OwnerDepartmentID;
+                    post.OWNERCOMPANYID = orgInfo.OwnerCompanyID;
+                    PostBLL postBll = new PostBLL();
+                    postBll.PostAdd(post, ref strTemp);
+                    if (string.IsNullOrWhiteSpace(strTemp))
+                    {
+                        return post.POSTID;
+                    }
+                    #endregion
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" AddPostInfo操作岗位信息出错:" + ex.ToString());
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 根据Excel获取部门岗位数据，并进行比较
+        /// </summary>
+        /// <param name="strPath">文件</param>
+        ///  <param name="companyID">公司ID</param>
+        ///  <param name="empInfoDic">存放用户组织架构信息</param>
+        /// <returns>部门岗位数据</returns>
+        public List<V_ORGANIZATIONINFO> ImportOrgInfo(string strPath,string  companyID,Dictionary<string,string> empInfoDic)
+        {
+            try
+            {
+                #region 获取Excel数据兵转换成V_ORGANIZATIONINFO类型
+                DataTable dt = new DataTable();
+                dt = Utility.GetDataFromFile(strPath,7,2);
+                var ent = from o in dt.AsEnumerable()
+                          select new V_ORGANIZATIONINFO
+                          {
+                              DepartmentName = o["col0"].ToString().Trim(),
+                              DepartmentCode = o["col1"].ToString().Trim(),
+                              PostName = o["col2"].ToString().Trim(),
+                              PostCode = o["col3"].ToString().Trim(),
+                              PostNumber = o["col4"].ToString().Trim(),
+                              FatherType = o["col5"].ToString().Trim(),
+                              FatherName = o["col6"].ToString().Trim(),
+                              OwnerID = empInfoDic["ownerID"],
+                              OwnerPostID = empInfoDic["ownerPostID"],
+                              OwnerDepartmentID = empInfoDic["ownerDepartmentID"],
+                              OwnerCompanyID = empInfoDic["ownerCompanyID"]
+                          };
+                #endregion
+                if (ent != null && ent.Count() > 0)
+                {
+                    List<V_ORGANIZATIONINFO> listOrgInfo = ent.OrderBy(t => t.FatherIntType).ToList();
+                    var company = (from e in dal.GetObjects<T_HR_COMPANY>()
+                                   where e.COMPANYID == companyID
+                                   select e).FirstOrDefault();
+                    string companyName = company.CNAME;
+                    //遍历部门字典和岗位字典和数据库数据进行比较，有的则更新，没有则添加
+                    foreach (var item in listOrgInfo)
+                    {
+                        string strMsg = string.Empty;
+                        if (item.FatherType == "公司" && item.FatherName != companyName)
+                        {
+                            item.ErrorMsg += "模板公司与所选公司不一致";
+                            continue;
+                        }
+                        V_ORGANIZATIONINFO depDic = departmentDicOperation(item, company, ref strMsg);//部门字典操作，这个方法里面会去数据库里面取一遍，数据量不是很大时可以这样进行操作
+                        if (depDic!=null)
+                        {
+                            item.DepartmentDictionaryID = depDic.DepartmentDictionaryID;
+                            item.DepartmentCode = depDic.DepartmentCode ;
+                            V_ORGANIZATIONINFO postDic = postDicOperation(item, ref strMsg);//岗位字典操作，这个方法里面会去数据库里面取一遍，数据量不是很大时可以这样进行操作
+                            if (postDic!=null)
+                            {
+                                item.PostDictionaryID = postDic.PostDictionaryID;
+                                item.PostCode = postDic.PostCode;
+                            }
+                        }
+                        item.ErrorMsg += strMsg;
+                    }
+                    return listOrgInfo;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" ImportOrgInfo获取部门岗位Excel数据错误:" + ex.ToString());
+                return null;
+            }
+        }
+        /// <summary>
+        /// 操作部门字典（主要是获取部门字典ID，可以扩展或修改）
+        /// </summary>
+        /// <param name="orgInfo"></param>
+        /// <param name="company"></param>
+        /// <param name="strMsg"></param>
+        /// <returns></returns>
+        private V_ORGANIZATIONINFO departmentDicOperation(V_ORGANIZATIONINFO orgInfo, T_HR_COMPANY company, ref string strMsg)
+        {
+            try
+            {
+                string companyType = company.COMPANYTYPE;//获取公司所属行业
+                var dic = (from d in dal.GetObjects<T_HR_DEPARTMENTDICTIONARY>()
+                          where (d.DEPARTMENTNAME == orgInfo.DepartmentName || d.DEPARTMENTCODE == orgInfo.DepartmentCode)
+                          && d.DEPARTMENTTYPE == companyType
+                          select d).FirstOrDefault();
+                if (dic==null)
+                {
+                     dic = (from d in dal.GetObjects<T_HR_DEPARTMENTDICTIONARY>()
+                          where (d.DEPARTMENTNAME == orgInfo.DepartmentName || d.DEPARTMENTCODE == orgInfo.DepartmentCode)
+                          && d.DEPARTMENTTYPE == "-1"//-1为通用部门，可以应用于任何类型的公司
+                          select d).FirstOrDefault();
+                }
+                if (dic != null)
+                {
+                    #region 如果没生效并且不是在审核中的单据进行更新
+                    if (dic.EDITSTATE != Convert.ToInt32(EditStates.Actived).ToString() && dic.CHECKSTATE != Convert.ToInt32(CheckStates.Approved).ToString())
+                    {
+                        #region 更新使其审核通过状态并且生效
+                        DepartmentDictionaryBLL dicBll = new DepartmentDictionaryBLL();
+                        dic.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                        dic.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+                        dic.UPDATEDATE = DateTime.Now;
+                        dic.UPDATEUSERID = orgInfo.OwnerID;
+                        string tempStr = string.Empty;
+                        dicBll.DepartmentDictionaryUpdate(dic, ref tempStr);
+                        if (string.IsNullOrWhiteSpace(tempStr))
+                        {
+                            orgInfo.DepartmentDictionaryID = dic.DEPARTMENTDICTIONARYID;
+                            orgInfo.DepartmentCode = dic.DEPARTMENTCODE;
+                            return orgInfo;
+                        }
+                        strMsg += tempStr;
+                        #endregion
+                    }
+                    else
+                    {
+                        orgInfo.DepartmentDictionaryID = dic.DEPARTMENTDICTIONARYID;
+                        orgInfo.DepartmentCode = dic.DEPARTMENTCODE;
+                        return orgInfo;
+                    }
+                    #endregion
+                }
+                else
+                {
+                    #region 添加部门字典
+                    string strTemp = string.Empty;
+                    orgInfo.DepartmentDictionaryID = AddDepartmentDic(orgInfo, ref strTemp);//添加一个通用的部门字典
+                    if (string.IsNullOrWhiteSpace(strTemp))
+                    {
+                        return orgInfo;
+                    }
+                    strMsg += strTemp;
+                    #endregion
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" departmentDicOperation操作部门字典出错:" + ex.ToString());
+                strMsg += ex.ToString();
+                return null;
+            }
+        }
+
+        /// <summary>
+        ///  操作岗位字典（主要是获取岗位字典ID，可以扩展或修改）
+        /// </summary>
+        /// <param name="orgInfo"></param>
+        /// <param name="strMsg"></param>
+        /// <returns></returns>
+        private V_ORGANIZATIONINFO postDicOperation(V_ORGANIZATIONINFO orgInfo, ref string strMsg)
+        {
+            try
+            {
+                //获取岗位字典
+                var dic = (from e in dal.GetObjects<T_HR_POSTDICTIONARY>().Include("T_HR_DEPARTMENTDICTIONARY")
+                           where (e.POSTNAME == orgInfo.PostName || e.POSTCODE == orgInfo.PostCode)
+                           && e.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID == orgInfo.DepartmentDictionaryID
+                           select e).FirstOrDefault();
+                if (dic != null)
+                {
+                    #region 如果没生效并且不是在审核中的单据进行更新
+                    if (dic.EDITSTATE != Convert.ToInt32(EditStates.Actived).ToString() && dic.CHECKSTATE != Convert.ToInt32(CheckStates.Approved).ToString())
+                    {
+                        #region 更新岗位字典信息
+                        //更新使其审核通过状态并且生效
+                        PostDictionaryBLL dicBll = new PostDictionaryBLL();
+                        dic.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                        dic.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+                        dic.UPDATEDATE = DateTime.Now;
+                        dic.UPDATEUSERID = orgInfo.OwnerID;
+                        string tempStr = string.Empty;
+                        dicBll.PostDictionaryUpdate(dic, ref tempStr);
+                        if (string.IsNullOrWhiteSpace(tempStr))
+                        {
+                            orgInfo.PostDictionaryID = dic.POSTDICTIONARYID;
+                            orgInfo.PostCode = dic.POSTCODE;
+                            return orgInfo;
+                        }
+                        strMsg += tempStr;
+                        #endregion
+                    }
+                    else
+                    {
+                        orgInfo.PostDictionaryID = dic.POSTDICTIONARYID;
+                        orgInfo.PostCode = dic.POSTCODE;
+                        return orgInfo;
+                    }
+                    #endregion
+                }
+                else
+                {
+                    #region 添加岗位字典
+                    string strTemp = string.Empty;
+                    orgInfo.PostDictionaryID = AddPostDic(orgInfo, ref strTemp);//添加一个岗位字典
+                    if (!string.IsNullOrWhiteSpace(strTemp))
+                    {
+                        return orgInfo;
+                    }
+                    strMsg += strTemp;
+                    #endregion
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" postDicOperation操作岗位字典错误:" + ex.ToString());
+                strMsg += ex.ToString();
+                return null;
+            }
+        }
+        /// <summary>
+        /// 添加一个通用的部门字典
+        /// </summary>
+        /// <param name="orgInfo"></param>
+        /// <returns></returns>
+        private string AddDepartmentDic(V_ORGANIZATIONINFO orgInfo,ref string strMsg)
+        {
+            try
+            {
+                T_HR_DEPARTMENTDICTIONARY depDic = new T_HR_DEPARTMENTDICTIONARY();
+                depDic.DEPARTMENTDICTIONARYID = Guid.NewGuid().ToString();
+                depDic.DEPARTMENTTYPE = "-1";//通用部门
+                depDic.DEPARTMENTCODE = orgInfo.DepartmentCode;
+                depDic.DEPARTMENTNAME = orgInfo.DepartmentName;
+                depDic.CREATEUSERID = orgInfo.OwnerID;
+                depDic.CREATEDATE = DateTime.Now;
+                depDic.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                depDic.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+                depDic.OWNERID = orgInfo.OwnerID;
+                depDic.OWNERPOSTID = orgInfo.OwnerPostID;
+                depDic.OWNERDEPARTMENTID = orgInfo.OwnerDepartmentID;
+                depDic.OWNERCOMPANYID = orgInfo.OwnerCompanyID;
+                DepartmentDictionaryBLL dicBll = new DepartmentDictionaryBLL();
+                dicBll.DepartmentDictionaryAdd(depDic, ref strMsg);
+                return depDic.DEPARTMENTDICTIONARYID;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" AddDepartmentDic添加部门字典出错:" + ex.ToString());
+                strMsg += ex.ToString();
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 添加一个岗位字典
+        /// </summary>
+        /// <param name="orgInfo"></param>
+        /// <param name="strMsg"></param>
+        /// <returns></returns>
+        private string AddPostDic(V_ORGANIZATIONINFO orgInfo, ref string strMsg)
+        {
+            try
+            {
+                T_HR_POSTDICTIONARY postDic = new T_HR_POSTDICTIONARY();
+                var deptDic = (from d in dal.GetObjects<T_HR_DEPARTMENTDICTIONARY>()
+                              where d.DEPARTMENTDICTIONARYID == orgInfo.DepartmentDictionaryID
+                              select d).FirstOrDefault();
+                if (deptDic==null)
+                {
+                    strMsg += orgInfo.PostName + "没有找到相应的部门字典";
+                    return null;
+                }
+                postDic.T_HR_DEPARTMENTDICTIONARY = deptDic;
+                postDic.POSTDICTIONARYID = Guid.NewGuid().ToString();
+                postDic.POSTCODE = orgInfo.PostCode;
+                postDic.POSTNAME = orgInfo.PostName;
+                postDic.CREATEUSERID = orgInfo.OwnerID;
+                postDic.CREATEDATE = DateTime.Now;
+                postDic.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
+                postDic.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
+                postDic.OWNERID = orgInfo.OwnerID;
+                postDic.OWNERPOSTID = orgInfo.OwnerPostID;
+                postDic.OWNERDEPARTMENTID = orgInfo.OwnerDepartmentID;
+                postDic.OWNERCOMPANYID = orgInfo.OwnerCompanyID;
+                PostDictionaryBLL dicBll = new PostDictionaryBLL();
+                dicBll.PostDictionaryAdd(postDic, ref strMsg);
+                return postDic.POSTDICTIONARYID;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(" AddPostDic添加岗位字典出错:" + ex.ToString());
+                strMsg += ex.ToString();
+                return null;
+            }
+        }
+        #endregion
+
         public int UpdateCheckState(string strEntityName, string EntityKeyName, string EntityKeyValue, string CheckState)
         {
             try

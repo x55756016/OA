@@ -110,6 +110,7 @@
     <Compile Include="V_EmployeeDeductionMoney.cs" />
     <Compile Include="V_EMPLOYEEDETAIL.cs" />
     <Compile Include="V_EMPLOYEEENTRY.cs" />
+    <Compile Include="V_EmployeeEntryInfo.cs" />
     <Compile Include="V_EMPLOYEEFUNDS.cs" />
     <Compile Include="V_EMPLOYEELEAVE.cs" />
     <Compile Include="V_EMPLOYEELEAVERECORD.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="V_LEFTOFFICEVIEW.cs" />
     <Compile Include="V_MOBILEEMPLOYEE.cs" />
     <Compile Include="V_MonthDeductionTax.cs" />
+    <Compile Include="V_ORGANIZATIONINFO.cs" />
     <Compile Include="V_PAYMENT.cs" />
     <Compile Include="V_PENSIONALARMSET.cs" />
     <Compile Include="V_PERFORMANCERECORD.cs" />

@@ -659,7 +659,7 @@ namespace SMT.HRM.BLL
         }
 
         /// <summary>
-        /// 重新初始化考勤记录，强制删除签卡记录，异常考勤，考勤记录，重新初始化考勤
+        /// 重新初始化考勤记录，强制删除未提交签卡记录，异常考勤，考勤记录，重新初始化考勤
         /// </summary>
         /// <param name="objType"></param>
         /// <param name="objId"></param>

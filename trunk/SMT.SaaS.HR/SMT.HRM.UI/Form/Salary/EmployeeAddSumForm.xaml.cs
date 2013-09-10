@@ -120,6 +120,10 @@ namespace SMT.HRM.UI.Form.Salary
                     return;
                 }
                 EmployeeAddSumView = e.Result;
+                if (FormType == FormTypes.Resubmit)
+                {
+                    EmployeeAddSumView.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
+                }
                 numMonth.Value = Convert.ToDouble(EmployeeAddSumView.DEALMONTH);
                 numYear.Value = Convert.ToDouble(EmployeeAddSumView.DEALYEAR);
                 foreach (SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY item in combProtectType.ItemsSource)

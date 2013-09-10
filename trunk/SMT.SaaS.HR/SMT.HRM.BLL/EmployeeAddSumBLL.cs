@@ -98,7 +98,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                var ent = from a in dal.GetTable()
+                var ent = from a in dal.GetObjects().Include("T_HR_EMPLOYEEADDSUMBATCH")
                           where a.ADDSUMID == obj.ADDSUMID
                           select a;
                 if (ent.Count() > 0)
@@ -341,8 +341,12 @@ namespace SMT.HRM.BLL
                     {
                         filterString += " and ";
                     }
-                    filterString += "CHECKSTATE == @" + queryParas.Count();
+                    filterString += "(CHECKSTATE == @" + queryParas.Count();
                     queryParas.Add(CheckState);
+
+                    filterString += " or CHECKSTATE == @" + queryParas.Count();
+                    queryParas.Add(Convert.ToInt32(CheckStates.UnApproved).ToString());//并且未提交的或者审核未通过的，把审核未通过的也算在批量审核内
+                    filterString += ")";
                 }
             }
             else

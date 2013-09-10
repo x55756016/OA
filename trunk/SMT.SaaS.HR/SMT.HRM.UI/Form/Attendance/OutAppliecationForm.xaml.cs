@@ -78,7 +78,7 @@ namespace SMT.HRM.UI.Form.Attendance
         #region IEntityEditor 成员
 
         public string GetTitle()
-        {
+        {//OvertimeRecord.ENDDATE
             return "外出申请";
         }
 

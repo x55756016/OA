@@ -289,7 +289,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 Stream.Dispose();
                 Stream.Close();
 
-                UploadFileModel UploadFile = new UploadFileModel();
+                SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile = new SMT.Saas.Tools.AttendanceWS.UploadFileModel();
                 UploadFile.FileName = OpenFileDialog.File.Name;
                 UploadFile.File = Buffer;
 

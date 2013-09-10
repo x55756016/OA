@@ -758,7 +758,7 @@ namespace SMT.HRM.UI.Views.Salary
                 Stream.Dispose();
                 Stream.Close();
 
-                UploadFileModel UploadFile = new UploadFileModel();
+                SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile = new SMT.Saas.Tools.SalaryWS.UploadFileModel();
                 UploadFile.FileName = OpenFileDialog.File.Name;
                 UploadFile.File = Buffer;
                 //client.ImportExcelAsync(UploadFile);

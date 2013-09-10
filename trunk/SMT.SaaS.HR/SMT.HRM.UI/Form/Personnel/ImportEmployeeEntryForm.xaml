@@ -1,0 +1,79 @@
+﻿<smtLocal:BaseForm x:Class="SMT.HRM.UI.Form.Personnel.ImportEmployeeEntryForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"
+    xmlns:custom="clr-namespace:SMT.SaaS.FrameworkUI.AutoCompleteComboBox;assembly=SMT.SaaS.FrameworkUI"
+    >
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYNAME}" 
+                   Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" ></TextBlock>
+        <custom:AutoCompleteComboBox  x:Name="acbCompanyName"  Width="180" Height="24" Margin="5,5,5,0"   HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" SelectionChanged="acbCompanyName_SelectionChanged">
+            <custom:AutoCompleteComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=CNAME}">
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </custom:AutoCompleteComboBox.ItemTemplate>
+        </custom:AutoCompleteComboBox>
+
+        <Button x:Name="BrowseFiles" Style="{StaticResource CommonButtonStyle}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"  Margin="5" Content="{Binding Converter={StaticResource ResourceConveter}, Source= BROWSEFILES}" Click="BrowseFiles_Click" Height="22" />
+        <TextBlock x:Name="tbFileName" Text="" Style="{StaticResource SysTextBlockStyle}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" />
+
+        <TextBlock x:Name="txtUploadResMsg" Text="" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" />
+        <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  LoadingRow="DtGrid_LoadingRow" FrozenColumnCount="4"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"  Grid.Row="3" Grid.ColumnSpan="6" Style="{StaticResource DataGridStyle}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn  Header="序号" IsReadOnly="True">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Name="tbNo" Width="16" Height="16"></TextBlock>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EmployeeName,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="USERNAME" Binding="{Binding UserName,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="IDCARDNO" Binding="{Binding IdNumber,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="SEX" Binding="{Binding Sex,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="COMPANY" Binding="{Binding CompanyName,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="DEPARTMENT" Binding="{Binding DepartmentName,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="POSTNAME" Binding="{Binding PostName,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="POSTLEVEL" Binding="{Binding PostLevel,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="REPORTDATE" Binding="{Binding EntryDate,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="EMPLOYAPPLYENTERDATE" Binding="{Binding OnPostDate,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="社保缴交起始时间" Binding="{Binding SocialServiceYear,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="BIRTHDAY" Binding="{Binding Birthday,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="HEIGHT" Binding="{Binding Height,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="FINGERPRINTID" Binding="{Binding FingerPrintID,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="BANK" Binding="{Binding Bank,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="BANKACCOUT" Binding="{Binding BankCardNumber,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="REGRESIDENCE" Binding="{Binding RegResidence,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="FAMILYADDRESS" Binding="{Binding FamilyAddress,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="CURRENTADRESS" Binding="{Binding CurrentAddress,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="手机号码" Binding="{Binding Mobile,Mode=TwoWay}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="提示信息" Binding="{Binding ErrorMsg}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+            </data:DataGrid.Columns>
+            </data:DataGrid>
+    </Grid>
+</smtLocal:BaseForm>

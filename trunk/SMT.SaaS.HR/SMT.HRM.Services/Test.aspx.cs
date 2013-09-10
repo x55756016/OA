@@ -14,7 +14,7 @@ namespace SMT.HRM.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            return;
             //测试请假消除异常
             //EmployeeLeaveRecordBLL bll = new EmployeeLeaveRecordBLL();
 
@@ -95,6 +95,12 @@ namespace SMT.HRM.Services
                 bllClockInRecord.ImportClockInRdListByWindowsService("", entTempList, dtStar
                     , dtEnd, "", ref strMsg);
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            AttendanceService sv=new AttendanceService();
+            sv.CalculateEmployeeAttendanceYearlyByEmployeeID("2013", txtEmployeeid.Text);
         }
     }
 }

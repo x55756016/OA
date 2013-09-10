@@ -318,6 +318,9 @@
     <Compile Include="Form\Organization\CompanyHistoryForm.xaml.cs">
       <DependentUpon>CompanyHistoryForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\Organization\ImportOrgInfoForm.xaml.cs">
+      <DependentUpon>ImportOrgInfoForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\Organization\PostDictionaryForms.xaml.cs">
       <DependentUpon>PostDictionaryForms.xaml</DependentUpon>
     </Compile>
@@ -436,6 +439,9 @@
     <Compile Include="Form\Personnel\ExperienceForm.xaml.cs">
       <DependentUpon>ExperienceForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\Personnel\ImportEmployeeEntryForm.xaml.cs">
+      <DependentUpon>ImportEmployeeEntryForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\Personnel\ImportSetMasterForm.xaml.cs">
       <DependentUpon>ImportSetMasterForm.xaml</DependentUpon>
     </Compile>
@@ -444,6 +450,9 @@
     </Compile>
     <Compile Include="Form\Personnel\LeftOfficeForm.xaml.cs">
       <DependentUpon>LeftOfficeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Personnel\OutExcelEmployeeForm.xaml.cs">
+      <DependentUpon>OutExcelEmployeeForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Form\Personnel\PensionAlarmSetForm.xaml.cs">
       <DependentUpon>PensionAlarmSetForm.xaml</DependentUpon>
@@ -1198,6 +1207,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Form\Organization\ImportOrgInfoForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Form\Organization\PostDictionaryForms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -1406,6 +1419,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Form\Personnel\ImportEmployeeEntryForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Form\Personnel\ImportSetMasterForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -1421,6 +1438,10 @@
     <Page Include="Form\Personnel\LeftOfficeForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Personnel\OutExcelEmployeeForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
