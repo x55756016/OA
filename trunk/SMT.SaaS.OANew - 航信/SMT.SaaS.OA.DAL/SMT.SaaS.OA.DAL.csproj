@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B906A26-7F19-4707-A3DA-61482FE72BA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMT.SaaS.OA.DAL</RootNamespace>
+    <AssemblyName>SMT.SaaS.OA.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMT.Foundation.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccidentRecordManageDal.cs" />
+    <Compile Include="AgentManagementDAL.cs" />
+    <Compile Include="ApprovalManagementDal.cs" />
+    <Compile Include="ArchivesLendingDal.cs" />
+    <Compile Include="ArchivesManagementDal.cs" />
+    <Compile Include="AreaAllowanceDal.cs" />
+    <Compile Include="BenefitsAdministrationDAL.cs" />
+    <Compile Include="BumfManagementDal.cs" />
+    <Compile Include="CalendarManagementDal.cs" />
+    <Compile Include="CommDal.cs" />
+    <Compile Include="ConserVationManagementDal.cs" />
+    <Compile Include="ContractManagementDAL.cs" />
+    <Compile Include="CostRecordManagementDal.cs" />
+    <Compile Include="EmployeeSurveysResultDal.cs" />
+    <Compile Include="EmployeeSurveySubjectDal.cs" />
+    <Compile Include="EmployeeSurveysMasterDal.cs" />
+    <Compile Include="EmployeeSurveysAnswerDal.cs" />
+    <Compile Include="EmployeeSurveySubjectViewDal.cs" />
+    <Compile Include="EmployeeSurveyViewDal.cs" />
+    <Compile Include="Enum.cs" />
+    <Compile Include="HireAppManagementDal.cs" />
+    <Compile Include="MaintenanceAPPDal.cs" />
+    <Compile Include="MeetingManagementDal.cs" />
+    <Compile Include="OrderMealManagementDal.cs" />
+    <Compile Include="OrganManagementDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SatisfactionDal.cs" />
+    <Compile Include="TravelmanagementDAL.cs" />
+    <Compile Include="TravelReimbursementDAL.cs" />
+    <Compile Include="VehicleDispatchDetailDal.cs" />
+    <Compile Include="VehicleDispatchManageDal.cs" />
+    <Compile Include="VehicleInfoManageDal.cs" />
+    <Compile Include="LicenseManagementDal.cs" />
+    <Compile Include="VehicleUseAppManageDal.cs" />
+    <Compile Include="Views\V_AgentDataSet.cs" />
+    <Compile Include="Views\V_ArchivesLending.cs" />
+    <Compile Include="Views\V_BumfCompanySendDoc.cs" />
+    <Compile Include="Views\V_CityAllowance.cs" />
+    <Compile Include="Views\V_CompanyDocNum.cs" />
+    <Compile Include="Views\V_ContractApplications .cs" />
+    <Compile Include="Views\V_ContractPrint.cs" />
+    <Compile Include="Views\V_ContractTemplate.cs" />
+    <Compile Include="Views\V_ContractType.cs" />
+    <Compile Include="Views\V_ContractView.cs" />
+    <Compile Include="Views\V_DepartmentWithCompany.cs" />
+    <Compile Include="Views\V_EmployeeID.cs" />
+    <Compile Include="Views\V_EmployeeSurvey.cs" />
+    <Compile Include="Views\V_EmployeeSurveyApp.cs" />
+    <Compile Include="Views\V_EmployeeSurveyInformation.cs" />
+    <Compile Include="Views\V_EmployeeSurveying.cs" />
+    <Compile Include="Views\V_EmployeeSurveyMaster.cs" />
+    <Compile Include="Views\V_EmployeeSurveyRequireDistribute.cs" />
+    <Compile Include="Views\V_EmployeeSurveysModel.cs" />
+    <Compile Include="Views\V_FlowAPP.cs" />
+    <Compile Include="Views\V_HireRecord.cs" />
+    <Compile Include="Views\V_HouseHireApp.cs" />
+    <Compile Include="Views\V_HouseHireList.cs" />
+    <Compile Include="Views\V_HouseHirer.cs" />
+    <Compile Include="Views\V_HouseInfoIssuance.cs" />
+    <Compile Include="Views\V_HouseInfoTree.cs" />
+    <Compile Include="Views\V_LicenseBorrow.cs" />
+    <Compile Include="Views\V_MeetingInfo.cs" />
+    <Compile Include="Views\V_MeetingRoomApp.cs" />
+    <Compile Include="Views\V_MissionReports.cs" />
+    <Compile Include="Views\V_MyCompanyDoc.cs" />
+    <Compile Include="Views\V_MyEusurvey.cs" />
+    <Compile Include="Views\V_MyMeetingInfosManagement.cs" />
+    <Compile Include="Views\V_MyStaticfaction.cs" />
+    <Compile Include="Views\V_OrganRegister.cs" />
+    <Compile Include="Views\V_EmployeeSurveySubject.cs" />
+    <Compile Include="Views\V_REQUIRERESULTMODE.cs" />
+    <Compile Include="Views\V_Satisfactions.cs" />
+    <Compile Include="Views\V_SystemNotice.cs" />
+    <Compile Include="Views\V_Travelmanagement.cs" />
+    <Compile Include="Views\V_TravelReimbursement.cs" />
+    <Compile Include="Views\V_WelfareDetails.cs" />
+    <Compile Include="Views\V_WelfarePaymentWithdrawal.cs" />
+    <Compile Include="Views\V_WelfareProvision.cs" />
+    <Compile Include="Views\V_WelfareStandard.cs" />
+    <Compile Include="Views\V_Satisfaction.cs" />
+    <Compile Include="WorkerCodeManagementDal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_AGENTDATESET.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_AGENTSET.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_DISTRIBUTEUSER.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_GRADED.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_MEETINGCONTENT.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_MEETINGINFO.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_MEETINGMESSAGE.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_MEETINGROOM.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_MEETINGROOMAPP.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_MEETINGSTAFF.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_MEETINGTEMPLATE.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_MEETINGTYPE.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_PRIORITIES.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_SENDDOC.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_SENDDOCTEMPLATE.datasource" />
+    <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_SENDDOCTYPE.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\源码\SMT.Foundation.NewCore\SMT.Foundation.Core.csproj">
+      <Project>{9d2f51e2-9710-4c91-a66b-823eb72437fd}</Project>
+      <Name>SMT.Foundation.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT_OA_EFModel\SMT_OA_EFModel.csproj">
+      <Project>{30D6706D-A200-4ED0-BBAA-3574E09F54D1}</Project>
+      <Name>SMT_OA_EFModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
