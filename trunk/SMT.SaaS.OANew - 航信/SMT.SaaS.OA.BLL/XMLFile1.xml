@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table>
+  <ApplicationSystem> EngineSystem_test </ApplicationSystem>
+  <CompanyCode> smt_online </CompanyCode>
+  <OperationUser> steven </OperationUser>
+  <TableName> T_OA_CONSERVATION </TableName>
+  <TableKey>
+    <TableKeyName>CONSERVATIONID</TableKeyName>
+    <TableKeyValue>0272c489-74f7-4e10-8b09-efb2674e2180</TableKeyValue>
+  </TableKey>
+  <FieldString>
+    <FieldName>CONSERVATIONID</FieldName>
+    <Field_old_value>0272c489-74f7-4e10-8b09-efb2674e2180</Field_old_value>
+    <Field_New_value>0272c489-74f7-4e10-8b09-efb2674e2180</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>ASSETID</FieldName>
+    <Field_old_value>5</Field_old_value>
+    <Field_New_value>5</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CONSERVANAME</FieldName>
+    <Field_old_value>发动机维护</Field_old_value>
+    <Field_New_value>发动机维护</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CONTENT</FieldName>
+    <Field_old_value>666666</Field_old_value>
+    <Field_New_value>666666</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>FEE</FieldName>
+    <Field_old_value>907</Field_old_value>
+    <Field_New_value>907</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CHECKSTATE</FieldName>
+    <Field_old_value>0</Field_old_value>
+    <Field_New_value>0</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>OWNERID</FieldName>
+    <Field_old_value>BF06E969-1B2C-4a89-B0AE-A91CA1244053</Field_old_value>
+    <Field_New_value>BF06E969-1B2C-4a89-B0AE-A91CA1244053</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>OWNERNAME</FieldName>
+    <Field_old_value>Admin</Field_old_value>
+    <Field_New_value>Admin</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>OWNERCOMPANYID</FieldName>
+    <Field_old_value>7cd6c0a4-9735-476a-9184-103b962d3383</Field_old_value>
+    <Field_New_value>7cd6c0a4-9735-476a-9184-103b962d3383</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>OWNERDEPARTMENTID</FieldName>
+    <Field_old_value>a907b9ba-179d-44e6-8aae-6883cf29f8d0</Field_old_value>
+    <Field_New_value>a907b9ba-179d-44e6-8aae-6883cf29f8d0</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>OWNERPOSTID</FieldName>
+    <Field_old_value>9c075abc-2ca5-4847-9ff0-d242091884e4</Field_old_value>
+    <Field_New_value>9c075abc-2ca5-4847-9ff0-d242091884e4</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CREATEUSERID</FieldName>
+    <Field_old_value>BF06E969-1B2C-4a89-B0AE-A91CA1244053</Field_old_value>
+    <Field_New_value>BF06E969-1B2C-4a89-B0AE-A91CA1244053</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CREATEUSERNAME</FieldName>
+    <Field_old_value>Admin</Field_old_value>
+    <Field_New_value>Admin</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CREATECOMPANYID</FieldName>
+    <Field_old_value>7cd6c0a4-9735-476a-9184-103b962d3383</Field_old_value>
+    <Field_New_value>7cd6c0a4-9735-476a-9184-103b962d3383</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CREATEDEPARTMENTID</FieldName>
+    <Field_old_value>a907b9ba-179d-44e6-8aae-6883cf29f8d0</Field_old_value>
+    <Field_New_value>a907b9ba-179d-44e6-8aae-6883cf29f8d0</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CREATEPOSTID</FieldName>
+    <Field_old_value>9c075abc-2ca5-4847-9ff0-d242091884e4</Field_old_value>
+    <Field_New_value>9c075abc-2ca5-4847-9ff0-d242091884e4</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>CREATEDATE</FieldName>
+    <Field_old_value>2010-4-8 14:44:14</Field_old_value>
+    <Field_New_value>2010-4-8 14:44:14</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>UPDATEUSERID</FieldName>
+    <Field_old_value>BF06E969-1B2C-4a89-B0AE-A91CA1244053</Field_old_value>
+    <Field_New_value>BF06E969-1B2C-4a89-B0AE-A91CA1244053</Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>UPDATEUSERNAME</FieldName>
+    <Field_old_value></Field_old_value>
+    <Field_New_value></Field_New_value>
+  </FieldString>
+  <FieldString>
+    <FieldName>UPDATEDATE</FieldName>
+    <Field_old_value>2010-4-9 10:14:59</Field_old_value>
+    <Field_New_value>2010-4-9 10:14:59</Field_New_value>
+  </FieldString>
+</table>
