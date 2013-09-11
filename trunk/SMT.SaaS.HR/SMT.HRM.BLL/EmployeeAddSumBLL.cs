@@ -314,6 +314,12 @@ namespace SMT.HRM.BLL
         /// <returns>查询结果集</returns>
         public IQueryable<T_HR_EMPLOYEEADDSUM> QueryWithPaging(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, DateTime starttime, DateTime endtime, string userID, string CheckState, int orgtype, string orgid)
         {
+            bool isAudit = false;//因为批量审核和查询条件都使用该方法，所以批量审核时加一个标识，在这里进行区分
+            if (!string.IsNullOrWhiteSpace(filterString) && filterString == "audit")
+            {
+                filterString = "";
+                isAudit = true;
+            }
             string year = string.Empty;
             string filter2 = "";
             List<string> queryParasDt = new List<string>();
@@ -341,12 +347,19 @@ namespace SMT.HRM.BLL
                     {
                         filterString += " and ";
                     }
-                    filterString += "(CHECKSTATE == @" + queryParas.Count();
-                    queryParas.Add(CheckState);
-
-                    filterString += " or CHECKSTATE == @" + queryParas.Count();
-                    queryParas.Add(Convert.ToInt32(CheckStates.UnApproved).ToString());//并且未提交的或者审核未通过的，把审核未通过的也算在批量审核内
-                    filterString += ")";
+                    if (isAudit)//表示为批量审核，这是也加载审核未通过的数据
+                    {
+                        filterString += "(CHECKSTATE == @" + queryParas.Count();
+                        queryParas.Add(CheckState);
+                        filterString += " or CHECKSTATE == @" + queryParas.Count();
+                        queryParas.Add(Convert.ToInt32(CheckStates.UnApproved).ToString());//并且未提交的或者审核未通过的，把审核未通过的也算在批量审核内
+                        filterString += ")";
+                    }
+                    else
+                    {
+                        filterString += "CHECKSTATE == @" + queryParas.Count();
+                        queryParas.Add(CheckState);
+                    }
                 }
             }
             else

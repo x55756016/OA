@@ -179,7 +179,7 @@ namespace SMT.HRM.UI.Form.Salary
 
         public void LoadData()
         {
-            string filter = "";
+            string filter = "audit";
             int pageCount = 0;
             DateTime? starttimes = new DateTime(Convert.ToInt32(txtBalanceYear.Text), Convert.ToInt32(nudBalanceMonth.Value.ToString()), 1);
             DateTime? endtimes = new DateTime(Convert.ToInt32(txtBalanceYear.Text), Convert.ToInt32(nudBalanceMonth.Value.ToString()), DateTime.DaysInMonth(Convert.ToInt32(txtBalanceYear.Text), Convert.ToInt32(nudBalanceMonth.Value.ToString())));

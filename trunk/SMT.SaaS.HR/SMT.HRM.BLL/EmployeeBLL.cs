@@ -2317,7 +2317,11 @@ namespace SMT.HRM.BLL
                                where e.COMPANYID == companyID
                                select e).FirstOrDefault();
                 string companyName = company.CNAME;
-                IQueryable<T_HR_EMPLOYEE> entEmployee = this.GetEmployeeByCompanyID(companyID);
+                #region 获取公司所有员工
+                IQueryable<T_HR_EMPLOYEE> entEmployee = from e in dal.GetObjects()
+                                               where e.OWNERCOMPANYID == companyID && e.EMPLOYEESTATE!="4"//4为未提交
+                                               select e;
+                #endregion
                 byte[] result;
                 DataTable dt = TableToExportInit();
                 if (entEmployee != null && entEmployee.Count() > 0)
@@ -2428,17 +2432,34 @@ namespace SMT.HRM.BLL
                             case 2: row[i] = item.SEX=="0"?"女":"男"; break;
                             case 3: row[i] = item.IDNUMBER; break;
                             case 4: row[i] = item.FINGERPRINTID; break;
-                            case 5: row[i] =item.SOCIALSERVICEYEAR; break;
+                            case 5:
+                                {
+                                    string strSoc = string.Empty;
+                                    string strYear = item.SOCIALSERVICEYEAR;
+                                    try
+                                    {
+                                        if (!string.IsNullOrWhiteSpace(strYear))
+                                        {
+                                            strSoc = Convert.ToDateTime(strYear).ToString("yyyy-MM-dd");
+                                        }
+                                    }
+                                    catch (Exception)
+                                    {
+                                        strSoc=item.SOCIALSERVICEYEAR; 
+                                    }
+                                    row[i] = strSoc;
+                                }  break;
                             case 6: row[i] = item.HEIGHT; break;
                             case 7: row[i] = Convert.ToDateTime(item.BIRTHDAY).ToString("yyyy-MM-dd"); break;
                             case 8: row[i] = item.MOBILE; break;
-                            case 9: row[i] = item.BANKID; break;
-                            case 10: row[i] = item.BANKCARDNUMBER; break;
-                            case 11: row[i] = item.EMAIL; break;
-                            case 12: row[i] = item.REGRESIDENCE; break;
-                            case 13: row[i] = item.FAMILYADDRESS; break;
-                            case 14: row[i] = item.CURRENTADDRESS; break;
-                            case 15: 
+                            case 9: row[i] = item.OFFICEPHONE; break;
+                            case 10: row[i] = item.BANKID; break;
+                            case 11: row[i] = item.BANKCARDNUMBER; break;
+                            case 12: row[i] = item.EMAIL; break;
+                            case 13: row[i] = item.REGRESIDENCE; break;
+                            case 14: row[i] = item.FAMILYADDRESS; break;
+                            case 15: row[i] = item.CURRENTADDRESS; break;
+                            case 16: 
                                 {
                                     string state=string.Empty;
                                     if (item.EMPLOYEESTATE == "1")
@@ -2451,8 +2472,13 @@ namespace SMT.HRM.BLL
                                     {
                                         state = "离职中";
                                     }
-                                } row[i] = item.EMPLOYEESTATE; break;
-                            case 16: row[i] = item.REMARK; break;
+                                    else if (item.EMPLOYEESTATE == "0")
+                                    {
+                                        state = "试用";
+                                    }
+                                    row[i] = state; 
+                                }break;
+                            case 17: row[i] = item.REMARK; break;
                         }
                     }
                     dt.Rows.Add(row);
@@ -2530,6 +2556,11 @@ namespace SMT.HRM.BLL
             col3.ColumnName = Utility.GetResourceStr("手机号码");
             col3.DataType = typeof(string);
             dt.Columns.Add(col3);
+
+            DataColumn col13 = new DataColumn();
+            col13.ColumnName = Utility.GetResourceStr("办公电话");
+            col13.DataType = typeof(string);
+            dt.Columns.Add(col13);
 
             DataColumn col4 = new DataColumn();
             col4.ColumnName = Utility.GetResourceStr("开户银行");

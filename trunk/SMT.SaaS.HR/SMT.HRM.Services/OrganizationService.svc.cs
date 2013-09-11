@@ -14,6 +14,8 @@ using System.IO;
 using System.Xml;
 using SMT.HRM.CustomModel;
 using SMT.Foundation.Log;
+using System.Configuration;
+using System.Web;
 
 namespace SMT.HRM.Services
 {
@@ -343,7 +345,7 @@ namespace SMT.HRM.Services
                 else
                     ents = bll.GetCompanyActived(userID, perm, entity);
 
-                return ents.Count() > 0 ? ents.ToList() : null;
+                return ents != null && ents.Count() > 0 ? ents.ToList() : null;
             }
         }
 
@@ -602,7 +604,7 @@ namespace SMT.HRM.Services
         /// <param name="strCompanyId">公司ID字符串，以‘，’分隔id</param>
         /// <returns></returns>
         [OperationContract]
-        public List<SMT.HRM.CustomModel.V_DEPARTMENTSWITHCOMPANY> GetDepartmentByCompanyIDs(string strCompanyId)
+        public List<V_DEPARTMENTSWITHCOMPANY> GetDepartmentByCompanyIDs(string strCompanyId)
         {
             using (DepartmentBLL departmentBll = new DepartmentBLL())
             {
@@ -1355,6 +1357,75 @@ namespace SMT.HRM.Services
                 bll.PostHistoryAdd(entity);
             }
         }
+
+        /// <summary>
+        /// 批量添加部门岗位信息
+        /// </summary>
+        /// <param name="listOrgInfo">部门岗位信息</param>
+        /// <param name="companyID">公司ID</param>
+        /// <param name="strMsg">错误信息等</param>
+        /// <returns></returns>
+        [OperationContract]
+        public bool AddBatchOrgInfo(List<V_ORGANIZATIONINFO> listOrgInfo,string companyID, ref string strMsg)
+        {
+            using (DepartmentBLL bll = new DepartmentBLL())
+            {
+                return bll.AddBatchOrgInfo(listOrgInfo,companyID,ref strMsg);
+            }
+        }
+
+        /// <summary>
+        /// 根据Excel获取部门岗位数据
+        /// </summary>
+        /// <param name="uploadFile">文件</param>
+        /// <param name="companyID">公司ID</param>
+        /// <param name="empInfoDic">存放用户组织架构信息</param>
+        /// <returns>部门岗位数据</returns>
+        [OperationContract]
+        public List<V_ORGANIZATIONINFO> ImportOrgInfo(UploadFileModel uploadFile, string companyID, Dictionary<string, string> empInfoDic)
+        {
+            using (DepartmentBLL bll = new DepartmentBLL())
+            {
+                string strPath = SaveFile(uploadFile);//获取文件路径
+                string strPhysicalPath = HttpContext.Current.Server.MapPath(strPath);//到时测试strPath为空是是否报错
+                return bll.ImportOrgInfo(strPhysicalPath, companyID, empInfoDic);
+            }
+        }
+
+        #region 文件上传服务
+        /// <summary>
+        /// 获取文件路径
+        /// </summary>
+        /// <param name="uploadFile">上传载体</param>
+        /// <param name="strFilePath">上传文件存储的相对路径</param>
+        [OperationContract]
+        public string SaveFile(UploadFileModel uploadFile)
+        {
+            try
+            {
+                // Store File to File System
+                string strVirtualPath = ConfigurationManager.AppSettings["FileUploadLocation"].ToString();
+                string strPath = HttpContext.Current.Server.MapPath(strVirtualPath) + uploadFile.FileName;
+                if (Directory.Exists(HttpContext.Current.Server.MapPath(strVirtualPath)) == false)
+                {
+                    Directory.CreateDirectory(HttpContext.Current.Server.MapPath(strVirtualPath));
+                }
+                FileStream FileStream = new FileStream(strPath, FileMode.Create);
+                FileStream.Write(uploadFile.File, 0, uploadFile.File.Length);
+
+                FileStream.Close();
+                FileStream.Dispose();
+
+                string strFilePath = strVirtualPath + uploadFile.FileName;
+                return strFilePath;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("获取文件路径错误：:" + ex.ToString());
+                return string.Empty;
+            }
+        }
+        #endregion
         #endregion
 
         #region 统一更新审核状态

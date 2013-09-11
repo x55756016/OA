@@ -116,6 +116,19 @@ namespace SMT.HRM.Services
         }
 
         /// <summary>
+        /// 导出员工档案（公司的非离职员工）
+        /// </summary>
+        /// <param name="companyID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public byte[] ExportEmployee(string companyID)
+        {
+            using (EmployeeBLL bll = new EmployeeBLL())
+            {
+                return bll.ExportEmployee(companyID);
+            }
+        }
+        /// <summary>
         /// 根据身份证获取员工信息
         /// </summary>
         /// <param name="idnumbers"></param>
@@ -1264,6 +1277,53 @@ namespace SMT.HRM.Services
             using (EmployeeEntryBLL bll = new EmployeeEntryBLL())
             {
                 return bll.GetEmployeeEntryByEmployeeIDAndCOMPANYID(employeeID, COMPANYID);
+            }
+        }
+        /// <summary>
+        /// 获取员工入职批量导入信息
+        /// </summary>
+        /// <param name="uploadFile"></param>
+        /// <param name="companyID"></param>
+        /// <param name="empInfoDic"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<V_EmployeeEntryInfo> ImportEmployeeEntry(UploadFileModel uploadFile, string companyID, Dictionary<string, string> empInfoDic)
+        {
+            using (EmployeeEntryBLL bll = new EmployeeEntryBLL())
+            {
+                string strPath = string.Empty;
+                SaveFile(uploadFile, out strPath);//获取文件路径
+                string strPhysicalPath = HttpContext.Current.Server.MapPath(strPath);//到时测试strPath为空是是否报错
+                return bll.ImportEmployeeEntry(strPhysicalPath, companyID, empInfoDic);
+            }
+        }
+
+        /// <summary>
+        /// 验证用户名是否存在
+        /// </summary>
+        /// <param name="listEmpInfo"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<V_EmployeeEntryInfo> ValidUserNameIsExist(List<V_EmployeeEntryInfo> listEmpInfo)
+        {
+            using (EmployeeEntryBLL bll = new EmployeeEntryBLL())
+            {
+                return bll.ValidUserNameIsExist(listEmpInfo);
+            }
+        }
+        /// <summary>
+        /// 批量添加员工入职信息
+        /// </summary>
+        /// <param name="listEmpEntry"></param>
+        /// <param name="companyID"></param>
+        /// <param name="strMsg">错误信息等</param>
+        /// <returns></returns>
+        [OperationContract]
+        public bool AddBatchEmployeeEntry(List<V_EmployeeEntryInfo> listEmpEntry, string companyID, ref string strMsg)
+        {
+            using (EmployeeEntryBLL bll = new EmployeeEntryBLL())
+            {
+                return bll.AddBatchEmployeeEntry(listEmpEntry, companyID, ref strMsg);
             }
         }
         #endregion
@@ -3186,7 +3246,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                //Tracer.Debug("进入GetSuperiorByPostID：" + postID);
+                Tracer.Debug("进入GetSuperiorByPostID：" + postID);
                 return bll.GetSuperiorByPostID(postID);
             }
         }
@@ -3201,7 +3261,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                //Tracer.Debug("进入GetFlowUserByUserID：" + userID);
+                Tracer.Debug("进入GetFlowUserByUserID：" + userID);
                 return bll.GetFlowUserByUserID(userID);
             }
         }
@@ -3217,7 +3277,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                //Tracer.Debug("进入GetFlowUserByUserID：" + userID +"模块代码：" + modelCode);
+                Tracer.Debug("进入GetFlowUserByUserID：" + userID +"模块代码：" + modelCode);
                 return bll.GetAgentUser(userID, modelCode);
             }
         }

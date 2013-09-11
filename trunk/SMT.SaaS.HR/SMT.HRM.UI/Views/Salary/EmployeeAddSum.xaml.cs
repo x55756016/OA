@@ -84,8 +84,8 @@ namespace SMT.HRM.UI.Views.Salary
             ToolBar.cbxCheckState.SelectionChanged += new SelectionChangedEventHandler(cbxCheckState_SelectionChanged);
             ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
             //航信版本发布时需要打开
-            //ToolBar.btnImport.Visibility = Visibility.Visible;
-            //ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
+            ToolBar.btnImport.Visibility = Visibility.Visible;
+            ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
 
             treeOrganization.SelectedClick += new EventHandler(treeOrganization_SelectedClick);
             //orgClient = new SMT.Saas.Tools.OrganizationWS.OrganizationServiceClient();
