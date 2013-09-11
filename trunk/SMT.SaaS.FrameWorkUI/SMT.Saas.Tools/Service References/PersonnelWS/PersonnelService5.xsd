@@ -1,39 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:12168/PersonnelService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-  <xs:complexType name="ArrayOfT_HR_ASSESSMENTFORMDETAIL">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:T_HR_ASSESSMENTFORMDETAIL" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfT_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
-  <xs:complexType name="T_HR_ASSESSMENTFORMDETAIL">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="ASSESSMENTFORMDETAILID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CHECKPOINT" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="FIRSTNIBSGRADE" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="FIRSTSCORE" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SECONDNIBSGRADE" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SECONDSCORE" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMMASTER" nillable="true" type="tns:T_HR_ASSESSMENTFORMMASTER" />
-          <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMMASTERReference" nillable="true" type="q1:EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo" />
-          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSET" nillable="true" type="tns:T_HR_CHECKPOINTSET" />
-          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSETReference" nillable="true" type="q1:EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo" />
-          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="T_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:T_HR_ASSESSMENTFORMDETAIL" />
   <xs:complexType name="T_HR_ASSESSMENTFORMMASTER">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ASSESSMENTFORMMASTERID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ATTACHMENTPATH" nillable="true" type="xs:string" />
@@ -72,9 +42,9 @@
           <xs:element minOccurs="0" name="TOTALSCORE" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEECHECK" nillable="true" type="tns:T_HR_EMPLOYEECHECK" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEECHECKReference" nillable="true" type="q2:EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEECHECKReference" nillable="true" type="q1:EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEEPOSTCHANGE" nillable="true" type="tns:T_HR_EMPLOYEEPOSTCHANGE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEPOSTCHANGEReference" nillable="true" type="q2:EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEPOSTCHANGEReference" nillable="true" type="q1:EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -82,9 +52,111 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="T_HR_ASSESSMENTFORMMASTER" nillable="true" type="tns:T_HR_ASSESSMENTFORMMASTER" />
-  <xs:complexType name="T_HR_EMPLOYEECHECK">
+  <xs:complexType name="ArrayOfT_HR_ASSESSMENTFORMDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:T_HR_ASSESSMENTFORMDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
+  <xs:complexType name="T_HR_ASSESSMENTFORMDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ASSESSMENTFORMDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKPOINT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTNIBSGRADE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDNIBSGRADE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMMASTER" nillable="true" type="tns:T_HR_ASSESSMENTFORMMASTER" />
+          <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMMASTERReference" nillable="true" type="q2:EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSET" nillable="true" type="tns:T_HR_CHECKPOINTSET" />
+          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSETReference" nillable="true" type="q2:EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:T_HR_ASSESSMENTFORMDETAIL" />
+  <xs:complexType name="T_HR_CHECKPOINTSET">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKEMPLOYEETYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKPOINT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKPOINTDES" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKPOINTSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKPOINTSETID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
+          <xs:element minOccurs="0" name="T_HR_CHECKPOINTLEVELSET" nillable="true" type="tns:ArrayOfT_HR_CHECKPOINTLEVELSET" />
+          <xs:element minOccurs="0" name="T_HR_CHECKPROJECTSET" nillable="true" type="tns:T_HR_CHECKPROJECTSET" />
+          <xs:element minOccurs="0" name="T_HR_CHECKPROJECTSETReference" nillable="true" type="q3:EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_CHECKPOINTSET" nillable="true" type="tns:T_HR_CHECKPOINTSET" />
+  <xs:complexType name="ArrayOfT_HR_CHECKPOINTLEVELSET">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_CHECKPOINTLEVELSET" nillable="true" type="tns:T_HR_CHECKPOINTLEVELSET" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_CHECKPOINTLEVELSET" nillable="true" type="tns:ArrayOfT_HR_CHECKPOINTLEVELSET" />
+  <xs:complexType name="T_HR_CHECKPOINTLEVELSET">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POINTLEVEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POINTLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POINTSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSET" nillable="true" type="tns:T_HR_CHECKPOINTSET" />
+          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSETReference" nillable="true" type="q4:EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_CHECKPOINTLEVELSET" nillable="true" type="tns:T_HR_CHECKPOINTLEVELSET" />
+  <xs:complexType name="T_HR_CHECKPROJECTSET">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKPROJECT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKPROJECTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKPROJECTSCORE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSET" nillable="true" type="tns:ArrayOfT_HR_CHECKPOINTSET" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_CHECKPROJECTSET" nillable="true" type="tns:T_HR_CHECKPROJECTSET" />
+  <xs:complexType name="ArrayOfT_HR_CHECKPOINTSET">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_CHECKPOINTSET" nillable="true" type="tns:T_HR_CHECKPOINTSET" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_CHECKPOINTSET" nillable="true" type="tns:ArrayOfT_HR_CHECKPOINTSET" />
+  <xs:complexType name="T_HR_EMPLOYEECHECK">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="BEREGULARDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="BEREGULARID" nillable="true" type="xs:string" />
@@ -111,7 +183,7 @@
           <xs:element minOccurs="0" name="SELFCHECKRESULT" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMMASTER" nillable="true" type="tns:ArrayOfT_HR_ASSESSMENTFORMMASTER" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q3:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q6:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -127,7 +199,7 @@
   <xs:element name="ArrayOfT_HR_ASSESSMENTFORMMASTER" nillable="true" type="tns:ArrayOfT_HR_ASSESSMENTFORMMASTER" />
   <xs:complexType name="T_HR_EMPLOYEE">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="BANKCARDNUMBER" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="BANKID" nillable="true" type="xs:string" />
@@ -190,7 +262,7 @@
           <xs:element minOccurs="0" name="T_HR_LEFTOFFICE" nillable="true" type="tns:ArrayOfT_HR_LEFTOFFICE" />
           <xs:element minOccurs="0" name="T_HR_PENSIONMASTER" nillable="true" type="tns:ArrayOfT_HR_PENSIONMASTER" />
           <xs:element minOccurs="0" name="T_HR_RESUME" nillable="true" type="tns:T_HR_RESUME" />
-          <xs:element minOccurs="0" name="T_HR_RESUMEReference" nillable="true" type="q4:EntityReferenceOfT_HR_RESUMELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_RESUMEReference" nillable="true" type="q7:EntityReferenceOfT_HR_RESUMELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="URGENCYCONTACT" nillable="true" type="xs:string" />
@@ -209,7 +281,7 @@
   <xs:element name="ArrayOfT_HR_EMPLOYEECHANGEHISTORY" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEECHANGEHISTORY" />
   <xs:complexType name="T_HR_EMPLOYEECHANGEHISTORY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CHANGEREASON" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CHANGETIME" nillable="true" type="xs:dateTime" />
@@ -244,7 +316,7 @@
           <xs:element minOccurs="0" name="RECORDID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="REMART" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q5:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q8:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -264,7 +336,7 @@
   <xs:element name="ArrayOfT_HR_EMPLOYEECONTRACT" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEECONTRACT" />
   <xs:complexType name="T_HR_EMPLOYEECONTRACT">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ALARMDAY" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ATTACHMENT" nillable="true" type="xs:base64Binary" />
@@ -291,7 +363,7 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TODATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q6:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q9:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -307,7 +379,7 @@
   <xs:element name="ArrayOfT_HR_EMPLOYEEENTRY" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEENTRY" />
   <xs:complexType name="T_HR_EMPLOYEEENTRY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
@@ -327,7 +399,7 @@
           <xs:element minOccurs="0" name="PROBATIONPERIOD" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q7:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q10:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -343,7 +415,7 @@
   <xs:element name="ArrayOfT_HR_EMPLOYEEINSURANCE" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEINSURANCE" />
   <xs:complexType name="T_HR_EMPLOYEEINSURANCE">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ALARMDAY" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
@@ -369,7 +441,7 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q8:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q11:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -385,7 +457,7 @@
   <xs:element name="ArrayOfT_HR_EMPLOYEEPOST" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEPOST" />
   <xs:complexType name="T_HR_EMPLOYEEPOST">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
@@ -396,10 +468,10 @@
           <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="SALARYLEVEL" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q9:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q12:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_LEFTOFFICE" nillable="true" type="tns:ArrayOfT_HR_LEFTOFFICE" />
           <xs:element minOccurs="0" name="T_HR_POST" nillable="true" type="tns:T_HR_POST" />
-          <xs:element minOccurs="0" name="T_HR_POSTReference" nillable="true" type="q9:EntityReferenceOfT_HR_POSTLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_POSTReference" nillable="true" type="q12:EntityReferenceOfT_HR_POSTLmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -415,7 +487,7 @@
   <xs:element name="ArrayOfT_HR_LEFTOFFICE" nillable="true" type="tns:ArrayOfT_HR_LEFTOFFICE" />
   <xs:complexType name="T_HR_LEFTOFFICE">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="APPLYDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
@@ -438,8 +510,8 @@
           <xs:element minOccurs="0" name="STOPPAYMENTDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEEPOST" nillable="true" type="tns:T_HR_EMPLOYEEPOST" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEPOSTReference" nillable="true" type="q10:EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q10:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEPOSTReference" nillable="true" type="q13:EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q13:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_LEFTOFFICECONFIRM" nillable="true" type="tns:ArrayOfT_HR_LEFTOFFICECONFIRM" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
@@ -456,7 +528,7 @@
   <xs:element name="ArrayOfT_HR_LEFTOFFICECONFIRM" nillable="true" type="tns:ArrayOfT_HR_LEFTOFFICECONFIRM" />
   <xs:complexType name="T_HR_LEFTOFFICECONFIRM">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q14:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="APPLYDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
@@ -480,7 +552,7 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="STOPPAYMENTDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="T_HR_LEFTOFFICE" nillable="true" type="tns:T_HR_LEFTOFFICE" />
-          <xs:element minOccurs="0" name="T_HR_LEFTOFFICEReference" nillable="true" type="q11:EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_LEFTOFFICEReference" nillable="true" type="q14:EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -490,7 +562,7 @@
   <xs:element name="T_HR_LEFTOFFICECONFIRM" nillable="true" type="tns:T_HR_LEFTOFFICECONFIRM" />
   <xs:complexType name="T_HR_POST">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q15:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="BACKSTAGE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CHANGEPOST" nillable="true" type="xs:string" />
@@ -521,10 +593,10 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SALARYLEVEL" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="T_HR_DEPARTMENT" nillable="true" type="tns:T_HR_DEPARTMENT" />
-          <xs:element minOccurs="0" name="T_HR_DEPARTMENTReference" nillable="true" type="q12:EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_DEPARTMENTReference" nillable="true" type="q15:EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEEPOST" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEPOST" />
           <xs:element minOccurs="0" name="T_HR_POSTDICTIONARY" nillable="true" type="tns:T_HR_POSTDICTIONARY" />
-          <xs:element minOccurs="0" name="T_HR_POSTDICTIONARYReference" nillable="true" type="q12:EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_POSTDICTIONARYReference" nillable="true" type="q15:EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_RELATIONPOST" nillable="true" type="tns:ArrayOfT_HR_RELATIONPOST" />
           <xs:element minOccurs="0" name="UNDERNUMBER" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
@@ -536,7 +608,7 @@
   <xs:element name="T_HR_POST" nillable="true" type="tns:T_HR_POST" />
   <xs:complexType name="T_HR_DEPARTMENT">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q16:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
@@ -558,9 +630,9 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SORTINDEX" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="T_HR_COMPANY" nillable="true" type="tns:T_HR_COMPANY" />
-          <xs:element minOccurs="0" name="T_HR_COMPANYReference" nillable="true" type="q13:EntityReferenceOfT_HR_COMPANYLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_COMPANYReference" nillable="true" type="q16:EntityReferenceOfT_HR_COMPANYLmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARY" nillable="true" type="tns:T_HR_DEPARTMENTDICTIONARY" />
-          <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARYReference" nillable="true" type="q13:EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARYReference" nillable="true" type="q16:EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_POST" nillable="true" type="tns:ArrayOfT_HR_POST" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
@@ -571,7 +643,7 @@
   <xs:element name="T_HR_DEPARTMENT" nillable="true" type="tns:T_HR_DEPARTMENT" />
   <xs:complexType name="T_HR_COMPANY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q14:EntityObject">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q17:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ACCOUNTCODE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ADDRESS" nillable="true" type="xs:string" />
@@ -611,7 +683,7 @@
           <xs:element minOccurs="0" name="TELNUMBER" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_COMPANY1" nillable="true" type="tns:ArrayOfT_HR_COMPANY" />
           <xs:element minOccurs="0" name="T_HR_COMPANY2" nillable="true" type="tns:T_HR_COMPANY" />
-          <xs:element minOccurs="0" name="T_HR_COMPANY2Reference" nillable="true" type="q14:EntityReferenceOfT_HR_COMPANYLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_COMPANY2Reference" nillable="true" type="q17:EntityReferenceOfT_HR_COMPANYLmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_COMPANYHISTORY" nillable="true" type="tns:ArrayOfT_HR_COMPANYHISTORY" />
           <xs:element minOccurs="0" name="T_HR_DEPARTMENT" nillable="true" type="tns:ArrayOfT_HR_DEPARTMENT" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
@@ -636,7 +708,7 @@
   <xs:element name="ArrayOfT_HR_COMPANYHISTORY" nillable="true" type="tns:ArrayOfT_HR_COMPANYHISTORY" />
   <xs:complexType name="T_HR_COMPANYHISTORY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q15:EntityObject">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q18:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ACCOUNTCODE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ADDRESS" nillable="true" type="xs:string" />
@@ -673,7 +745,7 @@
           <xs:element minOccurs="0" name="REUSEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="TELNUMBER" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_COMPANY" nillable="true" type="tns:T_HR_COMPANY" />
-          <xs:element minOccurs="0" name="T_HR_COMPANYReference" nillable="true" type="q15:EntityReferenceOfT_HR_COMPANYLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_COMPANYReference" nillable="true" type="q18:EntityReferenceOfT_HR_COMPANYLmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ZIPCODE" nillable="true" type="xs:string" />
@@ -690,7 +762,7 @@
   <xs:element name="ArrayOfT_HR_DEPARTMENT" nillable="true" type="tns:ArrayOfT_HR_DEPARTMENT" />
   <xs:complexType name="T_HR_DEPARTMENTDICTIONARY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q16:EntityObject">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q19:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
@@ -724,7 +796,7 @@
   <xs:element name="ArrayOfT_HR_DEPARTMENTHISTORY" nillable="true" type="tns:ArrayOfT_HR_DEPARTMENTHISTORY" />
   <xs:complexType name="T_HR_DEPARTMENTHISTORY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q17:EntityObject">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q20:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CANCELDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
@@ -747,7 +819,7 @@
           <xs:element minOccurs="0" name="RECORDSID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="REUSEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARY" nillable="true" type="tns:T_HR_DEPARTMENTDICTIONARY" />
-          <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARYReference" nillable="true" type="q17:EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARYReference" nillable="true" type="q20:EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -763,7 +835,7 @@
   <xs:element name="ArrayOfT_HR_POSTDICTIONARY" nillable="true" type="tns:ArrayOfT_HR_POSTDICTIONARY" />
   <xs:complexType name="T_HR_POSTDICTIONARY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q18:EntityObject">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q21:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CHANGEPOST" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
@@ -782,7 +854,7 @@
           <xs:element minOccurs="0" name="PROMOTEDIRECTION" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SALARYLEVEL" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARY" nillable="true" type="tns:T_HR_DEPARTMENTDICTIONARY" />
-          <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARYReference" nillable="true" type="q18:EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_DEPARTMENTDICTIONARYReference" nillable="true" type="q21:EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_POST" nillable="true" type="tns:ArrayOfT_HR_POST" />
           <xs:element minOccurs="0" name="T_HR_POSTHISTORY" nillable="true" type="tns:ArrayOfT_HR_POSTHISTORY" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
@@ -806,7 +878,7 @@
   <xs:element name="ArrayOfT_HR_POSTHISTORY" nillable="true" type="tns:ArrayOfT_HR_POSTHISTORY" />
   <xs:complexType name="T_HR_POSTHISTORY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q19:EntityObject">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q22:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CANCELDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="CHANGEPOST" nillable="true" type="xs:string" />
@@ -836,7 +908,7 @@
           <xs:element minOccurs="0" name="RECORDSID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="REUSEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="T_HR_POSTDICTIONARY" nillable="true" type="tns:T_HR_POSTDICTIONARY" />
-          <xs:element minOccurs="0" name="T_HR_POSTDICTIONARYReference" nillable="true" type="q19:EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_POSTDICTIONARYReference" nillable="true" type="q22:EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo" />
           <xs:element minOccurs="0" name="UNDERNUMBER" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
@@ -853,14 +925,14 @@
   <xs:element name="ArrayOfT_HR_RELATIONPOST" nillable="true" type="tns:ArrayOfT_HR_RELATIONPOST" />
   <xs:complexType name="T_HR_RELATIONPOST">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q20:EntityObject">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q23:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="RELATEPOSTID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="RELATIONPOSTID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_POST" nillable="true" type="tns:T_HR_POST" />
-          <xs:element minOccurs="0" name="T_HR_POSTReference" nillable="true" type="q20:EntityReferenceOfT_HR_POSTLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_POSTReference" nillable="true" type="q23:EntityReferenceOfT_HR_POSTLmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -876,7 +948,7 @@
   <xs:element name="ArrayOfT_HR_EMPLOYEEPOSTCHANGE" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEPOSTCHANGE" />
   <xs:complexType name="T_HR_EMPLOYEEPOSTCHANGE">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q21:EntityObject">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q24:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CHANGEDATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
@@ -911,7 +983,7 @@
           <xs:element minOccurs="0" name="TOSALARYLEVEL" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMMASTER" nillable="true" type="tns:ArrayOfT_HR_ASSESSMENTFORMMASTER" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q21:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q24:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -927,7 +999,7 @@
   <xs:element name="ArrayOfT_HR_FAMILYMEMBER" nillable="true" type="tns:ArrayOfT_HR_FAMILYMEMBER" />
   <xs:complexType name="T_HR_FAMILYMEMBER">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q22:EntityObject">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q25:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="AGE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CONTACT" nillable="true" type="xs:string" />
@@ -939,7 +1011,7 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SEX" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q22:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q25:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -955,7 +1027,7 @@
   <xs:element name="ArrayOfT_HR_PENSIONMASTER" nillable="true" type="tns:ArrayOfT_HR_PENSIONMASTER" />
   <xs:complexType name="T_HR_PENSIONMASTER">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q23:EntityObject">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q26:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CARDID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
@@ -980,7 +1052,7 @@
           <xs:element minOccurs="0" name="SOCIALSERVICEYEAR" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="tns:T_HR_EMPLOYEE" />
-          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q23:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEReference" nillable="true" type="q26:EntityReferenceOfT_HR_EMPLOYEELmi1kWPo" />
           <xs:element minOccurs="0" name="T_HR_PENSIONDETAIL" nillable="true" type="tns:ArrayOfT_HR_PENSIONDETAIL" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
@@ -997,7 +1069,7 @@
   <xs:element name="ArrayOfT_HR_PENSIONDETAIL" nillable="true" type="tns:ArrayOfT_HR_PENSIONDETAIL" />
   <xs:complexType name="T_HR_PENSIONDETAIL">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q24:EntityObject">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q27:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="BIRTHBASE" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="BIRTHCOMPANYRATIO" nillable="true" type="xs:decimal" />
@@ -1055,7 +1127,7 @@
           <xs:element minOccurs="0" name="TOTALCOST" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="TOTALPERSONCOST" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="T_HR_PENSIONMASTER" nillable="true" type="tns:T_HR_PENSIONMASTER" />
-          <xs:element minOccurs="0" name="T_HR_PENSIONMASTERReference" nillable="true" type="q24:EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_PENSIONMASTERReference" nillable="true" type="q27:EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo" />
           <xs:element minOccurs="0" name="UNEMPLOYEDBASE" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="UNEMPLOYEDCOMPANYRATIO" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="UNEMPLOYEDINSURANCECOMPANYCOST" nillable="true" type="xs:decimal" />
@@ -1070,7 +1142,7 @@
   <xs:element name="T_HR_PENSIONDETAIL" nillable="true" type="tns:T_HR_PENSIONDETAIL" />
   <xs:complexType name="T_HR_RESUME">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q25:EntityObject">
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q28:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="COMRELATIONINFO" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
@@ -1127,7 +1199,7 @@
   <xs:element name="ArrayOfT_HR_EDUCATEHISTORY" nillable="true" type="tns:ArrayOfT_HR_EDUCATEHISTORY" />
   <xs:complexType name="T_HR_EDUCATEHISTORY">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q26:EntityObject">
+      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q29:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
@@ -1141,7 +1213,7 @@
           <xs:element minOccurs="0" name="SPECIALTY" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_RESUME" nillable="true" type="tns:T_HR_RESUME" />
-          <xs:element minOccurs="0" name="T_HR_RESUMEReference" nillable="true" type="q26:EntityReferenceOfT_HR_RESUMELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_RESUMEReference" nillable="true" type="q29:EntityReferenceOfT_HR_RESUMELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -1163,7 +1235,7 @@
   <xs:element name="ArrayOfT_HR_EXPERIENCE" nillable="true" type="tns:ArrayOfT_HR_EXPERIENCE" />
   <xs:complexType name="T_HR_EXPERIENCE">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q27:EntityObject">
+      <xs:extension xmlns:q30="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q30:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
@@ -1176,7 +1248,7 @@
           <xs:element minOccurs="0" name="SALARY" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_RESUME" nillable="true" type="tns:T_HR_RESUME" />
-          <xs:element minOccurs="0" name="T_HR_RESUMEReference" nillable="true" type="q27:EntityReferenceOfT_HR_RESUMELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_RESUMEReference" nillable="true" type="q30:EntityReferenceOfT_HR_RESUMELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -1184,78 +1256,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="T_HR_EXPERIENCE" nillable="true" type="tns:T_HR_EXPERIENCE" />
-  <xs:complexType name="T_HR_CHECKPOINTSET">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q28:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CHECKEMPLOYEETYPE" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CHECKPOINT" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CHECKPOINTDES" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CHECKPOINTSCORE" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="CHECKPOINTSETID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="T_HR_ASSESSMENTFORMDETAIL" nillable="true" type="tns:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
-          <xs:element minOccurs="0" name="T_HR_CHECKPOINTLEVELSET" nillable="true" type="tns:ArrayOfT_HR_CHECKPOINTLEVELSET" />
-          <xs:element minOccurs="0" name="T_HR_CHECKPROJECTSET" nillable="true" type="tns:T_HR_CHECKPROJECTSET" />
-          <xs:element minOccurs="0" name="T_HR_CHECKPROJECTSETReference" nillable="true" type="q28:EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo" />
-          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="T_HR_CHECKPOINTSET" nillable="true" type="tns:T_HR_CHECKPOINTSET" />
-  <xs:complexType name="ArrayOfT_HR_CHECKPOINTLEVELSET">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_CHECKPOINTLEVELSET" nillable="true" type="tns:T_HR_CHECKPOINTLEVELSET" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfT_HR_CHECKPOINTLEVELSET" nillable="true" type="tns:ArrayOfT_HR_CHECKPOINTLEVELSET" />
-  <xs:complexType name="T_HR_CHECKPOINTLEVELSET">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q29:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="POINTLEVEID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="POINTLEVEL" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="POINTSCORE" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSET" nillable="true" type="tns:T_HR_CHECKPOINTSET" />
-          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSETReference" nillable="true" type="q29:EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo" />
-          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="T_HR_CHECKPOINTLEVELSET" nillable="true" type="tns:T_HR_CHECKPOINTLEVELSET" />
-  <xs:complexType name="T_HR_CHECKPROJECTSET">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q30="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q30:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CHECKPROJECT" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CHECKPROJECTID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CHECKPROJECTSCORE" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="T_HR_CHECKPOINTSET" nillable="true" type="tns:ArrayOfT_HR_CHECKPOINTSET" />
-          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="T_HR_CHECKPROJECTSET" nillable="true" type="tns:T_HR_CHECKPROJECTSET" />
-  <xs:complexType name="ArrayOfT_HR_CHECKPOINTSET">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_CHECKPOINTSET" nillable="true" type="tns:T_HR_CHECKPOINTSET" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfT_HR_CHECKPOINTSET" nillable="true" type="tns:ArrayOfT_HR_CHECKPOINTSET" />
   <xs:complexType name="ArrayOfT_HR_IMPORTSETMASTER">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_IMPORTSETMASTER" nillable="true" type="tns:T_HR_IMPORTSETMASTER" />

@@ -92,8 +92,7 @@ namespace SMT.HRM.UI.Views.Attendance
 
             //string filter2 = "";
             System.Collections.ObjectModel.ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();
-            string recorderDate = string.Empty;
-
+            string startDate = string.Empty, recorderDate = string.Empty;//起始时间和结束时间
             if (lkEmpName.DataContext != null)
             {
                 SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE ent = lkEmpName.DataContext as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
@@ -124,11 +123,38 @@ namespace SMT.HRM.UI.Views.Attendance
                 }
             }
 
-            recorderDate = nuYear.Value.ToString() + "-" + nuMonth.Value.ToString() + "-1";
+            startDate = nuYear.Value.ToString() + "-" + startMonth.Value.ToString() + "-1";
+            recorderDate = nuYear.Value.ToString() + "-" + (nuMonth.Value+1).ToString() + "-1";
+            if (DateTime.Parse(startDate) <= DateTime.Parse("1900-1-1"))
+            {
+                startDate = string.Empty;
+            }
             if (DateTime.Parse(recorderDate) <= DateTime.Parse("1900-1-1"))
             {
                 recorderDate = string.Empty;
             }
+            //起始时间
+            if (!string.IsNullOrEmpty(startDate))
+            {
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    filter += " and ";
+                }
+                filter += "STARTDATETIME>=@" + paras.Count().ToString();
+                paras.Add(Convert.ToDateTime(startDate));
+            }
+            //结束时间
+            if (!string.IsNullOrEmpty(recorderDate))
+            {
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    filter += " and ";
+                }
+                filter += "ENDDATETIME<@" + paras.Count().ToString();
+                paras.Add(Convert.ToDateTime(recorderDate));
+            }
+
+           
 
             if (toolbar1.cbxCheckState.SelectedItem != null)
             {
@@ -260,6 +286,7 @@ namespace SMT.HRM.UI.Views.Attendance
             this.lkLeaveTypeName.DataContext = null;
 
             this.nuYear.Value = DateTime.Now.Year;
+            this.startMonth.Value = DateTime.Now.Month;
             this.nuMonth.Value = DateTime.Now.Month;
         }
 

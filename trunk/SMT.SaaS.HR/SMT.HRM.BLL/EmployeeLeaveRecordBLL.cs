@@ -67,10 +67,10 @@ namespace SMT.HRM.BLL
                 }
 
                 IQueryable<T_HR_EMPLOYEELEAVERECORD> ents = dal.GetObjects().Include("T_HR_LEAVETYPESET");
-                if (!string.IsNullOrEmpty(filterString))
-                {
-                    ents = ents.Where(filterString, paras.ToArray());
-                }
+                //if (!string.IsNullOrEmpty(filterString))
+                //{
+                //    ents = ents.Where(filterString, paras.ToArray());
+                //}
                 if (!string.IsNullOrEmpty(recorderDate))
                 {
                     DateTime tmpDate = Convert.ToDateTime(recorderDate);

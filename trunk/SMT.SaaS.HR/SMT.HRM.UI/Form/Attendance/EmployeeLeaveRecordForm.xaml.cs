@@ -35,6 +35,9 @@ namespace SMT.HRM.UI.Form.Attendance
         AttendanceServiceClient clientAtt;
         SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient perClient;
         private bool closeFormFlag = false;//是否关闭窗体 false 表示不关闭
+        private bool canSubmit = false;//能否提交审核
+        private bool needsubmit = false;//提交审核
+        private bool isSubmit = false;//用于给保存方法判断是点击了保存还是提交
         #endregion
 
         #region 初始化
@@ -420,6 +423,26 @@ namespace SMT.HRM.UI.Form.Attendance
                     this.IsEnabled = false;
                 }
             }
+            if (FormType != FormTypes.Browse)
+            {
+                //Load事件之后，加载完后获取到父控件
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.BtnSaveSubmit.Click -= new RoutedEventHandler(entBrowser.btnSubmit_Click);
+                entBrowser.BtnSaveSubmit.Click += new RoutedEventHandler(BtnSaveSubmit_Click);
+            }
+        }
+
+        /// <summary>
+        ///  新增的保存事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void BtnSaveSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            isSubmit = true;
+            needsubmit = true;
+            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+            Save();
         }
 
 
@@ -839,9 +862,75 @@ namespace SMT.HRM.UI.Form.Attendance
             if (!flag)
             {
                 RefreshUI(RefreshedTypes.HideProgressBar);
+                needsubmit = false;
                 return flag;
             }
+            CheckForm();//跳转
+            //ObservableCollection<V_ADJUSTLEAVE> entAdjustleaves = dgLevelDayList.ItemsSource as ObservableCollection<V_ADJUSTLEAVE>;
 
+            //if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
+            //{
+            //    clientAtt.EmployeeLeaveRecordUpdateAsync(LeaveRecord, entAdjustleaves);
+            //}
+            //else
+            //{
+            //    clientAtt.EmployeeLeaveRecordAddAsync(LeaveRecord, entAdjustleaves);
+            //}
+
+            return true;
+        }
+
+        /// <summary>
+        /// 用于打开两张单同时保持和提交时，没有进行假期冲减的重新判断，现在做法：在CheckSubmitForm验证后
+        /// 重新把数据加载进后台再返回，即保存或提交时再重新算一遍冲减天数
+        /// </summary>
+        private void CheckForm()
+        {
+            if (lkLeaveTypeName.DataContext == null)
+            {
+                return;
+            }
+            T_HR_LEAVETYPESET entLeave = lkLeaveTypeName.DataContext as T_HR_LEAVETYPESET;
+            if (entLeave.FINETYPE == (Convert.ToInt32(LeaveFineType.Deduct) + 1).ToString())
+            {
+                decimal WorkTimePerDay = 0, dLeaveTotalTime = 0;
+                decimal.TryParse(tbWorkTimePerDay.Text, out WorkTimePerDay);
+                decimal.TryParse(nudTotalDays.Value.ToString(), out dLeaveTotalTime);
+                if (WorkTimePerDay > 0)
+                {
+                    nudDeductDays.Value = decimal.Round(dLeaveTotalTime / WorkTimePerDay, 1).ToDouble() - nudTotalAdjustLeaveDays.Value;
+                }
+                RefreshUI(RefreshedTypes.HideProgressBar);
+            }
+            else
+            {
+                if (dpStartDate.Value == null || dpEndDate.Value == null)
+                {
+                    return;
+                }
+                string strLeaveSetId = entLeave.LEAVETYPESETID;
+                string strOwnerID = LeaveRecord.OWNERID;
+                DateTime dtStartDate = dpStartDate.Value.Value;
+                DateTime dtEndDate = dpEndDate.Value.Value;
+                //decimal dCurLevelDays = 0;
+                clientAtt.GetCurLevelDaysByEmployeeIDAndLeaveFineTypeAsync(strOwnerID, LeaveRecord.LEAVERECORDID, strLeaveSetId, dtStartDate, dtEndDate, 0,"submit");
+            }
+        }
+
+        /// <summary>
+        /// 保存提交时经过重新计算后再进行保存等操作
+        /// </summary>
+        private void CheckFormSave()
+        {
+            bool flag = false;
+            CheckSubmitForm(out flag);
+
+            if (!flag)
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                needsubmit = false;
+                return;
+            }
             ObservableCollection<V_ADJUSTLEAVE> entAdjustleaves = dgLevelDayList.ItemsSource as ObservableCollection<V_ADJUSTLEAVE>;
 
             if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
@@ -852,8 +941,6 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 clientAtt.EmployeeLeaveRecordAddAsync(LeaveRecord, entAdjustleaves);
             }
-
-            return true;
         }
 
         /// <summary>
@@ -1230,7 +1317,10 @@ namespace SMT.HRM.UI.Form.Attendance
                     {
                         nudDeductDays.Value = RoundOff(dTotalDays / dWorkTimePerDay, 2).ToDouble() - nudTotalAdjustLeaveDays.Value;
                     }
-
+                    if (e.UserState != null && e.UserState.ToString() == "submit")//如果为保存提交后的方法所异步调用，则进行相应操作
+                    {
+                        CheckFormSave();
+                    }
                     if (FormType != FormTypes.New)
                     {
                         clientAtt.GetAdjustLeaveDetailListByLeaveRecordIDAsync(LeaveRecordID);
@@ -1473,13 +1563,32 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 if (LeaveRecord.CHECKSTATE == Utility.GetCheckState(CheckStates.UnSubmit))
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+                    if (!isSubmit)
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+                    }
                 }
                 else
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("AUDITSUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+                    if (!isSubmit)
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("AUDITSUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+                    }
                 }
-
+                if (needsubmit)
+                {
+                    try
+                    {
+                        EntityBrowser entBrowser1 = this.FindParentByType<EntityBrowser>();
+                        entBrowser1.ManualSubmit();
+                        BackToSubmit();
+                    }
+                    catch (Exception ex)
+                    {
+                        RefreshUI(RefreshedTypes.HideProgressBar);
+                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("提交失败"));
+                    }
+                }
                 if (closeFormFlag)
                 {
                     RefreshUI(RefreshedTypes.Close);
@@ -1493,10 +1602,20 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
+                needsubmit = false;
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
             }
             RefreshUI(RefreshedTypes.HideProgressBar);
             RefreshUI(RefreshedTypes.All);
+        }
+
+          /// <summary>
+        ///     回到提交前的状态
+        /// </summary>
+        private void BackToSubmit()
+        {
+            RefreshUI(RefreshedTypes.AuditInfo);
+            needsubmit = false;
         }
 
         /// <summary>

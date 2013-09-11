@@ -13,6 +13,51 @@
   <wsdl:binding name="CustomBinding_OrganizationService" type="OrganizationService">
     <wsp:PolicyReference URI="#CustomBinding_OrganizationService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPostHistory">
+      <soap12:operation soapAction="urn:OrganizationService/GetPostHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostHistoryAdd">
+      <soap12:operation soapAction="urn:OrganizationService/PostHistoryAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBatchOrgInfo">
+      <soap12:operation soapAction="urn:OrganizationService/AddBatchOrgInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportOrgInfo">
+      <soap12:operation soapAction="urn:OrganizationService/ImportOrgInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <soap12:operation soapAction="urn:OrganizationService/SaveFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateCheckState">
       <soap12:operation soapAction="urn:OrganizationService/UpdateCheckState" style="document" />
       <wsdl:input>
@@ -247,6 +292,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllParentsCompamy">
+      <soap12:operation soapAction="urn:OrganizationService/GetAllParentsCompamy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetChildCompanyByCompanyID">
       <soap12:operation soapAction="urn:OrganizationService/GetChildCompanyByCompanyID" style="document" />
       <wsdl:input>
@@ -348,6 +402,15 @@
     </wsdl:operation>
     <wsdl:operation name="IsChildCompany">
       <soap12:operation soapAction="urn:OrganizationService/IsChildCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsTopCompanySmt">
+      <soap12:operation soapAction="urn:OrganizationService/IsTopCompanySmt" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -780,24 +843,6 @@
     </wsdl:operation>
     <wsdl:operation name="DepartmentHistoryAdd">
       <soap12:operation soapAction="urn:OrganizationService/DepartmentHistoryAdd" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPostHistory">
-      <soap12:operation soapAction="urn:OrganizationService/GetPostHistory" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PostHistoryAdd">
-      <soap12:operation soapAction="urn:OrganizationService/PostHistoryAdd" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

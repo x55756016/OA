@@ -4,6 +4,51 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_PersonnelService" type="PersonnelService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AssessmentFormMasterAdd">
+      <soap:operation soapAction="urn:PersonnelService/AssessmentFormMasterAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssessmentFormMasterUpdate">
+      <soap:operation soapAction="urn:PersonnelService/AssessmentFormMasterUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssessMentFormMasterByObjectID">
+      <soap:operation soapAction="urn:PersonnelService/GetAssessMentFormMasterByObjectID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssessMentFormMasterByID">
+      <soap:operation soapAction="urn:PersonnelService/GetAssessMentFormMasterByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssessmentFormMasterPaging">
+      <soap:operation soapAction="urn:PersonnelService/AssessmentFormMasterPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAssessmentFormDetailByMasterID">
       <soap:operation soapAction="urn:PersonnelService/GetAssessmentFormDetailByMasterID" style="document" />
       <wsdl:input>
@@ -312,6 +357,51 @@
     </wsdl:operation>
     <wsdl:operation name="ExportEmployeeTructReports">
       <soap:operation soapAction="urn:PersonnelService/ExportEmployeeTructReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PensionMasterDelete">
+      <soap:operation soapAction="urn:PersonnelService/PensionMasterDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionMasterByID">
+      <soap:operation soapAction="urn:PersonnelService/GetPensionMasterByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionMasterByEmployeeID">
+      <soap:operation soapAction="urn:PersonnelService/GetPensionMasterByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeWorkAgeByID">
+      <soap:operation soapAction="urn:PersonnelService/UpdateEmployeeWorkAgeByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PensionDetailPaging">
+      <soap:operation soapAction="urn:PersonnelService/PensionDetailPaging" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1039,51 +1129,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AssessmentFormMasterAdd">
-      <soap:operation soapAction="urn:PersonnelService/AssessmentFormMasterAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AssessmentFormMasterUpdate">
-      <soap:operation soapAction="urn:PersonnelService/AssessmentFormMasterUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAssessMentFormMasterByObjectID">
-      <soap:operation soapAction="urn:PersonnelService/GetAssessMentFormMasterByObjectID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAssessMentFormMasterByID">
-      <soap:operation soapAction="urn:PersonnelService/GetAssessMentFormMasterByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AssessmentFormMasterPaging">
-      <soap:operation soapAction="urn:PersonnelService/AssessmentFormMasterPaging" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="DoWork">
       <soap:operation soapAction="urn:PersonnelService/DoWork" style="document" />
       <wsdl:input>
@@ -1131,6 +1176,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeByID">
       <soap:operation soapAction="urn:PersonnelService/GetEmployeeByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployee">
+      <soap:operation soapAction="urn:PersonnelService/ExportEmployee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1723,6 +1777,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ImportEmployeeEntry">
+      <soap:operation soapAction="urn:PersonnelService/ImportEmployeeEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidUserNameIsExist">
+      <soap:operation soapAction="urn:PersonnelService/ValidUserNameIsExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBatchEmployeeEntry">
+      <soap:operation soapAction="urn:PersonnelService/AddBatchEmployeeEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetPensionAlarmSetPaging">
       <soap:operation soapAction="urn:PersonnelService/GetPensionAlarmSetPaging" style="document" />
       <wsdl:input>
@@ -1786,6 +1867,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="PensionMaterToEmployee">
+      <soap:operation soapAction="urn:PersonnelService/PensionMaterToEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="PensionMasterAdd">
       <soap:operation soapAction="urn:PersonnelService/PensionMasterAdd" style="document" />
       <wsdl:input>
@@ -1797,51 +1887,6 @@
     </wsdl:operation>
     <wsdl:operation name="PensionMasterUpdate">
       <soap:operation soapAction="urn:PersonnelService/PensionMasterUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PensionMasterDelete">
-      <soap:operation soapAction="urn:PersonnelService/PensionMasterDelete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPensionMasterByID">
-      <soap:operation soapAction="urn:PersonnelService/GetPensionMasterByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetPensionMasterByEmployeeID">
-      <soap:operation soapAction="urn:PersonnelService/GetPensionMasterByEmployeeID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmployeeWorkAgeByID">
-      <soap:operation soapAction="urn:PersonnelService/UpdateEmployeeWorkAgeByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PensionDetailPaging">
-      <soap:operation soapAction="urn:PersonnelService/PensionDetailPaging" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

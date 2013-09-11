@@ -12,6 +12,36 @@
       <xsd:import schemaLocation="http://localhost:12168/PersonnelService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterAdd_InputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterAdd_OutputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterUpdate_InputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByObjectID_InputMessage">
+    <wsdl:part name="parameters" element="GetAssessMentFormMasterByObjectID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByObjectID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAssessMentFormMasterByObjectIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetAssessMentFormMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetAssessMentFormMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterPaging_InputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AssessmentFormMasterPaging_OutputMessage">
+    <wsdl:part name="parameters" element="AssessmentFormMasterPagingResponse" />
+  </wsdl:message>
   <wsdl:message name="PersonnelService_GetAssessmentFormDetailByMasterID_InputMessage">
     <wsdl:part name="parameters" element="GetAssessmentFormDetailByMasterID" />
   </wsdl:message>
@@ -221,6 +251,36 @@
   </wsdl:message>
   <wsdl:message name="PersonnelService_ExportEmployeeTructReports_OutputMessage">
     <wsdl:part name="parameters" element="ExportEmployeeTructReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterDelete_InputMessage">
+    <wsdl:part name="parameters" element="PensionMasterDelete" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterDelete_OutputMessage">
+    <wsdl:part name="parameters" element="PensionMasterDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetPensionMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPensionMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionMasterByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="GetPensionMasterByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetPensionMasterByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="GetPensionMasterByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_UpdateEmployeeWorkAgeByID_InputMessage">
+    <wsdl:part name="parameters" element="UpdateEmployeeWorkAgeByID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_UpdateEmployeeWorkAgeByID_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateEmployeeWorkAgeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionDetailPaging_InputMessage">
+    <wsdl:part name="parameters" element="PensionDetailPaging" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionDetailPaging_OutputMessage">
+    <wsdl:part name="parameters" element="PensionDetailPagingResponse" />
   </wsdl:message>
   <wsdl:message name="PersonnelService_ExportPensionDetailReport_InputMessage">
     <wsdl:part name="parameters" element="ExportPensionDetailReport" />
@@ -702,36 +762,6 @@
   <wsdl:message name="PersonnelService_EmployeeContractAlarm_OutputMessage">
     <wsdl:part name="parameters" element="EmployeeContractAlarmResponse" />
   </wsdl:message>
-  <wsdl:message name="PersonnelService_AssessmentFormMasterAdd_InputMessage">
-    <wsdl:part name="parameters" element="AssessmentFormMasterAdd" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_AssessmentFormMasterAdd_OutputMessage">
-    <wsdl:part name="parameters" element="AssessmentFormMasterAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_AssessmentFormMasterUpdate_InputMessage">
-    <wsdl:part name="parameters" element="AssessmentFormMasterUpdate" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_AssessmentFormMasterUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="AssessmentFormMasterUpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByObjectID_InputMessage">
-    <wsdl:part name="parameters" element="GetAssessMentFormMasterByObjectID" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByObjectID_OutputMessage">
-    <wsdl:part name="parameters" element="GetAssessMentFormMasterByObjectIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByID_InputMessage">
-    <wsdl:part name="parameters" element="GetAssessMentFormMasterByID" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetAssessMentFormMasterByID_OutputMessage">
-    <wsdl:part name="parameters" element="GetAssessMentFormMasterByIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_AssessmentFormMasterPaging_InputMessage">
-    <wsdl:part name="parameters" element="AssessmentFormMasterPaging" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_AssessmentFormMasterPaging_OutputMessage">
-    <wsdl:part name="parameters" element="AssessmentFormMasterPagingResponse" />
-  </wsdl:message>
   <wsdl:message name="PersonnelService_DoWork_InputMessage">
     <wsdl:part name="parameters" element="DoWork" />
   </wsdl:message>
@@ -767,6 +797,12 @@
   </wsdl:message>
   <wsdl:message name="PersonnelService_GetEmployeeByID_OutputMessage">
     <wsdl:part name="parameters" element="GetEmployeeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExportEmployee_InputMessage">
+    <wsdl:part name="parameters" element="ExportEmployee" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ExportEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeResponse" />
   </wsdl:message>
   <wsdl:message name="PersonnelService_GetEmployeesByIdnumber_InputMessage">
     <wsdl:part name="parameters" element="GetEmployeesByIdnumber" />
@@ -1158,6 +1194,24 @@
   <wsdl:message name="PersonnelService_GetEmployeeEntryByEmployeeIDAndCOMPANYID_OutputMessage">
     <wsdl:part name="parameters" element="GetEmployeeEntryByEmployeeIDAndCOMPANYIDResponse" />
   </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportEmployeeEntry_InputMessage">
+    <wsdl:part name="parameters" element="ImportEmployeeEntry" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ImportEmployeeEntry_OutputMessage">
+    <wsdl:part name="parameters" element="ImportEmployeeEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ValidUserNameIsExist_InputMessage">
+    <wsdl:part name="parameters" element="ValidUserNameIsExist" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_ValidUserNameIsExist_OutputMessage">
+    <wsdl:part name="parameters" element="ValidUserNameIsExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AddBatchEmployeeEntry_InputMessage">
+    <wsdl:part name="parameters" element="AddBatchEmployeeEntry" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_AddBatchEmployeeEntry_OutputMessage">
+    <wsdl:part name="parameters" element="AddBatchEmployeeEntryResponse" />
+  </wsdl:message>
   <wsdl:message name="PersonnelService_GetPensionAlarmSetPaging_InputMessage">
     <wsdl:part name="parameters" element="GetPensionAlarmSetPaging" />
   </wsdl:message>
@@ -1200,6 +1254,12 @@
   <wsdl:message name="PersonnelService_PensionMasterPaging_OutputMessage">
     <wsdl:part name="parameters" element="PensionMasterPagingResponse" />
   </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMaterToEmployee_InputMessage">
+    <wsdl:part name="parameters" element="PensionMaterToEmployee" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMaterToEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="PensionMaterToEmployeeResponse" />
+  </wsdl:message>
   <wsdl:message name="PersonnelService_PensionMasterAdd_InputMessage">
     <wsdl:part name="parameters" element="PensionMasterAdd" />
   </wsdl:message>
@@ -1212,37 +1272,27 @@
   <wsdl:message name="PersonnelService_PensionMasterUpdate_OutputMessage">
     <wsdl:part name="parameters" element="PensionMasterUpdateResponse" />
   </wsdl:message>
-  <wsdl:message name="PersonnelService_PensionMasterDelete_InputMessage">
-    <wsdl:part name="parameters" element="PensionMasterDelete" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_PensionMasterDelete_OutputMessage">
-    <wsdl:part name="parameters" element="PensionMasterDeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetPensionMasterByID_InputMessage">
-    <wsdl:part name="parameters" element="GetPensionMasterByID" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetPensionMasterByID_OutputMessage">
-    <wsdl:part name="parameters" element="GetPensionMasterByIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetPensionMasterByEmployeeID_InputMessage">
-    <wsdl:part name="parameters" element="GetPensionMasterByEmployeeID" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetPensionMasterByEmployeeID_OutputMessage">
-    <wsdl:part name="parameters" element="GetPensionMasterByEmployeeIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_UpdateEmployeeWorkAgeByID_InputMessage">
-    <wsdl:part name="parameters" element="UpdateEmployeeWorkAgeByID" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_UpdateEmployeeWorkAgeByID_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateEmployeeWorkAgeByIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_PensionDetailPaging_InputMessage">
-    <wsdl:part name="parameters" element="PensionDetailPaging" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_PensionDetailPaging_OutputMessage">
-    <wsdl:part name="parameters" element="PensionDetailPagingResponse" />
-  </wsdl:message>
   <wsdl:portType name="PersonnelService">
+    <wsdl:operation name="AssessmentFormMasterAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterAdd" message="PersonnelService_AssessmentFormMasterAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterAddResponse" message="PersonnelService_AssessmentFormMasterAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssessmentFormMasterUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterUpdate" message="PersonnelService_AssessmentFormMasterUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterUpdateResponse" message="PersonnelService_AssessmentFormMasterUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssessMentFormMasterByObjectID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByObjectID" message="PersonnelService_GetAssessMentFormMasterByObjectID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByObjectIDResponse" message="PersonnelService_GetAssessMentFormMasterByObjectID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssessMentFormMasterByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByID" message="PersonnelService_GetAssessMentFormMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByIDResponse" message="PersonnelService_GetAssessMentFormMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssessmentFormMasterPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterPaging" message="PersonnelService_AssessmentFormMasterPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterPagingResponse" message="PersonnelService_AssessmentFormMasterPaging_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAssessmentFormDetailByMasterID">
       <wsdl:input wsaw:Action="urn:PersonnelService/GetAssessmentFormDetailByMasterID" message="PersonnelService_GetAssessmentFormDetailByMasterID_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/GetAssessmentFormDetailByMasterIDResponse" message="PersonnelService_GetAssessmentFormDetailByMasterID_OutputMessage" />
@@ -1382,6 +1432,26 @@
     <wsdl:operation name="ExportEmployeeTructReports">
       <wsdl:input wsaw:Action="urn:PersonnelService/ExportEmployeeTructReports" message="PersonnelService_ExportEmployeeTructReports_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/ExportEmployeeTructReportsResponse" message="PersonnelService_ExportEmployeeTructReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionMasterDelete">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterDelete" message="PersonnelService_PensionMasterDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterDeleteResponse" message="PersonnelService_PensionMasterDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionMasterByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionMasterByID" message="PersonnelService_GetPensionMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionMasterByIDResponse" message="PersonnelService_GetPensionMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPensionMasterByEmployeeID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionMasterByEmployeeID" message="PersonnelService_GetPensionMasterByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionMasterByEmployeeIDResponse" message="PersonnelService_GetPensionMasterByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeWorkAgeByID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/UpdateEmployeeWorkAgeByID" message="PersonnelService_UpdateEmployeeWorkAgeByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/UpdateEmployeeWorkAgeByIDResponse" message="PersonnelService_UpdateEmployeeWorkAgeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionDetailPaging">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionDetailPaging" message="PersonnelService_PensionDetailPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionDetailPagingResponse" message="PersonnelService_PensionDetailPaging_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ExportPensionDetailReport">
       <wsdl:input wsaw:Action="urn:PersonnelService/ExportPensionDetailReport" message="PersonnelService_ExportPensionDetailReport_InputMessage" />
@@ -1703,26 +1773,6 @@
       <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractAlarm" message="PersonnelService_EmployeeContractAlarm_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractAlarmResponse" message="PersonnelService_EmployeeContractAlarm_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AssessmentFormMasterAdd">
-      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterAdd" message="PersonnelService_AssessmentFormMasterAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterAddResponse" message="PersonnelService_AssessmentFormMasterAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AssessmentFormMasterUpdate">
-      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterUpdate" message="PersonnelService_AssessmentFormMasterUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterUpdateResponse" message="PersonnelService_AssessmentFormMasterUpdate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAssessMentFormMasterByObjectID">
-      <wsdl:input wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByObjectID" message="PersonnelService_GetAssessMentFormMasterByObjectID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByObjectIDResponse" message="PersonnelService_GetAssessMentFormMasterByObjectID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAssessMentFormMasterByID">
-      <wsdl:input wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByID" message="PersonnelService_GetAssessMentFormMasterByID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/GetAssessMentFormMasterByIDResponse" message="PersonnelService_GetAssessMentFormMasterByID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AssessmentFormMasterPaging">
-      <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterPaging" message="PersonnelService_AssessmentFormMasterPaging_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterPagingResponse" message="PersonnelService_AssessmentFormMasterPaging_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="urn:PersonnelService/DoWork" message="PersonnelService_DoWork_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/DoWorkResponse" message="PersonnelService_DoWork_OutputMessage" />
@@ -1746,6 +1796,10 @@
     <wsdl:operation name="GetEmployeeByID">
       <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByID" message="PersonnelService_GetEmployeeByID_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByIDResponse" message="PersonnelService_GetEmployeeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployee">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ExportEmployee" message="PersonnelService_ExportEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ExportEmployeeResponse" message="PersonnelService_ExportEmployee_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployeesByIdnumber">
       <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeesByIdnumber" message="PersonnelService_GetEmployeesByIdnumber_InputMessage" />
@@ -2007,6 +2061,18 @@
       <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeEntryByEmployeeIDAndCOMPANYID" message="PersonnelService_GetEmployeeEntryByEmployeeIDAndCOMPANYID_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeEntryByEmployeeIDAndCOMPANYIDResponse" message="PersonnelService_GetEmployeeEntryByEmployeeIDAndCOMPANYID_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ImportEmployeeEntry">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ImportEmployeeEntry" message="PersonnelService_ImportEmployeeEntry_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ImportEmployeeEntryResponse" message="PersonnelService_ImportEmployeeEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidUserNameIsExist">
+      <wsdl:input wsaw:Action="urn:PersonnelService/ValidUserNameIsExist" message="PersonnelService_ValidUserNameIsExist_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/ValidUserNameIsExistResponse" message="PersonnelService_ValidUserNameIsExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBatchEmployeeEntry">
+      <wsdl:input wsaw:Action="urn:PersonnelService/AddBatchEmployeeEntry" message="PersonnelService_AddBatchEmployeeEntry_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/AddBatchEmployeeEntryResponse" message="PersonnelService_AddBatchEmployeeEntry_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPensionAlarmSetPaging">
       <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionAlarmSetPaging" message="PersonnelService_GetPensionAlarmSetPaging_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionAlarmSetPagingResponse" message="PersonnelService_GetPensionAlarmSetPaging_OutputMessage" />
@@ -2035,6 +2101,10 @@
       <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterPaging" message="PersonnelService_PensionMasterPaging_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterPagingResponse" message="PersonnelService_PensionMasterPaging_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="PensionMaterToEmployee">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMaterToEmployee" message="PersonnelService_PensionMaterToEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMaterToEmployeeResponse" message="PersonnelService_PensionMaterToEmployee_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PensionMasterAdd">
       <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterAdd" message="PersonnelService_PensionMasterAdd_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterAddResponse" message="PersonnelService_PensionMasterAdd_OutputMessage" />
@@ -2042,26 +2112,6 @@
     <wsdl:operation name="PensionMasterUpdate">
       <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterUpdate" message="PersonnelService_PensionMasterUpdate_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterUpdateResponse" message="PersonnelService_PensionMasterUpdate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PensionMasterDelete">
-      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterDelete" message="PersonnelService_PensionMasterDelete_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterDeleteResponse" message="PersonnelService_PensionMasterDelete_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPensionMasterByID">
-      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionMasterByID" message="PersonnelService_GetPensionMasterByID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionMasterByIDResponse" message="PersonnelService_GetPensionMasterByID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPensionMasterByEmployeeID">
-      <wsdl:input wsaw:Action="urn:PersonnelService/GetPensionMasterByEmployeeID" message="PersonnelService_GetPensionMasterByEmployeeID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/GetPensionMasterByEmployeeIDResponse" message="PersonnelService_GetPensionMasterByEmployeeID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmployeeWorkAgeByID">
-      <wsdl:input wsaw:Action="urn:PersonnelService/UpdateEmployeeWorkAgeByID" message="PersonnelService_UpdateEmployeeWorkAgeByID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/UpdateEmployeeWorkAgeByIDResponse" message="PersonnelService_UpdateEmployeeWorkAgeByID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PensionDetailPaging">
-      <wsdl:input wsaw:Action="urn:PersonnelService/PensionDetailPaging" message="PersonnelService_PensionDetailPaging_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/PensionDetailPagingResponse" message="PersonnelService_PensionDetailPaging_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>
