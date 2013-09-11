@@ -55,7 +55,7 @@ namespace SMT.HRM.UI.Views.Organization
             ToolBar.cbxCheckState.SelectionChanged += new SelectionChangedEventHandler(cbxCheckState_SelectionChanged);
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
             ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
-
+            //航信发布需要打卡
             ToolBar.btnImport.Visibility = Visibility.Visible;
             ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
 

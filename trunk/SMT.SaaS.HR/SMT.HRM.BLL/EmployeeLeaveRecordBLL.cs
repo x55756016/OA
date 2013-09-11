@@ -67,15 +67,15 @@ namespace SMT.HRM.BLL
                 }
 
                 IQueryable<T_HR_EMPLOYEELEAVERECORD> ents = dal.GetObjects().Include("T_HR_LEAVETYPESET");
-                //if (!string.IsNullOrEmpty(filterString))
-                //{
-                //    ents = ents.Where(filterString, paras.ToArray());
-                //}
-                if (!string.IsNullOrEmpty(recorderDate))
+                if (!string.IsNullOrEmpty(filterString))
                 {
-                    DateTime tmpDate = Convert.ToDateTime(recorderDate);
-                    ents = ents.Where(p => p.STARTDATETIME.Value.Year == tmpDate.Year && p.STARTDATETIME.Value.Month == tmpDate.Month);
+                    ents = ents.Where(filterString, paras.ToArray());
                 }
+                //if (!string.IsNullOrEmpty(recorderDate))
+                //{
+                //    DateTime tmpDate = Convert.ToDateTime(recorderDate);
+                //    ents = ents.Where(p => p.STARTDATETIME.Value.Year == tmpDate.Year && p.STARTDATETIME.Value.Month == tmpDate.Month);
+                //}
                 ents = ents.OrderBy(sort);
 
                 var entrs = from e in ents

@@ -17,6 +17,7 @@ using System.Data;
 using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 using System.Data.OracleClient;
 using SMT.Foundation.Log;
+using System.Configuration;
 
 
 
@@ -1987,7 +1988,7 @@ namespace SMT.HRM.BLL
                         SMT.Foundation.Log.Tracer.Debug("姓名：" + emp.EMPLOYEECNAME+" 薪资项："+tempSalaryItem.SALARYITEMNAME + ":");
                         if (tempSalaryItem.SALARYITEMNAME == "假期其它扣款")
                         {
-                        }
+                        }                       
                         //"1、手工录入 ；2、薪资档案中输入；3、计算公式；"
                         if (tempSalaryItem.CALCULATORTYPE == "2" && tempSalaryItem.GUERDONSUM == 0)
                         {
@@ -2121,7 +2122,23 @@ namespace SMT.HRM.BLL
                                     en.SUM = AES.AESEncrypt(tempSalaryItem.GUERDONSUM.Value.ToString());
                                 }
                             }
+                            if (tempSalaryItem.SALARYITEMNAME == "实发工资")
+                            {
+                                try
+                                {
+                                    string isForHuNanHangXingSalary = ConfigurationManager.AppSettings["isForHuNanHangXingSalary"];
+                                    if (isForHuNanHangXingSalary == "true")
+                                    {
+                                        double dValue = double.Parse(tempSalaryItem.GUERDONSUM.Value.ToString());
+                                        en.SUM = AES.AESEncrypt((dValue * 0.7).ToString());
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Tracer.Debug(ex.ToString());
+                                }
 
+                            }
                             en.REMARK = ent.archiveItem.REMARK;
                             en.CREATEDATE = System.DateTime.Now;
                             SMT.Foundation.Log.Tracer.Debug((System.DateTime.Now - st).ToString());
