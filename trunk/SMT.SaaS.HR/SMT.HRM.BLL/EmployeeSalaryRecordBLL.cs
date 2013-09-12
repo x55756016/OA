@@ -1736,9 +1736,9 @@ namespace SMT.HRM.BLL
             EmployeeSalaryRecordItemBLL recorditem = new EmployeeSalaryRecordItemBLL();
             List<T_HR_EMPLOYEESALARYRECORDITEM> recorditems = new List<T_HR_EMPLOYEESALARYRECORDITEM>();
             T_HR_ATTENDMONTHLYBALANCE attendMonthlyBalance = new T_HR_ATTENDMONTHLYBALANCE();
-            T_HR_EMPLOYEE emp = GetEmployeeInfor(employeeID);
+            T_HR_EMPLOYEE empoloyee = GetEmployeeInfor(employeeID);
 
-            Tracer.Debug("**********************开始生成第" + index.ToString() + " 条薪资，员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪，薪资档案id：" + SalaryArchive.SALARYARCHIVEID
+            Tracer.Debug("**********************开始生成第" + index.ToString() + " 条薪资，员工姓名：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪，薪资档案id：" + SalaryArchive.SALARYARCHIVEID
                 + " 结算薪资机构id：" + GenerateCompanyid);
 
             #region ---NewItemCode新生成薪资的代码
@@ -1755,14 +1755,14 @@ namespace SMT.HRM.BLL
                     || record.CHECKSTATE == "2" 
                     || record.CHECKSTATE == "1")
                 {
-                    Tracer.Debug("员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪生成被跳过，已结算过："
+                    Tracer.Debug("员工姓名：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪生成被跳过，已结算过："
                         + "PAYCONFIRM:" + record.PAYCONFIRM + "CHECKSTATE:" + record.CHECKSTATE);
                     return 0;
                 }
             }
             else
             {
-                Tracer.Debug("开始生成员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪，record 为null,employeeid: " + employeeID);
+                Tracer.Debug("开始生成员工姓名：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪，record 为null,employeeid: " + employeeID);
             }
             #endregion
 
@@ -1793,12 +1793,12 @@ namespace SMT.HRM.BLL
             #region 判断薪资档案的发薪机构及考勤机构是否为空           
             if (string.IsNullOrEmpty(SalaryArchive.PAYCOMPANY))
             {
-                if (GetInfor.Keys.Contains(emp.EMPLOYEECNAME))
+                if (GetInfor.Keys.Contains(empoloyee.EMPLOYEECNAME))
                 {
                     return 0;
                 }
-                GetInfor.Add(emp.EMPLOYEECNAME, "员工薪资档案中未找到设置的发薪机构");
-                Tracer.Debug("结算薪资项问题2001" + emp.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
+                GetInfor.Add(empoloyee.EMPLOYEECNAME, "员工薪资档案中未找到设置的发薪机构");
+                Tracer.Debug("结算薪资项问题2001" + empoloyee.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
                 return 0;
             }
             if (string.IsNullOrEmpty(SalaryArchive.ATTENDANCEORGID))
@@ -1817,25 +1817,25 @@ namespace SMT.HRM.BLL
 
             if (ams == null)
             {
-                if (GetInfor.Keys.Contains(emp.EMPLOYEECNAME))
+                if (GetInfor.Keys.Contains(empoloyee.EMPLOYEECNAME))
                 {
                     return 0;
                 }
 
-                GetInfor.Add(emp.EMPLOYEECNAME, "无考勤结算记录");
-                Tracer.Debug("结算薪资项问题1539" + emp.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
+                GetInfor.Add(empoloyee.EMPLOYEECNAME, "无考勤结算记录");
+                Tracer.Debug("结算薪资项问题1539" + empoloyee.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
                 return 0;
             }
 
             if (ams.Count() == 0)
             {
-                if (GetInfor.Keys.Contains(emp.EMPLOYEECNAME))
+                if (GetInfor.Keys.Contains(empoloyee.EMPLOYEECNAME))
                 {
                     return 0;
                 }
 
-                GetInfor.Add(emp.EMPLOYEECNAME, "无考勤结算记录" + GetInfor.FirstOrDefault().Value);
-                Tracer.Debug("结算薪资项问题 1551" + emp.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
+                GetInfor.Add(empoloyee.EMPLOYEECNAME, "无考勤结算记录" + GetInfor.FirstOrDefault().Value);
+                Tracer.Debug("结算薪资项问题 1551" + empoloyee.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
                 return 0;
             }
             else if (ams.Count() == 1)
@@ -1849,14 +1849,14 @@ namespace SMT.HRM.BLL
 
             if (attendMonthlyBalance == null)
             {
-                if (GetInfor.Keys.Contains(emp.EMPLOYEECNAME))
+                if (GetInfor.Keys.Contains(empoloyee.EMPLOYEECNAME))
                 {
-                    Tracer.Debug("结算薪资项问题 1567" + emp.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
+                    Tracer.Debug("结算薪资项问题 1567" + empoloyee.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
                     return 0;
                 }
 
-                GetInfor.Add(emp.EMPLOYEECNAME, "无考勤结算记录");
-                Tracer.Debug("结算薪资项问题 1570" +emp.EMPLOYEECNAME+ GetInfor.FirstOrDefault().Value);
+                GetInfor.Add(empoloyee.EMPLOYEECNAME, "无考勤结算记录");
+                Tracer.Debug("结算薪资项问题 1570" +empoloyee.EMPLOYEECNAME+ GetInfor.FirstOrDefault().Value);
                 return 0;
             }
             #endregion
@@ -1867,14 +1867,14 @@ namespace SMT.HRM.BLL
                 , SalaryArchive.ATTENDANCEORGID, attendMonthlyBalance.OWNERPOSTID, employeeID);
             if (attendAsign == null || attendAsign.T_HR_ATTENDANCESOLUTION == null)
             {
-                if (GetInfor.Keys.Contains(emp.EMPLOYEECNAME))
+                if (GetInfor.Keys.Contains(empoloyee.EMPLOYEECNAME))
                 {
-                    Tracer.Debug("结算薪资项问题 1582" + emp.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
+                    Tracer.Debug("结算薪资项问题 1582" + empoloyee.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
                     return 0;
                 }
 
-                GetInfor.Add(emp.EMPLOYEECNAME, "无考勤方案");
-                Tracer.Debug("结算薪资项问题 1587" + emp.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
+                GetInfor.Add(empoloyee.EMPLOYEECNAME, "无考勤方案");
+                Tracer.Debug("结算薪资项问题 1587" + empoloyee.EMPLOYEECNAME + GetInfor.FirstOrDefault().Value);
                 return 0;
             }
             AttendsolutionForSalary = attendAsign.T_HR_ATTENDANCESOLUTION;
@@ -1894,7 +1894,7 @@ namespace SMT.HRM.BLL
                 bool isNew = true;
                 if (record == null)
                 {
-                    Tracer.Debug("生成员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月"
+                    Tracer.Debug("生成员工姓名：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月"
                         + "的月薪，record == null");
 
                     record = new T_HR_EMPLOYEESALARYRECORD();
@@ -1913,8 +1913,8 @@ namespace SMT.HRM.BLL
                         record.OWNERDEPARTMENTID = construe[2];
                         record.OWNERCOMPANYID = GenerateCompanyid;
 
-                        record.ATTENDANCEUNUSUALTIMES = emp.OWNERCOMPANYID;//记录薪资人的所属公司
-                        record.ATTENDANCEUNUSUALTIME = emp.OWNERPOSTID;//记录薪资人的所属岗位
+                        record.ATTENDANCEUNUSUALTIMES = empoloyee.OWNERCOMPANYID;//记录薪资人的所属公司
+                        record.ATTENDANCEUNUSUALTIME = empoloyee.OWNERPOSTID;//记录薪资人的所属岗位
                         record.ABSENTTIMES = archiveForAreaAllowrance.SALARYARCHIVEID;//记录生成薪资使用的薪资档案
                         
                     }
@@ -1934,12 +1934,12 @@ namespace SMT.HRM.BLL
                 }
                 else
                 {
-                    Tracer.Debug("生成员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月"
+                    Tracer.Debug("生成员工姓名：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月"
                           + "的月薪，record 不为 null");
                     isNew = false;
                     if (record.CHECKSTATE == ((int)CheckStates.Approved).ToString() || record.CHECKSTATE == ((int)CheckStates.Approving).ToString())
                     {
-                        Tracer.Debug("生成员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月"
+                        Tracer.Debug("生成员工姓名：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月"
                             + "的月薪，已提交审核，跳过");
                         return 0;
                     }
@@ -1954,13 +1954,13 @@ namespace SMT.HRM.BLL
                 {
                     Tracer.Debug("结算"+ year + "年" + month 
                         + "月 员工薪资失败，根据薪资档案的发薪机构获取的薪资项目<1 员工姓名：" 
-                        + emp.EMPLOYEECNAME + " " 
+                        + empoloyee.EMPLOYEECNAME + " " 
                         + " 薪资档案id：" + GenerateCompanyEmployeeArchive.SALARYARCHIVEID
                         + " 发薪机构id：" + GenerateCompanyEmployeeArchive.PAYCOMPANY);
                     return 0;
                 }
                 //改为全集团不在使用同一套薪资项目
-                var ents = from archiveItem in dal.GetObjects<T_HR_SALARYARCHIVEITEM>().Include("T_HR_SALARYARCHIVE")
+                var salaryItems = from archiveItem in dal.GetObjects<T_HR_SALARYARCHIVEITEM>().Include("T_HR_SALARYARCHIVE")
                            join tmpItem in dal.GetObjects<T_HR_SALARYITEM>() on archiveItem.SALARYITEMID equals tmpItem.SALARYITEMID
                            join salaryItem in commonSalaryItems on tmpItem.SALARYITEMNAME equals salaryItem.SALARYITEMNAME
                            where archiveItem.T_HR_SALARYARCHIVE.EMPLOYEEID == employeeID 
@@ -1968,24 +1968,24 @@ namespace SMT.HRM.BLL
                            orderby salaryItem.SALARYITEMCODE
                            select new { archiveItem, salaryItem, salaryArchive = archiveItem.T_HR_SALARYARCHIVE };
 
-                if (ents.Count() > 0) //CREATE SALARYRECORDITEM
+                if (salaryItems.Count() > 0) //CREATE SALARYRECORDITEM
                 {
-                    record.SALARYSTANDARDID = ents.FirstOrDefault().archiveItem.SALARYSTANDARDID;
+                    record.SALARYSTANDARDID = salaryItems.FirstOrDefault().archiveItem.SALARYSTANDARDID;
 
                     //实例化计算薪资项的方法
                     Operation opFunc = new Operation();
 
                     //循环薪资档案中的薪资项目生成金额
-                    foreach (var ent in ents)
+                    foreach (var sItem in salaryItems)
                     {
-                        if (ent.archiveItem == null || ent.salaryItem == null || ent.salaryArchive == null)
+                        if (sItem.archiveItem == null || sItem.salaryItem == null || sItem.salaryArchive == null)
                         {
                             SMT.Foundation.Log.Tracer.Debug("员工薪资档案，员工薪资档案中的薪资项其中一项为空");
                             return 0;
                         }
-                        var tempSalaryItem = ent.salaryItem;
+                        var tempSalaryItem = sItem.salaryItem;
                         DateTime st = System.DateTime.Now;
-                        SMT.Foundation.Log.Tracer.Debug("姓名：" + emp.EMPLOYEECNAME+" 薪资项："+tempSalaryItem.SALARYITEMNAME + ":");
+                        SMT.Foundation.Log.Tracer.Debug("姓名：" + empoloyee.EMPLOYEECNAME+" 薪资项："+tempSalaryItem.SALARYITEMNAME + ":");
                         if (tempSalaryItem.SALARYITEMNAME == "假期其它扣款")
                         {
                         }                       
@@ -1994,26 +1994,26 @@ namespace SMT.HRM.BLL
                         {
                             if (tempSalaryItem != null)
                             {
-                                getCaches.Add(tempSalaryItem.SALARYITEMID, ent.archiveItem.SUM.ToString());
+                                getCaches.Add(tempSalaryItem.SALARYITEMID, sItem.archiveItem.SUM.ToString());
                                 continue;
                             }
                         }
                         else //否则公式计算，生成员工薪资记录
                         {
                             bool actSign = false;
-                            T_HR_EMPLOYEESALARYRECORDITEM en = new T_HR_EMPLOYEESALARYRECORDITEM();
-                            en.SALARYRECORDITEMID = Guid.NewGuid().ToString();
-                            en.T_HR_EMPLOYEESALARYRECORD = record;
-                            en.SALARYITEMID = ent.archiveItem.SALARYITEMID;
-                            en.SALARYARCHIVEID = ent.salaryArchive.SALARYARCHIVEID;
-                            en.SALARYSTANDARDID = ent.archiveItem.SALARYSTANDARDID;
-                            en.ORDERNUMBER = ent.archiveItem.ORDERNUMBER;
+                            T_HR_EMPLOYEESALARYRECORDITEM SalaryItem = new T_HR_EMPLOYEESALARYRECORDITEM();
+                            SalaryItem.SALARYRECORDITEMID = Guid.NewGuid().ToString();
+                            SalaryItem.T_HR_EMPLOYEESALARYRECORD = record;
+                            SalaryItem.SALARYITEMID = sItem.archiveItem.SALARYITEMID;
+                            SalaryItem.SALARYARCHIVEID = sItem.salaryArchive.SALARYARCHIVEID;
+                            SalaryItem.SALARYSTANDARDID = sItem.archiveItem.SALARYSTANDARDID;
+                            SalaryItem.ORDERNUMBER = sItem.archiveItem.ORDERNUMBER;
                             if (tempSalaryItem.CALCULATORTYPE != "1")
                             {
                                 //地区差异补贴
                                 if (tempSalaryItem.ENTITYCOLUMNCODE == "AREADIFALLOWANCE")
                                 {
-                                    en.SUM = AreaSubsidy().ToString();  //计算地差补贴
+                                    SalaryItem.SUM = AreaSubsidy().ToString();  //计算地差补贴
                                 }
                                 //考勤异常扣款
                                 else if (tempSalaryItem.ENTITYCOLUMNCODE == "ATTENDANCEUNUSUALDEDUCT")
@@ -2027,8 +2027,8 @@ namespace SMT.HRM.BLL
                                     decimal.TryParse(strDeduct, out dTemp);
                                     dDeduct += dTemp;
 
-                                    en.SUM = dDeduct.ToString();
-                                    getCaches.Add(tempSalaryItem.SALARYITEMID, en.SUM.ToString());
+                                    SalaryItem.SUM = dDeduct.ToString();
+                                    getCaches.Add(tempSalaryItem.SALARYITEMID, SalaryItem.SUM.ToString());
                                 }
                                 else
                                 {
@@ -2041,7 +2041,7 @@ namespace SMT.HRM.BLL
                                             //如果考勤方案设置加班无报酬，则加班费为0
                                             if (AttendsolutionForSalary.OVERTIMEPAYTYPE == "1" || AttendsolutionForSalary.OVERTIMEPAYTYPE == "3")
                                             {
-                                                en.SUM = "0";
+                                                SalaryItem.SUM = "0";
                                                 overTime = false;
                                             }
                                         }
@@ -2089,62 +2089,71 @@ namespace SMT.HRM.BLL
                                         //    str = "0";
                                         //}
 
-                                        en.SUM = Alternative(Convert.ToDecimal(string.IsNullOrEmpty(str) ? "0" : str), 2).ToString();
-                                        getCaches.Add(tempSalaryItem.SALARYITEMID, en.SUM.ToString());
-
+                                        SalaryItem.SUM = Alternative(Convert.ToDecimal(string.IsNullOrEmpty(str) ? "0" : str), 2).ToString();
+                                        getCaches.Add(tempSalaryItem.SALARYITEMID, SalaryItem.SUM.ToString());
+                                        Tracer.Debug(tempSalaryItem.SALARYITEMNAME+" " + str);
                                         //额外处理的出勤工资,和税前应发合计,若执行国际上通用的'4舍6入'规则,只要在薪资项目公式round定义即可
                                         //屏蔽下方的方法
                                         //if (tempSalaryItem.ENTITYCOLUMNCODE == "WORKINGSALARY" || tempSalaryItem.ENTITYCOLUMNCODE == "PRETAXSUBTOTAL")
                                         //{
                                         //    en.SUM = Alternative(Convert.ToDecimal(en.SUM), 0).ToString();
                                         //}
+                                        if (tempSalaryItem.SALARYITEMNAME == "实发工资")
+                                        {
+                                            Tracer.Debug("员工姓名：" + empoloyee.EMPLOYEECNAME + " 实发工资：" + tempSalaryItem.GUERDONSUM.Value.ToString() + "员工状态："
+                                                + empoloyee.EMPLOYEESTATE);
+                                            try
+                                            {
+                                                string isForHuNanHangXingSalary = ConfigurationManager.AppSettings["isForHuNanHangXingSalary"];
+                                                if (isForHuNanHangXingSalary == "true" && empoloyee.EMPLOYEESTATE == "0")//试用期
+                                                {
+                                                    double dValue = double.Parse(SalaryItem.SUM.ToString());
+                                                    string sum = (dValue * 0.7).ToString();
+                                                    Tracer.Debug("试用期员工实发工资:" + dValue + "*0.7=" + (dValue * 0.7).ToString());
+                                                    SalaryItem.SUM = sum;
+                                                }
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                Tracer.Debug(ex.ToString());
+                                            }
+                                        }
                                         //实发
                                         if (tempSalaryItem.ENTITYCOLUMNCODE == "ACTUALLYPAY")
                                         {
+                                           
                                             actSign = true;
-                                            en.SUM = Convert.ToDecimal(en.SUM) < 0 ? "0" : en.SUM;
-                                            actuallypay = en.SUM;
-                                            record.ACTUALLYPAY = AES.AESEncrypt(Convert.ToDecimal(Math.Floor(Convert.ToDouble(en.SUM))).ToString());
+                                            SalaryItem.SUM = Convert.ToDecimal(SalaryItem.SUM) < 0 ? "0" : SalaryItem.SUM;
+                                            actuallypay = SalaryItem.SUM;
+                                           
+                                            record.ACTUALLYPAY = AES.AESEncrypt(Convert.ToDecimal(Math.Floor(Convert.ToDouble(SalaryItem.SUM))).ToString());
                                         }
                                     }
                                     else
                                     {
-                                        en.SUM = ent.archiveItem.SUM != null ? ent.archiveItem.SUM : "0";
+                                        SalaryItem.SUM = sItem.archiveItem.SUM != null ? sItem.archiveItem.SUM : "0";
                                     }
                                 }
-                                en.SUM = AES.AESEncrypt(en.SUM);
+                                SalaryItem.SUM = AES.AESEncrypt(SalaryItem.SUM);
                             }
                             else
                             {
-                                en.SUM = ent.archiveItem.SUM;
-                                if (string.IsNullOrWhiteSpace(ent.archiveItem.SUM) && tempSalaryItem.GUERDONSUM != null)
+                                SalaryItem.SUM = sItem.archiveItem.SUM;
+                                if (string.IsNullOrWhiteSpace(sItem.archiveItem.SUM) && tempSalaryItem.GUERDONSUM != null)
                                 {
-                                    en.SUM = AES.AESEncrypt(tempSalaryItem.GUERDONSUM.Value.ToString());
+                                    SalaryItem.SUM = AES.AESEncrypt(tempSalaryItem.GUERDONSUM.Value.ToString());
                                 }
                             }
-                            if (tempSalaryItem.SALARYITEMNAME == "实发工资")
-                            {
-                                try
-                                {
-                                    string isForHuNanHangXingSalary = ConfigurationManager.AppSettings["isForHuNanHangXingSalary"];
-                                    if (isForHuNanHangXingSalary == "true")
-                                    {
-                                        double dValue = double.Parse(tempSalaryItem.GUERDONSUM.Value.ToString());
-                                        en.SUM = AES.AESEncrypt((dValue * 0.7).ToString());
-                                    }
-                                }
-                                catch (Exception ex)
-                                {
-                                    Tracer.Debug(ex.ToString());
-                                }
 
-                            }
-                            en.REMARK = ent.archiveItem.REMARK;
-                            en.CREATEDATE = System.DateTime.Now;
+                           
+
+                            SalaryItem.REMARK = sItem.archiveItem.REMARK;
+                            SalaryItem.CREATEDATE = System.DateTime.Now;
                             SMT.Foundation.Log.Tracer.Debug((System.DateTime.Now - st).ToString());
                             //添加薪资项记录
-                            if (!actSign) recorditems.Add(recorditem.GetEmployeeSalaryRecordItem(en));
+                            if (!actSign) recorditems.Add(recorditem.GetEmployeeSalaryRecordItem(SalaryItem));
                         }
+                        //循环
                     }
                 }
                 else
@@ -2172,7 +2181,7 @@ namespace SMT.HRM.BLL
                        int i= dal.Add(record);
                        if (i > 0)
                        {
-                           Tracer.Debug("生成员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月"
+                           Tracer.Debug("生成员工姓名：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月"
                           + "的月薪，未生成过，添加新记录");
                        }
                     }
@@ -2182,7 +2191,7 @@ namespace SMT.HRM.BLL
                         int i = dal.Update(record);
                         if (i > 0)
                         {
-                            Tracer.Debug("生成员工姓名：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月"
+                            Tracer.Debug("生成员工姓名：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月"
                             + "的月薪，已生成过，修改记录");
                         }
                         recorditem.EmployeeSalaryRecordItemDelete(record.EMPLOYEESALARYRECORDID);
@@ -2201,18 +2210,18 @@ namespace SMT.HRM.BLL
                 calcheck += string.IsNullOrEmpty(actuallypay) ? 0 : Convert.ToDecimal(actuallypay);
                 calcheck = calcheck > 0 ? 1 : 0;
 
-                Tracer.Debug("**********************结束生成第" +index.ToString() + "条记录，员工：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪");         
+                Tracer.Debug("**********************结束生成第" +index.ToString() + "条记录，员工：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪");         
                 return Convert.ToDecimal(actuallypay);
             }
             catch (Exception ex)
             {
                 Tracer.Debug(ex.ToString());
-                Tracer.Debug("生成员工：" + emp.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪异常"+ex.ToString());
-                if (emp != null)
+                Tracer.Debug("生成员工：" + empoloyee.EMPLOYEECNAME + " " + year + "年" + month + "月" + "的月薪异常"+ex.ToString());
+                if (empoloyee != null)
                 {
                     try
                     {
-                        GetInfor.Add(emp.EMPLOYEECODE, emp.EMPLOYEEENAME);
+                        GetInfor.Add(empoloyee.EMPLOYEECODE, empoloyee.EMPLOYEEENAME);
                     }
                     catch (Exception e)
                     {

@@ -31,7 +31,7 @@
     <Attribute Name="TOTALADJUSTLEAVEDAYS" LableResourceID="TOTALADJUSTLEAVEDAYS" Description="冲减天数" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="DEDUCTDAYS" LableResourceID="DEDUCTDAYS" Description="扣款天数" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="TOTALVACATIONDAYS" LableResourceID="TOTALVACATIONDAYS" Description="当前可用冲减假天数" DataType="decimal" DataValue="" DataText=""></Attribute>
-    <Attribute Name="LEAVETYPESETID" LableResourceID="LEAVETYPESET" Description="假期标准" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LEAVETYPESETID" LableResourceID="LEAVETYPESET" Description="假期类型" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="REASON" LableResourceID="REASON" Description="请假原因" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="ATTACHMENTPATH" LableResourceID="ATTACHMENTPATH" Description="附件路径" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>

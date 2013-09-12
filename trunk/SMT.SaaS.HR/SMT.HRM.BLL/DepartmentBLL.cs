@@ -1368,6 +1368,16 @@ namespace SMT.HRM.BLL
             {
                 #region 获取Excel数据兵转换成V_ORGANIZATIONINFO类型
                 DataTable dt = new DataTable();
+                dt = Utility.GetDataFromFile(strPath, 1, 1);//都第一列第一行数据，以验证模板
+                var chEnt = from o in dt.AsEnumerable()
+                            select new 
+                            {
+                                rowName = o["col0"].ToString().Trim()
+                            };
+                if (chEnt == null || chEnt.Count() <= 0 || chEnt.FirstOrDefault().rowName != "部门名称")
+                {
+                    return null;
+                }
                 dt = Utility.GetDataFromFile(strPath,7,2);
                 var ent = from o in dt.AsEnumerable()
                           select new V_ORGANIZATIONINFO

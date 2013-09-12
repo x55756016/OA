@@ -255,7 +255,7 @@ namespace SMT.HRM.UI.Views.Attendance
             }
             else
             {
-                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "EMPLOYEEOVERTIMERECORD"));
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), "删除员工外出申请成功");
             }
 
             LoadData();

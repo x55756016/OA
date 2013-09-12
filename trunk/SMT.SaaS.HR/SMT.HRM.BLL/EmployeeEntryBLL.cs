@@ -16,6 +16,7 @@ using SMT.SaaS.BLLCommonServices.MailService;
 using SMT.HRM.BLL.Report;
 using SMT.SaaS.SmtOlineEn;
 
+
 using System.Data;
 using System.Data.Objects;
 using System.Collections.ObjectModel;
@@ -1200,11 +1201,7 @@ namespace SMT.HRM.BLL
                         SMT.Foundation.Log.Tracer.Debug("员工入职开始调用即时通讯接口" + StrMessages);
                         AddImInstantMessageForEntry(employee, employeePost);
                         #endregion
-
                         #endregion
-
-                        
-
                     }
                     else
                     {
@@ -1227,7 +1224,6 @@ namespace SMT.HRM.BLL
                 return 0;
             }
         }
-
 
 
         #region 实现即时通讯接口
@@ -1496,10 +1492,13 @@ namespace SMT.HRM.BLL
                         string strTemp = string.Empty, ePostID=string.Empty;
                         it.EmployeeID = Guid.NewGuid().ToString();
                         AddEmployeeInfo(it, ref strTemp, ref ePostID);//添加员工入职信息,员工档案信息，员工岗位信息
-                        AddUser(it, ref strTemp);//添加系统用户信息
-                        AddEemployeeContact(it,ref strTemp);//员工合同
-                        AddEmployeeSalay(it, ePostID,ref strTemp);//员工薪资
-                        AddEmployeePension(it,ref strTemp);//员工社保
+                        if (string.IsNullOrWhiteSpace(strTemp))//没有错误才进行下一步
+                        {
+                            AddUser(it, ref strTemp);//添加系统用户信息
+                            AddEemployeeContact(it, ref strTemp);//员工合同
+                            AddEmployeeSalay(it, ePostID, ref strTemp);//员工薪资
+                            AddEmployeePension(it, ref strTemp);//员工社保
+                        }
                             //记录日志
                         SMT.Foundation.Log.Tracer.Debug(" AddBatchEmployeeEntry批量添加部门岗位信息日志记录:员工ＩＤ和姓名为："+ it.EmployeeID+it.EmployeeName+ "输出信息为（ 空为正确）："+strTemp);
                         if (string.IsNullOrWhiteSpace(strTemp))
@@ -1791,8 +1790,18 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                #region 获取Excel数据兵转换成V_EmployeeEntryInfo类型
+                #region 获取Excel数据并转换成V_EmployeeEntryInfo类型
                 DataTable dt = new DataTable();
+                dt = Utility.GetDataFromFile(strPath, 1, 1);//都第一列第一行数据，以验证模板
+                var chEnt = from o in dt.AsEnumerable()
+                            select new
+                            {
+                                rowName = o["col0"].ToString().Trim()
+                            };
+                if (chEnt == null ||  chEnt.Count() <= 0 || chEnt.FirstOrDefault().rowName != "员工姓名")
+                {
+                    return null;
+                }
                 dt = Utility.GetDataFromFile(strPath, 18, 2);
                 var ent = from o in dt.AsEnumerable()
                           select new V_EmployeeEntryInfo
@@ -1864,6 +1873,7 @@ namespace SMT.HRM.BLL
                             if (num<=0)
                             {
                                 item.PostName += "该岗位人员编制已满";
+                                strMsg += "入职岗位人员编制已满";
                             }
                         }
                         
@@ -1919,6 +1929,7 @@ namespace SMT.HRM.BLL
                               select e).FirstOrDefault();
                 if (entDep == null)
                 {
+                    strMsg += "没有找到员工入职的部门";
                     flag = false;
                 }
                 if (entDep != null)
@@ -1930,7 +1941,7 @@ namespace SMT.HRM.BLL
                                    select e).FirstOrDefault();
                     if (entPost == null)
                     {
-                        strMsg += "没有找到员工入职的部门和岗位，请核查";
+                        strMsg += "没有找到员工入职的岗位";
                         flag = false;
                     }
                     else
@@ -1943,6 +1954,7 @@ namespace SMT.HRM.BLL
             }
             catch (Exception ex)
             {
+                strMsg += "查找员工入职的部门和岗位出错";
                 SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + " GetEmloyeePostInfo:批量导入员工入职信息-获取员工部门ID，岗位ID等信息" + ex.Message);
                 return false;
             }

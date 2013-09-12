@@ -85,6 +85,11 @@ namespace SMT.HRM.BLL
                     SMT.Foundation.Log.Tracer.Debug("UpdateCheckState 返回结果;" + i.ToString());
                     SMT.Foundation.Log.Tracer.Debug("手机调用业务逻辑层 bll.Dispose();");
                 }
+                else
+                {
+                    Tracer.Debug("UpdateCheckState方法未找到"+strEntityName+"业务bll层的UpdateCheckState方法");
+                    return 0;
+                }
             }
             catch (Exception ex)
             {
@@ -143,7 +148,7 @@ namespace SMT.HRM.BLL
                 EntityRelation.Add("T_HR_SALARYSOLUTIONASSIGN", "SalarySolutionAssignBLL");
                 EntityRelation.Add("T_HR_SALARYRECORDBATCH", "SalaryRecordBatchBLL");
                 EntityRelation.Add("T_HR_SALARYSYSTEM", "SalarySystemBLL");
-                EntityRelation.Add("T_HR_EMPLOYEEOVERTIMERECORD", "OutAppliecationBLL");
+                EntityRelation.Add("T_HR_EMPLOYEEOUTAPPLIECRECORD", "OutApplyBLL");
             }
         }
         /// <summary>

@@ -163,7 +163,7 @@ namespace SMT.HRM.UI.Form.Attendance
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "TYPEAPPROVAL", approvalInfo.TYPEAPPROVAL, StrApprovalTypeName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "CONTENT", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "AttachMent", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
-            //    AutoList.Add(basedata("T_HR_LEFTOFFICE", "LEFTOFFICECATEGORY", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYVALUE.ToString() : "0", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYNAME : ""));
+            //AutoList.Add(basedata("T_HR_LEFTOFFICE", "LEFTOFFICECATEGORY", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYVALUE.ToString() : "0", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYNAME : ""));
             string a = mx.TableToXml(Info, null, StrSource, AutoList);
 
             return a;
@@ -901,6 +901,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     nudDeductDays.Value = decimal.Round(dLeaveTotalTime / WorkTimePerDay, 1).ToDouble() - nudTotalAdjustLeaveDays.Value;
                 }
                 RefreshUI(RefreshedTypes.HideProgressBar);
+                CheckFormSave();
             }
             else
             {

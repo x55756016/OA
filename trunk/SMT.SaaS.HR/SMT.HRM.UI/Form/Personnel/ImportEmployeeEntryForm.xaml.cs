@@ -59,25 +59,39 @@ namespace SMT.HRM.UI.Form.Personnel
             ImportEmployeeEntryForm_Load();
         }
 
+        /// <summary>
+        /// 设置各个控件显示为空
+        /// </summary>
+        private void Set()
+        {
+            listEmployeeInfo = null;
+            this.tbFileName.Text = string.Empty;
+            this.txtUploadResMsg.Text = string.Empty;
+            DtGrid.ItemsSource = null;
+            RefreshUI(RefreshedTypes.HideProgressBar);
+        }
+
         void client_AddBatchEmployeeEntryCompleted(object sender, AddBatchEmployeeEntryCompletedEventArgs e)
         {
             try
             {
                 if (e.Error != null && e.Error.Message != "")
                 {
+                    Set();
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), e.Error.Message, Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                     return;
                 }
                 bool flag = e.Result;
-                RefreshUI(RefreshedTypes.HideProgressBar);
                 if (flag)
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDDATASUCCESSED"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 }
                 else
                 {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("导入失败"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.strMsg), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 }
+                Set();
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
             catch (Exception ex)
             {
@@ -95,9 +109,9 @@ namespace SMT.HRM.UI.Form.Personnel
        {
           try
             {
-                
                 if (e.Error != null && e.Error.Message != "")
                 {
+                    Set();
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), e.Error.Message, Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                     return;
                 }
@@ -107,7 +121,7 @@ namespace SMT.HRM.UI.Form.Personnel
             }
             catch (Exception ex)
             {
-                RefreshUI(RefreshedTypes.HideProgressBar);
+                Set();
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), ex.ToString(), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
             }
        }
@@ -124,6 +138,7 @@ namespace SMT.HRM.UI.Form.Personnel
             {
                 if (e.Error != null && e.Error.Message != "")
                 {
+                    Set();
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), e.Error.Message, Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                     return;
                 }
@@ -138,14 +153,14 @@ namespace SMT.HRM.UI.Form.Personnel
                 }
                 else
                 {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "导入数据为空", Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                    RefreshUI(RefreshedTypes.HideProgressBar);
+                    Set();
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "导入数据为空,请确认模板和数据是否正确", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return;
                 }
             }
             catch (Exception ex)
             {
-                RefreshUI(RefreshedTypes.HideProgressBar);
+                Set();
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), ex.ToString(), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
             }
         }
@@ -193,6 +208,11 @@ namespace SMT.HRM.UI.Form.Personnel
                 IdNum.Foreground = new SolidColorBrush(Colors.Red);
                 ToolTipService.SetToolTip(IdNum, tmp.IdNumber + "请参考提示信息进行修改");
                 txtUploadResMsg.Text = "请注意，有员工的身份证号码有异常，请重新确认！";
+                txtUploadResMsg.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            if (!string.IsNullOrWhiteSpace(tmp.ErrorMsg))
+            {
+                txtUploadResMsg.Text = "导入数据存在异常，请根据提示信息进行修改";
                 txtUploadResMsg.Foreground = new SolidColorBrush(Colors.Red);
             }
         }

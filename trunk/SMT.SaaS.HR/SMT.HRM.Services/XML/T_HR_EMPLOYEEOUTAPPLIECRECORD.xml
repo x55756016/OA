@@ -5,7 +5,7 @@
   <System>
     <Function Description="外出申请" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
       <ParaStr>
-        <Para TableName="T_HR_EMPLOYEEOVERTIMERECORD" Name="OVERTIMERECORDID" Description="外出申请ID" Value=""></Para>
+        <Para TableName="T_HR_EMPLOYEEOUTAPPLIECRECORD" Name="OVERTIMERECORDID" Description="外出申请ID" Value=""></Para>
       </ParaStr>
     </Function>
   </System>
@@ -13,11 +13,11 @@
     <AssemblyName>SMT.HRM.UI</AssemblyName>
     <PublicClass>SMT.HRM.UI.Utility</PublicClass>
     <ProcessName>CreateFormFromEngine</ProcessName>
-    <PageParameter>SMT.HRM.UI.Form.Attendance.OverTimeForm</PageParameter>
+    <PageParameter>SMT.HRM.UI.Form.Attendance.OutAppliecationForm</PageParameter>
     <ApplicationOrder>{OVERTIMERECORDID}</ApplicationOrder>
     <FormTypes>Audit</FormTypes>
   </MsgOpen>
-  <Object Name="T_HR_EMPLOYEEOVERTIMERECORD" Description="员工外出申请" Key="OVERTIMERECORDID" id="">
+  <Object Name="T_HR_EMPLOYEEOUTAPPLIECRECORD" Description="员工外出申请" Key="OVERTIMERECORDID" id="">
 	<Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="OVERTIMERECORDID" LableResourceID="OVERTIMERECORDID" Description="外出申请记录ID" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID" Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>

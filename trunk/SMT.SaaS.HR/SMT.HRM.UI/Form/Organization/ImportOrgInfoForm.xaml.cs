@@ -53,6 +53,7 @@ namespace SMT.HRM.UI.Form
             client.GetCompanyActivedCompleted += new EventHandler<GetCompanyActivedCompletedEventArgs>(client_GetCompanyActivedCompleted);
             ImportOrgInfoForm_Load();
         }
+
         /// <summary>
         /// 初始化
         /// </summary>
@@ -60,6 +61,18 @@ namespace SMT.HRM.UI.Form
         {
             client.GetCompanyActivedAsync(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
         }
+
+        /// <summary>
+        /// 设置各个控件显示为空
+        /// </summary>
+        private void Set()
+        {
+            this.tbFileName.Text = string.Empty;
+            this.txtUploadResMsg.Text = string.Empty;
+            DtGrid.ItemsSource = null;
+            RefreshUI(RefreshedTypes.HideProgressBar);
+        }
+
         /// <summary>
         /// 加载该员工可以看到的有效的公司
         /// </summary>
@@ -90,10 +103,10 @@ namespace SMT.HRM.UI.Form
             {
                 if (e.Error != null && e.Error.Message != "")
                 {
+                    RefreshUI(RefreshedTypes.HideProgressBar);
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), e.Error.Message, Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                     return;
                 }
-                RefreshUI(RefreshedTypes.HideProgressBar);
                 if (e.Result)
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDDATASUCCESSED"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
@@ -102,6 +115,7 @@ namespace SMT.HRM.UI.Form
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("导入失败"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 }
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
             catch (Exception ex)
             {
@@ -121,16 +135,23 @@ namespace SMT.HRM.UI.Form
             {
                 if (e.Error != null && e.Error.Message != "")
                 {
+                    Set();
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), e.Error.Message, Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                     return;
                 }
                 listOrgInfo = e.Result;
+                if (listOrgInfo==null||listOrgInfo.Count<=0)
+                {
+                    Set();
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "导入数据为空,请确认模板和数据是否正确", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return;
+                }
                 DtGrid.ItemsSource = listOrgInfo;
                 RefreshUI(RefreshedTypes.HideProgressBar);
             }
             catch (Exception ex)
             {
-                RefreshUI(RefreshedTypes.HideProgressBar);
+                Set();
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), ex.ToString(), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
             }
         }
@@ -145,7 +166,11 @@ namespace SMT.HRM.UI.Form
             int index = e.Row.GetIndex();
             var cell = DtGrid.Columns[0].GetCellContent(e.Row) as TextBlock;
             cell.Text = (index + 1).ToString();
-            var IdNum = DtGrid.Columns[4].GetCellContent(e.Row) as TextBlock;
+            if (!string.IsNullOrWhiteSpace(tmp.ErrorMsg))
+            {
+                txtUploadResMsg.Text = "导入数据存在异常，请根据提示信息进行修改";
+                txtUploadResMsg.Foreground = new SolidColorBrush(Colors.Red);
+            }
         }
    
         /// <summary>

@@ -273,7 +273,16 @@ namespace SMT.HRM.BLL
 
                 entOTRd.CHECKSTATE = strCheckState;
 
-                ModifyOverTimeRd(entOTRd);
+                entOTRd.UPDATEDATE = DateTime.Now;
+
+                //Utility.CloneEntity(entOTRd, ent);
+                int i=dal.Update(entOTRd);
+                if (i == 0)
+                {
+                    Tracer.Debug("更新T_HR_EMPLOYEEOUTAPPLIECRECORD失败");
+                    throw new Exception("更新T_HR_EMPLOYEEOUTAPPLIECRECORD失败");
+                }
+                SaveMyRecord(entOTRd);
 
 
                 if (entOTRd.CHECKSTATE != Convert.ToInt32(CheckStates.Approved).ToString())
@@ -367,9 +376,10 @@ namespace SMT.HRM.BLL
             decimal dTotalOverTimeHours = 0;
 
             DateTime dtStart, dtEnd = new DateTime();
-
-            DateTime.TryParse(dtOTStart.ToString("yyyy-MM-dd"), out dtStart);        //获取请假起始日期
-            DateTime.TryParse(dtOTEnd.ToString("yyyy-MM-dd"), out dtEnd);            //获取请假截止日期
+            dtStart = dtOTStart;
+            dtEnd = dtOTEnd;
+            //DateTime.TryParse(dtOTStart.ToString("yyyy-MM-dd"), out dtStart);        //获取请假起始日期
+            //DateTime.TryParse(dtOTEnd.ToString("yyyy-MM-dd"), out dtEnd);            //获取请假截止日期
             AttendanceSolutionAsignBLL bllAttendSolAsign = new AttendanceSolutionAsignBLL();
             T_HR_ATTENDANCESOLUTIONASIGN entAttendSolAsign = bllAttendSolAsign.GetAttendanceSolutionAsignByEmployeeIDAndDate(strEmployeeId, dtStart);
             if (entAttendSolAsign == null)
@@ -404,85 +414,85 @@ namespace SMT.HRM.BLL
             TimeSpan ts = dtEnd.Subtract(dtStart);
             int iOTDays = ts.Days;
             string strMsg = string.Empty;
+            dTotalOverTimeHours = iOTDays * dWorkTimePerDay + ts.Hours;
+            //if (iOTDays == 0)
+            //{
+            //    CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays, entVacDays, iWorkDays, dtOTStart, dtOTEnd,
+            //        entTemplateDetails, entTemplateMaster, ref dTotalOverTimeHours, ref strRes);
+            //}
+            //else
+            //{
+            //    CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays, entVacDays, iWorkDays, dtOTStart,
+            //        dtStart.AddDays(1).AddSeconds(-1), entTemplateDetails, entTemplateMaster, ref dTotalOverTimeHours, ref strMsg);
+            //    CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays, entVacDays, iWorkDays, dtEnd, dtOTEnd,
+            //        entTemplateDetails, entTemplateMaster, ref dTotalOverTimeHours, ref strRes);
 
-            if (iOTDays == 0)
-            {
-                CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays, entVacDays, iWorkDays, dtOTStart, dtOTEnd,
-                    entTemplateDetails, entTemplateMaster, ref dTotalOverTimeHours, ref strRes);
-            }
-            else
-            {
-                CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays, entVacDays, iWorkDays, dtOTStart,
-                    dtStart.AddDays(1).AddSeconds(-1), entTemplateDetails, entTemplateMaster, ref dTotalOverTimeHours, ref strMsg);
-                CalculateNonWholeDayOverTimeHours(dWorkTimePerDay, entWorkDays, entVacDays, iWorkDays, dtEnd, dtOTEnd,
-                    entTemplateDetails, entTemplateMaster, ref dTotalOverTimeHours, ref strRes);
+            //    if (ts.Days > 0)
+            //    {
+            //        int iDays = ts.Days - 1;
+            //        decimal dVacDays = 0;
 
-                if (ts.Days > 0)
-                {
-                    int iDays = ts.Days - 1;
-                    decimal dVacDays = 0;
-
-                    for (int i = 0; i < iDays; i++)
-                    {
-                        int j = i + 1;
-                        bool bIsWorkDay = false;
-                        bool bIsVacDay = false;
-                        DateTime dtCurDate = dtStart.AddDays(j);
+            //        for (int i = 0; i < iDays; i++)
+            //        {
+            //            int j = i + 1;
+            //            bool bIsWorkDay = false;
+            //            bool bIsVacDay = false;
+            //            DateTime dtCurDate = dtStart.AddDays(j);
 
 
-                        if (entWorkDays.Count() > 0)
-                        {
-                            foreach (T_HR_OUTPLANDAYS item_Work in entWorkDays)
-                            {
-                                if (item_Work.STARTDATE.Value <= dtCurDate && item_Work.ENDDATE >= dtCurDate)
-                                {
-                                    bIsWorkDay = true;
-                                    break;
-                                }
-                            }
-                        }
+            //            if (entWorkDays.Count() > 0)
+            //            {
+            //                foreach (T_HR_OUTPLANDAYS item_Work in entWorkDays)
+            //                {
+            //                    if (item_Work.STARTDATE.Value <= dtCurDate && item_Work.ENDDATE >= dtCurDate)
+            //                    {
+            //                        bIsWorkDay = true;
+            //                        break;
+            //                    }
+            //                }
+            //            }
 
-                        if (bIsWorkDay)
-                        {
-                            strRes = "{OVERTIMEINWORKDAY}";
-                            break;
-                        }
+            //            if (bIsWorkDay)
+            //            {
+            //                strRes = "{OVERTIMEINWORKDAY}";
+            //                break;
+            //            }
 
-                        if (entVacDays.Count() > 0)
-                        {
-                            foreach (T_HR_OUTPLANDAYS item_Vac in entVacDays)
-                            {
-                                if (item_Vac.STARTDATE.Value <= dtCurDate && item_Vac.ENDDATE >= dtCurDate)
-                                {
-                                    bIsVacDay = true;
-                                    break;
-                                }
-                            }
-                        }
+            //            if (entVacDays.Count() > 0)
+            //            {
+            //                foreach (T_HR_OUTPLANDAYS item_Vac in entVacDays)
+            //                {
+            //                    if (item_Vac.STARTDATE.Value <= dtCurDate && item_Vac.ENDDATE >= dtCurDate)
+            //                    {
+            //                        bIsVacDay = true;
+            //                        break;
+            //                    }
+            //                }
+            //            }
 
-                        if (!bIsVacDay && !bIsWorkDay)
-                        {
-                            if (iWorkDays.Contains(Convert.ToInt32(dtCurDate.DayOfWeek)))
-                            {
-                                strRes = "{OVERTIMEINWORKDAY}";
-                                break;
-                            }
-                        }
+            //            if (!bIsVacDay && !bIsWorkDay)
+            //            {
+            //                if (iWorkDays.Contains(Convert.ToInt32(dtCurDate.DayOfWeek)))
+            //                {
+            //                    strRes = "{OVERTIMEINWORKDAY}";
+            //                    break;
+            //                }
+            //            }
 
-                        if (bIsVacDay || !bIsWorkDay)
-                        {
-                            dVacDays += 1;
-                        }
-                    }
+            //            if (bIsVacDay || !bIsWorkDay)
+            //            {
+            //                dVacDays += 1;
+            //            }
+            //        }
 
-                    if (!string.IsNullOrWhiteSpace(strRes))
-                    {
-                        return strRes;
-                    }
+            //        if (!string.IsNullOrWhiteSpace(strRes))
+            //        {
+            //            return strRes;
+            //        }
 
-                    dTotalOverTimeHours += dVacDays * dWorkTimePerDay;
-                }
-            }
+            //        dTotalOverTimeHours += dVacDays * dWorkTimePerDay;
+            //    }
+            //}
 
             dOverTimeHours = dTotalOverTimeHours;
             return strRes + strMsg;
@@ -1060,6 +1070,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                Tracer.Debug("开始更新员工外出申请");
                 int i = 0;
                 string strMsg = string.Empty;
                 strMsg = AuditOverTimeRd(EntityKeyValue, CheckState);
@@ -1072,7 +1083,8 @@ namespace SMT.HRM.BLL
             }
             catch (Exception e)
             {
-                SMT.Foundation.Log.Tracer.Debug("FormID:" + EntityKeyValue + " UpdateCheckState:" + e.Message);
+                SMT.Foundation.Log.Tracer.Debug("FormID:" + EntityKeyValue + " UpdateCheckState:" + CheckState
+                    +" 异常："+e.ToString());
                 return 0;
             }
         }
