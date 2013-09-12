@@ -1907,7 +1907,11 @@ namespace SMT.HRM.BLL
                     entAttRd.EMPLOYEECODE = item_emp.EMPLOYEECODE;
                     entAttRd.EMPLOYEENAME = item_emp.EMPLOYEECNAME;
                     entAttRd.ATTENDANCEDATE = dtCurDate;
-
+                    if (item.T_HR_SHIFTDEFINE == null)
+                    {
+                        Tracer.Debug("生成员工列外工作日期错误，排班定义T_HR_SCHEDULINGTEMPLATEDETAIL:" + item.T_HR_SCHEDULINGTEMPLATEMASTER.TEMPLATENAME + " T_HR_SHIFTDEFINE为Null");
+                        return;
+                    }
                     entAttRd.T_HR_SHIFTDEFINEReference.EntityKey = new EntityKey("SMT_HRM_EFModelContext.T_HR_SHIFTDEFINE", "SHIFTDEFINEID", item.T_HR_SHIFTDEFINE.SHIFTDEFINEID);
 
                     //第一段工作时间

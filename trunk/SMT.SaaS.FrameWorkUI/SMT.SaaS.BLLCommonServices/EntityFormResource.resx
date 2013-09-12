@@ -221,6 +221,10 @@
     <value>SMT.HRM.UI.Form.Attendance.EmployeeLeaveRecordForm</value>
     <comment>请假申请Form类名</comment>
   </data>
+  <data name="T_HR_EMPLOYEEOUTAPPLIECRECORD" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.OutAppliecationForm</value>
+    <comment>员工外出申请Form类名</comment>
+  </data>
   <data name="T_HR_EMPLOYEEOVERTIMERECORD" xml:space="preserve">
     <value>SMT.HRM.UI.Form.Attendance.OverTimeForm</value>
     <comment>加班申请Form类名</comment>

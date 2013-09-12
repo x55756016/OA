@@ -1463,11 +1463,15 @@ namespace SMT.HRM.UI
         /// <param name="FormKind">待办任务 0；我的单据 1；</param>
         private static void CheckPermission(string FormName, string FormKind)
         {
+            string strUserId = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID;
+
+            Log("打开Form，FormName：" + FormName + " FormKind" + FormKind
+                + " ,获取权限:strUserId" + strUserId
+                + " FormKind:" + FormKind);
             if (clientPerm == null) clientPerm = new PermissionServiceClient();
             //  clientPerm.GetEntityPermissionByUserCompleted += new EventHandler<GetEntityPermissionByUserCompletedEventArgs>(clientPerm_GetEntityPermissionByUserCompleted);
             clientPerm.GetUserPermissionByUserToUICompleted += new EventHandler<GetUserPermissionByUserToUICompletedEventArgs>(clientPerm_GetUserPermissionByUserToUICompleted);
 
-            string strUserId = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID;
             //ApplicationCache.CacheMenuList
             clientPerm.GetUserPermissionByUserToUIAsync(strUserId, FormKind);
 
@@ -1490,22 +1494,29 @@ namespace SMT.HRM.UI
                 {
                     return;
                 }
-                List<V_UserPermissionUI> entPermList = e.Result.ToList();
-                if (Common.CurrentLoginUserInfo.PermissionInfoUI == null)
+                try
                 {
-                    Common.CurrentLoginUserInfo.PermissionInfoUI = new List<SaaS.LocalData.V_UserPermissionUI>();
-                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("HR CurrentLoginUserInfo.PermissionInfoUI 为空，New了一个新的PermissionInfoUI");
-                }
-                foreach (var fent in entPermList)
-                {
-                    SMT.SaaS.LocalData.V_UserPermissionUI tps = new SMT.SaaS.LocalData.V_UserPermissionUI();
-                    tps = Common.CloneObject<V_UserPermissionUI, SMT.SaaS.LocalData.V_UserPermissionUI>(fent, tps);
-                    Common.CurrentLoginUserInfo.PermissionInfoUI.Add(tps);
-                }
+                    List<V_UserPermissionUI> entPermList = e.Result.ToList();
+                    if (Common.CurrentLoginUserInfo.PermissionInfoUI == null)
+                    {
+                        Common.CurrentLoginUserInfo.PermissionInfoUI = new List<SaaS.LocalData.V_UserPermissionUI>();
+                        SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("HR CurrentLoginUserInfo.PermissionInfoUI 为空，New了一个新的PermissionInfoUI");
+                    }
+                    foreach (var fent in entPermList)
+                    {
+                        SMT.SaaS.LocalData.V_UserPermissionUI tps = new SMT.SaaS.LocalData.V_UserPermissionUI();
+                        tps = Common.CloneObject<V_UserPermissionUI, SMT.SaaS.LocalData.V_UserPermissionUI>(fent, tps);
+                        Common.CurrentLoginUserInfo.PermissionInfoUI.Add(tps);
+                    }
 
-                if (SMT.SAAS.Main.CurrentContext.AppContext.AppHost != null)
+                    if (SMT.SAAS.Main.CurrentContext.AppContext.AppHost != null)
+                    {
+                        SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("HR ShowForm" + e.UserState.ToString());
+                    }
+                }
+                catch (Exception ex)
                 {
-                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("HR ShowForm" + e.UserState.ToString());
+                    Log(ex.ToString());
                 }
 
                 ShowForm(Convert.ToString(e.UserState));

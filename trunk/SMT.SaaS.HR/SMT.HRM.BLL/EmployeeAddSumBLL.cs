@@ -53,7 +53,7 @@ namespace SMT.HRM.BLL
                                    where c.ADDSUMID == obj.ADDSUMID
                                    select c).FirstOrDefault();
                         if (ent == null)
-                        {
+                        {                           
                             dal.AddToContext(obj);
                         }
                         else
@@ -64,6 +64,7 @@ namespace SMT.HRM.BLL
                             ent.PROJECTNAME = obj.PROJECTNAME;
                             ent.SYSTEMTYPE = obj.SYSTEMTYPE;
                             ent.REMARK = obj.REMARK;
+                            
                             // ent.UPDATEDATE = System.DateTime.Now;
                             dal.UpdateFromContext(ent);
                         }
@@ -670,14 +671,15 @@ namespace SMT.HRM.BLL
                 for (int i = 0; i < iCount; i++)
                 {
                     int iRowIndex = i + 2;  //Excel起始列从1开始计数，首列为标题列，因此数据列计数应先加2
-
+                    if (iRowIndex > iCount) break;
                     Excel.Range rngCompany = (Excel.Range)xSheet.Cells[iRowIndex, 1];         //所属公司
                     Excel.Range rngDep = (Excel.Range)xSheet.Cells[iRowIndex, 2];         //所属部门
                     Excel.Range rngPost = (Excel.Range)xSheet.Cells[iRowIndex, 3];         //所属岗位
                     Excel.Range rngEmpName = (Excel.Range)xSheet.Cells[iRowIndex, 4];     //员工姓名
-                    Excel.Range rngProjectName = (Excel.Range)xSheet.Cells[iRowIndex, 5];         //项目名
-                    Excel.Range rngProjectValue = (Excel.Range)xSheet.Cells[iRowIndex, 6];         //项目金额
-                    Excel.Range rngRemark = (Excel.Range)xSheet.Cells[iRowIndex, 7];        //备注
+                    Excel.Range rngImpType = (Excel.Range)xSheet.Cells[iRowIndex, 5];     //处理类型
+                    Excel.Range rngProjectName = (Excel.Range)xSheet.Cells[iRowIndex, 6];         //项目名
+                    Excel.Range rngProjectValue = (Excel.Range)xSheet.Cells[iRowIndex, 7];         //项目金额
+                    Excel.Range rngRemark = (Excel.Range)xSheet.Cells[iRowIndex, 8];        //备注
 
 
                     T_HR_EMPLOYEEADDSUM employeeAddSum = new T_HR_EMPLOYEEADDSUM();
@@ -775,6 +777,7 @@ namespace SMT.HRM.BLL
                                select ent).FirstOrDefault();
                         if (employee != null)
                         {
+                            employeeAddSum.OWNERID = employee.EMPLOYEEID;
                             employeeAddSum.EMPLOYEEID = employee.EMPLOYEEID;
                             employeeAddSum.EMPLOYEENAME = employee.EMPLOYEECNAME;
                         }
@@ -791,7 +794,32 @@ namespace SMT.HRM.BLL
                        Tracer.Debug(strMsg);
                         break;
                     }
-
+                    //处理类型：
+                    if (rngImpType.Text != null)
+                    {
+                        switch(rngImpType.Text.ToString().Trim())
+                        {
+                                  
+                            case "员工加扣款":
+                                employeeAddSum.SYSTEMTYPE="0";
+                                break;
+                                  case "员工代扣款":
+                                 employeeAddSum.SYSTEMTYPE="1";
+                                break;
+                                  case "绩效奖金":
+                                 employeeAddSum.SYSTEMTYPE="2";
+                                break;
+                                 case "其他......":
+                                 employeeAddSum.SYSTEMTYPE="3";
+                                break;
+                        }                  
+                    }
+                    else
+                    {
+                        strMsg = "员工加扣款导入失败：行号：" + iRowIndex + " 列号：5 值为空 处理类型为空";
+                        Tracer.Debug(strMsg);
+                        break;
+                    }
                     //项目名
                     if (rngProjectName.Text != null)
                     {
@@ -799,7 +827,7 @@ namespace SMT.HRM.BLL
                     }
                     else
                     {
-                        strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：5 值为空 项目名称为空";
+                        strMsg="员工加扣款导入失败：行号：" + iRowIndex + " 列号：6 值为空 项目名称为空";
                         Tracer.Debug(strMsg);
                         break;
                     }
@@ -811,7 +839,7 @@ namespace SMT.HRM.BLL
                     }
                     else
                     {
-                        strMsg = "员工加扣款导入失败：行号：" + iRowIndex + " 列号：6 值为空 项目金额为空";
+                        strMsg = "员工加扣款导入失败：行号：" + iRowIndex + " 列号：7 值为空 项目金额为空";
                         Tracer.Debug(strMsg);
                         break;
                     }
@@ -823,12 +851,12 @@ namespace SMT.HRM.BLL
                     }
                     else
                     {
-                         strMsg = "员工加扣款导入失败：行号：" + iRowIndex + " 列号：7 值为空 项目备注为空";
+                         strMsg = "员工加扣款导入失败：行号：" + iRowIndex + " 列号：8 值为空 项目备注为空";
                          Tracer.Debug(strMsg);
                         break;
                     }
                     employeeAddSum.DEALYEAR = paras["YEAR"].ToString();
-                    employeeAddSum.DEALYEAR = paras["MONTH"].ToString();
+                    employeeAddSum.DEALMONTH = paras["MONTH"].ToString();
 
                     employeeAddSum.CREATEUSERID = paras["CREATEUSERID"].ToString();
                     employeeAddSum.CREATEPOSTID = paras["CREATEPOSTID"].ToString();
@@ -838,7 +866,7 @@ namespace SMT.HRM.BLL
 
                     employeeAddSum.CREATEDATE = DateTime.Now;
                     employeeAddSum.UPDATEDATE = DateTime.Now;
-
+                    employeeAddSum.CHECKSTATE = "0";//未提交
                     if (IsPreview == false)
                     {
                        dal.Add(employeeAddSum);
