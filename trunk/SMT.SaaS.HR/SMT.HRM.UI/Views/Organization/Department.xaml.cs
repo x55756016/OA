@@ -56,12 +56,13 @@ namespace SMT.HRM.UI.Views.Organization
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
             ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
             //航信发布需要打卡
-            ToolBar.btnImport.Visibility = Visibility.Visible;
-            ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
+            //ToolBar.btnImport.Visibility = Visibility.Visible;
+            //ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
 
             ImageButton btnCancel = new ImageButton();
             btnCancel.AddButtonAction("/SMT.SaaS.FrameworkUI;Component/Images/area/18_import.png", Utility.GetResourceStr("CANCEL")).Click += new RoutedEventHandler(btnCancel_Click);
             ToolBar.stpOtherAction.Children.Add(btnCancel);
+           
         }
 
         void btnImport_Click(object sender, RoutedEventArgs e)

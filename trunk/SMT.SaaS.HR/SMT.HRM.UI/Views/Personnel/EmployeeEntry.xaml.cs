@@ -79,8 +79,8 @@ namespace SMT.HRM.UI.Views.Personnel
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
             ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
 
-            ToolBar.btnImport.Visibility = Visibility.Visible;
-            ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
+            //ToolBar.btnImport.Visibility = Visibility.Visible;
+            //ToolBar.btnImport.Click += new RoutedEventHandler(btnImport_Click);
 
             this.Loaded += new RoutedEventHandler(EmployeeEntry_Loaded);
             treeOrganization.SelectedClick += new EventHandler(treeOrganization_SelectedClick);

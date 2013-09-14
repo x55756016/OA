@@ -11,22 +11,18 @@
     <Grid x:Name="LayoutRoot" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="35" />
             <RowDefinition Height="30" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="0.3*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="0.3*"/>
-            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYNAME}" 
-                   Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" ></TextBlock>
-        <custom:AutoCompleteComboBox  x:Name="acbCompanyName"  Width="180" Height="24" Margin="5,5,5,0"   HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" SelectionChanged="acbCompanyName_SelectionChanged">
+        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CNAME}" 
+                   Grid.Row="0" Grid.Column="0" Margin="10,10,0,0"></TextBlock>
+        <custom:AutoCompleteComboBox  x:Name="acbCompanyName"  Width="260" Height="24"    HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1" SelectionChanged="acbCompanyName_SelectionChanged">
             <custom:AutoCompleteComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -37,7 +33,7 @@
             </custom:AutoCompleteComboBox.ItemTemplate>
         </custom:AutoCompleteComboBox>
 
-        <Button x:Name="BrowseFiles" Style="{StaticResource CommonButtonStyle}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"  Margin="5" Content="{Binding Converter={StaticResource ResourceConveter}, Source= BROWSEFILES}" Click="BrowseFiles_Click" Height="22" />
+        <Button x:Name="BrowseFiles" Style="{StaticResource CommonButtonStyle}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch"  Margin="5" Content="{Binding Converter={StaticResource ResourceConveter}, Source= BROWSEFILES}" Click="BrowseFiles_Click" Height="25" />
         <TextBlock x:Name="tbFileName" Text="" Style="{StaticResource SysTextBlockStyle}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" />
 
         <TextBlock x:Name="txtUploadResMsg" Text="" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" />

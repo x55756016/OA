@@ -22,12 +22,14 @@
     <Attribute Name="LEAVERECORDID" LableResourceID="LEAVERECORDID" Description="请假记录ID" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID" Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="EMPLOYEEORGNAME" LableResourceID="EMPLOYEEORGNAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
-	<Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名字" DataType="string" DataValue="" DataText=""></Attribute>
+	  <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名字" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="EMPLOYEECODE" LableResourceID="EMPLOYEECODE" Description="员工编号" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="STARTDATETIME" LableResourceID="STARTDATETIME" Description="请假开始时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
     <Attribute Name="ENDDATETIME" LableResourceID="ENDDATETIME" Description="请假结束时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
     <Attribute Name="LEAVEDAYS" LableResourceID="LEAVEDAYS" Description="请假天数" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LEAVEHOURS" LableResourceID="LEAVEHOURS" Description="请假小时" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LEAVETIME" LableResourceID="LEAVETIME" Description="请假时长" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="TOTALADJUSTLEAVEDAYS" LableResourceID="TOTALADJUSTLEAVEDAYS" Description="冲减天数" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="DEDUCTDAYS" LableResourceID="DEDUCTDAYS" Description="扣款天数" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="TOTALVACATIONDAYS" LableResourceID="TOTALVACATIONDAYS" Description="当前可用冲减假天数" DataType="decimal" DataValue="" DataText=""></Attribute>
@@ -35,7 +37,6 @@
     <Attribute Name="REASON" LableResourceID="REASON" Description="请假原因" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="ATTACHMENTPATH" LableResourceID="ATTACHMENTPATH" Description="附件路径" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="LEAVEHOURS" LableResourceID="LEAVEHOURS" Description="请假时长" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>

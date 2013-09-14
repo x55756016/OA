@@ -71,9 +71,9 @@
                             </DataTemplate>
                         </data:DataGridTemplateColumn.CellTemplate>
                     </data:DataGridTemplateColumn>
-                <data:DataGridTextColumn Header="OWNERCOMPANYID" Binding="{Binding OWNERCOMPANYID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <!--<data:DataGridTextColumn Header="OWNERCOMPANYID" Binding="{Binding OWNERCOMPANYID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                 <data:DataGridTextColumn Header="OWNERDEPARTMENTID" Binding="{Binding OWNERDEPARTMENTID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                <data:DataGridTextColumn Header="OWNERPOSTID" Binding="{Binding OWNERPOSTID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                <data:DataGridTextColumn Header="OWNERPOSTID" Binding="{Binding OWNERPOSTID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->
                 <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                 <data:DataGridTextColumn Header="PROJECTNAME" Binding="{Binding PROJECTNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                 <data:DataGridTextColumn Header="PROJECTMONEY" Binding="{Binding PROJECTMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>

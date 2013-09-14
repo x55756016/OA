@@ -257,14 +257,15 @@ namespace SMT.HRM.UI.Form.Personnel
             {
                 if (acbCompanyName.SelectedItem==null)
                 {
+                    tbFileName.Text = string.Empty;//不显示文件
                   ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"),Utility.GetResourceStr("SELECTCOMPANY"),
                       Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 }
-                if (OpenFileDialog == null)
+                if (OpenFileDialog == null || OpenFileDialog.File == null)
+                {
+                    tbFileName.Text = string.Empty;//不显示文件
                     return;
-
-                if (OpenFileDialog.File == null)
-                    return;
+                }
                 Stream Stream = (System.IO.Stream)OpenFileDialog.File.OpenRead();
 
                 byte[] Buffer = new byte[Stream.Length];

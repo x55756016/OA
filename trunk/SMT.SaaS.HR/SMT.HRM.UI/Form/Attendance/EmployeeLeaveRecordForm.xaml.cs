@@ -157,6 +157,16 @@ namespace SMT.HRM.UI.Form.Attendance
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
+            string strLevTime = string.Empty;
+            if (Info.LEAVEDAYS > 0)
+            {
+                strLevTime = Info.LEAVEDAYS + "天";
+            }
+            if (Info.LEAVEHOURS > 0)
+            {
+                strLevTime=strLevTime+Info.LEAVEHOURS + "小时";
+            }
+            AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "LEAVETIME", strLevTime, strLevTime));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERCOMPANYID", approvalInfo.OWNERCOMPANYID, StrCompanyName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERDEPARTMENTID", approvalInfo.OWNERDEPARTMENTID, StrDepartmentName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERPOSTID", approvalInfo.OWNERPOSTID, StrPostName));
