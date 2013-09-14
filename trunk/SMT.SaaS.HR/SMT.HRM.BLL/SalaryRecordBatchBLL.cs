@@ -557,9 +557,11 @@ namespace SMT.HRM.BLL
                 #region 查询数据
                 var ents = from a in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
                            join b in dal.GetObjects<T_HR_EMPLOYEE>() on a.EMPLOYEEID equals b.EMPLOYEEID
-                           join ec in dal.GetObjects<T_HR_COMPANY>() on b.OWNERCOMPANYID equals ec.COMPANYID
-                           join c in dal.GetObjects<T_HR_DEPARTMENT>() on b.OWNERDEPARTMENTID equals c.OWNERDEPARTMENTID
-                           join d in dal.GetObjects<T_HR_POST>() on b.OWNERPOSTID equals d.OWNERPOSTID
+                           //join ec in dal.GetObjects<T_HR_COMPANY>() on b.OWNERCOMPANYID equals ec.COMPANYID
+                           //join c in dal.GetObjects<T_HR_DEPARTMENT>() on b.OWNERDEPARTMENTID equals c.OWNERDEPARTMENTID
+                           join c in dal.GetObjects<T_HR_DEPARTMENT>() on b.OWNERDEPARTMENTID equals c.DEPARTMENTID
+                           //join d in dal.GetObjects<T_HR_POST>() on b.OWNERPOSTID equals d.OWNERPOSTID
+                           join d in dal.GetObjects<T_HR_POST>() on b.OWNERPOSTID equals d.POSTID
                            join e in dal.GetObjects<T_HR_SALARYARCHIVE>() on a.ABSENTTIMES equals e.SALARYARCHIVEID
                            select new
                            {

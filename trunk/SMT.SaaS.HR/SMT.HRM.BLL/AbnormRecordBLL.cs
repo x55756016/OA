@@ -803,6 +803,26 @@ namespace SMT.HRM.BLL
                     }
                 }
                 #endregion
+
+                #region  启动外出申请处理考勤异常的线程
+                //查询请假记录，检查当天存在请假情况
+                var entOutApplyRds = from ent in dal.GetObjects<T_HR_EMPLOYEEOUTAPPLIECRECORD>()
+                                                                        where ent.STARTDATE >= dtStartDate
+                                                                        && ent.ENDDATE <= dtEndDate
+                                                                        && ent.CHECKSTATE == "2"
+                                                                        select ent;
+
+                List<T_HR_EMPLOYEEOUTAPPLIECRECORD> ententOutApplyList = entOutApplyRds.ToList();
+                if (ententOutApplyList.Count() > 0)
+                {
+                    foreach (var ent in ententOutApplyList)
+                    {
+                        //请假消除异常
+                        string attState = (Convert.ToInt32(Common.AttendanceState.OutApply) + 1).ToString();
+                        DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATE.Value, ent.ENDDATE.Value, attState);
+                    }
+                }
+                #endregion
             }
             catch (Exception ex)
             {

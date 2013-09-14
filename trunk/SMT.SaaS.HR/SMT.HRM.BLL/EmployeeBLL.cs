@@ -497,8 +497,8 @@ namespace SMT.HRM.BLL
                                               join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
                                               join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
                                               join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-                                              join le in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>() on ep.EMPLOYEEPOSTID equals le.EMPLOYEEPOSTID
-                                              where o.EMPLOYEESTATE == "2" || le.CHECKSTATE == "2"
+                                            //  join le in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>() on ep.EMPLOYEEPOSTID equals le.EMPLOYEEPOSTID
+                                              where o.EMPLOYEESTATE == "2" 
                                               select new V_EMPLOYEEVIEW
                                               {
                                                   EMPLOYEEID = o.EMPLOYEEID,
@@ -532,10 +532,8 @@ namespace SMT.HRM.BLL
                            join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
                            join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
                            join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-
-                           join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
-
-                           where c.COMPANYID == sValue && (o.EMPLOYEESTATE == "2" || le.CHECKSTATE == "2")
+                         //  join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
+                           where c.COMPANYID == sValue && o.EMPLOYEESTATE == "2" 
                            select new V_EMPLOYEEVIEW
                            {
                                EMPLOYEEID = o.EMPLOYEEID,
@@ -565,10 +563,8 @@ namespace SMT.HRM.BLL
                            join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
                            join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
                            join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-
-                           join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
-
-                           where d.DEPARTMENTID == sValue && (o.EMPLOYEESTATE == "2" || le.CHECKSTATE == "2")
+                          // join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
+                           where d.DEPARTMENTID == sValue && o.EMPLOYEESTATE == "2"
                            select new V_EMPLOYEEVIEW
                            {
                                EMPLOYEEID = o.EMPLOYEEID,
@@ -598,10 +594,8 @@ namespace SMT.HRM.BLL
                            join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
                            join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
                            join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-
-                           join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
-
-                           where p.POSTID == sValue && (o.EMPLOYEESTATE == "2" || le.CHECKSTATE == "2")
+                           //join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
+                           where p.POSTID == sValue && o.EMPLOYEESTATE == "2"
                            select new V_EMPLOYEEVIEW
                            {
                                EMPLOYEEID = o.EMPLOYEEID,
@@ -4397,10 +4391,10 @@ namespace SMT.HRM.BLL
                         sb.Append((nationDict != null ? nationDict.DICTIONARYNAME : "") + ",");
                         sb.Append((educateDict != null ? educateDict.DICTIONARYNAME : "") + ",");
                         sb.Append((employeeinfo.BirthDay != null ? employeeinfo.BirthDay.Value.ToShortDateString() : "") + ",");
-                        sb.Append(employeeinfo.Age != null ? employeeinfo.Age.Value.ToString() : "" + ",");
-                        sb.Append(employeeinfo.WorkAge + ",");
-                        sb.Append((employeeinfo.IsAgency == "0" ? strEployeeState : strEployeeState + "(兼职)") + ",");
-                        sb.Append(employeeinfo.PostChangeType + ",");
+                        sb.Append((employeeinfo.Age != null ? employeeinfo.Age.Value.ToString() : "") + ",");//年龄
+                        sb.Append(employeeinfo.WorkAge + ",");//服务时间----
+                        sb.Append((employeeinfo.IsAgency == "0" ? strEployeeState : strEployeeState + "(兼职)") + ",");//员工状态
+                        sb.Append(employeeinfo.PostChangeType + ",");//异动类型
                         sb.Append("\r\n");
                     }
                     byte[] result = Encoding.GetEncoding("GB2312").GetBytes(sb.ToString());

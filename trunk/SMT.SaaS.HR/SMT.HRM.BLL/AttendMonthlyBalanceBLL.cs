@@ -2788,7 +2788,9 @@ namespace SMT.HRM.BLL
                 decimal? dCurEvecDays = entAttRdTemps.Count();
 
                 IQueryable<T_HR_EMPLOYEEEVECTIONRECORD> entEvecRds = from n in dal.GetObjects<T_HR_EMPLOYEEEVECTIONRECORD>()
-                                                                     where n.EMPLOYEEID == strEmployeeID && n.ENDDATE >= dtStart
+                                                                     where n.EMPLOYEEID == strEmployeeID 
+                                                                     && n.STARTDATE>=dtStart
+                                                                     && n.ENDDATE <=dtEnd
                                                                      select n;
 
                 if (entEvecRds.Count() == 0)
@@ -2796,35 +2798,37 @@ namespace SMT.HRM.BLL
                     return;
                 }
 
-                decimal? dCheckEveDays = 0;
+                //decimal? dCheckEveDays = 0;
 
-                DateTime dtCheckStart = new DateTime(), dtCheckEnd = new DateTime();
+                //DateTime dtCheckStart = new DateTime(), dtCheckEnd = new DateTime();
 
                 foreach (T_HR_EMPLOYEEEVECTIONRECORD item in entEvecRds)
                 {
-                    if (item.STARTDATE == dtCheckStart || item.ENDDATE == dtCheckEnd)
-                    {
-                        continue;
-                    }
-
-                    dtCheckStart = item.STARTDATE.Value;
-                    dtCheckEnd = item.ENDDATE.Value;
-
-                    decimal? dDays = entAttRds.Where(t => t.ATTENDANCEDATE >= dtCheckStart && t.ATTENDANCEDATE <= dtCheckEnd).Count();
-
-                    if (dDays > item.TOTALDAYS)
-                    {
-                        dDays = item.TOTALDAYS;
-                    }
-
-                    dCheckEveDays += dDays;
+                    dEvectionTime += item.TOTALDAYS;
                 }
+                //    if (item.STARTDATE == dtCheckStart || item.ENDDATE == dtCheckEnd)
+                //    {
+                //        continue;
+                //    }
 
-                dEvectionTime = dCurEvecDays;
-                if (dCurEvecDays > dCheckEveDays)
-                {
-                    dEvectionTime = dCheckEveDays;
-                }
+                //    dtCheckStart = item.STARTDATE.Value;
+                //    dtCheckEnd = item.ENDDATE.Value;
+
+                //    decimal? dDays = entAttRds.Where(t => t.ATTENDANCEDATE >= dtCheckStart && t.ATTENDANCEDATE <= dtCheckEnd).Count();
+
+                //    if (dDays > item.TOTALDAYS)
+                //    {
+                //        dDays = item.TOTALDAYS;
+                //    }
+
+                //    dCheckEveDays += dDays;
+                //}
+
+                //dEvectionTime = dCurEvecDays;
+                //if (dCurEvecDays > dCheckEveDays)
+                //{
+                //    dEvectionTime = dCheckEveDays;
+                //}
 
             }
             catch (Exception ex)
@@ -2865,6 +2869,7 @@ namespace SMT.HRM.BLL
                                                                      where n.EMPLOYEEID == strEmployeeID 
                                                                      && n.STARTDATE >= dtStart
                                                                      && n.ENDDATE<=dtEnd
+                                                                     && n.CHECKSTATE=="2"
                                                                      select n;
 
                 if (entEvecRds.Count() == 0)
