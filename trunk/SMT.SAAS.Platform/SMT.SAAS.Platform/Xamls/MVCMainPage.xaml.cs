@@ -657,6 +657,13 @@ namespace SMT.SAAS.Platform.Xamls
                     CheckPermission(moduleinfo);
                 }
             }
+            else
+            {
+                AppContext.SystemMessage("moduleinfo 未加载：moduleid："+strCurModuleID);
+                //AppContext.ShowSystemMessageText();
+                hideLoadingBar();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+            }
         }
 
         private void CheckPermission(ModuleInfo module)
