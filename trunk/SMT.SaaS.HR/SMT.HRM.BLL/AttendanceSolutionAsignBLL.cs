@@ -1929,7 +1929,8 @@ namespace SMT.HRM.BLL
                 T_HR_SCHEDULINGTEMPLATEDETAIL item = entTemplateDetails.Where(c => c.SCHEDULINGDATE == m.ToString()).FirstOrDefault();
 
                 var qc = from ar in dal.GetObjects<T_HR_ATTENDANCERECORD>()
-                         where ar.OWNERCOMPANYID == entCompany.COMPANYID && ar.EMPLOYEEID == item_emp.EMPLOYEEID && ar.ATTENDANCEDATE == dtCurDate
+                         where //ar.OWNERCOMPANYID == entCompany.COMPANYID && 
+                         ar.EMPLOYEEID == item_emp.EMPLOYEEID && ar.ATTENDANCEDATE == dtCurDate
                          select ar;
 
                 T_HR_ATTENDANCERECORD entUpdate = qc.FirstOrDefault();
