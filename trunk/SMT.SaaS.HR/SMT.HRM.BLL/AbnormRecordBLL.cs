@@ -747,9 +747,14 @@ namespace SMT.HRM.BLL
                     item.REMARK = item.REMARK + " 打卡记录导入检查考勤状态:" + item.ATTENDANCESTATE;
                     bllAttendanceRecord.ModifyAttRd(item);
 
-                    //检查是否有出差及请假并确认一次状态
-                    CheckEvectionRecordAndLeaveRecordAttendState(item, entClockInRds, ref strMsg, ref bIsAbnorm);
                 }
+                var startItem = entAttRds.ToList().OrderBy(c => c.ATTENDANCEDATE).FirstOrDefault();
+                var endItem = entAttRds.ToList().OrderBy(c => c.ATTENDANCEDATE).LastOrDefault();
+                //检查是否有出差及请假并确认一次状态
+                string EMPLOYEEID=startItem.EMPLOYEEID;
+                DateTime dtStartDate=startItem.ATTENDANCEDATE.Value;
+                DateTime dtEndDate= endItem.ATTENDANCEDATE.Value;
+                CheckEvectionRecordAndLeaveRecordAttendState(startItem.EMPLOYEEID, dtStartDate, dtEndDate, ref strMsg, ref bIsAbnorm);
                 strMsg = "{SAVESUCCESSED}";
             }
             catch (Exception ex)
@@ -766,31 +771,34 @@ namespace SMT.HRM.BLL
         /// <param name="entClockInRds">打卡原始记录</param>
         /// <param name="strMsg">处理结果的消息</param>
         /// <param name="bIsAbnorm">是否出现考勤异常的标志(true/false)</param>
-        private void CheckEvectionRecordAndLeaveRecordAttendState(T_HR_ATTENDANCERECORD entAttRd, IQueryable<T_HR_EMPLOYEECLOCKINRECORD> entClockInRds, ref string strMsg, ref bool bIsAbnorm)
+        private void CheckEvectionRecordAndLeaveRecordAttendState(string EMPLOYEEID, DateTime dtStartDate,DateTime dtEndDate, ref string strMsg, ref bool bIsAbnorm)
         {
             try
             {
                 //获取请假记录使用的起止时间
-                DateTime dtStartDate = entAttRd.ATTENDANCEDATE.Value;
-                DateTime dtEndDate = entAttRd.ATTENDANCEDATE.Value.AddDays(1).AddSeconds(-1);
-
+                //DateTime dtStartDate = entAttRd.ATTENDANCEDATE.Value;
+                //DateTime dtEndDate = entAttRd.ATTENDANCEDATE.Value.AddDays(1).AddSeconds(-1);
+                dtEndDate = dtEndDate.AddDays(1).AddSeconds(-1);
                 #region  启动出差处理考勤异常的线程
                 //查询出差记录，检查当天存在出差情况
                 EmployeeEvectionRecordBLL bllEvectionRd = new EmployeeEvectionRecordBLL();
-                T_HR_EMPLOYEEEVECTIONRECORD entity = bllEvectionRd.GetEmployeeEvectionRdByEmployeeIdAndDate(entAttRd.EMPLOYEEID, entAttRd.ATTENDANCEDATE);
+                var entityEvections = from ent in dal.GetObjects<T_HR_EMPLOYEEEVECTIONRECORD>()
+                                                     where ent.STARTDATE >= dtStartDate && ent.ENDDATE <= dtEndDate
+                                                     && ent.EMPLOYEEID == EMPLOYEEID && ent.CHECKSTATE=="2"
+                                                    select ent;;
                 //如果有出差记录，就判断出差是否为全天
-                if (entity != null)
+                if (entityEvections.Count()>0)
                 {
                     //出差消除异常
-                    string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();                    
-                    DealEmployeeAbnormRecord(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, attState);
+                    string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
+                    DealEmployeeAbnormRecord(EMPLOYEEID, dtStartDate, dtEndDate, attState);
                 }
                 #endregion
 
                 #region  启动请假处理考勤异常的线程
                 //查询请假记录，检查当天存在请假情况
                 EmployeeLeaveRecordBLL bllLeaveRd = new EmployeeLeaveRecordBLL();
-                IQueryable<T_HR_EMPLOYEELEAVERECORD> entLeaveRds = bllLeaveRd.GetEmployeeLeaveRdListByEmployeeIDAndDate(entAttRd.EMPLOYEEID, dtStartDate, dtEndDate, "2");
+                IQueryable<T_HR_EMPLOYEELEAVERECORD> entLeaveRds = bllLeaveRd.GetEmployeeLeaveRdListByEmployeeIDAndDate(EMPLOYEEID, dtStartDate, dtEndDate, "2");
 
                 List<T_HR_EMPLOYEELEAVERECORD> entLeaveRdList = entLeaveRds.ToList();
                 if (entLeaveRdList.Count() > 0)

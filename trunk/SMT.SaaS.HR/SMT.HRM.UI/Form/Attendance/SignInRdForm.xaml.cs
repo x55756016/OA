@@ -188,7 +188,11 @@ namespace SMT.HRM.UI.Form.Attendance
             AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
             AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
             AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "EMPLOYEEFULLNAME", Info.EMPLOYEENAME, tbEmpName.Text));
-
+            if (SignInDetailList.Count > 0)
+            {
+                //签卡类型
+                AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "SIGNINCATEGORY", SignInDetailList[0].REASONCATEGORY, reson[SignInDetailList[0].REASONCATEGORY.ToString()]));
+            }
             foreach (var v in SignInDetailList)
             {
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEESIGNINDETAIL", "ABNORMCATEGORY", v.ABNORMCATEGORY, abnormcategory[v.ABNORMCATEGORY.ToString()], v.SIGNINDETAILID));

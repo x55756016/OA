@@ -140,6 +140,16 @@ namespace SMT.HRM.UI.Form.Attendance
 
                 }
             }
+            SetDatePicker();
+        }
+
+        /// <summary>
+        /// 设置DatePicker控件格式，所能选的时间范围
+        /// </summary>
+        void SetDatePicker()
+        {
+            dpStarDate.DisplayDateStart = DateTime.Parse(DateTime.Now.AddMonths(1).ToString("yyyy-MM") + "-01");
+            dpEndDate.DisplayDateStart = DateTime.Parse(DateTime.Now.AddMonths(1).ToString("yyyy-MM") + "-02");
         }
 
         /// <summary>

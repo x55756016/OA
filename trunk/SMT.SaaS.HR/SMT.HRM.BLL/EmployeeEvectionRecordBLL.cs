@@ -275,10 +275,12 @@ namespace SMT.HRM.BLL
         /// <param name="strEmployeeId"></param>
         /// <param name="dtTempDate"></param>
         /// <returns></returns>
-        public T_HR_EMPLOYEEEVECTIONRECORD GetEmployeeEvectionRdByEmployeeIdAndDate(string strEmployeeId, DateTime? dtTempDate)
-        {
-            return dal.GetObjects().FirstOrDefault(s => s.EMPLOYEEID == strEmployeeId && s.STARTDATE <= dtTempDate && s.ENDDATE >= dtTempDate);
-        }
+        //public T_HR_EMPLOYEEEVECTIONRECORD GetEmployeeEvectionRdByEmployeeIdAndDate(string strEmployeeId, DateTime? dtstart,DateTime dtend)
+        //{
+        //    var q=from ent in dal.GetObjects()
+        //        where ent.STARTDATE>=dtstart && ent.ENDDATE<=dtend
+        //              select ent;
+        //}
 
         /// <summary>
         /// 批量新增出差记录

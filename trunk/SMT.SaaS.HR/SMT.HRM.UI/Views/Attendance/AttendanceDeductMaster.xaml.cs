@@ -187,7 +187,15 @@ namespace SMT.HRM.UI.Views.Attendance
             }
             else
             {
-                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "ATTENDANCEUNUSUALDEDUCT")));
+                string strTemp = e.Result;
+                if (strTemp != "DELETESUCCESSED")
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(strTemp));
+                }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "ATTENDANCEUNUSUALDEDUCT")));
+                }
             }
 
             BindGrid();

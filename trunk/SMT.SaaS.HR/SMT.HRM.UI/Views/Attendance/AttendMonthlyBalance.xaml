@@ -55,7 +55,7 @@
                            SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}"></controls:TreeView>-->
                 <smtv:OrganizationTreeView x:Name="treeOrganization" Grid.RowSpan="2" Grid.Column="0"></smtv:OrganizationTreeView>
                 <data:DataGrid x:Name="dgAMBList" Grid.Row="0" Grid.Column="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" LoadingRow="dgAMBList_LoadingRow" 
-                       Style="{StaticResource DataGridStyle}"
+                       Style="{StaticResource DataGridStyle}" FrozenColumnCount="4"
                         CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
                     <data:DataGrid.Columns>
                         <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
@@ -76,7 +76,7 @@
                                 </DataTemplate>
                             </data:DataGridTemplateColumn.CellTemplate>
                         </data:DataGridTemplateColumn>
-
+                        <data:DataGridTextColumn Header="DEPARTMENT" Binding="{Binding OWNERDEPARTMENTID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                         <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                         <data:DataGridTextColumn Header="BALANCEYEAR" Binding="{Binding BALANCEYEAR}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                         <data:DataGridTextColumn Header="BALANCEMONTH" Binding="{Binding BALANCEMONTH}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>

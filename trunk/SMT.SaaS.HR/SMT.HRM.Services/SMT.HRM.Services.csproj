@@ -140,7 +140,9 @@
     <Content Include="XML\T_HR_EMPLOYEESALARYRECORD.xml" />
     <Content Include="XML\T_HR_EMPLOYEESALARYRECORDHIS.xml" />
     <Content Include="XML\T_HR_EMPLOYEESALARYRECORDPAYMENT.xml" />
-    <Content Include="XML\T_HR_EMPLOYEESIGNINRECORD.xml" />
+    <Content Include="XML\T_HR_EMPLOYEESIGNINRECORD.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="XML\T_HR_KPIRECORD.xml" />
     <Content Include="XML\T_HR_LEFTOFFICE.xml" />
     <Content Include="XML\T_HR_LEFTOFFICECONFIRM.xml" />

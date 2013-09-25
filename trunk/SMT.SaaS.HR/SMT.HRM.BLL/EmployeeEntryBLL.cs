@@ -15,7 +15,7 @@ using SMT.SaaS.BLLCommonServices.PermissionWS;
 using SMT.SaaS.BLLCommonServices.MailService;
 using SMT.HRM.BLL.Report;
 using SMT.SaaS.SmtOlineEn;
-
+using Enyim.Caching;
 
 using System.Data;
 using System.Data.Objects;
@@ -1047,8 +1047,26 @@ namespace SMT.HRM.BLL
                     //修改时间为当前时间
                     employeeEntry.UPDATEDATE = DateTime.Now;
                     //更新入职表
-                    dal.UpdateFromContext(employeeEntry); 
+                    dal.UpdateFromContext(employeeEntry);
 
+                    //审核未通过执行的业务
+                    if (CheckState == Convert.ToInt32(CheckStates.UnApproved).ToString())
+                    {
+                        #region 更新岗位信息
+                        var employeePosts = from ep in dal.GetObjects<T_HR_EMPLOYEEPOST>()
+                                            join en in dal.GetObjects() on ep.EMPLOYEEPOSTID equals en.EMPLOYEEPOSTID
+                                            where ep.T_HR_EMPLOYEE.EMPLOYEEID == tmp.EMPLOYEEID && ep.EMPLOYEEPOSTID == tmp.EMPLOYEEPOSTID
+                                            select ep;
+                        Foundation.Log.Tracer.Debug("入职审核未通过修改员工岗位信息" + tmp.EMPLOYEEID + " 的岗位id为 " + tmp.EMPLOYEEPOSTID + ",记录数为" + employeePosts.Count());
+                        var employeePost = employeePosts.FirstOrDefault();
+                        if (employeePost != null)
+                        {
+                            employeePost.CHECKSTATE = CheckState;
+                            //更新岗位信息
+                            dal.UpdateFromContext(employeePost);
+                        }
+                        #endregion
+                    }
 
                     //审核通过 执行的业务
                     if (CheckState == Convert.ToInt32(CheckStates.Approved).ToString())

@@ -50,10 +50,9 @@
 
             <!--Row 1:Title-->
             <Border  Grid.Row="1" Height="1" BorderBrush="#FF6D8193" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
-
-            <!--Row 2:DataGrid-->
+                <!--Row 2:DataGrid-->
             <data:DataGrid x:Name="dgAMBList" Grid.Row="2" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" LoadingRow="dgAMBList_LoadingRow" 
-                       Style="{StaticResource DataGridStyle}"
+                       Style="{StaticResource DataGridStyle}"  FrozenColumnCount="4" VerticalScrollBarVisibility="Visible"  MaxHeight="400"
                         CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
                 <data:DataGrid.Columns>
                     <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
@@ -63,7 +62,7 @@
                             </DataTemplate>
                         </data:DataGridTemplateColumn.CellTemplate>
                     </data:DataGridTemplateColumn>
-                    <data:DataGridTemplateColumn Header="序号" IsReadOnly="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="30">
+                    <data:DataGridTemplateColumn Header="序号" IsReadOnly="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="30" >
                         <data:DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -73,6 +72,7 @@
                             </DataTemplate>
                         </data:DataGridTemplateColumn.CellTemplate>
                     </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="DEPARTMENT"   Binding="{Binding OWNERDEPARTMENTID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>                    
                     <data:DataGridTextColumn Header="BALANCEDATE" Binding="{Binding BALANCEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="REALNEEDATTENDDAYS" Binding="{Binding REALNEEDATTENDDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
@@ -95,7 +95,6 @@
                     <data:DataGridTextColumn Header="PRENATALCARELEAVEDAYS" Binding="{Binding PRENATALCARELEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="FUNERALLEAVEDAYS" Binding="{Binding FUNERALLEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="EVECTIONDAYS" Binding="{Binding EVECTIONTIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                    <data:DataGridTextColumn Header="OUTAPPLYTIME" Binding="{Binding OUTAPPLYTIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                 </data:DataGrid.Columns>
             </data:DataGrid>
 

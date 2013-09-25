@@ -47,12 +47,7 @@ namespace SMT.HRM.UI.Form.Salary
             timer.Interval = new TimeSpan(10000);
             timer.Tick += new EventHandler(timer_Tick);
             //  progressGenerate.Maximum = 100;
-            lkSalaryCompany.SearchButton.IsEnabled = false;
-            lkSalaryCompany.TxtLookUp.IsReadOnly = true;
-            salarycompany = new T_HR_COMPANY();
-            salarycompany.COMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-            salarycompany.CNAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
-            lkSalaryCompany.DataContext = salarycompany;
+            InitOrgInfo();
             if (System.DateTime.Now.Month <= 1)
             {
                 numYear.Value = System.DateTime.Now.Year - 1;
@@ -65,6 +60,32 @@ namespace SMT.HRM.UI.Form.Salary
             }
         }
 
+        /// <summary>
+        /// 初始化控件信息
+        /// </summary>
+        private void InitOrgInfo()
+        {
+            #region 发薪机构信息
+            lkSalaryCompany.SearchButton.IsEnabled = false;
+            lkSalaryCompany.TxtLookUp.IsReadOnly = true;
+            salarycompany = new T_HR_COMPANY();
+            salarycompany.COMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+            salarycompany.CNAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+            lkSalaryCompany.DataContext = salarycompany;
+            #endregion
+
+            #region 指定结算岗位信息
+            T_HR_POST lkSelectPost = new T_HR_POST();
+            lkSelectPost.POSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+            lkSelectPost.T_HR_POSTDICTIONARY = new T_HR_POSTDICTIONARY();
+            lkSelectPost.T_HR_POSTDICTIONARY.POSTNAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName;
+            lkSelectPost.T_HR_DEPARTMENT = new T_HR_DEPARTMENT();
+            lkSelectPost.T_HR_DEPARTMENT.T_HR_COMPANY = new T_HR_COMPANY();
+            lkSelectPost.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+            lkSelectObj.DataContext = lkSelectPost;
+            lkSelectObj.DisplayMemberPath = "T_HR_POSTDICTIONARY.POSTNAME";
+            #endregion
+        }
         void client_SalaryRecordAccountCheckCompleted(object sender, SalaryRecordAccountCheckCompletedEventArgs e)
         {
             #region ....
@@ -141,7 +162,7 @@ namespace SMT.HRM.UI.Form.Salary
                             //sbresult.Remove(0, sbresult.Length);
                             //sbresult.Append(Utility.GetResourceStr("PARTERROR"));
                             com.SelectionBox(Utility.GetResourceStr("PAYSELECTWINDOW"), Utility.GetResourceStr(sbresult.ToString()), ComfirmWindow.confirmation, Result);
-                            txtResult.Text = sbresult.ToString()+System.Environment.NewLine+txtResult.Text;
+                            txtResult.Text = sbresult.ToString() + System.Environment.NewLine + txtResult.Text;
                             //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("FAILINFORMATION"), Utility.GetResourceStr(sbresult.ToString()));
                             break;
                     }
@@ -304,23 +325,23 @@ namespace SMT.HRM.UI.Form.Salary
                 Dictionary<string, string> GeneratePrameter = new Dictionary<string, string>();
                 GeneratePrameter.Add("GernerateType", GernerateType.ToString());
                 GeneratePrameter.Add("GenerateEmployeePostid", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID);
-                
+
                 if (ent is T_HR_COMPANY)
-                {   
+                {
                     GeneratePrameter.Add("GenerateCompanyid", ((T_HR_COMPANY)ent).COMPANYID);
-                    client.SalaryRecordAccountCheckAsync(GeneratePrameter,0, ((T_HR_COMPANY)ent).COMPANYID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor(), ent);
+                    client.SalaryRecordAccountCheckAsync(GeneratePrameter, 0, ((T_HR_COMPANY)ent).COMPANYID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor(), ent);
 
                 }
                 else if (ent is T_HR_DEPARTMENT)
                 {
                     GeneratePrameter.Add("GenerateCompanyid", ((T_HR_DEPARTMENT)ent).T_HR_COMPANY.COMPANYID);
-                    client.SalaryRecordAccountCheckAsync(GeneratePrameter,1, ((T_HR_DEPARTMENT)ent).DEPARTMENTID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor());
+                    client.SalaryRecordAccountCheckAsync(GeneratePrameter, 1, ((T_HR_DEPARTMENT)ent).DEPARTMENTID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor());
 
                 }
                 else if (ent is T_HR_POST)
-                {                   
+                {
                     GeneratePrameter.Add("GenerateCompanyid", ((T_HR_POST)ent).T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID);
-                    client.SalaryRecordAccountCheckAsync(GeneratePrameter,2, ((T_HR_POST)ent).POSTID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor());
+                    client.SalaryRecordAccountCheckAsync(GeneratePrameter, 2, ((T_HR_POST)ent).POSTID, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor());
 
                 }
                 else if (ent is T_HR_EMPLOYEE)
@@ -334,7 +355,7 @@ namespace SMT.HRM.UI.Form.Salary
                         return;
                     }
                     GeneratePrameter.Add("GenerateCompanyid", ((T_HR_EMPLOYEE)ent).OWNERCOMPANYID);
-                    client.SalaryRecordAccountCheckAsync(GeneratePrameter,3, strOrgId, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor());
+                    client.SalaryRecordAccountCheckAsync(GeneratePrameter, 3, strOrgId, (int)numYear.Value, (int)numMonth.Value, GetCreateInfor());
 
                 }
             }
@@ -378,7 +399,7 @@ namespace SMT.HRM.UI.Form.Salary
                 {
                     RefreshUI(RefreshedTypes.HideProgressBar);
                 }
-            } 
+            }
             if (GernerateType == 3)//指定的结算岗位
             {
                 var ent = lkSelectObj.DataContext;
@@ -396,11 +417,11 @@ namespace SMT.HRM.UI.Form.Salary
                     GeneratePrameter.Add("GenerateEmployeePostid", ((T_HR_POST)ent).POSTID);
                     GeneratePrameter.Add("GenerateCompanyid", ((T_HR_POST)ent).T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID);
                     if (string.IsNullOrEmpty(GeneratePrameter["GernerateType"])
-                        ||string.IsNullOrEmpty(GeneratePrameter["GenerateEmployeePostid"])
-                        ||string.IsNullOrEmpty(GeneratePrameter["GenerateCompanyid"]))
+                        || string.IsNullOrEmpty(GeneratePrameter["GenerateEmployeePostid"])
+                        || string.IsNullOrEmpty(GeneratePrameter["GenerateCompanyid"]))
                     {
                         MessageBox.Show("结算薪资参数异常，请联系管理员，GernerateType" + GeneratePrameter["GernerateType"]
-                            +"GenerateEmployeePostid"+GeneratePrameter["GenerateEmployeePostid"]
+                            + "GenerateEmployeePostid" + GeneratePrameter["GenerateEmployeePostid"]
                         + "GenerateCompanyid" + GeneratePrameter["GenerateCompanyid"]);
                         return;
                     }
@@ -473,14 +494,14 @@ namespace SMT.HRM.UI.Form.Salary
                     {
                         var ent = lookup.SelectedObj as T_HR_POST;
                         var q = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts.Where(c => c.PostID == ent.POSTID);
-                        if (q.Count()<1)
+                        if (q.Count() < 1)
                         {
                             MessageBox.Show("你不在此结算岗位上任职，不能结算！");
                             return;
                         }
                         //var ent = lookup.SelectedObj as T_HR_POST;
                         lkSelectObj.DataContext = lookup.SelectedObj;
-                        lkSelectObj.DisplayMemberPath = "T_HR_POSTDICTIONARY.POSTNAME"; ;
+                        lkSelectObj.DisplayMemberPath = "T_HR_POSTDICTIONARY.POSTNAME";
                     }
                 }
                 else
@@ -639,6 +660,7 @@ namespace SMT.HRM.UI.Form.Salary
                 lkSalaryCompany.Visibility = Visibility.Collapsed;
                 tbSalaryCompany.Visibility = Visibility.Collapsed;
 
+                lkSelectObj.DataContext = null;
                 lkSelectObj.Visibility = Visibility.Visible;
                 tbselectObj.Visibility = Visibility.Visible;
                 tbselectObj.Text = "组织架构";
@@ -669,7 +691,7 @@ namespace SMT.HRM.UI.Form.Salary
 
                 lkEmployee.Visibility = Visibility.Collapsed;
                 tbEmployee.Visibility = Visibility.Collapsed;
-
+                InitOrgInfo();//结算岗位就初始化岗位信息和发薪结构名称
             }
         }
 
@@ -689,7 +711,7 @@ namespace SMT.HRM.UI.Form.Salary
                 temp.OWNERDEPARTMENTID = form.SelectedEmployees.FirstOrDefault().OWNERDEPARTMENTID;
                 temp.OWNERCOMPANYID = form.SelectedEmployees.FirstOrDefault().OWNERCOMPANYID;
                 lkEmployee.DataContext = temp;
-                lkEmployee.TxtLookUp.Text = temp.EMPLOYEECNAME + "-" + form.SelectedEmployees.FirstOrDefault().PostName 
+                lkEmployee.TxtLookUp.Text = temp.EMPLOYEECNAME + "-" + form.SelectedEmployees.FirstOrDefault().PostName
                     + "-" + form.SelectedEmployees.FirstOrDefault().DepartmentName + "-" + form.SelectedEmployees.FirstOrDefault().CompanyName;
             };
             //form.MinWidth = 450;

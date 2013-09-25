@@ -606,7 +606,10 @@ namespace SMT.HRM.BLL
                 {
                     ents = ents.Where(filterString, queryParas.ToArray());
                 }
-
+                if (!string.IsNullOrWhiteSpace(userID))
+                {
+                    ents = ents.Where(en => en.CREATEUSERID == userID);//只能提交自己结算的薪资对象
+                }
                 string year = starttime.Year.ToString();
                 string month = starttime.Month.ToString();
                 ents = ents.Where(m => m.SALARYYEAR == year && m.SALARYMONTH == month);

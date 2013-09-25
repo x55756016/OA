@@ -26,8 +26,8 @@
     <Attribute Name="EMPLOYEEFULLNAME" LableResourceID="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="SIGNINTIME" LableResourceID="SIGNINTIME" Description="签卡日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
-    <Attribute Name="SIGNINCATEGORY" LableResourceID="SIGNINCATEGORY" Description="签卡类型" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="0,漏打,1因公外出,2机械故障" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SIGNINCATEGORY" LableResourceID="SIGNINCATEGORY" Description="签卡类型" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>

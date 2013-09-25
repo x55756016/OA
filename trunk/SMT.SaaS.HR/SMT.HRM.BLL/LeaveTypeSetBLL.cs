@@ -52,23 +52,30 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public T_HR_LEAVETYPESET GetLeaveTypeSetByID(string strLeaveTypeSetId)
         {
-            if (string.IsNullOrEmpty(strLeaveTypeSetId))
+            try
+            {
+                if (string.IsNullOrEmpty(strLeaveTypeSetId))
+                {
+                    return null;
+                }
+
+                LeaveTypeSetDAL dalLeaveTypeSet = new LeaveTypeSetDAL();
+                StringBuilder strfilter = new StringBuilder();
+                List<string> objArgs = new List<string>();
+
+                if (!string.IsNullOrEmpty(strLeaveTypeSetId))
+                {
+                    strfilter.Append(" LEAVETYPESETID == @0");
+                    objArgs.Add(strLeaveTypeSetId);
+                }
+
+                T_HR_LEAVETYPESET entLTRd = dalLeaveTypeSet.GetLeaveTypeSetRdByMultSearch(strfilter.ToString(), objArgs.ToArray());
+                return entLTRd;
+            }
+            catch (Exception)
             {
                 return null;
             }
-
-            LeaveTypeSetDAL dalLeaveTypeSet = new LeaveTypeSetDAL();
-            StringBuilder strfilter = new StringBuilder();
-            List<string> objArgs = new List<string>();
-
-            if (!string.IsNullOrEmpty(strLeaveTypeSetId))
-            {
-                strfilter.Append(" LEAVETYPESETID == @0");
-                objArgs.Add(strLeaveTypeSetId);
-            }
-
-            T_HR_LEAVETYPESET entLTRd = dalLeaveTypeSet.GetLeaveTypeSetRdByMultSearch(strfilter.ToString(), objArgs.ToArray());
-            return entLTRd;
         }
 
         /// <summary>

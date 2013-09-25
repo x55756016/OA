@@ -665,8 +665,9 @@ namespace SMT.HRM.BLL
         /// <param name="objId"></param>
         /// <param name="dtStar"></param>
         /// <param name="dtEnd"></param>
+        /// <param name="DealType">0处理免打卡人员，1处理打卡人员，2处理所有</param>
         /// <returns></returns>
-        public string CompulsoryInitialization(string objType, string objId, DateTime dtStar, DateTime dtEnd)
+        public string CompulsoryInitialization(string objType, string objId, DateTime dtStar, DateTime dtEnd,string DealType)
         {
             string strMsg = string.Empty;
             try
@@ -693,17 +694,29 @@ namespace SMT.HRM.BLL
                             {
                                 T_HR_ATTENDANCESOLUTIONASIGN entAttendanceSolution = bll.GetAttendanceSolutionAsignByEmployeeIDAndDate(emp.EMPLOYEEID, dtStar);
 
-                                if (entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//考勤方案设置为不考勤
+                                if (DealType == "0")//如果是处理需要打卡人员的记录，跳过免打卡记录员工
                                 {
-                                    Tracer.Debug("开始强制删除考勤初始化记录，员工姓名：" + emp.EMPLOYEECNAME + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME
-                                        + ",考勤打卡设置为：" + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE);
+
+                                    if (entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE != (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//
+                                    {
+                                        Tracer.Debug("" + emp.EMPLOYEECNAME + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME
+                                            + "," + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE);
+                                        continue;
+                                    }
+                                }
+                                else if (DealType == "1")//如果是处理免打卡人员的记录，跳过打卡人员
+                                {
+
+                                    if (entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//
+                                    {
+                                        Tracer.Debug("" + emp.EMPLOYEECNAME + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME
+                                              + "," + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE);
+
+                                        continue;
+                                    }
                                 }
                                 else
                                 {
-                                    Tracer.Debug("员工处理被跳过，需要打卡，员工姓名：" + emp.EMPLOYEECNAME + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME
-                                          + ",考勤打卡设置为：" + entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE);
-                               
-                                    continue;
                                 }
                                 strMsg = "开始强制删除考勤初始化记录，员工姓名：" + emp.EMPLOYEECNAME;
                                 var q = from ent in dal.GetObjects<T_HR_ATTENDANCERECORD>()

@@ -216,7 +216,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 Stream.Dispose();
                 Stream.Close();
 
-                UploadFileModel UploadFile = new UploadFileModel();
+                SMT.Saas.Tools.PersonnelWS.UploadFileModel UploadFile = new SMT.Saas.Tools.PersonnelWS.UploadFileModel();
                 UploadFile.FileName = OpenFileDialog.File.Name;
                 UploadFile.File = Buffer;
 

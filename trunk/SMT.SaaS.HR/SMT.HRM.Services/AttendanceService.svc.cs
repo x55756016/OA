@@ -364,7 +364,7 @@ namespace SMT.HRM.Services
             string smtmsg = string.Empty;
             using (AttendanceRecordBLL bll = new AttendanceRecordBLL())
             {
-                smtmsg=bll.CompulsoryInitialization(objType, objId, dtStar, dtEnd);
+                smtmsg=bll.CompulsoryInitialization(objType, objId, dtStar, dtEnd,"2");
 
                 return smtmsg;
             }

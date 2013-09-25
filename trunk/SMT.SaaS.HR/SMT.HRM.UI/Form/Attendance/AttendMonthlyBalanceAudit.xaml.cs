@@ -306,31 +306,132 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_GetAttendMonthlyBalanceRdListForAuditCompleted(object sender, GetAttendMonthlyBalanceRdListForAuditCompletedEventArgs e)
         {
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            if (e.Error == null)
+            try
             {
-                entAMBList = e.Result;
-
-                dgAMBList.ItemsSource = entAMBList;
-                dataPager.PageCount = e.pageCount;
-
-                if (entAMBList == null)
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                if (e.Error == null)
                 {
-                    return;
-                }
+                    if (e.Result == null)
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ISNOT"));
+                        return;
+                    }
+                    entAMBList = e.Result;
+                    IEnumerable<T_HR_ATTENDMONTHLYBALANCE> entTemp = entAMBList;
+                    //表没有部门名称字段，这里用部门ID字段显示部门名称，只做显示使用，不会影响数据库数据
+                    entTemp.ForEach(it =>
+                    {
+                        //这里OWNERDEPARTMENTID为员工个人档案的所属部门ID，所以这里是可以找到该员工的部门
+                        it.OWNERDEPARTMENTID = GetFullOrgName(it.OWNERDEPARTMENTID);
+                    });
 
-                if (entAMBList.Count() == 0)
+                    dgAMBList.ItemsSource = entTemp;
+                    dataPager.PageCount = e.pageCount;
+
+                    if (entAMBList == null)
+                    {
+                        return;
+                    }
+
+                    if (entAMBList.Count() == 0)
+                    {
+                        return;
+                    }
+
+                    RefreshUI(RefreshedTypes.AuditInfo);
+                    SetToolBar();
+                }
+                else
                 {
-                    return;
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
                 }
-
-                RefreshUI(RefreshedTypes.AuditInfo);
-                SetToolBar();
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
             }
+        }
+        /// <summary>
+        /// 根据部门ID显示该部门所有所属部门名称
+        /// </summary>
+        /// <param name="depID"></param>
+        /// <returns></returns>
+        public string GetFullOrgName(string depID)
+        {
+            string orgName = string.Empty;
+            try
+            {
+                List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> allDepartments = Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>;
+                SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT department = allDepartments.Where(s => s.DEPARTMENTID == depID).FirstOrDefault();
+                string fatherType = "0";
+                string fatherID = "";
+                bool hasFather = false;
+
+                if (department != null)
+                {
+                    orgName += department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
+                    if (!string.IsNullOrEmpty(department.FATHERTYPE) && !string.IsNullOrEmpty(department.FATHERID))
+                    {
+                        fatherType = department.FATHERTYPE;
+                        fatherID = department.FATHERID;
+                        hasFather = true;
+                    }
+                    else
+                    {
+                        hasFather = false;
+                    }
+                }
+                #region 循环找上级部门
+                while (hasFather)
+                {
+                    if (fatherType == "1" && !string.IsNullOrEmpty(fatherID))
+                    {
+                        department = (from de in allDepartments
+                                      where de.DEPARTMENTID == fatherID
+                                      select de).FirstOrDefault();
+                        if (department != null)
+                        {
+                            orgName += "-" + department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
+                            if (!string.IsNullOrEmpty(department.FATHERTYPE) && !string.IsNullOrEmpty(department.FATHERID))
+                            {
+                                fatherID = department.FATHERID;
+                                fatherType = department.FATHERTYPE;
+                            }
+                            else
+                            {
+                                hasFather = false;
+                            }
+                        }
+                        else
+                        {
+                            hasFather = false;
+                        }
+                    }
+                    else
+                    {
+                        hasFather = false;
+                    }
+                }
+                #endregion
+                string[] orgArr = orgName.Split('-');
+                var ent = orgArr.Reverse();
+                orgName = string.Empty;
+                ent.ForEach(it =>
+                {
+                    if (string.IsNullOrWhiteSpace(orgName))
+                    {
+                        orgName += it;
+                    }
+                    else
+                        orgName += " - " + it;
+                });
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+                //Utility.Log(ex.ToString());
+            }
+            return orgName;
         }
 
         /// <summary>
@@ -340,22 +441,33 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_GetAttendMonthlyBatchBalanceByIDCompleted(object sender, GetAttendMonthlyBatchBalanceByIDCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                AttendMonthlyBatchBalance = e.Result;
-                this.DataContext = AttendMonthlyBatchBalance;
-
-
-                BalanceObjectType = AttendMonthlyBatchBalance.BALANCEOBJECTTYPE;
-                BalanceObjectValue = AttendMonthlyBatchBalance.BALANCEOBJECTID;
-                CheckState = AttendMonthlyBatchBalance.CHECKSTATE;
-                txtBalanceYear.Text = AttendMonthlyBatchBalance.BALANCEYEAR.Value.ToString();
-                nudBalanceMonth.Value = AttendMonthlyBatchBalance.BALANCEMONTH.Value.ToDouble();
-                SetBalanceObject();
+                if (e.Error == null)
+                {
+                    if (e.Result != null)
+                    {
+                         Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ISNOT"));
+                        return;
+                    }
+                        AttendMonthlyBatchBalance = e.Result;
+                        this.DataContext = AttendMonthlyBatchBalance;
+                        BalanceObjectType = AttendMonthlyBatchBalance.BALANCEOBJECTTYPE;
+                        BalanceObjectValue = AttendMonthlyBatchBalance.BALANCEOBJECTID;
+                        CheckState = AttendMonthlyBatchBalance.CHECKSTATE;
+                        txtBalanceYear.Text = AttendMonthlyBatchBalance.BALANCEYEAR.Value.ToString();
+                        nudBalanceMonth.Value = AttendMonthlyBatchBalance.BALANCEMONTH.Value.ToDouble();
+                        SetBalanceObject();
+                    }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
             }
         }
 
