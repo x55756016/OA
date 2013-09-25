@@ -2057,7 +2057,7 @@ namespace SMT.HRM.BLL
                         {
                             if (entAdjustLeave == null)
                             {
-                                continue;
+                                //continue;
                             }
 
                             dAdjustLeaveDays += entAdjustLeave.ADJUSTLEAVEDAYS * dWorkTimePerDay.Value;
@@ -2086,7 +2086,7 @@ namespace SMT.HRM.BLL
                             dSickLeaveFreeDay = 1;
                             if (entAdjustLeave == null)
                             {
-                                continue;
+                                //continue;
                             }
 
                             dAdjustLeaveDays += entAdjustLeave.ADJUSTLEAVEDAYS * dWorkTimePerDay.Value;
