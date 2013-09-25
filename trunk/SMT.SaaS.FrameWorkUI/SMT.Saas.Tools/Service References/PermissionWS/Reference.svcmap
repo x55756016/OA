@@ -24,6 +24,7 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="PermissionService10.xsd" MetadataType="Schema" ID="47e96ccb-6884-443e-a7a7-e90a3c87b79e" SourceId="1" SourceUrl="http://localhost:1604/PermissionService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PermissionService20.xsd" MetadataType="Schema" ID="9e3e6222-59da-4d3a-bf49-2bcecbbc7483" SourceId="1" SourceUrl="http://localhost:1604/PermissionService.svc?xsd=xsd10" />
     <MetadataFile FileName="PermissionService11.xsd" MetadataType="Schema" ID="2ab09dc1-1eaf-4c0e-886d-116dcaf44645" SourceId="1" SourceUrl="http://localhost:1604/PermissionService.svc?xsd=xsd8" />
     <MetadataFile FileName="PermissionService12.xsd" MetadataType="Schema" ID="49d89588-079e-43bd-aaa0-2fe170f430fc" SourceId="1" SourceUrl="http://localhost:1604/PermissionService.svc?xsd=xsd1" />
     <MetadataFile FileName="PermissionService1.disco" MetadataType="Disco" ID="d448ad06-db88-4841-b2f5-c79943057521" SourceId="1" SourceUrl="http://localhost:1604/PermissionService.svc?disco" />

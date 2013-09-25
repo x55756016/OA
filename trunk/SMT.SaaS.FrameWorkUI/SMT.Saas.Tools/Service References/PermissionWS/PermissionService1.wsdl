@@ -20,8 +20,21 @@
       <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" />
       <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="PermissionService_GetSysUserRoleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByID" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByUser" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetSysUserRoleByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysUserRoleByUserResponse" />
+  </wsdl:message>
   <wsdl:message name="PermissionService_GetSysUserByRole_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSysUserByRole" />
   </wsdl:message>
@@ -826,6 +839,18 @@
   <wsdl:message name="PermissionService_SysDictionaryDelete_OutputMessage">
     <wsdl:part name="parameters" element="tns:SysDictionaryDeleteResponse" />
   </wsdl:message>
+  <wsdl:message name="PermissionService_ImportCityCSV_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportCityCSV" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_ImportCityCSV_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportCityCSVResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SaveFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFile" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_SaveFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFileResponse" />
+  </wsdl:message>
   <wsdl:message name="PermissionService_GetSysDictionaryCategory_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSysDictionaryCategory" />
   </wsdl:message>
@@ -940,19 +965,15 @@
   <wsdl:message name="PermissionService_GetSysUserRoleByType_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSysUserRoleByTypeResponse" />
   </wsdl:message>
-  <wsdl:message name="PermissionService_GetSysUserRoleByID_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetSysUserRoleByID" />
-  </wsdl:message>
-  <wsdl:message name="PermissionService_GetSysUserRoleByID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetSysUserRoleByIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="PermissionService_GetSysUserRoleByUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetSysUserRoleByUser" />
-  </wsdl:message>
-  <wsdl:message name="PermissionService_GetSysUserRoleByUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetSysUserRoleByUserResponse" />
-  </wsdl:message>
   <wsdl:portType name="PermissionService">
+    <wsdl:operation name="GetSysUserRoleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByID" message="tns:PermissionService_GetSysUserRoleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByIDResponse" message="tns:PermissionService_GetSysUserRoleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserRoleByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByUser" message="tns:PermissionService_GetSysUserRoleByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByUserResponse" message="tns:PermissionService_GetSysUserRoleByUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetSysUserByRole">
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserByRole" message="tns:PermissionService_GetSysUserByRole_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserByRoleResponse" message="tns:PermissionService_GetSysUserByRole_OutputMessage" />
@@ -1489,6 +1510,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SysDictionaryDelete" message="tns:PermissionService_SysDictionaryDelete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SysDictionaryDeleteResponse" message="tns:PermissionService_SysDictionaryDelete_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ImportCityCSV">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/ImportCityCSV" message="tns:PermissionService_ImportCityCSV_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/ImportCityCSVResponse" message="tns:PermissionService_ImportCityCSV_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/SaveFile" message="tns:PermissionService_SaveFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/SaveFileResponse" message="tns:PermissionService_SaveFile_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetSysDictionaryCategory">
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryCategory" message="tns:PermissionService_GetSysDictionaryCategory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysDictionaryCategoryResponse" message="tns:PermissionService_GetSysDictionaryCategory_OutputMessage" />
@@ -1565,18 +1594,28 @@
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByType" message="tns:PermissionService_GetSysUserRoleByType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByTypeResponse" message="tns:PermissionService_GetSysUserRoleByType_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetSysUserRoleByID">
-      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByID" message="tns:PermissionService_GetSysUserRoleByID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByIDResponse" message="tns:PermissionService_GetSysUserRoleByID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetSysUserRoleByUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByUser" message="tns:PermissionService_GetSysUserRoleByUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysUserRoleByUserResponse" message="tns:PermissionService_GetSysUserRoleByUser_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CustomBinding_PermissionService" type="tns:PermissionService">
     <wsp:PolicyReference URI="#CustomBinding_PermissionService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSysUserRoleByID">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserRoleByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysUserRoleByUser">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserRoleByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetSysUserByRole">
       <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserByRole" style="document" />
       <wsdl:input>
@@ -2783,6 +2822,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ImportCityCSV">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/ImportCityCSV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/SaveFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetSysDictionaryCategory">
       <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysDictionaryCategory" style="document" />
       <wsdl:input>
@@ -2947,24 +3004,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetSysUserRoleByType">
       <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserRoleByType" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSysUserRoleByID">
-      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserRoleByID" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSysUserRoleByUser">
-      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSysUserRoleByUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

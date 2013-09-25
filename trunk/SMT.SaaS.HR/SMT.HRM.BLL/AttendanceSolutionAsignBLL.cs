@@ -795,16 +795,12 @@ namespace SMT.HRM.BLL
             string strMsg = string.Empty;
             try
             {
-                if (CheckAsign(entTemp.ASSIGNEDOBJECTTYPE, entTemp.ASSIGNEDOBJECTID))
+                strMsg = CheckAsign(entTemp.ASSIGNEDOBJECTTYPE, entTemp.ASSIGNEDOBJECTID, entTemp.STARTDATE);//检查是否需要下月生效
+                if (!string.IsNullOrWhiteSpace(strMsg))
                 {
-                    if (Convert.ToDateTime(entTemp.STARTDATE).Year == DateTime.Now.Year)
-                    {
-                        if (Convert.ToDateTime(entTemp.STARTDATE).Month <= DateTime.Now.Month)
-                        {
-                            strMsg = Utility.GetResourceStr("{EARLYEFFECTIVEDATE}");
-                            return strMsg;
-                        }
-                    }
+                    return strMsg;
+
+
                 }
                 if (entTemp == null)
                 {
@@ -869,21 +865,54 @@ namespace SMT.HRM.BLL
         /// <param name="strAssignobjectType">对象类型</param>
         /// <param name="strAssignobjectID">对象ID</param>
         /// <returns>检查结果（true/false）</returns>
-        public bool CheckAsign(string strAssignobjectType, string strAssignobjectID)
+        public string CheckAsign(string strAssignobjectType, string strAssignobjectID, DateTime? startDate)
         {
-            if (Convert.ToInt32(strAssignobjectType) < Convert.ToInt32(Common.AssignedObjectType.Personnel) + 1)
+            string strMsg = string.Empty;
+            try
             {
-                string id = strAssignobjectID.Replace(",", string.Empty).Trim();
-                var ent = from a in dal.GetObjects<T_HR_ATTENDANCERECORD>()
-                          join b in dal.GetObjects<T_HR_SHIFTDEFINE>() on a.T_HR_SHIFTDEFINE.SHIFTDEFINEID equals b.SHIFTDEFINEID
-                          where a.EMPLOYEEID == id
-                          select b.SHIFTDEFINEID;
-                if (ent.Count() > 0)
+                if (Convert.ToInt32(strAssignobjectType) == Convert.ToInt32(Common.AssignedObjectType.Personnel) + 1)
                 {
-                    return true;//已经分配
+                    #region 为员工时，则去考勤记录查找是否有记录，如果则为下个月生效
+                    string id = strAssignobjectID.Replace(",", string.Empty).Trim();
+                    var ent = from a in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+                              join b in dal.GetObjects<T_HR_SHIFTDEFINE>() on a.T_HR_SHIFTDEFINE.SHIFTDEFINEID equals b.SHIFTDEFINEID
+                              // where a.EMPLOYEEID == id
+                              where id.Contains(a.EMPLOYEEID) && a.ATTENDANCEDATE >= startDate
+                              select b.SHIFTDEFINEID;
+                    if (ent.Count() > 0)
+                    {
+                        if (Convert.ToDateTime(startDate).Year == DateTime.Now.Year)
+                        {
+                            if (Convert.ToDateTime(startDate).Month <= DateTime.Now.Month)
+                            {
+                                strMsg = Utility.GetResourceStr("{EARLYEFFECTIVEDATE}");
+                                //return strMsg;
+                            }
+                        }
+                    }
+                    #endregion
                 }
+                else
+                {
+                    //其他考勤机构则要下个月才生效
+                    if (Convert.ToDateTime(startDate).Year == DateTime.Now.Year)
+                    {
+                        if (Convert.ToDateTime(startDate).Month <= DateTime.Now.Month)
+                        {
+                            strMsg = Utility.GetResourceStr("{EARLYEFFECTIVEDATE}");
+                            //return strMsg;
+                        }
+                    }
+                }
+                return strMsg;
             }
-            return false;
+            catch (Exception ex)
+            {
+                strMsg = ex.ToString();
+                Utility.SaveLog("CheckAsign方法验证考勤方案分配出错：" + strMsg);
+                return strMsg;
+            }
+
         }
 
         /// <summary>
@@ -896,10 +925,16 @@ namespace SMT.HRM.BLL
             string strMsg = string.Empty;
             try
             {
+                strMsg = CheckAsign(entTemp.ASSIGNEDOBJECTTYPE, entTemp.ASSIGNEDOBJECTID, entTemp.STARTDATE);//检查是否需要下月生效
+                if (!string.IsNullOrWhiteSpace(strMsg))
+                {
+                    return strMsg;
+                }
                 if (entTemp == null)
                 {
                     return "{REQUIREDFIELDS}";
                 }
+
 
                 bool flag = false;
                 StringBuilder strFilter = new StringBuilder();
