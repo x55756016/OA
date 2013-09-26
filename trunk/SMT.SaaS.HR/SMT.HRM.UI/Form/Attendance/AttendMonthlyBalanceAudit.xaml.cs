@@ -445,7 +445,7 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 if (e.Error == null)
                 {
-                    if (e.Result != null)
+                    if (e.Result == null)
                     {
                          Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ISNOT"));
                         return;

@@ -543,6 +543,9 @@ namespace SMT.HRM.UI.Form.Attendance
 
             RefreshUI(RefreshedTypes.ShowProgressBar);
 
+            string strLeaveSetId = (lkLeaveTypeName.DataContext as T_HR_LEAVETYPESET).LEAVETYPESETID;
+            LeaveRecord.LEAVERECORDID = LeaveRecord.LEAVERECORDID + "|" + strLeaveSetId;
+            
             clientAtt.GetRealLeaveDayByEmployeeIdAndDateAsync(LeaveRecord.LEAVERECORDID, LeaveRecord.EMPLOYEEID, dtStart, dtEnd, dLeaveDay, dLeaveTime, dLeaveTotalTime);
 
             clientAtt.GetLeaveDaysHistoryAsync(ent.LEAVETYPESETID, LeaveRecord.LEAVERECORDID, LeaveRecord.EMPLOYEEID, dtStart, dtEnd, dLeaveYearTimes, dLeaveYearDays, dLeaveMonthTimes, dLeaveMonthDays, dLeaveFistDate, dLeaveSYearTimes);
@@ -1242,6 +1245,9 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_GetRealLeaveDayByEmployeeIdAndDateCompleted(object sender, GetRealLeaveDayByEmployeeIdAndDateCompletedEventArgs e)
         {
+            string[] strArr = LeaveRecord.LEAVERECORDID.Split('|');
+            LeaveRecord.LEAVERECORDID = strArr[0];
+            
             if (e.Error == null)
             {
                 if (!string.IsNullOrEmpty(e.Result))
