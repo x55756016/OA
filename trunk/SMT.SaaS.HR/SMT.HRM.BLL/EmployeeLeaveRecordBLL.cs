@@ -528,27 +528,23 @@ namespace SMT.HRM.BLL
             string strMsg = string.Empty;
             try
             {
+                string[] strArr = strLeaveRecordId.Split('|');
+                string LeaveTypeValue = string.Empty;//
+                if (strArr.Count() >= 2)
+                {
+                    string strLeaveSetId = strArr[1];
+                    strLeaveRecordId = strArr[0];
+                    LeaveTypeSetBLL bllLeaveTypeSet = new LeaveTypeSetBLL();
+                    T_HR_LEAVETYPESET entLeaveTypeSet = bllLeaveTypeSet.GetLeaveTypeSetByID(strLeaveSetId);
+                    if (entLeaveTypeSet != null)
+                    {
+                        LeaveTypeValue = entLeaveTypeSet.LEAVETYPEVALUE;
+                    }
+                }
+
+                #region 有数据情况则直接返回
                 T_HR_EMPLOYEELEAVERECORD entLeaveRecord = GetLeaveRecordByID(strLeaveRecordId);
-                bool flag = false;
-
-                //考勤方案生成带薪假测试开始
-                ////AttendanceSolutionAsignBLL bllAttSolAsign = new AttendanceSolutionAsignBLL();
-                //T_HR_ATTENDANCESOLUTIONASIGN entAttSolAsign = bllAttSolAsign.GetAttendanceSolutionAsignByID("D79F15DA-ABCE-45FB-958A-1A74E2C63E7B");
-
-                //EmployeeBLL bllEmployee = new EmployeeBLL();
-                //T_HR_EMPLOYEE entEmployee = bllEmployee.GetEmployeeByID("60417608-dce1-43b6-89ee-bba37a86f690");
-
-                //EmployeeLevelDayCountBLL bllLevelDayCount = new EmployeeLevelDayCountBLL();
-                //bllLevelDayCount.CalculateEmployeeLevelDayCount(entAttSolAsign, entEmployee, "0");
-
-                //EmployeeLevelDayCountBLL bllLevelDayCount = new EmployeeLevelDayCountBLL();
-                //bllLevelDayCount.CreateLevelDayCountByAsignAttSol("78847AE1-5B8B-4A85-AE55-0BB1DD384D33");
-
-                //CalculateEmployeeLevelDayCount("63908,63906,63911,63901,63904,63903,63907,63902,63905,63909,63912");
-
-                //EmployeeLevelDayCountBLL bllLevelDayCount = new EmployeeLevelDayCountBLL();
-                //bllLevelDayCount.CalculateEmployeeLevelDayCountByOrgID("1", "3cc3cc81-b69b-4be9-87c6-6eed33509442");
-                //return "";
+                bool flag = false; 
                 //考勤方案生成带薪假测试结束
                 if (entLeaveRecord != null)
                 {
@@ -589,7 +585,7 @@ namespace SMT.HRM.BLL
                 {
                     return strMsg;
                 }
-
+                #endregion
                 DateTime dtStart, dtEnd = new DateTime();
                 decimal dTotalLeaveDay = 0;                         //起止时间的时长
 
@@ -622,7 +618,10 @@ namespace SMT.HRM.BLL
 
                 //节假日
                 IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
-
+                if (LeaveTypeValue == "5" || LeaveTypeValue == "6")//5为产假，6为婚假，为产假和婚假时，是算自然日，不算上节假日
+                {
+                    entVacDays = entVacDays.Where(s => s.DAYTYPE == "0");
+                }
                 //取出请假起始日年份和结束日年份的休假调剂工作天数
                 DateTime startDate = Convert.ToDateTime(dtStart.Year + "-1-1");
                 DateTime endDate = Convert.ToDateTime(dtEnd.Year + "-12-31");
@@ -708,7 +707,14 @@ namespace SMT.HRM.BLL
                     }
                 }
 
-                dLeaveDay = dTotalLeaveDay - dVacDay + dWorkDay;    //请假天数 = 请假天数-首尾两天 - 总休假天数 + 休假调剂工作天数
+                if (LeaveTypeValue == "5" || LeaveTypeValue == "6")//5为产假，6为婚假，为产假和婚假时，是算自然日，应该加上双休和节假日
+                {
+                    dLeaveDay = dTotalLeaveDay;
+                }
+                else
+                {
+                    dLeaveDay = dTotalLeaveDay - dVacDay + dWorkDay;    //请假天数 = 请假天数-首尾两天 - 总休假天数 + 休假调剂工作天数
+                }
                 decimal dTempTime = decimal.Round((dLeaveFirstLastTime) / 60, 1);
                 if (dTempTime >= dWorkTimePerDay)
                 {

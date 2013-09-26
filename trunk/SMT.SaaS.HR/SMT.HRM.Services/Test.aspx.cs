@@ -31,23 +31,24 @@ namespace SMT.HRM.Services
             //XElement.Parse(xml);
             //eg.CallWaitAppService(xml);
             #region 重新初始化考勤
-            return;
-            using (AttendanceRecordBLL bll = new AttendanceRecordBLL())
-            {
-                DateTime dtstart = new DateTime(2013, 09, 01);
-                DateTime dtend = dtstart.AddMonths(1).AddDays(-1);
-                string smtmsg
-                    = bll.CompulsoryInitialization("0", "72b3f128-6cf0-498c-8e70-89d0d66403f2", dtstart, dtend, "0");
+            //return;
+            //using (AttendanceRecordBLL bll = new AttendanceRecordBLL())
+            //{
+            //    DateTime dtstart = new DateTime(2013, 09, 01);
+            //    DateTime dtend = dtstart.AddMonths(1).AddDays(-1);
+            //    string smtmsg
+            //        = bll.CompulsoryInitialization("0", "72b3f128-6cf0-498c-8e70-89d0d66403f2", dtstart, dtend, "0");
 
-                //return smtmsg;
-            }
+            //    //return smtmsg;
+            //}
             #endregion
+
+            using (AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL())
+            {
+                //bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("1", "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716", "2013-09");     
+                bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", "24a358f9-8539-4faa-aee6-d5cbc8ea450d", "2013-09");
+            }
         }
-        //using (AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL())
-        //{
-        //    //bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("1", "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716", "2013-09");     
-        //    bllAttendanceSolutionAsign.AsignAttendanceSolutionByOrgID("4", "24a358f9-8539-4faa-aee6-d5cbc8ea450d", "2013-09");
-        //}
         //return;
 
         ////初始化集团打卡记录

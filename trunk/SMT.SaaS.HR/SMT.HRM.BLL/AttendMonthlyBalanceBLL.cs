@@ -2055,12 +2055,12 @@ namespace SMT.HRM.BLL
                         }
                         else if (entLeaveTypeSet.FINETYPE == (Convert.ToInt32(Common.LeaveFineType.AdjLevDeduct) + 1).ToString() || entLeaveTypeSet.FINETYPE == (Convert.ToInt32(Common.LeaveFineType.AdjLevPaidDayDeduct) + 1).ToString())
                         {
-                            if (entAdjustLeave == null)
+                            if (entAdjustLeave != null)
                             {
-                                //continue;
+
+                                dAdjustLeaveDays += entAdjustLeave.ADJUSTLEAVEDAYS * dWorkTimePerDay.Value;
                             }
 
-                            dAdjustLeaveDays += entAdjustLeave.ADJUSTLEAVEDAYS * dWorkTimePerDay.Value;
                         }
 
                         if (entCancelLeave != null)
@@ -2084,12 +2084,11 @@ namespace SMT.HRM.BLL
                         else if (entLeaveTypeSet.FINETYPE == (Convert.ToInt32(Common.LeaveFineType.AdjLevDeduct) + 1).ToString() || entLeaveTypeSet.FINETYPE == (Convert.ToInt32(Common.LeaveFineType.AdjLevPaidDayDeduct) + 1).ToString())
                         {
                             dSickLeaveFreeDay = 1;
-                            if (entAdjustLeave == null)
+                            if (entAdjustLeave != null)
                             {
-                                //continue;
+                                dAdjustLeaveDays += entAdjustLeave.ADJUSTLEAVEDAYS * dWorkTimePerDay.Value;
                             }
 
-                            dAdjustLeaveDays += entAdjustLeave.ADJUSTLEAVEDAYS * dWorkTimePerDay.Value;
                         }
 
                         if (entCancelLeave != null)

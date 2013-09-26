@@ -558,9 +558,7 @@ namespace SMT.HRM.BLL
                 var ents = from a in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
                            join b in dal.GetObjects<T_HR_EMPLOYEE>() on a.EMPLOYEEID equals b.EMPLOYEEID
                            //join ec in dal.GetObjects<T_HR_COMPANY>() on b.OWNERCOMPANYID equals ec.COMPANYID
-                           //join c in dal.GetObjects<T_HR_DEPARTMENT>() on b.OWNERDEPARTMENTID equals c.OWNERDEPARTMENTID
                            join c in dal.GetObjects<T_HR_DEPARTMENT>() on b.OWNERDEPARTMENTID equals c.DEPARTMENTID
-                           //join d in dal.GetObjects<T_HR_POST>() on b.OWNERPOSTID equals d.OWNERPOSTID
                            join d in dal.GetObjects<T_HR_POST>() on b.OWNERPOSTID equals d.POSTID
                            join e in dal.GetObjects<T_HR_SALARYARCHIVE>() on a.ABSENTTIMES equals e.SALARYARCHIVEID
                            select new
@@ -606,7 +604,7 @@ namespace SMT.HRM.BLL
                 {
                     ents = ents.Where(filterString, queryParas.ToArray());
                 }
-                if (!string.IsNullOrWhiteSpace(userID))
+                if (strCheckState=="0" &&  !string.IsNullOrWhiteSpace(userID))//未提交的才受控制
                 {
                     ents = ents.Where(en => en.CREATEUSERID == userID);//只能提交自己结算的薪资对象
                 }
