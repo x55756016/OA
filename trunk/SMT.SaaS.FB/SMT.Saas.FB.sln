@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SMT.SaaS", "SMT.SaaS", "{CCED5A78-D0D3-4705-A115-B558C592D476}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonDll", "CommonDll\CommonDll.csproj", "{82F0DA69-D82C-4F44-A2B6-4D2BCE945BD8}"

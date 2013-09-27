@@ -5487,6 +5487,19 @@ namespace SMT.FB.BLL
                 }
                 #endregion
 
+                #region 月度预算汇总单提交时判断所做预算是否大于年度结余（审核通过时也会判断）
+                if (entity.GetType() == typeof(T_FB_DEPTBUDGETSUMMASTER))
+                {
+                    strMsg = CheckRuleDeptBudgetSum(entity as T_FB_DEPTBUDGETSUMMASTER);
+                    if (!string.IsNullOrWhiteSpace(strMsg))
+                    {
+                        result.Exception = strMsg;
+                        return result;
+                    }
+                }
+                #endregion
+
+
                 #region create order code
                 // 提交时，才生成编号 2012版
                 if (checkStatesOld == CheckStates.UnSubmit && checkStates == CheckStates.Approving)
@@ -5590,6 +5603,153 @@ namespace SMT.FB.BLL
             return result;
         }
         #endregion
+
+        /// <summary>
+        /// 提交时检查月算预算汇总单是否有超出年度预算
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        private string CheckRuleDeptBudgetSum(T_FB_DEPTBUDGETSUMMASTER entity)
+        {
+            string strMsg = string.Empty;
+            try
+            {
+                foreach (var item in entity.T_FB_DEPTBUDGETSUMDETAIL)
+                {
+                    List<AccountItem> listAccountItem = GetDeptSumMaster(item.T_FB_DEPTBUDGETAPPLYMASTER);
+                    listAccountItem.ForEach(accountItem =>
+                    {
+                        T_FB_BUDGETACCOUNT budgetAccountItem = FindBudgetAccout(accountItem);
+                        // 增加预算, 且终审通过
+                        if (accountItem.AccountOpertaion == AccountOpertaion.Add)
+                        {
+                            budgetAccountItem.USABLEMONEY = budgetAccountItem.USABLEMONEY.Add(accountItem.moneyUsable);
+                        }
+                        else if (accountItem.AccountOpertaion == AccountOpertaion.Subtract)// 减少预算费用
+                        {
+                            // 补差价，提交审核时，扣减了可用金额 moneyUsable, 而实际审核批准的金额可能少于申请时扣减的可用金额
+                            decimal? subMoney = accountItem.moneyUsable.Subtract(accountItem.moneyActual);
+                            budgetAccountItem.USABLEMONEY = budgetAccountItem.USABLEMONEY.Add(subMoney);
+                        }
+                        bool bRulePass = accountItem.CheckRule(budgetAccountItem, CheckStates.Approved);
+                    });
+                }
+            }
+            catch (BudgetAccountBBLException bbex)
+            {
+                strMsg = bbex.Message;
+                Tracer.Debug(strMsg);
+            }
+            return strMsg;
+        }
+
+        /// <summary>
+        /// 获取月度部门预算的预算数据,为了提交是验证预算的数据可以生效没，而不是在审核通过时进行判断（保留审核通过时判断）
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        private List<AccountItem> GetDeptSumMaster(T_FB_DEPTBUDGETAPPLYMASTER entity)
+        {
+            #region 部门月度预算数据
+            if (!entity.T_FB_DEPTBUDGETAPPLYDETAIL.IsLoaded && entity.T_FB_DEPTBUDGETAPPLYDETAIL == null)
+            {
+                entity.T_FB_DEPTBUDGETAPPLYDETAIL.Load();
+            }
+            List<AccountItem> listResult = entity.T_FB_DEPTBUDGETAPPLYDETAIL.ToList().CreateList(item =>
+            {
+                if (!item.T_FB_SUBJECTReference.IsLoaded && item.T_FB_SUBJECT == null)
+                {
+                    item.T_FB_SUBJECTReference.Load();
+                }
+                if (item.TOTALBUDGETMONEY.Equal(0))
+                {
+                    return null;
+                }
+                AccountItem accountItem = new AccountItem();
+                accountItem.T_FB_SUBJECT = item.T_FB_SUBJECT;
+                accountItem.OwnerCompanyID = entity.OWNERCOMPANYID;
+                accountItem.OwnerDepartmentID = entity.OWNERDEPARTMENTID;
+
+                accountItem.moneyUsable = item.BUDGETMONEY; // 预算金额
+                accountItem.BudgetYear = entity.BUDGETARYMONTH.Year;
+                accountItem.BudgetMonth = entity.BUDGETARYMONTH.Month;
+
+                accountItem.AccountType = ((entity.BUDGETARYMONTH.Year == DateTime.Now.Year) && (entity.BUDGETARYMONTH.Month == DateTime.Now.Month)) ?
+                    AccountObjectType.Deaprtment : AccountObjectType.Deptnext;
+                accountItem.AccountOpertaion = AccountOpertaion.Add;
+                accountItem.CheckRule = CheckRule_DeptBudget;
+                return accountItem;
+            });
+            #endregion
+            #region 部门年度预算数据
+            List<AccountItem> listResultCompany = entity.T_FB_DEPTBUDGETAPPLYDETAIL.ToList().CreateList(item =>
+            {
+                if (!item.T_FB_SUBJECTReference.IsLoaded && item.T_FB_SUBJECT == null)
+                {
+                    item.T_FB_SUBJECTReference.Load();
+                }
+                if (item.TOTALBUDGETMONEY.Equal(0))
+                {
+                    return null;
+                }
+                AccountItem accountItem = new AccountItem();
+                accountItem.T_FB_SUBJECT = item.T_FB_SUBJECT;
+                accountItem.OwnerDepartmentID = entity.OWNERDEPARTMENTID;
+                accountItem.OwnerCompanyID = entity.OWNERCOMPANYID;
+                #region 2012版
+                // 因月度预算只在汇总审核通过后一起扣除可用额度，所以这里设置0额度.
+                accountItem.moneyUsable = 0;
+                accountItem.moneyActual = item.PERSONBUDGETMONEY.Add(item.BUDGETMONEY); // 个人+部门审定金额
+                #endregion
+                accountItem.BudgetYear = entity.BUDGETARYMONTH.Year;
+                accountItem.BudgetMonth = 1;
+                accountItem.AccountType = (entity.BUDGETARYMONTH.Year == DateTime.Now.Year) ?
+                    AccountObjectType.Company : AccountObjectType.Companynext;
+                accountItem.AccountOpertaion = AccountOpertaion.Subtract;
+                accountItem.CheckRule = CheckRule_DeptBudget;
+                return accountItem;
+            });
+
+            #endregion
+            #region 个人预算数据
+            List<AccountItem> listPerson = new List<AccountItem>();
+            entity.T_FB_DEPTBUDGETAPPLYDETAIL.ToList().ForEach(item =>
+            {
+                if (!item.T_FB_PERSONBUDGETAPPLYDETAIL.IsLoaded && item.T_FB_PERSONBUDGETAPPLYDETAIL == null)
+                {
+                    item.T_FB_PERSONBUDGETAPPLYDETAIL.Load();
+                }
+                item.T_FB_PERSONBUDGETAPPLYDETAIL.ToList().ForEach(persondetail =>
+                {
+                    if (!persondetail.T_FB_SUBJECTReference.IsLoaded && persondetail.T_FB_SUBJECT == null)
+                    {
+                        persondetail.T_FB_SUBJECTReference.Load();
+                    }
+                    if (persondetail.BUDGETMONEY != 0)
+                    {
+                        AccountItem accountItem = new AccountItem();
+                        accountItem.T_FB_SUBJECT = persondetail.T_FB_SUBJECT;
+                        accountItem.OwnerDepartmentID = entity.OWNERDEPARTMENTID;
+                        accountItem.OwnerCompanyID = entity.OWNERCOMPANYID;
+                        accountItem.OwnerPostID = persondetail.OWNERPOSTID;
+                        accountItem.OwnerID = persondetail.OWNERID;
+                        accountItem.moneyUsable = persondetail.BUDGETMONEY;
+                        accountItem.BudgetYear = entity.BUDGETARYMONTH.Year;
+                        accountItem.BudgetMonth = entity.BUDGETARYMONTH.Month;
+                        accountItem.AccountType = ((entity.BUDGETARYMONTH.Year == DateTime.Now.Year) && (entity.BUDGETARYMONTH.Month == DateTime.Now.Month)) ?
+                AccountObjectType.Person : AccountObjectType.Personnext;
+                        accountItem.AccountOpertaion = AccountOpertaion.Add;
+                        accountItem.CheckRule = CheckRule_PersonBudget;
+                        listPerson.Add(accountItem);
+                    }
+                });
+            });
+            #endregion
+            listResultCompany.AddRange(listPerson);
+            listResult.AddRange(listResultCompany);
+            return listResult;
+        }
+
         public bool CheckAuditOrder(EntityObject entity, CheckStates oldStates, CheckStates newStates, ref string strMsg)
         {
             bool result = true;
