@@ -131,73 +131,74 @@ namespace SMT.HRM.BLL
 
             StringBuilder strTemps = new StringBuilder();
 
-            IQueryable<T_HR_EMPLOYEELEAVERECORD> qStarts = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
-                                                           where e.EMPLOYEEID == strEmployeeID && e.STARTDATETIME >= dtStart && e.STARTDATETIME < dtEnd && e.CHECKSTATE == strCheckState
-                                                           select e;
-
-            if (qStarts.Count() > 0)
-            {
-                foreach (T_HR_EMPLOYEELEAVERECORD item in qStarts)
-                {
-                    strTemps.Append(item.LEAVERECORDID + ",");
-                }
-            }
-
-            IQueryable<T_HR_EMPLOYEELEAVERECORD> qEnds = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
-                                                         where e.EMPLOYEEID == strEmployeeID && e.ENDDATETIME > dtStart && e.ENDDATETIME <= dtEnd && e.CHECKSTATE == strCheckState
-                                                         select e;
-
-            if (qEnds.Count() > 0)
-            {
-                foreach (T_HR_EMPLOYEELEAVERECORD item in qEnds)
-                {
-                    if (strTemps.ToString().Contains(item.LEAVERECORDID))
-                    {
-                        continue;
-                    }
-                    strTemps.Append(item.LEAVERECORDID + ",");
-                }
-            }
-
-            IQueryable<T_HR_EMPLOYEELEAVERECORD> qCrosss = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
-                                                           where e.EMPLOYEEID == strEmployeeID && e.STARTDATETIME < dtStart && e.ENDDATETIME > dtEnd && e.CHECKSTATE == strCheckState
-                                                           select e;
-
-            if (qCrosss.Count() > 0)
-            {
-                foreach (T_HR_EMPLOYEELEAVERECORD item in qCrosss)
-                {
-                    if (strTemps.ToString().Contains(item.LEAVERECORDID))
-                    {
-                        continue;
-                    }
-                    strTemps.Append(item.LEAVERECORDID + ",");
-                }
-            }
-
-            IQueryable<T_HR_EMPLOYEELEAVERECORD> qCrosssSpec = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
-                                                           where e.EMPLOYEEID == strEmployeeID && e.STARTDATETIME < dtEnd && e.ENDDATETIME > dtEnd && e.CHECKSTATE == strCheckState
-                                                           select e;
-
-            if (qCrosssSpec.Count() > 0)
-            {
-                foreach (T_HR_EMPLOYEELEAVERECORD item in qCrosssSpec)
-                {
-                    if (strTemps.ToString().Contains(item.LEAVERECORDID))
-                    {
-                        continue;
-                    }
-                    strTemps.Append(item.LEAVERECORDID + ",");
-                }
-            }
-
-            string strLeaveIds = strTemps.ToString();
-
             IQueryable<T_HR_EMPLOYEELEAVERECORD> ents = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
-                                                        where e.LEAVERECORDID.Contains(strLeaveIds)
-                                                        select e;
+                                                           where e.EMPLOYEEID == strEmployeeID                                                            
+                                                           && e.CHECKSTATE == strCheckState
+                                                           && (
+                                                           (e.STARTDATETIME <= dtStart && e.ENDDATETIME >= dtStart)
+                                                           || (e.STARTDATETIME <= dtEnd && e.ENDDATETIME >= dtEnd)
+                                                           )
+                                                           select e;
 
-            return ents;
+            if (ents.Count() > 0)
+            {
+                return ents;
+            }
+            return null;
+            //IQueryable<T_HR_EMPLOYEELEAVERECORD> qEnds = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
+            //                                             where e.EMPLOYEEID == strEmployeeID && e.ENDDATETIME > dtStart && e.ENDDATETIME <= dtEnd && e.CHECKSTATE == strCheckState
+            //                                             select e;
+
+            //if (qEnds.Count() > 0)
+            //{
+            //    foreach (T_HR_EMPLOYEELEAVERECORD item in qEnds)
+            //    {
+            //        if (strTemps.ToString().Contains(item.LEAVERECORDID))
+            //        {
+            //            continue;
+            //        }
+            //        strTemps.Append(item.LEAVERECORDID + ",");
+            //    }
+            //}
+
+            //IQueryable<T_HR_EMPLOYEELEAVERECORD> qCrosss = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
+            //                                               where e.EMPLOYEEID == strEmployeeID && e.STARTDATETIME < dtStart && e.ENDDATETIME > dtEnd && e.CHECKSTATE == strCheckState
+            //                                               select e;
+
+            //if (qCrosss.Count() > 0)
+            //{
+            //    foreach (T_HR_EMPLOYEELEAVERECORD item in qCrosss)
+            //    {
+            //        if (strTemps.ToString().Contains(item.LEAVERECORDID))
+            //        {
+            //            continue;
+            //        }
+            //        strTemps.Append(item.LEAVERECORDID + ",");
+            //    }
+            //}
+
+            //IQueryable<T_HR_EMPLOYEELEAVERECORD> qCrosssSpec = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
+            //                                               where e.EMPLOYEEID == strEmployeeID && e.STARTDATETIME < dtEnd && e.ENDDATETIME > dtEnd && e.CHECKSTATE == strCheckState
+            //                                               select e;
+
+            //if (qCrosssSpec.Count() > 0)
+            //{
+            //    foreach (T_HR_EMPLOYEELEAVERECORD item in qCrosssSpec)
+            //    {
+            //        if (strTemps.ToString().Contains(item.LEAVERECORDID))
+            //        {
+            //            continue;
+            //        }
+            //        strTemps.Append(item.LEAVERECORDID + ",");
+            //    }
+            //}
+
+            //string strLeaveIds = strTemps.ToString();
+
+            //IQueryable<T_HR_EMPLOYEELEAVERECORD> ents = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
+            //                                            where e.LEAVERECORDID.Contains(strLeaveIds)
+            //                                            select e;
+
         }
 
         /// <summary>
