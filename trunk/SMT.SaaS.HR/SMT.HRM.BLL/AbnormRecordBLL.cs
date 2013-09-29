@@ -680,13 +680,28 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                if (entAttRds.Count() < 1)
+                {
+                    Tracer.Debug("检查异常考勤退出，无考勤初始化记录");
+                    return;
+                }
+                var startItem = entAttRds.ToList().OrderBy(c => c.ATTENDANCEDATE).FirstOrDefault();
+                var endItem = entAttRds.ToList().OrderBy(c => c.ATTENDANCEDATE).LastOrDefault();
+
                 AttendanceSolutionBLL bllAttSol = new AttendanceSolutionBLL(); 
                 AttendanceRecordBLL bllAttendanceRecord = new AttendanceRecordBLL();
+                AttendanceSolutionAsignBLL bllAttSolAsign = new AttendanceSolutionAsignBLL();
+                T_HR_ATTENDANCESOLUTION attSolution = new T_HR_ATTENDANCESOLUTION();
+
+                //获取对应的考勤方案
+                //T_HR_ATTENDANCESOLUTION entAttSol = bllAttSol.GetAttendanceSolutionByID(item.ATTENDANCESOLUTIONID);
+                T_HR_ATTENDANCESOLUTIONASIGN entAttendanceSolution
+                    = bllAttSolAsign.GetAttendanceSolutionAsignByEmployeeIDAndDate(startItem.EMPLOYEEID, startItem.ATTENDANCEDATE.Value);
+                T_HR_ATTENDANCESOLUTION entAttSol = entAttendanceSolution.T_HR_ATTENDANCESOLUTION;
+
                 //对考勤记录进行轮询
                 foreach (T_HR_ATTENDANCERECORD item in entAttRds)
                 {
-                    //获取对应的考勤方案
-                    T_HR_ATTENDANCESOLUTION entAttSol = bllAttSol.GetAttendanceSolutionByID(item.ATTENDANCESOLUTIONID);
 
                     if (entAttSol == null)
                     {
@@ -748,8 +763,6 @@ namespace SMT.HRM.BLL
                     bllAttendanceRecord.ModifyAttRd(item);
 
                 }
-                var startItem = entAttRds.ToList().OrderBy(c => c.ATTENDANCEDATE).FirstOrDefault();
-                var endItem = entAttRds.ToList().OrderBy(c => c.ATTENDANCEDATE).LastOrDefault();
                 //检查是否有出差及请假并确认一次状态
                 string EMPLOYEEID=startItem.EMPLOYEEID;
                 DateTime dtStartDate=startItem.ATTENDANCEDATE.Value;
@@ -775,35 +788,53 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                dtEndDate = dtEndDate.AddDays(1).AddSeconds(-1);
                 //获取请假记录使用的起止时间
                 //DateTime dtStartDate = entAttRd.ATTENDANCEDATE.Value;
                 //DateTime dtEndDate = entAttRd.ATTENDANCEDATE.Value.AddDays(1).AddSeconds(-1);
-                dtEndDate = dtEndDate.AddDays(1).AddSeconds(-1);
                 #region  启动出差处理考勤异常的线程
                 //查询出差记录，检查当天存在出差情况
                 EmployeeEvectionRecordBLL bllEvectionRd = new EmployeeEvectionRecordBLL();
                 var entityEvections = from ent in dal.GetObjects<T_HR_EMPLOYEEEVECTIONRECORD>()
-                                                     where ent.STARTDATE >= dtStartDate && ent.ENDDATE <= dtEndDate
-                                                     && ent.EMPLOYEEID == EMPLOYEEID && ent.CHECKSTATE=="2"
-                                                    select ent;;
+                                      where ent.EMPLOYEEID == EMPLOYEEID && ent.CHECKSTATE == "2"
+                                       && (
+                                            (ent.STARTDATE <= dtStartDate && ent.ENDDATE >= dtStartDate)
+                                            || (ent.STARTDATE <= dtEndDate && ent.ENDDATE >= dtEndDate)
+                                             || (ent.STARTDATE >= dtStartDate && ent.ENDDATE <= dtEndDate)
+                                            )
+                                      select ent;
                 //如果有出差记录，就判断出差是否为全天
                 if (entityEvections.Count()>0)
                 {
-                    //出差消除异常
-                    string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
-                    DealEmployeeAbnormRecord(EMPLOYEEID, dtStartDate, dtEndDate, attState);
+                    foreach (var ent in entityEvections)
+                    {
+
+                        //出差消除异常
+                        string attState = (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString();
+                        DealEmployeeAbnormRecord(EMPLOYEEID, ent.STARTDATE.Value, ent.ENDDATE.Value, attState);
+                    }
                 }
                 #endregion
 
                 #region  启动请假处理考勤异常的线程
                 //查询请假记录，检查当天存在请假情况
                 EmployeeLeaveRecordBLL bllLeaveRd = new EmployeeLeaveRecordBLL();
-                IQueryable<T_HR_EMPLOYEELEAVERECORD> entLeaveRds = bllLeaveRd.GetEmployeeLeaveRdListByEmployeeIDAndDate(EMPLOYEEID, dtStartDate, dtEndDate, "2");
+                IQueryable<T_HR_EMPLOYEELEAVERECORD> entLeaveRds = from e in dal.GetObjects <T_HR_EMPLOYEELEAVERECORD>().Include("T_HR_LEAVETYPESET")
+                                                                   where e.EMPLOYEEID == EMPLOYEEID
+                                                                   && e.CHECKSTATE == "2"
+                                                                   && (
+                                                                   (e.STARTDATETIME <= dtStartDate && e.ENDDATETIME >= dtStartDate)
+                                                                   || (e.STARTDATETIME <= dtEndDate && e.ENDDATETIME >= dtEndDate)
+                                                                   || (e.STARTDATETIME >= dtStartDate && e.ENDDATETIME <= dtEndDate)
+                                                                   )
+                                                                   select e;
 
-                List<T_HR_EMPLOYEELEAVERECORD> entLeaveRdList = entLeaveRds.ToList();
-                if (entLeaveRdList.Count() > 0)
+                var sql = ((System.Data.Objects.ObjectQuery)entLeaveRds).ToTraceString();
+                sql.ToString();
+                if (entLeaveRds.Count() > 0)
                 {
-                    foreach (T_HR_EMPLOYEELEAVERECORD ent in entLeaveRdList)
+
+                    foreach (var ent in entLeaveRds)
                     {
                         //请假消除异常
                         string attState = (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString();
@@ -815,17 +846,19 @@ namespace SMT.HRM.BLL
                 #region  启动外出申请处理考勤异常的线程
                 //查询请假记录，检查当天存在请假情况
                 var entOutApplyRds = from ent in dal.GetObjects<T_HR_EMPLOYEEOUTAPPLIECRECORD>()
-                                                                        where ent.STARTDATE >= dtStartDate
-                                                                        && ent.ENDDATE <= dtEndDate
+                                                                        where ent.EMPLOYEEID==EMPLOYEEID
                                                                         && ent.CHECKSTATE == "2"
+                                                                         && (
+                                                                        (ent.STARTDATE <= dtStartDate && ent.ENDDATE >= dtStartDate)
+                                                                        || (ent.STARTDATE <= dtEndDate && ent.ENDDATE >= dtEndDate)
+                                                                        || (ent.STARTDATE >= dtStartDate && ent.ENDDATE <= dtEndDate)
+                                                                        )
                                                                         select ent;
-
-                List<T_HR_EMPLOYEEOUTAPPLIECRECORD> ententOutApplyList = entOutApplyRds.ToList();
-                if (ententOutApplyList.Count() > 0)
+                if (entOutApplyRds.Count() > 0)
                 {
-                    foreach (var ent in ententOutApplyList)
+                    foreach (var ent in entOutApplyRds)
                     {
-                        //请假消除异常
+                        //外出申请消除异常
                         string attState = (Convert.ToInt32(Common.AttendanceState.OutApply) + 1).ToString();
                         DealEmployeeAbnormRecord(ent.EMPLOYEEID, ent.STARTDATE.Value, ent.ENDDATE.Value, attState);
                     }
@@ -838,8 +871,7 @@ namespace SMT.HRM.BLL
             }
 
             strMsg = "{SAVESUCCESSED}";
-        }
-
+        }    
         /// <summary>
         /// 检查第一段上班打卡情况
         /// </summary>
