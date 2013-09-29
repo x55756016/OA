@@ -28,52 +28,63 @@ namespace SMT.HRM.BLL
         /// <returns>查询结果集</returns>
         public IQueryable<T_HR_EMPLOYEEADDSUM> GetEmployeeAddSumAuditPaging(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, DateTime starttime, DateTime endtime, string userID, string CheckState, int orgtype, string orgid)
         {
-            EmployeeAddSumBLL bll = new EmployeeAddSumBLL();
-            IQueryable<T_HR_EMPLOYEEADDSUM> q = null;
-            if (CheckState != Convert.ToInt32(CheckStates.UnSubmit).ToString())
+            try
             {
-                if (paras.Count > 0)
-                {
-                    string ID = paras[0].ToString();
-                    q = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>().Include("T_HR_EMPLOYEEADDSUMBATCH")
-                        where a.T_HR_EMPLOYEEADDSUMBATCH.MONTHLYBATCHID == ID
-                        select a;
-                }
-                else
-                {
-                    List<T_HR_EMPLOYEEADDSUM> list = new List<T_HR_EMPLOYEEADDSUM>();
-                    var temp = bll.QueryWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, starttime, endtime, userID, CheckState, orgtype, orgid);
-                    if (temp != null)
-                    {
-                        list = temp.ToList();
-                        foreach (var li in list)
-                        {
-                            var x = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>().Include("T_HR_EMPLOYEEADDSUMBATCH")
-                                    where a.ADDSUMID == li.ADDSUMID
-                                    select a;
-                            if (x.Count() > 0)
-                            {
-                                if (x.FirstOrDefault().T_HR_EMPLOYEEADDSUMBATCH != null)
-                                {
-                                    string id = x.FirstOrDefault().T_HR_EMPLOYEEADDSUMBATCH.MONTHLYBATCHID;
-                                    if (!string.IsNullOrEmpty(id))
-                                    {
-                                        q = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>().Include("T_HR_EMPLOYEEADDSUMBATCH")
-                                            where a.T_HR_EMPLOYEEADDSUMBATCH.MONTHLYBATCHID == id
-                                            select a;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                EmployeeAddSumBLL bll = new EmployeeAddSumBLL();
+                IQueryable<T_HR_EMPLOYEEADDSUM> q = bll.QueryWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, starttime, endtime, userID, CheckState, orgtype, orgid);
+                #region 只根据状态进行加载
+                //if (CheckState != Convert.ToInt32(CheckStates.UnSubmit).ToString())
+                //{
+                //    if (paras.Count > 0)
+                //    {
+                //        string ID = paras[0].ToString();
+                //        q = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>().Include("T_HR_EMPLOYEEADDSUMBATCH")
+                //            where a.T_HR_EMPLOYEEADDSUMBATCH.MONTHLYBATCHID == ID
+                //            select a;
+                //    }
+                //    else
+                //    {
+                //        List<T_HR_EMPLOYEEADDSUM> list = new List<T_HR_EMPLOYEEADDSUM>();
+                //        var temp = bll.QueryWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, starttime, endtime, userID, CheckState, orgtype, orgid);
+                //        if (temp != null)
+                //        {
+                //            list = temp.ToList();
+                //            foreach (var li in list)
+                //            {
+                //                var x = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>().Include("T_HR_EMPLOYEEADDSUMBATCH")
+                //                        where a.ADDSUMID == li.ADDSUMID
+                //                        select a;
+                //                if (x.Count() > 0)
+                //                {
+                //                    if (x.FirstOrDefault().T_HR_EMPLOYEEADDSUMBATCH != null)
+                //                    {
+                //                        string id = x.FirstOrDefault().T_HR_EMPLOYEEADDSUMBATCH.MONTHLYBATCHID;
+                //                        if (!string.IsNullOrEmpty(id))
+                //                        {
+                //                            q = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>().Include("T_HR_EMPLOYEEADDSUMBATCH")
+                //                                where a.T_HR_EMPLOYEEADDSUMBATCH.MONTHLYBATCHID == id
+                //                                select a;
+                //                            break;
+                //                        }
+                //                    }
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                //    q = bll.QueryWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, starttime, endtime, userID, CheckState, orgtype, orgid);
+                //}
+                #endregion
+                return q;
             }
-            else
+            catch (Exception ex)
             {
-                q = bll.QueryWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, starttime, endtime, userID, CheckState, orgtype, orgid);
+                SMT.Foundation.Log.Tracer.Debug(ex.Message);
+                return null;
             }
-            return q;
+           
         }
 
         /// <summary>

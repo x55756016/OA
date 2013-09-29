@@ -619,14 +619,17 @@ namespace SMT.HRM.BLL
 
                 //节假日
                 IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
-                if (LeaveTypeValue == "5" || LeaveTypeValue == "6")//5为产假，6为婚假，为产假和婚假时，是算自然日，不算上节假日
-                {
-                    entVacDays = entVacDays.Where(s => s.DAYTYPE == "0");
-                }
+               
                 //取出请假起始日年份和结束日年份的休假调剂工作天数
                 DateTime startDate = Convert.ToDateTime(dtStart.Year + "-1-1");
                 DateTime endDate = Convert.ToDateTime(dtEnd.Year + "-12-31");
                 IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType && s.STARTDATE >= startDate && s.ENDDATE <= endDate);
+
+                if (LeaveTypeValue == "5" || LeaveTypeValue == "6")//5为产假，6为婚假，为产假和婚假时，是算自然日，不算上节假日
+                {
+                    entVacDays = entVacDays.Where(s => s.DAYTYPE == "0");
+                    entWorkDays = entWorkDays.Where(s => s.DAYTYPE == "0");
+                }
 
                 SchedulingTemplateDetailBLL bllTemplateDetail = new SchedulingTemplateDetailBLL();
                 IQueryable<T_HR_SCHEDULINGTEMPLATEDETAIL> entTemplateDetails = bllTemplateDetail.GetTemplateDetailRdListByAttendanceSolutionId(entAttendSol.ATTENDANCESOLUTIONID);
@@ -1183,7 +1186,7 @@ namespace SMT.HRM.BLL
                 }
             }
 
-            if (!bCalculate && iWorkDays.Contains(Convert.ToInt32(dtRealDate.DayOfWeek)) == false)
+            if (!bCalculate && iWorkDays.Contains(Convert.ToInt32(dtRealDate.DayOfWeek)) == false && (entVacDays.Any() || entWorkDays.Any()))
             {
                 dLeaveDayTime = 0;
                 return;

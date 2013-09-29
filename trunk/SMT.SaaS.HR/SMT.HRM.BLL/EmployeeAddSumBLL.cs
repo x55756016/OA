@@ -348,8 +348,9 @@ namespace SMT.HRM.BLL
                     {
                         filterString += " and ";
                     }
-                    if (isAudit)//表示为批量审核，这是也加载审核未通过的数据
+                    if (isAudit && CheckState == Convert.ToString(Convert.ToInt32(CheckStates.All)))//表示为批量审核，这是也加载审核未通过的数据
                     {
+                        CheckState = Convert.ToString(Convert.ToInt32(CheckStates.UnSubmit));
                         filterString += "(CHECKSTATE == @" + queryParas.Count();
                         queryParas.Add(CheckState);
                         filterString += " or CHECKSTATE == @" + queryParas.Count();

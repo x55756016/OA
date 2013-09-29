@@ -1245,7 +1245,7 @@ namespace SMT.HRM.BLL
                 var archives = from o in dal.GetObjects<T_HR_SALARYARCHIVE>()
                                where o.EMPLOYEEID == employeeid && o.CHECKSTATE == "2"
                                select o;
-                var tmp = archives.OrderByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT).ToList().FirstOrDefault();
+                var tmp = archives.OrderByDescending(s => s.OTHERSUBJOIN).ThenByDescending(p => p.OTHERADDDEDUCT).ThenByDescending(q => q.UPDATEDATE).ToList().FirstOrDefault();
                 if (tmp != null)
                 {
                     fixSalary = GetFixSalary(Convert.ToDecimal(tmp.POSTLEVEL), tmp.SALARYLEVEL.ToString(), tmp.SALARYSOLUTIONID);
