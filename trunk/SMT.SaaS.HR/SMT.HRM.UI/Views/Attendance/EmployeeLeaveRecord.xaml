@@ -72,7 +72,7 @@
                         <data:DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-
+                                    <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding LEAVERECORDID}"></Image>
                                 </StackPanel>
                             </DataTemplate>
                         </data:DataGridTemplateColumn.CellTemplate>
@@ -85,7 +85,8 @@
                     <data:DataGridTextColumn Header="LEAVEDAYS" Binding="{Binding LEAVEDAYS}"/>
                     <data:DataGridTextColumn Header="LEAVEHOURS" Binding="{Binding LEAVEHOURS}"/>
                     <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}"/>
-                    <data:DataGridTextColumn Header="REASON" Binding="{Binding REASON}"/>
+                    <data:DataGridTextColumn Header="REASON" Binding="{Binding REASON}" Width="80"/>
+                    <data:DataGridTextColumn Header="TERMINATETOTALHOURS" Binding="{Binding CANCELTOTALHOURS}"/>
                 </data:DataGrid.Columns>
             </data:DataGrid>
             <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smt:GridPager>

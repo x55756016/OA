@@ -109,13 +109,27 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="strLeaveRecordID"></param>
         /// <returns></returns>
-        public T_HR_EMPLOYEECANCELLEAVE GetEmployeeLeaveRdListByLeaveRecordID(string strLeaveRecordID, string strCheckState)
+        public IQueryable<T_HR_EMPLOYEECANCELLEAVE> GetEmployeeLeaveRdListByLeaveRecordID(string strLeaveRecordID, string strCheckState)
         {
-            var ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
-                       where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveRecordID && c.CHECKSTATE == strCheckState
-                       select c;
-
-            return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+            try
+            {
+                if (string.IsNullOrWhiteSpace(strCheckState))
+                {
+                      var ent = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
+                           where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveRecordID
+                           select c;
+                      return ent;
+                }
+                var ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
+                           where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveRecordID && c.CHECKSTATE == strCheckState
+                           select c;
+                return ents;
+                //return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -126,10 +140,25 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public List<T_HR_EMPLOYEECANCELLEAVE> GetEmployeeLeaveRdListsByLeaveRecordID(string strLeaveRecordID, string strCheckState)
         {
-            var ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
-                       where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveRecordID && c.CHECKSTATE == strCheckState
-                       select c;
-            return ents.Count() > 0 ? ents.ToList() : null;
+            try
+            {
+                if (string.IsNullOrWhiteSpace(strCheckState))
+                {
+                    var ent = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
+                              where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveRecordID && (c.CHECKSTATE == "2" || c.CHECKSTATE == "1")
+                              select c;
+                    return ent.Any() ? ent.ToList() : null;
+                }
+                var ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
+                           where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveRecordID && c.CHECKSTATE == strCheckState
+                           select c;
+                return ents.Any() ? ents.ToList() : null;
+            }
+            catch (Exception ex)
+            {
+                Utility.SaveLog(ex.ToString());
+                return new List<T_HR_EMPLOYEECANCELLEAVE>();
+            }
         }
 
         /// <summary>
@@ -361,11 +390,28 @@ namespace SMT.HRM.BLL
                            where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveId && (c.CHECKSTATE == "1" || c.CHECKSTATE == "2")
                            select c;
 
-                if (ents.Count() > 0)
+                if (ents.Any())
                 {
-                    return "{LEAVERECORDISCANCELED}";
+                    //请假对于的销假记录，如果此次销假的时间段之前销过假，那么则不能保存
+                    foreach (var item in ents)
+                    {
+                        if (obj.STARTDATETIME <= item.STARTDATETIME)
+                        {
+                            if (obj.ENDDATETIME >= item.STARTDATETIME && obj.ENDDATETIME <= item.ENDDATETIME)
+                            {
+                                return "{LEAVERECORDISCANCELED}";
+                            }
+                            if (obj.ENDDATETIME >= item.ENDDATETIME)
+                            {
+                                return "{LEAVERECORDISCANCELED}";
+                            }
+                        }
+                        if (obj.STARTDATETIME >= item.STARTDATETIME && obj.STARTDATETIME < item.ENDDATETIME)
+                        {
+                            return "{LEAVERECORDISCANCELED}";
+                        }
+                    }
                 }
-
                 //添加请假记录
                 T_HR_EMPLOYEECANCELLEAVE ent = new T_HR_EMPLOYEECANCELLEAVE();
                 Utility.CloneEntity(obj, ent);
@@ -413,10 +459,32 @@ namespace SMT.HRM.BLL
                 //Modified by : Sam
                 //Date:2011-9-28
                 //For:修改的时候销假记录肯定已经存在
-                //var ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
-                //           where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveId && (c.CHECKSTATE == "1" || c.CHECKSTATE == "2")
-                //           select c;
-
+                //Date:2013-9-29
+                var ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEELEAVERECORD")
+                           where c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID == strLeaveId && (c.CHECKSTATE == "1" || c.CHECKSTATE == "2" )
+                           select c;
+                if (ents.Any())
+                {
+                    //请假对于的销假记录，如果此次销假的时间段之前销过假，那么则不能保存
+                    foreach (var item in ents)
+                    {
+                        if (obj.STARTDATETIME <= item.STARTDATETIME)
+                        {
+                            if (obj.ENDDATETIME >= item.STARTDATETIME && obj.ENDDATETIME <= item.ENDDATETIME)
+                            {
+                                return "{LEAVERECORDISCANCELED}";
+                            }
+                            if (obj.ENDDATETIME >= item.ENDDATETIME)
+                            {
+                                return "{LEAVERECORDISCANCELED}";
+                            }
+                        }
+                        if (obj.STARTDATETIME >= item.STARTDATETIME && obj.STARTDATETIME <= item.ENDDATETIME)
+                        {
+                            return "{LEAVERECORDISCANCELED}";
+                        }
+                    }
+                }
                 //if (ents.Count() > 0)
                 //{
                 //    return "{LEAVERECORDISCANCELED}";

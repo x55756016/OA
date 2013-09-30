@@ -101,7 +101,9 @@ namespace SMT.HRM.BLL
                                 CREATEPOSTID = e.CREATEPOSTID,
                                 CREATEUSERID = e.CREATEUSERID,
                                 CREATEDATE = e.CREATEDATE,
-                                UPDATEDATE = e.UPDATEDATE
+                                UPDATEDATE = e.UPDATEDATE,
+                                CANCELTOTALHOURS = e.T_HR_EMPLOYEECANCELLEAVE.Sum(t => t.TOTALHOURS),
+                                REASON = e.REASON
                             };
 
                 entrs = Utility.Pager<V_EmpLeaveRdInfo>(entrs, pageIndex, pageSize, ref pageCount);
@@ -110,7 +112,7 @@ namespace SMT.HRM.BLL
             }
             catch (Exception ex)
             {
-                SMT.Foundation.Log.Tracer.Debug("员工请假发生错误：EmployeeLeaveRecordPaging："+ ex.ToString() );
+                SMT.Foundation.Log.Tracer.Debug("员工请假发生错误：EmployeeLeaveRecordPaging：" + ex.ToString());
                 return null;
             }
         }

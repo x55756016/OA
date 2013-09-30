@@ -41,6 +41,8 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="4" />
+                    <RowDefinition Height="Auto" MinHeight="30"/>
+                    <RowDefinition Height="4" />
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
 					<RowDefinition Height="Auto" MinHeight="30" />
@@ -77,33 +79,38 @@
                 <TextBlock  Grid.Row="3" Grid.Column="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOUR}" VerticalAlignment="Center" Margin="220,0,0,0" HorizontalAlignment="Left"/>
                 <inputToolkit:NumericUpDown x:Name="nudLeaveHours" IsEnabled="False" Grid.Row="3" Grid.Column="1" Minimum="0" Value="{Binding T_HR_EMPLOYEELEAVERECORD.LEAVEHOURS,Mode=TwoWay}" Margin="114,0,0,0" Height="22" HorizontalAlignment="Left" Width="100"></inputToolkit:NumericUpDown>
 
-                <!--Row4-->
+                <!--Row3-->
                 <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALHOURS}" Grid.Row="3" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="3"/>
                 <inputToolkit:NumericUpDown x:Name="nudTotalDays" IsEnabled="False" Value="{Binding T_HR_EMPLOYEELEAVERECORD.TOTALHOURS,Mode=TwoWay}" Grid.Row="3" Grid.Column="4"  DecimalPlaces="1" Margin="5,0,0,0" Height="22" ></inputToolkit:NumericUpDown>
-
-                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="4" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,0,0,2"  />
-
-                <TextBlock Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATESTARTDATETIME}" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                <smtx:DateTimePicker x:Name="dpTerminateStartDate" Grid.Row="5" Grid.Column="1" Value="{Binding STARTDATETIME, Mode=TwoWay}" Height="22" Margin="5,0,0,0" OnValueChanged="dpTerminateStartDate_OnValueChanged"></smtx:DateTimePicker>
-
-                <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATEENDDATETIME}" Margin="5,0,0,0" VerticalAlignment="Center"/>
-                <smtx:DateTimePicker x:Name="dpTerminateEndDate"  OnValueChanged="dpTerminateEndDate_OnValueChanged"  Grid.Row="5"  Grid.Column="4" Value="{Binding ENDDATETIME, Mode=TwoWay}" Height="22" Margin="5,0,0,0"></smtx:DateTimePicker>
-
+                <!--Row4-->
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="4" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="4,0,0,2"  />
                 <!--Row5-->
-                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATEDAYS}" Grid.Row="6" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                <inputToolkit:NumericUpDown x:Name="nudTerminateDay" Grid.Row="6" Grid.Column="1" Minimum="0" Value="{Binding LEAVEDAYS,Mode=TwoWay}" Margin="5,0,0,0" Height="22" Width="79" HorizontalAlignment="Left" IsEnabled="False" />
-                <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Grid.Row="6" VerticalAlignment="Center" Grid.Column="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DAY}"/>
-
-                <TextBlock  Grid.Row="6" Grid.Column="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOUR}" VerticalAlignment="Center" Margin="220,0,0,0" HorizontalAlignment="Left" Width="24"/>
-                <inputToolkit:NumericUpDown x:Name="nudTerminateHours" Grid.Row="6" Grid.Column="1" Minimum="0" Value="{Binding LEAVEHOURS,Mode=TwoWay}" Margin="114,0,0,0" Height="22" Width="100" HorizontalAlignment="Left" IsEnabled="False" ></inputToolkit:NumericUpDown>
-
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=销假记录}" Grid.Row="5" Margin="5,4,0,0" />
+                <TextBox x:Name="txtCancelRecord" Style="{StaticResource TextBoxStyle}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"  IsReadOnly="True" HorizontalAlignment="Stretch" Width="Auto" TextWrapping="Wrap" Margin="5,4,0,0" />
                 <!--Row6-->
-                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATETOTALHOURS}" Grid.Row="6" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="3"/>
-                <inputToolkit:NumericUpDown x:Name="nudTerminateTotalDays" Value="{Binding Path=TOTALHOURS,Mode=TwoWay}" Grid.Row="6" Grid.Column="4"  DecimalPlaces="1" Margin="5,0,0,0" Height="22" IsEnabled="False"></inputToolkit:NumericUpDown>
-                                
+                <Border Height="1" BorderBrush="#FF6D8193" Grid.Row="6" BorderThickness="1" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" Margin="0,2,0,2"  />
                 <!--Row7-->
-                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Grid.Row="7" Margin="5,4,0,0" />
-                <TextBox x:Name="txtTerminateRemark" Style="{StaticResource TextBoxStyle}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4"  Text="{Binding REMARK,Mode=TwoWay}" HorizontalAlignment="Stretch" Width="Auto" TextWrapping="Wrap" Margin="5,4,0,0" />
+                <TextBlock Grid.Row="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATESTARTDATETIME}" VerticalAlignment="Center" Margin="5,2,0,2"/>
+                <smtx:DateTimePicker x:Name="dpTerminateStartDate" Grid.Row="7" Grid.Column="1" Value="{Binding STARTDATETIME, Mode=TwoWay}" Height="22" Margin="5,0,0,0" OnValueChanged="dpTerminateStartDate_OnValueChanged"></smtx:DateTimePicker>
+                <!--Row7-->
+                <TextBlock Grid.Row="7" Grid.Column="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATEENDDATETIME}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <smtx:DateTimePicker x:Name="dpTerminateEndDate"  OnValueChanged="dpTerminateEndDate_OnValueChanged"  Grid.Row="7"  Grid.Column="4" Value="{Binding ENDDATETIME, Mode=TwoWay}" Height="22" Margin="5,0,0,0"></smtx:DateTimePicker>
+
+                <!--Row8-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATEDAYS}" Grid.Row="8" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <inputToolkit:NumericUpDown x:Name="nudTerminateDay" Grid.Row="8" Grid.Column="1" Minimum="0" Value="{Binding LEAVEDAYS,Mode=TwoWay}" Margin="5,0,0,0" Height="22" Width="79" HorizontalAlignment="Left" IsEnabled="False" />
+                <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Grid.Row="8" VerticalAlignment="Center" Grid.Column="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DAY}"/>
+
+                <TextBlock  Grid.Row="8" Grid.Column="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOUR}" VerticalAlignment="Center" Margin="220,0,0,0" HorizontalAlignment="Left" Width="24"/>
+                <inputToolkit:NumericUpDown x:Name="nudTerminateHours" Grid.Row="8" Grid.Column="1" Minimum="0" Value="{Binding LEAVEHOURS,Mode=TwoWay}" Margin="114,0,0,0" Height="22" Width="100" HorizontalAlignment="Left" IsEnabled="False" ></inputToolkit:NumericUpDown>
+
+                <!--Row8-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TERMINATETOTALHOURS}" Grid.Row="8" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="3"/>
+                <inputToolkit:NumericUpDown x:Name="nudTerminateTotalDays" Value="{Binding Path=TOTALHOURS,Mode=TwoWay}" Grid.Row="8" Grid.Column="4"  DecimalPlaces="1" Margin="5,0,0,0" Height="22" IsEnabled="False"></inputToolkit:NumericUpDown>
+                                
+                <!--Row9-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Grid.Row="9" Margin="5,4,0,0" />
+                <TextBox x:Name="txtTerminateRemark" Style="{StaticResource TextBoxStyle}" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="4"  Text="{Binding REMARK,Mode=TwoWay}" HorizontalAlignment="Stretch" Width="Auto" TextWrapping="Wrap" Margin="5,4,0,0" />
                 
             </Grid>
         </Grid>

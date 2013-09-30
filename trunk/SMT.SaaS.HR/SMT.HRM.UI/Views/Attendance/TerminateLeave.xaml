@@ -49,8 +49,8 @@
                         </data:DataGridTemplateColumn.CellTemplate>
                     </data:DataGridTemplateColumn>
                     <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                    <data:DataGridTextColumn Header="STARTDATETIME" Binding="{Binding STARTDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                    <data:DataGridTextColumn Header="ENDDATETIME" Binding="{Binding ENDDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="STARTDATETIME" Binding="{Binding STARTDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="ENDDATETIME" Binding="{Binding ENDDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="TERMINATEDAYS" Binding="{Binding LEAVEDAYS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="TERMINATEHOURS" Binding="{Binding LEAVEHOURS}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}"/>

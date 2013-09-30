@@ -52,5 +52,10 @@ namespace SMT.HRM.CustomModel
         public decimal? TOTALHOURS { get; set; }
 
         public DateTime? UPDATEDATE { get; set; }
+
+        /// <summary>
+        /// 销假总时长
+        /// </summary>
+        public decimal?  CANCELTOTALHOURS { get; set; }
     }
 }

@@ -1437,8 +1437,11 @@ namespace SMT.HRM.UI
                     {
                         case PortalType.Silverlight:
                             entBrowser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { }, true, FormID);
-                            entBrowser.ParentWindow.Height = 900;
-                            entBrowser.ParentWindow.Width = 900;
+                            if (entBrowser.ParentWindow != null)
+                            {
+                                entBrowser.ParentWindow.Height = 900;
+                                entBrowser.ParentWindow.Width = 900;
+                            }
                             break;
                         case PortalType.AspMVC:
                             entBrowser.ShowMvcPlat<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
@@ -1490,10 +1493,10 @@ namespace SMT.HRM.UI
         {
             if (e.Error == null)
             {
-                if (e.Result == null)
-                {
-                    return;
-                }
+                //if (e.Result == null)
+                //{
+                //    return;
+                //}
                 try
                 {
                     List<V_UserPermissionUI> entPermList = e.Result.ToList();
@@ -1502,11 +1505,14 @@ namespace SMT.HRM.UI
                         Common.CurrentLoginUserInfo.PermissionInfoUI = new List<SaaS.LocalData.V_UserPermissionUI>();
                         SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("HR CurrentLoginUserInfo.PermissionInfoUI 为空，New了一个新的PermissionInfoUI");
                     }
-                    foreach (var fent in entPermList)
+                    if (entPermList != null && entPermList.Any())
                     {
-                        SMT.SaaS.LocalData.V_UserPermissionUI tps = new SMT.SaaS.LocalData.V_UserPermissionUI();
-                        tps = Common.CloneObject<V_UserPermissionUI, SMT.SaaS.LocalData.V_UserPermissionUI>(fent, tps);
-                        Common.CurrentLoginUserInfo.PermissionInfoUI.Add(tps);
+                        foreach (var fent in entPermList)
+                        {
+                            SMT.SaaS.LocalData.V_UserPermissionUI tps = new SMT.SaaS.LocalData.V_UserPermissionUI();
+                            tps = Common.CloneObject<V_UserPermissionUI, SMT.SaaS.LocalData.V_UserPermissionUI>(fent, tps);
+                            Common.CurrentLoginUserInfo.PermissionInfoUI.Add(tps);
+                        }
                     }
 
                     if (SMT.SAAS.Main.CurrentContext.AppContext.AppHost != null)

@@ -166,8 +166,10 @@ namespace SMT.HRM.UI.Views.Salary
                     }
 
 
-                    state = CheckStates.UnSubmit.ToInt32().ToString(); //注释掉是因为在审核中取不到数据  liujx
-                    //state = Checkstate;
+                    // state = CheckStates.UnSubmit.ToInt32().ToString(); //注释掉是因为在审核中取不到数据  liujx
+                    state = Checkstate;//批量审核也可以根据状态进行加载
+                    
+                    
                     NumericUpDown nuYear = Utility.FindChildControl<NumericUpDown>(expander, "Nuyear");
                     NumericUpDown nuStartmounth = Utility.FindChildControl<NumericUpDown>(expander, "NuStartmounth");
                     Form.Salary.EmployeeAddSumMassAudit form = new Form.Salary.EmployeeAddSumMassAudit(FormTypes.Audit, sType, sValue, nuYear.Value.ToString(), nuStartmounth.Value.ToString(), state);
@@ -250,6 +252,11 @@ namespace SMT.HRM.UI.Views.Salary
             if (dict != null)
             {
                 Checkstate = dict.DICTIONARYVALUE.ToString();
+                ToolBar.btnOtherAction("/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1055.png", Utility.GetResourceStr("MASSAUDIT")).Visibility = Visibility.Visible;
+                if (Checkstate == Convert.ToString(Convert.ToInt32(CheckStates.Approving)))//审核中则隐藏
+                {
+                    ToolBar.btnOtherAction("/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1055.png", Utility.GetResourceStr("MASSAUDIT")).Visibility = Visibility.Collapsed;
+                }
                 Utility.SetToolBarButtonByCheckState(dict.DICTIONARYVALUE.Value.ToInt32(), ToolBar, "T_HR_EMPLOYEEADDSUM");
                 LoadData();
             }

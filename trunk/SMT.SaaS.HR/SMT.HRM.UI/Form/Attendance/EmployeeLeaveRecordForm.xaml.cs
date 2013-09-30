@@ -157,23 +157,13 @@ namespace SMT.HRM.UI.Form.Attendance
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
-            string strLevTime = string.Empty;
-            if (Info.LEAVEDAYS > 0)
-            {
-                strLevTime = Info.LEAVEDAYS + "天";
-            }
-            if (Info.LEAVEHOURS > 0)
-            {
-                strLevTime=strLevTime+Info.LEAVEHOURS + "小时";
-            }
-            AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "LEAVETIME", strLevTime, strLevTime));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERCOMPANYID", approvalInfo.OWNERCOMPANYID, StrCompanyName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERDEPARTMENTID", approvalInfo.OWNERDEPARTMENTID, StrDepartmentName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERPOSTID", approvalInfo.OWNERPOSTID, StrPostName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "TYPEAPPROVAL", approvalInfo.TYPEAPPROVAL, StrApprovalTypeName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "CONTENT", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "AttachMent", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
-            //AutoList.Add(basedata("T_HR_LEFTOFFICE", "LEFTOFFICECATEGORY", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYVALUE.ToString() : "0", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYNAME : ""));
+            //    AutoList.Add(basedata("T_HR_LEFTOFFICE", "LEFTOFFICECATEGORY", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYVALUE.ToString() : "0", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYNAME : ""));
             string a = mx.TableToXml(Info, null, StrSource, AutoList);
 
             return a;
@@ -277,7 +267,7 @@ namespace SMT.HRM.UI.Form.Attendance
             clientAtt.EmployeeLeaveRecordUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(clientAtt_EmployeeLeaveRecordUpdateCompleted);
 
             clientAtt.AuditLeaveRecordCompleted += new EventHandler<AuditLeaveRecordCompletedEventArgs>(clientAtt_AuditLeaveRecordCompleted);
-            clientAtt.GetEmployeeLeaveRdListsByLeaveRecordIDCompleted += new EventHandler<GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs>(clientAtt_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted);
+          //  clientAtt.GetEmployeeLeaveRdListsByLeaveRecordIDCompleted += new EventHandler<GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs>(clientAtt_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted);
             toolbar1.btnNew.Content = "添加带薪假(冲减)";
             toolbar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             toolbar1.btnDelete.Click += new RoutedEventHandler(btnDelete_Click);
@@ -288,31 +278,31 @@ namespace SMT.HRM.UI.Form.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void clientAtt_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted(object sender, GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs e)
-        {
-            try
-            {
-                if (e.Error == null)
-                {
-                    if (e.Result != null)
-                    {
-                        txtRemark.Text += "\r\n\r\n";
-                        e.Result.ForEach(item =>
-                            {
-                                txtRemark.Text += "该请假记录已销假，开始时间为：" + item.STARTDATETIME.ToString() + "  结束时间为：" + item.ENDDATETIME.ToString() + "  销假时长为：" + item.TOTALHOURS;
-                            });
-                    }
-                }
-                else
-                {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("查找员工销假记录错误"));
-            }
-        }
+        //void clientAtt_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted(object sender, GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (e.Error == null)
+        //        {
+        //            if (e.Result != null)
+        //            {
+        //                txtRemark.Text += "\r\n\r\n";
+        //                e.Result.ForEach(item =>
+        //                    {
+        //                        txtRemark.Text += "该请假记录已销假，开始时间为：" + item.STARTDATETIME.ToString() + "  结束时间为：" + item.ENDDATETIME.ToString() + "  销假时长为：" + item.TOTALHOURS;
+        //                    });
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("查找员工销假记录错误"));
+        //    }
+        //}
 
         /// <summary>
         /// 隐藏当前页不需要使用的GridToolBar按钮
@@ -519,7 +509,7 @@ namespace SMT.HRM.UI.Form.Attendance
             //    return;
             //}
 
-            if (dtEnd.CompareTo(dtStart) <=0)
+            if (dtEnd.CompareTo(dtStart) <= 0)
             {
                 return;
             }
@@ -531,7 +521,7 @@ namespace SMT.HRM.UI.Form.Attendance
             }
 
             decimal dLeaveDay = 0, dLeaveTime = 0, dLeaveTotalTime = 0;
-            decimal dLeaveYearDays = 0, dLeaveYearTimes = 0, dLeaveMonthDays = 0, dLeaveMonthTimes = 0,dLeaveSYearTimes=0;
+            decimal dLeaveYearDays = 0, dLeaveYearTimes = 0, dLeaveMonthDays = 0, dLeaveMonthTimes = 0, dLeaveSYearTimes = 0;
             //第一次请假的时间
             DateTime dLeaveFistDate = DateTime.Parse("1900-1-1");
             //Modified by: Sam
@@ -545,7 +535,6 @@ namespace SMT.HRM.UI.Form.Attendance
 
             string strLeaveSetId = (lkLeaveTypeName.DataContext as T_HR_LEAVETYPESET).LEAVETYPESETID;
             LeaveRecord.LEAVERECORDID = LeaveRecord.LEAVERECORDID + "|" + strLeaveSetId;
-            
             clientAtt.GetRealLeaveDayByEmployeeIdAndDateAsync(LeaveRecord.LEAVERECORDID, LeaveRecord.EMPLOYEEID, dtStart, dtEnd, dLeaveDay, dLeaveTime, dLeaveTotalTime);
 
             clientAtt.GetLeaveDaysHistoryAsync(ent.LEAVETYPESETID, LeaveRecord.LEAVERECORDID, LeaveRecord.EMPLOYEEID, dtStart, dtEnd, dLeaveYearTimes, dLeaveYearDays, dLeaveMonthTimes, dLeaveMonthDays, dLeaveFistDate, dLeaveSYearTimes);
@@ -1073,7 +1062,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 dLeaveFistDate = e.dLeaveFistDate;
                 dLeaveSYearTimes = e.dLeaveSYearTimes.ToString();
 
-                clientAtt.GetEmployeeLeaveRdListsByLeaveRecordIDAsync(LeaveRecord.LEAVERECORDID, "2");//根据请假ID去找审核通过的销假信息
+               // clientAtt.GetEmployeeLeaveRdListsByLeaveRecordIDAsync(LeaveRecord.LEAVERECORDID, "2");//根据请假ID去找审核通过的销假信息
             }
             else
             {
@@ -1247,7 +1236,6 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             string[] strArr = LeaveRecord.LEAVERECORDID.Split('|');
             LeaveRecord.LEAVERECORDID = strArr[0];
-            
             if (e.Error == null)
             {
                 if (!string.IsNullOrEmpty(e.Result))
@@ -1260,7 +1248,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 nudLeaveDay.Value = e.dLeaveDay.ToDouble();
                 nudLeaveHours.Value = e.dLeaveTime.ToDouble();
                 nudTotalDays.Value = e.dLeaveTotalTime.ToDouble();
-
+                
                 clientAtt.GetAttendanceSolutionByEmployeeIDAndDateAsync(LeaveRecord.EMPLOYEEID, LeaveRecord.STARTDATETIME.Value, LeaveRecord.ENDDATETIME.Value);
             }
             else

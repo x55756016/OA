@@ -95,10 +95,11 @@ namespace SMT.HRM.BLL
             {
                 strCheckState = Convert.ToInt32(Common.CheckStates.Approving).ToString();
             }
-            else
-            {
-                SetOrganizationFilter(ref filterString, ref objArgs, strOwnerID, "T_HR_ATTENDMONTHLYBALANCE");
-            }
+            //去掉权限过滤
+            //else
+            //{
+            //    SetOrganizationFilter(ref filterString, ref objArgs, strOwnerID, "T_HR_ATTENDMONTHLYBALANCE");
+            //}
 
             if (!string.IsNullOrEmpty(strCheckState))
             {
@@ -2035,8 +2036,9 @@ namespace SMT.HRM.BLL
                     T_HR_ADJUSTLEAVE entAdjustLeave = bllAdjustLeave.GetAdjustLeaveByLeaveRecordID(entEmployeeLeaveRecord.LEAVERECORDID);
 
                     EmployeeCancelLeaveBLL bllCancelLeave = new EmployeeCancelLeaveBLL();
-                    T_HR_EMPLOYEECANCELLEAVE entCancelLeave = bllCancelLeave.GetEmployeeLeaveRdListByLeaveRecordID(entEmployeeLeaveRecord.LEAVERECORDID, strCheckState);
-
+                    //T_HR_EMPLOYEECANCELLEAVE entCancelLeave = bllCancelLeave.GetEmployeeLeaveRdListByLeaveRecordID(entEmployeeLeaveRecord.LEAVERECORDID, strCheckState);
+                    IQueryable<T_HR_EMPLOYEECANCELLEAVE> entCancelLeaveList = bllCancelLeave.GetEmployeeLeaveRdListByLeaveRecordID(entEmployeeLeaveRecord.LEAVERECORDID, strCheckState);
+                    
                     T_HR_LEAVETYPESET entLeaveTypeSet = entEmployeeLeaveRecord.T_HR_LEAVETYPESET;
 
                     if (entLeaveTypeSet == null)
@@ -2063,9 +2065,13 @@ namespace SMT.HRM.BLL
 
                         }
 
-                        if (entCancelLeave != null)
+
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
 
                         dAffairLeaveDays = dAffairLeaveDays - dCancelLeaveTotalHours;
@@ -2091,9 +2097,12 @@ namespace SMT.HRM.BLL
 
                         }
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
 
                         dSickLeaveDays = dSickLeaveDays - dCancelLeaveTotalHours;
@@ -2109,10 +2118,14 @@ namespace SMT.HRM.BLL
                             dAdjustLeaveDays += dLeaveTotalHours;
                         }
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
+
 
                         dLeaveUsedDays = dLeaveUsedDays - dCancelLeaveTotalHours;
                         dAdjustLeaveDays = dAdjustLeaveDays - dCancelLeaveTotalHours;
@@ -2128,9 +2141,12 @@ namespace SMT.HRM.BLL
                         }
 
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
 
                         dAnnualLevelDays = dAnnualLevelDays - dCancelLeaveTotalHours;
@@ -2145,9 +2161,12 @@ namespace SMT.HRM.BLL
                             dAdjustLeaveDays += dLeaveTotalHours;
                         }
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
 
                         dMaternityLeaveDays = dMaternityLeaveDays - dCancelLeaveTotalHours;
@@ -2171,9 +2190,12 @@ namespace SMT.HRM.BLL
                             dAdjustLeaveDays += dLeaveTotalHours;
                         }
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
 
                         dNursesDays = dNursesDays - dCancelLeaveTotalHours;
@@ -2188,10 +2210,14 @@ namespace SMT.HRM.BLL
                             dAdjustLeaveDays += dLeaveTotalHours;
                         }
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
+
 
                         dTripDays = dTripDays - dCancelLeaveTotalHours;
                         dAdjustLeaveDays = dAdjustLeaveDays - dCancelLeaveTotalHours;
@@ -2205,9 +2231,12 @@ namespace SMT.HRM.BLL
                             dAdjustLeaveDays += dLeaveTotalHours;
                         }
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
 
                         dInjuryLeaveDays = dInjuryLeaveDays - dCancelLeaveTotalHours;
@@ -2222,9 +2251,12 @@ namespace SMT.HRM.BLL
                             dAdjustLeaveDays += dLeaveTotalHours;
                         }
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
 
                         dPrenatalcareLeaveDays = dPrenatalcareLeaveDays - dCancelLeaveTotalHours;
@@ -2239,9 +2271,12 @@ namespace SMT.HRM.BLL
                             dAdjustLeaveDays += dLeaveTotalHours;
                         }
 
-                        if (entCancelLeave != null)
+                        if (entCancelLeaveList != null)
                         {
-                            CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            foreach (var entCancelLeave in entCancelLeaveList)
+                            {
+                                CalculateRealCurrMonthLeaveDays(entCancelLeave.EMPLOYEEID, entCancelLeave.STARTDATETIME.Value, entCancelLeave.ENDDATETIME.Value, dtStart, dtEnd, ref dCancelLeaveTotalHours);
+                            }
                         }
 
                         dFuneralLeaveDays = dFuneralLeaveDays - dCancelLeaveTotalHours;

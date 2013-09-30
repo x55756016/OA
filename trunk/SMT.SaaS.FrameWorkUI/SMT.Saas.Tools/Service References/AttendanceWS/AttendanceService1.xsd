@@ -60,6 +60,7 @@
   <xs:element name="ArrayOfV_EmpLeaveRdInfo" nillable="true" type="tns:ArrayOfV_EmpLeaveRdInfo" />
   <xs:complexType name="V_EmpLeaveRdInfo">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CANCELTOTALHOURS" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />

@@ -259,10 +259,26 @@ namespace SMT.HRM.UI.Form.Attendance
             client.EmployeeCancelLeaveAddCompleted += new EventHandler<EmployeeCancelLeaveAddCompletedEventArgs>(client_EmployeeCancelLeaveAddCompleted);
             //client.EmployeeCancelLeaveUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_EmployeeCancelLeaveUpdateCompleted);
             client.EmployeeCancelLeaveUpdateCompleted += new EventHandler<EmployeeCancelLeaveUpdateCompletedEventArgs>(client_EmployeeCancelLeaveUpdateCompleted);
-
             //获取员工名称，并显示所在的公司架构
             //perClient.GetEmployeeDetailByIDCompleted += new EventHandler<SMT.Saas.Tools.PersonnelWS.GetEmployeeDetailByIDCompletedEventArgs>(perClient_GetEmployeeDetailByIDCompleted);
             perClient.GetEmpOrgInfoByIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmpOrgInfoByIDCompletedEventArgs>(perClient_GetEmpOrgInfoByIDCompleted);
+            client.GetEmployeeLeaveRdListsByLeaveRecordIDCompleted += new EventHandler<GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs>(client_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted);
+        }
+
+        void client_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted(object sender, GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error != null)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                }
+                ObservableCollection<T_HR_EMPLOYEECANCELLEAVE> list = e.Result;
+                this.GetTxtCancelRecord(list);
+            }
+            catch (Exception)
+            {
+            }
         }
 
         /// <summary>
@@ -519,7 +535,7 @@ namespace SMT.HRM.UI.Form.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void client_EmployeeCancelLeaveUpdateCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        void client_EmployeeCancelLeaveUpdateCompleted(object sender, EmployeeCancelLeaveUpdateCompletedEventArgs e)
         {
             RefreshUI(RefreshedTypes.HideProgressBar);
             if (e.Error != null)
@@ -528,6 +544,13 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
+                string strMsg = e.Result;
+                if (!string.IsNullOrWhiteSpace(strMsg) && strMsg != "{SAVESUCCESSED}")
+                {
+                    strMsg = strMsg.Replace('{', ' ').Replace('}', ' ').Trim();
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(strMsg));
+                    return;
+                }
                 if (cancelLeave.CHECKSTATE == Utility.GetCheckState(CheckStates.UnSubmit))
                 {
                     Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
@@ -553,7 +576,7 @@ namespace SMT.HRM.UI.Form.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void client_EmployeeCancelLeaveAddCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        void client_EmployeeCancelLeaveAddCompleted(object sender, EmployeeCancelLeaveAddCompletedEventArgs e)
         {
             RefreshUI(RefreshedTypes.HideProgressBar);
             if (e.Error != null)
@@ -562,6 +585,13 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
+                string strMsg = e.Result;
+                if (!string.IsNullOrWhiteSpace(strMsg) && strMsg != "{SAVESUCCESSED}")
+                {
+                    strMsg=strMsg.Replace('{',' ').Replace('}',' ').Trim();
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(strMsg));
+                    return;
+                }
                 Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
                 if (closeFormFlag)
                 {
@@ -610,6 +640,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 if (cancelLeave.T_HR_EMPLOYEELEAVERECORD != null && cancelLeave.T_HR_EMPLOYEELEAVERECORD.T_HR_LEAVETYPESET != null)
                 {
                     lkEmployeeLeave.DataContext = cancelLeave.T_HR_EMPLOYEELEAVERECORD;
+                    client.GetEmployeeLeaveRdListsByLeaveRecordIDAsync(cancelLeave.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID, string.Empty);
                 }
                 //perClient.GetEmployeeDetailByIDAsync(cancelLeave.EMPLOYEEID);
                 perClient.GetEmpOrgInfoByIDAsync(cancelLeave.OWNERID, cancelLeave.OWNERPOSTID, cancelLeave.OWNERDEPARTMENTID, cancelLeave.OWNERCOMPANYID);
@@ -744,7 +775,7 @@ namespace SMT.HRM.UI.Form.Attendance
 
                 lkEmployeeLeave.DataContext = ent;
                 cancelLeave.T_HR_EMPLOYEELEAVERECORD = ent;
-
+                this.GetTxtCancelRecord(ent.T_HR_EMPLOYEECANCELLEAVE);
                 dpStartDate.Value = ent.STARTDATETIME;
                 dpEndDate.Value = ent.ENDDATETIME;
                 
@@ -766,6 +797,41 @@ namespace SMT.HRM.UI.Form.Attendance
             };
 
             lookup.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
+        }
+
+        /// <summary>
+        /// 把对应请假的销假记录显示到销假记录框中
+        /// </summary>
+        /// <param name="ent"></param>
+        private void GetTxtCancelRecord(ObservableCollection<T_HR_EMPLOYEECANCELLEAVE> empCancels)
+        {
+            string strMsg = string.Empty;
+            try
+            {
+                List<T_HR_EMPLOYEECANCELLEAVE> emps = empCancels.OrderBy(t => t.STARTDATETIME).ToList();
+                emps.ForEach(it =>
+                {
+                    if (it.CHECKSTATE == "1" || it.CHECKSTATE == "2")
+                    {
+                        string strCheck = string.Empty;
+                        switch (it.CHECKSTATE)
+                        {
+                            case "0": strCheck = "  未提交"; break;
+                            case "1": strCheck = "  审核中"; break;
+                            case "2": strCheck = "  审核通过"; break;
+                            default: strCheck = "这是什么状态";
+                                break;
+                        }
+                        strMsg += "销假起止时间：";
+                        strMsg += Convert.ToString(it.STARTDATETIME) + " — " + Convert.ToString(it.ENDDATETIME) + strCheck  + "\n";
+                    }
+                });
+                this.txtCancelRecord.Text = strMsg;
+            }
+            catch (Exception)
+            {
+              
+            }
         }
 
         /// <summary>
