@@ -102,7 +102,7 @@ namespace SMT.HRM.BLL
                                 CREATEUSERID = e.CREATEUSERID,
                                 CREATEDATE = e.CREATEDATE,
                                 UPDATEDATE = e.UPDATEDATE,
-                                CANCELTOTALHOURS = e.T_HR_EMPLOYEECANCELLEAVE.Sum(t => t.TOTALHOURS),
+                                CANCELTOTALHOURS = e.T_HR_EMPLOYEECANCELLEAVE.Where(t => t.CHECKSTATE == "2").Sum(t => t.TOTALHOURS),                                
                                 REASON = e.REASON
                             };
 
@@ -139,6 +139,7 @@ namespace SMT.HRM.BLL
                                                            && (
                                                            (e.STARTDATETIME <= dtStart && e.ENDDATETIME >= dtStart)
                                                            || (e.STARTDATETIME <= dtEnd && e.ENDDATETIME >= dtEnd)
+                                                           || (e.STARTDATETIME >= dtStart && e.ENDDATETIME <= dtEnd)
                                                            )
                                                            select e;
 
@@ -1510,23 +1511,35 @@ namespace SMT.HRM.BLL
 
             SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_HR_EMPLOYEELEAVERECORD");
 
-            IQueryable<T_HR_EMPLOYEELEAVERECORD> ents = dal.GetObjects().Include("T_HR_LEAVETYPESET");
+            IQueryable<T_HR_EMPLOYEELEAVERECORD> ents = dal.GetObjects().Include("T_HR_LEAVETYPESET").Include("T_HR_EMPLOYEECANCELLEAVE");
 
             if (!string.IsNullOrEmpty(filterString))
             {
                 ents = ents.Where(filterString, queryParas.ToArray());
             }
 
-            var d = from a in dal.GetObjects<T_HR_EMPLOYEECANCELLEAVE>().Include("T_HR_EMPLOYEELEAVERECORD")
-                    where a.EMPLOYEEID == userID && (a.CHECKSTATE == "0" || a.CHECKSTATE == "1" || a.CHECKSTATE == "2")
-                    select a.T_HR_EMPLOYEELEAVERECORD;
+            //var d = from a in dal.GetObjects<T_HR_EMPLOYEECANCELLEAVE>().Include("T_HR_EMPLOYEELEAVERECORD")
+            //        where a.EMPLOYEEID == userID && (a.CHECKSTATE == "0" || a.CHECKSTATE == "1" || a.CHECKSTATE == "2")
+            //        select a.T_HR_EMPLOYEELEAVERECORD;
+            //ents = ents.Except(d);
 
-            ents = ents.Except(d);
-
-            ents = ents.OrderBy(sort);
+            var dv = from a in dal.GetObjects<T_HR_EMPLOYEECANCELLEAVE>()
+                     where a.EMPLOYEEID == userID && (a.CHECKSTATE == "2" || a.CHECKSTATE == "1")
+                     group a by a.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID into g
+                     select new
+                     {
+                         id = g.Key,
+                         totalHours = g.Sum(p => p.TOTALHOURS)
+                     };
+            var ex = from e in dal.GetObjects<T_HR_EMPLOYEECANCELLEAVE>()
+                     join c in dv on e.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID equals c.id
+                     where e.T_HR_EMPLOYEELEAVERECORD.TOTALHOURS <= c.totalHours
+                     select e.T_HR_EMPLOYEELEAVERECORD;
+            ents = ents.Except(ex);
+            ents = ents.OrderBy("STARTDATETIME");
 
             ents = Utility.Pager<T_HR_EMPLOYEELEAVERECORD>(ents, pageIndex, pageSize, ref pageCount);
-            return ents.Count() > 0 ? ents.ToArray() : null;
+            return ents.Count()>0 ? ents.ToArray() : null;
         }
 
         #endregion
