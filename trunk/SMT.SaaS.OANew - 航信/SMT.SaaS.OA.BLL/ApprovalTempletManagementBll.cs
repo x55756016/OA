@@ -188,8 +188,19 @@ namespace SMT.SaaS.OA.BLL
             }
             else
             {
-                bool i = Add(ApprovalInfo);
-                if (i == true)
+                int i=0;
+                try
+                {
+                    Utility.RefreshEntity(ApprovalInfo as System.Data.Objects.DataClasses.EntityObject);
+                    i = dal.Add(ApprovalInfo);
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                    throw (ex);
+                }
+
+                if (i >0)
                 {
                     return true;
                 }
@@ -215,21 +226,33 @@ namespace SMT.SaaS.OA.BLL
                     
                     var entity = entitys.FirstOrDefault();
                     dal.BeginTransaction();
-                    if (base.Delete(entity))
+
+                    try
                     {
-                        PublicInterfaceWS.PublicServiceClient publicClient = new PublicInterfaceWS.PublicServiceClient();
-                        if (!publicClient.DeleteContent(ApprovalInfo.APPROVALID))
+                        Utility.RefreshEntity(entity as System.Data.Objects.DataClasses.EntityObject);
+                        int i = dal.Delete(entity);
+                        if (i > 0)
+                        {
+                            PublicInterfaceWS.PublicServiceClient publicClient = new PublicInterfaceWS.PublicServiceClient();
+                            if (!publicClient.DeleteContent(ApprovalInfo.APPROVALID))
+                            {
+                                dal.RollbackTransaction();
+                                return false;
+                            }
+                            dal.CommitTransaction();
+                            return true;
+                        }
+                        else
                         {
                             dal.RollbackTransaction();
                             return false;
                         }
-                        dal.CommitTransaction();
-                        return true;
                     }
-                    else
+                    catch (Exception ex)
                     {
                         dal.RollbackTransaction();
                         return false;
+                        throw (ex);
                     }
                 }
 
