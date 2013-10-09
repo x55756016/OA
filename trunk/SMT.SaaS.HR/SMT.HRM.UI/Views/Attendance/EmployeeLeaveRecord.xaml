@@ -39,6 +39,8 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="80"/>
                     <ColumnDefinition Width="80"/>
                 </Grid.ColumnDefinitions>
@@ -49,19 +51,22 @@
                 
                 <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12" Grid.Column="4" Grid.Row="0" x:Name="startMonth"></inputToolkit:NumericUpDown>
                 <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDDATETO}" Width="auto"  VerticalAlignment="Center" Grid.Column="5" Grid.Row="0"></TextBlock>
+
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="5000"  Grid.Column="6" Grid.Row="0" x:Name="endYear"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center" Width="auto" Grid.Column="7" Grid.Row="0"></TextBlock>
                 
-                <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12" Grid.Column="6" Grid.Row="0" x:Name="nuMonth"></inputToolkit:NumericUpDown>
-                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="auto"  VerticalAlignment="Center" Grid.Column="7" Grid.Row="0"></TextBlock>
+                <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12" Grid.Column="8" Grid.Row="0" x:Name="nuMonth"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="auto"  VerticalAlignment="Center" Grid.Column="9" Grid.Row="0"></TextBlock>
 
                 <!--假期-->
-                <TextBlock Grid.Column="8" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVETYPESET}" Style="{StaticResource FrameGridTextBlock1}" Margin="0,6,4,0" Width="Auto" HorizontalAlignment="Right"/>
-                <smt:LookUp Grid.Column="9" Grid.Row="0" DataContext="{Binding T_HR_LEAVETYPESET}" FindClick="lkLeaveTypeName_FindClick" x:Name="lkLeaveTypeName" Margin="5,0,0,0" Height="24" Width="110" HorizontalAlignment="Left" DisplayMemberPath="LEAVETYPENAME">
+                <TextBlock Grid.Column="10" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVETYPESET}" Style="{StaticResource FrameGridTextBlock1}" Margin="0,6,4,0" Width="Auto" HorizontalAlignment="Right"/>
+                <smt:LookUp Grid.Column="11" Grid.Row="0" DataContext="{Binding T_HR_LEAVETYPESET}" FindClick="lkLeaveTypeName_FindClick" x:Name="lkLeaveTypeName" Margin="5,0,0,0" Height="24" Width="110" HorizontalAlignment="Left" DisplayMemberPath="LEAVETYPENAME">
                     <!--<interaction:Interaction.Behaviors>
                         <behaviors:ShowRequire></behaviors:ShowRequire>
                     </interaction:Interaction.Behaviors>-->
                 </smt:LookUp>
-                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnIsNull" Grid.Row="0" Grid.Column="10" Width="70" Content="重置" HorizontalAlignment="Left" VerticalAlignment="Center"  Click="btnIsNull_Click"/>
-                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="11" Width="70" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Left" VerticalAlignment="Center" Click="GridPager_Click" />
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnIsNull" Grid.Row="0" Grid.Column="12" Width="70" Content="重置" HorizontalAlignment="Left" VerticalAlignment="Center"  Click="btnIsNull_Click"/>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="13" Width="70" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Left" VerticalAlignment="Center" Click="GridPager_Click" />
             </Grid>
             <smt:FormToolBar x:Name="toolbar1" Width="auto" Grid.Row="2"/>
             <data:DataGrid x:Name="dgEmpLeaveRdList" AutoGenerateColumns="False" Grid.Row="3"
