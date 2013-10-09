@@ -1,0 +1,166 @@
+﻿<smtLocal:BaseForm x:Class="SMT.SaaS.OA.UI.UserControls.EmployeeSurveyApp_add"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+                   xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+                   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                   xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                   xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+                   xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+                   xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+                   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                   xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI">
+    <UserControl.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+        <local:CustomDateConverter x:Key="DateTimeConvert" />
+    </UserControl.Resources>
+    <Grid>
+        <controls:TabControl x:Name="LayoutRoot"
+                             Height="auto"
+                             Margin="2"
+                             Style="{StaticResource TabControlStyle}">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <Grid Margin="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="0.6*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="0.35*" />
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="0.35*" />
+                    </Grid.ColumnDefinitions>
+                    <validator:ValidatorManager x:Name="Group1" />
+
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=SurveysTITLE}" />
+                    <TextBox x:Name="txtTitle"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Grid.ColumnSpan="3"
+                             HorizontalAlignment="Stretch"
+                             IsEnabled="False"
+                             Style="{StaticResource TextBoxStyle}">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ErrorMessage="REQUIRED"
+                                                         ErrorMessageParameter="SurveysTITLE"
+                                                         ManagerName="Group1" />
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=STARTDATE}" />
+                    <controls:DatePicker x:Name="dpStartDate"
+                                         Grid.Row="1"
+                                         Grid.Column="1"
+                                         HorizontalAlignment="Stretch"
+                                         Style="{StaticResource DatePickerStyle}">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ErrorMessage="REQUIRED"
+                                                         ErrorMessageParameter="SurveysTITLE"
+                                                         ManagerName="Group1" />
+                        </validator:ValidatorService.Validator>
+                    </controls:DatePicker>
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="2"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=ENDDATE}" />
+                    <controls:DatePicker x:Name="dpEndDate"
+                                         Grid.Row="1"
+                                         Grid.Column="3"
+                                         HorizontalAlignment="Stretch"
+                                         Style="{StaticResource DatePickerStyle}">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ErrorMessage="REQUIRED"
+                                                         ErrorMessageParameter="SurveysTITLE"
+                                                         ManagerName="Group1" />
+                        </validator:ValidatorService.Validator>
+                    </controls:DatePicker>
+                    <TextBlock Grid.Row="2"
+                               Height="16"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=ISImplement}" />
+                    <CheckBox x:Name="ckbOName"
+                              Grid.Row="2"
+                              Grid.Column="1"
+                              Margin="5,0,0,0"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource CheckBoxStyle}" />
+
+
+                    <TextBlock Grid.Row="2"
+                               Grid.Column="2"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=IsNecessarily}" />
+                    <CheckBox x:Name="ckbOptFlag"
+                              Grid.Row="2"
+                              Grid.Column="3"
+                              Margin="5,0,0,0"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource CheckBoxStyle}" />
+                    <TextBlock Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Top"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=DISTRBUTEOBJECT}" />
+                    <data:DataGrid x:Name="dg"
+                                   Grid.Row="3"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="3"
+                                   Margin="5,5,0,0"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   AutoGenerateColumns="False"
+                                   CellStyle="{StaticResource DataGridCellStyle}"
+                                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                   IsReadOnly="True"
+                                   LoadingRow="dg_LoadingRow"
+                                   RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                                   RowStyle="{StaticResource DataGridRowStyle}"
+                                   Style="{StaticResource DataGridStyle}"
+                                   VerticalScrollBarVisibility="Visible">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn Header="SELECT" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="myChkBoxObj"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Style="{StaticResource CheckBoxStyle}"
+                                                  Tag="{Binding ObjectID}" />
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn Binding="{Binding ObjectType, Converter={StaticResource ObjectTypeConverter}}" Header="OBJECTTYPE" />
+                            <data:DataGridTextColumn Binding="{Binding ObjectName}" Header="OBJECTNAME" />
+                            <data:DataGridTemplateColumn Header="OPERATION">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <dataFormToolkit:DataField Height="22" Label="">
+                                            <smtx:ImageButton x:Name="BtnDel" Click="BtnDel_Click" />
+                                        </dataFormToolkit:DataField>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

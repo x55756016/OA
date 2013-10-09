@@ -1,0 +1,144 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.WebPart.SatisfactionSurveyWebPart"
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls">
+    <Grid x:Name="LayoutRoot"
+          Margin="2"
+          Loaded="LayoutRoot_Loaded">
+        <controls:TabControl RenderTransformOrigin="0.5,0.5"
+                             Margin="2"
+                             Style="{StaticResource TabControlStyle}">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}"
+                              Style="{StaticResource TabItemStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  Grid.Row="0"
+                                Grid.Column="0"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATE}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                    <TextBox  Grid.Row="0"
+                              Grid.Column="1"
+                              x:Name="txtStartDate"
+                              BorderThickness="0 0 0 0.8"
+                              BorderBrush="Red"
+                              Width="auto"
+                              HorizontalAlignment="Stretch"
+                              Style="{StaticResource TextBoxStyle}"></TextBox>
+                    <TextBlock  Grid.Row="0"
+                                Grid.Column="2"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDDATE}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                    <TextBox  Grid.Row="0"
+                              Grid.Column="3"
+                              x:Name="txtEndDate"
+                              BorderThickness="0 0 0 0.8"
+                              BorderBrush="Red"
+                              Width="auto"
+                              HorizontalAlignment="Stretch"
+                              Style="{StaticResource TextBoxStyle}"></TextBox>
+                    <TextBlock  Grid.Row="1"
+                                Grid.Column="0"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=OAANSWER}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                    <TextBox  Grid.Row="1"
+                              Grid.Column="1"
+                              x:Name="txtAnswerID"
+                              BorderThickness="0 0 0 0.8"
+                              BorderBrush="Red"
+                              Width="auto"
+                              HorizontalAlignment="Stretch"
+                              Style="{StaticResource TextBoxStyle}"></TextBox>
+                    <TextBlock  Grid.Row="1"
+                                Grid.Column="2"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=OASURVEYPERCENTAGE}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                    <TextBox  Grid.Row="1"
+                              Grid.Column="3"
+                              x:Name="txtPercentAge"
+                              BorderThickness="0 0 0 0.8"
+                              BorderBrush="Red"
+                              Width="auto"
+                              HorizontalAlignment="Stretch"
+                              Style="{StaticResource TextBoxStyle}"></TextBox>
+                    <TextBlock  Grid.Row="2"
+                                Grid.Column="0"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=OASURVEYRESULT}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                    <TextBox  Grid.Row="2"
+                              Grid.Column="1"
+                              Grid.ColumnSpan="3"
+                              x:Name="txtResult"
+                              BorderThickness="0 0 0 0.8"
+                              BorderBrush="Red"
+                              Width="auto"
+                              HorizontalAlignment="Stretch"
+                              Style="{StaticResource TextBoxStyle}"></TextBox>
+
+                    <TextBlock  Grid.Row="3"
+                                Grid.Column="0"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=SurveysTITLE}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                    <TextBox  Grid.Row="3"
+                              Grid.Column="1"
+                              Grid.ColumnSpan="3"
+                              x:Name="txbTitle"
+                              BorderThickness="0 0 0 0.8"
+                              BorderBrush="Red"
+                              Width="auto"
+                              HorizontalAlignment="Stretch"
+                              Style="{StaticResource TextBoxStyle}"></TextBox>
+                    <TextBlock  Grid.Row="4"
+                                Grid.Column="0"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=SurveysContent}"
+                                VerticalAlignment="Top"
+                                Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                    <TextBox  Grid.Row="4"
+                              Grid.Column="1"
+                              Grid.ColumnSpan="3"
+                              x:Name="txbContent"
+                              TextWrapping="Wrap"
+                              BorderThickness="0 0 0 0.8"
+                              BorderBrush="Red"
+                              HorizontalAlignment="Stretch"
+                              Style="{StaticResource TextBoxStyle}"
+                              Margin="0,4,0,4"></TextBox>
+                    <ScrollViewer  Grid.Row="5"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   x:Name="scrolls"
+                                   Margin="0,6,0,0"
+                                   VerticalScrollBarVisibility="Auto"
+                                   HorizontalScrollBarVisibility="Auto">
+                        <ScrollViewer.Content>
+                            <StackPanel x:Name="spSurveysList"
+                                        Orientation="Vertical"
+                                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                        Margin="10,10,10,10"></StackPanel>
+                        </ScrollViewer.Content>
+                    </ScrollViewer>
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

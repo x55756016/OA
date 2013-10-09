@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c1ce22b3-cc68-4f4d-9faa-35d37b2bc246" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="FloatableWindow" />
+      <ReferencedAssembly AssemblyName="Microsoft.Expression.Prototyping.Interactivity" />
+      <ReferencedAssembly AssemblyName="Microsoft.Expression.Prototyping.Runtime" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="SMT.SaaS.Globalization" />
+      <ReferencedAssembly AssemblyName="SMT.SaaS.Window" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.ComponentModel.DataAnnotations" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Net" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.Windows" />
+      <ReferencedAssembly AssemblyName="System.Windows.Browser" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.DataForm.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Data.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.DataVisualization.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Input.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Layout.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Navigation" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Theming.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Controls.Toolkit" />
+      <ReferencedAssembly AssemblyName="System.Windows.Data" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Serialization" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.3/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e44441c0-e975-41a0-b9e7-d615c3dc248c" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="8173ba56-08fe-4d54-b013-e87eed617455" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="c95ca935-392b-4bf2-986d-4b06b2603b91" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc/mex" />
+    <MetadataFile FileName="EngineDataModel.xsd" MetadataType="Schema" ID="2c5a06de-5d69-40ad-8cc7-871a397b6054" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc/mex" />
+    <MetadataFile FileName="System.Data.Objects.DataClasses.xsd" MetadataType="Schema" ID="ae198a33-7ea7-4c50-bec4-45f1a2daabbf" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc/mex" />
+    <MetadataFile FileName="System.Data.xsd" MetadataType="Schema" ID="65c2511b-be4c-45fe-8f67-05116e5b1e67" SourceId="1" SourceUrl="http://172.16.1.3/SmtOnline/Services/SMTEngine/EngineWcfGlobalFunction.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

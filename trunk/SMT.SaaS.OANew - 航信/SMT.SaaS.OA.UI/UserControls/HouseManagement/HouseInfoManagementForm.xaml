@@ -1,0 +1,180 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views"
+             
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             x:Class="SMT.SaaS.OA.UI.UserControls.HouseInfoManagementForm"
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+             xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+             xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors"     
+             xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d">
+    
+        <Grid x:Name="LayoutRoot" Margin="2" SizeChanged="LayoutRoot_SizeChanged">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="0.45*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="0.45*"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="0.45*"/>
+                            <ColumnDefinition Width="70"/>
+                        </Grid.ColumnDefinitions>
+                        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                        <validator:ValidatorManager x:Name="Group2"></validator:ValidatorManager>
+                        <!--Row0(UPTOWN&&HOUSENAME)-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMMUNITY}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"/>
+                        <TextBox x:Name="txtUptown" Text="{Binding UPTOWN,Mode=TwoWay}" TabIndex="1"  Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="COMMUNITY"></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <!--validition-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUILDING}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="0" Grid.Column="3" Margin="10,0,0,0"/>
+                        <TextBox x:Name="txtHouseName" Text="{Binding HOUSENAME,Mode=TwoWay}" Width="auto" TabIndex="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="BUILDING"></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <!--Row1(FLOOR&&NUM)-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FLOOR}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"/>
+                        <TextBox x:Name="txtFloor" Text="{Binding FLOOR,Mode=TwoWay}" Width="auto" TabIndex="3" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                            <validator:RegexValidator ManagerName="Group2"
+                                                  IsRequired="True"
+                                                  ErrorMessage="REQUIREDINTEGER"  ErrorMessageParameter="FLOOR" Expression="^\d+$"></validator:RegexValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ROOMNO}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3" Margin="10,0,0,0"/>
+                        <TextBox x:Name="txtNum" Text="{Binding NUM,Mode=TwoWay}" Width="auto" TabIndex="4" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ROOMNO"></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <!--Row2(RENTCOST&&DEPOSIT)-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RENTCOST}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Margin="10,0,10,0"/>
+                        <TextBox x:Name="txtRentCost" Text="{Binding RENTCOST,Mode=TwoWay}"  TabIndex="5"  Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                                <validator:RegexValidator ManagerName="Group2"
+                                                  IsRequired="True"
+                                                  ErrorMessage="REQUIREDNUMERICAL" ErrorMessageParameter="RENTCOST" Expression="^\d+$"></validator:RegexValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPOSIT}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="2" Grid.Column="3" Margin="10,0,0,0"/>
+                        <TextBox x:Name="txtDeposit" Text="{Binding DEPOSIT,Mode=TwoWay}" Width="auto"  TabIndex="6"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="4" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                            <validator:RegexValidator ManagerName="Group2"
+                                                  IsRequired="True"
+                                                  ErrorMessage="REQUIREDNUMERICAL" ErrorMessageParameter="DEPOSIT" Expression="^\d+$"></validator:RegexValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <!--Row3(RENTCOST&&DEPOSIT)-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SHAREDRENTCOST}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0" Margin="10,0,0,0"/>
+                        <TextBox x:Name="txtSharedRentCost" Text="{Binding RENTCOST,Mode=TwoWay}" Width="auto"  TabIndex="7"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                                <validator:RegexValidator ManagerName="Group2"
+                                                        IsRequired="True"
+                                                        ErrorMessage="REQUIREDNUMERICAL" ErrorMessageParameter="SHAREDRENTCOST" Expression="^\d+$"></validator:RegexValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SHAREDDEPOSIT}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="3" Margin="10,0,10,0"/>
+                        <TextBox x:Name="txtSharedDeposit" Text="{Binding DEPOSIT,Mode=TwoWay}" Width="auto"  TabIndex="8"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="4" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                                <validator:RegexValidator ManagerName="Group2"
+                                                  IsRequired="True"
+                                                  ErrorMessage="REQUIREDNUMERICAL"  ErrorMessageParameter="SHAREDDEPOSIT" Expression="^\d+$"></validator:RegexValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <!--Row4(MANAGECOST&&ISRENT)-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MANAGEMENTFEE}" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Margin="10,0,32,0" d:LayoutOverrides="Width"/>
+                        <TextBox x:Name="txtManageCost" Text="{Binding MANAGECOST,Mode=TwoWay}" Width="auto"  TabIndex="9"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}">
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                                <validator:RegexValidator ManagerName="Group2"
+                                                  IsRequired="True"
+                                                  ErrorMessage="REQUIREDNUMERICAL" ErrorMessageParameter="MANAGEMENTFEE" Expression="^\d+$"></validator:RegexValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=HIRENUMBER}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="3" Margin="10,0,0,0"/>
+                        <TextBox x:Name="txtNumber" Text="{Binding ISRENT,Mode=TwoWay}" Width="auto" TabIndex="10"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="4" Style="{StaticResource TextBoxStyle}"  >
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                            <validator:ValidatorService.Validator>
+                                <validator:RegexValidator ManagerName="Group2"
+                                                  IsRequired="True"
+                                                  ErrorMessage="REQUIREDINTEGER" ErrorMessageParameter="HIRENUMBER" Expression="^\d+$"></validator:RegexValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <!--Row5(BussinessArea)-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" VerticalAlignment="Top"  HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0" Margin="10,4,0,0"/>
+                        <TextBox x:Name="txtRemark" Style="{StaticResource TextBoxStyle}" Text="{Binding CONTENT,Mode=TwoWay}" Width="auto" VerticalAlignment="Stretch" MinHeight="70"  Height="auto" AcceptsReturn="True" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="5,2,0,2">
+
+                        </TextBox>
+                        <!--Row6(BussinessArea)-->
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEASECONTRACT}" VerticalAlignment="Top"  HorizontalAlignment="Left" Grid.Row="6" Grid.Column="0" Margin="10,4,0,0"/>
+                       
+                    <richtext:RichMainPage Grid.Row="6"
+                                           Grid.Column="1"
+                                           Grid.ColumnSpan="4"
+                                           MinWidth="451"
+                                           MinHeight="200"
+                                           x:Name="txtContent"
+                                           Margin="5,5,0,10">
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire></behaviors:ShowRequire>
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            
+                            <validator:RequiredValidator ManagerName="Group1"
+                                                         ErrorMessage="REQUIRED"
+                                                         ErrorMessageParameter="LEASECONTRACT"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </richtext:RichMainPage>
+                </Grid>
+                </StackPanel>
+        </Grid>
+</smtLocal:BaseForm>    

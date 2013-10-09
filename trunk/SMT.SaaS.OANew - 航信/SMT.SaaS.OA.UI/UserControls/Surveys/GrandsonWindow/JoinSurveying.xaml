@@ -1,0 +1,187 @@
+﻿<smtLocal:BaseForm x:Class="SMT.SaaS.OA.UI.UserControls.JoinSurveying"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+                   xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors"
+                   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                   xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                   xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                   xmlns:loacl="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+                   xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+                   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                   xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <controls:TabControl Name="parentsInfo"
+                             Grid.Row="1"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--  验证控件  -->
+                    <validator:ValidatorManager x:Name="checkGroup" />
+
+                    <!--  调查主题  -->
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SurveysTITLE}" Margin="0,0,0,3" />
+                    <TextBox Name="textTitle"
+                             Grid.Column="1"
+                             HorizontalAlignment="Stretch"
+                             AcceptsReturn="True"
+                             Margin="0,2,0,0"
+                             IsReadOnly="True"
+                             Style="{StaticResource TextBoxStyle}"
+                             Text="{Binding Path=Title,
+                                            Mode=TwoWay}" />
+
+                    <!--  调查内容  -->
+                    <TextBlock Grid.Row="1"
+                               VerticalAlignment="Top"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=SurveysContent}" Margin="0,0,0,3" />
+
+                    <TextBox Name="textContent"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             MinHeight="60"
+                             HorizontalAlignment="Stretch"
+                             HorizontalScrollBarVisibility="Auto"                           
+                             IsReadOnly="True"
+                             Style="{StaticResource TextBoxStyle}"
+                             Text="{Binding Path=Content,
+                                            Mode=TwoWay}"
+                             VerticalScrollBarVisibility="Visible" Margin="0,2,0,0" />
+
+                    <!--  题目和答案  -->
+
+                    <TextBlock Grid.Row="2"
+                               Grid.ColumnSpan="2"
+                               VerticalAlignment="Center"
+                               Text="{Binding Converter={StaticResource ResourceConveter},
+                                              Source=QUESTIONANDANSWER}" Margin="0,2,0,0" />
+
+
+                    <data:DataGrid Name="dgQuestion"
+                                   Grid.Row="3"
+                                   Grid.ColumnSpan="2"
+                                   MinHeight="150"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   AutoGenerateColumns="False"
+                                   CanUserResizeColumns="True"
+                                   CellStyle="{StaticResource DataGridCellStyle}"
+                                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                   RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                                   RowStyle="{StaticResource DataGridRowStyle}"
+                                   Style="{StaticResource DataGridStyle}" Margin="0,2,0,0">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Binding="{Binding Path=Subject.SUBJECTID, Mode=TwoWay}" Header="SubjectId" />
+                            <data:DataGridTemplateColumn MinWidth="550" Header="SubjectContent">
+                                <data:DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox x:Name="textQuestion"
+                                                 MaxHeight="25"
+                                                 IsReadOnly="True"
+                                                 Text="{Binding Path=Subject.CONTENT,
+                                                                Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellEditingTemplate>
+                            </data:DataGridTemplateColumn>
+                        </data:DataGrid.Columns>
+                        <data:DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <data:DataGrid x:Name="dgAnswer"
+                                               AutoGenerateColumns="False"
+                                               CanUserResizeColumns="True"
+                                               CellStyle="{StaticResource DataGridCellStyle}"
+                                               ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                               ItemsSource="{Binding Path=AnswerList,
+                                                                     Mode=TwoWay}"
+                                               RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                                               RowStyle="{StaticResource DataGridRowStyle}"
+                                               SelectionMode="Single"
+                                               Style="{StaticResource DataGridStyle}">
+                                    <data:DataGrid.Columns>
+
+
+                                        <data:DataGridTemplateColumn MinWidth="500" Header="OAANSWER">
+                                            <data:DataGridTemplateColumn.CellEditingTemplate>
+                                                <DataTemplate>
+                                                    <TextBox x:Name="textAnswer"
+                                                             MaxHeight="25"
+                                                             Text="{Binding Path=CONTENT,
+                                                                            Mode=TwoWay}" />
+                                                </DataTemplate>
+                                            </data:DataGridTemplateColumn.CellEditingTemplate>
+                                        </data:DataGridTemplateColumn>
+
+                                        <data:DataGridTemplateColumn Header="OPERATION">
+                                            <data:DataGridTemplateColumn.CellEditingTemplate>
+                                                <DataTemplate>
+                                                    <Button x:Name="answerOperation"
+                                                            MaxHeight="25"
+                                                            BorderThickness="0"
+                                                            Click="answerOperation_Click"
+                                                            Style="{StaticResource ButtonToolBarStyle}">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Image Width="16"
+                                                                   Height="16"
+                                                                   Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png"
+                                                                   Stretch="Fill" />
+                                                            <TextBlock Margin="3,0,0,0"
+                                                                       VerticalAlignment="Center"
+                                                                       Text="{Binding Converter={StaticResource ResourceConveter},
+                                                                                      Source=CLEAR}" />
+                                                        </StackPanel>
+                                                    </Button>
+                                                </DataTemplate>
+                                            </data:DataGridTemplateColumn.CellEditingTemplate>
+                                        </data:DataGridTemplateColumn>
+                                    </data:DataGrid.Columns>
+                                </data:DataGrid>
+                            </DataTemplate>
+                        </data:DataGrid.RowDetailsTemplate>
+                    </data:DataGrid>
+
+                    <!--  补充意见  -->
+                    <loacl:Expander Grid.Row="4"
+                                    Grid.ColumnSpan="3"
+                                    Width="Auto"
+                                    ExpandDirection="Down"
+                                    Header="{Binding Converter={StaticResource ResourceConveter},
+                                                     Source=SURVEYSUGGEST}"
+                                    IsExpanded="False"
+                                    Style="{StaticResource ExpanderStyle}" Margin="0,2,0,0">
+                        <TextBox Name="textSuggest"
+                                 Grid.Row="5"
+                                 Width="Auto"
+                                 Grid.Column="1"
+                                 MinHeight="60"
+                                 HorizontalAlignment="Stretch"
+                                 AcceptsReturn="True"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 VerticalScrollBarVisibility="Visible" />
+                    </loacl:Expander>
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>
+

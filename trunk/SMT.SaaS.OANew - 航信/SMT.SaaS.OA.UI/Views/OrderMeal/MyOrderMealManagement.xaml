@@ -1,0 +1,116 @@
+﻿<localbase:BasePage
+    x:Class="SMT.SaaS.OA.UI.Views.OrderMeal.MyOrderMealManagement" 
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views.Meeting"
+    xmlns:localbase="clr-namespace:SMT.SaaS.OA.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"     
+    d:DesignWidth="640" d:DesignHeight="480"
+    Title="MyOrderMealManagement Page" >
+    <localbase:BasePage.Resources>
+        <local:ConverterNumberToWayString x:Key="StateConvert" />
+        <local:ConverterDateToFormatString x:Key="DateTimeConvert" />
+        <local:ConverterMeetingContentToFormatString x:Key="ContentConvert" />
+        <local:ConverterOrderMealToState x:Key="OrderMealConvert"/>
+    </localbase:BasePage.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Height="28" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="controlsToolkitTUV" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="top" >
+                <StackPanel >
+                    <StackPanel Orientation="Horizontal">
+                        <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=ORDERMEALTITLE}" Margin="4,2,0,2"></dataInput:Label>
+                        <TextBox x:Name="txtOrderMealTitle" Width="100" Margin="4,1,4,1"/>
+                        <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=ORDERMEALCONTENT}" Margin="4,2,0,2"></dataInput:Label>
+                        <TextBox x:Name="txtContent" Margin="4,1,4,1" Width="120" />
+                        <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}" Margin="4,2,0,2"></dataInput:Label>
+                        <controls:DatePicker x:Name="dpStart" Margin="4,1,4,1"></controls:DatePicker>
+                        <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}" Margin="4,2,0,2"></dataInput:Label>
+                        <controls:DatePicker x:Name="dpEnd" Margin="4,1,4,1" ></controls:DatePicker>
+                        
+
+                        <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Style="{StaticResource ButtonToolBarStyle}"  Click="SearchBtn_Click" Margin="4,1,10,1"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2" />
+            <!--<StackPanel x:Name="spBtn" Orientation="Horizontal">
+                        <CheckBox x:Name="chkAll" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKALL}" Margin="1,2,8,2" Click="chkAll_Click"></CheckBox>
+                        <Button x:Name="AddBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=ADDBUTTON}" Width="100"  Click="AddBtn_Click" Margin="12,2,10,2" Style="{StaticResource ButtonToolBarStyle}"/>
+                        <Button x:Name="UpdateBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=UPDATEBUTTON}" Width="100"  Click="UpdateBtn_Click" Margin="12,2,10,2" Style="{StaticResource ButtonToolBarStyle}"/>
+                        <Button x:Name="DelBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=DELBUTTON}"  Width="100"  Click="DelBtn_Click" Margin="12,2,10,2" Style="{StaticResource ButtonToolBarStyle}"/>
+                        <TextBox x:Name="HdRoom" Visibility="Collapsed"></TextBox>
+                    </StackPanel>-->
+            <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False" 
+                                   ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Margin="0,1,0,1" 
+                                   LoadingRow="DaGr_LoadingRow" Grid.Row="3"
+                                   >
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}" Width="40">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <dataFormToolkit:DataField Label="">
+                                    <CheckBox x:Name="myChkBox" Click="myChkBtn_Click"/>
+                                </dataFormToolkit:DataField>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="ORDERMEALTITLE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding ORDERMEALTITLE}"/>                    
+                    <data:DataGridTemplateColumn Header="ORDERMEALCONTENT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding CONTENT, Converter={StaticResource ContentConvert}}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Header="ADDDATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding CREATEDATE, Converter={StaticResource DateTimeConvert}}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Header="EDITSTATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding ORDERMEALFLAG, Converter={StaticResource OrderMealConvert}}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    
+
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smt:GridPager Name="dataPager" Grid.Row="4" PageSize="20" Click="GridPager_Click" VerticalAlignment="Bottom"></smt:GridPager>
+
+
+        </Grid>
+    </Grid>
+</localbase:BasePage>

@@ -1,0 +1,165 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="SMT.SaaS.OA.UI.UserControls.HireRecordForm"
+    mc:Ignorable="d" 
+             >
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" SizeChanged="LayoutRoot_SizeChanged">
+            <controls:TabControl x:Name="tbcContainer" Margin="2" Height="auto" Style="{StaticResource TabControlStyle}">
+                <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=HIREPAY}" Style="{StaticResource TabItemStyle}">
+                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid Height="auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="0.40*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="0.105*"/>
+                                <ColumnDefinition Width="0.395*"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="0.5*"/>  
+                                <ColumnDefinition Width="70"/>
+                            </Grid.ColumnDefinitions>
+                            <validator:ValidatorManager x:Name="Group1"/>
+                            <!--Row0(UPTOWN&&HOUSENAME)-->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMMUNITY}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="5,0,0,0"/>
+                            <TextBox x:Name="txtUptown" Text="{Binding HireRecordObj.houseInfoObj.UPTOWN, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" Grid.ColumnSpan="2" />
+
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUILDING}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="0" Grid.Column="4" Margin="5,0,0,0"/>
+                            <TextBox x:Name="txtHouseName" Text="{Binding HireRecordObj.houseInfoObj.HOUSENAME, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="5" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" />
+                            <!--Row1(FLOOR&&NUM)-->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=FLOOR}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Margin="5,0,0,0"/>
+                            <TextBox x:Name="txtFloor" Text="{Binding HireRecordObj.houseInfoObj.FLOOR, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" Grid.ColumnSpan="2" />
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ROOMNO}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4" Margin="5,0,0,0"/>
+                            <TextBox x:Name="txtNum" Text="{Binding HireRecordObj.houseInfoObj.ROOMCODE, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="5" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" />
+                            <!--Row2(RENTCOST&&DEPOSIT)-->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BLANCEMODE}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"/>
+                            <TextBox x:Name="txtpaytype" Text="{Binding houselistObj.SHAREDRENTCOST, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" Grid.ColumnSpan="2" />
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=HIRETYPE}" VerticalAlignment="Center" Margin="5,5,0,0" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="txtRentType" Text="{Binding houseAppObj.RENTTYPE, Mode=TwoWay}" Width="auto" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="5" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" Margin="5,0,0,0"  VerticalAlignment="Center" />
+                            <!--Row3(RENTCOST&&DEPOSIT)-->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=RENTAL}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0" Margin="5,0,0,0"/>
+                            <TextBox x:Name="SharedRentCost" Text="{Binding HouseRecordObj.RENTCOST, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="2" IsReadOnly="True"/>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MANAGEMENTFEE}"  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="4" Margin="5,5,0,5" d:LayoutOverrides="Height"/>
+                            <TextBox x:Name="txtManageCost" Text="{Binding HouseRecordObj.MANAGECOST, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="5" Style="{StaticResource TextBoxStyle}" RenderTransformOrigin="9.211,-0.792" >
+                                <validator:ValidatorService.Validator>
+                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="MANAGEMENTFEE" Expression="^\d+$"></validator:RegexValidator>
+                                </validator:ValidatorService.Validator>
+                            </TextBox>
+                            <!--Row4(MANAGECOST&&ISRENT)-->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=WATERNUM}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="0" Margin="5,0,0,0"/>
+                            <TextBox x:Name="txtwater" Text="{Binding HireRecordObj.HouseRecordObj.WATERNUM, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="2">
+                                <validator:ValidatorService.Validator>
+                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="MANAGEMENTFEE" Expression="^\d+$"></validator:RegexValidator>
+                                </validator:ValidatorService.Validator>
+                            </TextBox>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ELECTNUM}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="4" Margin="5,0,0,0"/>
+                            <TextBox x:Name="txtelectricitynum" Text="{Binding HireRecordObj.HouseRecordObj.ELECTRICITYNUM, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="5" Style="{StaticResource TextBoxStyle}" />
+                            <!--Row5(MANAGECOST&&ISRENT)-->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=WATERPAY}"  HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0" Margin="5,0,0,8" d:LayoutOverrides="Height"/>
+                            <TextBox x:Name="txtwaternum" Text="{Binding HireRecordObj.HouseRecordObj.WATER, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="2" >
+                                <validator:ValidatorService.Validator>
+                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="OTHERCOST" Expression="^\d+$"></validator:RegexValidator>
+                                </validator:ValidatorService.Validator>
+                            </TextBox>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ELECTPAY}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="5" Grid.Column="4" Margin="5,0,0,0"/>
+                            <TextBox x:Name="txelectricitypay" Text="{Binding HireRecordObj.HouseRecordObj.ELECTRICITY, Mode=TwoWay}" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="5" Style="{StaticResource TextBoxStyle}">
+                                <validator:ValidatorService.Validator>
+                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ELECTPAY" Expression="^\d+$"></validator:RegexValidator>
+                                </validator:ValidatorService.Validator>
+                            </TextBox>
+                            <!--Row6(MANAGECOST&&ISRENT)-->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=OTHERCOST}"  HorizontalAlignment="Left" Grid.Row="6" Grid.Column="0" Margin="5,0,0,8" d:LayoutOverrides="Height"/>
+                            <TextBox x:Name="txtother" Text="{Binding HireRecordObj.HouseRecordObj.OTHERCOST, Mode=TwoWay}" Width="auto" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource TextBoxStyle}" Margin="5,0,0,0" VerticalAlignment="Center" >
+                                <validator:ValidatorService.Validator>
+                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="WATERPAY" Expression="^\d+$"></validator:RegexValidator>
+                                </validator:ValidatorService.Validator>
+                            </TextBox>
+							
+							<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYDATE}" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.Row="6" Grid.Column="4" Margin="5,0,0,0"/>
+                            <controls:DatePicker x:Name="payDate" Margin="5,6,0,0" MinWidth="100" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="5" Style="{StaticResource DatePickerStyle}" IsEnabled="False" d:LayoutOverrides="Height"/>
+							
+                            <!--Row7(MANAGECOST&&ISRENT)-->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATE}" Margin="5,6,0,8" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="0" d:LayoutOverrides="Height"/>
+                            <controls:DatePicker x:Name="sDate" Margin="5,0,0,0" MinWidth="100" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="1" Style="{StaticResource DatePickerStyle}" IsEnabled="False" Grid.ColumnSpan="2" Height="24">
+                                <validator:ValidatorService.Validator>
+                                    <validator:DateValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="STARTDATE" IsRequired="True" />
+                                </validator:ValidatorService.Validator>
+                            </controls:DatePicker>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDDATE}" Margin="5,8,0,6" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="4" d:LayoutOverrides="Height"/>
+                            <controls:DatePicker x:Name="eDate" Margin="5,6,0,0" MinWidth="100" HorizontalAlignment="Left" Grid.Row="7" Grid.Column="5" Style="{StaticResource DatePickerStyle}" IsEnabled="False" d:LayoutOverrides="Height">
+                                <validator:ValidatorService.Validator>
+                                    <validator:DateValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ENDDATE" IsRequired="True" />
+                                </validator:ValidatorService.Validator>
+                            </controls:DatePicker>
+                            
+                            <!--Row4(MANAGECOST&&ISRENT)-->
+
+
+                        </Grid>
+                    </StackPanel>
+                </controls:TabItem>
+                <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid Height="auto" x:Name="MainGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="0.65*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--<TextBox Text="{Binding ISSUANCETITLE,Mode=TwoWay}" x:Name="txtTitle" Width="auto" Margin="5,5,20,0"   VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}">
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ISSUANCETITLE"></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        -->
+
+                            <!--
+                        <TextBox Text="{Binding CONTENT,Mode=TwoWay}" x:Name="txtContent1" Width="auto" Height="auto" Margin="5,5,20,10" AcceptsReturn="True"   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}">
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ISSUANCECONTENT"></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        -->
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BACKDATE}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"/>
+                            <controls:DatePicker x:Name="bDate" Margin="5,5,0,0" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Style="{StaticResource DatePickerStyle}"/>
+                            <!--row4-->
+
+
+
+                            <!--row3-->
+
+
+                        </Grid>
+                    </StackPanel>
+                </controls:TabItem>
+
+            </controls:TabControl>
+
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

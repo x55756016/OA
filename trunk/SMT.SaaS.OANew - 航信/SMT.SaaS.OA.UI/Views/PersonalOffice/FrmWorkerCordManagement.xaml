@@ -1,0 +1,76 @@
+﻿<localbase:BasePage x:Class="SMT.SaaS.OA.UI.Views.PersonalOffice.FrmWorkerCordManagement" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 	
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:localbase="clr-namespace:SMT.SaaS.OA.UI"     
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views.Meeting" 
+           Title="FrmWorkerCordManagement Page">
+    <navigation:Page.Resources>
+        <local:ConverterDateToFormatString x:Key="DateTimeConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+           <smt:ViewTitle x:Name="ViewTitles" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="controlsToolkitTUV" Header="查询" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="10,0,0,0" Width="75" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATETIME}" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="Black"/>
+                    <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpDate" Margin="0,0,0,0" Height="22" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                    </controls:DatePicker>
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="10,0,0,0" Width="75"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="Black"/>
+                    <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpEndDate" Margin="0,0,0,0" Height="22" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    </controls:DatePicker>
+                    <Button x:Name="btnSearch" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Click="btnSearch_Click" Style="{StaticResource CommonButtonStyle}" VerticalAlignment="Center" />
+                    <ComboBox x:Name="dateTimeSearch" Margin="10,0,0,0" VerticalAlignment="Center"   SelectionChanged="dateTimeSearch_SelectionChanged" Style="{StaticResource ComboBoxStyle}" Width="115"></ComboBox>
+                    <Button x:Name="btnClear" Content="{Binding Converter={StaticResource ResourceConveter}, Source=RESET}" Margin="10,0,0,0" Click="btnClear_Click" Style="{StaticResource CommonButtonStyle}" VerticalAlignment="Center" />
+                </StackPanel>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Grid.Row="2"/> 
+            <Grid Grid.Row="3">            
+                    <data:DataGrid x:Name="dg" AutoGenerateColumns="False"   Grid.Row="1" Grid.Column="0" IsReadOnly="True"
+                                   LoadingRow="dg_LoadingRow"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                                   Style="{StaticResource DataGridStyle}"  CellStyle="{StaticResource DataGridCellStyle}" 
+                                   RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn Header="SELECT"  HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}" Width="28">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Image Name="entityLogo" Tag="{Binding VEHICLEUSEAPPID}" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn MaxWidth="250" Header="WorkCordTitle"    Binding="{Binding TITLE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn MaxWidth="250"
+                                                 Header="WorkCordDateTime"    Binding="{Binding PLANTIME,Converter={StaticResource DateTimeConvert}}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn MaxWidth="250"
+                                                 Header="CREATEUSERNAME"    Binding="{Binding CREATEUSERNAME}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn MaxWidth="250"
+                                                 Header="CREATETIME"    Binding="{Binding CREATEDATE,Converter={StaticResource DateTimeConvert}}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn MaxWidth="250"
+                                                 Header="UPDATEDATE"
+                                                 Binding="{Binding UPDATEDATE,Converter={StaticResource DateTimeConvert}}"></data:DataGridTextColumn>
+                    </data:DataGrid.Columns>
+                    </data:DataGrid>
+            </Grid>
+            <smtx:GridPager Name="dataPager" PageSize="23" Click="dataPager_Click" Grid.Row="4" VerticalAlignment="Bottom"></smtx:GridPager>
+            <!--<data:DataPager x:Name="dataPager" Grid.Row="4" Margin="0,0,0,0" DisplayMode="FirstLastPreviousNextNumeric"  Source="{Binding}" VerticalAlignment="Bottom" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" />-->
+        </Grid>
+    </Grid>
+</localbase:BasePage>

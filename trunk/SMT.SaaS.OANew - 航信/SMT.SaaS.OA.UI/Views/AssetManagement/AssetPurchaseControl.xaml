@@ -1,0 +1,142 @@
+﻿<smtLocal:BaseForm 
+    xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+ x:Class="SMT.SaaS.OA.UI.Views.AssetManagement.AssetPurchaseControl"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ mc:Ignorable="d"
+ xmlns:fbctr="clr-namespace:SMT.SaaS.FrameworkUI.FBControls;assembly=SMT.SaaS.FrameworkUI"
+ xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+ xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+ xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+ xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+ xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls">
+    <controls:TabControl VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" Margin="10 2 8 0">
+        <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=ASSETPURCHASE}">
+            <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+					<RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="86"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="76"/>
+                    <ColumnDefinition Width="0.3*"/>
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                <TextBox x:Name="txtCondition" TextWrapping="Wrap" Height="25" Style="{StaticResource TextBoxStyle}" Grid.Row="4" Grid.Column="1"  Margin="0,1,57,4" Width="Auto">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PURCHASEOFEQUIPMENTCONDITIONS"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PURCHASEQUANTITY}" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="1" Grid.Column="0"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=PURCHASETIME}" TextWrapping="Wrap" HorizontalAlignment="Left" RenderTransformOrigin="0.434,1.263" d:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PURCHASEOFEQUIPMENTCONDITIONS}" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SPECIFICATION}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="0" Grid.Column="2"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=REQUISITIONINGDEPARTMENT}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="7" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PURCHASEANDUSEOFREASON}" TextWrapping="Wrap" Height="22" VerticalAlignment="Top" Margin="0,2,0,0"/>
+                <TextBlock HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REQUISITIONER}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtUse" AcceptsReturn="True" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Height="60" VerticalAlignment="Top" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" ScrollViewer.VerticalScrollBarVisibility="auto" Margin="0,3,20,2">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PURCHASEANDUSEOFREASON"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="StartTime" Height="25" Grid.Row="1" Grid.Column="1" Margin="0,1,57,4"/>
+                
+                <TextBlock HorizontalAlignment="Left"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=EQUIPMENTNAME}" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.438" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2"/>
+                <TextBox x:Name="txtSpecification" TextWrapping="Wrap" Width="Auto" Height="25" Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Margin="0,1,57,4">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SPECIFICATION"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBox x:Name="txtEquipmentName" TextWrapping="Wrap" Height="25"  Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="3" Margin="0,1,20,4">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="EQUIPMENTNAME"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                 <TextBox x:Name="txtUserName" Grid.Row="0" TextWrapping="Wrap" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Height="25" Margin="0,1,57,4" Width="118" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="REQUISITIONER"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <Button x:Name="btnLookUpUserName" Grid.Column="1" Grid.Row="0" Height="23" Click="btnLookUpUserName_Click"  HorizontalAlignment="Left" Margin="120,2,0,0" VerticalAlignment="Top">
+                    <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+                </Button>
+				<TextBox x:Name="txtDepartment" Grid.Row="0" TextWrapping="Wrap" Grid.Column="3" IsReadOnly="True" Style="{StaticResource TextBoxStyle}" Margin="0,1,0,4" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="REQUISITIONINGDEPARTMENT"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <Button x:Name="btnLookDepartment" Grid.Column="3" Grid.Row="0" Height="23" Click="btnLookDepartment_Click" Margin="120,2,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+                </Button>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PRODUCTIONUNIT}" TextWrapping="Wrap" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" Margin="0,0,0,14" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=FUNDSNEEDED}" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" Height="30" VerticalAlignment="Top" />
+                <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WHETHERTHEIMPLEMENTATIONOFSTAFF}" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rbtYes" Click="rbtYes_Click" Margin="5,3,0,-3" Content="{Binding Converter={StaticResource ResourceConveter}, Source=YES}" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Left" Width="52" Height="30" IsChecked="True"/>
+				<RadioButton x:Name="RbtNo" Click="RbtNo_Click" HorizontalAlignment="Left" Margin="65,3,0,-3" Width="46" Height="30" Content="{Binding Converter={StaticResource ResourceConveter}, Source=NO}" Grid.Column="3" Grid.Row="4" />
+                <TextBox x:Name="txtRate" Text="{Binding CHARGEMONEY,Mode=TwoWay}"  Margin="0,1,20,4" Grid.Row="5" Grid.Column="3" IsReadOnly="True" Style="{StaticResource TextBoxStyle}" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50"/>
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUDGETCOST}" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EQUIPMENTUTILIZATION}" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtBenefit" TextWrapping="Wrap" Height="25" Style="{StaticResource TextBoxStyle}" Grid.Row="5" Grid.Column="1"  Margin="0,1,57,4" Width="Auto">
+                    <validator:ValidatorService.Validator>
+                        <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATINPUTERRORS" ErrorMessageParameter="BUDGETCOST"
+				        Expression="^(0|[1-9]\d{0,})\.\d{2}$"></validator:RegexValidator>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <!--预算控件-->
+                <ScrollViewer x:Name="scvFB" VerticalAlignment="Stretch" Visibility="Collapsed" HorizontalAlignment="Stretch" Margin="5,0,20,0" Height="100" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3">
+                    <fbctr:ChargeApplyControl  x:Name="fbCtr">
+                    </fbctr:ChargeApplyControl>
+                </ScrollViewer>
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORIGINALEQUIPMENTCASE}" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" VerticalAlignment="Top" Margin="0" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+                <TextBlock Grid.Row="6" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DOCUMENTSSTATE}" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" VerticalAlignment="Top" Margin="0" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtProductionUnit" TextWrapping="Wrap" Width="Auto" Height="25"  Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="3" Margin="0,1,20,4">
+                	<validator:ValidatorService.Validator>
+                		<validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PRODUCTIONUNIT"/>
+                	</validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBox x:Name="txtFunds" TextWrapping="Wrap" Width="Auto" Height="25"  Style="{StaticResource TextBoxStyle}" Grid.Row="3" Grid.Column="3" Margin="0,1,20,4">
+                	<validator:ValidatorService.Validator>
+                        <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATINPUTERRORS" ErrorMessageParameter="FUNDSNEEDED"
+				        Expression="^(-?\d+)(\.\d+)?$"></validator:RegexValidator>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBox x:Name="txtPurchaseQuantity" TextWrapping="Wrap" Height="25" Style="{StaticResource TextBoxStyle}" Grid.Row="3" Grid.Column="1"  Margin="0,1,57,4" Width="Auto">
+                    <validator:ValidatorService.Validator>
+                        <validator:RegexValidator ManagerName="Group1" ErrorMessage="IsInt" ErrorMessageParameter="PURCHASEQUANTITY"
+				        Expression="^\d+$"></validator:RegexValidator>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBox x:Name="txtSituation" TextWrapping="Wrap" Height="25" Style="{StaticResource TextBoxStyle}" Grid.Row="6" Grid.Column="1"  Margin="0,1,57,4" Width="Auto">
+                	<validator:ValidatorService.Validator>
+                		<validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ORIGINALEQUIPMENTCASE"/>
+                	</validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBox x:Name="txtStatus" TextWrapping="Wrap" Height="25" IsReadOnly="True" Style="{StaticResource TextBoxStyle}" Grid.Row="6" Grid.Column="3"  Margin="0,1,20,4" Width="Auto">
+                	<validator:ValidatorService.Validator>
+                		<validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="DOCUMENTSSTATE"/>
+                	</validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBlock Grid.Row="8" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtRemark" AcceptsReturn="True" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" Height="60" VerticalAlignment="Top" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" ScrollViewer.VerticalScrollBarVisibility="auto" Margin="0,5,20,0"/>
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MILLION}" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" VerticalAlignment="Top" Margin="0,5,15,0" HorizontalAlignment="Right" Width="43"/>
+                <TextBlock Grid.Row="5" Grid.Column="3" Text="%" TextWrapping="Wrap" RenderTransformOrigin="0.704,2.895" VerticalAlignment="Top" Margin="50,5,56,0"/>
+			</Grid>
+        </controls:TabItem>
+        <!--<controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}">
+            <ScrollViewer Margin="4" d:LayoutOverrides="GridBox" Height="auto" x:Name="ShowAudit">
+                <audit:AuditControl x:Name="audit"/>
+            </ScrollViewer>
+        </controls:TabItem>-->
+    </controls:TabControl>
+</smtLocal:BaseForm>

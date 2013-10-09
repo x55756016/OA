@@ -1,0 +1,138 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.EmployeeSurvey_upd"  xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+      xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+       xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+                            xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+
+   >
+    <Grid>
+        <controls:TabControl x:Name="LayoutRoot"  Margin="2" Style="{StaticResource TabControlStyle}">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <Grid Margin="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="0.6*" ></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+                    <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SurveysTITLE}" Style="{StaticResource SysTextBlockStyle}"/>
+                    <TextBox   Grid.Row="0" Grid.Column="1" x:Name="txtTitle" Width="auto" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" MaxLength="100">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SurveysTITLE" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <TextBlock Grid.Row="1" Grid.Column="0"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=SurveysContent}" Style="{StaticResource SysTextBlockStyle}" VerticalAlignment="Top"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtContent" Width="auto"  Height="40" VerticalAlignment="Center"  AcceptsReturn="True" 
+					VerticalScrollBarVisibility="Visible" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" TextWrapping="Wrap">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SurveysContent"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <!--题目 答案 -->
+                    <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--题目 -->
+                        <StackPanel Grid.Row="1" Grid.Column="0">
+                            <TextBlock Text="题目"></TextBlock>
+                            <Border HorizontalAlignment="Stretch" Width="auto" Height="1" BorderBrush="Gray" BorderThickness="1" Margin="10"></Border>
+                            <ScrollViewer MinHeight="250" MaxHeight="372" Height="auto" Width="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible">
+                                <data:DataGrid x:Name="dg" AutoGenerateColumns="False"  LoadingRow="dg_LoadingRow" 
+                                               SelectionChanged="dg_SelectionChanged" SelectionMode="Single" 
+                                               Style="{StaticResource DataGridStyle}"
+                                               CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                                               RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                    <data:DataGrid.Columns>
+                                        <data:DataGridTextColumn Header="VEHICLECARDID" Binding="{Binding SubjectInfo.REQUIREDETAIL2ID}"  Visibility="Collapsed"   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                                        <data:DataGridTextColumn Header="SubjectId"  Binding="{Binding SubjectInfo.SUBJECTID}"  IsReadOnly="True" Width="52"  HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                                        <data:DataGridTemplateColumn Header="SubjectContent" CanUserResize="True"  MinWidth="380"  HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                            <data:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                                                        <TextBox x:Name="txtSub"   Text="{Binding SubjectInfo.CONTENT}" KeyDown="txtSub_KeyDown"  TextChanged="txtSub_TextChanged" TextWrapping="Wrap"  MinHeight="25" MaxHeight="40" VerticalScrollBarVisibility="Auto" ></TextBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </data:DataGridTemplateColumn.CellTemplate>
+                                        </data:DataGridTemplateColumn>
+                                        <data:DataGridTemplateColumn Header="OPERATION" x:Name="Operation" Width="52" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                            <data:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <smtx:ImageButton x:Name="myDelete"  Click="Delete_Click"></smtx:ImageButton>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </data:DataGridTemplateColumn.CellTemplate>
+                                        </data:DataGridTemplateColumn>
+                                    </data:DataGrid.Columns>
+                                </data:DataGrid>
+                            </ScrollViewer>
+                        </StackPanel>
+                        <!--答案 -->
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <TextBlock Text="答案"></TextBlock>
+                            <Border HorizontalAlignment="Stretch" Width="auto" Height="1" BorderBrush="Gray" BorderThickness="1" Margin="10"></Border>
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" x:Name="lblA" Text="A"  Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                                <TextBox   Grid.Row="0" Grid.Column="1" x:Name="txtA" Width="auto"   AcceptsReturn="True" HorizontalAlignment="Stretch" KeyUp="txtAnswer_KeyUp" Style="{StaticResource TextBoxStyle}" >
+                                    <validator:ValidatorService.Validator>
+                                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="OAANSWER" ></validator:RequiredValidator>
+                                    </validator:ValidatorService.Validator>
+                                </TextBox>
+                                <TextBlock Grid.Row="1" Grid.Column="0" x:Name="lblB" Text="B"  Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                                <TextBox   Grid.Row="1" Grid.Column="1" x:Name="txtB" Width="auto"   AcceptsReturn="True" HorizontalAlignment="Stretch" KeyUp="txtAnswer_KeyUp" Style="{StaticResource TextBoxStyle}" ></TextBox>
+                                <TextBlock Grid.Row="2" Grid.Column="0" x:Name="lblC" Text="C"  Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                                <TextBox   Grid.Row="2" Grid.Column="1" x:Name="txtC" Width="auto"   AcceptsReturn="True" HorizontalAlignment="Stretch" KeyUp="txtAnswer_KeyUp" Style="{StaticResource TextBoxStyle}" ></TextBox>
+                                <TextBlock Grid.Row="3" Grid.Column="0" x:Name="lblD" Text="D"  Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                                <TextBox   Grid.Row="3" Grid.Column="1" x:Name="txtD" Width="auto"   AcceptsReturn="True" HorizontalAlignment="Stretch" KeyUp="txtAnswer_KeyUp" Style="{StaticResource TextBoxStyle}" ></TextBox>
+                                <TextBlock Grid.Row="4" Grid.Column="0" x:Name="lblE" Text="E"  Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                                <TextBox   Grid.Row="4" Grid.Column="1" x:Name="txtE" Width="auto"   AcceptsReturn="True" HorizontalAlignment="Stretch" KeyUp="txtAnswer_KeyUp" Style="{StaticResource TextBoxStyle}" ></TextBox>
+                                <TextBlock Grid.Row="5" Grid.Column="0" x:Name="lblF" Text="F"  Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                                <TextBox   Grid.Row="5" Grid.Column="1" x:Name="txtF" Width="auto"   AcceptsReturn="True" HorizontalAlignment="Stretch" KeyUp="txtAnswer_KeyUp" Style="{StaticResource TextBoxStyle}" ></TextBox>
+                                <TextBlock Grid.Row="6" Grid.Column="0" x:Name="lblG" Text="G"  Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                                <TextBox   Grid.Row="6" Grid.Column="1" x:Name="txtG" Width="auto"   AcceptsReturn="True" HorizontalAlignment="Stretch" KeyUp="txtAnswer_KeyUp" Style="{StaticResource TextBoxStyle}" ></TextBox>
+                                <TextBlock Grid.Row="7" Grid.Column="0" x:Name="lblH" Text="H"  Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                                <TextBox   Grid.Row="7" Grid.Column="1" x:Name="txtH" Width="auto"   AcceptsReturn="True" HorizontalAlignment="Stretch" KeyUp="txtAnswer_KeyUp" Style="{StaticResource TextBoxStyle}" ></TextBox>
+                            </Grid>
+
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </controls:TabItem>
+            <!--<controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ScrollViewer x:Name="slvView" Visibility="Collapsed" Grid.Row="2" Grid.ColumnSpan="2" Height="auto" Width="auto" >
+                        <audit:AuditControl x:Name="viewApproval"  Visibility="Collapsed" Height="auto" Width="auto" AuditCompleted="audit_AuditCompleted">
+                        </audit:AuditControl>
+                    </ScrollViewer>
+                </StackPanel>
+            </controls:TabItem>-->
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

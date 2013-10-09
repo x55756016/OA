@@ -1,0 +1,104 @@
+﻿<smtLocal:BasePage 
+    x:Class="SMT.SaaS.OA.UI.Views.Travelmanagement.AreaSort" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"                         
+           xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI;assembly=SMT.SaaS.OA.UI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+                   
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="AreaSort Page">
+    <Grid x:Name="LayoutRoot"  Background="{StaticResource BlueShine2}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Visibility="Collapsed">
+            <TextBlock Text="选择方案" Margin="2,8,2,8"></TextBlock>
+            <ComboBox Grid.Row="0" MinWidth="120" x:Name="cmbSolution" SelectionChanged="cmbSolution_SelectionChanged" Style="{StaticResource ComboBoxStyle}"/>
+        </StackPanel>
+        <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+        <Grid  Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <data:DataGrid x:Name="DtGridArea" AutoGenerateColumns="False"  Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" 
+                RowStyle="{StaticResource DataGridRowStyle}"  RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"       
+                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" LoadingRow="DtGridArea_LoadingRow"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                SelectionChanged="DtGridArea_SelectionChanged">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="TRAVELDIFFERENCEALLOWANCECATEGORY" Binding="{Binding AREACATEGORY}"  IsReadOnly="True" >
+                    </data:DataGridTextColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            
+
+            <!--<StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left">-->
+            <!--新增-->
+
+
+            <!--<Button Height="26" Margin="5,0,0,0"  Width="50" Padding="0" x:Name="btnCityAdd" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}"  Click="btnCityAdd_Click" Grid.Row="0" >
+                    <StackPanel  Orientation="Horizontal">
+                        <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_addView.png" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=NEW}" Margin="0" Width="16" Height="16"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=NEW}" Height="20" Margin="1,3,0,0" ></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Rectangle Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="1,4,0,3"/>-->
+
+            <!--删除-->
+            <!--<Button Height="26" Margin="2,0,0,0"  Width="50" Padding="0" x:Name="btnCityDel" Style="{StaticResource ButtonToolBarStyle}" Foreground="{StaticResource TextBBlue1}" Click="btnCityDel_Click" Grid.Row="0">
+                    <StackPanel  Orientation="Horizontal">
+                        <Image Width="16" x:Name="FormToolDelete" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png" Stretch="Fill" Height="16" Margin="0,0,0,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}" Height="20" Margin="1,3,0,0" x:Name="TBDelete"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Rectangle Height="18" Width="1" Fill="#FF9A9A99" HorizontalAlignment="Right" Margin="1,4,0,3"/>-->
+
+            <!--</StackPanel>-->
+            <data:DataGrid x:Name="DtGridCity" AutoGenerateColumns="False"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"    
+                Grid.RowSpan="2" Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" 
+                RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" 
+                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" LoadingRow="DtGridCity_LoadingRow"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                SelectionChanged="DtGridCity_SelectionChanged">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="CITY" Binding="{Binding CITY, Converter={StaticResource DictionaryConverter},ConverterParameter=CITY}"/>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            
+        </Grid>
+    </Grid>
+</smtLocal:BasePage>

@@ -1,0 +1,63 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.EmployeeSurveyDistribute_upd"  xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+     >
+    
+    <Grid>
+        <controls:TabControl x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" Margin="2" Style="{StaticResource TabControlStyle}">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <Grid Margin="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>                       
+                        <RowDefinition Height="0.6*"></RowDefinition>
+                        <RowDefinition Height="auto" ></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="0.35*" ></ColumnDefinition>                       
+                    </Grid.ColumnDefinitions>
+                    <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+                    <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SurveysTITLE}" Style="{StaticResource SysTextBlockStyle}"/>
+                    <TextBox   Grid.Row="0" Grid.Column="1"  x:Name="txtTitle" Width="auto"  HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" IsEnabled="False" >
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="SurveysTITLE" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>                    
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DISTRBUTEOBJECT}" VerticalAlignment="Top" Style="{StaticResource SysTextBlockStyle}"/>
+                    <data:DataGrid  Grid.Row="1" Grid.Column="1"  x:Name="dg" AutoGenerateColumns="False"   
+                                    IsReadOnly="True" VerticalScrollBarVisibility="Visible"  
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
+                                    CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                                    RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"  Margin="5,5,0,0"
+                                    ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn Header="SELECT" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="myChkBoxObj" Tag="{Binding ObjectID}" Style="{StaticResource CheckBoxStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"></CheckBox> 
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn Header="OBJECTTYPE" Binding="{Binding ObjectType,Converter={StaticResource ObjectTypeConverter}}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="OBJECTNAME" Binding="{Binding ObjectName}"></data:DataGridTextColumn>
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+
+                </Grid>
+            </controls:TabItem>
+            <!--<controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ScrollViewer x:Name="slvView" Visibility="Collapsed" Grid.Row="2" Grid.ColumnSpan="2" Height="auto" Width="auto" >
+                        <audit:AuditControl x:Name="viewApproval"  Visibility="Collapsed" Height="auto" Width="auto" AuditCompleted="audit_AuditCompleted">
+                        </audit:AuditControl>
+                    </ScrollViewer>
+                </StackPanel>
+            </controls:TabItem>-->
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

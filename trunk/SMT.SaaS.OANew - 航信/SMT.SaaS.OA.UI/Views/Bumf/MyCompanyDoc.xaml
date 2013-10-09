@@ -1,0 +1,125 @@
+﻿<localbase:BasePage 
+    x:Class="SMT.SaaS.OA.UI.Views.Bumf.MyCompanyDoc" 
+    xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views.Meeting" 
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"         
+    d:DesignWidth="740" d:DesignHeight="480"
+    xmlns:localbase="clr-namespace:SMT.SaaS.OA.UI"
+                    xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+                    Title="MyCompanyDoc Page">
+    <navigation:Page.Resources>
+        <local:ConverterDateToFormatString x:Key="DateTimeConvert" />
+        <local:ConverterMeetingContentToFormatString x:Key="ContentConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="controlsToolkitTUV" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" >
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>                        
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SENDDOCTITLE}" Width="auto" Grid.Row="0" Grid.Column="0" Margin="2,4" />
+                    <TextBox x:Name="txtSendDocTitle" MinWidth="80" MaxLength="50" HorizontalAlignment="Stretch"  Grid.Row="0" Grid.Column="1" Margin="2"/>                    
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}"  Width="auto" Margin="2,4"  Grid.Row="0" Grid.Column="2" />
+                    <basics:DatePicker x:Name="dpStart"  MinWidth="80" HorizontalAlignment="Stretch"  Grid.Row="0" Grid.Column="3" Margin="2"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}"  Width="auto" Margin="2,4"  Grid.Row="0" Grid.Column="4" />
+                    <basics:DatePicker x:Name="dpEnd"  MinWidth="80" HorizontalAlignment="Stretch"  Grid.Row="0" Grid.Column="5" Margin="2"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=GRADENAME}"
+                               Grid.Row="0"
+                               Grid.Column="6"
+                               Margin="2,4"
+                               Width="auto" />
+                    <appCtr:TravelDictionaryComboBox x:Name="cbxGrade"
+                                               Category="COMPANYDOCGRADE"
+                                               Style="{StaticResource ComboBoxStyle}"
+                                               MinWidth="100"
+                                               Grid.Row="0"
+                                               Grid.Column="7"
+                                               Margin="2" />
+                    
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource CommonButtonStyle}"  Click="SearchBtn_Click" Margin="4,1,10,1"/>
+
+
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DOCUMENTTYPE}"  Width="auto"  Margin="2,4"   Grid.Row="1" Grid.Column="0" />
+                    
+                    <ComboBox x:Name="cbxdoctype" Style="{StaticResource ComboBoxStyle}"  MinWidth="100"  Grid.Row="1" Grid.Column="1" Margin="2" ></ComboBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=PRIORITYNAME}"  Width="auto" Margin="2,4"  Grid.Row="2" Grid.Column="2" />
+                    <appCtr:TravelDictionaryComboBox x:Name="cbxProritity"
+                                               Category="COMPANYDOCPRIORITY"
+                                               Style="{StaticResource ComboBoxStyle}"
+                                               MinWidth="100"
+                                               Grid.Row="1"
+                                               Grid.Column="3"
+                                               Margin="2" />
+                    
+                </Grid>
+                
+            </controlsToolkit:Expander>
+            
+            <smt:FormToolBar x:Name="ToolBar" Grid.Row="2"/>
+            <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False"  
+                           ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                           LoadingRow="DaGr_LoadingRow" IsReadOnly="True" 
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           Grid.Row="3">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="SENDDOCTITLE" Binding="{Binding OACompanySendDoc.SENDDOCTITLE}"/>
+                    <data:DataGridTextColumn Header="DOCUMENTTYPE" Binding="{Binding doctype.SENDDOCTYPE}"/>
+                    <data:DataGridTextColumn Header="GRADENAME" Binding="{Binding OACompanySendDoc.GRADED}"/>
+                    <data:DataGridTextColumn Header="PRIORITYNAME" Binding="{Binding OACompanySendDoc.PRIORITIES}"/>                    
+                    <data:DataGridTextColumn Header="ADDPEOPLE" Binding="{Binding OACompanySendDoc.CREATEUSERNAME}"/>
+                    <data:DataGridTemplateColumn Header="PUBLISHDATE">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                 <TextBlock Text="{Binding Path=OACompanySendDoc.CREATEDATE,Converter={StaticResource DateTimeConvert}}" VerticalAlignment="Center" Width="120" Margin="2,0,0,0"></TextBlock>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>                    
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click"  VerticalAlignment="Bottom" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</localbase:BasePage>

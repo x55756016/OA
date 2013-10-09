@@ -1,0 +1,168 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.OrganAddForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views"
+             
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+             xmlns:fbctr="clr-namespace:SMT.SaaS.FrameworkUI.FBControls;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+			 xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+             >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ctr:TabControl x:Name="tbcContainer" Margin="2" Height="auto" Style="{StaticResource TabControlStyle}">
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <Grid Margin="2" x:Name="Parent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <!--<RowDefinition Height="0.30*" MinHeight="150" />-->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="0.35*"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="0.35*"/>
+                    </Grid.ColumnDefinitions>
+                    <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                    <!--机构代码-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORGANCODE}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
+					<smt:LookUp  Grid.Row="0" Grid.Column="1"
+            					FindClick="CompanyObject_FindClick"  x:Name="txtOrganCode" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,3,0,0" DataContext="{Binding ORGANCODE,Mode=TwoWay}"/>
+                    <!--
+					<Grid Grid.Row="0" Grid.Column="1">
+						<Grid.RowDefinitions>
+	                        <RowDefinition Height="30"/>
+	                    </Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+	                        <ColumnDefinition/>                        
+	                        <ColumnDefinition/>
+                    	</Grid.ColumnDefinitions>
+	                    <TextBox x:Name="txtOrganCode" Text="{Binding ORGCODE,Mode=TwoWay}" Width="auto" Margin="5,5,20,0"   VerticalAlignment="Center"  HorizontalAlignment="left"  Style="{StaticResource TextBoxStyle}" IsReadOnly="True" Grid.Row="0" Grid.Column="0">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ORGANCODE"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    	</TextBox>
+						
+					</Grid>
+                    -->
+                    <!--法人代表-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEGALPERSON}" VerticalAlignment="Center" Margin="5,5,50,0" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="2"/>
+                    <TextBox x:Name="txtLegalPerson" Text="{Binding LEGALPERSON,Mode=TwoWay}" MaxLength="50" Width="auto" Margin="5,5,20,0"   VerticalAlignment="Center"  HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxStyle}">
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire></behaviors:ShowRequire>
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="LEGALPERSON"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <!--机构名称-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORGANNAME}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0"/>
+                    <TextBox x:Name="txtOrganName" Text="{Binding ORGNAME,Mode=TwoWay}" Width="auto" Margin="5,5,20,0"   HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStyle}" IsReadOnly="True">
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire></behaviors:ShowRequire>
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="PLEASESELECT" ErrorMessageParameter="ORGANCODE"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <!--证照编号-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LICENCENO}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"/>
+                    <TextBox x:Name="txtLicenceNo" Text="{Binding LICENCENO,Mode=TwoWay}" MaxLength="50" Width="auto" Margin="5,5,20,0"   VerticalAlignment="Center"  HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStyle}">
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire></behaviors:ShowRequire>
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="LICENCENO"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <!--办公地址-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUSINESSADDRESS}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0"/>
+                    <TextBox x:Name="txtAddress"
+                             Text="{Binding ADDRESS,Mode=TwoWay}"
+                             MaxLength="200"
+                             Width="auto" Margin="5,5,20,0"   VerticalAlignment="Center"  HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStyle}">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="BUSINESSADDRESS"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <!--经营范围-->
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUSINESSSCOPE}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="0"/>
+                    <TextBox x:Name="txtBussinessArea"
+                             Text="{Binding BUSSINESSAREA,Mode=TwoWay}"
+                             MaxLength="1000"
+                             TextWrapping="Wrap"
+                             Width="auto" MinHeight="60" Margin="5,5,20,0"    VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Style="{StaticResource TextBoxStyle}">
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire></behaviors:ShowRequire>
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="BUSINESSSCOPE"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox> 
+                    <!--是否有费用-->
+                    <Grid Grid.Row="5" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".7*"/>
+                            <ColumnDefinition Width=".3*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=IsHasFee}" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
+                        <CheckBox x:Name="FeeChkBox" Unchecked="FeeChkBox_Unchecked" Checked="FeeChkBox_Checked" Tag="{Binding ISCHARGE}" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="5,5,0,0"></CheckBox>
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtFee" Text="{Binding CHARGEMONEY,Mode=TwoWay}" Width="100"  Margin="5,5,0,0"   VerticalAlignment="Stretch"  HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" IsReadOnly="True" Style="{StaticResource TextBoxStyle}">
+                        </TextBox>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONETARYUNIT}" VerticalAlignment="Center" Margin="0,5,0,0" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Width="30"/>
+                    </Grid>
+                    <!--预算控件-->
+                    <ScrollViewer x:Name="scvFB" Visibility="Collapsed" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,5,20,10" Height="200" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" >
+                        <fbctr:ChargeApplyControl  x:Name="fbCtr" Width="auto">
+                        </fbctr:ChargeApplyControl>
+                    </ScrollViewer>
+                </Grid>
+            </ctr:TabItem>
+            <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=LICENSETAB}" Style="{StaticResource TabItemStyle}">
+                <data:DataGrid x:Name="dgLicense" AutoGenerateColumns="False"  IsReadOnly="True" HorizontalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
+CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTextColumn Header="LICENSENAME" Binding="{Binding DICTIONARYNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>
+                    </data:DataGrid.Columns>
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="BUSINESSSCOPE"></validator:RequiredValidator>
+                    </validator:ValidatorService.Validator>
+                </data:DataGrid>
+            </ctr:TabItem>
+            <!--<ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+                <ScrollViewer x:Name="scvAudit" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,20,10" MinHeight="350">
+                    <audit:AuditControl Visibility="Visible" x:Name="audit"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    </audit:AuditControl>
+                </ScrollViewer>
+            </ctr:TabItem>-->            
+        </ctr:TabControl>
+    </Grid>
+    
+</smtLocal:BaseForm>

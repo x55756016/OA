@@ -1,0 +1,187 @@
+﻿<smtLocal:BaseForm x:Class="SMT.SaaS.OA.UI.Form.EmployeeSurveys.JoinSurveyingForm"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI" 
+xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors"
+xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+xmlns:loacl="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit">
+
+    <Grid  x:Name="PARENT">
+        <Grid>
+           
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <controls:TabControl Name="parentsInfo"
+        Grid.Row="1"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- 验证控件 -->
+                    <validator:ValidatorManager x:Name="checkGroup" />
+
+                    <!-- 调查主题 -->
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Text="{Binding Converter={StaticResource ResourceConveter},
+                        Source=SurveysTITLE}" />
+                    <TextBox Name="textTitle"
+                        Grid.Column="1"
+                        Style="{StaticResource TextBoxStyle}"
+                        AcceptsReturn="True"
+                        Text="{Binding Path=REQUIRETITLE,
+                        Mode=TwoWay,
+                        NotifyOnValidationError=True,
+                        ValidatesOnExceptions=True}">
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire />
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ErrorMessage="REQUIRED"
+                                ErrorMessageParameter="SurveysTITLE"
+                                ManagerName="checkGroup" />
+                        </validator:ValidatorService.Validator>
+
+                    </TextBox>
+
+                    <!-- 调查内容 -->
+                    <TextBlock Grid.Row="1"
+                        VerticalAlignment="Top"
+                        Text="{Binding Converter={StaticResource ResourceConveter},
+                        Source=SurveysContent}" />
+
+                    <TextBox Name="textContent"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        MinHeight="50"
+                        AcceptsReturn="True"
+                        VerticalScrollBarVisibility="Visible"
+                        HorizontalScrollBarVisibility="Auto"
+                        Style="{StaticResource TextBoxStyle}"
+                        Text="{Binding Path=CONTENT,
+                        Mode=TwoWay,
+                        NotifyOnValidationError=True,
+                        ValidatesOnExceptions=True}"
+                        >
+                        <interaction:Interaction.Behaviors>
+                            <behaviors:ShowRequire />
+                        </interaction:Interaction.Behaviors>
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ErrorMessage="REQUIRED"
+                                ErrorMessageParameter="AnswerContent"
+                                ManagerName="checkGroup" />
+                        </validator:ValidatorService.Validator>
+
+                    </TextBox>
+
+                    <!-- 题目和答案 -->
+
+                    <TextBlock Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Center"
+                        Text="{Binding Converter={StaticResource ResourceConveter},
+                        Source=QUESTIONANDANSWER}" />
+
+
+                    <data:DataGrid Name="dgQuestion"
+                        Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        MinHeight="130"
+                        RowDetailsVisibilityMode="Visible"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        AutoGenerateColumns="False"
+                        CanUserResizeColumns="True"
+                        CellStyle="{StaticResource DataGridCellStyle}"
+                        ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                        RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                        RowStyle="{StaticResource DataGridRowStyle}"
+                        SelectionMode="Single" SelectionChanged="dgQuestion_SelectionChanged"
+                        Style="{StaticResource DataGridStyle}">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Binding="{Binding SUBJECTID, Mode=TwoWay}" Header="题号"/>
+                            <data:DataGridTextColumn  Binding="{Binding CONTENT, Mode=TwoWay}" Header="题目"/>
+                        </data:DataGrid.Columns>
+                      
+                    </data:DataGrid>
+
+                    <data:DataGrid Name="dgResult"
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        MinHeight="200"
+                        RowDetailsVisibilityMode="Visible"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        AutoGenerateColumns="False"
+                        CanUserResizeColumns="True"
+                        CellStyle="{StaticResource DataGridCellStyle}"
+                        ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                        RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                        RowStyle="{StaticResource DataGridRowStyle}"
+                        SelectionMode="Single" 
+                        Style="{StaticResource DataGridStyle}">
+                        <data:DataGrid.Columns>
+                            
+                            <data:DataGridTemplateColumn Header="请选择">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                            <CheckBox x:Name="RowFilterButton" IsChecked="{Binding RESULT}"
+                                    Tag="{Binding}" Click="RowFilterButton_Click" />
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+
+
+                                <!--<data:DataGridTextColumn Binding="{Binding T_OA_REQUIREDETAIL.CODE, Mode=TwoWay}" Header="显示代码"/>-->
+                                <data:DataGridTextColumn  Binding="{Binding T_OA_REQUIREDETAIL.CONTENT, Mode=TwoWay}" Header="正文"/>
+                        </data:DataGrid.Columns>
+
+                    </data:DataGrid>
+
+
+                    <!--  补充意见  -->
+                    <loacl:Expander Grid.Row="5"
+                                    Grid.ColumnSpan="3"
+                                    Width="Auto"
+                                    ExpandDirection="Down"
+                                    Header="{Binding Converter={StaticResource ResourceConveter},
+                                                     Source=SURVEYSUGGEST}"
+                                    IsExpanded="False"
+                                    Style="{StaticResource ExpanderStyle}" Margin="0,2,0,0">
+                        <TextBox Name="textSuggest"
+                                 Grid.Row="6"
+                                 Width="Auto"
+                                 Grid.Column="1"
+                                 MinHeight="60"
+                                 HorizontalAlignment="Stretch"
+                                 AcceptsReturn="True"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 VerticalScrollBarVisibility="Visible" />
+                    </loacl:Expander>
+                   
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+        </Grid>
+    </Grid>
+
+    </smtLocal:BaseForm>

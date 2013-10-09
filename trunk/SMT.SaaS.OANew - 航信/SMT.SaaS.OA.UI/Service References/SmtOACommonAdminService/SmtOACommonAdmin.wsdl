@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOACommonAdmin.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleDispatch_InputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleDispatch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleDispatch_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleDispatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteVehicleDispatchList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteVehicleDispatchList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteVehicleDispatchList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteVehicleDispatchListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VDDetails_InputMessage">
+    <wsdl:part name="parameters" element="Del_VDDetails" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VDDetails_OutputMessage">
+    <wsdl:part name="parameters" element="Del_VDDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleDispatchAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleDispatchAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleDispatchAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleDispatchAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleDispatchAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="AddVehicleDispatchAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleDispatchAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddVehicleDispatchAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetDetailListByDispatchId_InputMessage">
+    <wsdl:part name="parameters" element="GetDetailListByDispatchId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetDetailListByDispatchId_OutputMessage">
+    <wsdl:part name="parameters" element="GetDetailListByDispatchIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleDispatchById_InputMessage">
+    <wsdl:part name="parameters" element="GetVehicleDispatchById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleDispatchById_OutputMessage">
+    <wsdl:part name="parameters" element="GetVehicleDispatchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Gets_VDRecord_InputMessage">
+    <wsdl:part name="parameters" element="Gets_VDRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Gets_VDRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Gets_VDRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VDInfo_InputMessage">
+    <wsdl:part name="parameters" element="Get_VDInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VDInfo_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VDInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VDRecord_InputMessage">
+    <wsdl:part name="parameters" element="Get_VDRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VDRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VDRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Upd_VDRecord_InputMessage">
+    <wsdl:part name="parameters" element="Upd_VDRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Upd_VDRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Upd_VDRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Add_VDRecord_InputMessage">
+    <wsdl:part name="parameters" element="Add_VDRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Add_VDRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Add_VDRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VDRecord_InputMessage">
+    <wsdl:part name="parameters" element="Del_VDRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VDRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Del_VDRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetCostRecordList_InputMessage">
+    <wsdl:part name="parameters" element="GetCostRecordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetCostRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="GetCostRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddCostRecord_InputMessage">
+    <wsdl:part name="parameters" element="AddCostRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddCostRecord_OutputMessage">
+    <wsdl:part name="parameters" element="AddCostRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddCostRecordList_InputMessage">
+    <wsdl:part name="parameters" element="AddCostRecordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddCostRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="AddCostRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateCostRecord_InputMessage">
+    <wsdl:part name="parameters" element="UpdateCostRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateCostRecord_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateCostRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateCostRecordList_InputMessage">
+    <wsdl:part name="parameters" element="UpdateCostRecordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateCostRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateCostRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteCostRecord_InputMessage">
+    <wsdl:part name="parameters" element="DeleteCostRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteCostRecord_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteCostRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteCostRecordList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteCostRecordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteCostRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteCostRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VehicleUseApp_InputMessage">
+    <wsdl:part name="parameters" element="Get_VehicleUseApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VehicleUseApp_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VehicleUseAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleUseAppInfoList_InputMessage">
+    <wsdl:part name="parameters" element="GetVehicleUseAppInfoList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleUseAppInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="GetVehicleUseAppInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetCanUseVehicleUseAppInfoList_InputMessage">
+    <wsdl:part name="parameters" element="GetCanUseVehicleUseAppInfoList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetCanUseVehicleUseAppInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="GetCanUseVehicleUseAppInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleUseApp_InputMessage">
+    <wsdl:part name="parameters" element="AddVehicleUseApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleUseApp_OutputMessage">
+    <wsdl:part name="parameters" element="AddVehicleUseAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleUseAppList_InputMessage">
+    <wsdl:part name="parameters" element="AddVehicleUseAppList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleUseAppList_OutputMessage">
+    <wsdl:part name="parameters" element="AddVehicleUseAppListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleUseAppList_InputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleUseAppList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleUseAppList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleUseAppListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleUseApp_InputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleUseApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleUseApp_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleUseAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteVehicleUseAppList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteVehicleUseAppList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteVehicleUseAppList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteVehicleUseAppListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleUseAppById_InputMessage">
+    <wsdl:part name="parameters" element="GetVehicleUseAppById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleUseAppById_OutputMessage">
+    <wsdl:part name="parameters" element="GetVehicleUseAppByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseInfoListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetHouseInfoListPaging" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseInfoListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetHouseInfoListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetHouseInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetHouseInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseInfoTree_InputMessage">
+    <wsdl:part name="parameters" element="GetHouseInfoTree" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseInfoTree_OutputMessage">
+    <wsdl:part name="parameters" element="GetHouseInfoTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddHouse_InputMessage">
+    <wsdl:part name="parameters" element="AddHouse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddHouse_OutputMessage">
+    <wsdl:part name="parameters" element="AddHouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateHouse_InputMessage">
+    <wsdl:part name="parameters" element="UpdateHouse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateHouse_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateHouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteHouse_InputMessage">
+    <wsdl:part name="parameters" element="DeleteHouse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteHouse_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteHouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseHirerListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetHouseHirerListPaging" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseHirerListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetHouseHirerListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssunaceListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetIssunaceListPaging" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssunaceListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetIssunaceListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssunaceForWebPart_InputMessage">
+    <wsdl:part name="parameters" element="GetIssunaceForWebPart" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssunaceForWebPart_OutputMessage">
+    <wsdl:part name="parameters" element="GetIssunaceForWebPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssuanceListById_InputMessage">
+    <wsdl:part name="parameters" element="GetIssuanceListById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssuanceListById_OutputMessage">
+    <wsdl:part name="parameters" element="GetIssuanceListByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssuanceHouseInfoList_InputMessage">
+    <wsdl:part name="parameters" element="GetIssuanceHouseInfoList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssuanceHouseInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="GetIssuanceHouseInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssuanceHouseList_InputMessage">
+    <wsdl:part name="parameters" element="GetIssuanceHouseList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetIssuanceHouseList_OutputMessage">
+    <wsdl:part name="parameters" element="GetIssuanceHouseListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetDistributeUserList_InputMessage">
+    <wsdl:part name="parameters" element="GetDistributeUserList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetDistributeUserList_OutputMessage">
+    <wsdl:part name="parameters" element="GetDistributeUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddIssuance_InputMessage">
+    <wsdl:part name="parameters" element="AddIssuance" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddIssuance_OutputMessage">
+    <wsdl:part name="parameters" element="AddIssuanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateIssuance_InputMessage">
+    <wsdl:part name="parameters" element="UpdateIssuance" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateIssuance_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateIssuanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteIssuance_InputMessage">
+    <wsdl:part name="parameters" element="DeleteIssuance" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteIssuance_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteIssuanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetHireAppListPaging" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetHireAppListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppListPagingByHouseInfoOrList_InputMessage">
+    <wsdl:part name="parameters" element="GetHireAppListPagingByHouseInfoOrList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppListPagingByHouseInfoOrList_OutputMessage">
+    <wsdl:part name="parameters" element="GetHireAppListPagingByHouseInfoOrListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppListPagingByMember_InputMessage">
+    <wsdl:part name="parameters" element="GetHireAppListPagingByMember" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppListPagingByMember_OutputMessage">
+    <wsdl:part name="parameters" element="GetHireAppListPagingByMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppByID_InputMessage">
+    <wsdl:part name="parameters" element="GetHireAppByID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetHireAppByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppByHouseListID_InputMessage">
+    <wsdl:part name="parameters" element="GetHireAppByHouseListID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppByHouseListID_OutputMessage">
+    <wsdl:part name="parameters" element="GetHireAppByHouseListIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddHireApp_InputMessage">
+    <wsdl:part name="parameters" element="AddHireApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddHireApp_OutputMessage">
+    <wsdl:part name="parameters" element="AddHireAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateHireApp_InputMessage">
+    <wsdl:part name="parameters" element="UpdateHireApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateHireApp_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateHireAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteHireApp_InputMessage">
+    <wsdl:part name="parameters" element="DeleteHireApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteHireApp_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteHireAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppHouseListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetHireAppHouseListPaging" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireAppHouseListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetHireAppHouseListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetMemberHireHouseAppListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetMemberHireHouseAppListPaging" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetMemberHireHouseAppListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetMemberHireHouseAppListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="GetHireRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetHireRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddHireRecord_InputMessage">
+    <wsdl:part name="parameters" element="AddHireRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddHireRecord_OutputMessage">
+    <wsdl:part name="parameters" element="AddHireRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateHireRecord_InputMessage">
+    <wsdl:part name="parameters" element="UpdateHireRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateHireRecord_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateHireRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireRecordListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetHireRecordListPaging" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHireRecordListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetHireRecordListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseIssueAndNoticeInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetHouseIssueAndNoticeInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseIssueAndNoticeInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetHouseIssueAndNoticeInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseIssueAndNoticeInfosToMobile_InputMessage">
+    <wsdl:part name="parameters" element="GetHouseIssueAndNoticeInfosToMobile" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetHouseIssueAndNoticeInfosToMobile_OutputMessage">
+    <wsdl:part name="parameters" element="GetHouseIssueAndNoticeInfosToMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetSysNoticeByFormidToMobile_InputMessage">
+    <wsdl:part name="parameters" element="GetSysNoticeByFormidToMobile" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetSysNoticeByFormidToMobile_OutputMessage">
+    <wsdl:part name="parameters" element="GetSysNoticeByFormidToMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetEmployeeHireRecordFee_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeHireRecordFee" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetEmployeeHireRecordFee_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeHireRecordFeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_FromEngineToAddHireRecord_InputMessage">
+    <wsdl:part name="parameters" element="FromEngineToAddHireRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_FromEngineToAddHireRecord_OutputMessage">
+    <wsdl:part name="parameters" element="FromEngineToAddHireRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VConserVation_InputMessage">
+    <wsdl:part name="parameters" element="Get_VConserVation" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VConserVation_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VConserVationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetConserVationList_InputMessage">
+    <wsdl:part name="parameters" element="GetConserVationList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetConserVationList_OutputMessage">
+    <wsdl:part name="parameters" element="GetConserVationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Sel_VCCheckeds_InputMessage">
+    <wsdl:part name="parameters" element="Sel_VCCheckeds" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Sel_VCCheckeds_OutputMessage">
+    <wsdl:part name="parameters" element="Sel_VCCheckedsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddConserVation_InputMessage">
+    <wsdl:part name="parameters" element="AddConserVation" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddConserVation_OutputMessage">
+    <wsdl:part name="parameters" element="AddConserVationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddConserVation_i_InputMessage">
+    <wsdl:part name="parameters" element="AddConserVation_i" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddConserVation_i_OutputMessage">
+    <wsdl:part name="parameters" element="AddConserVation_iResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateConserVation_InputMessage">
+    <wsdl:part name="parameters" element="UpdateConserVation" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateConserVation_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateConserVationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteConserVation_InputMessage">
+    <wsdl:part name="parameters" element="DeleteConserVation" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteConserVation_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteConserVationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteConserVationList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteConserVationList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteConserVationList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteConserVationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VCRecord_InputMessage">
+    <wsdl:part name="parameters" element="Get_VCRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VCRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VCRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VCRecords_InputMessage">
+    <wsdl:part name="parameters" element="Get_VCRecords" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VCRecords_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VCRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Add_VCRecord_InputMessage">
+    <wsdl:part name="parameters" element="Add_VCRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Add_VCRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Add_VCRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Upd_VCRecord_InputMessage">
+    <wsdl:part name="parameters" element="Upd_VCRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Upd_VCRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Upd_VCRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VCRecords_InputMessage">
+    <wsdl:part name="parameters" element="Del_VCRecords" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VCRecords_OutputMessage">
+    <wsdl:part name="parameters" element="Del_VCRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleInfoListByPage_InputMessage">
+    <wsdl:part name="parameters" element="GetVehicleInfoListByPage" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleInfoListByPage_OutputMessage">
+    <wsdl:part name="parameters" element="GetVehicleInfoListByPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleInfoList_InputMessage">
+    <wsdl:part name="parameters" element="GetVehicleInfoList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetVehicleInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="GetVehicleInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetCanUseVehicleInfoList_InputMessage">
+    <wsdl:part name="parameters" element="GetCanUseVehicleInfoList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetCanUseVehicleInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="GetCanUseVehicleInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicle_InputMessage">
+    <wsdl:part name="parameters" element="AddVehicle" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="AddVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleList_InputMessage">
+    <wsdl:part name="parameters" element="AddVehicleList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleList_OutputMessage">
+    <wsdl:part name="parameters" element="AddVehicleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleList_InputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicle_InputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicle" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteVehicleList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteVehicleList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteVehicleList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteVehicleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VICard_InputMessage">
+    <wsdl:part name="parameters" element="Get_VICard" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VICard_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VICardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Save_VICard_InputMessage">
+    <wsdl:part name="parameters" element="Save_VICard" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Save_VICard_OutputMessage">
+    <wsdl:part name="parameters" element="Save_VICardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VICard_InputMessage">
+    <wsdl:part name="parameters" element="Del_VICard" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VICard_OutputMessage">
+    <wsdl:part name="parameters" element="Del_VICardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetAccidentRecordList_InputMessage">
+    <wsdl:part name="parameters" element="GetAccidentRecordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetAccidentRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="GetAccidentRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddAccidentRecord_InputMessage">
+    <wsdl:part name="parameters" element="AddAccidentRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddAccidentRecord_OutputMessage">
+    <wsdl:part name="parameters" element="AddAccidentRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddAccidentRecordList_InputMessage">
+    <wsdl:part name="parameters" element="AddAccidentRecordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddAccidentRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="AddAccidentRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateAccidentRecord_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAccidentRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateAccidentRecord_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAccidentRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateAccidentRecordList_InputMessage">
+    <wsdl:part name="parameters" element="UpdateAccidentRecordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateAccidentRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateAccidentRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteAccidentRecordList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteAccidentRecordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteAccidentRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteAccidentRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VMApp_InputMessage">
+    <wsdl:part name="parameters" element="Get_VMApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VMApp_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VMAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VMAppChecked_InputMessage">
+    <wsdl:part name="parameters" element="Get_VMAppChecked" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VMAppChecked_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VMAppCheckedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetMaintenanceAppList_InputMessage">
+    <wsdl:part name="parameters" element="GetMaintenanceAppList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_GetMaintenanceAppList_OutputMessage">
+    <wsdl:part name="parameters" element="GetMaintenanceAppListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddMaintenanceApp_InputMessage">
+    <wsdl:part name="parameters" element="AddMaintenanceApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddMaintenanceApp_OutputMessage">
+    <wsdl:part name="parameters" element="AddMaintenanceAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateMaintenanceApp_InputMessage">
+    <wsdl:part name="parameters" element="UpdateMaintenanceApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateMaintenanceApp_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateMaintenanceAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteMaintenanceApp_InputMessage">
+    <wsdl:part name="parameters" element="DeleteMaintenanceApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteMaintenanceApp_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteMaintenanceAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteMaintenanceAppList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteMaintenanceAppList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DeleteMaintenanceAppList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteMaintenanceAppListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VMRecord_InputMessage">
+    <wsdl:part name="parameters" element="Get_VMRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VMRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VMRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VMRecords_InputMessage">
+    <wsdl:part name="parameters" element="Get_VMRecords" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_VMRecords_OutputMessage">
+    <wsdl:part name="parameters" element="Get_VMRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Add_VMRecord_InputMessage">
+    <wsdl:part name="parameters" element="Add_VMRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Add_VMRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Add_VMRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Upd_VMRecord_InputMessage">
+    <wsdl:part name="parameters" element="Upd_VMRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Upd_VMRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Upd_VMRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VMRecord_InputMessage">
+    <wsdl:part name="parameters" element="Del_VMRecord" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Del_VMRecord_OutputMessage">
+    <wsdl:part name="parameters" element="Del_VMRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Gets_VDInfo_InputMessage">
+    <wsdl:part name="parameters" element="Gets_VDInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Gets_VDInfo_OutputMessage">
+    <wsdl:part name="parameters" element="Gets_VDInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Gets_VDChecked_InputMessage">
+    <wsdl:part name="parameters" element="Gets_VDChecked" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Gets_VDChecked_OutputMessage">
+    <wsdl:part name="parameters" element="Gets_VDCheckedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Gets_VDAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="Gets_VDAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Gets_VDAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="Gets_VDAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_ByParentID_InputMessage">
+    <wsdl:part name="parameters" element="Get_ByParentID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_Get_ByParentID_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ByParentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleDispatch_InputMessage">
+    <wsdl:part name="parameters" element="AddVehicleDispatch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleDispatch_OutputMessage">
+    <wsdl:part name="parameters" element="AddVehicleDispatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleDispatchList_InputMessage">
+    <wsdl:part name="parameters" element="AddVehicleDispatchList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_AddVehicleDispatchList_OutputMessage">
+    <wsdl:part name="parameters" element="AddVehicleDispatchListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleDispatchList_InputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleDispatchList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOACommonAdmin_UpdateVehicleDispatchList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateVehicleDispatchListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SmtOACommonAdmin">
+    <wsdl:operation name="UpdateVehicleDispatch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleDispatch" message="SmtOACommonAdmin_UpdateVehicleDispatch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleDispatchResponse" message="SmtOACommonAdmin_UpdateVehicleDispatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleDispatchList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteVehicleDispatchList" message="SmtOACommonAdmin_DeleteVehicleDispatchList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteVehicleDispatchListResponse" message="SmtOACommonAdmin_DeleteVehicleDispatchList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Del_VDDetails">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Del_VDDetails" message="SmtOACommonAdmin_Del_VDDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Del_VDDetailsResponse" message="SmtOACommonAdmin_Del_VDDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleDispatchAndDetail">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleDispatchAndDetail" message="SmtOACommonAdmin_UpdateVehicleDispatchAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleDispatchAndDetailResponse" message="SmtOACommonAdmin_UpdateVehicleDispatchAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVehicleDispatchAndDetail">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddVehicleDispatchAndDetail" message="SmtOACommonAdmin_AddVehicleDispatchAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddVehicleDispatchAndDetailResponse" message="SmtOACommonAdmin_AddVehicleDispatchAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailListByDispatchId">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetDetailListByDispatchId" message="SmtOACommonAdmin_GetDetailListByDispatchId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetDetailListByDispatchIdResponse" message="SmtOACommonAdmin_GetDetailListByDispatchId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleDispatchById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetVehicleDispatchById" message="SmtOACommonAdmin_GetVehicleDispatchById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetVehicleDispatchByIdResponse" message="SmtOACommonAdmin_GetVehicleDispatchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Gets_VDRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Gets_VDRecord" message="SmtOACommonAdmin_Gets_VDRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Gets_VDRecordResponse" message="SmtOACommonAdmin_Gets_VDRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VDInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VDInfo" message="SmtOACommonAdmin_Get_VDInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VDInfoResponse" message="SmtOACommonAdmin_Get_VDInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VDRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VDRecord" message="SmtOACommonAdmin_Get_VDRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VDRecordResponse" message="SmtOACommonAdmin_Get_VDRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Upd_VDRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Upd_VDRecord" message="SmtOACommonAdmin_Upd_VDRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Upd_VDRecordResponse" message="SmtOACommonAdmin_Upd_VDRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_VDRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Add_VDRecord" message="SmtOACommonAdmin_Add_VDRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Add_VDRecordResponse" message="SmtOACommonAdmin_Add_VDRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Del_VDRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Del_VDRecord" message="SmtOACommonAdmin_Del_VDRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Del_VDRecordResponse" message="SmtOACommonAdmin_Del_VDRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCostRecordList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetCostRecordList" message="SmtOACommonAdmin_GetCostRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetCostRecordListResponse" message="SmtOACommonAdmin_GetCostRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCostRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddCostRecord" message="SmtOACommonAdmin_AddCostRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddCostRecordResponse" message="SmtOACommonAdmin_AddCostRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCostRecordList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddCostRecordList" message="SmtOACommonAdmin_AddCostRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddCostRecordListResponse" message="SmtOACommonAdmin_AddCostRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCostRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateCostRecord" message="SmtOACommonAdmin_UpdateCostRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateCostRecordResponse" message="SmtOACommonAdmin_UpdateCostRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCostRecordList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateCostRecordList" message="SmtOACommonAdmin_UpdateCostRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateCostRecordListResponse" message="SmtOACommonAdmin_UpdateCostRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCostRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteCostRecord" message="SmtOACommonAdmin_DeleteCostRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteCostRecordResponse" message="SmtOACommonAdmin_DeleteCostRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCostRecordList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteCostRecordList" message="SmtOACommonAdmin_DeleteCostRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteCostRecordListResponse" message="SmtOACommonAdmin_DeleteCostRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VehicleUseApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VehicleUseApp" message="SmtOACommonAdmin_Get_VehicleUseApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VehicleUseAppResponse" message="SmtOACommonAdmin_Get_VehicleUseApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleUseAppInfoList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetVehicleUseAppInfoList" message="SmtOACommonAdmin_GetVehicleUseAppInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetVehicleUseAppInfoListResponse" message="SmtOACommonAdmin_GetVehicleUseAppInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCanUseVehicleUseAppInfoList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetCanUseVehicleUseAppInfoList" message="SmtOACommonAdmin_GetCanUseVehicleUseAppInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetCanUseVehicleUseAppInfoListResponse" message="SmtOACommonAdmin_GetCanUseVehicleUseAppInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVehicleUseApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddVehicleUseApp" message="SmtOACommonAdmin_AddVehicleUseApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddVehicleUseAppResponse" message="SmtOACommonAdmin_AddVehicleUseApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVehicleUseAppList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddVehicleUseAppList" message="SmtOACommonAdmin_AddVehicleUseAppList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddVehicleUseAppListResponse" message="SmtOACommonAdmin_AddVehicleUseAppList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleUseAppList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleUseAppList" message="SmtOACommonAdmin_UpdateVehicleUseAppList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleUseAppListResponse" message="SmtOACommonAdmin_UpdateVehicleUseAppList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleUseApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleUseApp" message="SmtOACommonAdmin_UpdateVehicleUseApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleUseAppResponse" message="SmtOACommonAdmin_UpdateVehicleUseApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleUseAppList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteVehicleUseAppList" message="SmtOACommonAdmin_DeleteVehicleUseAppList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteVehicleUseAppListResponse" message="SmtOACommonAdmin_DeleteVehicleUseAppList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleUseAppById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetVehicleUseAppById" message="SmtOACommonAdmin_GetVehicleUseAppById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetVehicleUseAppByIdResponse" message="SmtOACommonAdmin_GetVehicleUseAppById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHouseInfoListPaging">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHouseInfoListPaging" message="SmtOACommonAdmin_GetHouseInfoListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHouseInfoListPagingResponse" message="SmtOACommonAdmin_GetHouseInfoListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHouseInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHouseInfoById" message="SmtOACommonAdmin_GetHouseInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHouseInfoByIdResponse" message="SmtOACommonAdmin_GetHouseInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHouseInfoTree">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHouseInfoTree" message="SmtOACommonAdmin_GetHouseInfoTree_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHouseInfoTreeResponse" message="SmtOACommonAdmin_GetHouseInfoTree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHouse">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddHouse" message="SmtOACommonAdmin_AddHouse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddHouseResponse" message="SmtOACommonAdmin_AddHouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHouse">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateHouse" message="SmtOACommonAdmin_UpdateHouse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateHouseResponse" message="SmtOACommonAdmin_UpdateHouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHouse">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteHouse" message="SmtOACommonAdmin_DeleteHouse_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteHouseResponse" message="SmtOACommonAdmin_DeleteHouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHouseHirerListPaging">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHouseHirerListPaging" message="SmtOACommonAdmin_GetHouseHirerListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHouseHirerListPagingResponse" message="SmtOACommonAdmin_GetHouseHirerListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssunaceListPaging">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetIssunaceListPaging" message="SmtOACommonAdmin_GetIssunaceListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetIssunaceListPagingResponse" message="SmtOACommonAdmin_GetIssunaceListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssunaceForWebPart">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetIssunaceForWebPart" message="SmtOACommonAdmin_GetIssunaceForWebPart_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetIssunaceForWebPartResponse" message="SmtOACommonAdmin_GetIssunaceForWebPart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuanceListById">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetIssuanceListById" message="SmtOACommonAdmin_GetIssuanceListById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetIssuanceListByIdResponse" message="SmtOACommonAdmin_GetIssuanceListById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuanceHouseInfoList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetIssuanceHouseInfoList" message="SmtOACommonAdmin_GetIssuanceHouseInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetIssuanceHouseInfoListResponse" message="SmtOACommonAdmin_GetIssuanceHouseInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuanceHouseList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetIssuanceHouseList" message="SmtOACommonAdmin_GetIssuanceHouseList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetIssuanceHouseListResponse" message="SmtOACommonAdmin_GetIssuanceHouseList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributeUserList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetDistributeUserList" message="SmtOACommonAdmin_GetDistributeUserList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetDistributeUserListResponse" message="SmtOACommonAdmin_GetDistributeUserList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddIssuance">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddIssuance" message="SmtOACommonAdmin_AddIssuance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddIssuanceResponse" message="SmtOACommonAdmin_AddIssuance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIssuance">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateIssuance" message="SmtOACommonAdmin_UpdateIssuance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateIssuanceResponse" message="SmtOACommonAdmin_UpdateIssuance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteIssuance">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteIssuance" message="SmtOACommonAdmin_DeleteIssuance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteIssuanceResponse" message="SmtOACommonAdmin_DeleteIssuance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHireAppListPaging">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHireAppListPaging" message="SmtOACommonAdmin_GetHireAppListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHireAppListPagingResponse" message="SmtOACommonAdmin_GetHireAppListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHireAppListPagingByHouseInfoOrList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHireAppListPagingByHouseInfoOrList" message="SmtOACommonAdmin_GetHireAppListPagingByHouseInfoOrList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHireAppListPagingByHouseInfoOrListResponse" message="SmtOACommonAdmin_GetHireAppListPagingByHouseInfoOrList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHireAppListPagingByMember">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHireAppListPagingByMember" message="SmtOACommonAdmin_GetHireAppListPagingByMember_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHireAppListPagingByMemberResponse" message="SmtOACommonAdmin_GetHireAppListPagingByMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHireAppByID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHireAppByID" message="SmtOACommonAdmin_GetHireAppByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHireAppByIDResponse" message="SmtOACommonAdmin_GetHireAppByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHireAppByHouseListID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHireAppByHouseListID" message="SmtOACommonAdmin_GetHireAppByHouseListID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHireAppByHouseListIDResponse" message="SmtOACommonAdmin_GetHireAppByHouseListID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHireApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddHireApp" message="SmtOACommonAdmin_AddHireApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddHireAppResponse" message="SmtOACommonAdmin_AddHireApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHireApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateHireApp" message="SmtOACommonAdmin_UpdateHireApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateHireAppResponse" message="SmtOACommonAdmin_UpdateHireApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHireApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteHireApp" message="SmtOACommonAdmin_DeleteHireApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteHireAppResponse" message="SmtOACommonAdmin_DeleteHireApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHireAppHouseListPaging">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHireAppHouseListPaging" message="SmtOACommonAdmin_GetHireAppHouseListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHireAppHouseListPagingResponse" message="SmtOACommonAdmin_GetHireAppHouseListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberHireHouseAppListPaging">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetMemberHireHouseAppListPaging" message="SmtOACommonAdmin_GetMemberHireHouseAppListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetMemberHireHouseAppListPagingResponse" message="SmtOACommonAdmin_GetMemberHireHouseAppListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHireRecordByID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHireRecordByID" message="SmtOACommonAdmin_GetHireRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHireRecordByIDResponse" message="SmtOACommonAdmin_GetHireRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHireRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddHireRecord" message="SmtOACommonAdmin_AddHireRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddHireRecordResponse" message="SmtOACommonAdmin_AddHireRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHireRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateHireRecord" message="SmtOACommonAdmin_UpdateHireRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateHireRecordResponse" message="SmtOACommonAdmin_UpdateHireRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHireRecordListPaging">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHireRecordListPaging" message="SmtOACommonAdmin_GetHireRecordListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHireRecordListPagingResponse" message="SmtOACommonAdmin_GetHireRecordListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHouseIssueAndNoticeInfos">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHouseIssueAndNoticeInfos" message="SmtOACommonAdmin_GetHouseIssueAndNoticeInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHouseIssueAndNoticeInfosResponse" message="SmtOACommonAdmin_GetHouseIssueAndNoticeInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHouseIssueAndNoticeInfosToMobile">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetHouseIssueAndNoticeInfosToMobile" message="SmtOACommonAdmin_GetHouseIssueAndNoticeInfosToMobile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetHouseIssueAndNoticeInfosToMobileResponse" message="SmtOACommonAdmin_GetHouseIssueAndNoticeInfosToMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysNoticeByFormidToMobile">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetSysNoticeByFormidToMobile" message="SmtOACommonAdmin_GetSysNoticeByFormidToMobile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetSysNoticeByFormidToMobileResponse" message="SmtOACommonAdmin_GetSysNoticeByFormidToMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeHireRecordFee">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetEmployeeHireRecordFee" message="SmtOACommonAdmin_GetEmployeeHireRecordFee_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetEmployeeHireRecordFeeResponse" message="SmtOACommonAdmin_GetEmployeeHireRecordFee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FromEngineToAddHireRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/FromEngineToAddHireRecord" message="SmtOACommonAdmin_FromEngineToAddHireRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/FromEngineToAddHireRecordResponse" message="SmtOACommonAdmin_FromEngineToAddHireRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VConserVation">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VConserVation" message="SmtOACommonAdmin_Get_VConserVation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VConserVationResponse" message="SmtOACommonAdmin_Get_VConserVation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConserVationList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetConserVationList" message="SmtOACommonAdmin_GetConserVationList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetConserVationListResponse" message="SmtOACommonAdmin_GetConserVationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Sel_VCCheckeds">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Sel_VCCheckeds" message="SmtOACommonAdmin_Sel_VCCheckeds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Sel_VCCheckedsResponse" message="SmtOACommonAdmin_Sel_VCCheckeds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddConserVation">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddConserVation" message="SmtOACommonAdmin_AddConserVation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddConserVationResponse" message="SmtOACommonAdmin_AddConserVation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddConserVation_i">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddConserVation_i" message="SmtOACommonAdmin_AddConserVation_i_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddConserVation_iResponse" message="SmtOACommonAdmin_AddConserVation_i_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConserVation">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateConserVation" message="SmtOACommonAdmin_UpdateConserVation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateConserVationResponse" message="SmtOACommonAdmin_UpdateConserVation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConserVation">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteConserVation" message="SmtOACommonAdmin_DeleteConserVation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteConserVationResponse" message="SmtOACommonAdmin_DeleteConserVation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConserVationList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteConserVationList" message="SmtOACommonAdmin_DeleteConserVationList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteConserVationListResponse" message="SmtOACommonAdmin_DeleteConserVationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VCRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VCRecord" message="SmtOACommonAdmin_Get_VCRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VCRecordResponse" message="SmtOACommonAdmin_Get_VCRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VCRecords">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VCRecords" message="SmtOACommonAdmin_Get_VCRecords_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VCRecordsResponse" message="SmtOACommonAdmin_Get_VCRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_VCRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Add_VCRecord" message="SmtOACommonAdmin_Add_VCRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Add_VCRecordResponse" message="SmtOACommonAdmin_Add_VCRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Upd_VCRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Upd_VCRecord" message="SmtOACommonAdmin_Upd_VCRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Upd_VCRecordResponse" message="SmtOACommonAdmin_Upd_VCRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Del_VCRecords">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Del_VCRecords" message="SmtOACommonAdmin_Del_VCRecords_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Del_VCRecordsResponse" message="SmtOACommonAdmin_Del_VCRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleInfoListByPage">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetVehicleInfoListByPage" message="SmtOACommonAdmin_GetVehicleInfoListByPage_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetVehicleInfoListByPageResponse" message="SmtOACommonAdmin_GetVehicleInfoListByPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleInfoList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetVehicleInfoList" message="SmtOACommonAdmin_GetVehicleInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetVehicleInfoListResponse" message="SmtOACommonAdmin_GetVehicleInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCanUseVehicleInfoList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetCanUseVehicleInfoList" message="SmtOACommonAdmin_GetCanUseVehicleInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetCanUseVehicleInfoListResponse" message="SmtOACommonAdmin_GetCanUseVehicleInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVehicle">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddVehicle" message="SmtOACommonAdmin_AddVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddVehicleResponse" message="SmtOACommonAdmin_AddVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVehicleList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddVehicleList" message="SmtOACommonAdmin_AddVehicleList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddVehicleListResponse" message="SmtOACommonAdmin_AddVehicleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleList" message="SmtOACommonAdmin_UpdateVehicleList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleListResponse" message="SmtOACommonAdmin_UpdateVehicleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicle">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicle" message="SmtOACommonAdmin_UpdateVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleResponse" message="SmtOACommonAdmin_UpdateVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteVehicleList" message="SmtOACommonAdmin_DeleteVehicleList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteVehicleListResponse" message="SmtOACommonAdmin_DeleteVehicleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VICard">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VICard" message="SmtOACommonAdmin_Get_VICard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VICardResponse" message="SmtOACommonAdmin_Get_VICard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save_VICard">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Save_VICard" message="SmtOACommonAdmin_Save_VICard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Save_VICardResponse" message="SmtOACommonAdmin_Save_VICard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Del_VICard">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Del_VICard" message="SmtOACommonAdmin_Del_VICard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Del_VICardResponse" message="SmtOACommonAdmin_Del_VICard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccidentRecordList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetAccidentRecordList" message="SmtOACommonAdmin_GetAccidentRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetAccidentRecordListResponse" message="SmtOACommonAdmin_GetAccidentRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccidentRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddAccidentRecord" message="SmtOACommonAdmin_AddAccidentRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddAccidentRecordResponse" message="SmtOACommonAdmin_AddAccidentRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccidentRecordList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddAccidentRecordList" message="SmtOACommonAdmin_AddAccidentRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddAccidentRecordListResponse" message="SmtOACommonAdmin_AddAccidentRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccidentRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateAccidentRecord" message="SmtOACommonAdmin_UpdateAccidentRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateAccidentRecordResponse" message="SmtOACommonAdmin_UpdateAccidentRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccidentRecordList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateAccidentRecordList" message="SmtOACommonAdmin_UpdateAccidentRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateAccidentRecordListResponse" message="SmtOACommonAdmin_UpdateAccidentRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccidentRecordList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteAccidentRecordList" message="SmtOACommonAdmin_DeleteAccidentRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteAccidentRecordListResponse" message="SmtOACommonAdmin_DeleteAccidentRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VMApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VMApp" message="SmtOACommonAdmin_Get_VMApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VMAppResponse" message="SmtOACommonAdmin_Get_VMApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VMAppChecked">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VMAppChecked" message="SmtOACommonAdmin_Get_VMAppChecked_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VMAppCheckedResponse" message="SmtOACommonAdmin_Get_VMAppChecked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintenanceAppList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/GetMaintenanceAppList" message="SmtOACommonAdmin_GetMaintenanceAppList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/GetMaintenanceAppListResponse" message="SmtOACommonAdmin_GetMaintenanceAppList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMaintenanceApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddMaintenanceApp" message="SmtOACommonAdmin_AddMaintenanceApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddMaintenanceAppResponse" message="SmtOACommonAdmin_AddMaintenanceApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMaintenanceApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateMaintenanceApp" message="SmtOACommonAdmin_UpdateMaintenanceApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateMaintenanceAppResponse" message="SmtOACommonAdmin_UpdateMaintenanceApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaintenanceApp">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteMaintenanceApp" message="SmtOACommonAdmin_DeleteMaintenanceApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteMaintenanceAppResponse" message="SmtOACommonAdmin_DeleteMaintenanceApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaintenanceAppList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DeleteMaintenanceAppList" message="SmtOACommonAdmin_DeleteMaintenanceAppList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DeleteMaintenanceAppListResponse" message="SmtOACommonAdmin_DeleteMaintenanceAppList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VMRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VMRecord" message="SmtOACommonAdmin_Get_VMRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VMRecordResponse" message="SmtOACommonAdmin_Get_VMRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VMRecords">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_VMRecords" message="SmtOACommonAdmin_Get_VMRecords_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_VMRecordsResponse" message="SmtOACommonAdmin_Get_VMRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_VMRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Add_VMRecord" message="SmtOACommonAdmin_Add_VMRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Add_VMRecordResponse" message="SmtOACommonAdmin_Add_VMRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Upd_VMRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Upd_VMRecord" message="SmtOACommonAdmin_Upd_VMRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Upd_VMRecordResponse" message="SmtOACommonAdmin_Upd_VMRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Del_VMRecord">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Del_VMRecord" message="SmtOACommonAdmin_Del_VMRecord_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Del_VMRecordResponse" message="SmtOACommonAdmin_Del_VMRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/DoWork" message="SmtOACommonAdmin_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/DoWorkResponse" message="SmtOACommonAdmin_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Gets_VDInfo">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Gets_VDInfo" message="SmtOACommonAdmin_Gets_VDInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Gets_VDInfoResponse" message="SmtOACommonAdmin_Gets_VDInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Gets_VDChecked">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Gets_VDChecked" message="SmtOACommonAdmin_Gets_VDChecked_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Gets_VDCheckedResponse" message="SmtOACommonAdmin_Gets_VDChecked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Gets_VDAndDetail">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Gets_VDAndDetail" message="SmtOACommonAdmin_Gets_VDAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Gets_VDAndDetailResponse" message="SmtOACommonAdmin_Gets_VDAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ByParentID">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/Get_ByParentID" message="SmtOACommonAdmin_Get_ByParentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/Get_ByParentIDResponse" message="SmtOACommonAdmin_Get_ByParentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVehicleDispatch">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddVehicleDispatch" message="SmtOACommonAdmin_AddVehicleDispatch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddVehicleDispatchResponse" message="SmtOACommonAdmin_AddVehicleDispatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVehicleDispatchList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/AddVehicleDispatchList" message="SmtOACommonAdmin_AddVehicleDispatchList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/AddVehicleDispatchListResponse" message="SmtOACommonAdmin_AddVehicleDispatchList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleDispatchList">
+      <wsdl:input wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleDispatchList" message="SmtOACommonAdmin_UpdateVehicleDispatchList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOACommonAdmin/UpdateVehicleDispatchListResponse" message="SmtOACommonAdmin_UpdateVehicleDispatchList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

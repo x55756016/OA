@@ -1,0 +1,134 @@
+﻿<local:BasePage xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+                x:Class="SMT.SaaS.OA.UI.Views.AgentManagement.AgentAgingSet"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"
+                xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+                xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+                xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+                Title="使用代理时效设置"
+                d:DesignWidth="640"
+                d:DesignHeight="480">
+    <navigation:Page.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:DictionaryConverter x:Key="DictionaryConverter" />
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+        <local:CustomDateConverter x:Key="DateTimeConvert" />
+        <local:ModuleNameConverter x:Key="ModuleNameConverter" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <!--right up begin-->
+            <smt:ViewTitle x:Name="ViewTitles"
+                           Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"
+                                      x:Name="controlsToolkitTUV"
+                                      Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"
+                                      VerticalAlignment="top"
+                                      Margin="0"
+                                      Grid.Row="1">
+                <Grid ShowGridLines="False">
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="0"
+                                Grid.Column="0">
+                        <TextBlock Margin="10,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding Converter={StaticResource ResourceConveter}, Source=AGENTMODULE}" />
+                        <TextBox x:Name="txtAGENTMODULE"
+                                 Width="100"
+                                 Margin="5,0,0,0"
+                                 VerticalAlignment="Center"
+                                 Style="{StaticResource TextBoxStyle}" />
+                        <TextBlock Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding Converter={StaticResource ResourceConveter}, Source=EFFECTDATE}" />
+                        <controls:DatePicker x:Name="dEFFECTDATE"
+                                             Width="100"
+                                             VerticalAlignment="Center" />
+                        <TextBlock Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding Converter={StaticResource ResourceConveter}, Source=INVALIDDATE}" />
+                        <controls:DatePicker x:Name="dINVALIDDATE"
+                                             VerticalAlignment="Center"
+                                             Width="100" />
+                        <TextBlock Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding Converter={StaticResource ResourceConveter}, Source=PLANEXPIRATIONDATE}" />
+                        <controls:DatePicker x:Name="dPLANEXPIRATIONDATE"
+                                             VerticalAlignment="Center"
+                                             Width="100" />
+                        <Button x:Name="SearchBtn"
+                                Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"
+                                Margin="10,0,0,0"
+                                Style="{StaticResource CommonButtonStyle}"
+                                Click="SearchBtn_Click" />
+                        <Button x:Name="EmptyBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CLEAR}" Margin="10,0,0,0" Click="EmptyBtn_Click"  Style="{StaticResource CommonButtonStyle}" Width="60"/>
+                    </StackPanel>
+                </Grid>
+            </controlsToolkit:Expander>
+            <smtx:FormToolBar x:Name="FormToolBar1"
+                              Background="Transparent"
+                              Grid.Row="2"></smtx:FormToolBar>
+            <data:DataGrid x:Name="DaGr"
+                           AutoGenerateColumns="False"
+                           Grid.Row="3"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           ItemsSource="{Binding Collection}"
+                           LoadingRow="DaGr_LoadingRow"
+                           Grid.Column="1"
+                           IsReadOnly="True"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           Width="auto"
+                           Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}"
+                           RowStyle="{StaticResource DataGridRowStyle}"
+                           RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn Width="auto"
+                                                 HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo"
+                                       Tag="{Binding ARCHIVESID}"
+                                       Width="16"
+                                       Height="16"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="AGENTMODULE"
+                                             Binding="{Binding MODELCODE, Converter={StaticResource ModuleNameConverter},ConverterParameter=MododuleName}" />
+                    <data:DataGridTextColumn Header="EFFECTDATE"
+                                             Binding="{Binding EFFECTIVEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
+                    <data:DataGridTextColumn Header="INVALIDDATE"
+                                             Binding="{Binding EXPIRATIONDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
+                    <data:DataGridTextColumn Header="PLANEXPIRATIONDATE"
+                                             Binding="{Binding PLANEXPIRATIONDATE,Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smtx:GridPager Name="dpGrid"
+                            PageSize="20"
+                            Click="GridPager_Click"
+                            Grid.Row="4"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

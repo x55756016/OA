@@ -1,0 +1,56 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    x:Class="SMT.SaaS.OA.UI.UserControls.MyMeetingDetailInfoForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+    xmlns:local="clr-namespace:SMT.SaaS.FrameworkUI.FileUpload;assembly=SMT.SaaS.FrameworkUI">
+    <Grid x:Name="LayoutRoot" Margin="2" Loaded="LayoutRoot_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="0.204*"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="0.208*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.044*"/>
+            <RowDefinition Height="0.042*"/>
+            <RowDefinition Height="0.048*"/>
+            <RowDefinition Height="Auto" MinHeight="35" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        
+        <TextBlock Margin="0,4,10,4" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGTITLE}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="0,4,10,0" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGROOM}" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBlock Margin="0,4,10,4" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="0,4,10,4" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="0,4,10,4" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGMEMBERCOUNT}" TextWrapping="Wrap" HorizontalAlignment="Left" Width="44"/>
+        <TextBlock Margin="0,4,10,25" Grid.Row="6" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGCONTENT}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="0,4,10,4" Grid.Row="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MYACCESSORY}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="0,8,4,0" Grid.Row="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MYMEETINGCONTENT}" TextWrapping="Wrap" HorizontalAlignment="Left" Width="53" Height="25" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tblMeetingTitle" Margin="8,4,0,0" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tblMeetingRoom" Margin="8,4,0,4" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="tblStartTime" Margin="8,4,0,4" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="tblEndTime" Margin="8,4,0,4" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="tblMeetingMember" Margin="8,2,0,2" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        
+        <ScrollViewer Grid.Column="1" Grid.Row="6" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <richtext:RichMainPage Grid.Row="6" Grid.Column="1" x:Name="tblMeetingContent"  />
+        </ScrollViewer>
+        <!--<TextBlock x:Name="tblMyAccessory" Margin="8,4,0,4" Grid.Column="1" Grid.Row="7" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Left"/>-->
+        <local:CtrlFileUploadM x:Name="ctrFile" Grid.Column="1" Grid.Row="8"></local:CtrlFileUploadM>
+        <ScrollViewer Grid.Column="1" Grid.Row="7" HorizontalScrollBarVisibility="Auto" MaxHeight="400" MinHeight="100" VerticalScrollBarVisibility="Auto" Margin="2">
+            <TextBlock x:Name="tblMyMeetingContent"   TextWrapping="Wrap"/>
+            <!--<richtext:RichMainPage  x:Name="tblMyMeetingContent"  />-->
+        </ScrollViewer>
+        <TextBlock Margin="56,4,123,4" x:Name="tblTitle" Grid.Column="0" HorizontalAlignment="Center" Grid.ColumnSpan="2" TextWrapping="Wrap"  FontSize="16"/>
+
+    </Grid>
+</smtLocal:BaseForm>

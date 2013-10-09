@@ -1,0 +1,89 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.VehicleUseAppForm_aud" 
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"  
+    xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI" 
+    xmlns:UserControls="clr-namespace:SMT.SaaS.OA.UI.UserControls"  xmlns:local="clr-namespace:SMT.SaaS.OA.UI"    >
+    <UserControl.Resources>
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+    </UserControl.Resources>
+    <Grid Margin="2"  x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" Width="auto" Height="auto">
+        <controls:TabControl  Margin="2" Height="auto" Style="{StaticResource TabControlStyle}">
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=BASEINFO}" Style="{StaticResource TabItemStyle}">
+                <Grid Margin="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="0.35*"/>                        
+                    </Grid.ColumnDefinitions>
+                    <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+                    <TextBlock  Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}"    VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <UserControls:DateTimeInput Grid.Column="1" Grid.Row="0"  x:Name="dtiStartDate" Width="Auto" HorizontalAlignment="Stretch"  VerticalAlignment="Center">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="STARTTIME" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </UserControls:DateTimeInput>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}"    VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <UserControls:DateTimeInput  Grid.Row="1" Grid.Column="1"  x:Name="dtiEndDate" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ENDTIME" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </UserControls:DateTimeInput>
+                    <TextBlock Grid.Row="2" Grid.Column="0"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=NumberOfPeople}"  VerticalAlignment="Center"   HorizontalAlignment="Left"  />
+                    <TextBox Grid.Row="2" Grid.Column="1"  x:Name="txtNum" Style="{StaticResource TextBoxStyle}" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center"  >
+                        <validator:ValidatorService.Validator>
+                            <validator:RegexValidator ManagerName="Group1" IsRequired="True" ErrorMessage="IsInt" ErrorMessageParameter="NumberOfPeople" Expression="^[1-9][0-9]*$"></validator:RegexValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ApplicationDepartment}" Grid.Row="3" Grid.Column="0"  VerticalAlignment="Center"   HorizontalAlignment="Left" Margin="0,0,10,0"  />
+                    <Grid Grid.Row="3" Grid.Column="1"  Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>                            
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="23"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox  Grid.Column="0" x:Name="txtDepartName"  Style="{StaticResource TextBoxStyle}" VerticalAlignment="Center" IsReadOnly="True" Width="Auto" HorizontalAlignment="Stretch"></TextBox>
+                        <TextBox Grid.Column="0"  x:Name="txtDepartmentId"  Style="{StaticResource TextBoxStyle}" Visibility="Collapsed"   >
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ApplicationDepartment" ></validator:RequiredValidator>
+                            </validator:ValidatorService.Validator>
+                        </TextBox>
+                        <Button x:Name="btnLookUpDepartment" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+                        </Button>
+                    </Grid>
+                    <TextBlock  Grid.Row="4" Grid.Column="0"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=Telephone}" VerticalAlignment="Center"   HorizontalAlignment="Left" />
+                     <TextBox Grid.Row="4" Grid.Column="1"  x:Name="txtTel" Style="{StaticResource TextBoxStyle}" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" >
+                        <validator:ValidatorService.Validator>
+                            <validator:RegexValidator ManagerName="Group1" IsRequired="True" ErrorMessage="IsInt" ErrorMessageParameter="Telephone" Expression="^[1-9][0-9]*$"></validator:RegexValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <TextBlock  Grid.Row="5" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=Route}" VerticalAlignment="Top"   Margin="0,6,0,0" HorizontalAlignment="Left"  />
+                    <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBoxStyle}" x:Name="txtRoute"  Width="auto"  AcceptsReturn="True" Height="40" HorizontalAlignment="Stretch">
+                        <validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="Route" ></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>
+                    </TextBox>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REASON}"  Grid.Row="6" Grid.Column="0" VerticalAlignment="Top"    Margin="0,6,0,0" HorizontalAlignment="Left" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtContent" Width="auto" Grid.Row="6" Grid.Column="1" Height="70" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ScrollViewer x:Name="slvView" Height="auto" Width="auto" Grid.Row="7" Grid.ColumnSpan="2">
+                        <audit:AuditControl x:Name="viewApproval" Height="auto" Width="auto" AuditCompleted="audit_AuditCompleted">
+                        </audit:AuditControl>
+                    </ScrollViewer>
+                </StackPanel>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>

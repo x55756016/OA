@@ -1,0 +1,180 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.Views.BenefitsAdministration.BenefitsAdministrationChildWindows"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          mc:Ignorable="d"
+          xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+          xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+		  xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+		  xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+		  xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+		  xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+          xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+          xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+          xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+          xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+          xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+          xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls">
+    <UserControl.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:DictionaryConverter x:Key="DictionaryConverter" />
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+        <local:CustomDateConverter x:Key="DateTimeConvert" />
+    </UserControl.Resources>
+    <controls:TabControl x:Name="tbcContainer" Style="{StaticResource TabControlStyle}">
+        <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=WELFARESTANDARD}" Style="{StaticResource TabItemStyle}"><!-- 福利标准 -->
+
+            <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" VerticalAlignment="Top" Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0"/>
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1" Margin="0,0,0,66"></validator:ValidatorManager>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="3"  VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" TextWrapping="Wrap" Margin="0" />
+                <TextBlock HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WELFARENAME}" TextWrapping="Wrap" Margin="0,4,0,0" />
+                <TextBox x:Name="txtNotes" AcceptsReturn="True" Text="{Binding REMARK,Mode=TwoWay}" Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="1" TextWrapping="Wrap" MinHeight="45" d:LayoutOverrides="Width" VerticalScrollBarVisibility="Visible" Style="{StaticResource TextBoxStyle}" Margin="0,0,10,0" BorderThickness="1" />
+                <TextBlock Text="标准发放信息"  Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="0"  FontWeight="Bold" FontSize="13.333" VerticalAlignment="Center"></TextBlock>
+                <Border BorderBrush="Gray" BorderThickness="1" Height="1" Grid.Row="4" Grid.ColumnSpan="4" Grid.Column="0" VerticalAlignment="Bottom" Margin="2,0,10,6"/>
+                <!--<ComboBox x:Name="cbWelfareID" Style="{StaticResource ComboBoxStyle}" Grid.Row="0" Grid.Column="1" Width="146" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+
+                <appCtr:DictionaryComboBox  x:Name="cbWelfareID" SelectedValue="{Binding WELFAREPROID,Mode=TwoWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                           Style="{StaticResource ComboBoxStyle}" Grid.Row="0" Grid.Column="1" Height="24" Margin="0,0,20,0" Width="190"/>
+
+                <TextBlock HorizontalAlignment="Right" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYNAME}" TextWrapping="Wrap" Margin="0,4,0,0" Width="70"/>
+
+                <smt:LookUp  Grid.Row="0" Grid.Column="3"
+            					FindClick="CompanyObject_FindClick"  x:Name="CompanyObject"  Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="24" Margin="0,0,10,3">
+                    <interaction:Interaction.Behaviors>
+                        <behaviors:ShowRequire></behaviors:ShowRequire>
+                    </interaction:Interaction.Behaviors>
+                </smt:LookUp>
+
+                <!--<smt:LookUp FindClick="CompanyObject_FindClick" x:Name="CompanyObject" Grid.Row="1" Grid.Column="1" d:LayoutOverrides="GridBox" Width="146" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="24" />-->
+                <TextBlock HorizontalAlignment="Left" Grid.Row="6" Text="{Binding Converter={StaticResource ResourceConveter}, Source=THEPAYMENT}" Width="60" Grid.Column="0" VerticalAlignment="Bottom"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="5"  VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=RANGEOFCHOICE}" TextWrapping="Wrap" Margin="0,5,0,0" />
+                <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TELL}" TextWrapping="Wrap" Margin="0" Width="70" />
+                <TextBlock HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CREATEUSERID}" TextWrapping="Wrap" Margin="0" />
+                <TextBlock  VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=AVAILABLEDATE}" TextWrapping="Wrap" Grid.Row="2"/>
+                <TextBox x:Name="textTell" Grid.Row="1" Text="{Binding TEL,Mode=TwoWay}" Grid.Column="3" TextWrapping="NoWrap" Height="24" Style="{StaticResource TextBoxStyle}" Margin="5,0,10,0" MaxLength="50">
+                <!--<validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="TELL"></validator:RequiredValidator>
+                       </validator:ValidatorService.Validator>-->
+				</TextBox>
+				<TextBox x:Name="textCreateUser" Grid.Row="1" Grid.Column="1" IsReadOnly="True" TextWrapping="NoWrap" Height="24" Style="{StaticResource TextBoxStyle}" Margin="0,0,20,0" Width="190" HorizontalAlignment="Left" />
+
+                <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4"><!-- 岗位范围选择 -->
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+				</Grid.RowDefinitions>
+				 <Grid.ColumnDefinitions>
+				    <ColumnDefinition Width="90"/>
+				 	<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="130"/>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+				 	</Grid.ColumnDefinitions>
+					 <RadioButton x:Name="rbtYes" Click="rbtYes_Click" Style="{StaticResource RadioButtonStyle}"  HorizontalAlignment="Left" Margin="5,0,0,0" 
+					 Width="72" Height="25" Content="{Binding Converter={StaticResource ResourceConveter}, Source=POSTLEVEL}" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" />
+                <RadioButton x:Name="RbtNo" Click="RbtNo_Click" Style="{StaticResource RadioButtonStyle}"  Margin="5,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNAME}" 
+					Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Width="52" Height="25"/>
+               
+					<TextBlock HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FROMLEVELA}" TextWrapping="Wrap" Margin="30,0,0,0" Width="60" />
+				 <appCtr:DictionaryComboBox  x:Name="cobPostLevle" Category="POSTLEVEL" SelectedValue="{Binding POSTLEVELA,Mode=TwoWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                           Style="{StaticResource ComboBoxStyle}" Grid.Row="0" Grid.Column="2" Width="Auto" Height="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,1,0,0"/>
+				 <TextBlock HorizontalAlignment="Left" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BETWEENLEVELA}" TextWrapping="Wrap" Margin="30,0,5,0" Width="60" />
+				<appCtr:DictionaryComboBox  x:Name="cobPostId" Category="POSTLEVEL" SelectedValue="{Binding POSTLEVELB,Mode=TwoWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                             Style="{StaticResource ComboBoxStyle}" Grid.Row="0" Grid.Column="4" Width="120" Height="24" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,1,10,0"/>
+				 <smt:LookUp  Grid.Row="1" Grid.Column="2" d:LayoutOverrides="Width" 
+            					FindClick="PostsObject_FindClick"  x:Name="PostsObject"  Width="126"  Height="24" VerticalAlignment="Top" Margin="0" Grid.RowSpan="2" />
+							
+				 <TextBox x:Name="WelfareStandard" Grid.Row="2" Grid.Column="0"  Text="{Binding STANDARD,Mode=TwoWay}"
+		        TextWrapping="NoWrap" Style="{StaticResource TextBoxStyle}" Margin="5,2,5,0" Height="25" VerticalAlignment="Top" Width="80" >
+                    <validator:ValidatorService.Validator>
+                        <validator:RegexValidator ManagerName="Group1" ErrorMessage="IsInt" ErrorMessageParameter="THEPAYMENT"
+				        Expression="^\d+$"></validator:RegexValidator>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+				<TextBlock HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1"  VerticalAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYMENTOFGOODS}" TextWrapping="Wrap" Margin="30,0,0,14" Width="60" />
+		 <TextBlock HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SELECTPOSITIONA}" TextWrapping="Wrap" Margin="30,0,0,14" Width="60" d:LayoutOverrides="Height" Grid.Column="1"/>
+
+                    <Grid  Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="0,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtRemark1" Text="{Binding REMARK,Mode=TwoWay}" 
+                                 AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" 
+                                 Style="{StaticResource TextBoxStyle}" BorderThickness="1"  
+                                 Height="56" MaxLength="1000" />
+                        <Button x:Name="SearchBtn" Grid.Column="1" Content="{Binding Converter={StaticResource ResourceConveter}, Source=ADDBUTTON}" 
+                                Style="{StaticResource CommonButtonStyle}" Click="SearchBtn_Click"  
+                                Width="40" HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" Height="40" Margin="4,0,0,14"/>
+
+                    </Grid>
+
+                    </Grid>
+               
+                <TextBlock HorizontalAlignment="Left" Grid.Row="9" Text="{Binding Converter={StaticResource ResourceConveter}, Source=WelfareStandardsForDetails}" TextWrapping="Wrap" Margin="0,18,0,14" VerticalAlignment="Top" />
+                <ScrollViewer x:Name="ShowAudits"  HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="9" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,10,10,0" Height="150">
+                    <data:DataGrid x:Name="DaGrs" AutoGenerateColumns="False" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+						       LoadingRow="DaGrs_LoadingRow"
+                               CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+						       RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                               ItemsSource="{Binding Collection}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" 
+						       Margin="0" Grid.Row="4" SelectionChanged="DaGrs_SelectionChanged" >
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Header="POSTNAME" Binding="{Binding POSTID,Mode=TwoWay,Converter={StaticResource CompanyConvert},ConverterParameter=Post}" />
+                            <data:DataGridTextColumn Header="THEPAYMENT" Binding="{Binding STANDARD,Mode=TwoWay}" />
+                            <data:DataGridTextColumn Header="FROMLEVELA" Binding="{Binding POSTLEVELA,Mode=TwoWay,Converter={StaticResource DictionaryConverter},ConverterParameter=POSTLEVEL}" />
+                            <data:DataGridTextColumn Header="BETWEENLEVELA" Binding="{Binding POSTLEVELB,Mode=TwoWay,Converter={StaticResource DictionaryConverter},ConverterParameter=POSTLEVEL}" />
+                            <data:DataGridTextColumn Header="RELEASETYPE" Binding="{Binding ISLEVEL,Mode=TwoWay,Converter={StaticResource DictionaryConverter},ConverterParameter=ISLEVEL}" />
+                            <data:DataGridTextColumn Header="PAYMENTOFGOODS" Binding="{Binding REMARK,Mode=TwoWay}" />
+                            <data:DataGridTemplateColumn Header="OPERATION" >
+                                    <data:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <dataFormToolkit:DataField Label="">
+                                                <smtx:ImageButton x:Name="BtnDel"  Click="BtnDel_Click"></smtx:ImageButton>
+                                                <!--<Button x:Name="BtnDel" Content="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}" Style="{StaticResource CommonButtonStyle}" Margin="0,0,-2,0"  Click="BtnDel_Click"  Width="60" HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+                                            </dataFormToolkit:DataField>
+                                        </DataTemplate>
+                                    </data:DataGridTemplateColumn.CellTemplate>
+                                </data:DataGridTemplateColumn>
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </ScrollViewer>
+                <controls:DatePicker Grid.Row="2" Grid.Column="1" x:Name="StartTime" Style="{StaticResource DatePickerStyle}" Height="24" Margin="0,0,20,0"
+                                     Text="{Binding Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Width="190"/>
+                <TextBlock  VerticalAlignment="Top" Text="{Binding Converter={StaticResource ResourceConveter}, Source=UNAVAILABLEDATE}" TextWrapping="Wrap" Grid.Row="2" Grid.Column="2" Width="70" HorizontalAlignment="Right"/>
+                <controls:DatePicker Grid.Row="2" Grid.Column="3" Style="{StaticResource DatePickerStyle}" x:Name="EndTime" Margin="5,0,10,0" IsEnabled="False" Height="24"
+                                     Text="{Binding Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Stretch"/>
+                <!--<smt:LookUp FindClick="PostsObject_FindClick" x:Name="PostsObject" Grid.Row="1" Grid.Column="3" Width="146" 
+                    d:LayoutOverrides="Width, GridBox" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="24" />-->
+            </Grid>
+        </controls:TabItem>
+        <!--<controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+            <ScrollViewer x:Name="ShowAudit" Margin="0,0,20,0" VerticalAlignment="Top">
+                <audit:AuditControl x:Name="audit"/>
+            </ScrollViewer>
+        </controls:TabItem>-->
+    </controls:TabControl>
+</smtLocal:BaseForm>

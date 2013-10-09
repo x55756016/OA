@@ -1,0 +1,84 @@
+﻿<swc:Window x:Class="SMT.SaaS.OA.UI.Form.EmployeeSurveys.SelectSchemeCW"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors"
+                   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                   xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                   xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                   xmlns:localbase="clr-namespace:SMT.SaaS.OA.UI"
+                   xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                   xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+             xmlns:swc="clr-namespace:System.Windows.Controls;assembly=SMT.SaaS.Window"
+            xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit">
+    <UserControl.Resources>
+            <localbase:CustomDateConverter x:Key="DateConvert" />
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+                     
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager Name="checkGroup" />
+
+
+        <!--查询条件-->
+        <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" IsExpanded="True"  x:Name="controlsToolkitTUV" Grid.Row="0" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top"  Margin="0,1,0,2" >
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="开始时间" Margin="5" VerticalAlignment="Center" />
+                <controls:DatePicker  Name="dateStart" Width="120" Margin="5" Style="{StaticResource DatePickerStyle}" />
+                <TextBlock Text="结束时间" Margin="5" VerticalAlignment="Center" />
+                <controls:DatePicker Margin="5" Name="dateEnd" Width="120" Style="{StaticResource DatePickerStyle}"/>
+                <Button x:Name="SearchBtn" Content="查询"  Width="60" Margin="5" Click="SearchBtn_Click"/>
+            </StackPanel>
+        </controlsToolkit:Expander>
+
+        <data:DataGrid x:Name="dgMain" AutoGenerateColumns="False"  Grid.Row="1"
+                           ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                           IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Style="{StaticResource DataGridStyle}"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="entityLogo" Width="16" Height="16"></Image>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="ID" Binding="{Binding REQUIREMASTERID}" Visibility="Collapsed"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="调查主题" Binding="{Binding REQUIRETITLE}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="正文" Binding="{Binding CONTENT}"></data:DataGridTextColumn>
+
+
+                <data:DataGridTextColumn Header="创建日期" Binding="{Binding CREATEDATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="审核状态" 
+                                            Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},
+                        ConverterParameter=CHECKSTATES}" 
+                                            HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" 
+                                            />
+                <data:DataGridTextColumn Header="创建人" Binding="{Binding OWNERNAME}"></data:DataGridTextColumn>
+
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+       
+        <smt:GridPager Name="dataPager"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="0,3,0,0"
+                     
+                       Click="dataPager_Click"
+                       PageSize="20" />
+        
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center">
+            <Button  x:Name="OKButton" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=OKBUTTON}" Click="OKButton_Click" Margin="5,0,5,0" />
+            <Button  x:Name="CancelButton" Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCELBUTTON}" Click="CancelButton_Click" Margin="5,0,5,0" HorizontalAlignment="Right"/>
+        </StackPanel>
+        
+    </Grid>
+</swc:Window>

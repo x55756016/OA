@@ -1,0 +1,32 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.EmployeeList_sat"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:localbase="clr-namespace:SMT.SaaS.OA.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"      
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data">
+    <UserControl.Resources >
+        <localbase:CompanyInfoConverter x:Key="CompanyConvert" />
+    </UserControl.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+          
+            <data:DataGrid x:Name="dg" AutoGenerateColumns="False" SelectionChanged="dg_SelectionChanged"
+                           LoadingRow="dgvEmployeeList_LoadingRow" Grid.Row="0"  Style="{StaticResource DataGridStyle}"  CellStyle="{StaticResource DataGridCellStyle}" 
+                           RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Header="EmployeeID" Binding="{Binding EmployeeID}" MinWidth="260"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EmployeeName}" IsReadOnly="True"></data:DataGridTextColumn>
+                            <!--<data:DataGridTextColumn Header="POSTNAME"  IsReadOnly="True" Binding="{Binding EmployeePostID,Converter={StaticResource CompanyConvert},ConverterParameter=EmployeePostID}"  Width="80" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>-->
+                            <data:DataGridTextColumn Header="BelongsDepartment"  IsReadOnly="True" Binding="{Binding EmployeeDepartmentID,Converter={StaticResource CompanyConvert},ConverterParameter=Department}" ></data:DataGridTextColumn>
+                            <!--<data:DataGridTextColumn Header="BELONGCOMPANY"  IsReadOnly="True" Binding="{Binding EmployeeCompanyID,Converter={StaticResource CompanyConvert},ConverterParameter=EmployeeCompanyID}"  Width="80" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></data:DataGridTextColumn>-->
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+            <data:DataPager x:Name="dataPager" Grid.Row="1" DisplayMode="FirstLastPreviousNextNumeric"  Source="{Binding}" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" />
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

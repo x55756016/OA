@@ -1,0 +1,83 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.OrganManagement.FrmLicenseManagement" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+           xmlns:local="clr-namespace:SMT.SaaS.OA.UI"          
+           d:DesignWidth="700" d:DesignHeight="600"
+           Title="证照管理">
+    <navigation:Page.Resources>
+        <local:LendFlagConverter x:Key="FlagConvert" />
+        <local:CustomDateConverter x:Key="DateConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="expander" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="top" >
+                <Grid Style="{StaticResource FrameGridPagerStyle}" ShowGridLines="False" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORGANCODE}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtOrgCode" Width="100" Margin="5,0,0,0" VerticalAlignment="Center"  Style="{StaticResource TextBoxStyle}"/>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LICENSENAME}" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtLicenseName" Width="120" Margin="5,0,0,0" VerticalAlignment="Center"  Style="{StaticResource TextBoxStyle}"/>
+                        <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Click="SearchBtn_Click" Width="60" Style="{StaticResource CommonButtonStyle}"/>
+                    </StackPanel>
+                </Grid>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <Grid Grid.Row="3">
+                <!--证照列表-->
+                <data:DataGrid 
+                    x:Name="dgLicense" AutoGenerateColumns="False"  IsReadOnly="True" HorizontalAlignment="Stretch" 
+                    Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" 
+                    RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                    ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" LoadingRow="dgLicense_LoadingRow">
+                    <!--<data:DataGrid x:Name="dgArchives" AutoGenerateColumns="False" Width="auto">-->
+                    <data:DataGrid.Columns>
+                        <!--<data:DataGridTemplateColumn Width="65" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">-->
+                        <data:DataGridTemplateColumn Header="SELECT">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <!--<data:DataGridCheckBoxColumn x:Name="myChkBox" Binding="{Binding GUID}" Width="50" Header="选择"></data:DataGridCheckBoxColumn>-->
+                        <data:DataGridTextColumn Header="LICENSEMasterID" Binding="{Binding LICENSEMASTERID}" Visibility="Collapsed"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="ORGANCODE" Binding="{Binding T_OA_ORGANIZATION.ORGCODE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="LICENSENAME" Binding="{Binding LICENSENAME}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="LEGALPERSON" Binding="{Binding LEGALPERSON}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="BUSINESSADDRESS" Binding="{Binding ADDRESS}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="LICENCENO" Binding="{Binding LICENCENO}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="BUSINESSSCOPE" Binding="{Binding BUSSINESSAREA}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="POSITION" Binding="{Binding POSITION}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="VALIDPERIODFROM" Binding="{Binding FROMDATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="VALIDPERIODTO" Binding="{Binding TODATE,Converter={StaticResource DateConvert},ConverterParameter=DATE}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="REMINDDAY" Binding="{Binding DAY}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="LENDFLAG" Binding="{Binding LENDFLAG,Converter={StaticResource FlagConvert}}"></data:DataGridTextColumn>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+            </Grid>
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

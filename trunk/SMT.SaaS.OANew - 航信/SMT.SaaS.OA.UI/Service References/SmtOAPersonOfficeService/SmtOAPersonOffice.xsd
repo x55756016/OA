@@ -1,0 +1,3307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+  <xs:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+  <xs:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
+  <xs:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL" />
+  <xs:element name="GetTravelReimbursementRoomInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementRoomInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelReimbursementRoomInfosResult" nillable="true" type="q1:ArrayOfT_OA_TRAVELREIMBURSEMENT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="detailId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelReimbursementDetailResult" nillable="true" type="q2:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementListByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q3:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q4:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementListByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetTravelReimbursementListByUserIdResult" nillable="true" type="q5:ArrayOfV_TravelReimbursement" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkerCordListByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q6:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWorkerCordListByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetWorkerCordListByUserIdResult" nillable="true" type="q7:ArrayOfT_OA_WORKRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteWorkerCordList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q8:ArrayOfT_OA_WORKRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteWorkerCordListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteWorkerCordListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkerCordAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q9:T_OA_WORKRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkerCordAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WorkerCordAddResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkerCordDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q10:T_OA_WORKRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkerCordDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WorkerCordDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkerCordUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q11:T_OA_WORKRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorkerCordUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSatisfactionsMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="key" nillable="true" type="q12:T_OA_SATISFACTIONMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSatisfactionsMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSatisfactionsMasterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_SSurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="v" nillable="true" type="q13:V_Satisfaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_SSurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Add_SSurveyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetSurveyResult" nillable="true" type="q14:ArrayOfV_Satisfaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q15:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Get_SSurveysResult" nillable="true" type="q16:ArrayOfV_Satisfaction" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requireMasterID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Get_SSurveyResult" nillable="true" type="q17:V_Satisfaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyChecked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q18:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyCheckedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Get_SSurveyCheckedResult" nillable="true" type="q19:ArrayOfV_Satisfaction" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_SSurveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="infoViewList" nillable="true" type="q20:ArrayOfV_Satisfaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_SSurveysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Del_SSurveysResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_SSurveySub">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="lst" nillable="true" type="q21:ArrayOfT_OA_SATISFACTIONDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_SSurveySubResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Del_SSurveySubResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SSurveyChecked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="infoView" nillable="true" type="q22:V_Satisfaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SSurveyCheckedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Upd_SSurveyCheckedResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SSurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="infoView" nillable="true" type="q23:V_Satisfaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SSurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Upd_SSurveyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_SSurveyAppResult" nillable="true" type="q24:T_OA_SATISFACTIONREQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyApps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q25:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyAppsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_SSurveyAppsResult" nillable="true" type="q26:ArrayOfT_OA_SATISFACTIONREQUIRE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyAppChecked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q27:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyAppCheckedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_SSurveyAppCheckedResult" nillable="true" type="q28:ArrayOfT_OA_SATISFACTIONREQUIRE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_StaticfactionSurveyAppChecked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q29:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_StaticfactionSurveyAppCheckedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Get_StaticfactionSurveyAppCheckedResult" nillable="true" type="q30:ArrayOfV_MyStaticfaction" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_SSurveyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q31:T_OA_SATISFACTIONREQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_SSurveyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Add_SSurveyAppResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SSurveyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q32:T_OA_SATISFACTIONREQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SSurveyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Upd_SSurveyAppResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_SSurveyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="lst" nillable="true" type="q33:ArrayOfT_OA_SATISFACTIONREQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_SSurveyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Del_SSurveyAppResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_SSurveyResultResult" nillable="true" type="q34:T_OA_SATISFACTIONDISTRIBUTE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q35:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SSurveyResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_SSurveyResultsResult" nillable="true" type="q36:ArrayOfT_OA_SATISFACTIONDISTRIBUTE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_SSurveyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q37:T_OA_SATISFACTIONDISTRIBUTE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_SSurveyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Add_SSurveyResultResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SSurveyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q38:T_OA_SATISFACTIONDISTRIBUTE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SSurveyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Upd_SSurveyResultResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_SSurveyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="lst" nillable="true" type="q39:ArrayOfT_OA_SATISFACTIONDISTRIBUTE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_SSurveyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Del_SSurveyResultResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_SurveyByRequireID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="surveyID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_SurveyByRequireIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Result_SurveyByRequireIDResult" nillable="true" type="q40:ArrayOfV_SatisfactionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_SurveySubID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="surveyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="resultValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_SurveySubIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result_SurveySubIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_Save">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="resultInfoList" nillable="true" type="q41:ArrayOfT_OA_SATISFACTIONRESULT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_SaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Result_SaveResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_SubByUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="surveyID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_SubByUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Result_SubByUserIDResult" nillable="true" type="q42:ArrayOfT_OA_SATISFACTIONRESULT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_EmployeeByRequireID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="resqId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_EmployeeByRequireIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Result_EmployeeByRequireIDResult" nillable="true" type="q43:ArrayOfV_EmployeeID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ApporvalTemplet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ApporvalTempletResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_ApporvalTempletResult" nillable="true" type="q44:T_OA_APPROVALINFOTEMPLET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ApporvalTempletByApporvalType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ApporvalTempletByApporvalTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_ApporvalTempletByApporvalTypeResult" nillable="true" type="q45:T_OA_APPROVALINFOTEMPLET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApporvalTempletList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q46:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="flagState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q47:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApporvalTempletListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetApporvalTempletListResult" nillable="true" type="q48:ArrayOfT_OA_APPROVALINFOTEMPLET" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApporvalTemplet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="approvakInfo" nillable="true" type="q49:T_OA_APPROVALINFOTEMPLET" />
+        <xs:element minOccurs="0" name="ApprovalCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApporvalTempletResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddApporvalTempletResult" type="xs:int" />
+        <xs:element minOccurs="0" name="ApprovalCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApporvalTemplet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="approvakInfo" nillable="true" type="q50:T_OA_APPROVALINFOTEMPLET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApporvalTempletResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteApporvalTempletResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApporvalTemplet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="approvakInfo" nillable="true" type="q51:T_OA_APPROVALINFOTEMPLET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApporvalTempletResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateApporvalTempletResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApporvalTempletList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="approvakInfo" nillable="true" type="q52:ArrayOfT_OA_APPROVALINFOTEMPLET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApporvalTempletListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteApporvalTempletListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWork">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyView">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="employeeSurveyView" nillable="true" type="q53:V_EmployeeSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyViewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmployeeSurveyViewResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSurveyViewList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q54:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSurveyViewListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetEmployeeSurveyViewListResult" nillable="true" type="q55:ArrayOfV_EmployeeSurvey" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requireMasterID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Get_ESurveyResult" nillable="true" type="q56:V_EmployeeSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyChecked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q57:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyCheckedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Get_ESurveyCheckedResult" nillable="true" type="q58:ArrayOfV_EmployeeSurvey" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmployeeSurveyViewList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="infoViewList" nillable="true" type="q59:ArrayOfV_EmployeeSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmployeeSurveyViewListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteEmployeeSurveyViewListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmployeeSurveySubjectView">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="lst" nillable="true" type="q60:ArrayOfV_EmployeeSurveySubject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmployeeSurveySubjectViewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteEmployeeSurveySubjectViewResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_ESurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="survey" nillable="true" type="q61:T_OA_REQUIREMASTER" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="addLst" nillable="true" type="q62:ArrayOfV_EmployeeSurveySubject" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="updLst" nillable="true" type="q63:ArrayOfV_EmployeeSurveySubject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_ESurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Upd_ESurveyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmployeeSurveyView">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="infoView" nillable="true" type="q64:V_EmployeeSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmployeeSurveyViewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEmployeeSurveyViewResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultByUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="masterID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultByUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetResultByUserIDResult" nillable="true" type="q65:ArrayOfT_OA_REQUIRERESULT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="resultInfoList" nillable="true" type="q66:ArrayOfT_OA_REQUIRERESULT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitResultResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="resqId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetEmployeeListResult" nillable="true" type="q67:ArrayOfV_EmployeeID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_ESurveyAppResult" nillable="true" type="q68:T_OA_REQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyApps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q69:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyAppsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_ESurveyAppsResult" nillable="true" type="q70:ArrayOfT_OA_REQUIRE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyAppChecked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q71="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q71:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyAppCheckedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_ESurveyAppCheckedResult" nillable="true" type="q72:ArrayOfT_OA_REQUIRE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_MyVisistedSurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q73:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_MyVisistedSurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Get_MyVisistedSurveyResult" nillable="true" type="q74:ArrayOfV_MyEusurvey" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_EsurveyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q75:T_OA_REQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_EsurveyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Add_EsurveyAppResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_ESurveyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q76:T_OA_REQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_ESurveyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Upd_ESurveyAppResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_ESurveyApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="lst" nillable="true" type="q77:ArrayOfT_OA_REQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_ESurveyAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Del_ESurveyAppResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaticfactonVisistedByEmployID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaticfactonVisistedByEmployIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetStaticfactonVisistedByEmployIDResult" nillable="true" type="q78:ArrayOfT_OA_SATISFACTIONRESULT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_ESurveyResultResult" nillable="true" type="q79:T_OA_REQUIREDISTRIBUTE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q80="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q80:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ESurveyResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_ESurveyResultsResult" nillable="true" type="q81:ArrayOfT_OA_REQUIREDISTRIBUTE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_ESurveyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q82:T_OA_REQUIREDISTRIBUTE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Add_ESurveyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Add_ESurveyResultResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_ESurveyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="info" nillable="true" type="q83:T_OA_REQUIREDISTRIBUTE" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="distributeuser" nillable="true" type="q84:ArrayOfT_OA_DISTRIBUTEUSER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_ESurveyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Upd_ESurveyResultResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_ESurveyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="lst" nillable="true" type="q85:ArrayOfT_OA_REQUIREDISTRIBUTE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Del_ESurveyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Del_ESurveyResultResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffSurveyInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffSurveyInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL" minOccurs="0" name="GetStaffSurveyInfosResult" nillable="true" type="q86:ArrayOfV_SystemNotice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="answerInfo" nillable="true" type="q87:T_OA_REQUIREDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetResultCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_ESurveyByRequireID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Result_ESurveyByRequireIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="Result_ESurveyByRequireIDResult" nillable="true" type="q88:ArrayOfV_SatisfactionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRequire">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="addApp" nillable="true" type="q89:V_EmployeeSurveyApp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRequireResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddRequireResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRequire">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="updApp" nillable="true" type="q90:V_EmployeeSurveyApp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRequireResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdRequireResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequireData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requireKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequireDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetRequireDataResult" nillable="true" type="q91:V_EmployeeSurveyApp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSurveyAppByCheckstateAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="checkstate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q92="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="datetimes" nillable="true" type="q92:ArrayOfdateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSurveyAppByCheckstateAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetEmployeeSurveyAppByCheckstateAndDateResult" nillable="true" type="q93:ArrayOfV_EmployeeSurveyApp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataBySurveying">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requireID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataBySurveyingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetDataBySurveyingResult" nillable="true" type="q94:V_EmployeeSurveying" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSurveying">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="resultList" nillable="true" type="q95:ArrayOfT_OA_REQUIRERESULT" />
+        <xs:element minOccurs="0" name="masterID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="requireID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSurveyingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSurveyingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRequireDistribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="AddDistribute" nillable="true" type="q96:V_EmployeeSurveyRequireDistribute" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRequireDistributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddRequireDistributeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRequireDistribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="UpdDistribute" nillable="true" type="q97:V_EmployeeSurveyRequireDistribute" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRequireDistributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdRequireDistributeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistributeData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="distributeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistributeDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetDistributeDataResult" nillable="true" type="q98:V_EmployeeSurveyRequireDistribute" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRequireMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="addMasterKey" nillable="true" type="q99:V_EmployeeSurveyMaster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRequireMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddRequireMasterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRequireMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="updMaterKey" nillable="true" type="q100:V_EmployeeSurveyMaster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRequireMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdRequireMasterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMasterDataByLoading">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="masterKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMasterDataByLoadingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMasterDataByLoadingResult" nillable="true" type="q101:V_EmployeeSurveyMaster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSurveyDataByCultivateForCheckState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSurveyDataByCultivateForCheckStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetSurveyDataByCultivateForCheckStateResult" nillable="true" type="q102:ArrayOfT_OA_REQUIREMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultByCultivateForID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requireID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="onwerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultByCultivateForIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetResultByCultivateForIDResult" nillable="true" type="q103:ArrayOfT_OA_REQUIRERESULT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSurveyByCheckstateAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="checkstate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q104="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="datetimes" nillable="true" type="q104:ArrayOfdateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSurveyByCheckstateAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetEmployeeSurveyByCheckstateAndDateResult" nillable="true" type="q105:ArrayOfV_EmployeeSurveyMaster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSatisfactionApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="addView" nillable="true" type="q106:V_Satisfactions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSatisfactionAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSatisfactionAppResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdSatisfactionApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="updView" nillable="true" type="q107:V_Satisfactions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdSatisfactionAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdSatisfactionAppResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequireByCheckstateAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="checkstate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q108="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dateTimes" nillable="true" type="q108:ArrayOfdateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequireByCheckstateAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetRequireByCheckstateAndDateResult" nillable="true" type="q109:ArrayOfV_Satisfactions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSatisfactionAppChild">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSatisfactionAppChildResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetSatisfactionAppChildResult" nillable="true" type="q110:ArrayOfV_Satisfactions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSatisfactionDistribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="addView" nillable="true" type="q111:V_Satisfactions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSatisfactionDistributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSatisfactionDistributeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdSatisfactionDistribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="updView" nillable="true" type="q112:V_Satisfactions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdSatisfactionDistributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdSatisfactionDistributeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSatisfactionDistributeChild">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="distributeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSatisfactionDistributeChildResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetSatisfactionDistributeChildResult" nillable="true" type="q113:V_Satisfactions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSatisfactionMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="addMasterEntity" nillable="true" type="q114:T_OA_SATISFACTIONMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSatisfactionMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSatisfactionMasterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdSatisfactionMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="updMasterEntity" nillable="true" type="q115:T_OA_SATISFACTIONMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdSatisfactionMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdSatisfactionMasterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMasterByCheckstateAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="checkstate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q116="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dateTimes" nillable="true" type="q116:ArrayOfdateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMasterByCheckstateAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetMasterByCheckstateAndDateResult" nillable="true" type="q117:ArrayOfV_Satisfactions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSatisfactionMasterChild">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="masterId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSatisfactionMasterChildResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetSatisfactionMasterChildResult" nillable="true" type="q118:T_OA_SATISFACTIONMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q119="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q119:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelmanagementInfoResult" nillable="true" type="q120:ArrayOfT_OA_BUSINESSTRIP" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TravelmanagementID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelmanagementByIdResult" nillable="true" type="q121:T_OA_BUSINESSTRIP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementBysId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tripid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementBysIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelmanagementBysIdResult" nillable="true" type="q122:T_OA_BUSINESSTRIP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccordingToBusinesstripIdCheck">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="businesstripId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccordingToBusinesstripIdCheckResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetAccordingToBusinesstripIdCheckResult" nillable="true" type="q123:V_Travelmanagement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistTravelmanagement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Travelmanagement" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TravelmanagementID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistTravelmanagementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistTravelmanagementResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTravelmanagement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TravelmanagementInfo" nillable="true" type="q124:T_OA_BUSINESSTRIP" />
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TraveDetail" nillable="true" type="q125:ArrayOfT_OA_BUSINESSTRIPDETAIL" />
+        <xs:element minOccurs="0" name="FormType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTravelmanagementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTravelmanagementResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTravelmanagement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TravelmanagementID" nillable="true" type="q126:ArrayOfstring" />
+        <xs:element minOccurs="0" name="FBControl" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTravelmanagementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTravelmanagementResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="FBControl" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelmanagementAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Travelmanagement" nillable="true" type="q127:T_OA_BUSINESSTRIP" />
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TraveDetail" nillable="true" type="q128:ArrayOfT_OA_BUSINESSTRIPDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelmanagementAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TravelmanagementAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementRoomInfos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementRoomInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelmanagementRoomInfosResult" nillable="true" type="q129:ArrayOfT_OA_BUSINESSTRIP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementRoomInfosListBySearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DepCity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DestCity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementRoomInfosListBySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetTravelmanagementRoomInfosListBySearchResult" nillable="true" type="q130:ArrayOfV_Travelmanagement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBusinesstripDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="buipId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBusinesstripDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetBusinesstripDetailResult" nillable="true" type="q131:ArrayOfT_OA_BUSINESSTRIPDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsContractCanBrowser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TravelmanagementID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsContractCanBrowserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsContractCanBrowserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementListByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q132="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q132:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q133:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelmanagementListByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetTravelmanagementListByUserIdResult" nillable="true" type="q134:ArrayOfV_Travelmanagement" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnderwayTravelmanagement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnderwayTravelmanagementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetUnderwayTravelmanagementResult" nillable="true" type="q135:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderMealInfoAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q136:T_OA_ORDERMEAL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderMealInfoAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrderMealInfoAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistOrderMealInfoByAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrDepart" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StrCreatUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startdt" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistOrderMealInfoByAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistOrderMealInfoByAddResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderMealInfoDel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MealIDs" nillable="true" type="q137:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderMealInfoDelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrderMealInfoDelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderMealInfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q138:T_OA_ORDERMEAL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderMealInfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrderMealInfoUpdateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderMealSingleInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StrMealInfoId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderMealSingleInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetOrderMealSingleInfoByIdResult" nillable="true" type="q139:T_OA_ORDERMEAL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderMealInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q140="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q140:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q141:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderMealInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetOrderMealInfosResult" nillable="true" type="q142:ArrayOfT_OA_ORDERMEAL" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderMealInfosListByTitleTimeSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q143="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q143:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q144:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderMealInfosListByTitleTimeSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetOrderMealInfosListByTitleTimeSearchResult" nillable="true" type="q145:ArrayOfT_OA_ORDERMEAL" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelReimbursementInfoResult" nillable="true" type="q146:ArrayOfT_OA_TRAVELREIMBURSEMENT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TravelReimbursementID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelReimbursementByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelReimbursementByIdResult" nillable="true" type="q147:T_OA_TRAVELREIMBURSEMENT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistTravelReimbursement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TravelReimbursementID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistTravelReimbursementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistTravelReimbursementResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistTravelReimbursementBySportid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sportid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistTravelReimbursementBySportidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistTravelReimbursementBySportidResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNoClaims">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TravelNoClaims" nillable="true" type="q148:T_OA_TRAVELREIMBURSEMENT" />
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="portDetail" nillable="true" type="q149:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+        <xs:element minOccurs="0" name="FormType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNoClaimsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateNoClaimsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTravelReimbursement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TravelReimbursementInfo" nillable="true" type="q150:T_OA_TRAVELREIMBURSEMENT" />
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="portDetail" nillable="true" type="q151:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+        <xs:element minOccurs="0" name="FormType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTravelReimbursementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTravelReimbursementResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTravelReimbursement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TravelReimbursementID" nillable="true" type="q152:ArrayOfstring" />
+        <xs:element minOccurs="0" name="FBControl" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTravelReimbursementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTravelReimbursementResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="FBControl" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTravelReimbursementByBusinesstripId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TravelmanagementID" nillable="true" type="q153:ArrayOfstring" />
+        <xs:element minOccurs="0" name="FBControl" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTravelReimbursementByBusinesstripIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTravelReimbursementByBusinesstripIdResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="FBControl" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelReimbursementAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TravelReimbursement" nillable="true" type="q154:T_OA_TRAVELREIMBURSEMENT" />
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="portDetail" nillable="true" type="q155:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelReimbursementAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TravelReimbursementAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelReimbursementAddSimple">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TravelReimbursement" nillable="true" type="q156:T_OA_TRAVELREIMBURSEMENT" />
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="portDetail" nillable="true" type="q157:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+        <xs:element minOccurs="0" name="busnid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelReimbursementAddSimpleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TravelReimbursementAddSimpleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTravelReimbursementByBusinesstrip">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="businesstripId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTravelReimbursementByBusinesstripResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckTravelReimbursementByBusinesstripResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Apporval">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_ApporvalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Get_ApporvalResult" nillable="true" type="q158:T_OA_APPROVALINFO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApporvalList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q159="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q159:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="flagState" nillable="true" type="xs:string" />
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q160:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApporvalListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetApporvalListResult" nillable="true" type="q161:ArrayOfT_OA_APPROVALINFO" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApporval">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="approvakInfo" nillable="true" type="q162:T_OA_APPROVALINFO" />
+        <xs:element minOccurs="0" name="ApprovalCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApporvalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddApporvalResult" type="xs:int" />
+        <xs:element minOccurs="0" name="ApprovalCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApporval">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="approvakInfo" nillable="true" type="q163:T_OA_APPROVALINFO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApporvalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteApporvalResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApporval">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="approvakInfo" nillable="true" type="q164:T_OA_APPROVALINFO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApporvalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateApporvalResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApporvalList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="approvakInfo" nillable="true" type="q165:ArrayOfT_OA_APPROVALINFO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApporvalListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteApporvalListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApprovalSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="listset" nillable="true" type="q166:ArrayOfT_OA_APPROVALTYPESET" />
+        <xs:element xmlns:q167="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstcompany" nillable="true" type="q167:ArrayOfstring" />
+        <xs:element xmlns:q168="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstdepartment" nillable="true" type="q168:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApprovalSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddApprovalSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApprovalSetByOrgType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orgid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orgtype" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApprovalSetByOrgTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetApprovalSetByOrgTypeResult" nillable="true" type="q169:ArrayOfT_OA_APPROVALTYPESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApprovalTypeByCompanyandDepartmentid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="departmentid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApprovalTypeByCompanyandDepartmentidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetApprovalTypeByCompanyandDepartmentidResult" nillable="true" type="q170:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApprovalTypesByCompanyIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companies" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApprovalTypesByCompanyIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetApprovalTypesByCompanyIDsResult" nillable="true" type="q171:ArrayOfV_DepartmentWithCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaAllowanceADD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q172:T_OA_AREAALLOWANCE" />
+        <xs:element minOccurs="0" name="travelSolutionsId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaAllowanceADDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaAllowanceUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q173:T_OA_AREAALLOWANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaAllowanceUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaAllowance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objs" nillable="true" type="q174:ArrayOfT_OA_AREAALLOWANCE" />
+        <xs:element minOccurs="0" name="travelSolutionsId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaAllowanceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaAllowanceDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q175:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaAllowanceDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AreaAllowanceDeleteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaAllowanceByAreaID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SolutionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaAllowanceByAreaIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAreaAllowanceByAreaIDResult" nillable="true" type="q176:ArrayOfT_OA_AREAALLOWANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaAllowanceByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaAllowanceByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAreaAllowanceByIDResult" nillable="true" type="q177:T_OA_AREAALLOWANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaCategory">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAreaCategoryResult" nillable="true" type="q178:ArrayOfT_OA_AREADIFFERENCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaCityByCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="categoryID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaCityByCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAreaCityByCategoryResult" nillable="true" type="q179:ArrayOfT_OA_AREACITY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q180:T_OA_AREACITY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityAddResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityCheck">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objs" nillable="true" type="q181:ArrayOfT_OA_AREACITY" />
+        <xs:element minOccurs="0" name="areadifferenceid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityCheckResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AreaCityCheckResult" nillable="true" type="q182:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityByCategoryDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CategoryID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="delCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityByCategoryDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AreaCityByCategoryDeleteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityLotsofAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objs" nillable="true" type="q183:ArrayOfT_OA_AREACITY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityLotsofAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AreaCityLotsofAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q184="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q184:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCityDeleteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaCategoryByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaCategoryByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAreaCategoryByIDResult" nillable="true" type="q185:T_OA_AREADIFFERENCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCategoryUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q186:T_OA_AREADIFFERENCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCategoryUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCategoryADD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q187:T_OA_AREADIFFERENCE" />
+        <xs:element minOccurs="0" name="solutionsId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCategoryADDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AreaCategoryADDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCategoryDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q188="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AreaCategoryIDs" nillable="true" type="q188:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreaCategoryDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AreaCategoryDeleteResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaAllowanceWithPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q189="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q189:ArrayOfstring" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaAllowanceWithPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAreaAllowanceWithPagingResult" nillable="true" type="q190:ArrayOfT_OA_AREAALLOWANCE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaCityWithPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q191="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q191:ArrayOfstring" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaCityWithPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAreaCityWithPagingResult" nillable="true" type="q192:ArrayOfT_OA_AREACITY" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaWithPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q193="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q193:ArrayOfstring" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="StrCompanyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSoluid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaWithPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetAreaWithPagingResult" nillable="true" type="q194:ArrayOfT_OA_AREADIFFERENCE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTravleSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="EntObj" nillable="true" type="q195:T_OA_TRAVELSOLUTIONS" />
+        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="ListTransport" nillable="true" type="q196:ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" />
+        <xs:element xmlns:q197="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q197:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTravleSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddTravleSolutionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTravleSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="EntTravle" nillable="true" type="q198:T_OA_TRAVELSOLUTIONS" />
+        <xs:element xmlns:q199="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TransportObj" nillable="true" type="q199:ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" />
+        <xs:element xmlns:q200="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q200:ArrayOfstring" />
+        <xs:element minOccurs="0" name="IsChange" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTravleSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTravleSolutionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTravleSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SolutionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTravleSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTravleSolutionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelSolutionFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q201="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q201:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q202:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelSolutionFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelSolutionFlowResult" nillable="true" type="q203:ArrayOfT_OA_TRAVELSOLUTIONS" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVechileStandardAndPlaneLine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SolutionID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="PlaneList" nillable="true" type="q204:ArrayOfT_OA_CANTAKETHEPLANELINE" />
+        <xs:element xmlns:q205="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="VechileStandardList" nillable="true" type="q205:ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVechileStandardAndPlaneLineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="PlaneList" nillable="true" type="q206:ArrayOfT_OA_CANTAKETHEPLANELINE" />
+        <xs:element xmlns:q207="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="VechileStandardList" nillable="true" type="q207:ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueryPlanCity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SolutionID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q208="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="ListAREADIFFERENCE" nillable="true" type="q208:ArrayOfT_OA_AREADIFFERENCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueryPlanCityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q209="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetQueryPlanCityResult" nillable="true" type="q209:ArrayOfT_OA_AREACITY" />
+        <xs:element xmlns:q210="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="ListAREADIFFERENCE" nillable="true" type="q210:ArrayOfT_OA_AREADIFFERENCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueryProgramSubsidies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SolutionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueryProgramSubsidiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q211="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetQueryProgramSubsidiesResult" nillable="true" type="q211:ArrayOfT_OA_AREAALLOWANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelSolutionByCompanyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Companyid" nillable="true" type="xs:string" />
+        <xs:element xmlns:q212="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="PlaneObj" nillable="true" type="q212:ArrayOfT_OA_CANTAKETHEPLANELINE" />
+        <xs:element xmlns:q213="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="StandardObj" nillable="true" type="q213:ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravelSolutionByCompanyIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q214="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravelSolutionByCompanyIDResult" nillable="true" type="q214:T_OA_TRAVELSOLUTIONS" />
+        <xs:element xmlns:q215="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="PlaneObj" nillable="true" type="q215:ArrayOfT_OA_CANTAKETHEPLANELINE" />
+        <xs:element xmlns:q216="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="StandardObj" nillable="true" type="q216:ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravleAreaAllowanceByCompanyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postvalue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cityvalue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravleAreaAllowanceByCompanyIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q217="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravleAreaAllowanceByCompanyIDResult" nillable="true" type="q217:T_OA_AREAALLOWANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravleAreaAllowanceByPostValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="postvalue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="solutionId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q218="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="citys" nillable="true" type="q218:ArrayOfT_OA_AREACITY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravleAreaAllowanceByPostValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q219="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravleAreaAllowanceByPostValueResult" nillable="true" type="q219:ArrayOfT_OA_AREAALLOWANCE" />
+        <xs:element xmlns:q220="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="citys" nillable="true" type="q220:ArrayOfT_OA_AREACITY" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTravleSolutionSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SolutionID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q221="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q221:ArrayOfstring" />
+        <xs:element minOccurs="0" name="ownercompanyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerpostid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerdepartmentid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTravleSolutionSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddTravleSolutionSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTravleSolutionSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SolutionID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q222="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q222:ArrayOfstring" />
+        <xs:element minOccurs="0" name="ownercompanyid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerpostid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerdepartmentid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTravleSolutionSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTravleSolutionSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravleSolutionSetBySolutionID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SolutionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTravleSolutionSetBySolutionIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q223="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetTravleSolutionSetBySolutionIDResult" nillable="true" type="q223:ArrayOfT_OA_PROGRAMAPPLICATIONS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCopyTravleSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="EntObj" nillable="true" type="q224:T_OA_TRAVELSOLUTIONS" />
+        <xs:element minOccurs="0" name="OldtravleSolutionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCopyTravleSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCopyTravleSolutionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCalendarListByUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q225="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q225:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCalendarListByUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q226="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetCalendarListByUserIDResult" nillable="true" type="q226:ArrayOfT_OA_CALENDAR" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelCalendarList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q227="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="infoList" nillable="true" type="q227:ArrayOfT_OA_CALENDAR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelCalendarListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelCalendarListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCalendar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q228="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q228:T_OA_CALENDAR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCalendarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCalendarResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelCalendar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q229="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q229:T_OA_CALENDAR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelCalendarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelCalendarResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCalendar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q230="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q230:T_OA_CALENDAR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCalendarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCalendarResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApporvalList22">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q231="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q231:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q232="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q232:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApporvalList22Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q233="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetApporvalList22Result" nillable="true" type="q233:ArrayOfT_OA_CALENDAR" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfroByTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfroByTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q234="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetInfroByTitleResult" nillable="true" type="q234:ArrayOfT_OA_REQUIREMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q235="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="addId" nillable="true" type="q235:T_OA_REQUIREMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmployeeSurveyMasterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyAnswer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q236="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="addId" nillable="true" type="q236:T_OA_REQUIREDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyAnswerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmployeeSurveyAnswerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeAnswer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="senId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeAnswerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q237="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetEmployeeAnswerResult" nillable="true" type="q237:ArrayOfT_OA_REQUIREDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q238="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="addId" nillable="true" type="q238:T_OA_REQUIREDETAIL2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmployeeSurveyQuestionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoListByOptFlag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q239="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q239:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoListByOptFlagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q240="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetInfoListByOptFlagResult" nillable="true" type="q240:ArrayOfT_OA_REQUIREMASTER" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="masterID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q241="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetInfoByIdResult" nillable="true" type="q241:T_OA_REQUIREMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoByTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="masterTitle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoByTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q242="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetInfoByTitleResult" nillable="true" type="q242:V_EmployeeSurveySubject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q243="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q243:T_OA_REQUIREMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmpSurveysResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q244="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="key" nillable="true" type="q244:T_OA_REQUIREMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeSurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmployeeSurveyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpSurveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q245="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q245:ArrayOfT_OA_REQUIREMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpSurveysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteEmpSurveysResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpSurveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q246="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q246:T_OA_REQUIREMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpSurveysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEmpSurveysResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmpSurveysSubjectList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requireId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmpSurveysSubjectListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q247="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetEmpSurveysSubjectListResult" nillable="true" type="q247:ArrayOfT_OA_REQUIREDETAIL2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelEmpSurveysSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q248="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q248:T_OA_REQUIREDETAIL2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelEmpSurveysSubjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelEmpSurveysSubjectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q249="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q249:T_OA_REQUIREDETAIL2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysSubjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmpSurveysSubjectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysSubjectList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q250="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q250:ArrayOfT_OA_REQUIREDETAIL2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysSubjectListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmpSurveysSubjectListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save_SubjectAnswer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q251="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="lstAdd" nillable="true" type="q251:ArrayOfV_EmployeeSurveySubject" />
+        <xs:element xmlns:q252="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="lstUpd" nillable="true" type="q252:ArrayOfV_EmployeeSurveySubject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save_SubjectAnswerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Save_SubjectAnswerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelEmpSurveysSubjectList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q253="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q253:ArrayOfT_OA_REQUIREDETAIL2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelEmpSurveysSubjectListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelEmpSurveysSubjectListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpSurveysSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q254="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objSubject" nillable="true" type="q254:T_OA_REQUIREDETAIL2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpSurveysSubjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEmpSurveysSubjectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpSurveysSubjectList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q255="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q255:ArrayOfT_OA_REQUIREDETAIL2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpSurveysSubjectListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEmpSurveysSubjectListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysAnswer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q256="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="obj" nillable="true" type="q256:T_OA_REQUIREDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysAnswerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmpSurveysAnswerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmpSurveysAnswerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requireId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subjectId" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmpSurveysAnswerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q257="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetEmpSurveysAnswerListResult" nillable="true" type="q257:ArrayOfT_OA_REQUIREDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysAnswerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q258="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q258:ArrayOfT_OA_REQUIREDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysAnswerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmpSurveysAnswerListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelEmpSurveysAnswerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q259="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q259:ArrayOfT_OA_REQUIREDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelEmpSurveysAnswerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelEmpSurveysAnswerListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpSurveysAnswerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q260="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q260:ArrayOfT_OA_REQUIREDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpSurveysAnswerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEmpSurveysAnswerListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysResultList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q261="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="objList" nillable="true" type="q261:ArrayOfT_OA_REQUIRERESULT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpSurveysResultListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmpSurveysResultListResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSurveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q262="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q262:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSurveysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q263="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetEmployeeSurveysResult" nillable="true" type="q263:ArrayOfT_OA_REQUIREMASTER" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataByRequireID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requireID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataByRequireIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q264="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetDataByRequireIDResult" nillable="true" type="q264:V_EmployeeSurveysModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmployeeSurveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q265="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="requiremasterIDs" nillable="true" type="q265:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmployeeSurveysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteEmployeeSurveysResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnswer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requiremasterID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subjectID" type="xs:decimal" />
+        <xs:element minOccurs="0" name="createuserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnswerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q266="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="GetAnswerResult" nillable="true" type="q266:ArrayOfV_REQUIRERESULTMODE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRequireresult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q267="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="result" nillable="true" type="q267:ArrayOfT_OA_REQUIRERESULT" />
+        <xs:element xmlns:q268="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q268:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRequireresultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditRequireresultResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRequireresult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q269="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q269:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRequireresultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRequireresultResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRequire">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q270="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="require" nillable="true" type="q270:T_OA_REQUIRE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRequireResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckRequireResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequireDistribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q271="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q271:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequireDistributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q272="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="GetRequireDistributeResult" nillable="true" type="q272:ArrayOfT_OA_REQUIREDISTRIBUTE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmployeeSurveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q273="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" minOccurs="0" name="master" nillable="true" type="q273:V_EmployeeSurveyMaster" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmployeeSurveysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEmployeeSurveysResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

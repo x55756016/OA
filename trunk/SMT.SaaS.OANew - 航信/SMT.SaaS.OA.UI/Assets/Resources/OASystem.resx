@@ -1,0 +1,897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACCOUNTCODE" xml:space="preserve">
+    <value>银行账号</value>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="ADDSUCCESSED" xml:space="preserve">
+    <value>添加成功！</value>
+  </data>
+  <data name="CHECKUSER" xml:space="preserve">
+    <value>审核人</value>
+  </data>
+  <data name="CHECKSTATE" xml:space="preserve">
+    <value>审核状态</value>
+  </data>
+  <data name="BANKID" xml:space="preserve">
+    <value>开户银行代码</value>
+  </data>
+  <data name="BDAY" xml:space="preserve">
+    <value>出生日期</value>
+  </data>
+  <data name="BUSSINESSLICENCENO" xml:space="preserve">
+    <value>营业执照号</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>撤消</value>
+  </data>
+  <data name="CANCELCONFIRM" xml:space="preserve">
+    <value>确认撤消当前记录吗！</value>
+  </data>
+  <data name="CANCELLEDSUCCESSED" xml:space="preserve">
+    <value>撤消成功！</value>
+  </data>
+  <data name="CHANGEPOST" xml:space="preserve">
+    <value>轮换岗位</value>
+  </data>
+  <data name="CREATEDATE" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="CREATEUSERID" xml:space="preserve">
+    <value>创建人</value>
+  </data>
+  <data name="DELETEALTER" xml:space="preserve">
+    <value>确认删除当前行吗？</value>
+  </data>
+  <data name="DELETECONFIRM" xml:space="preserve">
+    <value>删除确认</value>
+  </data>
+  <data name="DELETESUCCESSED" xml:space="preserve">
+    <value>删除成功！</value>
+  </data>
+  <data name="DEPARTMENTDICT" xml:space="preserve">
+    <value>部门字典</value>
+  </data>
+  <data name="DEPARTMENTCODE" xml:space="preserve">
+    <value>部门编号</value>
+  </data>
+  <data name="DEPARTMENTFUNCTION" xml:space="preserve">
+    <value>部门职责</value>
+  </data>
+  <data name="DEPARTMENTLEVEL" xml:space="preserve">
+    <value>部门级别</value>
+  </data>
+  <data name="DEPARTMENTNAME" xml:space="preserve">
+    <value>部门名称</value>
+  </data>
+  <data name="DICTIONARY" xml:space="preserve">
+    <value>系统数据字典</value>
+  </data>
+  <data name="DICTIONARYNAME" xml:space="preserve">
+    <value>字典名称</value>
+  </data>
+  <data name="DICTIONARYVALUE" xml:space="preserve">
+    <value>字典值</value>
+  </data>
+  <data name="DICTIONCATEGORY" xml:space="preserve">
+    <value>字典类型名</value>
+  </data>
+  <data name="FATHERPOSTID" xml:space="preserve">
+    <value>直接上级</value>
+  </data>
+  <data name="EMAIL" xml:space="preserve">
+    <value>电子邮箱</value>
+  </data>
+  <data name="FAXNUMBER" xml:space="preserve">
+    <value>传真</value>
+  </data>
+  <data name="GENDER" xml:space="preserve">
+    <value>性别</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="LEGALPERSON" xml:space="preserve">
+    <value>法人代表</value>
+  </data>
+  <data name="LEGALPERSONID" xml:space="preserve">
+    <value>法人身份证号</value>
+  </data>
+  <data name="LINKMAN" xml:space="preserve">
+    <value>联系人</value>
+  </data>
+  <data name="UNDERNUMBER" xml:space="preserve">
+    <value>管辖人数</value>
+  </data>
+  <data name="MODIFYSUCCESSED" xml:space="preserve">
+    <value>修改成功！</value>
+  </data>
+  <data name="NICKNAME" xml:space="preserve">
+    <value>用户昵称</value>
+  </data>
+  <data name="COMPANYADDRESS" xml:space="preserve">
+    <value>公司地址</value>
+  </data>
+  <data name="ORGANIZATIONDEF" xml:space="preserve">
+    <value>公司字典</value>
+  </data>
+  <data name="COMPANYCATEGORY" xml:space="preserve">
+    <value>公司类型</value>
+  </data>
+  <data name="COMPANRYCODE" xml:space="preserve">
+    <value>公司编号</value>
+  </data>
+  <data name="COMPANYLEVEL" xml:space="preserve">
+    <value>公司级别</value>
+  </data>
+  <data name="COMPANYNAME" xml:space="preserve">
+    <value>公司名称</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="POSITION" xml:space="preserve">
+    <value>存放位置</value>
+  </data>
+  <data name="POSTCODE" xml:space="preserve">
+    <value>岗位编号</value>
+  </data>
+  <data name="POSTLEVEL" xml:space="preserve">
+    <value>岗位级别</value>
+  </data>
+  <data name="POSTNAME" xml:space="preserve">
+    <value>岗位名称</value>
+  </data>
+  <data name="POSTFUNCTION" xml:space="preserve">
+    <value>岗位职责</value>
+  </data>
+  <data name="POSTGOAL" xml:space="preserve">
+    <value>岗位目标</value>
+  </data>
+  <data name="POSTNUMBER" xml:space="preserve">
+    <value>人员编制</value>
+  </data>
+  <data name="PROMOTEDIRECTION" xml:space="preserve">
+    <value>晋升方向</value>
+  </data>
+  <data name="SALARYLEVEL" xml:space="preserve">
+    <value>薪资等级</value>
+  </data>
+  <data name="SELECTDATAALERT" xml:space="preserve">
+    <value>请先选择修改的数据！</value>
+  </data>
+  <data name="SELECTDEPART" xml:space="preserve">
+    <value>请选择部门！</value>
+  </data>
+  <data name="SELECTCOMPANY" xml:space="preserve">
+    <value>请选择公司！</value>
+  </data>
+  <data name="SELECTPOSITION" xml:space="preserve">
+    <value>请选择岗位！</value>
+  </data>
+  <data name="EDITSTATE" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="SUPERIORORG" xml:space="preserve">
+    <value>上级公司</value>
+  </data>
+  <data name="TELNUMBER" xml:space="preserve">
+    <value>电话号码</value>
+  </data>
+  <data name="UPDATEDATE" xml:space="preserve">
+    <value>修改时间</value>
+  </data>
+  <data name="UPDATEUSERID" xml:space="preserve">
+    <value>修改人</value>
+  </data>
+  <data name="USERNAME" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="ZIPCODE" xml:space="preserve">
+    <value>邮政编码</value>
+  </data>
+  <data name="SELECTDATE" xml:space="preserve">
+    <value>请先选择日期</value>
+  </data>
+  <data name="NOPERMISSION" xml:space="preserve">
+    <value>无有效的权限</value>
+  </data>
+  <data name="AUDITSUCCESSED" xml:space="preserve">
+    <value>成功审核！</value>
+  </data>
+  <data name="BANKNAME" xml:space="preserve">
+    <value>银行名称</value>
+  </data>
+  <data name="BIRTHDAY" xml:space="preserve">
+    <value>出生年月</value>
+  </data>
+  <data name="BLOODTYPE" xml:space="preserve">
+    <value>血型</value>
+  </data>
+  <data name="CHILDREN" xml:space="preserve">
+    <value>子女</value>
+  </data>
+  <data name="CURRENTADRESS" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="DEBITVISACARDNO" xml:space="preserve">
+    <value>银行卡号</value>
+  </data>
+  <data name="EMPLOYEECODE" xml:space="preserve">
+    <value>员工编号</value>
+  </data>
+  <data name="EMPLOYEENAME" xml:space="preserve">
+    <value>员工姓名</value>
+  </data>
+  <data name="EMPLOYEESEX" xml:space="preserve">
+    <value>员工性别</value>
+  </data>
+  <data name="FAMILYADDRESS" xml:space="preserve">
+    <value>家庭详细地址</value>
+  </data>
+  <data name="FAMILYPHONE" xml:space="preserve">
+    <value>家庭电话</value>
+  </data>
+  <data name="FAMILYPOSTCODE" xml:space="preserve">
+    <value>家庭邮政编码</value>
+  </data>
+  <data name="IDCARDNUMBER" xml:space="preserve">
+    <value>身份证号码</value>
+  </data>
+  <data name="MARRIAGE" xml:space="preserve">
+    <value>婚姻状况</value>
+  </data>
+  <data name="MOBILE" xml:space="preserve">
+    <value>手机</value>
+  </data>
+  <data name="PHOTO" xml:space="preserve">
+    <value>照片</value>
+  </data>
+  <data name="POLITICS" xml:space="preserve">
+    <value>政治面貌</value>
+  </data>
+  <data name="REGRESIDENCE" xml:space="preserve">
+    <value>户口所在地</value>
+  </data>
+  <data name="RESUME" xml:space="preserve">
+    <value>简历</value>
+  </data>
+  <data name="STATURE" xml:space="preserve">
+    <value>身高</value>
+  </data>
+  <data name="TIPTOPEDUCATION" xml:space="preserve">
+    <value>最高学历</value>
+  </data>
+  <data name="URGENCYCONTACT" xml:space="preserve">
+    <value>紧急联系方式</value>
+  </data>
+  <data name="URGENCYPERSON" xml:space="preserve">
+    <value>紧急联系人</value>
+  </data>
+  <data name="SELECTCPYCATEGORY" xml:space="preserve">
+    <value>请选择公司类型！</value>
+  </data>
+  <data name="SELECTCPYLEVEL" xml:space="preserve">
+    <value>请选择公司级别！</value>
+  </data>
+  <data name="SELECTDEPARTMENTLEVEL" xml:space="preserve">
+    <value>请选择部门级别！</value>
+  </data>
+  <data name="SELECTPOSITIONLEVEL" xml:space="preserve">
+    <value>请选择岗位级别！</value>
+  </data>
+  <data name="BASEINFO" xml:space="preserve">
+    <value>基本信息</value>
+  </data>
+  <data name="EDUCATEHISTORY" xml:space="preserve">
+    <value>教育记录</value>
+  </data>
+  <data name="EXPERIENCE" xml:space="preserve">
+    <value>工作经历</value>
+  </data>
+  <data name="HEIGHT" xml:space="preserve">
+    <value>身高</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="NATION" xml:space="preserve">
+    <value>民族</value>
+  </data>
+  <data name="PROVINCE" xml:space="preserve">
+    <value>籍贯</value>
+  </data>
+  <data name="SEX" xml:space="preserve">
+    <value>性别</value>
+  </data>
+  <data name="WISHCOMPANY" xml:space="preserve">
+    <value>意向公司</value>
+  </data>
+  <data name="WISHPOST" xml:space="preserve">
+    <value>意向岗位</value>
+  </data>
+  <data name="CNAME" xml:space="preserve">
+    <value>公司中文名</value>
+  </data>
+  <data name="ENAME" xml:space="preserve">
+    <value>公司英文名</value>
+  </data>
+  <data name="SUBMITAUDITSUCCESSED" xml:space="preserve">
+    <value>成功提交审核！</value>
+  </data>
+  <data name="NOTALLOWNULL" xml:space="preserve">
+    <value>不能为空</value>
+  </data>
+  <data name="COMRELATIONINFO" xml:space="preserve">
+    <value>亲属公司地址</value>
+  </data>
+  <data name="ENGLISHLEVEL" xml:space="preserve">
+    <value>英语水平</value>
+  </data>
+  <data name="EXPECTATIONSALARY" xml:space="preserve">
+    <value>期望薪资</value>
+  </data>
+  <data name="FAMILYZIPCODE" xml:space="preserve">
+    <value>家庭邮证编码</value>
+  </data>
+  <data name="GRADUATESCHOOL" xml:space="preserve">
+    <value>毕业学校</value>
+  </data>
+  <data name="HAVECOMRELATION" xml:space="preserve">
+    <value>是否有亲属</value>
+  </data>
+  <data name="JOBDESCRIPTION" xml:space="preserve">
+    <value>工作描述</value>
+  </data>
+  <data name="MAJORS" xml:space="preserve">
+    <value>主修课程</value>
+  </data>
+  <data name="OUTENCOURAGE" xml:space="preserve">
+    <value>校外奖励</value>
+  </data>
+  <data name="POST" xml:space="preserve">
+    <value>工作岗位</value>
+  </data>
+  <data name="REMARK" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="SALARY" xml:space="preserve">
+    <value>月薪</value>
+  </data>
+  <data name="SCHOOLENCOURAGE" xml:space="preserve">
+    <value>校内奖励</value>
+  </data>
+  <data name="SELFAPPRAISE" xml:space="preserve">
+    <value>自我评价</value>
+  </data>
+  <data name="SPECIALTY" xml:space="preserve">
+    <value>所学专业</value>
+  </data>
+  <data name="STARTENDDATE" xml:space="preserve">
+    <value>起止日期</value>
+  </data>
+  <data name="WISHAREA" xml:space="preserve">
+    <value>意向地区</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="UPLOADPHOTO" xml:space="preserve">
+    <value>上传照片</value>
+  </data>
+  <data name="BANKCARDNUMBER" xml:space="preserve">
+    <value>银行帐号</value>
+  </data>
+  <data name="EMPLOYEESTATE" xml:space="preserve">
+    <value>员工状态</value>
+  </data>
+  <data name="FINGERPRINTID" xml:space="preserve">
+    <value>指纹编号</value>
+  </data>
+  <data name="HASCHILDREN" xml:space="preserve">
+    <value>有无子女</value>
+  </data>
+  <data name="IDNUMBER" xml:space="preserve">
+    <value>证件号码</value>
+  </data>
+  <data name="IDTYPE" xml:space="preserve">
+    <value>证件类型</value>
+  </data>
+  <data name="RESUMEID" xml:space="preserve">
+    <value>简历ID</value>
+  </data>
+  <data name="WORKINGAGE" xml:space="preserve">
+    <value>社会工龄</value>
+  </data>
+  <data name="MEETINGTITLE" xml:space="preserve">
+    <value>会议主题</value>
+  </data>
+  <data name="ARCHIVESTITLE" xml:space="preserve">
+    <value>档案标题</value>
+  </data>
+  <data name="ARCHIVESTYPE" xml:space="preserve">
+    <value>档案类型</value>
+  </data>
+  <data name="SEARCH" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="SELECT" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="ACCESSORYINFO" xml:space="preserve">
+    <value>附件信息</value>
+  </data>
+  <data name="ADDBUTTON" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="APPOVALBUTTON" xml:space="preserve">
+    <value>审核</value>
+  </data>
+  <data name="ARCHIVESCONTENT" xml:space="preserve">
+    <value>档案内容</value>
+  </data>
+  <data name="CANCELBUTTON" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="CONFIRMBUTTON" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="DELBUTTON" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="DOCTYPE" xml:space="preserve">
+    <value>资料类型</value>
+  </data>
+  <data name="LENDTIME" xml:space="preserve">
+    <value>借出时间</value>
+  </data>
+  <data name="RETURNTIME" xml:space="preserve">
+    <value>归还时间</value>
+  </data>
+  <data name="UPDATEBUTTON" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="CHECKALL" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="DEPARTMENT" xml:space="preserve">
+    <value>部门</value>
+  </data>
+  <data name="ENDTIME" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="MEETINGCONTENT" xml:space="preserve">
+    <value>会议内容</value>
+  </data>
+  <data name="MEETINGMEMBER" xml:space="preserve">
+    <value>参会人员</value>
+  </data>
+  <data name="MEETINGTYPE" xml:space="preserve">
+    <value>会议类型</value>
+  </data>
+  <data name="OPERATION" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="STARTTIME" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="JOINMEETING" xml:space="preserve">
+    <value>参会</value>
+  </data>
+  <data name="MYMEETINGCONTENT" xml:space="preserve">
+    <value>我的内容</value>
+  </data>
+  <data name="UPLOADACCESSORY" xml:space="preserve">
+    <value>上传附件</value>
+  </data>
+  <data name="EXPECTEDRETURNTIME" xml:space="preserve">
+    <value>预计归还时间</value>
+  </data>
+  <data name="UPLOADCONTENT" xml:space="preserve">
+    <value>上传内容</value>
+  </data>
+  <data name="BUILDING" xml:space="preserve">
+    <value>大楼名称</value>
+  </data>
+  <data name="COMMUNITY" xml:space="preserve">
+    <value>小区名称</value>
+  </data>
+  <data name="DEPOSIT" xml:space="preserve">
+    <value>押金</value>
+  </data>
+  <data name="FLOOR" xml:space="preserve">
+    <value>楼层</value>
+  </data>
+  <data name="MANAGEMENTFEE" xml:space="preserve">
+    <value>管理费</value>
+  </data>
+  <data name="RENTAL" xml:space="preserve">
+    <value>租金</value>
+  </data>
+  <data name="ROOMNO" xml:space="preserve">
+    <value>房间编号</value>
+  </data>
+  <data name="CANRENT" xml:space="preserve">
+    <value>出租标志</value>
+  </data>
+  <data name="LEASECONTRACT" xml:space="preserve">
+    <value>租房协议</value>
+  </data>
+  <data name="APPLICATIONSTATE" xml:space="preserve">
+    <value>申请状态</value>
+  </data>
+  <data name="CHECKOUTDATE" xml:space="preserve">
+    <value>退房日期</value>
+  </data>
+  <data name="ENDDATE" xml:space="preserve">
+    <value>到期日期</value>
+  </data>
+  <data name="HIREER" xml:space="preserve">
+    <value>租房人</value>
+  </data>
+  <data name="STARTDATE" xml:space="preserve">
+    <value>开始日期</value>
+  </data>
+  <data name="ACCESSORYUPLOADTIME" xml:space="preserve">
+    <value>附件上传时间</value>
+  </data>
+  <data name="CONTENTUPLOADTME" xml:space="preserve">
+    <value>内容上传时间</value>
+  </data>
+  <data name="DETAILINFO" xml:space="preserve">
+    <value>详情</value>
+  </data>
+  <data name="ISCANCEL" xml:space="preserve">
+    <value>是否取消</value>
+  </data>
+  <data name="MEETINGROOM" xml:space="preserve">
+    <value>会议室</value>
+  </data>
+  <data name="MYACCESSORY" xml:space="preserve">
+    <value>我的附件</value>
+  </data>
+  <data name="SUBMITBUTTON" xml:space="preserve">
+    <value>提交审核</value>
+  </data>
+  <data name="APPROVED" xml:space="preserve">
+    <value>审批通过</value>
+  </data>
+  <data name="APPROVING" xml:space="preserve">
+    <value>审批中</value>
+  </data>
+  <data name="UNAPPROVED" xml:space="preserve">
+    <value>审批未通过</value>
+  </data>
+  <data name="UNSUBMIT" xml:space="preserve">
+    <value>待审批</value>
+  </data>
+  <data name="DRAFTBOX" xml:space="preserve">
+    <value>草稿箱</value>
+  </data>
+  <data name="ADDANDAUDITING" xml:space="preserve">
+    <value>添加并提交审核</value>
+  </data>
+  <data name="ADDDATE" xml:space="preserve">
+    <value>添加时间</value>
+  </data>
+  <data name="ADDMEETINGROOMINFORMATION" xml:space="preserve">
+    <value>添加会议室信息</value>
+  </data>
+  <data name="ADDNOTAUDITING" xml:space="preserve">
+    <value>添加不提交审核</value>
+  </data>
+  <data name="ADDPEOPLE" xml:space="preserve">
+    <value>添加人</value>
+  </data>
+  <data name="ADDTEMPLATE" xml:space="preserve">
+    <value>添加模板</value>
+  </data>
+  <data name="APPROVSTATE" xml:space="preserve">
+    <value>审核状态</value>
+  </data>
+  <data name="AUDITEDMEETING" xml:space="preserve">
+    <value>已审核会议</value>
+  </data>
+  <data name="AUDITINGDEFEATED" xml:space="preserve">
+    <value>审核未通过</value>
+  </data>
+  <data name="COMMENT" xml:space="preserve">
+    <value>审批意见</value>
+  </data>
+  <data name="EDITREASON" xml:space="preserve">
+    <value>修改原因</value>
+  </data>
+  <data name="MEMBERCOUNT" xml:space="preserve">
+    <value>人数</value>
+  </data>
+  <data name="NOSUBMISSIONMEETING" xml:space="preserve">
+    <value>未提交审核</value>
+  </data>
+  <data name="TEMPLATECONTENT" xml:space="preserve">
+    <value>模板内容</value>
+  </data>
+  <data name="TEMPLATENAME" xml:space="preserve">
+    <value>模板名称</value>
+  </data>
+  <data name="BUSINESSADDRESS" xml:space="preserve">
+    <value>办公地址</value>
+  </data>
+  <data name="BUSINESSSCOPE" xml:space="preserve">
+    <value>经营范围</value>
+  </data>
+  <data name="f" xml:space="preserve">
+    <value>证照编号</value>
+  </data>
+  <data name="ORGANCODE" xml:space="preserve">
+    <value>机构代码</value>
+  </data>
+  <data name="ORGANNAME" xml:space="preserve">
+    <value>机构名称</value>
+  </data>
+  <data name="WAITINGAUDITINGMEETING" xml:space="preserve">
+    <value>待审核会议</value>
+  </data>
+  <data name="ORDERMEALCONTENT" xml:space="preserve">
+    <value>订餐信息</value>
+  </data>
+  <data name="ORDERMEALTITLE" xml:space="preserve">
+    <value>订餐标题</value>
+  </data>
+  <data name="ORDERMEALUSER" xml:space="preserve">
+    <value>订餐人</value>
+  </data>
+  <data name="CANCELORDERMEAL" xml:space="preserve">
+    <value>取消订餐</value>
+  </data>
+  <data name="ORDEREDMEAL" xml:space="preserve">
+    <value>已订餐</value>
+  </data>
+  <data name="ORDERINGMEAL" xml:space="preserve">
+    <value>待订餐</value>
+  </data>
+  <data name="CONFIRMINFO" xml:space="preserve">
+    <value>确认信息</value>
+  </data>
+  <data name="OKBUTTON" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="ORDERMEALDATE" xml:space="preserve">
+    <value>订餐时间</value>
+  </data>
+  <data name="LENDFLAG" xml:space="preserve">
+    <value>借出标志</value>
+  </data>
+  <data name="LICENSENAME" xml:space="preserve">
+    <value>证照名称</value>
+  </data>
+  <data name="REMINDDAY" xml:space="preserve">
+    <value>提醒天数</value>
+  </data>
+  <data name="VALIDPERIODFROM" xml:space="preserve">
+    <value>有效期从</value>
+  </data>
+  <data name="VALIDPERIODTO" xml:space="preserve">
+    <value>有效期至</value>
+  </data>
+  <data name="DOCUMENTTYPE" xml:space="preserve">
+    <value>文档类型</value>
+  </data>
+  <data name="GRADENAME" xml:space="preserve">
+    <value>级别</value>
+  </data>
+  <data name="ISARCHIVES" xml:space="preserve">
+    <value>是否存档</value>
+  </data>
+  <data name="PRIORITYNAME" xml:space="preserve">
+    <value>缓急名</value>
+  </data>
+  <data name="LICENCENO" xml:space="preserve">
+    <value>证照编号</value>
+  </data>
+  <data name="REGISTERCHARGE" xml:space="preserve">
+    <value>注册费用</value>
+  </data>
+  <data name="REGISTERTYPE" xml:space="preserve">
+    <value>注册类型</value>
+  </data>
+  <data name="SENDDOCTITLE" xml:space="preserve">
+    <value>发文标题</value>
+  </data>
+  <data name="LENDER" xml:space="preserve">
+    <value>出借人</value>
+  </data>
+  <data name="PURPOSE" xml:space="preserve">
+    <value>用途</value>
+  </data>
+  <data name="HASRETURN" xml:space="preserve">
+    <value>是否归还</value>
+  </data>
+  <data name="ADDARCHIVE" xml:space="preserve">
+    <value>新增档案</value>
+  </data>
+  <data name="ADDBORROW" xml:space="preserve">
+    <value>新增外借</value>
+  </data>
+  <data name="ADDLICENSE" xml:space="preserve">
+    <value>新增证照</value>
+  </data>
+  <data name="APPROVALARCHIVE" xml:space="preserve">
+    <value>审批档案</value>
+  </data>
+  <data name="APPROVALBORROW" xml:space="preserve">
+    <value>审批外借</value>
+  </data>
+  <data name="CHOOSEARCHIVE" xml:space="preserve">
+    <value>选择档案</value>
+  </data>
+  <data name="CHOOSELICENSE" xml:space="preserve">
+    <value>选择证照</value>
+  </data>
+  <data name="DELETEARCHIVE" xml:space="preserve">
+    <value>删除档案</value>
+  </data>
+  <data name="DELETEBORROW" xml:space="preserve">
+    <value>删除外借</value>
+  </data>
+  <data name="DELETELICENSE" xml:space="preserve">
+    <value>删除证照</value>
+  </data>
+  <data name="EDITARCHIVE" xml:space="preserve">
+    <value>修改档案</value>
+  </data>
+  <data name="EDITBORROW" xml:space="preserve">
+    <value>修改外借</value>
+  </data>
+  <data name="EDITLICENSE" xml:space="preserve">
+    <value>修改证照</value>
+  </data>
+  <data name="RETURN" xml:space="preserve">
+    <value>归还</value>
+  </data>
+  <data name="RETURNARCHIVE" xml:space="preserve">
+    <value>归还档案</value>
+  </data>
+  <data name="UPLOAD" xml:space="preserve">
+    <value>上传附件</value>
+  </data>
+  <data name="VIEWARCHIVE" xml:space="preserve">
+    <value>查看档案</value>
+  </data>
+  <data name="ADDORGAN" xml:space="preserve">
+    <value>新增机构</value>
+  </data>
+  <data name="APPROVALORGAN" xml:space="preserve">
+    <value>审批机构</value>
+  </data>
+  <data name="DELETEORGAN" xml:space="preserve">
+    <value>删除机构</value>
+  </data>
+  <data name="EDITORGAN" xml:space="preserve">
+    <value>修改机构</value>
+  </data>
+  <data name="LEND" xml:space="preserve">
+    <value>借出</value>
+  </data>
+</root>

@@ -1,0 +1,66 @@
+﻿<smtLocal:BaseForm x:Class="SMT.SaaS.OA.UI.UserControls.SatisfactioningChildWindow"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                   xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+                   xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+                   xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                 >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <controls:TabControl Name="contextInfo"
+                             Grid.Row="1"
+                            HorizontalAlignment="Stretch"
+                             VerticalAlignment="Center">
+            <controls:TabItem Header="{Binding Source=BASEINFO, Converter={StaticResource ResourceConveter}}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <!--  调查主题  -->
+                    <TextBlock Height="23"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Source=SurveysTITLE,
+                                              Converter={StaticResource ResourceConveter}}"
+                               TextAlignment="Center" />
+                    <TextBox Name="txtTitle"
+                             Grid.Column="1"
+                             Margin="3,0"
+                             Height="23"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Center" >
+                        </TextBox>
+                    <!--  调查内容  -->
+
+                    <TextBlock Height="23"
+                               Grid.Row="1"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource SysTextBlockStyle}"
+                               Text="{Binding Source=SurveysContent,
+                                              Converter={StaticResource ResourceConveter}}" />
+                    <TextBox Name="textBox2"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Height="23"
+                             Margin="3,0" VerticalAlignment="Center" />
+                    
+                   <!--详细列表-->
+                    <StackPanel x:Name="detailInfo" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</smtLocal:BaseForm>
+

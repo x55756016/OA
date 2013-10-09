@@ -1,0 +1,21 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.SurveyAnswer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="auto" Height="20" Margin="10,0,10,0">
+    <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <CheckBox x:Name="ckbSelect" Grid.Column="0" Grid.Row="0"></CheckBox>
+        <TextBlock x:Name="txbResultCount" Grid.Column="4" Grid.Row="0" Visibility="Collapsed"></TextBlock>
+        <TextBlock x:Name="txbAnswerId" Grid.Column="1" Grid.Row="0"></TextBlock>
+        <TextBlock x:Name="txbAnswerContent" Grid.Column="3" Grid.Row="0"></TextBlock>
+    </Grid>
+</smtLocal:BaseForm>

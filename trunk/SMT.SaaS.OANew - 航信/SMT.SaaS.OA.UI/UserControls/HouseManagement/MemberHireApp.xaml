@@ -1,0 +1,56 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    x:Class="SMT.SaaS.OA.UI.UserControls.MemberHireApp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"         
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"  
+    >
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="controlsToolkitTUV" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Grid.Row="0">
+            <Grid Style="{StaticResource FrameGridPagerStyle}" ShowGridLines="False" >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMMUNITY}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtUptown" Width="100" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUILDING}" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtHouseName" Width="120" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Click="SearchBtn_Click" Width="60" Style="{StaticResource CommonButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+        </controlsToolkit:Expander>
+        <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False" RenderTransformOrigin="0.5,0.5"  IsReadOnly="True" 
+                       Grid.Row="1" HorizontalAlignment="Stretch"
+                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}"
+                       RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+            <data:DataGrid.Columns>
+                <data:DataGridTextColumn Header="ID" Binding="{Binding houselistObj.HOUSELISTID}" Visibility="Collapsed"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="HOUSEID" Binding="{Binding houselistObj.HOUSEID}" Visibility="Collapsed"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="COMMUNITY" Binding="{Binding houseInfoObj.UPTOWN}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="BUILDING" Binding="{Binding houseInfoObj.HOUSENAME}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="FLOOR" Binding="{Binding houseInfoObj.FLOOR}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="ROOMNO" Binding="{Binding houseInfoObj.ROOMCODE}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="RENTCOST" Binding="{Binding houselistObj.RENTCOST}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="DEPOSIT" Binding="{Binding houselistObj.DEPOSIT}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="SHAREDRENTCOST" Binding="{Binding houselistObj.SHAREDRENTCOST}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="SHAREDDEPOSIT" Binding="{Binding houselistObj.SHAREDDEPOSIT}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="HIRENUMBER" Binding="{Binding houseInfoObj.Number}"></data:DataGridTextColumn>
+                <data:DataGridTextColumn Header="MANAGEMENTFEE" Binding="{Binding houselistObj.MANAGECOST}"></data:DataGridTextColumn>
+                <!--<data:DataGridTextColumn Header="LEASECONTRACT" Binding="{Binding CONTENT}"></data:DataGridTextColumn>-->
+                <data:DataGridTextColumn Header="CANRENT" Binding="{Binding ISRENT,Converter={StaticResource RentConvert}}"></data:DataGridTextColumn>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+        <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="2"></smt:GridPager>
+    </Grid>
+</smtLocal:BaseForm>

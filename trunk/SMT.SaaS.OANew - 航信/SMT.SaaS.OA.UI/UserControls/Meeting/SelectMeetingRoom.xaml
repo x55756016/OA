@@ -1,0 +1,74 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    x:Class="SMT.SaaS.OA.UI.UserControls.SelectMeetingRoom"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="clr-namespace:SMT.SaaS.OA.UI.Views"
+    
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"              
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"              
+    mc:Ignorable="d"
+    >
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" Grid.Row="1" x:Name="controlsToolkitTUV" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top" >
+                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGROOM}" Height="16" Margin="0,4" />
+                    <TextBox x:Name="txtMeetingRoom" MinWidth="100"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Height="15" Margin="0,4" />
+                    <TextBox x:Name="txtMemo" MinWidth="120" />
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  Click="SearchBtn_Click" Margin="4,1,10,1" Style="{StaticResource CommonButtonStyle}"/>
+                </StackPanel>
+            </controlsToolkit:Expander>
+            
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="180"/>
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <controlsToolkit:DockPanel Grid.Column="0" Margin="0 0 2 0" >
+                    <controls:TreeView x:Name="MyTree"  BorderThickness="0" SelectedItemChanged="TreeView_SelectedItemChanged" >
+                    </controls:TreeView>
+                </controlsToolkit:DockPanel>
+                <Grid Grid.Row="0" Grid.Column="1" Margin="0 0 0 1"  HorizontalAlignment="Stretch" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="auto"/>
+                        <!--<RowDefinition />-->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <!--会议室信息列表-->
+                    <data:DataGrid 
+                    x:Name="DaGr" AutoGenerateColumns="False" ItemsSource="{Binding Collection}"
+                    RenderTransformOrigin="0.5,0.5" LoadingRow="DaGr_LoadingRow" HorizontalAlignment="Stretch"
+                    RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" IsReadOnly="True">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Header="MEETINGROOMID" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding MEETINGROOMID}" Visibility="Collapsed" />
+                            <data:DataGridTextColumn Header="MEETINGROOM" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding MEETINGROOMNAME}"/>
+                            <data:DataGridTextColumn Header="ADDRESS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding LOCATION}"/>
+                            
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                    <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="1" VerticalAlignment="Bottom"></smt:GridPager>
+
+                </Grid>
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,91 @@
+﻿<local:BasePage 
+            xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+            x:Class="SMT.SaaS.OA.UI.Views.AssetManagement.AssetPurchasePage" 
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	        mc:Ignorable="d"
+			xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+            xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+            xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+	        xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	        xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	        xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+	        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	        xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	        xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+            xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+            Title="资产申请" d:DesignWidth="640" d:DesignHeight="480">
+    <navigation:Page.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:DictionaryConverter x:Key="DictionaryConverter" />
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+        <local:CustomDateConverter x:Key="DateTimeConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+    <Grid x:Name="LayoutRoot">
+       <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <!--right up begin-->
+            <smt:ViewTitle x:Name="ViewTitles" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="controlsToolkitTUV" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top" Margin="0" Grid.Row="1">
+                <Grid ShowGridLines="False" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+					    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EQUIPMENTNAME}" Height="18"/>
+                        <TextBox x:Name="txtSearchID" Width="100" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                        <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PURCHASETIME}"/>
+                        <controls:DatePicker x:Name="StartTime"  Width="100" VerticalAlignment="Center"/>
+                        <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Style="{StaticResource CommonButtonStyle}" Click="SearchBtn_Click" />
+                    </StackPanel>
+                </Grid>
+            </controlsToolkit:Expander>
+            <smtx:FormToolBar x:Name="FormToolBar1" Background="Transparent" Grid.Row="2"></smtx:FormToolBar>
+            <data:DataGrid x:Name="DaGr" AutoGenerateColumns="False"   Grid.Row="3"
+                           ItemsSource="{Binding Collection}" LoadingRow="DaGr_LoadingRow"  Grid.Column="1" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn Width="auto" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox x:Name="myChkBox" Tag="{Binding ARCHIVESID}" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="REQUISITIONER" Binding="{Binding PRName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="REQUISITIONINGDEPARTMENT" Binding="{Binding DepartmentCode}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PURCHASETIME" Binding="{Binding ApplyUser}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="EQUIPMENTNAME" Binding="{Binding ApplyName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="SPECIFICATION" Binding="{Binding AssetsName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PRODUCTIONUNIT" Binding="{Binding Specification}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="PURCHASEQUANTITY" Binding="{Binding Specification}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="FUNDSNEEDED" Binding="{Binding contractApp.CREATEUSERNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+					<data:DataGridTextColumn Header="EQUIPMENTUTILIZATION " Binding="{Binding contractApp.CREATECOMPANYID,Converter={StaticResource CompanyConvert},ConverterParameter=Company}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <!--<data:DataGridTemplateColumn Header="OPERATION" Width="100" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <dataFormToolkit:DataField Label="">
+								<Button x:Name="myBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=VIEWDETAILS}" Click="myBtn_Click" Style="{StaticResource CommonButtonStyle}"></Button>
+                                </dataFormToolkit:DataField>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>-->
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <!--<data:DataPager x:Name="dpGrid" DisplayMode="FirstLastPreviousNextNumeric"  Source="{Binding ItemsSource,ElementName=DaGr}" VerticalAlignment="Bottom" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" />-->
+         <smtx:GridPager Name="dpGrid" PageSize="15" Click="GridPager_Click" Grid.Row="4" VerticalAlignment="Bottom"></smtx:GridPager>
+    </Grid>
+  </Grid>
+</local:BasePage>

@@ -1,0 +1,83 @@
+﻿<smtLocal:BaseForm xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  x:Class="SMT.SaaS.OA.UI.UserControls.AreaAllowanceForm"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+    xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"             
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+                xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"  
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+    
+    
+
+    <Grid x:Name="LayoutRoot"  Loaded="LayoutRoot_Loaded"  Background="Transparent" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+        </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+
+
+        <!--Row 0-->
+		<TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=PROGRAMNAME}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Visibility="Collapsed" ></TextBlock>
+        <ComboBox Grid.Row="0" MinWidth="120" x:Name="cmbSolution" SelectionChanged="cmbSolution_SelectionChanged" Visibility="Collapsed" Style="{StaticResource ComboBoxStyle}"/>
+
+        <TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=TRAVELDIFFERENCEALLOWANCECATEGORY}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" ></TextBlock>
+        <ComboBox x:Name="cbArea"  DisplayMemberPath="AREACATEGORY" Grid.Row="1" Grid.Column="1" Width="Auto"  HorizontalAlignment="Stretch" Height="24"  Loaded="cbArea_Loaded" Margin="0,2"  ></ComboBox>
+        <!--Row 1-->
+        <TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTLEVEL}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"  ></TextBlock>
+        <appCtr:TravelDictionaryComboBox x:Name="cbPostLevel" IsShowNull="False" Category="POSTLEVEL" Width="Auto"  HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Height="22"  SelectedValue="{Binding DICTIONARYNAME, Mode=TwoWay}"  Margin="0,2"/>
+        <!--Row 2-->
+        <!--<TextBlock	Text="{Binding Converter={StaticResource ResourceConveter}, Source=ALLOWANCE}" Grid.Row="2" Grid.Column="1" Height="22"  ></TextBlock>
+        <TextBox x:Name="txtAllowanc" Grid.Row="2" Grid.Column="1" Height="22" Text="{Binding ALLOWANCE, Mode=TwoWay}" HorizontalAlignment="Stretch"></TextBox>-->
+        <!--Row 3-->
+        <TextBlock	Text="住宿标准" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" ></TextBlock>
+        <!--<TextBox x:Name="txtACCOMMODATION" Grid.Row="2" Grid.Column="1" Height="22" Text="{Binding ACCOMMODATION, Mode=TwoWay}" HorizontalAlignment="Stretch"  Margin="5,2"></TextBox>-->
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+            <toolkit:NumericUpDown  x:Name="nuzhusu" Minimum="0" Maximum="999999" Value="{Binding ACCOMMODATION, Mode=TwoWay}"  MinWidth="80"/>
+            <TextBlock Text="元/天" Margin="2,8,2,4"/>
+
+        </StackPanel>
+        
+        <!--Row 4-->
+        <TextBlock	Text="市内交通补贴" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" ></TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+            <toolkit:NumericUpDown x:Name="nuTrafficAllowanc" Maximum="999999" Value="{Binding TRANSPORTATIONSUBSIDIES, Mode=TwoWay}" Minimum="0" HorizontalAlignment="Stretch"  MinWidth="80"></toolkit:NumericUpDown>
+            <TextBlock Text="元/天" Margin="2,8,2,4"/>
+        </StackPanel>
+        
+        <!--row 5 -->
+        <TextBlock	Text="餐费标准" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"  ></TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
+            <toolkit:NumericUpDown x:Name="nucanbu"  Minimum="0" Maximum="999999" Value="{Binding MEALSUBSIDIES, Mode=TwoWay}" MinWidth="80" />
+            <TextBlock Text="元/天" Margin="2,8,2,4"/>
+        </StackPanel>
+        
+        <!--row 6-->
+        <TextBlock	Text="驻外标准" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"  ></TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
+            <toolkit:NumericUpDown  x:Name="nuzhuwai" Minimum="0" Maximum="999999" Value="{Binding OVERSEASSUBSIDIES, Mode=TwoWay}" MinWidth="80" />
+            <TextBlock Text="元/天" Margin="2,8,2,4"/>
+        </StackPanel>
+        
+
+
+
+    </Grid>
+</smtLocal:BaseForm>

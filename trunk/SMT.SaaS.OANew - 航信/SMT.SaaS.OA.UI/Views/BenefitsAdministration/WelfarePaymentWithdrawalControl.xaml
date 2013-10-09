@@ -1,0 +1,77 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+          x:Class="SMT.SaaS.OA.UI.Views.BenefitsAdministration.WelfarePaymentWithdrawalControl"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		  xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+		  xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+          mc:Ignorable="d"
+		  xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+		  xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+          xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+		  xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+		  xmlns:ctr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+          xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		  xmlns:local="clr-namespace:SMT.SaaS.OA.UI" 
+          xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls">
+    <UserControl.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:DictionaryConverter x:Key="DictionaryConverter" />
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+    </UserControl.Resources>
+    <controls:TabControl x:Name="tbcContainer" Style="{StaticResource TabControlStyle}">
+        <ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=WELFAREPAYMENTWITHDRAWAL}" Style="{StaticResource TabItemStyle}">
+            <!-- 福利发放撤销 -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="4"/>
+                    <ColumnDefinition Width="81"/>
+                    <ColumnDefinition Width="0.604*"/>
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1" Margin="0,0,0,66"></validator:ValidatorManager>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BENEFITSPAIDWERE}" Grid.Row="0" Grid.Column="1" Width="100" Height="22" Margin="-7,4,0,4"  HorizontalAlignment="Left" Grid.ColumnSpan="2"></TextBlock>
+                <TextBox Grid.Row="0" Grid.Column="3" x:Name="txtReleaseName" TextWrapping="NoWrap" IsReadOnly="True" Text="{Binding WELFAREDISTRIBUTETITLE,Mode=TwoWay}" Margin="0,1,20,4" Height="25" Style="{StaticResource TextBoxStyle}">
+                    <!--<validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="RELEASENAME"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>-->
+                </TextBox>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Grid.Row="5" Grid.Column="1" Width="100" Height="22" VerticalAlignment="Top" d:LayoutOverrides="Height" Margin="-7,8,0,0" HorizontalAlignment="Left" Grid.ColumnSpan="2"></TextBlock>
+                <TextBox Grid.Row="5" Grid.Column="3" x:Name="txtRemark" MinHeight="100" Text="{Binding CONTENT,Mode=TwoWay}" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Stretch" Margin="0,4,20,0"
+				 VerticalAlignment="Top" Style="{StaticResource TextBoxStyle}" MaxLength="2000">
+                    <!--<validator:ValidatorService.Validator>
+                            <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CONTENTDISTRIBUTION"></validator:RequiredValidator>
+                        </validator:ValidatorService.Validator>-->
+                </TextBox>
+                <!--<data:DataPager Name="dpGrids" PageSize="10" Grid.Row="4" VerticalAlignment="Stretch" Margin="0 0 20 0" Grid.Column="3" HorizontalAlignment="Stretch"></data:DataPager>-->
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMOVENAME}" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="-7,4,0,4" Width="100" Height="22"/>
+                <TextBox x:Name="txtRemoveName" Grid.Row="1" Grid.Column="3" IsReadOnly="True" TextWrapping="NoWrap" Height="24" Style="{StaticResource TextBoxStyle}" VerticalAlignment="Top" Margin="0,1,20,4" />
+           <TextBlock HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TELL}" TextWrapping="Wrap" Margin="-7,4,0,4"/>
+                <TextBox Grid.Row="2" Grid.Column="3" x:Name="txtTELL" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" Margin="0,1,20,4" MaxLength="50">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="TELL"/>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+				<TextBlock HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=RESPECTIVECOMPANIES}" TextWrapping="Wrap" Margin="-11,4,0,4" Height="22"/>
+			<TextBox x:Name="txtCompanyId" TextWrapping="NoWrap" Height="25" IsReadOnly="True" Style="{StaticResource TextBoxStyle}" Grid.Row="3" Grid.Column="3" Margin="0,1,20,4" />
+			<TextBlock HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=BelongsDepartment}" TextWrapping="Wrap" Margin="-7,4,0,4"/>
+			<TextBox x:Name="txtDepartmentId" TextWrapping="NoWrap" Height="25" IsReadOnly="True" Style="{StaticResource TextBoxStyle}" Grid.Row="4" Grid.Column="3" Margin="0,1,20,4"/>
+			</Grid>
+        </ctr:TabItem>
+        <!--<ctr:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITTAB}" Style="{StaticResource TabItemStyle}">
+            <ScrollViewer x:Name="ShowAudit" Margin="0,0,20,0" VerticalAlignment="Top">
+                <audit:AuditControl x:Name="audit"/>
+            </ScrollViewer>
+        </ctr:TabItem>-->
+    </controls:TabControl>
+</smtLocal:BaseForm>

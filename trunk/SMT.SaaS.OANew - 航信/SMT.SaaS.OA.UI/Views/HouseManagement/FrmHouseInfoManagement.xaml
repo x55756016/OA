@@ -1,0 +1,138 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.HouseManagement.FrmHouseInfoManagement" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+            xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+            xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+            xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+            xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+            xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI" 
+            xmlns:local="clr-namespace:SMT.SaaS.OA.UI"    
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="FrmHouseInfoManagement Page">
+    <navigation:Page.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:RentFlagConverter x:Key="RentConvert"/>
+        <local:CustomDateConverter x:Key="DateConvert"/>
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+           
+            <!--<RowDefinition Height="auto"></RowDefinition>-->
+        </Grid.RowDefinitions>
+        <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+        <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" x:Name="expander" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="top" >
+            <Grid Style="{StaticResource FrameGridPagerStyle}" ShowGridLines="False" >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMMUNITY}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtUptown" Width="100" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUILDING}" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtHouseName" Width="120" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Margin="10,0,0,0" Click="SearchBtn_Click" Width="60" Style="{StaticResource CommonButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+        </controlsToolkit:Expander>
+        <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+        <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="500" Height="0.60*"/>
+                    <RowDefinition Height="0.40*"/>
+                    <!--<RowDefinition />-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="150" />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <sp:GridSplitter x:Name="grsplSplitterColumn" HorizontalAlignment="right"  Background="#FF6D8193" Width="2" VerticalAlignment="Stretch"></sp:GridSplitter>
+                <sp:GridSplitter Grid.Column="0" Grid.Row="1" HorizontalAlignment="right"  VerticalAlignment="Stretch" Background="#FF6D8193"  Width="2"></sp:GridSplitter>
+                <sp:GridSplitter Grid.Column="1" Grid.Row="0" VerticalAlignment="bottom"  HorizontalAlignment="Stretch" Background="#FF6D8193"  Height="2"></sp:GridSplitter>
+                <!--treeview begin-->
+                <controlsToolkit:DockPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="0 0 2 0" >
+                    <controls:TreeView x:Name="MyTree"  BorderThickness="0" SelectedItemChanged="TreeView_SelectedItemChanged" >
+                    </controls:TreeView>
+                </controlsToolkit:DockPanel>
+                <!--right up begin-->
+                <Grid Grid.Row="0" Grid.Column="1" Margin="0 0 0 1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <!--<RowDefinition />-->
+                    </Grid.RowDefinitions>                                 
+                    <!--住房信息列表-->
+                    <data:DataGrid 
+                        x:Name="DaGr" AutoGenerateColumns="False"  RenderTransformOrigin="0.5,0.5" IsReadOnly="True" SelectionChanged="DaGr_SelectionChanged"
+                        ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" LoadingRow="DaGr_LoadingRow"
+                        Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                        RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" Grid.Column="0" Grid.Row="0" >
+                        <data:DataGrid.Columns>
+                            <!--<data:DataGridTemplateColumn Width="65" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">-->
+                             <data:DataGridTemplateColumn  HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!--<CheckBox x:Name="myChkBox" Unchecked="myChkBox_Unchecked" Checked="myChkBox_Checked" Tag="{Binding HOUSEID}" HorizontalAlignment="Center" VerticalAlignment="Center" ></CheckBox>-->
+                                        <Image Name="entityLogo" Width="16" Height="16" HorizontalAlignment="Center"></Image>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn Header="HOUSEID" Binding="{Binding HOUSEID}" Visibility="Collapsed"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="COMMUNITY" Binding="{Binding UPTOWN}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="BUILDING" Binding="{Binding HOUSENAME}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="FLOOR" Binding="{Binding FLOOR}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="ROOMNO" Binding="{Binding ROOMCODE}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="RENTCOST" Binding="{Binding RENTCOST}"></data:DataGridTextColumn>                            
+                            <data:DataGridTextColumn Header="DEPOSIT" Binding="{Binding DEPOSIT}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="SHAREDRENTCOST" Binding="{Binding SHAREDRENTCOST}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="SHAREDDEPOSIT" Binding="{Binding SHAREDDEPOSIT}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="HIRENUMBER" Binding="{Binding Number}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="MANAGEMENTFEE" Binding="{Binding MANAGECOST}"></data:DataGridTextColumn>
+                            <!--<data:DataGridTextColumn Header="LEASECONTRACT" Binding="{Binding CONTENT}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="CREATEUSERID" Binding="{Binding CREATEUSERNAME}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="CREATEDATE" Binding="{Binding CREATEDATE,Converter={StaticResource DateConvert}}"></data:DataGridTextColumn>-->
+                            <data:DataGridTextColumn Header="CANRENT" Binding="{Binding ISRENT,Converter={StaticResource RentConvert}}"></data:DataGridTextColumn>
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                    <!--<data:DataPager DisplayMode="FirstLastPreviousNextNumeric"  Source="{Binding}" VerticalAlignment="Bottom" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" />--> 
+                    <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Column="0" Grid.Row="1"></smt:GridPager>
+                </Grid>
+                <!--right middle begin-->
+                <Grid Grid.Column="1" Grid.Row="1" Background="White">
+                    <!--租客信息列表-->             
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="auto"/>
+                        <!--<RowDefinition />-->
+                    </Grid.RowDefinitions>                        
+                    <data:DataGrid x:Name="DaGrRent" AutoGenerateColumns="False" ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5" Background="White" IsReadOnly="True"  Style="{StaticResource DataGridStyle}"
+                                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                   CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top">
+                        <data:DataGrid.Columns>
+                            <!--<data:DataGridTextColumn Header="HOUSEID" Binding="{Binding HOUSEID}" Visibility="Collapsed"></data:DataGridTextColumn>-->
+                            <data:DataGridTextColumn Header="HOUSEINFO" Binding="{Binding houseInfo}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="HIREER" Binding="{Binding houseObj.OWNERNAME}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="STARTDATE" Binding="{Binding houseObj.STARTDATE}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="ENDDATE" Binding="{Binding houseObj.ENDDATE}"></data:DataGridTextColumn>
+                            <!--<data:DataGridTextColumn Header="APPFLAG" Binding="{Binding houseObj.CHECKSTATE,Converter={StaticResource StateConvert}}"></data:DataGridTextColumn>-->
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                    <!--<data:DataPager DisplayMode="FirstLastPreviousNextNumeric"  Source="{Binding}" VerticalAlignment="Bottom" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" />-->                        
+                    <smt:GridPager Name="dataPagerRent" PageSize="10" Click="GridPager_Click_1" Grid.Column="0" Grid.Row="1"></smt:GridPager>                       
+                </Grid>
+            </Grid>
+    </Grid>
+    </Grid>
+</local:BasePage>

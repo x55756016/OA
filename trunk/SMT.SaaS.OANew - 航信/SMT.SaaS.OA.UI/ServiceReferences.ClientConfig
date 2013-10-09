@@ -1,0 +1,179 @@
+﻿<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBinding_PersonnelService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647" />
+        <binding name="BasicHttpBinding_SalaryService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647" />
+        <binding name="BasicHttpBinding_FBService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647" />
+        <binding name="BasicHttpBinding_AttendanceService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647" />
+        <binding name="BasicHttpBinding_FileUploadManager" closeTimeout="00:01:00"
+          openTimeout="00:01:00" sendTimeout="00:01:00" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647" textEncoding="utf-8" />
+        <binding name="BasicHttpBinding_EngineWcfGlobalFunction" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647" />
+        <binding name="BasicHttpBinding_SmtOAPersonOffice" closeTimeout="01:00:00"
+          openTimeout="01:00:00" sendTimeout="01:00:00" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IEngineWcfGlobalFunction" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_SmtOAPersonOffice1" maxReceivedMessageSize="2147483647" />
+        <binding name="BasicHttpBinding_OaInterface" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPersonalRecordService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+      <customBinding>
+        <binding name="WSHttpBinding_IService" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOACommonOffice" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOACommonAdmin" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PermissionService" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_OrganizationService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOADocumentAdmin" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PerformanceService" closeTimeout="00:10:00"
+          openTimeout="00:10:00" sendTimeout="00:10:00">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_Service">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_AgentServices">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_SmtOADocumentAdmin1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IUploadService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_HrCommonService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_IApplicationService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_AgentServices1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+      </customBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://fileserver.smt-online.net:9000/FileUpLoad.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
+        contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/HR/PersonnelService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+        contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/System/FileUploadManager.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
+        contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/fb/FBService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
+        contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
+        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/HR/SalaryService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
+        contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/System/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/HR/AttendanceService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
+        contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/HR/PerformanceService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
+        contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/SMTFlowDesigner/Service.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_Service"
+        contract="FlowDesignerWS.Service" name="CustomBinding_Service" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/HR/HrCommonService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
+        contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/MyRecord/PersonalRecordService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
+        contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/SMTFBAService/OaInterface.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_OaInterface"
+        contract="TravelExpApplyMaster.OaInterface" name="BasicHttpBinding_OaInterface" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/OA/EngineServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IApplicationService"
+        contract="EngineServicesWS.IApplicationService" name="CustomBinding_IApplicationService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/smtengine/EngineWcfGlobalFunction.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEngineWcfGlobalFunction"
+        contract="EngineWS.IEngineWcfGlobalFunction" name="BasicHttpBinding_IEngineWcfGlobalFunction" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/PublicInterface/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+      
+      <endpoint address="http://localhost:3938/SmtOACommonAdmin.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonAdmin"
+        contract="SmtOACommonAdminService.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />
+      
+      <endpoint address="http://10.10.0.93:8080/New/Services/OA/SmtOADocumentAdmin.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_SmtOADocumentAdmin"
+        contract="SmtOADocumentAdminService.SmtOADocumentAdmin" name="CustomBinding_SmtOADocumentAdmin" />
+      
+      <endpoint address="http://localhost:3938/SmtOACommonOffice.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonOffice"
+        contract="SmtOACommonOfficeService.SmtOACommonOffice" name="CustomBinding_SmtOACommonOffice" />
+      
+      <endpoint address="http://localhost:3938/AgentServices.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_AgentServices1" contract="AgentChannel.AgentServices"
+        name="CustomBinding_AgentServices" />
+      <endpoint address="http://localhost:3938/SmtOAPersonOffice.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
+        contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />
+    </client>
+  </system.serviceModel>
+</configuration>

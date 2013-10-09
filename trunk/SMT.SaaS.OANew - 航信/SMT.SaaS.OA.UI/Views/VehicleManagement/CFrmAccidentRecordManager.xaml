@@ -1,0 +1,75 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+                   x:Class="SMT.SaaS.OA.UI.Views.VehicleManagement.CFrmAccidentRecordManager" 
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+             xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+             xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors"     
+             xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+    <Grid>
+        <Grid x:Name="LayoutRoot" Margin="2" Loaded="LayoutRoot_Loaded">            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSETID}"   VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+        <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ComboBoxStyle}" x:Name="cmbVehicleAssetId"  Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,3,15,2">
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+                <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CostContent" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </ComboBox>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ACCIDENTDATE}" HorizontalAlignment="Left"  VerticalAlignment="Center"></TextBlock>
+        <controls:DatePicker Grid.Row="1" Grid.Column="1" x:Name="dpDate"  Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Style="{StaticResource DatePickerStyle}" Margin="5,3,15,2">
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+                <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CostContent" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </controls:DatePicker>
+        
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=OWNERID}" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+        <Grid Grid.Row="2" Grid.Column="1"  Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,3,15,2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="21"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtOwnerName" Grid.Column="0" Style="{StaticResource TextBoxStyle}" IsReadOnly="True"  Width="Auto" HorizontalAlignment="Stretch"  VerticalAlignment="Center">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="OWNERID" ></validator:RequiredValidator>
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <TextBox x:Name="txtOwnerID" Grid.Column="0" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" Visibility="Collapsed" VerticalAlignment="Center">
+                
+                </TextBox>
+            <Button x:Name="btnLookUpOwner" Grid.Column="1"  Click="btnLookUpOwner_Click" HorizontalAlignment="Right"  VerticalAlignment="Center">
+                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png"></Image>
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+           </Button>
+        </Grid>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ACCIDENTCONTENT}" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,4,10,0"></TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxStyle}" x:Name="txtContent" VerticalScrollBarVisibility="Visible"  AcceptsReturn="True"  Height="Auto" Width="Auto" 
+		   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxLength="200" TextWrapping="Wrap" MinHeight="100" Margin="5,3,15,2">
+                <interaction:Interaction.Behaviors>
+                    <behaviors:ShowRequire></behaviors:ShowRequire>
+                </interaction:Interaction.Behaviors>
+                <validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ACCIDENTCONTENT" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+    </Grid>
+    </Grid>
+</smtLocal:BaseForm>

@@ -1,0 +1,78 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.Views.ContractManagement.ContractTemplates"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI">
+    <Grid x:Name="LayoutRoot" Background="Transparent" SizeChanged="LayoutRoot_SizeChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="0.843*"/>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <TextBlock  Grid.Row="1" TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTTYPE}" Margin="0,0,10,0" VerticalAlignment="Top"/>
+        <TextBlock  Grid.Row="5" TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=THECONTRACT}" Height="22" VerticalAlignment="Top" Margin="0,0,10,0"/>
+        <TextBlock  Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTLEVEL}" TextWrapping="Wrap" Margin="0,0,10,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbltitle" Margin="12,2,166,2" Grid.Column="1" Text="" TextWrapping="Wrap"/>
+        <!--<TextBox Grid.Row="5" Grid.Column="1" x:Name="tbxContractText" AcceptsReturn="True" Text="{Binding CONTENT,Mode=TwoWay}"  Margin="0,1,20,4" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" MinHeight="150" Style="{StaticResource TextBoxStyle}">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="TEMPLATECONTENT"></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>-->
+        <richtext:RichMainPage Grid.Row="5"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="3"
+                               MinHeight="150"
+                               x:Name="tbxContractText"
+                               Margin="0,1,20,4">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1"
+                                             ErrorMessage="REQUIRED"
+                                             ErrorMessageParameter="TEMPLATECONTENT"></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </richtext:RichMainPage>
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="tbxContractTitle" Margin="0,1,200,4" MaxLength="50" Width="auto" HorizontalAlignment="Stretch" Text="{Binding CONTRACTTITLE,Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="TEMPLATETITLE"></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <!-- 隐藏框-->
+        <TextBox x:Name="tbxMeetingInfoID" Visibility="Collapsed" Margin="0,2,23,2" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" Style="{StaticResource TextBoxStyle}"/>
+        <TextBox x:Name="tbxCreatUserID" Visibility="Collapsed" Margin="0,2,23,2" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" Style="{StaticResource TextBoxStyle}"/>
+
+        <TextBox x:Name="tbxCreateDate"  Visibility="Collapsed" Margin="0,2,23,2" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" Style="{StaticResource TextBoxStyle}"/>
+        <TextBox x:Name="tbxCheckState"  Visibility="Collapsed" Margin="0,2,23,2" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" Style="{StaticResource TextBoxStyle}"/>
+        <TextBox x:Name="tbxIsCancel"  Visibility="Collapsed" Margin="0,2,23,2" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" Style="{StaticResource TextBoxStyle}"/>
+		
+		<appCtr:DictionaryComboBox Grid.Row="2" Grid.Column="1" x:Name="cbContractLevel" Category="CONTRACTLEVEL" SelectedValue="{Binding CONTRACTLEVEL,Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                    	Style="{StaticResource ComboBoxStyle}" HorizontalAlignment="Left" Margin="0,1,0,4" Height="25" Width="140"/>
+        <TextBlock Height="26" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TEMPLATETITLE}" Margin="0,0,10,0" VerticalAlignment="Top"/>
+
+        <TextBlock Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTTEMPLATENAME}" TextWrapping="Wrap" Margin="0,0,10,0" VerticalAlignment="Top"/>
+        <TextBox  Grid.Column="1" Grid.Row="3" x:Name="tbxTemplateName" Margin="0,1,200,4" MaxLength="50" Text="{Binding CONTRACTTEMPLATENAME,Mode=TwoWay}" Width="auto" HorizontalAlignment="Stretch" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="CONTRACTTEMPLATENAME"></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <ComboBox x:Name="tbxContractTypeID" Margin="0,1,0,4" Grid.Row="1" DisplayMemberPath="CONTRACTTYPE" HorizontalAlignment="Left" Width="140" Grid.Column="1"  Height="25">
+            <!--<ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=CONTRACTTYPE}" Width="Auto" Height="23" FontSize="12"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>-->
+        </ComboBox>
+    </Grid>
+</smtLocal:BaseForm>

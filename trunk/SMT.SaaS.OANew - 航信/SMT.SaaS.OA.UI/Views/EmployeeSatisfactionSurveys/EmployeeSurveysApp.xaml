@@ -1,0 +1,181 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.EmployeeSatisfactionSurveys.EmployeeSurveysApp"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+                xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+                xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                d:DesignHeight="480"
+                d:DesignWidth="640"
+                mc:Ignorable="d">
+  <navigation:Page.Resources>
+    <local:CheckStateConverter x:Key="StateConvert" />
+    <local:CustomDateConverter x:Key="DateConvert" />
+    <local:CompanyInfoConverter x:Key="CompanyConvert" />
+    <local:ConverterContentToFormatString x:Key="ContentConvert" />
+  </navigation:Page.Resources>
+  <Grid x:Name="PARENT">
+    <Grid x:Name="LayoutRoot">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="auto" />
+      </Grid.RowDefinitions>
+      <smt:ViewTitle x:Name="ViewTitles" Grid.Row="0" />
+      <controlsToolkit:Expander x:Name="controlsToolkitTUV"
+                                Grid.Row="1"
+                                Margin="0,1,0,2"
+                                VerticalAlignment="top"
+                                Header="{Binding Converter={StaticResource ResourceConveter},
+                                                 Source=SEARCH}"
+                                IsExpanded="True"
+                                Style="{StaticResource ExpanderStyle}">
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Margin="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SurveysTITLE}" />
+          <TextBox x:Name="txtSurveysTITLE"
+                   Width="120"
+                   Style="{StaticResource TextBoxStyle}" />
+          <TextBlock Margin="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SurveysContent}" />
+          <TextBox x:Name="txtSurveysContent"
+                   Width="150"
+                   Style="{StaticResource TextBoxStyle}" />
+          <dataInput:Label Margin="4,2,0,2" Content="{Binding Converter={StaticResource ResourceConveter}, Source=ADDDATE}" />
+          <controls:DatePicker x:Name="dpStart"
+                               Margin="4,1,4,1"
+                               Width="150"
+                               Style="{StaticResource DatePickerStyle}" />
+          <dataInput:Label Margin="4,2,0,2" Content="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" />
+          <controls:DatePicker x:Name="dpEnd"
+                               Margin="4,1,4,1"
+                               Width="150"
+                               Style="{StaticResource DatePickerStyle}" />
+
+                    <Button x:Name="btnSearch"
+                  Margin="4,1,10,1"
+                  Click="btnSearch_Click"
+                  Content="{Binding Converter={StaticResource ResourceConveter},
+                                    Source=SEARCH}"
+                  Style="{StaticResource CommonButtonStyle}" />
+                    <Button x:Name="btnReset"
+                                Content="{Binding Converter={StaticResource ResourceConveter}, Source=CLEAR}"
+                                Click="btnReset_Click"
+                                 Margin="4,1,10,1"
+                                Style="{StaticResource CommonButtonStyle}" />
+          
+        </StackPanel>
+      </controlsToolkit:Expander>
+      <smt:FormToolBar x:Name="ToolBar"
+                       Grid.Row="2"
+                       Width="auto" />
+            <data:DataGrid x:Name="dgEmployeeApp"
+                     Grid.Row="3"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     AutoGenerateColumns="False"
+                     CellStyle="{StaticResource DataGridCellStyle}"
+                     ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                     IsReadOnly="True"
+                     LoadingRow="dg_LoadingRow"
+                     RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                     RowStyle="{StaticResource DataGridRowStyle}"
+                     Style="{StaticResource DataGridStyle}">
+        <data:DataGrid.Columns>
+          <data:DataGridTemplateColumn Header="SELECT" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+            <data:DataGridTemplateColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                  <Image Name="entityLogo"
+                         Width="16"
+                         Height="16"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Tag="{Binding REQUIRETITLE}" />
+                </StackPanel>
+              </DataTemplate>
+            </data:DataGridTemplateColumn.CellTemplate>
+          </data:DataGridTemplateColumn>
+          <data:DataGridTextColumn Binding="{Binding APPTITLE}" Header="SurveysTITLE" />
+          <data:DataGridTemplateColumn Header="SurveysContent">
+            <data:DataGridTemplateColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                  <TextBlock MaxWidth="160"
+                             VerticalAlignment="Center"
+                             Text="{Binding CONTENT,
+                                            Converter={StaticResource ContentConvert}}"
+                             TextTrimming="WordEllipsis" />
+                </StackPanel>
+              </DataTemplate>
+            </data:DataGridTemplateColumn.CellTemplate>
+          </data:DataGridTemplateColumn>
+          <data:DataGridTemplateColumn Header="STARTDATE">
+            <data:DataGridTemplateColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel Width="100"
+                            Margin="4,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                  <TextBlock VerticalAlignment="Center" Text="{Binding STARTDATE, Converter={StaticResource DateConvert}, ConverterParameter=DATE}" />
+                </StackPanel>
+              </DataTemplate>
+            </data:DataGridTemplateColumn.CellTemplate>
+          </data:DataGridTemplateColumn>
+          <data:DataGridTemplateColumn Header="ENDDATE">
+            <data:DataGridTemplateColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel Width="100"
+                            Margin="4,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                  <TextBlock VerticalAlignment="Center"
+                             Text="{Binding ENDDATE,
+                                            Converter={StaticResource DateConvert},
+                                            ConverterParameter=DATE}"
+                             TextWrapping="Wrap" />
+                </StackPanel>
+              </DataTemplate>
+            </data:DataGridTemplateColumn.CellTemplate>
+          </data:DataGridTemplateColumn>
+          <data:DataGridTextColumn Binding="{Binding OARequire.OWNERNAME}" Header="OWNERNAME" />
+          <data:DataGridTemplateColumn Width="60" Header="CHECKSTATE">
+            <data:DataGridTemplateColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                  <TextBlock VerticalAlignment="Center" Text="{Binding CHECKSTATE, Converter={StaticResource StateConvert}}" />
+                </StackPanel>
+              </DataTemplate>
+            </data:DataGridTemplateColumn.CellTemplate>
+          </data:DataGridTemplateColumn>
+          <data:DataGridTemplateColumn Header="CREATEDATE">
+            <data:DataGridTemplateColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel Width="100"
+                            Margin="4,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                  <TextBlock VerticalAlignment="Center"
+                             Text="{Binding CREATEDATE,
+                                            Converter={StaticResource DateConvert},
+                                            ConverterParameter=DATE}"
+                             TextWrapping="Wrap" />
+                </StackPanel>
+              </DataTemplate>
+            </data:DataGridTemplateColumn.CellTemplate>
+          </data:DataGridTemplateColumn>
+        </data:DataGrid.Columns>
+      </data:DataGrid>
+      <smt:GridPager Name="dataPager"
+                     Grid.Row="4"
+                     Click="GridPager_Click"
+                     PageSize="20" />
+    </Grid>
+  </Grid>
+</local:BasePage>

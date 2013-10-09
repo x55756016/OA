@@ -1,0 +1,48 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.UserControls.OrderMealDetailInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        
+        <TextBlock x:Name="tblWindowTitle" Margin="8,2,0,2" Grid.Column="1" TextWrapping="Wrap" />
+        <TextBlock Margin="8,0,0,0" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORDERMEALTITLE}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="8,0,0,0" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENT}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+
+        <TextBlock Margin="8,0,0,0" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORDERMEALUSER}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="8,0,0,0" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORDERMEALDATE}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="8,0,0,0" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=UPDATEDATE}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="8,0,0,0" Grid.Row="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORDERMEALCONTENT}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="8,0,0,0" Grid.Row="9" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONFIRMINFO}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="tblOrderMealTitle" Margin="10,2,0,2" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblDepartment" Margin="10,2,0,2" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblAdduser" Margin="8,2,0,2" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblAddDate" Margin="10,2,0,2" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblUpdateDate" Margin="10,2,0,2" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap"/>
+        <TextBlock Margin="8,0,0,0" Grid.Row="6" Text="{Binding Converter={StaticResource ResourceConveter}, Source=UPDATEUSERID}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock Margin="8,0,0,0" Grid.Row="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EDITSTATE}" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="tblUpdater" Margin="8,2,96,2" Grid.Column="1" Grid.Row="6" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblState" Margin="10,2,0,2" Grid.Column="1" Grid.Row="7" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblContent" Margin="10,4,0,2" Grid.Column="1" Grid.Row="8" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tblRemark" Margin="10,2,0,2" Grid.Column="1" Grid.Row="9" TextWrapping="Wrap"/>
+    </Grid>
+</smtLocal:BaseForm>

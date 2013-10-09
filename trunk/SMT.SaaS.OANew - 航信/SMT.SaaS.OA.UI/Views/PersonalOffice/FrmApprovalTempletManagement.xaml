@@ -1,0 +1,169 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.PersonalOffice.FrmApprovalTempletManagement"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"
+                xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+                xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+                xmlns:local="clr-namespace:SMT.SaaS.OA.UI"
+                xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                d:DesignWidth="640"
+                d:DesignHeight="480"
+                Title="FrmApprovalManagement Page">
+    <navigation:Page.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:ConverterDateToFormatString x:Key="DateTimeConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles"
+                           Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}"
+                                      x:Name="controlsToolkitTUV" IsExpanded="True"
+                                      Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"
+                                      VerticalAlignment="top" Grid.Row="1">
+                <StackPanel Orientation="Horizontal" >
+                    <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CODINGMATTERS}"
+                                   Width="auto"
+                                   VerticalAlignment="Bottom"
+                                   Margin="5,5,1,5" />
+                    <TextBox  Width="150"
+				  MaxLength="50"
+                                  x:Name="txtCode"
+                                  HorizontalAlignment="left"
+                                  VerticalAlignment="Bottom"
+                                  Margin="1,2,5,2" />-->
+                    <TextBlock Text="事项模板名称"
+                                   Width="auto"
+                                   VerticalAlignment="Bottom"
+                                   Margin="2,5,1,5" />
+                    <TextBox  Width="180"
+                                  x:Name="txtTitle"
+				  MaxLength="100"
+                                  HorizontalAlignment="left"
+                                  VerticalAlignment="Bottom"
+                                  Margin="1,2,5,2" />
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=OWNERID}"
+                                   Width="auto"
+                                   VerticalAlignment="Bottom"
+                                   Margin="2,5,1,5" />
+                    <TextBox x:Name="txtOwnerName"
+                              HorizontalAlignment="left"
+                              VerticalAlignment="Bottom"
+                              Style="{StaticResource TextBoxStyle}"
+                              IsReadOnly="True"
+                              Width="100"
+                              Margin="2,2,0,4" d:LayoutOverrides="HorizontalAlignment" />
+                    
+                    <Button x:Name="btnLookUpOwner"
+                                    Height="22"
+                                    Click="btnLookUpOwner_Click"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,2,0,3"
+                                    d:LayoutOverrides="HorizontalAlignment, Height">
+                        <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/(09,24).png" />
+                    </Button>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ADDDATE}" VerticalAlignment="Bottom" Margin="2,5,1,5" />
+                    <basics:DatePicker x:Name="dpStart"  Width="92" Margin="4,0,0,0" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" VerticalAlignment="Bottom" Margin="2,5,1,5" />
+                    <basics:DatePicker x:Name="dpEnd"  Width="92" Margin="4,0,0,0" VerticalAlignment="Bottom"/>
+                    <Button x:Name="btnSearch"
+                                Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"
+                                Click="btnSearch_Click"
+                                Width="60"
+                                Margin="5,2,5,2"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource CommonButtonStyle}" />
+                    <Button x:Name="btnReset"
+                                Content="{Binding Converter={StaticResource ResourceConveter}, Source=RESET}"
+                                Click="btnReset_Click"
+                                Width="60"
+                                Margin="5,2,5,2"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource CommonButtonStyle}" />
+                </StackPanel>
+                
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar"
+                             Grid.Row="2" />
+            <data:DataGrid x:Name="dg"
+                           AutoGenerateColumns="False"
+                           LoadingRow="dg_LoadingRow"
+                           IsReadOnly="True"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}"
+                           RowStyle="{StaticResource DataGridRowStyle}"
+                           RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           Grid.Row="3">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn Header="SELECT"
+                                                 HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}"
+                                                 Width="28">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo"
+                                       Tag="{Binding VEHICLEUSEAPPID}"
+                                       Width="16"
+                                       Height="16"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <!--<data:DataGridTextColumn  Header="CODINGMATTERS"
+                                              Binding="{Binding APPROVALCODE}"></data:DataGridTextColumn>-->
+                    <data:DataGridTemplateColumn Header="事项模板名称"
+                                                 MaxWidth="250">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Margin="2,0,0,0">
+                                    <TextBlock Text="{Binding APPROVALTITLE}"
+                                               VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn MaxWidth="250"
+                                             Header="OWNERID"
+                                             Binding="{Binding OWNERNAME}"></data:DataGridTextColumn>
+                    <!--<data:DataGridTemplateColumn Header="CHECKSTATE"
+                                                 Width="80">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding CHECKSTATE,Converter={StaticResource StateConvert}}"
+                                               VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>-->
+                    <data:DataGridTextColumn MaxWidth="250"
+                                             Header="CREATETIME"
+                                             Binding="{Binding CREATEDATE,Converter={StaticResource DateTimeConvert}}"></data:DataGridTextColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smt:GridPager Name="dataPager"
+                           PageSize="20"
+                           Click="GridPager_Click"
+                           VerticalAlignment="Bottom"
+                           Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

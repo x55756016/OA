@@ -1,0 +1,123 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+    
+    x:Class="SMT.SaaS.OA.UI.UserControls.MeetingNoticeWebPart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" mc:Ignorable="d"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"    
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input">
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Margin="2,2,2,14">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="28"/>
+            </Grid.RowDefinitions>
+            <validator:ValidatorManager x:Name="Group1"/>
+            <controls:TabControl Grid.Row="0"  VerticalAlignment="Stretch" x:Name="senddoctab" Margin="0,-8,0,8" >
+                <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGADD}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="0.28*"/>
+                            <ColumnDefinition Width="0.181*"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="0.539*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENTNAME}" TextWrapping="Wrap" Grid.Row="1"  Grid.Column="3" Margin="-2,0,8,6" RenderTransformOrigin="4.704,-2.167"/>
+                        <TextBlock Grid.Row="1" TextWrapping="Wrap" Text ="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGTYPE}" Margin="6,6,0,0"/>
+                        <TextBlock Grid.Row="3" TextWrapping="Wrap" Text ="{Binding Converter={StaticResource ResourceConveter}, Source=TELL}" Margin="8,3,-2,3"/>
+                        <TextBlock Grid.Row="6" Grid.Column="0"  TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGCONTENT}" HorizontalAlignment="Left"  Margin="6,6,0,0" Height="24" VerticalAlignment="Top"/>
+
+                        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGTITLE}" TextWrapping="Wrap" Grid.Row="5" Margin="6,0,0,0"/>
+                        <TextBlock  VerticalAlignment="Top" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGROOM}" TextWrapping="Wrap" d:LayoutOverrides="Width" Margin="6,6,0,0"/>
+                        <TextBlock  Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}" TextWrapping="Wrap" d:LayoutOverrides="Height" Grid.Column="3" Margin="0,6,0,0"/>
+                        <TextBlock  Grid.Row="2" Grid.Column="3" TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}" Margin="0,6,0,0" />
+                        <TextBlock  Grid.Row="4" TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=HOSTNAME}" Margin="6,6,0,0" Height="24" VerticalAlignment="Top" />
+                        <TextBlock  Grid.Row="4" Grid.Column="3" TextWrapping="Wrap" Text="{Binding Converter={StaticResource ResourceConveter}, Source=RECORDNAME}" />
+						<TextBlock x:Name="tblMeetingType" Text="aaaa" Grid.Row="1" Grid.Column="1" Margin="2,2,8,2"></TextBlock>
+						<TextBlock x:Name="tblDepartment" Grid.Row="1" Grid.Column="4" Text="department" Margin="2,2,20,2"></TextBlock>
+						<TextBlock x:Name="tblMeetingRoom" Grid.Row="2" Grid.Column="1" Text="meetingroom" Margin="2,2,8,2"></TextBlock>
+						<TextBlock x:Name="tblStartTime" Grid.Row="2" Grid.Column="4" Text="startdate" Margin="2,2,20,2"></TextBlock>
+						<TextBlock x:Name="tblTel" Grid.Row="3" Grid.Column="1" Text="tel" Margin="2,2,8,2"></TextBlock>
+						<TextBlock x:Name="tblEnddate" Grid.Row="3" Grid.Column="4" Text="enddate" Margin="2,2,20,2"></TextBlock>
+						<TextBlock x:Name="tblHost" Grid.Row="4" Grid.Column="1" Text="host" Margin="2,2,8,2"></TextBlock>
+						<TextBlock x:Name="tblRecorder" Grid.Row="4" Grid.Column="4" Text="record" Margin="2,2,20,2"></TextBlock>
+						<TextBlock x:Name="tblMeetingTitle" Grid.Row="5" Grid.Column="1" Text="Meetingtitle" Margin="2,2,8,2"></TextBlock>
+						<!--<TextBox x:Name="tblMeetingContent"  Grid.Row="6" Grid.Column="1" Text="meetingcontent" HorizontalScrollBarVisibility="Auto" MinHeight="200" Margin="2,2,20,2" Grid.ColumnSpan="4" IsReadOnly="True"></TextBox>-->
+                        <richtext:RichMainPage Grid.Row="6"
+                                               Grid.Column="1"
+                                               x:Name="tblMeetingContent"
+                                               MinHeight="200"
+                                               Margin="2,2,20,2"
+                                               Grid.ColumnSpan="4">
+                        </richtext:RichMainPage>
+
+                    </Grid>
+                </controls:TabItem>
+                <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGMEMBER}" >
+                    <data:DataGrid x:Name="dgmember" AutoGenerateColumns="False"   IsReadOnly="True"  Width="auto" VerticalScrollBarVisibility="Visible" MinHeight="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
+CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" Grid.Row="0" Grid.Column="1" Margin="5,0,20,0" LoadingRow="dgmember_LoadingRow">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn Header="ROWNUMBER" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock/>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn Header="RESPECTIVECOMPANIES" Binding="{Binding EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                            <data:DataGridTextColumn Header="BelongsDepartment" Binding="{Binding EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                            <data:DataGridTextColumn Header="MEETINGMEMBER" Binding="{Binding T_HR_EMPLOYEE.EMPLOYEECNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                            
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </controls:TabItem>
+                <controls:TabItem Header="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGNOTICE}" x:Name="tabnotice" >
+                    <Grid Height="300">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="200"/>
+                            <RowDefinition Height="30"/>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=NOTICETITLE}" TextWrapping="Wrap"/>
+                        <TextBlock Margin="2" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=NOTICECONTENT}" TextWrapping="Wrap"/>
+                        <TextBlock Margin="2" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TELL}" TextWrapping="Wrap"/>
+						<TextBlock Margin="2" Text="title" Grid.Column="1" x:Name="tblmessagetitle" TextWrapping="Wrap"/>
+                        <TextBlock Margin="2" Grid.Row="1" Grid.Column="1" x:Name="tblmessagecontent" Text="content" TextWrapping="Wrap"/>
+                        <TextBlock Margin="2" Grid.Row="2" Grid.Column="1" x:Name="tblmessagetel" Text="tel" TextWrapping="Wrap"/>
+						
+
+                    </Grid>
+                </controls:TabItem>
+                
+            </controls:TabControl>
+            
+
+
+        </Grid>
+
+
+    </Grid>
+</smtLocal:BaseForm>

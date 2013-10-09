@@ -1,0 +1,60 @@
+<controls:ChildWindow x:Class="SMT.SaaS.OA.UI.CommForm.LookupForm" 
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                      xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+                      xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                      xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+                      xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+                      xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"     
+                      Width="400" Height="500" 
+                      Title="选择证照">
+    <Grid x:Name="LayoutRoot" Margin="6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" Grid.Row="0" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.28*"/>
+                    <ColumnDefinition Width="0.55*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=LICENSENAME}" Margin="5" VerticalAlignment="Top"  Grid.Row="0" Width="auto"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Name="txtLICENSENAME" Width="100" Height="18" Margin="5" VerticalAlignment="Top"   Style="{StaticResource TextBoxStyle}"/>
+                <Button Grid.Row="0" Grid.Column="2" Margin="40,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Width="60" Style="{StaticResource CommonButtonStyle}" HorizontalAlignment="Right" Height="22" VerticalAlignment="Top" Click="SearchButton_Click" />
+            </Grid>
+        </controlsToolkit:Expander>
+
+        <data:DataGrid x:Name="DtGrid" Grid.Row="1" AutoGenerateColumns="False" 
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                       MaxWidth="1024" MaxHeight="450" IsReadOnly="True"
+                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" 
+                    RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                    ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+            <data:DataGrid.Columns>
+                <!--<data:DataGridTemplateColumn  x:Name="CheckColunm" >
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox x:Name="checkbox" Tag="123" Margin="5,5,0,0"  ></CheckBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>-->
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+        <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="2" VerticalAlignment="Bottom"></smt:GridPager>
+
+        <Button x:Name="CancelButton" Content="取消" Click="CancelButton_Click" Grid.Row="3" 
+               Style="{StaticResource ButtonCompetenceStyle}"  HorizontalAlignment="Right" Margin="0,12,0,0" />
+        <Button x:Name="OKButton" Content="确定" Click="OKButton_Click" 
+              Style="{StaticResource ButtonCompetenceStyle}"  Grid.Row="3" HorizontalAlignment="Right" Margin="0,12,79,0" />
+    </Grid>
+</controls:ChildWindow>

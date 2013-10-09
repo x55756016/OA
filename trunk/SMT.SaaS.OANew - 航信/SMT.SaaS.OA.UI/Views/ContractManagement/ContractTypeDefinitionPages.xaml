@@ -1,0 +1,38 @@
+﻿<smtLocal:BaseForm xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  x:Class="SMT.SaaS.OA.UI.Views.ContractManagement.ContractTypeDefinitionPages"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls">
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="10 2 10 2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+			<ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TYPENAME}" TextWrapping="Wrap" VerticalAlignment="Center" />
+        <TextBox  Grid.Row="0" Grid.Column="1" x:Name="ContractType" TabIndex="0" Text="{Binding CONTRACTTYPE,Mode=TwoWay}" TextWrapping="NoWrap" Style="{StaticResource TextBoxStyle}" MaxLength="50" Margin="0" Height="24">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="TYPENAME"></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+		
+		<TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTRACTLEVEL}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,10,0" />
+        <appCtr:DictionaryComboBox Grid.Row="1" Grid.Column="1" TabIndex="1" x:Name="cbContractLevel" Category="CONTRACTLEVEL" SelectedValue="{Binding CONTRACTLEVEL,Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                    	Style="{StaticResource ComboBoxStyle}" VerticalAlignment="Center" Margin="0" Height="25" Width="Auto" HorizontalAlignment="Stretch"/>
+
+		<TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PRESENTATION}" TextWrapping="Wrap" Height="22" VerticalAlignment="Top" Margin="0,4,0,0" />
+		<TextBox Grid.Row="2" Grid.Column="1"  x:Name="ContractPresentation" TabIndex="2" Text="{Binding CONTENT,Mode=TwoWay}" VerticalAlignment="Top" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" MaxLength="600" Height="80" ScrollViewer.VerticalScrollBarVisibility="auto"  Style="{StaticResource TextBoxStyle}" Margin="0,3,20,0" Grid.ColumnSpan="2">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PRESENTATION"></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+    </Grid>
+</smtLocal:BaseForm>

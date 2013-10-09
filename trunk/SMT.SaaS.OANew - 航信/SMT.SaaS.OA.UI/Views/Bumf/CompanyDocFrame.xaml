@@ -1,0 +1,35 @@
+﻿<navigation:Page x:Class="SMT.SaaS.OA.UI.Views.Bumf.CompanyDocFrame" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="BumfManagementFrame Page">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <StackPanel Orientation="Vertical" Margin="5,50,2,60" x:Name="LeftSrc">
+                <HyperlinkButton TargetName="BumfCompanyDocFrame" Style="{StaticResource LinkStyle}" NavigateUri="/Views/Bumf/CompanySendDocManagement.xaml?checkstate=0"  Height="22" Width="102" Content="{Binding Converter={StaticResource ResourceConveter}, Source=NOSUBMISSIONBUMF}"/>
+                <HyperlinkButton TargetName="BumfCompanyDocFrame" Style="{StaticResource LinkStyle}" NavigateUri="/Views/Bumf/CompanySendDocManagement.xaml?checkstate=2" Height="22" Width="110" Content="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITINGBUMF}"/>
+                <HyperlinkButton TargetName="BumfCompanyDocFrame" Style="{StaticResource LinkStyle}" NavigateUri="/Views/Bumf/CompanySendDocManagement.xaml?checkstate=1" Height="22" Width="110" Content="{Binding Converter={StaticResource ResourceConveter}, Source=AUDITEDBUMF}"/>
+                <HyperlinkButton TargetName="BumfCompanyDocFrame" Style="{StaticResource LinkStyle}" NavigateUri="/Views/Bumf/CompanySendDocManagement.xaml?checkstate=3" Height="22" Width="110" Content="{Binding Converter={StaticResource ResourceConveter}, Source=NOPASSAUDITBUMF}"/>
+                <HyperlinkButton TargetName="BumfCompanyDocFrame" Style="{StaticResource LinkStyle}" NavigateUri="/Views/Bumf/CompanySendDocManagement.xaml?checkstate=4" Height="22" Width="110" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SAVEDBUMF}"/>
+                <HyperlinkButton TargetName="BumfCompanyDocFrame" Style="{StaticResource LinkStyle}" NavigateUri="/Views/Bumf/CompanySendDocManagement.xaml?checkstate=5" Height="22" Width="110" Content="{Binding Converter={StaticResource ResourceConveter}, Source=DISTRBUTEDBUMF}"/>
+
+            </StackPanel>
+        </Grid>
+        <navigation:Frame Grid.Column="1" Grid.Row="0" Margin="2 0 0 0" Style="{StaticResource ContentFrameStyle}"
+	       x:Name="BumfCompanyDocFrame" Source="/Views/Bumf/CompanySendDocManagement.xaml?checkstate=0"  >
+        </navigation:Frame>
+
+
+    </Grid>
+</navigation:Page>

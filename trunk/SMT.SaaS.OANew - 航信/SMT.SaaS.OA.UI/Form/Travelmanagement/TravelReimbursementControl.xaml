@@ -1,0 +1,965 @@
+﻿<smtLocal:BaseForm 
+ xmlns:smtLocal="clr-namespace:SMT.SaaS.OA.UI"  
+ x:Class="SMT.SaaS.OA.UI.UserControls.TravelReimbursementControl"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ mc:Ignorable="d"
+ xmlns:appCtr="clr-namespace:SMT.SaaS.OA.UI.Class"
+ xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+ xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+ xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+ xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+ xmlns:fbctr="clr-namespace:SMT.SaaS.FrameworkUI.FBControls;assembly=SMT.SaaS.FrameworkUI"
+ xmlns:audit="clr-namespace:SMT.SaaS.FrameworkUI.AuditControl;assembly=SMT.SaaS.FrameworkUI"
+ xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+ xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+ xmlns:UserControls="clr-namespace:SMT.SaaS.OA.UI.UserControls"
+ xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+ xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+ xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+ xmlns:sdk="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+ xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:my="clr-namespace:SMT.FileUpLoad;assembly=SMT.FileUpLoad">
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+    
+    <Grid x:Name="PARENT">
+        <Grid Margin="4" x:Name="LayoutRoot"  Loaded="LayoutRoot_Loaded">
+              <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="0.3*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="0.3*" />
+                </Grid.ColumnDefinitions>
+                <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+			   
+			   <TextBlock HorizontalAlignment="Left"
+                                       Grid.Row="2"
+                                       Grid.Column="0"
+                                       Text="{Binding Converter={StaticResource ResourceConveter}, Source=REPORT}"
+                                       TextWrapping="Wrap"
+                                       Height="22" Margin="5,1,0,4"/><!--报告内容-->
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtReport" Grid.ColumnSpan="3" AcceptsReturn="True" Text="{Binding CONTENT,Mode=TwoWay}" VerticalScrollBarVisibility="Disabled"
+						 TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="715" Style="{StaticResource TextBoxStyle}"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="5,1,20,4"><!--报告内容-->
+                            <validator:ValidatorService.Validator>
+                                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="REPORT"/>
+                            </validator:ValidatorService.Validator>
+                            <interaction:Interaction.Behaviors>
+                                <behaviors:ShowRequire></behaviors:ShowRequire>
+                            </interaction:Interaction.Behaviors>
+                        </TextBox>
+			   
+				<TextBlock HorizontalAlignment="Left"
+                            Grid.Row="4" 
+                            Grid.Column="0"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=TRAVELDETAILS}"
+                            TextWrapping="Wrap"
+                            Height="22"
+                            VerticalAlignment="Top" Margin="5,1,0,4" /><!--差旅明细-->
+				<smtx:FormToolBar x:Name="FormToolBar1" Background="Transparent" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,1,20,4" VerticalAlignment="Top"></smtx:FormToolBar>
+                   
+				
+                <ScrollViewer x:Name="ShowAudits"  HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                                Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,1,20,4" 
+				ScrollViewer.VerticalScrollBarVisibility="Hidden"
+				HorizontalScrollBarVisibility="auto">
+                    <data:DataGrid x:Name="DaGrs" AutoGenerateColumns="False" Grid.Row="4" Grid.Column="1" LoadingRow="DaGrs_LoadingRow" 
+				SelectionMode="Single" Style="{StaticResource DataGridStyle}" CanUserSortColumns="False"
+                CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" 
+                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" HorizontalAlignment="Stretch" >
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn Header="DEPARTURETIME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <smtx:DateTimePicker Grid.Row="2" Grid.Column="1" x:Name="StartTime" Value="{Binding STARTDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" Height="25" Width="auto" OnValueChanged="StartTime_OnValueChanged"></smtx:DateTimePicker>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="DEPARTURECITY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <smt:SearchCity Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" MaxWidth="150" DisplayMemberPath="DEPCITY" SelectClick="txtDEPARTURECITY_SelectClick"  KeyDown="TextBox_KeyDown"  x:Name="txtDEPARTURECITY"></smt:SearchCity>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="ARRIVALTIME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <smtx:DateTimePicker Grid.Row="3" Grid.Column="1" x:Name="EndTime" Value="{Binding ENDDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" Height="25" Width="auto" OnValueChanged="EndTime_OnValueChanged"></smtx:DateTimePicker>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="ARRIVALCITY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <smt:SearchCity Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" MaxWidth="100" DisplayMemberPath="DESTCITY" SelectClick="txtTARGETCITIES_SelectClick"  KeyDown="TextBox_KeyDown" x:Name="txtTARGETCITIES"></smt:SearchCity>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="BUSINESSDAYS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <TextBox  Grid.Row="3" Grid.Column="1" x:Name="txtTOTALDAYS" Text="{Binding BUSINESSDAYS,Mode=TwoWay}" TextWrapping="NoWrap" Height="25" IsReadOnly="True" MaxLength="25" Width="50" KeyDown="TextBox_KeyDown">          
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="THENUMBEROFNIGHTS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Visibility="Collapsed">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <TextBox x:Name="txtTHENUMBEROFNIGHTS" TextWrapping="NoWrap" Height="25" Text="{Binding THENUMBEROFNIGHTS,Mode=TwoWay}" 
+											Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="40" KeyDown="TextBox_KeyDown">
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="TYPEOFTRAVELTOOLS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <appCtr:TravelDictionaryComboBox x:Name="ComVechileType"
+                                                            Category="VICHILESTANDARD"
+                                                            SelectedValue="{Binding TYPEOFTRAVELTOOLS,Mode=TwoWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                                                            Style="{StaticResource ComboBoxStyle}"
+                                                            SelectionChanged="ComVechileType_SelectionChanged"
+                                                            MinWidth="50"
+                                                            MaxWidth="80"
+                                                            Height="24"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Margin="2"></appCtr:TravelDictionaryComboBox>
+                                            <!--<TextBox Grid.Row="5" Grid.Column="1" x:Name="txtTYPEOFTRAVELTOOLS" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="100" KeyDown="TextBox_KeyDown">
+                                                <validator:ValidatorService.Validator>
+                                                    <validator:RequiredValidator ManagerName="Group1"
+                                                        ErrorMessage="REQUIRED"
+                                                        ErrorMessageParameter="TYPEOFTRAVELTOOLS" />
+                                                </validator:ValidatorService.Validator>
+                                            </TextBox>-->
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="GRADE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <appCtr:TravelDictionaryComboBox x:Name="ComVechileTypeLeve"
+                                                            Category="VICHILELEVEL"
+                                                            SelectedValue="{Binding TAKETHETOOLLEVEL,Mode=TwoWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                                                            Style="{StaticResource ComboBoxStyle}" SelectionChanged="ComVechileTypeLeve_SelectionChanged"
+                                                            Grid.Row="2"
+                                                            Grid.Column="1"
+                                                            MinWidth="50"
+                                                            MaxWidth="80"
+                                                            Height="24"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Margin="2"></appCtr:TravelDictionaryComboBox>
+                                            <!--<TextBox Grid.Row="5" Grid.Column="3" x:Name="txtTAKETHETOOLLEVEL" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="100" KeyDown="TextBox_KeyDown">
+                                                <validator:ValidatorService.Validator>
+                                                    <validator:RequiredValidator ManagerName="Group1"
+                                                        ErrorMessage="REQUIRED"
+                                                        ErrorMessageParameter="TAKETHETOOLLEVEL" />
+                                                </validator:ValidatorService.Validator>
+                                            </TextBox>-->
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="TRAVELEXPENSES" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtTRANSPORTCOSTS" Text="{Binding TRANSPORTCOSTS, Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="50" KeyDown="TextBox_KeyDown" LostFocus="txtTRANSPORTCOSTS_LostFocus">
+                                                <validator:ValidatorService.Validator>
+                                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="TRAVELEXPENSES"
+				                                            Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                </validator:ValidatorService.Validator>
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="ACCOMMODATION" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtACCOMMODATION" TextWrapping="NoWrap" Text="" Height="25" LostFocus="txtACCOMMODATION_LostFocus" Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="50" KeyDown="TextBox_KeyDown">
+                                                <validator:ValidatorService.Validator>
+                                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="ACCOMMODATION"
+				                                            Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                </validator:ValidatorService.Validator>
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="LOCALTRANSPORTATIONSUBSIDIES" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" ><!--交通补贴-->
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtTRANSPORTATIONSUBSIDIES" Text="" TextWrapping="NoWrap" IsReadOnly="True" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="80" KeyDown="TextBox_KeyDown">
+                                                <validator:ValidatorService.Validator>
+                                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="LOCALTRANSPORTATIONSUBSIDIES"
+				                                            Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                </validator:ValidatorService.Validator>
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="MEALSUBSIDIES" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" ><!--餐费补贴-->
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtMEALSUBSIDIES" Text="" TextWrapping="NoWrap" IsReadOnly="True" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="60" KeyDown="TextBox_KeyDown">
+                                                <validator:ValidatorService.Validator>
+                                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="MEALSUBSIDIES"
+				                                            Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                </validator:ValidatorService.Validator>
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="OTHERCOST" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtOtherCosts" Text="{Binding OTHERCOSTS, Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="60" KeyDown="TextBox_KeyDown" LostFocus="txtOtherCosts_LostFocus">
+                                                <validator:ValidatorService.Validator>
+                                                    <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="OTHERCOST"
+				                                            Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                </validator:ValidatorService.Validator>
+                                            </TextBox>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="PRIVATEAFFAIR" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <CheckBox x:Name="myChkBox" Checked="myChkBox_Checked" Unchecked="myChkBox_Unchecked" Tag="{Binding PRIVATEAFFAIR}" Height="23" MaxWidth="20" Margin="0,6,0,0" VerticalAlignment="Center" 
+                                                      Click="myChkBox_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="GOOUTTOMEET" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <CheckBox x:Name="myChkBoxMeet" Checked="myChkBoxMeet_Checked" Unchecked="myChkBoxMeet_Unchecked" ToolTipService.ToolTip="勾选后无交通及餐费补贴" Tag="{Binding GOOUTTOMEET}" Height="23" MaxWidth="20" Margin="0,6,0,0" VerticalAlignment="Center" 
+                                                      Click="myChkBoxMeet_Click" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="COMPANYCAR" Width="60" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <CheckBox x:Name="myChkBoxCar" Checked="myChkBoxCar_Checked" Unchecked="myChkBoxCar_Unchecked" ToolTipService.ToolTip="勾选后无交通补贴" Tag="{Binding GOOUTTOMEET}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTemplateColumn Header="OPERATION" x:Name="Operation" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <smtx:ImageButton x:Name="myDelete"  Click="Delete_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </ScrollViewer>
+                            
+				<!--查看或审核时不显示控件只读取数据-->
+		        <ScrollViewer x:Name="tbShowAudits"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" Grid.ColumnSpan="3" 
+                                  Grid.Column="1" Margin="5,1,20,4" ScrollViewer.VerticalScrollBarVisibility="Hidden" Width="auto" Visibility="Collapsed">
+		        <data:DataGrid x:Name="DaGrss" AutoGenerateColumns="False" Grid.Row="2" Grid.Column="1"  LoadingRow="DaGrss_LoadingRow" 
+				                  Style="{StaticResource DataGridStyle}" CanUserSortColumns="False" IsReadOnly="True"
+								  RowStyle="{StaticResource DataGridRowStyle}"
+                                CellStyle="{StaticResource DataGridCellStyle}" 
+                                RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+								 RenderTransformOrigin="0.5,0.5"
+								 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn Header="DEPARTURETIME"><!--出发时间-->
+                    	<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTURETIME}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="63">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                         </data:DataGridTemplateColumn.HeaderStyle>
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                              <TextBlock x:Name="tbStartTime" Text="{Binding STARTDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}"
+                                         Width="63"  TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" ></TextBlock>
+                            </StackPanel>
+							</DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Header="DEPARTURECITY"><!--出发城市-->
+                    	<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTURECITY}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                         </data:DataGridTemplateColumn.HeaderStyle>
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                	<TextBlock TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25" x:Name="tbDEPARTURECITY"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn Header="ARRIVALTIME"><!--到达时间-->
+                    	<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARRIVALTIME}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="63">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                         </data:DataGridTemplateColumn.HeaderStyle>
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <TextBlock x:Name="tbEndTime" Text="{Binding ENDDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}"
+                                          Width="63" TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" ></TextBlock>
+                             </StackPanel>
+							</DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+
+                    <data:DataGridTemplateColumn Header="ARRIVALCITY"><!--到达城市-->
+                    	<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=ARRIVALCITY}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25" >
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                         </data:DataGridTemplateColumn.HeaderStyle>
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                	<TextBlock Width="25" TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" x:Name="tbTARGETCITIES"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    
+                    
+                                    <data:DataGridTemplateColumn Header="BUSINESSDAYS"><!--出差天数-->
+                                    	<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=BUSINESSDAYS}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                                    </data:DataGridTemplateColumn.HeaderStyle>
+									
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                    <TextBox  Grid.Row="3" Grid.Column="1" x:Name="txtTOTALDAYS" Text="{Binding BUSINESSDAYS,Mode=TwoWay}"
+                                                              TextWrapping="NoWrap" IsReadOnly="True" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">                      
+                                                    </TextBox>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+
+                                    <data:DataGridTemplateColumn Header="THENUMBEROFNIGHTS"><!--住宿天数-->
+                                    	<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=THENUMBEROFNIGHTS}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                                    </data:DataGridTemplateColumn.HeaderStyle>
+									
+									    <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                    <TextBox  Grid.Row="3" Grid.Column="1" x:Name="txtTHENUMBEROFNIGHTS" Text="{Binding THENUMBEROFNIGHTS,Mode=TwoWay}"
+                                                              TextWrapping="NoWrap" IsReadOnly="True" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">                      
+                                                    </TextBox>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+
+                            <data:DataGridTemplateColumn Header="TYPEOFTRAVELTOOLS" >     <!--交通工具类型-->
+                                    <data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=TYPEOFTRAVELTOOLS}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                                    </data:DataGridTemplateColumn.HeaderStyle>
+            
+                                    <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                          <TextBlock x:Name="tbComVechileType" Width="25"  TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+
+                            <data:DataGridTemplateColumn Header="GRADE" ><!--交通工具级别-->
+                            	<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=GRADE}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="30">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                                    </data:DataGridTemplateColumn.HeaderStyle>
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" x:Name="tbComVechileTypeLeve" Width="30" ></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+							
+											<data:DataGridTemplateColumn Header="TRAVELEXPENSES"><!--交通费-->
+												<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=TRAVELEXPENSES}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                         </data:DataGridTemplateColumn.HeaderStyle>
+											<data:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                        <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtTRANSPORTCOSTS" Text="{Binding TRANSPORTCOSTS, Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown" LostFocus="txtTRANSPORTCOSTS_LostFocus">
+                                                           <validator:ValidatorService.Validator>
+                                                                <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="TRAVELEXPENSES"
+				                                                      Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                            </validator:ValidatorService.Validator>
+                                                        </TextBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </data:DataGridTemplateColumn.CellTemplate>
+                                        </data:DataGridTemplateColumn>
+                                        <data:DataGridTemplateColumn Header="ACCOMMODATION"><!--住宿费-->
+                                        	<data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=ACCOMMODATION}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                         </data:DataGridTemplateColumn.HeaderStyle>
+                                            <data:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                        <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtACCOMMODATION" TextWrapping="NoWrap" Text="" Height="25" LostFocus="txtACCOMMODATION_LostFocus" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
+                                                            <validator:ValidatorService.Validator>
+                                                                <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="ACCOMMODATION"
+				                                                      Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                            </validator:ValidatorService.Validator>
+                                                        </TextBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </data:DataGridTemplateColumn.CellTemplate>
+                                        </data:DataGridTemplateColumn>
+                    
+                                        <data:DataGridTemplateColumn Header="LOCALTRANSPORTATIONSUBSIDIES"><!--交通补贴-->
+                                        <data:DataGridTemplateColumn.HeaderStyle>
+	                                        <Style TargetType="sdk:DataGridColumnHeader">
+	                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+	                                        <Setter Property="ContentTemplate">
+	                                            <Setter.Value>
+	                                                <DataTemplate>
+	                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=LOCALTRANSPORTATIONSUBSIDIES}" 
+	                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+	                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap"  Width="30">
+	                                                    </TextBlock>
+	                                                </DataTemplate>
+	                                            </Setter.Value>
+	                                        </Setter>
+	                                        </Style>
+                                            </data:DataGridTemplateColumn.HeaderStyle>
+                                         <data:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                        <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtTRANSPORTATIONSUBSIDIES" Text="" TextWrapping="NoWrap" IsReadOnly="True" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
+                                                            <validator:ValidatorService.Validator>
+                                                                <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="LOCALTRANSPORTATIONSUBSIDIES"
+				                                                      Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                            </validator:ValidatorService.Validator>
+                                                        </TextBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </data:DataGridTemplateColumn.CellTemplate>
+                                        </data:DataGridTemplateColumn>
+                    
+                                        <data:DataGridTemplateColumn Header="MEALSUBSIDIES"><!--住宿补贴-->
+                                        <data:DataGridTemplateColumn.HeaderStyle>
+	                                        <Style TargetType="sdk:DataGridColumnHeader">
+	                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+	                                        <Setter Property="ContentTemplate">
+	                                            <Setter.Value>
+	                                                <DataTemplate>
+	                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEALSUBSIDIES}" 
+	                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+	                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="30">
+	                                                    </TextBlock>
+	                                                </DataTemplate>
+	                                            </Setter.Value>
+	                                        </Setter>
+	                                        </Style>
+                                            </data:DataGridTemplateColumn.HeaderStyle>
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                               <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtMEALSUBSIDIES" Text="" TextWrapping="NoWrap" IsReadOnly="True" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
+                                                                    <validator:ValidatorService.Validator>
+                                                                        <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="MEALSUBSIDIES"
+				                                                              Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                                    </validator:ValidatorService.Validator>
+                                                               </TextBox>
+                                                           </StackPanel>
+                                                     </DataTemplate>
+                                               </data:DataGridTemplateColumn.CellTemplate>
+                                        </data:DataGridTemplateColumn>
+                    
+                                        <data:DataGridTemplateColumn Header="OTHERCOST"><!--其他费用-->
+                                         <data:DataGridTemplateColumn.HeaderStyle>
+	                                        <Style TargetType="sdk:DataGridColumnHeader">
+	                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+	                                        <Setter Property="ContentTemplate">
+	                                            <Setter.Value>
+	                                                <DataTemplate>
+	                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=OTHERCOST}" 
+	                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+	                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+	                                                    </TextBlock>
+	                                                </DataTemplate>
+	                                            </Setter.Value>
+	                                        </Setter>
+	                                        </Style>
+                                            </data:DataGridTemplateColumn.HeaderStyle>
+                                      <data:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                        <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtOtherCosts" Text="{Binding OTHERCOSTS, Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown" LostFocus="txtOtherCosts_LostFocus">
+                                                            <validator:ValidatorService.Validator>
+                                                                <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="OTHERCOST"
+				                                                      Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
+                                                            </validator:ValidatorService.Validator>
+                                                        </TextBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                    
+                                <data:DataGridTemplateColumn Header="PRIVATEAFFAIR"><!--私事-->
+                                	 <data:DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="sdk:DataGridColumnHeader">
+                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=PRIVATEAFFAIR}" 
+                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        </Style>
+                                    </data:DataGridTemplateColumn.HeaderStyle>
+                                    <data:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <CheckBox x:Name="myChkBox" Checked="myChkBox_Checked" Unchecked="myChkBox_Unchecked" IsEnabled="False" Tag="{Binding PRIVATEAFFAIR}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </data:DataGridTemplateColumn.CellTemplate>
+                                </data:DataGridTemplateColumn>
+                    
+                                <data:DataGridTemplateColumn Header="GOOUTTOMEET"><!--内部会议培训-->
+                                            <data:DataGridTemplateColumn.HeaderStyle>
+	                                        <Style TargetType="sdk:DataGridColumnHeader">
+	                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+	                                        <Setter Property="ContentTemplate">
+	                                            <Setter.Value>
+	                                                <DataTemplate>
+	                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=GOOUTTOMEET}" 
+	                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+	                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="30" >
+	                                                    </TextBlock>
+	                                                </DataTemplate>
+	                                            </Setter.Value>
+	                                        </Setter>
+	                                        </Style>
+                                            </data:DataGridTemplateColumn.HeaderStyle>
+                                            <data:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <CheckBox x:Name="myChkBoxMeet" Checked="myChkBoxMeet_Checked" Unchecked="myChkBoxMeet_Unchecked" IsEnabled="False" Tag="{Binding GOOUTTOMEET}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </data:DataGridTemplateColumn.CellTemplate>
+                                </data:DataGridTemplateColumn>
+                    
+                                <data:DataGridTemplateColumn Header="COMPANYCAR"><!--公司派车-->
+                                            <data:DataGridTemplateColumn.HeaderStyle>
+	                                        <Style TargetType="sdk:DataGridColumnHeader">
+	                                        <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
+	                                        <Setter Property="ContentTemplate">
+	                                            <Setter.Value>
+	                                                <DataTemplate>
+	                                                    <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=COMPANYCAR}" 
+	                                                           Foreground="{StaticResource HeaderBackgroundfontColor1}" x:Name="ContentFontColor"
+	                                                           TextTrimming="None" TextAlignment="Center" TextWrapping="Wrap" Width="25">
+	                                                    </TextBlock>
+	                                                </DataTemplate>
+	                                            </Setter.Value>
+	                                        </Setter>
+	                                        </Style>
+                                            </data:DataGridTemplateColumn.HeaderStyle>
+                                            <data:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <CheckBox x:Name="myChkBoxCar" Checked="myChkBoxCar_Checked" Unchecked="myChkBoxCar_Unchecked" IsEnabled="False" Tag="{Binding GOOUTTOMEET}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </data:DataGridTemplateColumn.CellTemplate>
+                                </data:DataGridTemplateColumn>
+                            </data:DataGrid.Columns>
+                        </data:DataGrid>
+		            </ScrollViewer>
+                 
+				<TextBlock HorizontalAlignment="Left"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=CLAIMSWERE}"
+                            VerticalAlignment="Stretch" Height="20" Margin="5,1,0,4" /><!--报销人-->
+				<TextBox x:Name="txtPeopleTravel"
+                IsReadOnly="True"
+                Height="25"
+                TextWrapping="NoWrap"
+                Style="{StaticResource TextBoxStyle}"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5,1,20,4">
+                <validator:ValidatorService.Validator>
+                    <validator:RequiredValidator ManagerName="Group1"
+                                            ErrorMessage="REQUIRED"
+                                            ErrorMessageParameter="EMPLOYEECNAME" />			
+                </validator:ValidatorService.Validator>
+                </TextBox><!--报销人-->		
+				 
+				 <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TELL}"
+                                RenderTransformOrigin="0.704,2.895" Height="20" Margin="5,1,20,4" HorizontalAlignment="Right"/><!--联系电话-->
+                            <TextBox Grid.Row="0" Grid.Column="3" x:Name="txtTELL" Width="150"
+                                TextWrapping="NoWrap"
+                                Height="25"
+                                Style="{StaticResource TextBoxStyle}"
+                                MaxLength="25"
+                                Margin="5,1,20,4" VerticalAlignment="Top" HorizontalAlignment="Left" /><!--联系电话-->
+				 
+				  <TextBlock HorizontalAlignment="Left"
+							Grid.Row="1"
+                            Grid.Column="0"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=NOCLAIMS}"
+                            VerticalAlignment="Stretch" Height="20" Margin="5,1,0,4" /><!--报销单号-->
+									   
+							<TextBox x:Name="txtNoClaims"
+                            IsReadOnly="True"
+                            Height="25"
+                            TextWrapping="NoWrap"
+                            Style="{StaticResource TextBoxStyle}"
+							Grid.Row="1"
+                            Grid.Column="1"
+							Width="auto"
+                            Margin="5,1,20,4" /><!--报销单号-->
+                         
+					 <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="2"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=REIMBURSEMENTTIME}"  VerticalAlignment="Stretch" Height="20" Margin="5,1,20,4" /><!--报销时间-->
+                            <controls:DatePicker Grid.Row="1" Grid.Column="3" Style="{StaticResource DatePickerStyle}"  HorizontalAlignment="Left" x:Name="ReimbursementTime" IsEnabled="False" Height="25" Width="118" Margin="5,1,20,4" 
+                                Text="{Binding Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/><!--报销时间-->
+
+
+ <!--<TextBlock HorizontalAlignment="Left"
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALTRAVELTIME}"
+                                VerticalAlignment="Top" Height="20" Margin="5,1,0,4"/>--><!--合计天数-->
+ <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"><!--合计天数、差旅费合计、超标提示合并成一行显示-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+					<ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                           
+                            <!--<TextBox Grid.Column="0" x:Name="txtCOMPUTINGTIME" Text="{Binding COMPUTINGTIME,Mode=TwoWay}" TextWrapping="NoWrap" Height="25" IsReadOnly="True" MaxLength="25" Width="50" Margin="5,1,20,4" KeyDown="TextBox_KeyDown">
+                                <validator:ValidatorService.Validator>
+                                    <validator:RequiredValidator ManagerName="Group1"
+                                                            ErrorMessage="REQUIRED"
+                                                            ErrorMessageParameter="COMPUTINGTIME" />
+                                </validator:ValidatorService.Validator>
+                            </TextBox>--><!--合计天数-->
+                    
+                   <TextBlock Grid.Column="0"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALTRAVELCOSTS}"
+                                RenderTransformOrigin="0.704,2.895"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Stretch" Height="20" Margin="5,1,20,4"/><!--差旅费合计-->
+                   <TextBox x:Name="txtSubTotal"                                     
+                                Margin="5,1,20,4"
+                                Grid.Column="1"
+                                IsReadOnly="True"
+                                Style="{StaticResource TextBoxStyle}"
+								HorizontalAlignment="Left"
+                                Height="25" Width="100" /><!--差旅费合计-->
+								
+								<TextBox x:Name="txtTips"
+                                Margin="5,1,20,4"
+                                Grid.Column="2"
+                                IsReadOnly="True"
+                                Foreground="Red"
+                                BorderBrush="Red"
+                                Visibility="Collapsed"
+								HorizontalAlignment="Left"
+                                Style="{StaticResource TextBoxStyle}"
+                                Height="25" /><!--交通工具超标提示-->
+								
+								<TextBox x:Name="txtAccommodation"
+                                Margin="5,1,20,4"
+                                Grid.Column="3"
+                                IsReadOnly="True"
+                                Foreground="Red"
+                                BorderBrush="Red"
+                                Visibility="Collapsed"
+								HorizontalAlignment="Right"
+                                Style="{StaticResource TextBoxStyle}"
+                                Height="25" /><!--住宿费超标提示-->
+					  </Grid>
+				   
+				    <TextBlock HorizontalAlignment="Left" Grid.Row="6"  Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REIMBURSEMENTSTANDARDS}"
+                            TextWrapping="Wrap"  Height="22"  VerticalAlignment="Top" Margin="5,1,0,4" /><!--报销标准-->
+				    <TextBox Grid.Row="6" Grid.Column="1" x:Name="textStandards" Grid.ColumnSpan="4" AcceptsReturn="True" VerticalScrollBarVisibility="Disabled"  
+						    TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" IsReadOnly="True" />
+
+							<TextBlock HorizontalAlignment="Left"
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYMENTINFO}"
+                            TextWrapping="Wrap"
+                            Height="22"
+                            VerticalAlignment="Top" Margin="5,1,0,4" /><!--支付信息-->
+							<TextBox Grid.Row="7" Grid.Column="1" x:Name="txtPAYMENTINFO" Grid.ColumnSpan="3" 
+					AcceptsReturn="True" Text="" VerticalScrollBarVisibility="Disabled" 
+					TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" /><!--支付信息-->				
+							                
+                    <TextBlock HorizontalAlignment="Left"
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}"
+                            TextWrapping="Wrap"
+                            Height="22"
+                            VerticalAlignment="Top" Margin="5,1,0,4" /><!--备注-->
+							
+							<TextBox Grid.Row="8" Grid.Column="1" x:Name="txtRemark" Grid.ColumnSpan="3" 
+					AcceptsReturn="True" Text="{Binding REMARKS,Mode=TwoWay}" VerticalScrollBarVisibility="Disabled" 
+					TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" /><!--备注-->
+							
+					<TextBlock HorizontalAlignment="Left" x:Name="lblFile"
+                                       Grid.Row="9" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FileUpload}"
+                                       Height="22"
+                                       VerticalAlignment="Top" Margin="5,8,0,4" />
+                <!--<ScrollViewer Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" MaxHeight="200" Margin="0,0,20,4" BorderThickness="0"   VerticalAlignment="Top" HorizontalAlignment="Stretch" >
+
+                    <my:FileControl x:Name="uploadFile" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" MaxHeight="200" Margin="0,0,20,4"/>
+                </ScrollViewer>-->
+                <my:FileControl x:Name="uploadFile" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" MaxWidth="618" MaxHeight="200" Margin="0,0,20,4" HorizontalAlignment="Left"/>
+
+					
+
+                <TextBlock Grid.Row="12"
+                                Grid.Column="1"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=AVAILABLECREDIT}"
+                                RenderTransformOrigin="0.704,2.895"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Stretch" Height="20" Margin="25,0,0,0" Visibility="Collapsed"/><!--可用额度-->
+								
+								<TextBox x:Name="txtAvailableCredit"
+                                Margin="125,1,20,4"
+								Grid.Row="12"
+                                Grid.Column="1"
+                                IsReadOnly="True"
+                                Style="{StaticResource TextBoxStyle}"
+								HorizontalAlignment="Left"
+                                Height="25" Width="100" Visibility="Collapsed" /><!--可用额度-->
+								
+                            <TextBlock Grid.Row="12" Grid.Column="1"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALCOSTOFTRAVELREIMBURSEMENT}"
+                                RenderTransformOrigin="0.704,2.895"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Stretch" Height="20"/><!--报销费用总计-->
+								
+								<TextBox x:Name="txtChargeApplyTotal"
+								Grid.Row="12"
+                                Grid.Column="1"
+                                IsReadOnly="True"
+                                Style="{StaticResource TextBoxStyle}"
+								HorizontalAlignment="Left"
+								Margin="125,1,20,4"
+                                Height="25" Width="100" /><!--报销费用总计-->
+
+                        <TextBlock Grid.Row="10"
+                                Grid.Column="0"
+                                x:Name="lblFees"
+                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=EXPENSEREIMBURSEMENT}"
+                                TextWrapping="Wrap"
+                                VerticalAlignment="Top"
+                                Margin="5,5,0,4"
+                                d:LayoutOverrides="Width" Width="100" /><!--费用报销-->
+					<CheckBox Grid.Row="10" Grid.Column="1" x:Name="fbChkBox" Checked="fbChkBox_Checked" Unchecked="fbChkBox_Unchecked"
+					 Height="23" Margin="5,5,0,4" VerticalAlignment="Center" />
+                    <!--预算控件-->
+                    <Grid Grid.Row="11"
+                            Grid.Column="1"
+                            Margin="0,5,20,2"
+                            Grid.ColumnSpan="3"
+                            x:Name="scvFB"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Visibility="Collapsed">
+                        <fbctr:ChargeApplyControl  x:Name="fbCtr" Margin="5,1,0,4"/>
+                    </Grid>
+                </Grid>
+        </Grid>
+    </Grid>
+</smtLocal:BaseForm>

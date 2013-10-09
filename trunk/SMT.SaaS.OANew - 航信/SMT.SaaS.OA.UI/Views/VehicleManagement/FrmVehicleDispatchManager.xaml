@@ -1,0 +1,137 @@
+﻿<local:BasePage x:Class="SMT.SaaS.OA.UI.Views.VehicleManagement.FrmVehicleDispatchManager" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:local="clr-namespace:SMT.SaaS.OA.UI"        
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"   
+           xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"      
+           xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="FrmVehicleDispatchManager Page">
+    <navigation:Page.Resources>
+        <local:CheckStateConverter x:Key="StateConvert" />
+        <local:CustomDateConverter x:Key="DateConvert" />
+        <local:CompanyInfoConverter x:Key="CompanyConvert" />
+    </navigation:Page.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <smt:ViewTitle x:Name="ViewTitles" Width="auto" VerticalAlignment="Top" Grid.Row="0"></smt:ViewTitle>
+            <controlsToolkit:Expander Style="{StaticResource ExpanderStyle}" IsExpanded="True"  x:Name="controlsToolkitTUV" Grid.Row="1" Header="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  VerticalAlignment="top"  Margin="0,1,0,2" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=Route}" Margin="4" />
+                    <TextBox x:Name="txtRoute" Width="120" Style="{StaticResource TextBoxStyle}"/>                    
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATE}" Margin="4,2,0,2"></dataInput:Label>
+                    <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpStart" Margin="4,1,4,1"></controls:DatePicker>
+                    <dataInput:Label Content="{Binding Converter={StaticResource ResourceConveter}, Source=TO}" Margin="4,2,0,2"></dataInput:Label>
+                    <controls:DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpEnd" Margin="4,1,4,1"></controls:DatePicker>
+                    <Button x:Name="SearchBtn" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}"  Click="SearchBtn_Click" Margin="4,1,10,1" Style="{StaticResource CommonButtonStyle}" />
+                </StackPanel>
+            </controlsToolkit:Expander>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2"/>
+            <Grid Grid.Row="3">
+                <data:DataGrid x:Name="dg" AutoGenerateColumns="False"   Grid.Row="1" Grid.Column="0"  LoadingRow="dg_LoadingRow"    IsReadOnly="True"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Style="{StaticResource DataGridStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn Header="SELECT" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}" Width="28">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image Name="entityLogo" Tag="{Binding REQUIRETITLE}" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="STARTDATE">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0" Width="100">
+                                        <TextBlock Text="{Binding STARTTIME,Converter={StaticResource DateConvert},ConverterParameter=DATE}" VerticalAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="ENDDATE" >
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,0,0" Width="100">
+                                        <TextBlock Text="{Binding ENDTIME,Converter={StaticResource DateConvert},ConverterParameter=DATE}" VerticalAlignment="Center"  TextWrapping="Wrap" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="NumberOfPeople"  Width="80">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding NUM}" VerticalAlignment="Center" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <!--<data:DataGridTemplateColumn Header="Route"  Width="70">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding ROUTE}" VerticalAlignment="Center" ></TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>-->
+                        <data:DataGridTemplateColumn Header="Telephone"  Width="70">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding TEL}" VerticalAlignment="Center" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="OWNERNAME"  Width="70">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding OWNERNAME}" VerticalAlignment="Center" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <!--<data:DataGridTemplateColumn Header="REASON"  Width="70">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding CONTENT}" VerticalAlignment="Center" ></TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>-->
+                        <data:DataGridTemplateColumn Header="CHECKSTATE">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding CHECKSTATE,Converter={StaticResource StateConvert}}" VerticalAlignment="Center" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="Route" Binding="{Binding ROUTE}" IsReadOnly="True" ></data:DataGridTextColumn>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+            </Grid>
+            
+            <smt:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click"  VerticalAlignment="Bottom" Grid.Row="4"></smt:GridPager>
+        </Grid>
+    </Grid>
+</local:BasePage>

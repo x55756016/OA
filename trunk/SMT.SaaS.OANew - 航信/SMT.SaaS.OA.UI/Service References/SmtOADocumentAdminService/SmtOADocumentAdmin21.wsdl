@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Services/OA/SmtOADocumentAdmin.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.BLL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractApprovalRoomInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetContractApprovalRoomInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractApprovalRoomInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractApprovalRoomInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsContractCanBrowser_InputMessage">
+    <wsdl:part name="parameters" element="IsContractCanBrowser" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsContractCanBrowser_OutputMessage">
+    <wsdl:part name="parameters" element="IsContractCanBrowserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetApprovalListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetApprovalListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetApprovalListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetApprovalListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetOrganList_InputMessage">
+    <wsdl:part name="parameters" element="GetOrganList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetOrganList_OutputMessage">
+    <wsdl:part name="parameters" element="GetOrganListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetOrganListByOrganId_InputMessage">
+    <wsdl:part name="parameters" element="GetOrganListByOrganId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetOrganListByOrganId_OutputMessage">
+    <wsdl:part name="parameters" element="GetOrganListByOrganIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseMatsterListByOrganId_InputMessage">
+    <wsdl:part name="parameters" element="GetLicenseMatsterListByOrganId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseMatsterListByOrganId_OutputMessage">
+    <wsdl:part name="parameters" element="GetLicenseMatsterListByOrganIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddOrgan_InputMessage">
+    <wsdl:part name="parameters" element="AddOrgan" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddOrgan_OutputMessage">
+    <wsdl:part name="parameters" element="AddOrganResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistOrgan_InputMessage">
+    <wsdl:part name="parameters" element="IsExistOrgan" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistOrgan_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistOrganResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateOrgan_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOrgan" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateOrgan_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOrganResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteOrgan_InputMessage">
+    <wsdl:part name="parameters" element="DeleteOrgan" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteOrgan_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteOrganResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseListPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetLicenseListPaging" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseListPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetLicenseListPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseListById_InputMessage">
+    <wsdl:part name="parameters" element="GetLicenseListById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseListById_OutputMessage">
+    <wsdl:part name="parameters" element="GetLicenseListByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseDetailList_InputMessage">
+    <wsdl:part name="parameters" element="GetLicenseDetailList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseDetailList_OutputMessage">
+    <wsdl:part name="parameters" element="GetLicenseDetailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddLicenseDetail_InputMessage">
+    <wsdl:part name="parameters" element="AddLicenseDetail" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddLicenseDetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddLicenseDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateLicenseDetail_InputMessage">
+    <wsdl:part name="parameters" element="UpdateLicenseDetail" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateLicenseDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateLicenseDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseBorrowList_InputMessage">
+    <wsdl:part name="parameters" element="GetLicenseBorrowList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseBorrowList_OutputMessage">
+    <wsdl:part name="parameters" element="GetLicenseBorrowListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseBorrowListById_InputMessage">
+    <wsdl:part name="parameters" element="GetLicenseBorrowListById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLicenseBorrowListById_OutputMessage">
+    <wsdl:part name="parameters" element="GetLicenseBorrowListByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddLicenseBorrow_InputMessage">
+    <wsdl:part name="parameters" element="AddLicenseBorrow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddLicenseBorrow_OutputMessage">
+    <wsdl:part name="parameters" element="AddLicenseBorrowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsBorrowed_InputMessage">
+    <wsdl:part name="parameters" element="IsBorrowed" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsBorrowed_OutputMessage">
+    <wsdl:part name="parameters" element="IsBorrowedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateLicenseBorrow_InputMessage">
+    <wsdl:part name="parameters" element="UpdateLicenseBorrow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateLicenseBorrow_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateLicenseBorrowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteLicenseBorrow_InputMessage">
+    <wsdl:part name="parameters" element="DeleteLicenseBorrow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteLicenseBorrow_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteLicenseBorrowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLookupOjbects_InputMessage">
+    <wsdl:part name="parameters" element="GetLookupOjbects" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLookupOjbects_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookupOjbectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetBorrowAppList_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowAppList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetBorrowAppList_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowAppListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_LendOrReturn_InputMessage">
+    <wsdl:part name="parameters" element="LendOrReturn" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_LendOrReturn_OutputMessage">
+    <wsdl:part name="parameters" element="LendOrReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchives_InputMessage">
+    <wsdl:part name="parameters" element="GetArchives" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchives_OutputMessage">
+    <wsdl:part name="parameters" element="GetArchivesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchivesById_InputMessage">
+    <wsdl:part name="parameters" element="GetArchivesById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchivesById_OutputMessage">
+    <wsdl:part name="parameters" element="GetArchivesByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLastArchives_InputMessage">
+    <wsdl:part name="parameters" element="GetLastArchives" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLastArchives_OutputMessage">
+    <wsdl:part name="parameters" element="GetLastArchivesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddArchives_InputMessage">
+    <wsdl:part name="parameters" element="AddArchives" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddArchives_OutputMessage">
+    <wsdl:part name="parameters" element="AddArchivesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateArchives_InputMessage">
+    <wsdl:part name="parameters" element="UpdateArchives" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateArchives_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateArchivesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteArchives_InputMessage">
+    <wsdl:part name="parameters" element="DeleteArchives" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteArchives_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteArchivesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchivesInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetArchivesInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchivesInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetArchivesInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistArchives_InputMessage">
+    <wsdl:part name="parameters" element="IsExistArchives" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistArchives_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistArchivesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchivesCanBorrow_InputMessage">
+    <wsdl:part name="parameters" element="GetArchivesCanBorrow" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchivesCanBorrow_OutputMessage">
+    <wsdl:part name="parameters" element="GetArchivesCanBorrowResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchivesCanBorrowByCondition_InputMessage">
+    <wsdl:part name="parameters" element="GetArchivesCanBorrowByCondition" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetArchivesCanBorrowByCondition_OutputMessage">
+    <wsdl:part name="parameters" element="GetArchivesCanBorrowByConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddArchivesLending_InputMessage">
+    <wsdl:part name="parameters" element="AddArchivesLending" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddArchivesLending_OutputMessage">
+    <wsdl:part name="parameters" element="AddArchivesLendingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateArchivesLending_InputMessage">
+    <wsdl:part name="parameters" element="UpdateArchivesLending" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateArchivesLending_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateArchivesLendingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteArchivesLending_InputMessage">
+    <wsdl:part name="parameters" element="DeleteArchivesLending" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteArchivesLending_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteArchivesLendingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsArchivesCanUpdate_InputMessage">
+    <wsdl:part name="parameters" element="IsArchivesCanUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsArchivesCanUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="IsArchivesCanUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLendingListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetLendingListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLendingListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetLendingListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLendingListByLendingId_InputMessage">
+    <wsdl:part name="parameters" element="GetLendingListByLendingId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetLendingListByLendingId_OutputMessage">
+    <wsdl:part name="parameters" element="GetLendingListByLendingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsArchivesCanBrowser_InputMessage">
+    <wsdl:part name="parameters" element="IsArchivesCanBrowser" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsArchivesCanBrowser_OutputMessage">
+    <wsdl:part name="parameters" element="IsArchivesCanBrowserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddArchivesReturn_InputMessage">
+    <wsdl:part name="parameters" element="AddArchivesReturn" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_AddArchivesReturn_OutputMessage">
+    <wsdl:part name="parameters" element="AddArchivesReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetReturnListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetReturnListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetReturnListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetReturnListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareStandardInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareStandardInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareById_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareById_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareStandardById_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareStandardById_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareStandardByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistWelfareStandard_InputMessage">
+    <wsdl:part name="parameters" element="IsExistWelfareStandard" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistWelfareStandard_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistWelfareStandardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateWelfareStandard_InputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfareStandard" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateWelfareStandard_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfareStandardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteWelfareStandard_InputMessage">
+    <wsdl:part name="parameters" element="DeleteWelfareStandard" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteWelfareStandard_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteWelfareStandardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_WelfareStandardAdd_InputMessage">
+    <wsdl:part name="parameters" element="WelfareStandardAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_WelfareStandardAdd_OutputMessage">
+    <wsdl:part name="parameters" element="WelfareStandardAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsWelfareCanBrowser_InputMessage">
+    <wsdl:part name="parameters" element="IsWelfareCanBrowser" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsWelfareCanBrowser_OutputMessage">
+    <wsdl:part name="parameters" element="IsWelfareCanBrowserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareInformation_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareInformation" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareInformation_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfarePostId_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfarePostId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfarePostId_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfarePostIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateWelfarePaymentDetails_InputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfarePaymentDetails" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateWelfarePaymentDetails_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfarePaymentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfarePaymentDetailsInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfarePaymentDetailsInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfarePaymentDetailsInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfarePaymentDetailsInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetByIdWelfarePaymentDetails_InputMessage">
+    <wsdl:part name="parameters" element="GetByIdWelfarePaymentDetails" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetByIdWelfarePaymentDetails_OutputMessage">
+    <wsdl:part name="parameters" element="GetByIdWelfarePaymentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareByWelfareproID_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareByWelfareproID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareByWelfareproID_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareByWelfareproIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareProvisionInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareProvisionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetProvisionById_InputMessage">
+    <wsdl:part name="parameters" element="GetProvisionById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetProvisionById_OutputMessage">
+    <wsdl:part name="parameters" element="GetProvisionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareProvisionById_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareProvisionById_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistWelfareProvision_InputMessage">
+    <wsdl:part name="parameters" element="IsExistWelfareProvision" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistWelfareProvision_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistWelfareProvisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateWelfareProvision_InputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfareProvision" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateWelfareProvision_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateWelfareProvisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteWelfareProvision_InputMessage">
+    <wsdl:part name="parameters" element="DeleteWelfareProvision" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteWelfareProvision_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteWelfareProvisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_WelfareProvisionAdd_InputMessage">
+    <wsdl:part name="parameters" element="WelfareProvisionAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_WelfareProvisionAdd_OutputMessage">
+    <wsdl:part name="parameters" element="WelfareProvisionAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareProvisionListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetWelfareProvisionListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetWelfareProvisionListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeById_InputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeById_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistContractType_InputMessage">
+    <wsdl:part name="parameters" element="IsExistContractType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistContractType_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistContractTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateContraType_InputMessage">
+    <wsdl:part name="parameters" element="UpdateContraType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateContraType_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateContraTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteContraType_InputMessage">
+    <wsdl:part name="parameters" element="DeleteContraType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteContraType_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteContraTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_ContractTypeAdd_InputMessage">
+    <wsdl:part name="parameters" element="ContractTypeAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_ContractTypeAdd_OutputMessage">
+    <wsdl:part name="parameters" element="ContractTypeAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeRoomInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeRoomInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeRoomInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeRoomInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeTemplateNameInfosByContractType_InputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeTemplateNameInfosByContractType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeTemplateNameInfosByContractType_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeTemplateNameInfosByContractTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeNameInfosToCombox_InputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeNameInfosToCombox" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeNameInfosToCombox_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeNameInfosToComboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTemplateInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetContractTemplateInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTemplateInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractTemplateInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTemplateById_InputMessage">
+    <wsdl:part name="parameters" element="GetContractTemplateById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTemplateById_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractTemplateByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistContractTemplate_InputMessage">
+    <wsdl:part name="parameters" element="IsExistContractTemplate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistContractTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistContractTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateContraTemplate_InputMessage">
+    <wsdl:part name="parameters" element="UpdateContraTemplate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateContraTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateContraTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteContraTemplate_InputMessage">
+    <wsdl:part name="parameters" element="DeleteContraTemplate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteContraTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteContraTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_ContractTemplateAdd_InputMessage">
+    <wsdl:part name="parameters" element="ContractTemplateAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_ContractTemplateAdd_OutputMessage">
+    <wsdl:part name="parameters" element="ContractTemplateAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeTemplateNameByContractTypeInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeTemplateNameByContractTypeInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractTypeTemplateNameByContractTypeInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractTypeTemplateNameByContractTypeInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractApprovalInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetContractApprovalInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_GetContractApprovalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetContractApprovalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistContractApproval_InputMessage">
+    <wsdl:part name="parameters" element="IsExistContractApproval" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_IsExistContractApproval_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistContractApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateContraApproval_InputMessage">
+    <wsdl:part name="parameters" element="UpdateContraApproval" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_UpdateContraApproval_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateContraApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteContraApproval_InputMessage">
+    <wsdl:part name="parameters" element="DeleteContraApproval" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_DeleteContraApproval_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteContraApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_ContractApprovalAdd_InputMessage">
+    <wsdl:part name="parameters" element="ContractApprovalAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOADocumentAdmin_ContractApprovalAdd_OutputMessage">
+    <wsdl:part name="parameters" element="ContractApprovalAddResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SmtOADocumentAdmin">
+    <wsdl:operation name="GetContractApprovalRoomInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractApprovalRoomInfosListBySearch" message="SmtOADocumentAdmin_GetContractApprovalRoomInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractApprovalRoomInfosListBySearchResponse" message="SmtOADocumentAdmin_GetContractApprovalRoomInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsContractCanBrowser">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsContractCanBrowser" message="SmtOADocumentAdmin_IsContractCanBrowser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsContractCanBrowserResponse" message="SmtOADocumentAdmin_IsContractCanBrowser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalListByUserId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetApprovalListByUserId" message="SmtOADocumentAdmin_GetApprovalListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetApprovalListByUserIdResponse" message="SmtOADocumentAdmin_GetApprovalListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DoWork" message="SmtOADocumentAdmin_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DoWorkResponse" message="SmtOADocumentAdmin_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganList">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetOrganList" message="SmtOADocumentAdmin_GetOrganList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetOrganListResponse" message="SmtOADocumentAdmin_GetOrganList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganListByOrganId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetOrganListByOrganId" message="SmtOADocumentAdmin_GetOrganListByOrganId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetOrganListByOrganIdResponse" message="SmtOADocumentAdmin_GetOrganListByOrganId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseMatsterListByOrganId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseMatsterListByOrganId" message="SmtOADocumentAdmin_GetLicenseMatsterListByOrganId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseMatsterListByOrganIdResponse" message="SmtOADocumentAdmin_GetLicenseMatsterListByOrganId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrgan">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/AddOrgan" message="SmtOADocumentAdmin_AddOrgan_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/AddOrganResponse" message="SmtOADocumentAdmin_AddOrgan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistOrgan">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsExistOrgan" message="SmtOADocumentAdmin_IsExistOrgan_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsExistOrganResponse" message="SmtOADocumentAdmin_IsExistOrgan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrgan">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateOrgan" message="SmtOADocumentAdmin_UpdateOrgan_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateOrganResponse" message="SmtOADocumentAdmin_UpdateOrgan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrgan">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteOrgan" message="SmtOADocumentAdmin_DeleteOrgan_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteOrganResponse" message="SmtOADocumentAdmin_DeleteOrgan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseListPaging">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseListPaging" message="SmtOADocumentAdmin_GetLicenseListPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseListPagingResponse" message="SmtOADocumentAdmin_GetLicenseListPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseListById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseListById" message="SmtOADocumentAdmin_GetLicenseListById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseListByIdResponse" message="SmtOADocumentAdmin_GetLicenseListById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseDetailList">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseDetailList" message="SmtOADocumentAdmin_GetLicenseDetailList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseDetailListResponse" message="SmtOADocumentAdmin_GetLicenseDetailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLicenseDetail">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/AddLicenseDetail" message="SmtOADocumentAdmin_AddLicenseDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/AddLicenseDetailResponse" message="SmtOADocumentAdmin_AddLicenseDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLicenseDetail">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateLicenseDetail" message="SmtOADocumentAdmin_UpdateLicenseDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateLicenseDetailResponse" message="SmtOADocumentAdmin_UpdateLicenseDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseBorrowList">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseBorrowList" message="SmtOADocumentAdmin_GetLicenseBorrowList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseBorrowListResponse" message="SmtOADocumentAdmin_GetLicenseBorrowList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseBorrowListById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseBorrowListById" message="SmtOADocumentAdmin_GetLicenseBorrowListById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLicenseBorrowListByIdResponse" message="SmtOADocumentAdmin_GetLicenseBorrowListById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLicenseBorrow">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/AddLicenseBorrow" message="SmtOADocumentAdmin_AddLicenseBorrow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/AddLicenseBorrowResponse" message="SmtOADocumentAdmin_AddLicenseBorrow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsBorrowed">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsBorrowed" message="SmtOADocumentAdmin_IsBorrowed_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsBorrowedResponse" message="SmtOADocumentAdmin_IsBorrowed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLicenseBorrow">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateLicenseBorrow" message="SmtOADocumentAdmin_UpdateLicenseBorrow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateLicenseBorrowResponse" message="SmtOADocumentAdmin_UpdateLicenseBorrow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLicenseBorrow">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteLicenseBorrow" message="SmtOADocumentAdmin_DeleteLicenseBorrow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteLicenseBorrowResponse" message="SmtOADocumentAdmin_DeleteLicenseBorrow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupOjbects">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLookupOjbects" message="SmtOADocumentAdmin_GetLookupOjbects_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLookupOjbectsResponse" message="SmtOADocumentAdmin_GetLookupOjbects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowAppList">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetBorrowAppList" message="SmtOADocumentAdmin_GetBorrowAppList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetBorrowAppListResponse" message="SmtOADocumentAdmin_GetBorrowAppList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LendOrReturn">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/LendOrReturn" message="SmtOADocumentAdmin_LendOrReturn_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/LendOrReturnResponse" message="SmtOADocumentAdmin_LendOrReturn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchives">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetArchives" message="SmtOADocumentAdmin_GetArchives_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesResponse" message="SmtOADocumentAdmin_GetArchives_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivesById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesById" message="SmtOADocumentAdmin_GetArchivesById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesByIdResponse" message="SmtOADocumentAdmin_GetArchivesById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastArchives">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLastArchives" message="SmtOADocumentAdmin_GetLastArchives_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLastArchivesResponse" message="SmtOADocumentAdmin_GetLastArchives_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddArchives">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/AddArchives" message="SmtOADocumentAdmin_AddArchives_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/AddArchivesResponse" message="SmtOADocumentAdmin_AddArchives_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArchives">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateArchives" message="SmtOADocumentAdmin_UpdateArchives_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateArchivesResponse" message="SmtOADocumentAdmin_UpdateArchives_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArchives">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteArchives" message="SmtOADocumentAdmin_DeleteArchives_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteArchivesResponse" message="SmtOADocumentAdmin_DeleteArchives_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivesInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesInfosListBySearch" message="SmtOADocumentAdmin_GetArchivesInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesInfosListBySearchResponse" message="SmtOADocumentAdmin_GetArchivesInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistArchives">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsExistArchives" message="SmtOADocumentAdmin_IsExistArchives_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsExistArchivesResponse" message="SmtOADocumentAdmin_IsExistArchives_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivesCanBorrow">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesCanBorrow" message="SmtOADocumentAdmin_GetArchivesCanBorrow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesCanBorrowResponse" message="SmtOADocumentAdmin_GetArchivesCanBorrow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivesCanBorrowByCondition">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesCanBorrowByCondition" message="SmtOADocumentAdmin_GetArchivesCanBorrowByCondition_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetArchivesCanBorrowByConditionResponse" message="SmtOADocumentAdmin_GetArchivesCanBorrowByCondition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddArchivesLending">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/AddArchivesLending" message="SmtOADocumentAdmin_AddArchivesLending_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/AddArchivesLendingResponse" message="SmtOADocumentAdmin_AddArchivesLending_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArchivesLending">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateArchivesLending" message="SmtOADocumentAdmin_UpdateArchivesLending_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateArchivesLendingResponse" message="SmtOADocumentAdmin_UpdateArchivesLending_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArchivesLending">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteArchivesLending" message="SmtOADocumentAdmin_DeleteArchivesLending_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteArchivesLendingResponse" message="SmtOADocumentAdmin_DeleteArchivesLending_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsArchivesCanUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsArchivesCanUpdate" message="SmtOADocumentAdmin_IsArchivesCanUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsArchivesCanUpdateResponse" message="SmtOADocumentAdmin_IsArchivesCanUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLendingListByUserId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLendingListByUserId" message="SmtOADocumentAdmin_GetLendingListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLendingListByUserIdResponse" message="SmtOADocumentAdmin_GetLendingListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLendingListByLendingId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetLendingListByLendingId" message="SmtOADocumentAdmin_GetLendingListByLendingId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetLendingListByLendingIdResponse" message="SmtOADocumentAdmin_GetLendingListByLendingId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsArchivesCanBrowser">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsArchivesCanBrowser" message="SmtOADocumentAdmin_IsArchivesCanBrowser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsArchivesCanBrowserResponse" message="SmtOADocumentAdmin_IsArchivesCanBrowser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddArchivesReturn">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/AddArchivesReturn" message="SmtOADocumentAdmin_AddArchivesReturn_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/AddArchivesReturnResponse" message="SmtOADocumentAdmin_AddArchivesReturn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReturnListByUserId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetReturnListByUserId" message="SmtOADocumentAdmin_GetReturnListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetReturnListByUserIdResponse" message="SmtOADocumentAdmin_GetReturnListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareStandardInfo">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareStandardInfo" message="SmtOADocumentAdmin_GetWelfareStandardInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareStandardInfoResponse" message="SmtOADocumentAdmin_GetWelfareStandardInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareById" message="SmtOADocumentAdmin_GetWelfareById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareByIdResponse" message="SmtOADocumentAdmin_GetWelfareById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareStandardById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareStandardById" message="SmtOADocumentAdmin_GetWelfareStandardById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareStandardByIdResponse" message="SmtOADocumentAdmin_GetWelfareStandardById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistWelfareStandard">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsExistWelfareStandard" message="SmtOADocumentAdmin_IsExistWelfareStandard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsExistWelfareStandardResponse" message="SmtOADocumentAdmin_IsExistWelfareStandard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWelfareStandard">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateWelfareStandard" message="SmtOADocumentAdmin_UpdateWelfareStandard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateWelfareStandardResponse" message="SmtOADocumentAdmin_UpdateWelfareStandard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWelfareStandard">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteWelfareStandard" message="SmtOADocumentAdmin_DeleteWelfareStandard_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteWelfareStandardResponse" message="SmtOADocumentAdmin_DeleteWelfareStandard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WelfareStandardAdd">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/WelfareStandardAdd" message="SmtOADocumentAdmin_WelfareStandardAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/WelfareStandardAddResponse" message="SmtOADocumentAdmin_WelfareStandardAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsWelfareCanBrowser">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsWelfareCanBrowser" message="SmtOADocumentAdmin_IsWelfareCanBrowser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsWelfareCanBrowserResponse" message="SmtOADocumentAdmin_IsWelfareCanBrowser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareListByUserId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareListByUserId" message="SmtOADocumentAdmin_GetWelfareListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareListByUserIdResponse" message="SmtOADocumentAdmin_GetWelfareListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareInformation">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareInformation" message="SmtOADocumentAdmin_GetWelfareInformation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareInformationResponse" message="SmtOADocumentAdmin_GetWelfareInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfarePostId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfarePostId" message="SmtOADocumentAdmin_GetWelfarePostId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfarePostIdResponse" message="SmtOADocumentAdmin_GetWelfarePostId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWelfarePaymentDetails">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateWelfarePaymentDetails" message="SmtOADocumentAdmin_UpdateWelfarePaymentDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateWelfarePaymentDetailsResponse" message="SmtOADocumentAdmin_UpdateWelfarePaymentDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfarePaymentDetailsInfos">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfarePaymentDetailsInfos" message="SmtOADocumentAdmin_GetWelfarePaymentDetailsInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfarePaymentDetailsInfosResponse" message="SmtOADocumentAdmin_GetWelfarePaymentDetailsInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByIdWelfarePaymentDetails">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetByIdWelfarePaymentDetails" message="SmtOADocumentAdmin_GetByIdWelfarePaymentDetails_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetByIdWelfarePaymentDetailsResponse" message="SmtOADocumentAdmin_GetByIdWelfarePaymentDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareByWelfareproID">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareByWelfareproID" message="SmtOADocumentAdmin_GetWelfareByWelfareproID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareByWelfareproIDResponse" message="SmtOADocumentAdmin_GetWelfareByWelfareproID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareProvisionInfo">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareProvisionInfo" message="SmtOADocumentAdmin_GetWelfareProvisionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareProvisionInfoResponse" message="SmtOADocumentAdmin_GetWelfareProvisionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvisionById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetProvisionById" message="SmtOADocumentAdmin_GetProvisionById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetProvisionByIdResponse" message="SmtOADocumentAdmin_GetProvisionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareProvisionById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareProvisionById" message="SmtOADocumentAdmin_GetWelfareProvisionById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareProvisionByIdResponse" message="SmtOADocumentAdmin_GetWelfareProvisionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistWelfareProvision">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsExistWelfareProvision" message="SmtOADocumentAdmin_IsExistWelfareProvision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsExistWelfareProvisionResponse" message="SmtOADocumentAdmin_IsExistWelfareProvision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWelfareProvision">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateWelfareProvision" message="SmtOADocumentAdmin_UpdateWelfareProvision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateWelfareProvisionResponse" message="SmtOADocumentAdmin_UpdateWelfareProvision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWelfareProvision">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteWelfareProvision" message="SmtOADocumentAdmin_DeleteWelfareProvision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteWelfareProvisionResponse" message="SmtOADocumentAdmin_DeleteWelfareProvision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WelfareProvisionAdd">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/WelfareProvisionAdd" message="SmtOADocumentAdmin_WelfareProvisionAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/WelfareProvisionAddResponse" message="SmtOADocumentAdmin_WelfareProvisionAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWelfareProvisionListByUserId">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareProvisionListByUserId" message="SmtOADocumentAdmin_GetWelfareProvisionListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetWelfareProvisionListByUserIdResponse" message="SmtOADocumentAdmin_GetWelfareProvisionListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTypeInfo">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeInfo" message="SmtOADocumentAdmin_GetContractTypeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeInfoResponse" message="SmtOADocumentAdmin_GetContractTypeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTypeById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeById" message="SmtOADocumentAdmin_GetContractTypeById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeByIdResponse" message="SmtOADocumentAdmin_GetContractTypeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistContractType">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsExistContractType" message="SmtOADocumentAdmin_IsExistContractType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsExistContractTypeResponse" message="SmtOADocumentAdmin_IsExistContractType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContraType">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateContraType" message="SmtOADocumentAdmin_UpdateContraType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateContraTypeResponse" message="SmtOADocumentAdmin_UpdateContraType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContraType">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteContraType" message="SmtOADocumentAdmin_DeleteContraType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteContraTypeResponse" message="SmtOADocumentAdmin_DeleteContraType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContractTypeAdd">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/ContractTypeAdd" message="SmtOADocumentAdmin_ContractTypeAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/ContractTypeAddResponse" message="SmtOADocumentAdmin_ContractTypeAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTypeRoomInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeRoomInfosListBySearch" message="SmtOADocumentAdmin_GetContractTypeRoomInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeRoomInfosListBySearchResponse" message="SmtOADocumentAdmin_GetContractTypeRoomInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTypeTemplateNameInfosByContractType">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeTemplateNameInfosByContractType" message="SmtOADocumentAdmin_GetContractTypeTemplateNameInfosByContractType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeTemplateNameInfosByContractTypeResponse" message="SmtOADocumentAdmin_GetContractTypeTemplateNameInfosByContractType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTypeNameInfosToCombox">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeNameInfosToCombox" message="SmtOADocumentAdmin_GetContractTypeNameInfosToCombox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeNameInfosToComboxResponse" message="SmtOADocumentAdmin_GetContractTypeNameInfosToCombox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTemplateInfo">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractTemplateInfo" message="SmtOADocumentAdmin_GetContractTemplateInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractTemplateInfoResponse" message="SmtOADocumentAdmin_GetContractTemplateInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTemplateById">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractTemplateById" message="SmtOADocumentAdmin_GetContractTemplateById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractTemplateByIdResponse" message="SmtOADocumentAdmin_GetContractTemplateById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistContractTemplate">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsExistContractTemplate" message="SmtOADocumentAdmin_IsExistContractTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsExistContractTemplateResponse" message="SmtOADocumentAdmin_IsExistContractTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContraTemplate">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateContraTemplate" message="SmtOADocumentAdmin_UpdateContraTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateContraTemplateResponse" message="SmtOADocumentAdmin_UpdateContraTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContraTemplate">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteContraTemplate" message="SmtOADocumentAdmin_DeleteContraTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteContraTemplateResponse" message="SmtOADocumentAdmin_DeleteContraTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContractTemplateAdd">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/ContractTemplateAdd" message="SmtOADocumentAdmin_ContractTemplateAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/ContractTemplateAddResponse" message="SmtOADocumentAdmin_ContractTemplateAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTypeTemplateNameByContractTypeInfos">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeTemplateNameByContractTypeInfos" message="SmtOADocumentAdmin_GetContractTypeTemplateNameByContractTypeInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractTypeTemplateNameByContractTypeInfosResponse" message="SmtOADocumentAdmin_GetContractTypeTemplateNameByContractTypeInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractApprovalInfo">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/GetContractApprovalInfo" message="SmtOADocumentAdmin_GetContractApprovalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/GetContractApprovalInfoResponse" message="SmtOADocumentAdmin_GetContractApprovalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistContractApproval">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/IsExistContractApproval" message="SmtOADocumentAdmin_IsExistContractApproval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/IsExistContractApprovalResponse" message="SmtOADocumentAdmin_IsExistContractApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContraApproval">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/UpdateContraApproval" message="SmtOADocumentAdmin_UpdateContraApproval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/UpdateContraApprovalResponse" message="SmtOADocumentAdmin_UpdateContraApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContraApproval">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/DeleteContraApproval" message="SmtOADocumentAdmin_DeleteContraApproval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/DeleteContraApprovalResponse" message="SmtOADocumentAdmin_DeleteContraApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContractApprovalAdd">
+      <wsdl:input wsaw:Action="urn:SmtOADocumentAdmin/ContractApprovalAdd" message="SmtOADocumentAdmin_ContractApprovalAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOADocumentAdmin/ContractApprovalAddResponse" message="SmtOADocumentAdmin_ContractApprovalAdd_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

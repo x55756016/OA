@@ -1,0 +1,73 @@
+﻿<controls:ChildWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="SMT.SaaS.OA.UI.Views.Meeting.MyMeetingDetailInfo"
+    x:Name="ChildWinkow" 
+    xmlns:richtext="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
+     Title="MyMeetingDetailInfo" mc:Ignorable="d">
+    
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.054*"/>
+            <RowDefinition Height="0.052*"/>
+            <RowDefinition Height="0.052*"/>
+            <RowDefinition Height="0.054*"/>
+            <RowDefinition Height="0.052*"/>
+            <RowDefinition Height="0.083*"/>
+            <RowDefinition Height="0.204*"/>
+            <RowDefinition Height="0.056*"/>
+            <RowDefinition Height="0.208*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.044*"/>
+            <RowDefinition Height="0.042*"/>
+            <RowDefinition Height="0.048*"/>
+            <RowDefinition Height="Auto" MinHeight="35" />
+        </Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+		    <ColumnDefinition Width="auto"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+        <Button x:Name="CancelButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CONFIRM}" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="13"/>
+        <Button x:Name="OKButton" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCELBUTTON}" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,146,0" Grid.Row="13" Grid.Column="1"/>
+        <TextBlock Margin="0,4,10,4" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGTITLE}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        <TextBlock Margin="0,4,10,0" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGROOM}" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <TextBlock Margin="0,4,10,4" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTTIME}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        <TextBlock Margin="0,4,10,4" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENDTIME}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        <TextBlock Margin="0,13,10,8" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGMEMBER}" TextWrapping="Wrap" HorizontalAlignment="Right" Width="44"/>
+        <TextBlock Margin="0,4,10,25" Grid.Row="6" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGCONTENT}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        <TextBlock Margin="0,4,10,4" Grid.Row="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MYACCESSORY}" TextWrapping="Wrap" HorizontalAlignment="Right"/>
+        <TextBlock Margin="0,8,4,0" Grid.Row="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MYMEETINGCONTENT}" TextWrapping="Wrap" HorizontalAlignment="Right" Width="53" Height="25" VerticalAlignment="Top"/>
+        <TextBlock Margin="0,0,10,0" Grid.Row="9" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKSTATE}" TextWrapping="Wrap" HorizontalAlignment="Right" d:LayoutOverrides="VerticalAlignment"/>
+        <TextBlock Margin="0,4,10,0" Grid.Row="10" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISCANCEL}" TextWrapping="Wrap" Height="14" VerticalAlignment="Top" HorizontalAlignment="Right" Width="53"/>
+        <TextBlock x:Name="tblMeetingTitle" Margin="8,4,0,0" Grid.Column="1" Grid.Row="1" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tblMeetingRoom" Margin="8,4,0,4" Grid.Column="1" Grid.Row="2" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="tblStartTime" Margin="8,4,0,4" Grid.Column="1" Grid.Row="3" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="tblEndTime" Margin="8,4,0,4" Grid.Column="1" Grid.Row="4" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="tblMeetingMember" Margin="8,8,0,8" Grid.Column="1" Grid.Row="5" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="6" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <!--<TextBlock x:Name="tblMeetingContent" Margin="8,8,17,8" Grid.Column="1" Grid.Row="6" MinHeight="150" TextWrapping="Wrap"/>-->
+            <richtext:RichMainPage 
+                x:Name="tblMeetingContent"
+                MinHeight="150"
+                Margin="8,8,17,8">
+            </richtext:RichMainPage>
+        </ScrollViewer>
+        <TextBlock x:Name="tblMyAccessory" Margin="8,4,0,4" Grid.Column="1" Grid.Row="7" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="8" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <TextBlock x:Name="tblMyMeetingContent" Margin="8,8,17,8" Grid.Column="1" Grid.Row="8" MinHeight="150" TextWrapping="Wrap"/>
+            
+        </ScrollViewer>
+        
+        <TextBlock x:Name="tblCheckState" Margin="8,2,197,2" Grid.Column="1" Grid.Row="9" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment"/>
+        <TextBlock x:Name="tblIsCancel" Margin="8,2,135,2" Grid.Column="1" Grid.Row="10" Text="TextBlock" TextWrapping="Wrap"/>
+        <TextBlock Margin="56,4,123,4" Grid.Column="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MEETINGCONTENT}" TextWrapping="Wrap" Foreground="#FFF80808" FontSize="16"/>
+        <TextBlock Margin="0,0,10,0" Grid.Row="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONTENTUPLOADTME}" TextWrapping="Wrap" HorizontalAlignment="Right" Width="70"/>
+        <TextBlock Margin="0,4,10,0" Grid.Row="12" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ACCESSORYUPLOADTIME}" TextWrapping="Wrap" HorizontalAlignment="Right" Width="70"/>
+        <TextBlock x:Name="tblMycontentTime" HorizontalAlignment="Left" Margin="8,0,0,0" Width="168" Grid.Column="1" Grid.Row="11" Text="TextBlock" TextWrapping="Wrap" Height="18" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="tblMyaccessoryTime" HorizontalAlignment="Left" Margin="8,0,0,0" Width="168" Grid.Column="1" Grid.Row="12" Text="TextBlock" TextWrapping="Wrap"/>
+    </Grid>
+    
+</controls:ChildWindow>
