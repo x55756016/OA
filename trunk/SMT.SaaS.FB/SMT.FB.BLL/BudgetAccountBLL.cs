@@ -5488,15 +5488,24 @@ namespace SMT.FB.BLL
                 #endregion
 
                 #region 月度预算汇总单提交时判断所做预算是否大于年度结余（审核通过时也会判断）
-                if (entity.GetType() == typeof(T_FB_DEPTBUDGETSUMMASTER))
+                try
                 {
-                    strMsg = CheckRuleDeptBudgetSum(entity as T_FB_DEPTBUDGETSUMMASTER);
-                    if (!string.IsNullOrWhiteSpace(strMsg))
+                    if (entity.GetType() == typeof(T_FB_DEPTBUDGETSUMMASTER) && checkStates != CheckStates.UnApproved)
                     {
-                        result.Exception = strMsg;
-                        return result;
+                        T_FB_DEPTBUDGETSUMMASTER ents = new T_FB_DEPTBUDGETSUMMASTER();
+                        EntityObjectExtension.CloneEntity<T_FB_DEPTBUDGETSUMMASTER>(entity as T_FB_DEPTBUDGETSUMMASTER, ents);
+                        strMsg = CheckRuleDeptBudgetSum(ents);
+                        if (!string.IsNullOrWhiteSpace(strMsg))
+                        {
+                            result.Exception = strMsg;
+                            return result;
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    SystemBLL.Debug("月度预算汇总单提交时判断所做预算是否大于年度结余出错：" + ex.ToString());
+                }              
                 #endregion
 
 
