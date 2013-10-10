@@ -192,7 +192,8 @@ namespace SmtPortalSetUp
                                d.departmentid,
                                c.companyid,
                                et.entrydate 入职日期,
-                               et.checkstate 入职业审核状态
+                               et.checkstate 入职业审核状态,
+                               e.idnumber
                           from smthrm.t_hr_employee e
                          inner join smthrm.t_hr_employeepost ep
                             on e.employeeid = ep.employeeid

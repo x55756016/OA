@@ -603,6 +603,7 @@ namespace SmtPortalSetUp
             GlobalParameters.employeeName = txtEmployeeName.Text;
             GlobalParameters.employeeid = Txtid.Text;
             GlobalParameters.employeeMasterCompanyid = txtCompanyid.Text;
+            GlobalParameters.employeeName = txtEmployeeName.Text;
             AttendEmploeeBalance form = GlobalParameters.fromEmployeeBalance;
             if (form == null) form = new AttendEmploeeBalance();
             form.Show();
