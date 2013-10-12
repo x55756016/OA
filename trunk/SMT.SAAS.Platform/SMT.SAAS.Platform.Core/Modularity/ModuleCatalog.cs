@@ -447,16 +447,26 @@ namespace SMT.SAAS.Platform.Core.Modularity
             var moduleNames = modules.Select(m => m.ModuleName).ToList();
             foreach (ModuleInfo moduleInfo in modules)
             {
-                if (moduleInfo.ModuleType != null &&
-                    moduleInfo.ModuleType.ToLower().Contains("mvc"))
+                try
                 {
-                    continue;
+                    if (moduleInfo.ModuleType != null &&
+                        moduleInfo.ModuleType.ToLower().Contains("mvc"))
+                    {
+                        continue;
+                    }
+                    if (moduleInfo.DependsOn != null && moduleInfo.DependsOn.Except(moduleNames).Any())
+                    {
+                        string msg = moduleInfo.ModuleName + "µÄ";
+                        throw new ModularityException(
+                            moduleInfo.ModuleName,
+                            String.Format(CultureInfo.CurrentCulture, Resources.ModuleDependenciesNotMetInGroup, moduleInfo.ModuleName));
+                    }
                 }
-                if (moduleInfo.DependsOn != null && moduleInfo.DependsOn.Except(moduleNames).Any())
+                catch (Exception ex)
                 {
-                    throw new ModularityException(
-                        moduleInfo.ModuleName,
-                        String.Format(CultureInfo.CurrentCulture, Resources.ModuleDependenciesNotMetInGroup, moduleInfo.ModuleName));
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
+                    SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                    continue;
                 }
             }
         }
