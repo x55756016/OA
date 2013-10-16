@@ -95,6 +95,7 @@ namespace SmtPortalSetUp
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'个人' Asingtype
                             ,s.attendancesolutionid
+                            ,a.attendancesolutionasignid
                             from smthrm.t_hr_attendancesolutionasign a
                             inner join smthrm.t_hr_attendancesolution s on a.attendancesolutionid=s.attendancesolutionid
                             inner  join smthrm.t_hr_employee e on instr(a.assignedobjectid,e.employeeid)>0
@@ -111,6 +112,7 @@ namespace SmtPortalSetUp
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'岗位' Asingtype
                             ,s.attendancesolutionid
+                            ,a.attendancesolutionasignid
                             from smthrm.t_hr_attendancesolutionasign a
                             inner join smthrm.t_hr_attendancesolution s on a.attendancesolutionid=s.attendancesolutionid
                             inner  join smthrm.t_hr_post p on instr(a.assignedobjectid,p.postid)>0
@@ -143,6 +145,7 @@ namespace SmtPortalSetUp
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'部门' Asingtype
                             ,s.attendancesolutionid
+                            ,a.attendancesolutionasignid
                             from smthrm.t_hr_attendancesolutionasign a
                             inner join smthrm.t_hr_attendancesolution s on a.attendancesolutionid=s.attendancesolutionid
                             inner  join smthrm.t_hr_department d on instr(a.assignedobjectid,d.departmentid)>0
@@ -174,6 +177,7 @@ namespace SmtPortalSetUp
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'公司' Asingtype
                             ,s.attendancesolutionid
+                            ,a.attendancesolutionasignid
                             from smthrm.t_hr_attendancesolutionasign a
                             inner join smthrm.t_hr_attendancesolution s on a.attendancesolutionid=s.attendancesolutionid
                             inner  join smthrm.t_hr_company c on instr(a.assignedobjectid,c.companyid)>0
