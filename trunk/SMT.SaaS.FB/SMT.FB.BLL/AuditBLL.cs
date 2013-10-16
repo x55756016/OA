@@ -498,6 +498,8 @@ namespace SMT.FB.BLL
             //预算预算，修改直接提交后fbEntity.ReferencedEntity[0].FBEntity.Entity的数据为没有更改的值，这时要加上修改的数据
             if (entityInfo.EntityCode == "T_FB_DEPTBUDGETAPPLYMASTER")//月度部门预算
             {
+                #region 月度预算，修改直接提交后fbEntity.ReferencedEntity[0].FBEntity.Entity的数据为没有更改的值，这时要加上修改的数据
+
                 var tempEntity = fbEntity.ReferencedEntity[0].FBEntity.CollectionEntity[0].FBEntities;
                 if (tempEntity.Count > 0)
                 {
@@ -515,9 +517,11 @@ namespace SMT.FB.BLL
                             ((T_FB_DEPTBUDGETAPPLYMASTER)(ent)).T_FB_DEPTBUDGETAPPLYDETAIL.Add(depDetail);//手动加进去
                         });
                 }
+                #endregion
             }
             else if (entityInfo.EntityCode == "T_FB_DEPTBUDGETADDMASTER")//月度预算增补
             {
+                #region 月度预算增补
                 var tempEntity = fbEntity.ReferencedEntity[0].FBEntity.CollectionEntity[0].FBEntities;
                 if (tempEntity.Count > 0)
                 {
@@ -527,6 +531,43 @@ namespace SMT.FB.BLL
                         ((SMT_FB_EFModel.T_FB_DEPTBUDGETADDMASTER)(ent)).T_FB_DEPTBUDGETADDDETAIL.Add(depDetail);
                     });
                 }
+                #endregion
+            }
+            else if (entityInfo.EntityCode == "T_FB_COMPANYBUDGETMODMASTER")
+            {
+                #region 年度增补
+                var tempEntity = fbEntity.ReferencedEntity[0].FBEntity.CollectionEntity[0].FBEntities;
+                if (tempEntity.Count > 0)
+                {
+                    tempEntity.ForEach(item =>
+                    {
+                        SMT_FB_EFModel.T_FB_COMPANYBUDGETMODDETAIL depDetail = item.Entity as T_FB_COMPANYBUDGETMODDETAIL;
+                        ((SMT_FB_EFModel.T_FB_COMPANYBUDGETMODMASTER)(ent)).T_FB_COMPANYBUDGETMODDETAIL.Add(depDetail);
+                    });
+                }
+                #endregion
+            }
+            else if (entityInfo.EntityCode == "T_FB_COMPANYBUDGETAPPLYMASTER")
+            {
+                #region 年度预算
+                var tempEntity = fbEntity.ReferencedEntity[0].FBEntity.CollectionEntity[0].FBEntities;
+                if (tempEntity.Count > 0)
+                {
+                    tempEntity.ForEach(item =>
+                    {
+                        T_FB_COMPANYBUDGETAPPLYDETAIL compDetail = item.Entity as T_FB_COMPANYBUDGETAPPLYDETAIL;
+                        QueryEntityBLL bll = new QueryEntityBLL();
+                        QueryExpression qeDetail = QueryExpression.Equal("COMPANYBUDGETAPPLYDETAILID", compDetail.COMPANYBUDGETAPPLYDETAILID);
+                        qeDetail.QueryType = "T_FB_COMPANYBUDGETAPPLYDETAIL";
+                        qeDetail.Include = new string[] { typeof(T_FB_SUBJECT).Name };
+                        var comp = bll.InnerGetEntities<T_FB_COMPANYBUDGETAPPLYDETAIL>(qeDetail).FirstOrDefault();//部门分配明细
+                        compDetail.T_FB_SUBJECT = new T_FB_SUBJECT();
+                        compDetail.T_FB_SUBJECT.SUBJECTCODE = comp.T_FB_SUBJECT.SUBJECTCODE;
+                        compDetail.T_FB_SUBJECT.SUBJECTNAME = comp.T_FB_SUBJECT.SUBJECTNAME;
+                        ((T_FB_COMPANYBUDGETAPPLYMASTER)(ent)).T_FB_COMPANYBUDGETAPPLYDETAIL.Add(compDetail);//手动加进去
+                    });
+                }
+                #endregion
             }
             #region 部门分配没有去到字表数据，这里组一下
             if (entityInfo.EntityCode == "T_FB_DEPTTRANSFERMASTER")
@@ -559,7 +600,7 @@ namespace SMT.FB.BLL
 
             SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient psl = new SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient();
 
-
+            #region foreach遍历取到xml相应的值
             foreach (XElement item in list)
             {
                 string AttName = string.Empty, AttValue = string.Empty, StrCheck = string.Empty;
@@ -715,8 +756,8 @@ namespace SMT.FB.BLL
                     item.Attribute("DataText").SetValue(StrCheck);
                 }
             };
-            #endregion 
-
+            #endregion             
+            #endregion
             #region try-catch的try
             try
             {
