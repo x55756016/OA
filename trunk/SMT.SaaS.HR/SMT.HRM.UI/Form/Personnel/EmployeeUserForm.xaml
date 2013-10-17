@@ -42,7 +42,7 @@
             <validator:ValidatorService.Validator>
                 <!--修改正则表达式以适应其他身份证形式-->
                 <!--<validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEIDCARDNUMBER" ErrorMessageParameter="IDNUMBER" Expression="^\d{14}(\d{1}|\d{4}|(\d{3}[xX]))$" ></validator:RegexValidator>-->
-                <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEIDCARDNUMBER" ErrorMessageParameter="IDNUMBER" Expression="^[a-zA-Z0-9-]{1,20}$" ></validator:RegexValidator>
+                <validator:RegexValidator ManagerName="Group1" ErrorMessage="MUSTBEIDCARDNUMBER" ErrorMessageParameter="IDNUMBER" Expression="^[a-zA-Z0-9-()]{1,20}$" ></validator:RegexValidator>
             </validator:ValidatorService.Validator>
         </TextBox>
 

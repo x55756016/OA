@@ -102,7 +102,7 @@ namespace SMT.HRM.UI.Views.Attendance
                     {
                         filter += " and ";
                     }
-                    filter += "EMPLOYEEID==@" + paras.Count().ToString();
+                    filter += "EMPLOYEENAME==@" + paras.Count().ToString();
                     paras.Add(ent.EMPLOYEEID);
                 }
             }
