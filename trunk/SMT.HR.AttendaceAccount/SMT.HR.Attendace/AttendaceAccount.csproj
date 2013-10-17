@@ -135,6 +135,11 @@
     <Compile Include="SalaryBalanceForm.Designer.cs">
       <DependentUpon>SalaryBalanceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service References\HRCommonSV\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\OACommonOfficeWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +198,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -343,6 +349,20 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AttendWS\AttendanceService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HRCommonSV\HrCommonService.wsdl" />
+    <None Include="Service References\HRCommonSV\HrCommonService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HRCommonSV\HrCommonService1.wsdl" />
+    <None Include="Service References\HRCommonSV\HrCommonService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HRCommonSV\HrCommonService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HRCommonSV\HrCommonService3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\OACommonOfficeWS\AttendaceAccount.OACommonOfficeWS.T_OA_AGENTDATESET.datasource">
@@ -706,6 +726,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\HRCommonSV\HrCommonService.disco" />
+    <None Include="Service References\HRCommonSV\configuration91.svcinfo" />
+    <None Include="Service References\HRCommonSV\configuration.svcinfo" />
+    <None Include="Service References\HRCommonSV\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SmtPortalSetup.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -738,6 +765,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AttendWS\" />
+    <WCFMetadataStorage Include="Service References\HRCommonSV\" />
     <WCFMetadataStorage Include="Service References\OACommonOfficeWS\" />
     <WCFMetadataStorage Include="Service References\OrgWs\" />
     <WCFMetadataStorage Include="Service References\SalaryWS\" />

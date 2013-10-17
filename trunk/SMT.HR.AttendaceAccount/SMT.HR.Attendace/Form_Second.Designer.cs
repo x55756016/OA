@@ -115,22 +115,26 @@
             this.dataGridViewCheckBoxColumn15 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewButtonColumn5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lableCityName = new System.Windows.Forms.Label();
+            this.dtTravSolution = new System.Windows.Forms.DataGridView();
+            this.btnGetTravButie = new System.Windows.Forms.Button();
+            this.btnGetTravlTools = new System.Windows.Forms.Button();
+            this.btnGetTravalReme = new System.Windows.Forms.Button();
+            this.btnGetTraveSolution = new System.Windows.Forms.Button();
+            this.txtTraveCityName = new System.Windows.Forms.TextBox();
+            this.txtTravNomber = new System.Windows.Forms.TextBox();
+            this.txtTraveSolutionid = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
             this.btnImportPunchRecord = new System.Windows.Forms.Button();
             this.btnSendDocument = new System.Windows.Forms.Button();
-            this.btnGetTraveSolution = new System.Windows.Forms.Button();
-            this.dtTravSolution = new System.Windows.Forms.DataGridView();
-            this.btnGetTravlTools = new System.Windows.Forms.Button();
-            this.txtTraveSolutionid = new System.Windows.Forms.TextBox();
-            this.btnGetTravButie = new System.Windows.Forms.Button();
-            this.txtTraveCityName = new System.Windows.Forms.TextBox();
-            this.lableCityName = new System.Windows.Forms.Label();
-            this.txtTravNomber = new System.Windows.Forms.TextBox();
-            this.btnGetTravalReme = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btnGetConfig = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtConfigSource = new System.Windows.Forms.TextBox();
+            this.txtConfigResult = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtEmployeeEntry)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -146,6 +150,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtPention)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTravSolution)).BeginInit();
+            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
@@ -838,8 +843,130 @@
             this.tabPage7.Text = "出差";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 12);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "出差报销单号";
+            // 
+            // lableCityName
+            // 
+            this.lableCityName.AutoSize = true;
+            this.lableCityName.Location = new System.Drawing.Point(19, 245);
+            this.lableCityName.Name = "lableCityName";
+            this.lableCityName.Size = new System.Drawing.Size(53, 12);
+            this.lableCityName.TabIndex = 18;
+            this.lableCityName.Text = "出差城市";
+            // 
+            // dtTravSolution
+            // 
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtTravSolution.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            this.dtTravSolution.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtTravSolution.DefaultCellStyle = dataGridViewCellStyle27;
+            this.dtTravSolution.Location = new System.Drawing.Point(14, 84);
+            this.dtTravSolution.Name = "dtTravSolution";
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtTravSolution.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            this.dtTravSolution.RowTemplate.Height = 23;
+            this.dtTravSolution.Size = new System.Drawing.Size(709, 131);
+            this.dtTravSolution.TabIndex = 15;
+            // 
+            // btnGetTravButie
+            // 
+            this.btnGetTravButie.BackColor = System.Drawing.Color.Silver;
+            this.btnGetTravButie.Location = new System.Drawing.Point(429, 236);
+            this.btnGetTravButie.Name = "btnGetTravButie";
+            this.btnGetTravButie.Size = new System.Drawing.Size(109, 24);
+            this.btnGetTravButie.TabIndex = 4;
+            this.btnGetTravButie.Text = "查询方案补贴";
+            this.btnGetTravButie.UseVisualStyleBackColor = false;
+            this.btnGetTravButie.Click += new System.EventHandler(this.btnGetTravButie_Click);
+            // 
+            // btnGetTravlTools
+            // 
+            this.btnGetTravlTools.BackColor = System.Drawing.Color.Silver;
+            this.btnGetTravlTools.Location = new System.Drawing.Point(163, 54);
+            this.btnGetTravlTools.Name = "btnGetTravlTools";
+            this.btnGetTravlTools.Size = new System.Drawing.Size(109, 24);
+            this.btnGetTravlTools.TabIndex = 4;
+            this.btnGetTravlTools.Text = "查询方案交通工具";
+            this.btnGetTravlTools.UseVisualStyleBackColor = false;
+            this.btnGetTravlTools.Click += new System.EventHandler(this.btnGetTravlTools_Click);
+            // 
+            // btnGetTravalReme
+            // 
+            this.btnGetTravalReme.BackColor = System.Drawing.Color.Silver;
+            this.btnGetTravalReme.Location = new System.Drawing.Point(411, 10);
+            this.btnGetTravalReme.Name = "btnGetTravalReme";
+            this.btnGetTravalReme.Size = new System.Drawing.Size(109, 24);
+            this.btnGetTravalReme.TabIndex = 4;
+            this.btnGetTravalReme.Text = "查询出差报销";
+            this.btnGetTravalReme.UseVisualStyleBackColor = false;
+            this.btnGetTravalReme.Click += new System.EventHandler(this.btnGetTravalReme_Click);
+            // 
+            // btnGetTraveSolution
+            // 
+            this.btnGetTraveSolution.BackColor = System.Drawing.Color.Silver;
+            this.btnGetTraveSolution.Location = new System.Drawing.Point(21, 54);
+            this.btnGetTraveSolution.Name = "btnGetTraveSolution";
+            this.btnGetTraveSolution.Size = new System.Drawing.Size(109, 24);
+            this.btnGetTraveSolution.TabIndex = 4;
+            this.btnGetTraveSolution.Text = "查询出差方案";
+            this.btnGetTraveSolution.UseVisualStyleBackColor = false;
+            this.btnGetTraveSolution.Click += new System.EventHandler(this.btnGetTraveSolution_Click);
+            // 
+            // txtTraveCityName
+            // 
+            this.txtTraveCityName.Location = new System.Drawing.Point(102, 236);
+            this.txtTraveCityName.Name = "txtTraveCityName";
+            this.txtTraveCityName.Size = new System.Drawing.Size(256, 21);
+            this.txtTraveCityName.TabIndex = 9;
+            // 
+            // txtTravNomber
+            // 
+            this.txtTravNomber.Location = new System.Drawing.Point(121, 13);
+            this.txtTravNomber.Name = "txtTravNomber";
+            this.txtTravNomber.Size = new System.Drawing.Size(256, 21);
+            this.txtTravNomber.TabIndex = 9;
+            this.txtTravNomber.Text = "出差报销单号";
+            // 
+            // txtTraveSolutionid
+            // 
+            this.txtTraveSolutionid.Location = new System.Drawing.Point(296, 54);
+            this.txtTraveSolutionid.Name = "txtTraveSolutionid";
+            this.txtTraveSolutionid.Size = new System.Drawing.Size(256, 21);
+            this.txtTraveSolutionid.TabIndex = 9;
+            this.txtTraveSolutionid.Text = "出差方案id";
+            // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.txtConfigResult);
+            this.tabPage8.Controls.Add(this.txtConfigSource);
+            this.tabPage8.Controls.Add(this.label7);
+            this.tabPage8.Controls.Add(this.btnGetConfig);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Size = new System.Drawing.Size(736, 475);
@@ -897,123 +1024,40 @@
             this.btnSendDocument.UseVisualStyleBackColor = false;
             this.btnSendDocument.Click += new System.EventHandler(this.btnSendDocument_Click);
             // 
-            // btnGetTraveSolution
+            // btnGetConfig
             // 
-            this.btnGetTraveSolution.BackColor = System.Drawing.Color.Silver;
-            this.btnGetTraveSolution.Location = new System.Drawing.Point(21, 54);
-            this.btnGetTraveSolution.Name = "btnGetTraveSolution";
-            this.btnGetTraveSolution.Size = new System.Drawing.Size(109, 24);
-            this.btnGetTraveSolution.TabIndex = 4;
-            this.btnGetTraveSolution.Text = "查询出差方案";
-            this.btnGetTraveSolution.UseVisualStyleBackColor = false;
-            this.btnGetTraveSolution.Click += new System.EventHandler(this.btnGetTraveSolution_Click);
+            this.btnGetConfig.Location = new System.Drawing.Point(36, 51);
+            this.btnGetConfig.Name = "btnGetConfig";
+            this.btnGetConfig.Size = new System.Drawing.Size(75, 23);
+            this.btnGetConfig.TabIndex = 0;
+            this.btnGetConfig.Text = "获取";
+            this.btnGetConfig.UseVisualStyleBackColor = true;
+            this.btnGetConfig.Click += new System.EventHandler(this.btnGetConfig_Click);
             // 
-            // dtTravSolution
+            // label7
             // 
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtTravSolution.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
-            this.dtTravSolution.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtTravSolution.DefaultCellStyle = dataGridViewCellStyle27;
-            this.dtTravSolution.Location = new System.Drawing.Point(14, 84);
-            this.dtTravSolution.Name = "dtTravSolution";
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtTravSolution.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
-            this.dtTravSolution.RowTemplate.Height = 23;
-            this.dtTravSolution.Size = new System.Drawing.Size(709, 131);
-            this.dtTravSolution.TabIndex = 15;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "请输入配置节点";
             // 
-            // btnGetTravlTools
+            // txtConfigSource
             // 
-            this.btnGetTravlTools.BackColor = System.Drawing.Color.Silver;
-            this.btnGetTravlTools.Location = new System.Drawing.Point(163, 54);
-            this.btnGetTravlTools.Name = "btnGetTravlTools";
-            this.btnGetTravlTools.Size = new System.Drawing.Size(109, 24);
-            this.btnGetTravlTools.TabIndex = 4;
-            this.btnGetTravlTools.Text = "查询方案交通工具";
-            this.btnGetTravlTools.UseVisualStyleBackColor = false;
-            this.btnGetTravlTools.Click += new System.EventHandler(this.btnGetTravlTools_Click);
+            this.txtConfigSource.Location = new System.Drawing.Point(150, 7);
+            this.txtConfigSource.Name = "txtConfigSource";
+            this.txtConfigSource.Size = new System.Drawing.Size(413, 21);
+            this.txtConfigSource.TabIndex = 2;
+            this.txtConfigSource.Text = "ConnectionString";
             // 
-            // txtTraveSolutionid
+            // txtConfigResult
             // 
-            this.txtTraveSolutionid.Location = new System.Drawing.Point(296, 54);
-            this.txtTraveSolutionid.Name = "txtTraveSolutionid";
-            this.txtTraveSolutionid.Size = new System.Drawing.Size(256, 21);
-            this.txtTraveSolutionid.TabIndex = 9;
-            this.txtTraveSolutionid.Text = "出差方案id";
-            // 
-            // btnGetTravButie
-            // 
-            this.btnGetTravButie.BackColor = System.Drawing.Color.Silver;
-            this.btnGetTravButie.Location = new System.Drawing.Point(429, 236);
-            this.btnGetTravButie.Name = "btnGetTravButie";
-            this.btnGetTravButie.Size = new System.Drawing.Size(109, 24);
-            this.btnGetTravButie.TabIndex = 4;
-            this.btnGetTravButie.Text = "查询方案补贴";
-            this.btnGetTravButie.UseVisualStyleBackColor = false;
-            this.btnGetTravButie.Click += new System.EventHandler(this.btnGetTravButie_Click);
-            // 
-            // txtTraveCityName
-            // 
-            this.txtTraveCityName.Location = new System.Drawing.Point(102, 236);
-            this.txtTraveCityName.Name = "txtTraveCityName";
-            this.txtTraveCityName.Size = new System.Drawing.Size(256, 21);
-            this.txtTraveCityName.TabIndex = 9;
-            // 
-            // lableCityName
-            // 
-            this.lableCityName.AutoSize = true;
-            this.lableCityName.Location = new System.Drawing.Point(19, 245);
-            this.lableCityName.Name = "lableCityName";
-            this.lableCityName.Size = new System.Drawing.Size(53, 12);
-            this.lableCityName.TabIndex = 18;
-            this.lableCityName.Text = "出差城市";
-            // 
-            // txtTravNomber
-            // 
-            this.txtTravNomber.Location = new System.Drawing.Point(121, 13);
-            this.txtTravNomber.Name = "txtTravNomber";
-            this.txtTravNomber.Size = new System.Drawing.Size(256, 21);
-            this.txtTravNomber.TabIndex = 9;
-            this.txtTravNomber.Text = "出差报销单号";
-            // 
-            // btnGetTravalReme
-            // 
-            this.btnGetTravalReme.BackColor = System.Drawing.Color.Silver;
-            this.btnGetTravalReme.Location = new System.Drawing.Point(411, 10);
-            this.btnGetTravalReme.Name = "btnGetTravalReme";
-            this.btnGetTravalReme.Size = new System.Drawing.Size(109, 24);
-            this.btnGetTravalReme.TabIndex = 4;
-            this.btnGetTravalReme.Text = "查询出差报销";
-            this.btnGetTravalReme.UseVisualStyleBackColor = false;
-            this.btnGetTravalReme.Click += new System.EventHandler(this.btnGetTravalReme_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 12);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "出差报销单号";
+            this.txtConfigResult.Location = new System.Drawing.Point(36, 100);
+            this.txtConfigResult.Multiline = true;
+            this.txtConfigResult.Name = "txtConfigResult";
+            this.txtConfigResult.Size = new System.Drawing.Size(527, 87);
+            this.txtConfigResult.TabIndex = 3;
             // 
             // Form_Second
             // 
@@ -1065,6 +1109,8 @@
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTravSolution)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1146,6 +1192,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnGetTravalReme;
         private System.Windows.Forms.TextBox txtTravNomber;
+        private System.Windows.Forms.TextBox txtConfigResult;
+        private System.Windows.Forms.TextBox txtConfigSource;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnGetConfig;
     }
 }
 

@@ -16,6 +16,7 @@ namespace SmtPortalSetUp
         {
             InitializeComponent();
             GlobalParameters.fromFisrt = this;
+            comboBoxType.SelectedIndex = 0;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

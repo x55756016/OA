@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using AttendaceAccount;
+using AttendaceAccount.HRCommonSV;
 
 namespace SmtPortalSetUp
 {
@@ -516,6 +517,15 @@ where t.nobudgetclaims='" + txtTravNomber.Text + "'";
             dtTravSolution.DataSource = dt;
             OracleHelp.close();
         }
+
+        #region "获取配置项目"
+        private void btnGetConfig_Click(object sender, EventArgs e)
+        {
+            HrCommonServiceClient sv = new HrCommonServiceClient();
+           txtConfigResult.Text= sv.GetAppConfigByName(txtConfigSource.Text);
+
+        }
+        #endregion
     }
 
     
