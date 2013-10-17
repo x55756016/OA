@@ -2251,11 +2251,13 @@ namespace SMT.HRM.BLL
                 i = entAbnormRecords.Count();
                 if (i == 0)
                 {
-                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")+" "+dealType + " ，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
-                            + "，没有查到异常记录，修改考勤记录状态为：" + attState);
+                    string strMsg =item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")+" "+dealType + " ，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
+                            + "，没有查到异常记录，修改考勤记录状态为：" + attState;
+                    Tracer.Debug(strMsg);
                     item.ATTENDANCESTATE = attState;
                     item.UPDATEDATE = DateTime.Now;
-                    item.REMARK = item.REMARK+dealType;
+
+                    item.REMARK = dealType + strMsg;
                     dal.Update(item);
                     continue;
                 }

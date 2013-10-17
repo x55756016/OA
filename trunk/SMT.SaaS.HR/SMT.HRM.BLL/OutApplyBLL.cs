@@ -42,7 +42,7 @@ namespace SMT.HRM.BLL
         /// <param name="pageSize">每页显示条数</param>
         /// <param name="sort">排序字段</param>
         /// <param name="filterString">过滤条件</param>
-        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="paras">过滤条件中的参数值,不能为空，否则报错</param>
         /// <param name="pageCount">返回总页数</param>
         /// <returns>查询结果集</returns>
         public IQueryable<T_HR_EMPLOYEEOUTAPPLIECRECORD> EmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID)
@@ -88,8 +88,10 @@ namespace SMT.HRM.BLL
             {
                 ents = ents.Where(filterString, paras.ToArray());
             }
-            ents = ents.OrderBy(sort);
-
+            if (!string.IsNullOrEmpty(sort))
+            {
+                ents = ents.OrderBy(sort);
+            }
             ents = Utility.Pager<T_HR_EMPLOYEEOUTAPPLIECRECORD>(ents, pageIndex, pageSize, ref pageCount);
 
             return ents;
