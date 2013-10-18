@@ -375,8 +375,6 @@ TargetType="sdk:DataGridColumnHeader" BasedOn="{StaticResource DataGridBaseHeade
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="1" />
                                     <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="1" />
-                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
                                 <!-- 第0行 -->
                                 <ContentPresenter Content="个人教育信息"
@@ -390,15 +388,15 @@ TargetType="sdk:DataGridColumnHeader" BasedOn="{StaticResource DataGridBaseHeade
                                           HorizontalAlignment="Center" />
                                 <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" 
                                    Visibility="Visible" Grid.Row="2" Grid.Column="1" />
-                                <ContentPresenter Content="毕业时间" Grid.Row="2" Grid.Column="2"
+                                <!--<ContentPresenter Content="毕业时间" Grid.Row="2" Grid.Column="2"
                                           VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" 
-                                   Visibility="Visible" Grid.Row="2" Grid.Column="3" />
-                                <ContentPresenter Content="所学专业" Grid.Row="2" Grid.Column="4"
+                                   Visibility="Visible" Grid.Row="2" Grid.Column="3" />-->
+                                <ContentPresenter Content="所学专业" Grid.Row="2" Grid.Column="2"
                                           VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" 
                                    Visibility="Visible" Grid.Row="2" Grid.Column="5" />
-                                <ContentPresenter Content="毕业院校" Grid.Row="2" Grid.Column="6"
+                                <ContentPresenter Content="毕业院校" Grid.Row="2" Grid.Column="4"
                                           VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
                             <Rectangle x:Name="VerticalSeparator" Fill="#FFC9CACA"
@@ -821,20 +819,20 @@ TargetType="sdk:DataGridColumnHeader" BasedOn="{StaticResource BasicHeaderStyle}
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition  Width="80"></ColumnDefinition>
-                                        <ColumnDefinition Width="1"></ColumnDefinition>
-                                        <ColumnDefinition  Width="100"></ColumnDefinition>
-                                        <ColumnDefinition Width="1"></ColumnDefinition>
-                                        <ColumnDefinition  Width="100"></ColumnDefinition>
-                                        <ColumnDefinition Width="1"></ColumnDefinition>
-                                        <ColumnDefinition  Width="100"></ColumnDefinition>
+                                        <!--<ColumnDefinition Width="1"></ColumnDefinition>-->
+                                        <ColumnDefinition  Width="1"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition  Width="1"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <!--<ColumnDefinition  Width="1"></ColumnDefinition>-->
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Text="{Binding TOPEDUCATION}" FontSize="14" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
                                     <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Row="0" Grid.Column="1"/>
                                     <TextBlock Text="{Binding SPECIALTY}" HorizontalAlignment="Center" FontSize="14" Margin="2,0,0,0" Grid.Row="0" Grid.Column="2"/>
                                     <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Row="0" Grid.Column="3"/>
                                     <TextBlock Text="{Binding GRADUATESCHOOL}" FontSize="14" HorizontalAlignment="Center" Margin="2,0,0,0" Grid.Row="0" Grid.Column="4"/>
-                                    <Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Row="0" Grid.Column="3"/>
-                                    <TextBlock Text="{Binding GRADUATEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" FontSize="14" HorizontalAlignment="Center" Margin="2,0,0,0" Grid.Row="0" Grid.Column="4"/>
+                                    <!--<Rectangle Fill="#FFC9CACA" VerticalAlignment="Stretch" Width="1" Grid.Row="0" Grid.Column="3"/>
+                                    <TextBlock Text="{Binding GRADUATEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" FontSize="14" HorizontalAlignment="Center" Margin="2,0,0,0" Grid.Row="0" Grid.Column="4"/>-->
                                 </Grid>
                             </DataTemplate>
                         </sdk:DataGridTemplateColumn.CellTemplate>
