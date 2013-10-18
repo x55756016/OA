@@ -245,7 +245,7 @@ namespace SMT.HRM.BLL
             }
             catch (Exception ex)
             {
-                strMsg = ex.Message.ToString();
+                strMsg = ex.ToString();
             }
 
             return strMsg;

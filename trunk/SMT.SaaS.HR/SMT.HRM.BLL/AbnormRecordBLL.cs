@@ -756,11 +756,18 @@ namespace SMT.HRM.BLL
                     {
                         item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Abnormal) + 1).ToString();
                     }
-
-                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查异常完成，员工姓名：" + item.EMPLOYEENAME
-                        + ",打卡记录导入 修改的状态为：" + item.ATTENDANCESTATE);
-                    item.REMARK = item.REMARK + " 打卡记录导入检查考勤状态:" + item.ATTENDANCESTATE;
-                    bllAttendanceRecord.ModifyAttRd(item);
+                    item.REMARK = " 打卡记录导入检查考勤状态成功，考勤状态:" + item.ATTENDANCESTATE;
+                    strMsg=bllAttendanceRecord.ModifyAttRd(item);
+                    if (strMsg == "{SAVESUCCESSED}")
+                    {
+                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查异常完成，员工姓名：" + item.EMPLOYEENAME
+                            + ",打卡记录导入 修改的状态为：" + item.ATTENDANCESTATE);
+                    }
+                    else
+                    {
+                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 检查异常失败，员工姓名：" + item.EMPLOYEENAME
+                              + ",失败原因：" + strMsg);
+                    }
 
                 }
                 //检查是否有出差及请假并确认一次状态
@@ -2249,24 +2256,33 @@ namespace SMT.HRM.BLL
                       select a).ToList();
                 int i = 0;
                 i = entAbnormRecords.Count();
+                #region 如果当天没有异常，直接更新此考勤记录的考勤状态
                 if (i == 0)
-                {
-                    string strMsg =item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")+" "+dealType + " ，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
-                            + "，没有查到异常记录，修改考勤记录状态为：" + attState;
-                    Tracer.Debug(strMsg);
+                {                   
+                    //Tracer.Debug(strMsg);
                     item.ATTENDANCESTATE = attState;
                     item.UPDATEDATE = DateTime.Now;
 
+                    string strMsg = item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + dealType + " ，无考勤异常，查询时间:" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
+                           + "，没有查到异常记录，修改考勤记录状态为：" + attState;
                     item.REMARK = dealType + strMsg;
-                    dal.Update(item);
+                    int iUpdate=dal.Update(item);
+                    if (iUpdate == 1)
+                    {
+                        Tracer.Debug(dealType + strMsg + " 成功");
+                    }
+                    else
+                    {
+                        Tracer.Debug(dealType + strMsg + " 失败");
+                    }
                     continue;
                 }
+                #endregion
                 try
                 {
-                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + " " + dealType + " 日期：" + item.ATTENDANCEDATE.Value.ToShortDateString() + "，共检测到异常记录数共：" + i + "条记录" 
-                         + "类型6为请假，4为出差：" + attState);
-
-                    #region 修改考勤记录状态
+                    Tracer.Debug(dealType + " 日期：" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + "，发现当天有异常考勤，需要重新检查当天出勤状态，检查到异常记录共：" + i + "条记录" 
+                         + "开始处理重新检查考勤异常——————————————————————————————————————Start");
+                    
                     Dictionary<AttendPeriod, AttendanceState> thisDayAttendState = new Dictionary<AttendPeriod, AttendanceState>();//考勤时间段1上午，2中午，3下午 考勤异常状态 1 缺勤 2 请假
                     foreach (T_HR_EMPLOYEEABNORMRECORD AbnormRecorditem in entAbnormRecords.ToList())
                     {
@@ -2274,8 +2290,7 @@ namespace SMT.HRM.BLL
                         //DateTime datLevestart = entLeaveRecord.STARTDATETIME.Value;//长日期格式2013/2/16 8:30:00
                         //DateTime datLeveEnd = entLeaveRecord.ENDDATETIME.Value;//长日期格式2013/2/16 8:30:00
                         DateTime dtDateAbnorm = AbnormRecorditem.ABNORMALDATE.Value;//短日期格式2013/3/8
-
-                        #region 检查上班时间并修改考勤记录状态
+                        #region 循环当天考勤异常检查出勤状态并修改考勤记录状态
                         var q = (from entsf in dal.GetObjects<T_HR_SHIFTDEFINE>()
                                  join ab in dal.GetObjects<T_HR_ATTENDANCERECORD>()
                                     on entsf.SHIFTDEFINEID equals ab.T_HR_SHIFTDEFINE.SHIFTDEFINEID
@@ -2427,6 +2442,7 @@ namespace SMT.HRM.BLL
                         }
                         #endregion
                     }
+                    #region 修改考勤记录状态
                     if (thisDayAttendState.Count() > 0)//如果当天存在异常或请假情况
                     {   //如果当天存在请假，同时也存在异常
                         if (thisDayAttendState.Values.Contains(AttendanceState.Leave) && thisDayAttendState.Values.Contains(AttendanceState.Abnormal))
@@ -2444,10 +2460,20 @@ namespace SMT.HRM.BLL
                                 item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.MixOutApplyAbnormal) + 1).ToString();
                             }
                             item.UPDATEDATE = DateTime.Now;
-                            item.REMARK = item.REMARK+dealType;
-                            dal.Update(item);
-                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 消除异常修改状态完成，员工姓名：" + item.EMPLOYEENAME
-                            + ",修改的状态为：" + item.ATTENDANCESTATE);
+
+                            string strMsg = item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 消除异常修改状态完成，员工姓名：" + item.EMPLOYEENAME
+                            + ",修改的状态为：" + item.ATTENDANCESTATE;
+
+                            item.REMARK = dealType + strMsg;
+                            int iUpdate = dal.Update(item);
+                            if (iUpdate == 1)
+                            {
+                                Tracer.Debug(dealType + strMsg + " 成功");
+                            }
+                            else
+                            {
+                                Tracer.Debug(dealType + strMsg + " 失败");
+                            }
                         }
                         else if (thisDayAttendState.Values.Contains(AttendanceState.Leave) && !thisDayAttendState.Values.Contains(AttendanceState.Abnormal))
                         {
@@ -2456,13 +2482,25 @@ namespace SMT.HRM.BLL
                             bllSignInRd.ClearNoSignInRecord("T_HR_EMPLOYEEABNORMRECORD", item.EMPLOYEEID, entAbnormRecords);
                             item.ATTENDANCESTATE = attState;
                             item.UPDATEDATE = DateTime.Now;
-                            item.REMARK = item.REMARK + dealType;
-                            dal.Update(item);
-                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 消除异常修改状态完成，员工姓名：" + item.EMPLOYEENAME
-                            + ",修改的状态为：" + item.ATTENDANCESTATE);
+
+                            string strMsg = item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd") + " 消除异常修改状态完成，员工姓名：" + item.EMPLOYEENAME
+                            + ",修改的状态为：" + item.ATTENDANCESTATE;
+                            item.REMARK = dealType + strMsg;
+                            int iUpdate = dal.Update(item);
+                            if (iUpdate == 1)
+                            {
+                                Tracer.Debug(dealType + strMsg + " 成功");
+                            }
+                            else
+                            {
+                                Tracer.Debug(dealType + strMsg + " 失败");
+                            }
                         }
                     }
                     #endregion
+
+                    Tracer.Debug(dealType + " 日期：" + item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") + "，发现当天有异常考勤，需要重新检查当天出勤状态，检查到异常记录共：" + i + "条记录"
+                         + "开始处理重新检查考勤异常——————————————————————————————————————End");
 
                 }
                 catch (Exception ex)

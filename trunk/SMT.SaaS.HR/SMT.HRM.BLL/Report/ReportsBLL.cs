@@ -1666,9 +1666,9 @@ namespace SMT.HRM.BLL
                            join m in dal.GetObjects<T_HR_EMPLOYEECHECK>() on o.EMPLOYEEID equals m.T_HR_EMPLOYEE.EMPLOYEEID into temp
                            from t1 in temp.DefaultIfEmpty()
 
-                           join resume in dal.GetObjects<T_HR_RESUME>() on o.T_HR_RESUME.RESUMEID equals resume.RESUMEID into Resumetemp
-                           from t2 in Resumetemp.DefaultIfEmpty()
-
+                           join resume in dal.GetObjects<T_HR_RESUME>() on o.IDNUMBER equals resume.IDCARDNUMBER 
+                           join edu  in dal.GetObjects<T_HR_EDUCATEHISTORY>() on resume.RESUMEID equals edu.T_HR_RESUME.RESUMEID  into Resumetemp
+                             from t2 in Resumetemp.DefaultIfEmpty()
 
                            //join contact in dal.GetObjects<T_HR_EMPLOYEECONTRACT>() on o.EMPLOYEEID equals contact.T_HR_EMPLOYEE.EMPLOYEEID into contactTemp
                            //from t3 in contactTemp.DefaultIfEmpty()
@@ -1699,15 +1699,16 @@ namespace SMT.HRM.BLL
                                WORKAGE = (decimal)o.WORKINGAGE,//工龄
                                TOPEDUCATION = o.TOPEDUCATION,
                                SPECIALTY = t2.SPECIALTY,//所学专业
-                               GRADUATESCHOOL = t2.GRADUATESCHOOL,//毕业院校
-                               GRADUATEDATE = DateTime.Now,//毕业时间-----------------需要在简历表中增加字段
+                               GRADUATESCHOOL = t2.SCHOONAME,//毕业院校
+                               //GRADUATEDATE = DateTime.Now,//毕业时间-----------------需要在简历表中增加字段
                                PROVINCE = o.PROVINCE,
-                               REGRESIDENCE = t2.REGRESIDENCE,//户口所在地
+                               REGRESIDENCE = o.FAMILYADDRESS,//家庭地址
                                URGENCYPERSON = o.URGENCYPERSON,
                                URGENCYCONTACT = o.URGENCYCONTACT,
                                MOBILE = o.MOBILE,
                                INTERESTCONTENT = o.INTERESTCONTENT,//兴趣/爱好
-                               FAMILYADDRESS = o.FAMILYADDRESS,
+                               FAMILYADDRESS = o.CURRENTADDRESS,
+                               CURRENTADDRESS=o.CURRENTADDRESS,
                                CREATEUSERID = o.CREATEUSERID,
                                OWNERCOMPANYID = o.OWNERCOMPANYID,
                                OWNERPOSTCOMPANYID = p.OWNERCOMPANYID,
