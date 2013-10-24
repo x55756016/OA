@@ -150,11 +150,11 @@ namespace System.Windows.Controls
         /// <param name="isResizable">窗口是否可拖拽大小</param>
         public void Show<TResult>(DialogMode windowmodel, FrameworkElement parent, TResult result, Action<TResult> close, bool isResizable)
         {
+            //MessageBox.Show("test");
             //this._window = ProgramManager.ShowProgram(TitleContent.ToString(), "", Guid.NewGuid().ToString(), this, isResizable, false, null);
             this.Show<TResult>(windowmodel, this, result, close, true,Guid.NewGuid().ToString());
         }
        
-        
 
         /// <summary>
         /// 显示窗口
@@ -171,7 +171,26 @@ namespace System.Windows.Controls
         /// </param>
         public void Show<TResult>(DialogMode windowmodel, FrameworkElement parent, TResult result, Action<TResult> close, bool isResizable, string GUID)
         {
-            this._window = ProgramManager.ShowProgram(TitleContent.ToString(), string.Empty, GUID, this, isResizable, true, null);
+            try
+            {
+                double height = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualHeight;
+                double width = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualWidth;
+                //MessageBox.Show("1高：" + (height - 50) + " 宽：" + (width - 50));
+
+                this._window = ProgramManager.ShowProgram(TitleContent.ToString(), string.Empty, GUID, this, isResizable, true, null);
+
+                this.MinHeight = height - 50;
+                this.MinWidth = width - 50;
+                //MessageBox.Show("1高：" + this._window.MinHeight + " 宽：" + this._window.MinWidth);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //MessageBox.Show("Down");
+            }
         }
 
         public void Show<TResult>(DialogMode windowmodel, FrameworkElement parent, TResult result, Action<TResult> close, bool isResizable, bool isSysApp, string GUID)
