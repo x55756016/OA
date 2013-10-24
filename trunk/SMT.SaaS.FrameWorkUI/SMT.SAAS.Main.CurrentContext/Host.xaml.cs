@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows.Browser;
+using System.Windows;
 //------------------------------------------------------------------------------
 // 版权所有: 版权所有(C)2011 SMT-Online
 // 内容摘要: 提供界面实现的宿主,主外壳。承载MainPage
@@ -25,6 +26,12 @@ namespace SMT.SAAS.Main.CurrentContext
             //ViewModel.Context.Host = this;
             //if (ViewModel.Context.Managed == null)
             //    ViewModel.Context.Managed = new ViewModel.Managed();
+        }
+        
+        public FrameworkElement SilverlightHostRoot
+        {
+            get { return Root; }
+            //set { silverlightHostRoot = value; }
         }
 
         public void setroot(UserControl userControl)
