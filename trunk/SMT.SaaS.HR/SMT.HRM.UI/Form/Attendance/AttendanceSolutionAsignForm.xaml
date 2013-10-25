@@ -8,7 +8,8 @@
            xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
 		   x:Class="SMT.HRM.UI.Form.Attendance.AttendanceSolutionAsignForm"
-           >
+           xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+            Height="400">
     <StackPanel>
         <Grid x:Name="LayoutRoot" Margin="4"  Background="Transparent">
             <Grid.RowDefinitions>
@@ -23,49 +24,63 @@
                     <RowDefinition Height="Auto" MinHeight="30" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="90"/><!--0-->
+                    <ColumnDefinition Width="10"/><!--1-->
+                    <ColumnDefinition Width="80"/><!--2-->
+                    <ColumnDefinition Width="auto"/><!--3-->
+                    <ColumnDefinition Width="80"/><!--4-->
+                    <ColumnDefinition Width="auto"/><!--5-->
+                    <ColumnDefinition Width="20"/><!--6-->
+                    <ColumnDefinition Width="90"/><!--7-->
+                    <ColumnDefinition Width="10"/><!--8-->
+                    <ColumnDefinition Width="80"/><!--9-->
+                    <ColumnDefinition Width="auto"/><!--10-->
+                    <ColumnDefinition Width="80"/><!--11-->
+                    <ColumnDefinition Width="auto"/><!--12-->
                 </Grid.ColumnDefinitions>
                 <validator:ValidatorManager x:Name="Group1"/>
 
                 <!--Row 0:AttendanceSolutionID-->
                 <TextBlock x:Name="tbAttendanceSolutionTitle" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDANCESOLUTION}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Center"/>
-                <smtx:LookUp Grid.Row="0" Grid.Column="2" DataContext="{Binding T_HR_ATTENDANCESOLUTION, Mode=TwoWay}" FindClick="lkAttSol_FindClick" x:Name="lkAttSol" Margin="0" DisplayMemberPath="ATTENDANCESOLUTIONNAME" />
+                <smtx:LookUp Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" DataContext="{Binding T_HR_ATTENDANCESOLUTION, Mode=TwoWay}" FindClick="lkAttSol_FindClick" x:Name="lkAttSol" Margin="0" DisplayMemberPath="ATTENDANCESOLUTIONNAME" />
 
                 <!--Row 1:AssignedObjectType & AssignedObjectID-->
                 <TextBlock x:Name="tbAssignedObjectTypeTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECTTYPE}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="1" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" />
-                <appCtr:DictionaryComboBox x:Name="cbxkAssignedObjectType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="ASSIGNEDOBJECTTYPE" SelectedValue="{Binding ASSIGNEDOBJECTTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center"/>
+                <appCtr:DictionaryComboBox x:Name="cbxkAssignedObjectType" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" IsShowNull="False" HorizontalAlignment="Stretch" Category="ASSIGNEDOBJECTTYPE" SelectedValue="{Binding ASSIGNEDOBJECTTYPE, Mode=TwoWay}" Width="Auto" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center"/>
 
-                <TextBlock x:Name="tbAssignedObjectIDTitle" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECT}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Grid.Column="4" Margin="5,0,0,0"/>
-                <smtx:LookUp Grid.Row="1" Grid.Column="6" FindClick="lkAssignObject_FindClick"  x:Name="lkAssignObject" Height="24" />
+                <TextBlock x:Name="tbAssignedObjectIDTitle" Grid.Row="1"  Grid.Column="7"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECT}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center"  Margin="5,0,0,0"/>
+                <smtx:LookUp Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="4" FindClick="lkAssignObject_FindClick"  x:Name="lkAssignObject" Height="24" />
                 <TextBox Style="{StaticResource TextBoxStyle}" x:Name="tbAssignedObjectID" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" Height="Auto" Width="Auto"  Margin="5,0,0,0" Text="{Binding ASSIGNEDOBJECTID, Mode=TwoWay}" />
 
                 <!--Row 2:StartDate & EndDate-->
-                <TextBlock x:Name="tbStartDateTitle" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=AVAILABLEDATE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                <controls:DatePicker x:Name="dpStarDate" Style="{StaticResource DatePickerStyle}"  Grid.Row="2" Grid.Column="2" Margin="5,0,0,0" Height="24" Text="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}">
+                <TextBlock x:Name="tbStartDateTitle" Grid.Row="2" Grid.Column="0"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=AVAILABLEDATE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="3000"  Grid.Column="2" Grid.Row="2" x:Name="inputStartYear"></inputToolkit:NumericUpDown>
+                <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center" Width="20"  Grid.Row="2" Grid.Column="3" ></TextBlock>
+                <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12"  Grid.Row="2" x:Name="inputStartMonth" Grid.Column="4" ></inputToolkit:NumericUpDown>
+                <TextBlock  Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="20"  VerticalAlignment="Center"  Grid.Row="2" Grid.Column="5" ></TextBlock>
+                <!--<controls:DatePicker x:Name="dpStarDate" Style="{StaticResource DatePickerStyle}"  Grid.Row="2" Grid.Column="2" Margin="5,0,0,0" Height="24" Text="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}">
                     <validator:ValidatorService.Validator>
                         <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="STARTDATETITLE" ></validator:RequiredValidator>
                     </validator:ValidatorService.Validator>
-                </controls:DatePicker>
+                </controls:DatePicker>-->
 
 
-                <TextBlock x:Name="tbEndDateTitle" Grid.Row="2" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=UNAVAILABLEDATE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                <controls:DatePicker x:Name="dpEndDate" Grid.Row="2" Style="{StaticResource DatePickerStyle}" Grid.Column="6" Height="24" Text="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="5,0,0,0">
-                    <validator:ValidatorService.Validator>
+                <TextBlock x:Name="tbEndDateTitle" Grid.Row="2" Grid.Column="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=UNAVAILABLEDATE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="3000"  Grid.Column="9" Grid.Row="2" x:Name="inputEndYear"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" VerticalAlignment="Center" Width="20"  Grid.Row="2" Grid.Column="10" ></TextBlock>
+                <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12"  Grid.Row="2" Grid.Column="11"  x:Name="inputEndMonth"></inputToolkit:NumericUpDown>
+                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="20"  VerticalAlignment="Center"  Grid.Row="2" Grid.Column="12" ></TextBlock>
+               
+                <!--<controls:DatePicker x:Name="dpEndDate" Grid.Row="2" Style="{StaticResource DatePickerStyle}" Grid.Column="6" Height="24" Text="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="5,0,0,0">
+                    <validator:ValidatorService.Validator>                                                                                                                                                                                                                                                                                                                                                                          
                         <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="ENDDATETITLE" ></validator:RequiredValidator>
                     </validator:ValidatorService.Validator>
-                </controls:DatePicker>
+                </controls:DatePicker>-->
 
                 <!--Row 3:Remark-->
                 <TextBlock x:Name="tbRemarkTitle" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" Margin="5,0,0,0"/>
-                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,2,0,2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
-                <TextBox x:Name="txtErrorMsg" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,0,0,0" Visibility="Collapsed"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2"   Grid.ColumnSpan="11"   MaxLength="500" Height="Auto" Width="Auto"  Margin="5,2,0,2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="{Binding REMARK, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+                <TextBox x:Name="txtErrorMsg" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,0,0,0" Visibility="Collapsed"/>
             </Grid>
         </Grid>
     </StackPanel>

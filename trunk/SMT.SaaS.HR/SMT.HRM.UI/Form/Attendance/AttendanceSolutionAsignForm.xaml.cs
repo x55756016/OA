@@ -122,7 +122,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 this.IsEnabled = false;
                 return;
             }
-
+            SetDateTime(null,null);
             if (FormType == FormTypes.New)
             {
                 InitForm();
@@ -133,24 +133,15 @@ namespace SMT.HRM.UI.Form.Attendance
                 LoadData();
                 if (FormType == FormTypes.Browse)
                 {
-                    dpStarDate.IsEnabled = false;
-                    dpEndDate.IsEnabled = false;
+                    //dpStarDate.IsEnabled = false;
+                   // dpEndDate.IsEnabled = false;
                     txtRemark.IsReadOnly = true;
                     //this.IsEnabled = false;//这里this.IsEnabled会定义该窗口所有控件的IsEnabled属性，有好处，有坏处
 
                 }
             }
-            SetDatePicker();
         }
 
-        /// <summary>
-        /// 设置DatePicker控件格式，所能选的时间范围
-        /// </summary>
-        void SetDatePicker()
-        {
-            dpStarDate.DisplayDateStart = DateTime.Parse(DateTime.Now.AddMonths(1).ToString("yyyy-MM") + "-01");
-            dpEndDate.DisplayDateStart = DateTime.Parse(DateTime.Now.AddMonths(1).ToString("yyyy-MM") + "-02");
-        }
 
         /// <summary>
         /// 表单初始化
@@ -681,75 +672,23 @@ namespace SMT.HRM.UI.Form.Attendance
         }
 
         /// <summary>
-        /// 校验输入的时间
+        /// 验证时间及给考勤方案分配开始时间和结束时间赋值
         /// </summary>
         /// <returns></returns>
         private bool CheckDate()
         {
-            DateTime dtStart = new DateTime(), dtEnd = new DateTime();
-            bool flag = false;
-
-            
-            flag = DateTime.TryParse(dpStarDate.Text, out dtStart);
-
-            //判断时间不小于当前时间
-
-            if (DateTime.Parse(dpStarDate.ToString()) == null)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), "时间不能为空");
-                
-             
-                return false;
-            }
-            //if (DateTime.Parse(dpStarDate.ToString()) < DateTime.Parse(DateTime.Now.ToString()))
-            //{
-            //    //Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("AVAILABLEDATE"), Utility.GetResourceStr("DATENOTNULL", "AVAILABLEDATE"));
-            //    Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), "起始时间要大于当前时间");
-            //    dpStarDate.Text = DateTime.Now.ToString();
-            //    //dpStarDate.Focus();
-                
-            //    return false;
-            //}
-            if (!flag)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("AVAILABLEDATE"), Utility.GetResourceStr("DATENOTNULL", "AVAILABLEDATE"));
-                dpStarDate.Text = string.Empty;
-                dpStarDate.Focus();
-                return false;
-            }
-
-            flag = DateTime.TryParse(dpEndDate.Text, out dtEnd);
-            if (!flag)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("UNAVAILABLEDATE"), Utility.GetResourceStr("DATENOTNULL", "UNAVAILABLEDATE"));
-                dpEndDate.Text = string.Empty;
-                dpEndDate.Focus();
-                return false;
-            }
-
-            if (dtEnd.CompareTo(dtStart) < 0)
+            bool flag = true;
+            string strStartTime = inputStartYear.Value + "-" + inputStartMonth.Value + "-1";//月初日期字符串
+            DateTime startTime = Convert.ToDateTime(strStartTime);
+            string strEndTime = inputEndYear.Value + "-" + inputEndMonth.Value + "-" + DateTime.DaysInMonth(Convert.ToInt32(inputEndYear.Value), Convert.ToInt32(inputEndMonth.Value)) + " 23:59:58";//月底日期字符串
+            DateTime endTime = Convert.ToDateTime(strEndTime);
+            if (startTime >= endTime)
             {
                 flag = false;
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("UNAVAILABLEDATE"), string.Format(Utility.GetResourceStr("DATECOMPARE"), Utility.GetResourceStr("UNAVAILABLEDATE"), Utility.GetResourceStr("AVAILABLEDATE")));
-                dpEndDate.Focus();
-                return false;
+                Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), "起始时间要大于结束时间");
             }
-
-            string strMsg = string.Empty;
-            //if (dtStart.Year == DateTime.Now.Year)
-            //{
-            //    if (dtStart.Month <= DateTime.Now.Month)
-            //    {
-            //        strMsg = Utility.GetResourceStr("EARLYEFFECTIVEDATE");
-            //    }
-            //}
-
-            if (!string.IsNullOrEmpty(strMsg))
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("AVAILABLEDATE"), strMsg);
-                return false;
-            }
-
+            entAttendanceSolutionAsign.STARTDATE = startTime;
+            entAttendanceSolutionAsign.ENDDATE = endTime;
             return flag;
         }
 
@@ -825,7 +764,7 @@ namespace SMT.HRM.UI.Form.Attendance
             if (e.Error == null)
             {
                 entAttendanceSolutionAsign = e.Result;
-
+                SetDateTime(entAttendanceSolutionAsign.STARTDATE, entAttendanceSolutionAsign.ENDDATE);
                 if (FormType == FormTypes.Resubmit)
                 {
                     entAttendanceSolutionAsign.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
@@ -874,6 +813,25 @@ namespace SMT.HRM.UI.Form.Attendance
             SetToolBar();
         }
 
+        /// <summary>
+        /// 设置时间
+        /// </summary>
+        private void SetDateTime(DateTime? start, DateTime? end)
+        {
+            int startYear = DateTime.Now.Year, startMonth = DateTime.Now.Month, endYear = DateTime.Now.Year, endMonth = DateTime.Now.Month;//分别是开始年月和结束年月
+            if (start != null && end != null)
+            {
+                startYear = start.Value.Year;
+                startMonth = start.Value.Month;
+                endYear = end.Value.Year;
+                endMonth = end.Value.Month;//分别是开始年月和结束年月
+            }
+          //  inputStartYear.
+            inputStartYear.Value = Convert.ToDouble(startYear);
+            inputStartMonth.Value = Convert.ToDouble(startMonth);
+            inputEndYear.Value = Convert.ToDouble(endYear);
+            inputEndMonth.Value = Convert.ToDouble(endMonth);
+        }
         /// <summary>
         /// 新增考勤方案应用
         /// </summary>
