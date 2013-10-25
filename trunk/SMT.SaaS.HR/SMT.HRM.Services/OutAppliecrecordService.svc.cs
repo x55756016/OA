@@ -17,7 +17,7 @@ namespace SMT.HRM.Services
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class OutAppliecrecordService 
     {
-        #region T_HR_EMPLOYEEOUTAPPLIECRECORD 员工加班记录服务
+        #region T_HR_OUTAPPLYRECORD 员工加班记录服务
         /// <summary>
         /// 用于实体Grid中显示数据的分页查询,获取所有的出差记录信息
         /// </summary>
@@ -29,7 +29,7 @@ namespace SMT.HRM.Services
         /// <param name="pageCount">返回总页数</param>
         /// <returns>查询结果集</returns>
         [OperationContract]
-        public List<T_HR_EMPLOYEEOUTAPPLIECRECORD> EmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID)
+        public List<T_HR_OUTAPPLYRECORD> EmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID)
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
@@ -50,7 +50,7 @@ namespace SMT.HRM.Services
         /// <param name="strOverTimeRecordId">主键索引</param>
         /// <returns></returns>
         [OperationContract]
-        public T_HR_EMPLOYEEOUTAPPLIECRECORD GetOverTimeRdByID(string strOverTimeRecordId)
+        public T_HR_OUTAPPLYRECORD GetOverTimeRdByID(string strOverTimeRecordId)
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
@@ -64,7 +64,7 @@ namespace SMT.HRM.Services
         /// <param name="entOTRd"></param>
         /// <returns></returns>
         [OperationContract]
-        public string AddOverTimeRd(T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd)
+        public string AddOverTimeRd(T_HR_OUTAPPLYRECORD entOTRd)
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
@@ -78,7 +78,7 @@ namespace SMT.HRM.Services
         /// <param name="entOTRd"></param>
         /// <returns></returns>
         [OperationContract]
-        public string ModifyOverTimeRd(T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd)
+        public string ModifyOverTimeRd(T_HR_OUTAPPLYRECORD entOTRd)
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
