@@ -25,7 +25,7 @@ using System.Threading;
 
 namespace SMT.HRM.BLL
 {
-    public class OutApplyBLL : BaseBll<T_HR_EMPLOYEEOUTAPPLIECRECORD>, IOperate
+    public class OutApplyBLL : BaseBll<T_HR_OUTAPPLYRECORD>, IOperate
     {
         public OutApplyBLL()
         {
@@ -45,7 +45,7 @@ namespace SMT.HRM.BLL
         /// <param name="paras">过滤条件中的参数值,不能为空，否则报错</param>
         /// <param name="pageCount">返回总页数</param>
         /// <returns>查询结果集</returns>
-        public IQueryable<T_HR_EMPLOYEEOUTAPPLIECRECORD> EmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID)
+        public IQueryable<T_HR_OUTAPPLYRECORD> EmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID)
         {
             if (strCheckState != Convert.ToInt32(CheckStates.WaittingApproval).ToString())
             {
@@ -54,12 +54,12 @@ namespace SMT.HRM.BLL
                     strCheckState = string.Empty;
                 }
 
-                SetOrganizationFilter(ref filterString, ref paras, strOwnerID, "T_HR_EMPLOYEEOUTAPPLIECRECORD");
+                SetOrganizationFilter(ref filterString, ref paras, strOwnerID, "T_HR_OUTAPPLYRECORD");
             }
             else
             {
                 string strCheckfilter = string.Copy(filterString);
-                SetFilterWithflow("OVERTIMERECORDID", "T_HR_EMPLOYEEOUTAPPLIECRECORD", strOwnerID, ref strCheckState, ref filterString, ref paras);
+                SetFilterWithflow("OVERTIMERECORDID", "T_HR_OUTAPPLYRECORD", strOwnerID, ref strCheckState, ref filterString, ref paras);
                 if (string.Compare(strCheckfilter, filterString) == 0)
                 {
                     return null;
@@ -83,7 +83,7 @@ namespace SMT.HRM.BLL
                 paras.Add(strCheckState);
             }
 
-            IQueryable<T_HR_EMPLOYEEOUTAPPLIECRECORD> ents = dal.GetObjects();
+            IQueryable<T_HR_OUTAPPLYRECORD> ents = dal.GetObjects();
             if (!string.IsNullOrEmpty(filterString))
             {
                 ents = ents.Where(filterString, paras.ToArray());
@@ -92,7 +92,7 @@ namespace SMT.HRM.BLL
             {
                 ents = ents.OrderBy(sort);
             }
-            ents = Utility.Pager<T_HR_EMPLOYEEOUTAPPLIECRECORD>(ents, pageIndex, pageSize, ref pageCount);
+            ents = Utility.Pager<T_HR_OUTAPPLYRECORD>(ents, pageIndex, pageSize, ref pageCount);
 
             return ents;
         }
@@ -105,9 +105,9 @@ namespace SMT.HRM.BLL
         /// <param name="dtEnd"></param>
         /// <param name="strCheckState"></param>
         /// <returns></returns>
-        public IQueryable<T_HR_EMPLOYEEOUTAPPLIECRECORD> GetOverTimeRdListByEmployeeIDAndDate(string strEmployeeID, DateTime dtStart, DateTime dtEnd, string strCheckState)
+        public IQueryable<T_HR_OUTAPPLYRECORD> GetOverTimeRdListByEmployeeIDAndDate(string strEmployeeID, DateTime dtStart, DateTime dtEnd, string strCheckState)
         {
-            IQueryable<T_HR_EMPLOYEEOUTAPPLIECRECORD> ents = from o in dal.GetObjects()
+            IQueryable<T_HR_OUTAPPLYRECORD> ents = from o in dal.GetObjects()
                                                            where o.EMPLOYEEID == strEmployeeID && o.STARTDATE >= dtStart && o.ENDDATE <= dtEnd && o.CHECKSTATE == strCheckState
                                                            select o;
             return ents;
@@ -119,10 +119,10 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="strOverTimeRecordId">主键索引</param>
         /// <returns></returns>
-        public T_HR_EMPLOYEEOUTAPPLIECRECORD GetOverTimeRdByID(string strOverTimeRecordId)
+        public T_HR_OUTAPPLYRECORD GetOverTimeRdByID(string strOverTimeRecordId)
         {
             var ents = from a in dal.GetTable()
-                       where a.OVERTIMERECORDID == strOverTimeRecordId
+                       where a.OUTAPPLYID == strOverTimeRecordId
                        select a;
             if (ents.Count() > 0)
             {
@@ -140,7 +140,7 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="entity">加班修改申请记录实体</param>
         /// <returns></returns>
-        public string OverTimeRecordAdd(T_HR_EMPLOYEEOUTAPPLIECRECORD entity)
+        public string OverTimeRecordAdd(T_HR_OUTAPPLYRECORD entity)
         {
             try
             {
@@ -157,7 +157,7 @@ namespace SMT.HRM.BLL
                 {
                     return strMsg;
                 }
-                entity.OVERTIMEHOURS = dTotalHours.ToString();
+                entity.OUTAPLLYTIMES = dTotalHours.ToString();
 
                 //entity.STARTDATETIME = entity.STARTDATE.Value.ToString("hh:mm:ss");
                 //entity.ENDDATETIME = entity.ENDDATE.Value.ToString("hh:mm:ss");
@@ -180,12 +180,12 @@ namespace SMT.HRM.BLL
         /// 修改员工加班信息
         /// </summary>
         /// <param name="entOTRd"></param>
-        public string ModifyOverTimeRd(T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd)
+        public string ModifyOverTimeRd(T_HR_OUTAPPLYRECORD entOTRd)
         {
             try
             {
                 string strMsg = string.Empty;
-                var ent = GetOverTimeRdByID(entOTRd.OVERTIMERECORDID);
+                var ent = GetOverTimeRdByID(entOTRd.OUTAPPLYID);
                 if (ent != null)
                 {
                     string strOldCheckState = string.Copy(ent.CHECKSTATE);
@@ -200,7 +200,7 @@ namespace SMT.HRM.BLL
                         {
                             return strMsg;
                         }
-                        entOTRd.OVERTIMEHOURS = dTotalHours.ToString();
+                        entOTRd.OUTAPLLYTIMES = dTotalHours.ToString();
 
                         //entOTRd.STARTDATETIME = entOTRd.STARTDATE.Value.ToString("HH:mm:ss");
                         //entOTRd.ENDDATETIME = entOTRd.ENDDATE.Value.ToString("HH:mm:ss");
@@ -266,7 +266,7 @@ namespace SMT.HRM.BLL
                     return "{REQUIREDFIELDS}";
                 }
 
-                T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd = GetOverTimeRdByID(strOverTimeRecordID);
+                T_HR_OUTAPPLYRECORD entOTRd = GetOverTimeRdByID(strOverTimeRecordID);
 
                 if (entOTRd == null)
                 {
@@ -281,8 +281,8 @@ namespace SMT.HRM.BLL
                 int i=dal.Update(entOTRd);
                 if (i == 0)
                 {
-                    Tracer.Debug("更新T_HR_EMPLOYEEOUTAPPLIECRECORD失败");
-                    throw new Exception("更新T_HR_EMPLOYEEOUTAPPLIECRECORD失败");
+                    Tracer.Debug("更新T_HR_OUTAPPLYRECORD失败");
+                    throw new Exception("更新T_HR_OUTAPPLYRECORD失败");
                 }
                 SaveMyRecord(entOTRd);
 
