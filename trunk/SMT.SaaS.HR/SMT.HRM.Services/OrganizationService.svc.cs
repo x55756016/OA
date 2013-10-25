@@ -807,7 +807,7 @@ namespace SMT.HRM.Services
         /// 根据部门ID获取所有上级机构
         /// </summary>
         /// <param name="departmentID"></param>
-        /// <returns></returns>
+        /// <returns>dic<上级部门id，"1"><上级公司id,"0"></returns>
         [OperationContract]
         public Dictionary<string, string> GetFatherByDepartmentID(string departmentID)
         {
