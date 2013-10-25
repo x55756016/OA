@@ -592,6 +592,7 @@ namespace SMT.HRM.BLL
                 {
                     Tracer.Debug(dealType + ",被跳过，该员工使用的考勤方案为免打卡方案，考勤方案名："
                         +entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME);
+
                     continue;
                 }
                 //查询打卡记录
@@ -711,7 +712,7 @@ namespace SMT.HRM.BLL
                     {
                         Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
                         + " 打卡记录导入 检查异常，员工姓名：" + item.EMPLOYEENAME
-                        + ",获取的考勤方案为：" + entAttSol.ATTENDANCESOLUTIONNAME);
+                        + ",获取的考勤方案为：" + entAttSol.ATTENDANCESOLUTIONNAME + "考勤方式为(1打卡考勤，2免打卡，3登录系统，4打卡+登录系统)：" + entAttSol.ATTENDANCETYPE);
                     }
 
                     //考勤方案设定为不需要考勤时，跳过考勤异常检查
@@ -852,7 +853,7 @@ namespace SMT.HRM.BLL
 
                 #region  启动外出申请处理考勤异常的线程
                 //查询请假记录，检查当天存在请假情况
-                var entOutApplyRds = from ent in dal.GetObjects<T_HR_EMPLOYEEOUTAPPLIECRECORD>()
+                var entOutApplyRds = from ent in dal.GetObjects<T_HR_OUTAPPLYRECORD>()
                                                                         where ent.EMPLOYEEID==EMPLOYEEID
                                                                         && ent.CHECKSTATE == "2"
                                                                          && (
