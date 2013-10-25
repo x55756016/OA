@@ -2899,7 +2899,7 @@ namespace SMT.HRM.BLL
 
                 //decimal? dCurEvecDays = entAttRdTemps.Count();
 
-                IQueryable<T_HR_EMPLOYEEOUTAPPLIECRECORD> entEvecRds = from n in dal.GetObjects<T_HR_EMPLOYEEOUTAPPLIECRECORD>()
+                IQueryable<T_HR_OUTAPPLYRECORD> entEvecRds = from n in dal.GetObjects<T_HR_OUTAPPLYRECORD>()
                                                                      where n.EMPLOYEEID == strEmployeeID 
                                                                      && n.STARTDATE >= dtStart
                                                                      && n.ENDDATE<=dtEnd
@@ -2912,10 +2912,10 @@ namespace SMT.HRM.BLL
                 }
                 //decimal? dCheckEveDays = 0;
                 //DateTime dtCheckStart = new DateTime(), dtCheckEnd = new DateTime();
-                foreach (T_HR_EMPLOYEEOUTAPPLIECRECORD item in entEvecRds)
+                foreach (T_HR_OUTAPPLYRECORD item in entEvecRds)
                 {
                     decimal dHOURS = 0;
-                    decimal.TryParse(item.OVERTIMEHOURS,out dHOURS);
+                    decimal.TryParse(item.OUTAPLLYTIMES,out dHOURS);
                     dOutApplyHours += dHOURS;
                 }
             }
