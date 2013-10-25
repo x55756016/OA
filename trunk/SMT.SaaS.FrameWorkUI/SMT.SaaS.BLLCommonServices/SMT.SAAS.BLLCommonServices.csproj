@@ -194,6 +194,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\PublicInterfaceWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\RMServicesWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1046,6 +1051,16 @@
     <None Include="Service References\PMUserLoginWS\SMT.SaaS.BLLCommonServices.PMUserLoginWS.V_UserLogin.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PublicInterfaceWS\PublicService.wsdl" />
+    <None Include="Service References\PublicInterfaceWS\PublicService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicInterfaceWS\PublicService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicInterfaceWS\PublicService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\RMServicesWS\RMServices1.wsdl" />
     <None Include="Service References\RMServicesWS\RMServices4.xsd">
       <SubType>Designer</SubType>
@@ -1212,6 +1227,7 @@
     <WCFMetadataStorage Include="Service References\PersonalRecordWS\" />
     <WCFMetadataStorage Include="Service References\PersonnelWS\" />
     <WCFMetadataStorage Include="Service References\PMUserLoginWS\" />
+    <WCFMetadataStorage Include="Service References\PublicInterfaceWS\" />
     <WCFMetadataStorage Include="Service References\RMServicesWS\" />
     <WCFMetadataStorage Include="Service References\TKServicesWS\" />
     <WCFMetadataStorage Include="Service References\TMServicesWS\" />
@@ -1444,6 +1460,7 @@
     <EmbeddedResource Include="EntityFormResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EntityFormResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -1537,6 +1554,13 @@
     <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices1.disco" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\PublicInterfaceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PublicInterfaceWS\configuration.svcinfo" />
+    <None Include="Service References\PublicInterfaceWS\configuration91.svcinfo" />
+    <None Include="Service References\PublicInterfaceWS\PublicService.disco" />
     <None Include="Service References\VMServiceWS\VMServices1.disco" />
     <None Include="Service References\TKServicesWS\TKServices1.disco" />
     <None Include="Service References\TMServicesWS\TMServices1.disco" />

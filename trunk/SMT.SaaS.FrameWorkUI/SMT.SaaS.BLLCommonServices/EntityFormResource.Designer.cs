@@ -295,15 +295,6 @@ namespace SMT.SaaS.BLLCommonServices {
         }
         
         /// <summary>
-        ///   查找类似 SMT.HRM.UI.Form.Attendance.OutAppliecationForm 的本地化字符串。
-        /// </summary>
-        internal static string T_HR_EMPLOYEEOUTAPPLIECRECORD {
-            get {
-                return ResourceManager.GetString("T_HR_EMPLOYEEOUTAPPLIECRECORD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 SMT.HRM.UI.Form.Attendance.OverTimeForm 的本地化字符串。
         /// </summary>
         internal static string T_HR_EMPLOYEEOVERTIMERECORD {
@@ -345,6 +336,24 @@ namespace SMT.SaaS.BLLCommonServices {
         internal static string T_HR_LEFTOFFICECONFIRM {
             get {
                 return ResourceManager.GetString("T_HR_LEFTOFFICECONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SMT.HRM.UI.Form.Attendance.NoAttendCardEmployeesForm 的本地化字符串。
+        /// </summary>
+        internal static string T_HR_NOATTENDCARDEMPLOYEES {
+            get {
+                return ResourceManager.GetString("T_HR_NOATTENDCARDEMPLOYEES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SMT.HRM.UI.Form.Attendance.OutAppliecationForm 的本地化字符串。
+        /// </summary>
+        internal static string T_HR_OUTAPPLYRECORD {
+            get {
+                return ResourceManager.GetString("T_HR_OUTAPPLYRECORD", resourceCulture);
             }
         }
         

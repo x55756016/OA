@@ -221,7 +221,7 @@
     <value>SMT.HRM.UI.Form.Attendance.EmployeeLeaveRecordForm</value>
     <comment>请假申请Form类名</comment>
   </data>
-  <data name="T_HR_EMPLOYEEOUTAPPLIECRECORD" xml:space="preserve">
+  <data name="T_HR_OUTAPPLYRECORD" xml:space="preserve">
     <value>SMT.HRM.UI.Form.Attendance.OutAppliecationForm</value>
     <comment>员工外出申请Form类名</comment>
   </data>
@@ -316,5 +316,9 @@
   <data name="T_SYS_ROLE" xml:space="preserve">
     <value>SMT.SaaS.Permission.UI.UserControls.UserRoleApplyForm</value>
     <comment>个人权限申请Form类名</comment>
+  </data>
+  <data name="T_HR_NOATTENDCARDEMPLOYEES" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.NoAttendCardEmployeesForm</value>
+    <comment>员工免打卡设置申请Form类名</comment>
   </data>
 </root>
