@@ -29,7 +29,7 @@ namespace SMT.HRM.UI
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(ComplainFlow), new List<string> { "CHECKSTATE" }));
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(KPIDetails), new List<string> { "KPICOMPLAIN" }));
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(AttSolRd), new List<string> { "ATTENDANCETYPE","CARDTYPE","WORKDAYTYPE","OFFESTTYPE","EDITSTATE","CHECKSTATE" }));            
-            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(AttendanceSolutionAsign), new List<string> { "ASSIGNEDOBJECTTYPE","CHECKSTATE" }));
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(NoAttendCardEmployees), new List<string> { "ASSIGNEDOBJECTTYPE","CHECKSTATE" }));
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(AttendMonthlyBalance), new List<string> { "CHECKSTATE" }));
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(EmployeeSalaryRecord), new List<string> { "CHECKSTATE", "ASSIGNEDOBJECTTYPE", "SALARYAUDITTYPE" }));
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(SalaryStandard), new List<string> { "CHECKSTATE" }));

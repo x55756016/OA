@@ -81,7 +81,7 @@ namespace SMT.HRM.UI
             ////考勤方案定义View
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(AttSolRd), new List<string> { "CHECKSTATE", "ATTENDANCETYPE", "CARDTYPE", "WORKDAYTYPE", "ISCHECKED", "OFFESTTYPE", "EDITSTATE" }));
             ////考勤方案分配View
-            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(AttendanceSolutionAsign), new List<string> { "CHECKSTATE", "ASSIGNEDOBJECTTYPE" }));
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(NoAttendCardEmployees), new List<string> { "CHECKSTATE", "ASSIGNEDOBJECTTYPE" }));
 
             //#endregion
 

@@ -84,8 +84,15 @@ namespace SMT.HRM.UI.OutApplyWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.StructuralObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReference))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.RelatedEnd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES))]
     public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string KeyField;
@@ -131,7 +138,9 @@ namespace SMT.HRM.UI.OutApplyWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES))]
     public partial class EntityObject : SMT.HRM.UI.OutApplyWS.StructuralObject {
         
         private SMT.HRM.UI.OutApplyWS.EntityKey EntityKeyField;
@@ -154,7 +163,9 @@ namespace SMT.HRM.UI.OutApplyWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES))]
     public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -169,12 +180,53 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEOUTAPPLIECRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_EMPLOYEEOUTAPPLIECRECORD : SMT.HRM.UI.OutApplyWS.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo : SMT.HRM.UI.OutApplyWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo))]
+    public partial class EntityReference : SMT.HRM.UI.OutApplyWS.RelatedEnd {
         
-        private string BEGINCARDTIMEField;
+        private SMT.HRM.UI.OutApplyWS.EntityKey EntityKeyField;
         
-        private string BEGINCARDTYPEField;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.HRM.UI.OutApplyWS.EntityKey EntityKey {
+            get {
+                return this.EntityKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
+                    this.EntityKeyField = value;
+                    this.RaisePropertyChanged("EntityKey");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReference))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo))]
+    public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_OUTAPPLYRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_OUTAPPLYRECORD : SMT.HRM.UI.OutApplyWS.EntityObject {
         
         private string CHECKSTATEField;
         
@@ -192,17 +244,383 @@ namespace SMT.HRM.UI.OutApplyWS {
         
         private string EMPLOYEENAMEField;
         
-        private string ENDCARDTIMEField;
-        
-        private string ENDCARDTYPEField;
-        
         private System.Nullable<System.DateTime> ENDDATEField;
+        
+        private string ISCONFIRMEDField;
+        
+        private string ISSAMEDAYRETURNField;
+        
+        private string OUTAPLLYTIMESField;
+        
+        private string OUTAPPLYIDField;
         
         private string OVERTIMECATEField;
         
-        private string OVERTIMEHOURSField;
+        private string OWNERCOMPANYIDField;
         
-        private string OVERTIMERECORDIDField;
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string REASONField;
+        
+        private string REMARKField;
+        
+        private System.Nullable<System.DateTime> STARTDATEField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM> T_HR_OUTAPPLYCONFIRMField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
+                    this.EMPLOYEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ENDDATE {
+            get {
+                return this.ENDDATEField;
+            }
+            set {
+                if ((this.ENDDATEField.Equals(value) != true)) {
+                    this.ENDDATEField = value;
+                    this.RaisePropertyChanged("ENDDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ISCONFIRMED {
+            get {
+                return this.ISCONFIRMEDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ISCONFIRMEDField, value) != true)) {
+                    this.ISCONFIRMEDField = value;
+                    this.RaisePropertyChanged("ISCONFIRMED");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ISSAMEDAYRETURN {
+            get {
+                return this.ISSAMEDAYRETURNField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ISSAMEDAYRETURNField, value) != true)) {
+                    this.ISSAMEDAYRETURNField = value;
+                    this.RaisePropertyChanged("ISSAMEDAYRETURN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OUTAPLLYTIMES {
+            get {
+                return this.OUTAPLLYTIMESField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OUTAPLLYTIMESField, value) != true)) {
+                    this.OUTAPLLYTIMESField = value;
+                    this.RaisePropertyChanged("OUTAPLLYTIMES");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OUTAPPLYID {
+            get {
+                return this.OUTAPPLYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OUTAPPLYIDField, value) != true)) {
+                    this.OUTAPPLYIDField = value;
+                    this.RaisePropertyChanged("OUTAPPLYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OVERTIMECATE {
+            get {
+                return this.OVERTIMECATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OVERTIMECATEField, value) != true)) {
+                    this.OVERTIMECATEField = value;
+                    this.RaisePropertyChanged("OVERTIMECATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REASON {
+            get {
+                return this.REASONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REASONField, value) != true)) {
+                    this.REASONField = value;
+                    this.RaisePropertyChanged("REASON");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> STARTDATE {
+            get {
+                return this.STARTDATEField;
+            }
+            set {
+                if ((this.STARTDATEField.Equals(value) != true)) {
+                    this.STARTDATEField = value;
+                    this.RaisePropertyChanged("STARTDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM> T_HR_OUTAPPLYCONFIRM {
+            get {
+                return this.T_HR_OUTAPPLYCONFIRMField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_OUTAPPLYCONFIRMField, value) != true)) {
+                    this.T_HR_OUTAPPLYCONFIRMField = value;
+                    this.RaisePropertyChanged("T_HR_OUTAPPLYCONFIRM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_OUTAPPLYCONFIRM", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_OUTAPPLYCONFIRM : SMT.HRM.UI.OutApplyWS.EntityObject {
+        
+        private string CANCELREASONField;
+        
+        private string CHECKSTATEField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string EMPLOYEEIDField;
+        
+        private string EMPLOYEENAMEField;
+        
+        private System.Nullable<System.DateTime> ENDDATEField;
+        
+        private string ISCANCELEDField;
+        
+        private string OUTAPLLYTIMESField;
+        
+        private string OUTAPPLYCONFIRMIDField;
+        
+        private string OUTREPORTField;
         
         private string OWNERCOMPANYIDField;
         
@@ -216,32 +634,23 @@ namespace SMT.HRM.UI.OutApplyWS {
         
         private System.Nullable<System.DateTime> STARTDATEField;
         
+        private SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD T_HR_OUTAPPLYRECORDField;
+        
+        private SMT.HRM.UI.OutApplyWS.EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo T_HR_OUTAPPLYRECORDReferenceField;
+        
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
         private string UPDATEUSERIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BEGINCARDTIME {
+        public string CANCELREASON {
             get {
-                return this.BEGINCARDTIMEField;
+                return this.CANCELREASONField;
             }
             set {
-                if ((object.ReferenceEquals(this.BEGINCARDTIMEField, value) != true)) {
-                    this.BEGINCARDTIMEField = value;
-                    this.RaisePropertyChanged("BEGINCARDTIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BEGINCARDTYPE {
-            get {
-                return this.BEGINCARDTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BEGINCARDTYPEField, value) != true)) {
-                    this.BEGINCARDTYPEField = value;
-                    this.RaisePropertyChanged("BEGINCARDTYPE");
+                if ((object.ReferenceEquals(this.CANCELREASONField, value) != true)) {
+                    this.CANCELREASONField = value;
+                    this.RaisePropertyChanged("CANCELREASON");
                 }
             }
         }
@@ -351,27 +760,357 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ENDCARDTIME {
+        public System.Nullable<System.DateTime> ENDDATE {
             get {
-                return this.ENDCARDTIMEField;
+                return this.ENDDATEField;
             }
             set {
-                if ((object.ReferenceEquals(this.ENDCARDTIMEField, value) != true)) {
-                    this.ENDCARDTIMEField = value;
-                    this.RaisePropertyChanged("ENDCARDTIME");
+                if ((this.ENDDATEField.Equals(value) != true)) {
+                    this.ENDDATEField = value;
+                    this.RaisePropertyChanged("ENDDATE");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ENDCARDTYPE {
+        public string ISCANCELED {
             get {
-                return this.ENDCARDTYPEField;
+                return this.ISCANCELEDField;
             }
             set {
-                if ((object.ReferenceEquals(this.ENDCARDTYPEField, value) != true)) {
-                    this.ENDCARDTYPEField = value;
-                    this.RaisePropertyChanged("ENDCARDTYPE");
+                if ((object.ReferenceEquals(this.ISCANCELEDField, value) != true)) {
+                    this.ISCANCELEDField = value;
+                    this.RaisePropertyChanged("ISCANCELED");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OUTAPLLYTIMES {
+            get {
+                return this.OUTAPLLYTIMESField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OUTAPLLYTIMESField, value) != true)) {
+                    this.OUTAPLLYTIMESField = value;
+                    this.RaisePropertyChanged("OUTAPLLYTIMES");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OUTAPPLYCONFIRMID {
+            get {
+                return this.OUTAPPLYCONFIRMIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OUTAPPLYCONFIRMIDField, value) != true)) {
+                    this.OUTAPPLYCONFIRMIDField = value;
+                    this.RaisePropertyChanged("OUTAPPLYCONFIRMID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OUTREPORT {
+            get {
+                return this.OUTREPORTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OUTREPORTField, value) != true)) {
+                    this.OUTREPORTField = value;
+                    this.RaisePropertyChanged("OUTREPORT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> STARTDATE {
+            get {
+                return this.STARTDATEField;
+            }
+            set {
+                if ((this.STARTDATEField.Equals(value) != true)) {
+                    this.STARTDATEField = value;
+                    this.RaisePropertyChanged("STARTDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD T_HR_OUTAPPLYRECORD {
+            get {
+                return this.T_HR_OUTAPPLYRECORDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_OUTAPPLYRECORDField, value) != true)) {
+                    this.T_HR_OUTAPPLYRECORDField = value;
+                    this.RaisePropertyChanged("T_HR_OUTAPPLYRECORD");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.HRM.UI.OutApplyWS.EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo T_HR_OUTAPPLYRECORDReference {
+            get {
+                return this.T_HR_OUTAPPLYRECORDReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_OUTAPPLYRECORDReferenceField, value) != true)) {
+                    this.T_HR_OUTAPPLYRECORDReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_OUTAPPLYRECORDReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_NOATTENDCARDEMPLOYEES", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_NOATTENDCARDEMPLOYEES : SMT.HRM.UI.OutApplyWS.EntityObject {
+        
+        private string ALWAYSField;
+        
+        private string CHECKSTATEField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string EMPLOYEEIDField;
+        
+        private string EMPLOYEENAMEField;
+        
+        private System.Nullable<System.DateTime> ENDDATEField;
+        
+        private string NOATTENDCARDEMPLOYEESIDField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string REMARKField;
+        
+        private System.Nullable<System.DateTime> STARTDATEField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ALWAYS {
+            get {
+                return this.ALWAYSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ALWAYSField, value) != true)) {
+                    this.ALWAYSField = value;
+                    this.RaisePropertyChanged("ALWAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
+                    this.EMPLOYEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEENAME");
                 }
             }
         }
@@ -390,40 +1129,14 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OVERTIMECATE {
+        public string NOATTENDCARDEMPLOYEESID {
             get {
-                return this.OVERTIMECATEField;
+                return this.NOATTENDCARDEMPLOYEESIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.OVERTIMECATEField, value) != true)) {
-                    this.OVERTIMECATEField = value;
-                    this.RaisePropertyChanged("OVERTIMECATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OVERTIMEHOURS {
-            get {
-                return this.OVERTIMEHOURSField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OVERTIMEHOURSField, value) != true)) {
-                    this.OVERTIMEHOURSField = value;
-                    this.RaisePropertyChanged("OVERTIMEHOURS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OVERTIMERECORDID {
-            get {
-                return this.OVERTIMERECORDIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OVERTIMERECORDIDField, value) != true)) {
-                    this.OVERTIMERECORDIDField = value;
-                    this.RaisePropertyChanged("OVERTIMERECORDID");
+                if ((object.ReferenceEquals(this.NOATTENDCARDEMPLOYEESIDField, value) != true)) {
+                    this.NOATTENDCARDEMPLOYEESIDField = value;
+                    this.RaisePropertyChanged("NOATTENDCARDEMPLOYEESID");
                 }
             }
         }
@@ -545,24 +1258,31 @@ namespace SMT.HRM.UI.OutApplyWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES))]
         System.IAsyncResult BeginEmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD> EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result);
+        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/GetOverTimeRdByID", ReplyAction="urn:OutAppliecrecordService/GetOverTimeRdByIDResponse")]
         System.IAsyncResult BeginGetOverTimeRdByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
         
-        SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD EndGetOverTimeRdByID(System.IAsyncResult result);
+        SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD EndGetOverTimeRdByID(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/AddOverTimeRd", ReplyAction="urn:OutAppliecrecordService/AddOverTimeRdResponse")]
-        System.IAsyncResult BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState);
         
         string EndAddOverTimeRd(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/ModifyOverTimeRd", ReplyAction="urn:OutAppliecrecordService/ModifyOverTimeRdResponse")]
-        System.IAsyncResult BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState);
         
         string EndModifyOverTimeRd(System.IAsyncResult result);
         
@@ -575,6 +1295,47 @@ namespace SMT.HRM.UI.OutApplyWS {
         System.IAsyncResult BeginAuditOverTimeRd(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState);
         
         string EndAuditOverTimeRd(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/GetNoAttendCardEmployeesPaging", ReplyAction="urn:OutAppliecrecordService/GetNoAttendCardEmployeesPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES))]
+        System.IAsyncResult BeginGetNoAttendCardEmployeesPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES> EndGetNoAttendCardEmployeesPaging(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/GetNoAttendCardEmployeesByID", ReplyAction="urn:OutAppliecrecordService/GetNoAttendCardEmployeesByIDResponse")]
+        System.IAsyncResult BeginGetNoAttendCardEmployeesByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
+        
+        SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES EndGetNoAttendCardEmployeesByID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/AddNoAttendCardEmployeesRd", ReplyAction="urn:OutAppliecrecordService/AddNoAttendCardEmployeesRdResponse")]
+        System.IAsyncResult BeginAddNoAttendCardEmployeesRd(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd, System.AsyncCallback callback, object asyncState);
+        
+        string EndAddNoAttendCardEmployeesRd(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/UpdateNoAttendCardEmployeesRd", ReplyAction="urn:OutAppliecrecordService/UpdateNoAttendCardEmployeesRdResponse")]
+        System.IAsyncResult BeginUpdateNoAttendCardEmployeesRd(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd, System.AsyncCallback callback, object asyncState);
+        
+        string EndUpdateNoAttendCardEmployeesRd(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/DeleteNoAttendCardEmployeesRd", ReplyAction="urn:OutAppliecrecordService/DeleteNoAttendCardEmployeesRdResponse")]
+        System.IAsyncResult BeginDeleteNoAttendCardEmployeesRd(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
+        
+        bool EndDeleteNoAttendCardEmployeesRd(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -599,10 +1360,10 @@ namespace SMT.HRM.UI.OutApplyWS {
             }
         }
         
-        public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD> Result {
+        public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD>)(this.results[1]));
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD>)(this.results[1]));
             }
         }
     }
@@ -618,10 +1379,10 @@ namespace SMT.HRM.UI.OutApplyWS {
             this.results = results;
         }
         
-        public SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD Result {
+        public SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD)(this.results[0]));
+                return ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD)(this.results[0]));
             }
         }
     }
@@ -704,6 +1465,108 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetNoAttendCardEmployeesPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetNoAttendCardEmployeesPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetNoAttendCardEmployeesByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetNoAttendCardEmployeesByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AddNoAttendCardEmployeesRdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AddNoAttendCardEmployeesRdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateNoAttendCardEmployeesRdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateNoAttendCardEmployeesRdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DeleteNoAttendCardEmployeesRdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public DeleteNoAttendCardEmployeesRdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class OutAppliecrecordServiceClient : System.ServiceModel.ClientBase<SMT.HRM.UI.OutApplyWS.OutAppliecrecordService>, SMT.HRM.UI.OutApplyWS.OutAppliecrecordService {
         
         private BeginOperationDelegate onBeginEmployeeOverTimeRecordPagingDelegate;
@@ -741,6 +1604,36 @@ namespace SMT.HRM.UI.OutApplyWS {
         private EndOperationDelegate onEndAuditOverTimeRdDelegate;
         
         private System.Threading.SendOrPostCallback onAuditOverTimeRdCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetNoAttendCardEmployeesPagingDelegate;
+        
+        private EndOperationDelegate onEndGetNoAttendCardEmployeesPagingDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetNoAttendCardEmployeesPagingCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetNoAttendCardEmployeesByIDDelegate;
+        
+        private EndOperationDelegate onEndGetNoAttendCardEmployeesByIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetNoAttendCardEmployeesByIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAddNoAttendCardEmployeesRdDelegate;
+        
+        private EndOperationDelegate onEndAddNoAttendCardEmployeesRdDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddNoAttendCardEmployeesRdCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateNoAttendCardEmployeesRdDelegate;
+        
+        private EndOperationDelegate onEndUpdateNoAttendCardEmployeesRdDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateNoAttendCardEmployeesRdCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteNoAttendCardEmployeesRdDelegate;
+        
+        private EndOperationDelegate onEndDeleteNoAttendCardEmployeesRdDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteNoAttendCardEmployeesRdCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -806,6 +1699,16 @@ namespace SMT.HRM.UI.OutApplyWS {
         
         public event System.EventHandler<AuditOverTimeRdCompletedEventArgs> AuditOverTimeRdCompleted;
         
+        public event System.EventHandler<GetNoAttendCardEmployeesPagingCompletedEventArgs> GetNoAttendCardEmployeesPagingCompleted;
+        
+        public event System.EventHandler<GetNoAttendCardEmployeesByIDCompletedEventArgs> GetNoAttendCardEmployeesByIDCompleted;
+        
+        public event System.EventHandler<AddNoAttendCardEmployeesRdCompletedEventArgs> AddNoAttendCardEmployeesRdCompleted;
+        
+        public event System.EventHandler<UpdateNoAttendCardEmployeesRdCompletedEventArgs> UpdateNoAttendCardEmployeesRdCompleted;
+        
+        public event System.EventHandler<DeleteNoAttendCardEmployeesRdCompletedEventArgs> DeleteNoAttendCardEmployeesRdCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
@@ -816,7 +1719,7 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD> SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result) {
+        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result) {
             return base.Channel.EndEmployeeOverTimeRecordPaging(ref pageCount, result);
         }
         
@@ -834,7 +1737,7 @@ namespace SMT.HRM.UI.OutApplyWS {
         
         private object[] OnEndEmployeeOverTimeRecordPaging(System.IAsyncResult result) {
             int pageCount = this.GetDefaultValueForInitialization<int>();
-            System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD> retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndEmployeeOverTimeRecordPaging(ref pageCount, result);
+            System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndEmployeeOverTimeRecordPaging(ref pageCount, result);
             return new object[] {
                     pageCount,
                     retVal};
@@ -878,7 +1781,7 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndGetOverTimeRdByID(System.IAsyncResult result) {
+        SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndGetOverTimeRdByID(System.IAsyncResult result) {
             return base.Channel.EndGetOverTimeRdByID(result);
         }
         
@@ -888,7 +1791,7 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         private object[] OnEndGetOverTimeRdByID(System.IAsyncResult result) {
-            SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndGetOverTimeRdByID(result);
+            SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndGetOverTimeRdByID(result);
             return new object[] {
                     retVal};
         }
@@ -919,7 +1822,7 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginAddOverTimeRd(entOTRd, callback, asyncState);
         }
         
@@ -929,7 +1832,7 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         private System.IAsyncResult OnBeginAddOverTimeRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD)(inValues[0]));
+            SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD)(inValues[0]));
             return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginAddOverTimeRd(entOTRd, callback, asyncState);
         }
         
@@ -946,11 +1849,11 @@ namespace SMT.HRM.UI.OutApplyWS {
             }
         }
         
-        public void AddOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd) {
+        public void AddOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd) {
             this.AddOverTimeRdAsync(entOTRd, null);
         }
         
-        public void AddOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd, object userState) {
+        public void AddOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, object userState) {
             if ((this.onBeginAddOverTimeRdDelegate == null)) {
                 this.onBeginAddOverTimeRdDelegate = new BeginOperationDelegate(this.OnBeginAddOverTimeRd);
             }
@@ -965,7 +1868,7 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginModifyOverTimeRd(entOTRd, callback, asyncState);
         }
         
@@ -975,7 +1878,7 @@ namespace SMT.HRM.UI.OutApplyWS {
         }
         
         private System.IAsyncResult OnBeginModifyOverTimeRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD)(inValues[0]));
+            SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD)(inValues[0]));
             return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginModifyOverTimeRd(entOTRd, callback, asyncState);
         }
         
@@ -992,11 +1895,11 @@ namespace SMT.HRM.UI.OutApplyWS {
             }
         }
         
-        public void ModifyOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd) {
+        public void ModifyOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd) {
             this.ModifyOverTimeRdAsync(entOTRd, null);
         }
         
-        public void ModifyOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd, object userState) {
+        public void ModifyOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, object userState) {
             if ((this.onBeginModifyOverTimeRdDelegate == null)) {
                 this.onBeginModifyOverTimeRdDelegate = new BeginOperationDelegate(this.OnBeginModifyOverTimeRd);
             }
@@ -1104,6 +2007,252 @@ namespace SMT.HRM.UI.OutApplyWS {
                         strCheckState}, this.onEndAuditOverTimeRdDelegate, this.onAuditOverTimeRdCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginGetNoAttendCardEmployeesPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetNoAttendCardEmployeesPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES> SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndGetNoAttendCardEmployeesPaging(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndGetNoAttendCardEmployeesPaging(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginGetNoAttendCardEmployeesPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            string strCheckState = ((string)(inValues[6]));
+            string strOwnerID = ((string)(inValues[7]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginGetNoAttendCardEmployeesPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetNoAttendCardEmployeesPaging(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES> retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndGetNoAttendCardEmployeesPaging(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnGetNoAttendCardEmployeesPagingCompleted(object state) {
+            if ((this.GetNoAttendCardEmployeesPagingCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetNoAttendCardEmployeesPagingCompleted(this, new GetNoAttendCardEmployeesPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetNoAttendCardEmployeesPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID) {
+            this.GetNoAttendCardEmployeesPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, null);
+        }
+        
+        public void GetNoAttendCardEmployeesPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, object userState) {
+            if ((this.onBeginGetNoAttendCardEmployeesPagingDelegate == null)) {
+                this.onBeginGetNoAttendCardEmployeesPagingDelegate = new BeginOperationDelegate(this.OnBeginGetNoAttendCardEmployeesPaging);
+            }
+            if ((this.onEndGetNoAttendCardEmployeesPagingDelegate == null)) {
+                this.onEndGetNoAttendCardEmployeesPagingDelegate = new EndOperationDelegate(this.OnEndGetNoAttendCardEmployeesPaging);
+            }
+            if ((this.onGetNoAttendCardEmployeesPagingCompletedDelegate == null)) {
+                this.onGetNoAttendCardEmployeesPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetNoAttendCardEmployeesPagingCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetNoAttendCardEmployeesPagingDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        strCheckState,
+                        strOwnerID}, this.onEndGetNoAttendCardEmployeesPagingDelegate, this.onGetNoAttendCardEmployeesPagingCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginGetNoAttendCardEmployeesByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetNoAttendCardEmployeesByID(strOverTimeRecordId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndGetNoAttendCardEmployeesByID(System.IAsyncResult result) {
+            return base.Channel.EndGetNoAttendCardEmployeesByID(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetNoAttendCardEmployeesByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strOverTimeRecordId = ((string)(inValues[0]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginGetNoAttendCardEmployeesByID(strOverTimeRecordId, callback, asyncState);
+        }
+        
+        private object[] OnEndGetNoAttendCardEmployeesByID(System.IAsyncResult result) {
+            SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndGetNoAttendCardEmployeesByID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetNoAttendCardEmployeesByIDCompleted(object state) {
+            if ((this.GetNoAttendCardEmployeesByIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetNoAttendCardEmployeesByIDCompleted(this, new GetNoAttendCardEmployeesByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetNoAttendCardEmployeesByIDAsync(string strOverTimeRecordId) {
+            this.GetNoAttendCardEmployeesByIDAsync(strOverTimeRecordId, null);
+        }
+        
+        public void GetNoAttendCardEmployeesByIDAsync(string strOverTimeRecordId, object userState) {
+            if ((this.onBeginGetNoAttendCardEmployeesByIDDelegate == null)) {
+                this.onBeginGetNoAttendCardEmployeesByIDDelegate = new BeginOperationDelegate(this.OnBeginGetNoAttendCardEmployeesByID);
+            }
+            if ((this.onEndGetNoAttendCardEmployeesByIDDelegate == null)) {
+                this.onEndGetNoAttendCardEmployeesByIDDelegate = new EndOperationDelegate(this.OnEndGetNoAttendCardEmployeesByID);
+            }
+            if ((this.onGetNoAttendCardEmployeesByIDCompletedDelegate == null)) {
+                this.onGetNoAttendCardEmployeesByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetNoAttendCardEmployeesByIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetNoAttendCardEmployeesByIDDelegate, new object[] {
+                        strOverTimeRecordId}, this.onEndGetNoAttendCardEmployeesByIDDelegate, this.onGetNoAttendCardEmployeesByIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAddNoAttendCardEmployeesRd(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddNoAttendCardEmployeesRd(entOTRd, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndAddNoAttendCardEmployeesRd(System.IAsyncResult result) {
+            return base.Channel.EndAddNoAttendCardEmployeesRd(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddNoAttendCardEmployeesRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES)(inValues[0]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginAddNoAttendCardEmployeesRd(entOTRd, callback, asyncState);
+        }
+        
+        private object[] OnEndAddNoAttendCardEmployeesRd(System.IAsyncResult result) {
+            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndAddNoAttendCardEmployeesRd(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAddNoAttendCardEmployeesRdCompleted(object state) {
+            if ((this.AddNoAttendCardEmployeesRdCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddNoAttendCardEmployeesRdCompleted(this, new AddNoAttendCardEmployeesRdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddNoAttendCardEmployeesRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd) {
+            this.AddNoAttendCardEmployeesRdAsync(entOTRd, null);
+        }
+        
+        public void AddNoAttendCardEmployeesRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd, object userState) {
+            if ((this.onBeginAddNoAttendCardEmployeesRdDelegate == null)) {
+                this.onBeginAddNoAttendCardEmployeesRdDelegate = new BeginOperationDelegate(this.OnBeginAddNoAttendCardEmployeesRd);
+            }
+            if ((this.onEndAddNoAttendCardEmployeesRdDelegate == null)) {
+                this.onEndAddNoAttendCardEmployeesRdDelegate = new EndOperationDelegate(this.OnEndAddNoAttendCardEmployeesRd);
+            }
+            if ((this.onAddNoAttendCardEmployeesRdCompletedDelegate == null)) {
+                this.onAddNoAttendCardEmployeesRdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddNoAttendCardEmployeesRdCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddNoAttendCardEmployeesRdDelegate, new object[] {
+                        entOTRd}, this.onEndAddNoAttendCardEmployeesRdDelegate, this.onAddNoAttendCardEmployeesRdCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginUpdateNoAttendCardEmployeesRd(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateNoAttendCardEmployeesRd(entOTRd, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndUpdateNoAttendCardEmployeesRd(System.IAsyncResult result) {
+            return base.Channel.EndUpdateNoAttendCardEmployeesRd(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateNoAttendCardEmployeesRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES)(inValues[0]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginUpdateNoAttendCardEmployeesRd(entOTRd, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateNoAttendCardEmployeesRd(System.IAsyncResult result) {
+            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndUpdateNoAttendCardEmployeesRd(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateNoAttendCardEmployeesRdCompleted(object state) {
+            if ((this.UpdateNoAttendCardEmployeesRdCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateNoAttendCardEmployeesRdCompleted(this, new UpdateNoAttendCardEmployeesRdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateNoAttendCardEmployeesRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd) {
+            this.UpdateNoAttendCardEmployeesRdAsync(entOTRd, null);
+        }
+        
+        public void UpdateNoAttendCardEmployeesRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd, object userState) {
+            if ((this.onBeginUpdateNoAttendCardEmployeesRdDelegate == null)) {
+                this.onBeginUpdateNoAttendCardEmployeesRdDelegate = new BeginOperationDelegate(this.OnBeginUpdateNoAttendCardEmployeesRd);
+            }
+            if ((this.onEndUpdateNoAttendCardEmployeesRdDelegate == null)) {
+                this.onEndUpdateNoAttendCardEmployeesRdDelegate = new EndOperationDelegate(this.OnEndUpdateNoAttendCardEmployeesRd);
+            }
+            if ((this.onUpdateNoAttendCardEmployeesRdCompletedDelegate == null)) {
+                this.onUpdateNoAttendCardEmployeesRdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateNoAttendCardEmployeesRdCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateNoAttendCardEmployeesRdDelegate, new object[] {
+                        entOTRd}, this.onEndUpdateNoAttendCardEmployeesRdDelegate, this.onUpdateNoAttendCardEmployeesRdCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginDeleteNoAttendCardEmployeesRd(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteNoAttendCardEmployeesRd(strOverTimeRecordId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndDeleteNoAttendCardEmployeesRd(System.IAsyncResult result) {
+            return base.Channel.EndDeleteNoAttendCardEmployeesRd(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteNoAttendCardEmployeesRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginDeleteNoAttendCardEmployeesRd(strOverTimeRecordId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteNoAttendCardEmployeesRd(System.IAsyncResult result) {
+            bool retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndDeleteNoAttendCardEmployeesRd(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnDeleteNoAttendCardEmployeesRdCompleted(object state) {
+            if ((this.DeleteNoAttendCardEmployeesRdCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteNoAttendCardEmployeesRdCompleted(this, new DeleteNoAttendCardEmployeesRdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteNoAttendCardEmployeesRdAsync(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId) {
+            this.DeleteNoAttendCardEmployeesRdAsync(strOverTimeRecordId, null);
+        }
+        
+        public void DeleteNoAttendCardEmployeesRdAsync(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, object userState) {
+            if ((this.onBeginDeleteNoAttendCardEmployeesRdDelegate == null)) {
+                this.onBeginDeleteNoAttendCardEmployeesRdDelegate = new BeginOperationDelegate(this.OnBeginDeleteNoAttendCardEmployeesRd);
+            }
+            if ((this.onEndDeleteNoAttendCardEmployeesRdDelegate == null)) {
+                this.onEndDeleteNoAttendCardEmployeesRdDelegate = new EndOperationDelegate(this.OnEndDeleteNoAttendCardEmployeesRd);
+            }
+            if ((this.onDeleteNoAttendCardEmployeesRdCompletedDelegate == null)) {
+                this.onDeleteNoAttendCardEmployeesRdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteNoAttendCardEmployeesRdCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteNoAttendCardEmployeesRdDelegate, new object[] {
+                        strOverTimeRecordId}, this.onEndDeleteNoAttendCardEmployeesRdDelegate, this.onDeleteNoAttendCardEmployeesRdCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -1195,10 +2344,10 @@ namespace SMT.HRM.UI.OutApplyWS {
                 return _result;
             }
             
-            public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD> EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result) {
+            public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result) {
                 object[] _args = new object[1];
                 _args[0] = pageCount;
-                System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD>)(base.EndInvoke("EmployeeOverTimeRecordPaging", _args, result)));
+                System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD>)(base.EndInvoke("EmployeeOverTimeRecordPaging", _args, result)));
                 pageCount = ((int)(_args[0]));
                 return _result;
             }
@@ -1210,13 +2359,13 @@ namespace SMT.HRM.UI.OutApplyWS {
                 return _result;
             }
             
-            public SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD EndGetOverTimeRdByID(System.IAsyncResult result) {
+            public SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD EndGetOverTimeRdByID(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD _result = ((SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD)(base.EndInvoke("GetOverTimeRdByID", _args, result)));
+                SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD _result = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD)(base.EndInvoke("GetOverTimeRdByID", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = entOTRd;
                 System.IAsyncResult _result = base.BeginInvoke("AddOverTimeRd", _args, callback, asyncState);
@@ -1229,7 +2378,7 @@ namespace SMT.HRM.UI.OutApplyWS {
                 return _result;
             }
             
-            public System.IAsyncResult BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = entOTRd;
                 System.IAsyncResult _result = base.BeginInvoke("ModifyOverTimeRd", _args, callback, asyncState);
@@ -1266,6 +2415,81 @@ namespace SMT.HRM.UI.OutApplyWS {
             public string EndAuditOverTimeRd(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 string _result = ((string)(base.EndInvoke("AuditOverTimeRd", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetNoAttendCardEmployeesPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[8];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                _args[6] = strCheckState;
+                _args[7] = strOwnerID;
+                System.IAsyncResult _result = base.BeginInvoke("GetNoAttendCardEmployeesPaging", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES> EndGetNoAttendCardEmployeesPaging(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES>)(base.EndInvoke("GetNoAttendCardEmployeesPaging", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetNoAttendCardEmployeesByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = strOverTimeRecordId;
+                System.IAsyncResult _result = base.BeginInvoke("GetNoAttendCardEmployeesByID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES EndGetNoAttendCardEmployeesByID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES _result = ((SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES)(base.EndInvoke("GetNoAttendCardEmployeesByID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginAddNoAttendCardEmployeesRd(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = entOTRd;
+                System.IAsyncResult _result = base.BeginInvoke("AddNoAttendCardEmployeesRd", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndAddNoAttendCardEmployeesRd(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("AddNoAttendCardEmployeesRd", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUpdateNoAttendCardEmployeesRd(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES entOTRd, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = entOTRd;
+                System.IAsyncResult _result = base.BeginInvoke("UpdateNoAttendCardEmployeesRd", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndUpdateNoAttendCardEmployeesRd(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("UpdateNoAttendCardEmployeesRd", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginDeleteNoAttendCardEmployeesRd(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = strOverTimeRecordId;
+                System.IAsyncResult _result = base.BeginInvoke("DeleteNoAttendCardEmployeesRd", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndDeleteNoAttendCardEmployeesRd(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("DeleteNoAttendCardEmployeesRd", _args, result)));
                 return _result;
             }
         }

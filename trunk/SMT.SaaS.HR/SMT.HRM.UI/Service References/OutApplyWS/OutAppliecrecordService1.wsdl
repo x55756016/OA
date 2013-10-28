@@ -58,6 +58,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetNoAttendCardEmployeesPaging">
+      <soap:operation soapAction="urn:OutAppliecrecordService/GetNoAttendCardEmployeesPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoAttendCardEmployeesByID">
+      <soap:operation soapAction="urn:OutAppliecrecordService/GetNoAttendCardEmployeesByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNoAttendCardEmployeesRd">
+      <soap:operation soapAction="urn:OutAppliecrecordService/AddNoAttendCardEmployeesRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNoAttendCardEmployeesRd">
+      <soap:operation soapAction="urn:OutAppliecrecordService/UpdateNoAttendCardEmployeesRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNoAttendCardEmployeesRd">
+      <soap:operation soapAction="urn:OutAppliecrecordService/DeleteNoAttendCardEmployeesRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="OutAppliecrecordService">
     <wsdl:port name="BasicHttpBinding_OutAppliecrecordService" binding="tns:BasicHttpBinding_OutAppliecrecordService">

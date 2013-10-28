@@ -46,6 +46,36 @@
   <wsdl:message name="OutAppliecrecordService_AuditOverTimeRd_OutputMessage">
     <wsdl:part name="parameters" element="AuditOverTimeRdResponse" />
   </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_GetNoAttendCardEmployeesPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetNoAttendCardEmployeesPaging" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_GetNoAttendCardEmployeesPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetNoAttendCardEmployeesPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_GetNoAttendCardEmployeesByID_InputMessage">
+    <wsdl:part name="parameters" element="GetNoAttendCardEmployeesByID" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_GetNoAttendCardEmployeesByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetNoAttendCardEmployeesByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_AddNoAttendCardEmployeesRd_InputMessage">
+    <wsdl:part name="parameters" element="AddNoAttendCardEmployeesRd" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_AddNoAttendCardEmployeesRd_OutputMessage">
+    <wsdl:part name="parameters" element="AddNoAttendCardEmployeesRdResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_UpdateNoAttendCardEmployeesRd_InputMessage">
+    <wsdl:part name="parameters" element="UpdateNoAttendCardEmployeesRd" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_UpdateNoAttendCardEmployeesRd_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateNoAttendCardEmployeesRdResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_DeleteNoAttendCardEmployeesRd_InputMessage">
+    <wsdl:part name="parameters" element="DeleteNoAttendCardEmployeesRd" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_DeleteNoAttendCardEmployeesRd_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteNoAttendCardEmployeesRdResponse" />
+  </wsdl:message>
   <wsdl:portType name="OutAppliecrecordService">
     <wsdl:operation name="EmployeeOverTimeRecordPaging">
       <wsdl:input wsaw:Action="urn:OutAppliecrecordService/EmployeeOverTimeRecordPaging" message="OutAppliecrecordService_EmployeeOverTimeRecordPaging_InputMessage" />
@@ -70,6 +100,26 @@
     <wsdl:operation name="AuditOverTimeRd">
       <wsdl:input wsaw:Action="urn:OutAppliecrecordService/AuditOverTimeRd" message="OutAppliecrecordService_AuditOverTimeRd_InputMessage" />
       <wsdl:output wsaw:Action="urn:OutAppliecrecordService/AuditOverTimeRdResponse" message="OutAppliecrecordService_AuditOverTimeRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNoAttendCardEmployeesPaging">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/GetNoAttendCardEmployeesPaging" message="OutAppliecrecordService_GetNoAttendCardEmployeesPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/GetNoAttendCardEmployeesPagingResponse" message="OutAppliecrecordService_GetNoAttendCardEmployeesPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNoAttendCardEmployeesByID">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/GetNoAttendCardEmployeesByID" message="OutAppliecrecordService_GetNoAttendCardEmployeesByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/GetNoAttendCardEmployeesByIDResponse" message="OutAppliecrecordService_GetNoAttendCardEmployeesByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNoAttendCardEmployeesRd">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/AddNoAttendCardEmployeesRd" message="OutAppliecrecordService_AddNoAttendCardEmployeesRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/AddNoAttendCardEmployeesRdResponse" message="OutAppliecrecordService_AddNoAttendCardEmployeesRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNoAttendCardEmployeesRd">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/UpdateNoAttendCardEmployeesRd" message="OutAppliecrecordService_UpdateNoAttendCardEmployeesRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/UpdateNoAttendCardEmployeesRdResponse" message="OutAppliecrecordService_UpdateNoAttendCardEmployeesRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNoAttendCardEmployeesRd">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/DeleteNoAttendCardEmployeesRd" message="OutAppliecrecordService_DeleteNoAttendCardEmployeesRd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/DeleteNoAttendCardEmployeesRdResponse" message="OutAppliecrecordService_DeleteNoAttendCardEmployeesRd_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

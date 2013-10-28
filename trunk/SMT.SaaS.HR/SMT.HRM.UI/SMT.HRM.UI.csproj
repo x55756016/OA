@@ -144,8 +144,10 @@
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Json, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Windows" />
     <Reference Include="mscorlib" />
     <Reference Include="system" />
@@ -307,6 +309,9 @@
     </Compile>
     <Compile Include="Form\Attendance\OutAppliecationForm.xaml.cs">
       <DependentUpon>OutAppliecationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Attendance\NoAttendCardEmployeesForm.xaml.cs">
+      <DependentUpon>NoAttendCardEmployeesForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Form\BaseFloatable.cs" />
     <Compile Include="Form\Organization\DepartmentDictionaryForms.xaml.cs">
@@ -752,6 +757,9 @@
     <Compile Include="Views\Attendance\OutAppliecation.xaml.cs">
       <DependentUpon>OutAppliecation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Attendance\NoAttendCardEmployees.xaml.cs">
+      <DependentUpon>NoAttendCardEmployees.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BasePage.cs" />
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -1186,6 +1194,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Form\Attendance\OutAppliecationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Form\Attendance\NoAttendCardEmployeesForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1951,6 +1963,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Attendance\NoAttendCardEmployees.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Home.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -2407,7 +2423,10 @@
     <None Include="Service References\OutApplyWS\OutAppliecrecordService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\OutApplyWS\SMT.HRM.UI.OutApplyWS.T_HR_EMPLOYEEOUTAPPLIECRECORD.datasource">
+    <None Include="Service References\OutApplyWS\SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OutApplyWS\SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ReportChartServiceWS\ReportChartService.wsdl" />
