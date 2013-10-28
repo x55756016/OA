@@ -95,6 +95,7 @@
   <ItemGroup>
     <Content Include="AttendanceService.svc" />
     <Content Include="clientaccesspolicy.xml" />
+    <Content Include="HRAjaxSv.svc" />
     <Content Include="HRUpdateCheckStateServices.svc" />
     <Content Include="InstantMessagingService.svc" />
     <Content Include="OrganizationService.svc" />
@@ -132,7 +133,7 @@
     <Content Include="XML\T_HR_EMPLOYEEEVECTIONREPORT.xml" />
     <Content Include="XML\T_HR_EMPLOYEEINSURANCE.xml" />
     <Content Include="XML\T_HR_EMPLOYEELEAVERECORD.xml" />
-    <Content Include="XML\T_HR_EMPLOYEEOUTAPPLIECRECORD.xml" />
+    <Content Include="XML\T_HR_OUTAPPLYRECORD.xml" />
     <Content Include="XML\T_HR_EMPLOYEEOVERTIMERECORD.xml" />
     <Content Include="XML\T_HR_EMPLOYEEPOST.xml" />
     <Content Include="XML\T_HR_EMPLOYEEPOSTCHANGE.xml" />
@@ -158,6 +159,7 @@
     <Content Include="XML\T_HR_SALARYSOLUTIONASSIGN.xml" />
     <Content Include="XML\T_HR_SALARYSTANDARD.xml" />
     <Content Include="XML\T_HR_SALARYSYSTEM.xml" />
+    <Content Include="XML\T_HR_NOATTENDCARDEMPLOYEES.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttendanceService.svc.cs">
@@ -168,6 +170,9 @@
     </Compile>
     <Compile Include="EngineTriggerService.svc.cs">
       <DependentUpon>EngineTriggerService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="HRAjaxSv.svc.cs">
+      <DependentUpon>HRAjaxSv.svc</DependentUpon>
     </Compile>
     <Compile Include="HRUpdateCheckStateServices.svc.cs">
       <DependentUpon>HRUpdateCheckStateServices.svc</DependentUpon>
