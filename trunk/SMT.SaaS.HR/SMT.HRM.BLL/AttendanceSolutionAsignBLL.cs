@@ -639,7 +639,15 @@ namespace SMT.HRM.BLL
                         }
                     }
                 }
-                return ent.FirstOrDefault();
+
+                T_HR_ATTENDANCESOLUTIONASIGN entityAsing = ent.FirstOrDefault();
+
+                if (Utility.IsNoNeedCardEmployee(strEmployeeID, dtStart))
+                {
+                    entityAsing.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE = (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString();
+                    Tracer.Debug("检测到员工设置为免打卡员工" + entity.T_HR_EMPLOYEE.EMPLOYEECNAME + "：修改考勤方案状态为（2为免打卡）：" + entityAsing.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE);
+                }
+                return entityAsing;
             }
             return null;
         }
@@ -1578,7 +1586,9 @@ namespace SMT.HRM.BLL
                             Tracer.Debug("初始化员工,考勤方案设置为免打卡，员工姓名："
                                 + entEmployees.FirstOrDefault().EMPLOYEECNAME
                                 + " 考勤方案名：" + entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME);
+                        
                         }
+                        
                         #endregion
 
                         #region 初始化开始日期大于结束日期
