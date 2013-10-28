@@ -20,6 +20,7 @@ using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using System.Linq.Dynamic;
 using SMT.HRM.DAL;
 using SMT.Foundation.Log;
+using SMT_HRM_EFModel;
 
 namespace SMT.HRM.BLL
 {
@@ -1014,6 +1015,14 @@ namespace SMT.HRM.BLL
                 return null;
             }
 
+        }
+
+        public static bool IsNoNeedCardEmployee(string employeeid,DateTime dtstar)
+        {
+            using (NoAttendCardEmployeesBLL bll = new NoAttendCardEmployeesBLL())
+            {
+               return bll.IsNoNeedCardEmployee(employeeid, dtstar);                
+            }
         }
     }
 }
