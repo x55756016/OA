@@ -1,0 +1,11 @@
+<?xml version="1.0"?> 
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <assembly> 
+    <name>Wintellect.Sterling</name> 
+    <version>1.0.0.0</version> 
+    <publickeytoken>c31c71232515013a</publickeytoken> 
+    <relpath>Wintellect.Sterling.dll</relpath> 
+    <extension downloadUri="Wintellect.Sterling.zip" /> 
+  </assembly> 
+</manifest> 
