@@ -25,7 +25,7 @@ namespace SMT.HRM.UI.Form.Attendance
         public FormTypes FormType { get; set; }
         public string OverTimeRecordID { get; set; }
         private List<ToolbarItem> ToolbarItems = new List<ToolbarItem>();
-        public T_HR_EMPLOYEEOUTAPPLIECRECORD OvertimeRecord { get; set; }
+        public T_HR_OUTAPPLYRECORD OvertimeRecord { get; set; }
         public T_HR_ATTENDANCESOLUTION solution { get; set; }
         OutAppliecrecordServiceClient client;
         SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient perClient;
@@ -120,7 +120,7 @@ namespace SMT.HRM.UI.Form.Attendance
         #region IAudit 成员 审核
 
         #region mobilexml
-        private string GetXmlString(string StrSource, T_HR_EMPLOYEEOUTAPPLIECRECORD Info)
+        private string GetXmlString(string StrSource, T_HR_OUTAPPLYRECORD Info)
         {
             //SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
             decimal? stateValue = Convert.ToDecimal("1");
@@ -142,15 +142,15 @@ namespace SMT.HRM.UI.Form.Attendance
 
             SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
             List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
-            AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "CHECKSTATE", "1", checkState));
-            AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "OWNERPOSTNAME", tbOrgName.Text.Trim(), tbOrgName.Text.Trim()));
-            AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "POSTLEVEL", tbEmpLevel.Text.Trim(), postLevelName));
-            AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "EMPLOYEENAME", Info.EMPLOYEENAME, tbEmpName.Text));
-            AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
-            AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
-            AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
-            //AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "PAYCATEGORY", Info.PAYCATEGORY, PayCatogryDict == null ? "" : PayCatogryDict.DICTIONARYNAME));
-            AutoList.Add(basedata("T_HR_EMPLOYEEOUTAPPLIECRECORD", "OVERTIMECATE", Info.OVERTIMECATE, overTimeDict == null ? "" : overTimeDict.DICTIONARYNAME));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CHECKSTATE", "1", checkState));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERPOSTNAME", tbOrgName.Text.Trim(), tbOrgName.Text.Trim()));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "POSTLEVEL", tbEmpLevel.Text.Trim(), postLevelName));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "EMPLOYEENAME", Info.EMPLOYEENAME, tbEmpName.Text));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
+            //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "PAYCATEGORY", Info.PAYCATEGORY, PayCatogryDict == null ? "" : PayCatogryDict.DICTIONARYNAME));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OVERTIMECATE", Info.OVERTIMECATE, overTimeDict == null ? "" : overTimeDict.DICTIONARYNAME));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERCOMPANYID", approvalInfo.OWNERCOMPANYID, StrCompanyName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERDEPARTMENTID", approvalInfo.OWNERDEPARTMENTID, StrDepartmentName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERPOSTID", approvalInfo.OWNERPOSTID, StrPostName));
@@ -184,10 +184,10 @@ namespace SMT.HRM.UI.Form.Attendance
             para.Add("OWNERPOSTNAME", tbOrgName.Text.Trim());
             entity.SystemCode = "HR";
             string strXmlObjectSource = string.Empty;
-            //  strXmlObjectSource = Utility.ObjListToXml<T_HR_EMPLOYEEOUTAPPLIECRECORD>(OvertimeRecord, para, "HR");
+            //  strXmlObjectSource = Utility.ObjListToXml<T_HR_OUTAPPLYRECORD>(OvertimeRecord, para, "HR");
             if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
                 strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, OvertimeRecord);
-            Utility.SetAuditEntity(entity, "T_HR_EMPLOYEEOUTAPPLIECRECORD", OvertimeRecord.OVERTIMERECORDID, strXmlObjectSource);
+            Utility.SetAuditEntity(entity, "T_HR_OUTAPPLYRECORD", OvertimeRecord.OUTAPPLYID, strXmlObjectSource);
         }
 
         public void OnSubmitCompleted(SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult args)
@@ -219,24 +219,6 @@ namespace SMT.HRM.UI.Form.Attendance
             RefreshUI(RefreshedTypes.HideProgressBar);
             RefreshUI(RefreshedTypes.AuditInfo);
             RefreshUI(RefreshedTypes.All);
-            //By  : Sam
-            //Date: 2011-9-6
-            //For : 前台此处调了一次服务，在BLL层的UpdateCheckState方法里面又调了一次，会导致很多问题,所以这里屏蔽掉
-            //string state = string.Empty;
-            //switch (args)
-            //{
-            //    case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Auditing:
-            //        state = Utility.GetCheckState(CheckStates.Approving);
-            //        break;
-            //    case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Successful:
-            //        state = Utility.GetCheckState(CheckStates.Approved);
-            //        break;
-            //    case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Fail:
-            //        state = Utility.GetCheckState(CheckStates.UnApproved);
-            //        break;
-            //}
-            //OvertimeRecord.CHECKSTATE = state;
-            //client.AuditOverTimeRdAsync(OvertimeRecord.OV  ERTIMERECORDID, state);
         }
 
         public string GetAuditState()
@@ -316,8 +298,8 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 InitBaseInf();
 
-                OvertimeRecord = new T_HR_EMPLOYEEOUTAPPLIECRECORD();
-                OvertimeRecord.OVERTIMERECORDID = Guid.NewGuid().ToString();
+                OvertimeRecord = new T_HR_OUTAPPLYRECORD();
+                OvertimeRecord.OUTAPPLYID = Guid.NewGuid().ToString();
                 OvertimeRecord.EMPLOYEEID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 //OvertimeRecord.EMPLOYEECODE = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeCode;
                 OvertimeRecord.EMPLOYEENAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
@@ -381,7 +363,7 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
-                ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEEOUTAPPLIECRECORD", OvertimeRecord.OWNERID,
+                ToolbarItems = Utility.CreateFormEditButton("T_HR_OUTAPPLYRECORD", OvertimeRecord.OWNERID,
                     OvertimeRecord.OWNERPOSTID, OvertimeRecord.OWNERDEPARTMENTID, OvertimeRecord.OWNERCOMPANYID);
             }
             RefreshUI(RefreshedTypes.All);
@@ -392,7 +374,7 @@ namespace SMT.HRM.UI.Form.Attendance
         /// </summary>
         private void CalculateDayCount()
         {
-            OvertimeRecord.OVERTIMEHOURS = "0";
+            OvertimeRecord.OUTAPLLYTIMES = "0";
             if (dpStartDate.Value == null || dpEndDate.Value == null)
             {
                 return;
@@ -415,7 +397,7 @@ namespace SMT.HRM.UI.Form.Attendance
             }
 
             TimeSpan ts = dtEnd.Subtract(dtStart);
-            OvertimeRecord.OVERTIMEHOURS = (ts.Days * dWorkTimePerDay + ts.Hours).ToString();
+            OvertimeRecord.OUTAPLLYTIMES = (ts.Days * dWorkTimePerDay + ts.Hours).ToString();
             //OvertimeRecord.STARTDATETIME = dtStart.ToString("hh:mm:ss");
             //OvertimeRecord.ENDDATETIME = dtEnd.ToString("hh:mm:ss");
         }
