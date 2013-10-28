@@ -71,7 +71,7 @@ namespace SMT.HRM.UI.Views.Attendance
             }
 
             RegisterEvents();
-            GetEntityLogo("T_HR_EMPLOYEEOUTAPPLIECRECORD");
+            GetEntityLogo("T_HR_OUTAPPLYRECORD");
             BindComboBox();
         }
         #endregion
@@ -103,7 +103,7 @@ namespace SMT.HRM.UI.Views.Attendance
                         filter += " and ";
                     }
                     filter += "EMPLOYEENAME==@" + paras.Count().ToString();
-                    paras.Add(ent.EMPLOYEEID);
+                    paras.Add(ent.EMPLOYEECNAME);
                 }
             }
 
@@ -136,7 +136,7 @@ namespace SMT.HRM.UI.Views.Attendance
         {
             if (e.Error == null)
             {
-                List<T_HR_EMPLOYEEOUTAPPLIECRECORD> list = new List<T_HR_EMPLOYEEOUTAPPLIECRECORD>();
+                List<T_HR_OUTAPPLYRECORD> list = new List<T_HR_OUTAPPLYRECORD>();
                 if (e.Result != null)
                 {
                     list = e.Result.ToList();
@@ -216,7 +216,7 @@ namespace SMT.HRM.UI.Views.Attendance
             ObservableCollection<string> ids = new ObservableCollection<string>();
             foreach (object ovj in dgOTList.SelectedItems)
             {
-                T_HR_EMPLOYEEOUTAPPLIECRECORD ent = ovj as T_HR_EMPLOYEEOUTAPPLIECRECORD;
+                T_HR_OUTAPPLYRECORD ent = ovj as T_HR_OUTAPPLYRECORD;
                 if (ent == null)
                 {
                     continue;
@@ -228,7 +228,7 @@ namespace SMT.HRM.UI.Views.Attendance
                     break;
                 }
 
-                ids.Add(ent.OVERTIMERECORDID);
+                ids.Add(ent.OUTAPPLYID);
             }
 
             string Result = "";
@@ -283,9 +283,9 @@ namespace SMT.HRM.UI.Views.Attendance
                 return;
             }
 
-            T_HR_EMPLOYEEOUTAPPLIECRECORD tmpEnt = dgOTList.SelectedItems[0] as T_HR_EMPLOYEEOUTAPPLIECRECORD;
+            T_HR_OUTAPPLYRECORD tmpEnt = dgOTList.SelectedItems[0] as T_HR_OUTAPPLYRECORD;
 
-            OutAppliecationForm form = new OutAppliecationForm(FormTypes.Browse, tmpEnt.OVERTIMERECORDID);
+            OutAppliecationForm form = new OutAppliecationForm(FormTypes.Browse, tmpEnt.OUTAPPLYID);
 
             EntityBrowser entBrowser = new EntityBrowser(form);
             entBrowser.FormType = FormTypes.Browse;
@@ -317,7 +317,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 return;
             }
 
-            T_HR_EMPLOYEEOUTAPPLIECRECORD tmpEnt = dgOTList.SelectedItems[0] as T_HR_EMPLOYEEOUTAPPLIECRECORD;
+            T_HR_OUTAPPLYRECORD tmpEnt = dgOTList.SelectedItems[0] as T_HR_OUTAPPLYRECORD;
 
             //修改 如果是已审核的单据 提示不容许修改
             if (tmpEnt.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
@@ -327,7 +327,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 return;
             }
 
-            OutAppliecationForm form = new OutAppliecationForm(FormTypes.Edit, tmpEnt.OVERTIMERECORDID);
+            OutAppliecationForm form = new OutAppliecationForm(FormTypes.Edit, tmpEnt.OUTAPPLYID);
 
             EntityBrowser entBrowser = new EntityBrowser(form);
             entBrowser.FormType = FormTypes.Edit;
@@ -395,7 +395,7 @@ namespace SMT.HRM.UI.Views.Attendance
             if (dict != null)
             {
                 Checkstate = dict.DICTIONARYVALUE.ToString();
-                Utility.SetToolBarButtonByCheckState(dict.DICTIONARYVALUE.Value.ToInt32(), toolbar1, "T_HR_EMPLOYEEOUTAPPLIECRECORD");
+                Utility.SetToolBarButtonByCheckState(dict.DICTIONARYVALUE.Value.ToInt32(), toolbar1, "T_HR_OUTAPPLYRECORD");
                 toolbar1.btnReSubmit.Visibility = System.Windows.Visibility.Collapsed;//隐藏重新提交按钮
                 LoadData();
             }
@@ -430,7 +430,7 @@ namespace SMT.HRM.UI.Views.Attendance
         /// <param name="e"></param>
         private void dgOTList_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-            SetRowLogo(dgOTList, e.Row, "T_HR_EMPLOYEEOUTAPPLIECRECORD");
+            SetRowLogo(dgOTList, e.Row, "T_HR_OUTAPPLYRECORD");
         }
 
         /// <summary>
@@ -479,8 +479,8 @@ namespace SMT.HRM.UI.Views.Attendance
                 return;
             }
 
-            T_HR_EMPLOYEEOUTAPPLIECRECORD tmpEnt = dgOTList.SelectedItems[0] as T_HR_EMPLOYEEOUTAPPLIECRECORD;
-            OutAppliecationForm form = new OutAppliecationForm(FormTypes.Audit, tmpEnt.OVERTIMERECORDID);
+            T_HR_OUTAPPLYRECORD tmpEnt = dgOTList.SelectedItems[0] as T_HR_OUTAPPLYRECORD;
+            OutAppliecationForm form = new OutAppliecationForm(FormTypes.Audit, tmpEnt.OUTAPPLYID);
             EntityBrowser browser = new EntityBrowser(form);
             browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
             browser.FormType = FormTypes.Audit;
