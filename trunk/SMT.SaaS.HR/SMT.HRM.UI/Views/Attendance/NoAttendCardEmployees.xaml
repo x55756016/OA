@@ -56,6 +56,14 @@
                     <data:DataGridTextColumn Header="AVAILABLEDATE" Binding="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
                     <data:DataGridTextColumn Header="UNAVAILABLEDATE" Binding="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
                     <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" />
+                    <data:DataGridTemplateColumn Header="是否取消">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--<smt:ImageButton Name="ReportBtn" Click="btnCreate_Click"></smt:ImageButton>-->
+                                <Button Content="取消"  Name="ReportBtn" Click="btnCreate_Click"></Button>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
                 </data:DataGrid.Columns>
             </data:DataGrid>
             <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smtx:GridPager>

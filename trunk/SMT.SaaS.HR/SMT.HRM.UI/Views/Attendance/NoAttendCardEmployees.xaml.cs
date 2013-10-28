@@ -539,6 +539,40 @@ namespace SMT.HRM.UI.Views.Attendance
 
             lookup.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
         }
+
+
+        void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAttSolAsignList.SelectedItems.Count > 0)
+            {
+                // T_HR_LEFTOFFICE temp = DtGrid.SelectedItems[0] as T_HR_LEFTOFFICE;
+                T_HR_NOATTENDCARDEMPLOYEES tempview = dgAttSolAsignList.SelectedItems[0] as T_HR_NOATTENDCARDEMPLOYEES;
+                if (tempview.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString())
+                {
+                    ComfirmWindow delComfirm = new ComfirmWindow();
+                    delComfirm.OnSelectionBoxClosed += (obj, result) =>
+                    {
+                        tempview.CHECKSTATE = "0";
+                        clientAtt.UpdateNoAttendCardEmployeesRdAsync(tempview);
+                    };
+                    string Result = "";
+                    delComfirm.SelectionBox(Utility.GetResourceStr("确认"), Utility.GetResourceStr("请确认是否取消免打卡员工设置，确认后即刻生效不需要审核"), ComfirmWindow.titlename, Result);
+                
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CONFIRMINFO"), Utility.GetResourceStr("免打卡人员名单未审核通过，不能取消"),
+          Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                }
+            }
+            else
+            {
+                //ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), Utility.GetResourceStr("SELECTDATAALERT"), Utility.GetResourceStr("CONFIRMBUTTON"));
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CONFIRMINFO"), Utility.GetResourceStr("SELECTDATAALERT"),
+            Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+
+        }
         #endregion
 
         #region IClient 成员
