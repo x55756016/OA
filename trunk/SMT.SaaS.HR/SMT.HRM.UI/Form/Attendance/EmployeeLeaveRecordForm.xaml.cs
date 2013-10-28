@@ -157,6 +157,10 @@ namespace SMT.HRM.UI.Form.Attendance
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
+            //可冲减+扣款天数
+            double totalDays = nudTotalAdjustLeaveDays.Value + nudDeductDays.Value;
+            AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "TOTALDAYS", Convert.ToString(totalDays), Convert.ToString(totalDays)));
+            
             string strLevTime = string.Empty;
             if (Info.LEAVEDAYS > 0)
             {
