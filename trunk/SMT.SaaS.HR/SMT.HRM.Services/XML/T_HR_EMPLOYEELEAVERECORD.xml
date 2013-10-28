@@ -50,5 +50,6 @@
     <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="TOTALHOURS" LableResourceID="TOTALHOURS" Description="请假合计时长" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TOTALDAYS" LableResourceID="TOTALDAYS" Description="请假总天数" DataType="decimal" DataValue="" DataText=""></Attribute>
   </Object>
 </System>
