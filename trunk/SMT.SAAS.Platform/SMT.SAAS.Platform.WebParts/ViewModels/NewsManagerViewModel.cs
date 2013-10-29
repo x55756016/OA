@@ -20,6 +20,10 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
         private ObservableCollection<NewsViewModel> _items = null;
         private NewsServices _Services = null;
 
+        /// <summary>
+        /// 新闻标题
+        /// </summary>
+        public string newsTitle { get; set; }
         private NewsViewModel _currentEntity = new NewsViewModel();
         public ObservableCollection<NewsViewModel> Items
         {
@@ -117,7 +121,7 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
         private EventHandler<GetEntityListEventArgs<NewsModel>> hanlder;
         private void LoadDate()
         {
-            _Services.GetNewsListByPage(PageIndex, PageSize, "", "", PageCount);
+            _Services.GetNewsListByPage(PageIndex, PageSize, "", newsTitle, PageCount);
         }
 
         void _Services_OnGetNewsListCompleted(object sender, GetEntityListEventArgs<NewsModel> e)
