@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>FAM</Name>
+  <System>
+     <Function Description="创建社保" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_PENSIONMASTER" Name="EMPLOYEEID" Description="员工ID" Value=""></Para>
+        <Para TableName="T_HR_PENSIONMASTER" Name="CARDID" Description="社保卡号" Value=""></Para>
+        <Para TableName="T_HR_PENSIONMASTER" Name="COMPUTERNO" Description="社保电脑号" Value=""></Para>
+        <Para TableName="T_HR_PENSIONMASTER" Name="OWNERID" Description="所属员工ID" Value=""></Para>
+        <Para TableName="T_HR_PENSIONMASTER" Name="OWNERPOSTID" Description="所属岗位ID" Value=""></Para>
+        <Para TableName="T_HR_PENSIONMASTER" Name="OWNERDEPARTMENTID" Description="所属部门ID" Value=""></Para>
+        <Para TableName="T_HR_PENSIONMASTER" Name="OWNERCOMPANYID" Description="所属公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+ <MsgOpen>
+    <AssemblyName>SMT.SaaS.OA</AssemblyName>
+    <PublicClass>SMT.SaaS.OA.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.SaaS.OA.UserControls.AssetManagement.AssetsMaintainControl</PageParameter>
+    <ApplicationOrder>{MAINTAINEDID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>  
+</MsgOpen>
+  <Object Name="T_FAM_ASSETSMAINTAIN" Description="固定资产维修">
+    <Attribute  Name="CREATEPOSTID" Description="创建岗位ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="创建部门ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="创建公司ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERNAME" Description="创建人名" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="所属岗位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="所属部门" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="所属公司" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERNAME" Description="所属用户名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="所属用户ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATETIME" Description="修改时间" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="修改日期" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="修改人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATETIME" Description="创建时间" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="创建日期" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="创建人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="GUID" Description="GUID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审批状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CURRENTNODECODE" Description="当前节点代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MAINTAINBUDGET" Description="维修预算" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MAINTAINMATERIAL" Description="维修材料" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CONSTRUCTIONUNIT" Description="施工单位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MAINTAINDAYCOUNT" Description="维修天数" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MAINTAINEDDATE" Description="维修日期" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MAINTAINEDLEVEL" Description="维护级别" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MAINTAINEDREASON" Description="维修原因" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="USEDDEPARTMENT" Description="使用部门" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UNITID" Description="单位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SPECIFICATION" Description="规格型号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ASSETSNAME" Description="资产名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ASSETSID" Description="资产编号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="FLOWNAME" Description="流程名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="FLOWID" Description="流程代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MAINTAINEDNAME" Description="维护单名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MAINTAINEDID" Description="维护单号" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+
+
+</System>

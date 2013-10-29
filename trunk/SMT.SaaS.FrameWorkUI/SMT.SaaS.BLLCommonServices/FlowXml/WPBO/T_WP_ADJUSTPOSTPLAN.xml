@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>WP</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.WP.UI</AssemblyName>
+    <PublicClass>SMT.WP.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>WP/AdjustPostPlan/Audit</PageParameter>
+    <ApplicationOrder>{EADJUSTID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_ADJUSTPOSTPLAN" Description="岗位员工年度计划调整表" Key="EADJUSTID" id="">
+    <Attribute Name="EADJUSTID" LableResourceID="EADJUSTID" Description="员工调整主键" DataType="string" DataValue="" DataText="员工调整主键" />
+    <Attribute Name="ADJUSTTITLE" LableResourceID="ADJUSTTITLE" Description="调整事由主题" DataType="string" DataValue="" DataText="调整事由主题" />
+    <Attribute Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="string" DataValue="" DataText="计划年度" />
+    <Attribute Name="FICTIONDATE" LableResourceID="FICTIONDATE" Description="申请日期" DataType="datetime" DataValue="" DataText="申请日期" />
+    <Attribute Name="FICTIONMAN" LableResourceID="FICTIONMAN" Description="申请人" DataType="string" DataValue="" DataText="申请人" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <ObjectList Name="T_WP_ADJUSTPOSTPLANRESOLVE" LableResourceID="T_WP_ADJUSTPOSTPLANRESOLVE" Description="岗位员工年度计划调整分解表" DataText="">
+      <Object Name="T_WP_ADJUSTPOSTPLANRESOLVE" Description="岗位员工年度计划调整分解表" Key="EMPONRID" id="">
+        <Attribute Name="EMPONRID" LableResourceID="EMPONRID" Description="员工指标分解主键" DataType="string" DataValue="" DataText="员工指标分解主键" />
+        <Attribute Name="EADJUSTID" LableResourceID="EADJUSTID" Description="员工调整主键" DataType="string" DataValue="" DataText="员工调整主键ID，GUID" />
+        <Attribute Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="string" DataValue="" DataText="计划年度" />
+        <Attribute Name="COSTITEMID" LableResourceID="COSTITEMID" Description="费用项科目" DataType="string" DataValue="" DataText="费用项科目" />
+        <Attribute Name="COSTITEMNAME" LableResourceID="COSTITEMNAME" Description="费用项名称" DataType="string" DataValue="" DataText="费用项名称" />
+        <Attribute Name="LYCOST" LableResourceID="LYCOST" Description="上年费用" DataType="decimal" DataValue="" DataText="上年费用" />
+        <Attribute Name="CYCOST" LableResourceID="CYCOST" Description="本年费用" DataType="decimal" DataValue="" DataText="本年费用" />
+        <Attribute Name="GROWTHRATE" LableResourceID="GROWTHRATE" Description="增长率%" DataType="decimal" DataValue="" DataText="增长率%" />
+        <Attribute Name="LYPERFORM" LableResourceID="LYPERFORM" Description="上年同期执行情况" DataType="decimal" DataValue="" DataText="上年同期执行情况" />
+        <Attribute Name="CYPERFORM" LableResourceID="CYPERFORM" Description="本年执行情况" DataType="decimal" DataValue="" DataText="本年执行情况" />
+        <Attribute Name="APPLYCAUSE" LableResourceID="APPLYCAUSE" Description="申请事由" DataType="string" DataValue="" DataText="申请事由" />
+        <Attribute Name="APPLYATARGET" LableResourceID="APPLYATARGET" Description="申请调整至" DataType="decimal" DataValue="" DataText="申请调整至" />
+        <Attribute Name="AGROWTHRATE" LableResourceID="AGROWTHRATE" Description="调整后增长率%" DataType="decimal" DataValue="" DataText="调整后增长率%" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

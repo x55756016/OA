@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>WP/PostEmpPlan/Create</PageParameter>
+    <ApplicationOrder>{PERIODDID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_POSTEMPPLANPERIODDETAIL" Description="岗位员工计划总结上报周期设置从表" Key="PERIODDID" id="">
+    <Attribute  Name="PERIODDID" LableResourceID="PERIODDID" Description="周期从表主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPLANID" LableResourceID="DEPLANID" Description="科目计划主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EMPLOYEEID" LableResourceID="EMPLOYEEID" Description="所属员工ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PERIODTYPE" LableResourceID="PERIODTYPE" Description="周期类别" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PERIODCODE" LableResourceID="PERIODCODE" Description="周期编号" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PSTARTDATE" LableResourceID="PSTARTDATE" Description="周期开始时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PENDDATE" LableResourceID="PENDDATE" Description="周期结束时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="string" DataValue="" DataText="计划年度" />
+</Object>
+
+</System>

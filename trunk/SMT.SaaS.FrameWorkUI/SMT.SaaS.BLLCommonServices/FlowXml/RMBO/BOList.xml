@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="RM">
+  <ObjectList>
+    <Object Name="T_RM_CRPLAN" Description="制定招聘计划"></Object>
+  
+   <Object Name="T_RM_CRPLANFAIL" Description="招聘计划审核失败"></Object>
+
+    <Object Name="T_RM_CRPLANEXE" Description="招聘计划执行"></Object>
+ 
+    <Object Name="T_RM_CRPLANMASTER" Description="招聘计划"></Object>
+  
+    <Object Name="T_RM_CRUANSWER" Description="背景调查问题答案项设定"></Object>
+ 
+    <Object Name="T_RM_CRUQUESTION" Description="背景调查问题项设定"></Object>
+ 
+    <Object Name="T_RM_DISMISSPAPER" Description="离职证明"></Object>
+ 
+    <Object Name="T_RM_EDUCATEHISTORY" Description="教育背景"></Object>
+ 
+    <Object Name="T_RM_EMPLOYAPPLY" Description="入职申请"></Object>
+ 
+    <Object Name="T_RM_ENTERLIST" Description="入职手续"></Object>
+ 
+    <Object Name="T_RM_ENTERLISTTASK" Description="入职手续代办"></Object>
+ 
+    <Object Name="T_RM_ENTERLISTTASKTASK" Description="入职手续不合格代办"></Object>
+ 
+    <Object Name="T_RM_ESTFORNEWER" Description="面试官对应聘者的评价"></Object>
+ 
+    <Object Name="T_RM_ESTFORRECM" Description="面试官对招聘经理的评价"></Object>
+  
+    <Object Name="T_RM_ESTFORRECP" Description="招聘经理对前台接待的评价表"></Object>
+ 
+    <Object Name="T_RM_ESTFORVIEWER" Description="招聘经理对面试官评价"></Object>
+ 
+    <Object Name="T_RM_EXAMRESULT" Description="电话初试与面试"></Object>
+ 
+    <Object Name="T_RM_EXPERIENCE" Description="工作经历"></Object>
+  
+    <Object Name="T_RM_HEALTHDATA" Description="体检明细"></Object>
+ 
+    <Object Name="T_RM_HRPRINC" Description="对不同级别的岗位设定人事招聘责任人"></Object>
+ 
+    <Object Name="T_RM_RESUMEDELIVERY_FORPHONE_TASK" Description="电话初试"></Object>
+ 
+    <Object Name="T_RM_INTERVIEWER" Description="面试官"></Object>
+ 
+    <Object Name="T_RM_MESSAGETEMPLATETASK" Description="通知模版审核代办"></Object>
+ 
+    <Object Name="T_RM_MESSAGETEMPLATE" Description="通知模版审核"></Object>
+ 
+    <Object Name="T_RM_NOTIFY" Description="通知"></Object>
+ 
+    <Object Name="T_RM_PUBLISHTYPE" Description="定义发布的种类及费用"></Object>
+ 
+    <Object Name="T_RM_QUALIFICATION" Description="任职资格"></Object>
+ 
+    <Object Name="T_RM_RECEIPTION" Description="前台接待"></Object>
+ 
+    <Object Name="T_RM_REQUIREAPPLY" Description="招聘需求申请"></Object>
+ 
+    <Object Name="T_RM_RESUME" Description="应聘者简历"></Object>
+ 
+    <Object Name="T_RM_RESUMEDELIVERY" Description="面试执行代办"></Object>
+  
+    <Object Name="T_RM_SURVEY" Description="背景调查"></Object>
+ 
+    <Object Name="T_RM_SURVEYTASK" Description="背景调查代办"></Object>
+ 
+    <Object Name="T_RM_TALENTEDRESUME" Description="应聘者人才类型"></Object>
+  
+    <Object Name="T_RM_CRPLANEXEPUTOUT" Description="发布"></Object>
+ 
+    <Object Name="T_RM_RESUMETASK" Description="录入简历待办"></Object>
+  
+    <Object Name="T_RM_RESUMEDELIVERYTASK" Description="简历复选待办"></Object>
+  
+    <Object Name="T_RM_INTERVIEWERTELLTASK" Description="电话面试待办"></Object>
+
+    <Object Name="T_RM_INTERVIEWERFRONTTASK" Description="面试安排待办"></Object>
+	<Object Name="T_RM_ESTFORRECMTASK" Description="对面试官的评价待办"></Object>
+  </ObjectList>
+
+</System>
+

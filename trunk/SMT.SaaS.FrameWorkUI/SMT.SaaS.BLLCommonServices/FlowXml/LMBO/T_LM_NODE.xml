@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>Custom</Name>
+  <System>
+    <Function Description="" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_LM_NODE"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+	<MsgOpen>
+		<AssemblyName>SMT.SaaS.LM.UI.Custom</AssemblyName>
+		<PublicClass>SMT.SaaS.LM.UI.Custom.PortalUtil</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.LM.UI.Custom.UserControls.FilialeData.NodeInformationControl</PageParameter>
+		<ApplicationOrder>{NODEID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+	</MsgOpen>
+<Object Name="T_LM_NODE" Description="T_LM_NODE">
+    <Attribute  Name="NODEBOUNDNAME" Description="业务覆盖区域名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEPOSTID" Description="CREATEPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="CREATEDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="CREATECOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="OWNERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="OWNERPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="OWNERDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="OWNERCOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="UPDATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="UPDATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="CREATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="CREATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="STATE" Description="网点使用状态" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="ATTACHID" Description="附件ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="TELEPHONE" Description="联系电话" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="JOB" Description="职位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NAME" Description="负责人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NODEADDRESS" Description="网点地址" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ENDDATE" Description="协议截止时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="BEGINDATE" Description="协议开始时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="BUSINESSDATE" Description="网点开始运作时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="NODEBOUND" Description="业务覆盖区域ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NODEKIND" Description="网点性质" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="NODETYPENAME" Description="网点类型名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NODETYPE" Description="网点类型" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="AREACODE" Description="所属区域" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ORGCODE" Description="所属分公司" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NODENAME" Description="网点名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NODECODE" Description="网点代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NODEID" Description="网点ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+</Object>
+
+
+
+</System>

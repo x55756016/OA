@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TM/EstForStudent/Index</PageParameter>
+    <ApplicationOrder>{EXEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TM_ESTFORSTUDENT" Description="T_TM_ESTFORSTUDENT 讲师对学员评价" Key="ESTFORSTUDENTID" id="">
+    <Attribute Name="ESTFORSTUDENTID" LableResourceID="ESTFORSTUDENTID" Description="讲师对学员评价ID" DataType="string" DataValue="" DataText="讲师对学员评价ID" />
+    <Attribute Name="EXEID" LableResourceID="EXEID" Description="执行ID" DataType="string" DataValue="" DataText="执行ID" />
+    <Attribute Name="TRAINID" LableResourceID="TRAINID" Description="培训ID" DataType="string" DataValue="" DataText="培训ID" />
+    <Attribute Name="TRAINNAME" LableResourceID="TRAINNAME" Description="培训名称" DataType="string" DataValue="" DataText="培训名称" />
+    <Attribute Name="COURSEID" LableResourceID="COURSEID" Description="课程ID" DataType="string" DataValue="" DataText="课程ID" />
+    <Attribute Name="COURSENAME" LableResourceID="COURSENAME" Description="课程名" DataType="string" DataValue="" DataText="课程名" />
+    <Attribute Name="DOCENTID" LableResourceID="DOCENTID" Description="讲师ID" DataType="string" DataValue="" DataText="讲师ID" />
+    <Attribute Name="DOCENTNAME" LableResourceID="DOCENTNAME" Description="建议讲师" DataType="string" DataValue="" DataText="建议讲师" />
+    <Attribute Name="BYTRAINCOMPANYID" LableResourceID="BYTRAINCOMPANYID" Description="受训公司ID" DataType="string" DataValue="" DataText="受训公司ID" />
+    <Attribute Name="BYTRAINCOMPANYNAME" LableResourceID="BYTRAINCOMPANYNAME" Description="受训公司名" DataType="string" DataValue="" DataText="受训公司名" />
+    <Attribute Name="BYTRAINDEPARTMENTID" LableResourceID="BYTRAINDEPARTMENTID" Description="受训部门ID" DataType="string" DataValue="" DataText="受训部门ID" />
+    <Attribute Name="BYTRAINDEPARTMENTNAME" LableResourceID="BYTRAINDEPARTMENTNAME" Description="受训部门名" DataType="string" DataValue="" DataText="受训部门名" />
+    <Attribute Name="BYTRAINPOSTID" LableResourceID="BYTRAINPOSTID" Description="受训岗位ID" DataType="string" DataValue="" DataText="受训岗位ID" />
+    <Attribute Name="BYTRAINPOST" LableResourceID="BYTRAINPOST" Description="受训岗位" DataType="string" DataValue="" DataText="受训岗位" />
+    <Attribute Name="BYTRAINUSERID" LableResourceID="BYTRAINUSERID" Description="受训人ID" DataType="string" DataValue="" DataText="受训人ID" />
+    <Attribute Name="SCORE" LableResourceID="SCORE" Description="得分" DataType="decimal" DataValue="" DataText="得分" />
+  </Object>
+</System>

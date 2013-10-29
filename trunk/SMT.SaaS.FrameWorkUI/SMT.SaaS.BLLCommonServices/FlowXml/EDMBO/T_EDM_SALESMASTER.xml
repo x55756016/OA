@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>EDM</Name>
+  <System>
+    <Function Description="T_EDM_SALESMASTERFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.EDM.UI</AssemblyName>
+    <PublicClass>SMT.EDM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.EDM.UI.Forms.Sell.SellOrderForm</PageParameter>
+    <ApplicationOrder>{SALESMASTERID}*{PROCESSESTYPE}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_EDM_SALESMASTER" Description="T_EDM_SALESMASTER">
+    <Attribute Name="SALESMASTERID" Description="销售订单ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute Name="SALESCODE" Description="销售订单编码" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+</System>

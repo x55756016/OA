@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="HR">
+  <ObjectList>
+    <Object Name="T_HR_ATTENDANCESOLUTION" Description="考勤方案定义"></Object>
+    <Object Name="T_HR_ATTENDANCESOLUTIONASIGN" Description="考勤方案分配"></Object>
+    <Object Name="T_HR_ATTENDMONTHLYBATCHBALANCE" Description="考勤月度结算批量审核"></Object>
+    <Object Name="T_HR_ATTENDMONTHLYBALANCE" Description="考勤月度结算审核"></Object>
+    <Object Name="T_HR_ATTENDANCERECORD" Description="员工考勤日历"></Object>
+    <Object Name="T_HR_COMPANY" Description="创建公司"></Object>
+    <Object Name="T_HR_CUSTOMGUERDONRECORD" Description="自定义薪资记录"></Object>
+    <Object Name="T_HR_CUSTOMGUERDONSET" Description="自定义薪资设置"></Object>
+    <Object Name="T_HR_DEPARTMENT" Description="创建部门"></Object>
+    <Object Name="T_HR_EMPLOYEEADDSUM" Description="员工加扣款"></Object>
+    <Object Name="T_HR_EMPLOYEECANCELLEAVE" Description="销假申请"></Object>
+    <Object Name="T_HR_EMPLOYEECHECK" Description="员工转正"></Object>
+    <Object Name="T_HR_EMPLOYEECONTRACT" Description="员工合同"></Object>
+    <Object Name="T_HR_EMPLOYEEENTRY" Description="员工入职"></Object>
+    <Object Name="T_HR_EMPLOYEEINSURANCE" Description="员工保险"></Object>
+    <Object Name="T_HR_EMPLOYEELEAVERECORD" Description="请假申请"></Object>
+    <Object Name="T_HR_EMPLOYEEOVERTIMERECORD" Description="加班申请"></Object>
+    <Object Name="T_HR_EMPLOYEEPOSTCHANGE" Description="员工异动"></Object>
+    <Object Name="T_HR_EMPLOYEESALARYRECORD" Description="薪资记录"></Object>
+    <Object Name="T_HR_SALARYRECORDBATCH" Description="月薪批量审核"></Object>
+    <Object Name="T_HR_EMPLOYEESIGNINRECORD" Description="签卡申请"></Object>
+    <Object Name="T_HR_LEFTOFFICE" Description="员工离职"></Object>
+    <Object Name="T_HR_LEFTOFFICECONFIRM" Description="离职确认"></Object>
+    <Object Name="T_HR_PENSIONMASTER" Description="员工社保"></Object>
+    <Object Name="T_HR_PERFORMANCEREWARDRECORD" Description="绩效奖金记录"></Object>
+    <Object Name="T_HR_PERFORMANCEREWARDSET" Description="绩效奖金设置"></Object>
+    <Object Name="T_HR_POST" Description="创建岗位"></Object>
+    <Object Name="T_HR_SALARYARCHIVE" Description="薪资档案"></Object>
+    <Object Name="T_HR_SALARYSOLUTION" Description="薪资方案"></Object>
+    <Object Name="T_HR_SALARYSOLUTIONASSIGN" Description="薪资方案分配"></Object>
+    <Object Name="T_HR_SALARYSTANDARD" Description="薪资标准"></Object>
+    <Object Name="T_HR_SALARYSYSTEM" Description="薪资体系"></Object>
+    <Object Name="T_HR_KPIRECORD" Description="KPI考核记录"></Object>
+    <Object Name="T_HR_EMPLOYEESALARYRECORDPAYMENT" Description="薪资发放"></Object>
+    <Object Name="T_HR_EMPLOYEESALARYRECORD" Description="薪资发放提醒"></Object>
+    <Object Name="T_HR_EMPLOYEEADDSUMBATCH" Description="员工加扣款批量审核"></Object>
+    <Object Name="T_HR_ORGANAZITIONCHANGE" Description="组织架构变更提醒"></Object>
+    <Object Name="T_HR_POSTDICTIONARY" Description="岗位字典"></Object>
+    <Object Name="T_HR_DEPARTMENTDICTIONARY" Description="部门字典"></Object>
+  </ObjectList>
+</System>
+

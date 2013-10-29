@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>EDM</Name>
+  <System>
+    <Function Description="T_EDM_SALESMASTERFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.EDM.UI</AssemblyName>
+    <PublicClass>SMT.EDM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.EDM.UI.Forms.Sell.SellReturnsForm</PageParameter>
+    <ApplicationOrder>{XSRETURNSMASTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_EDM_XSRETURNSMASTER" Description="T_EDM_XSCONTRACTMASTER">
+    <Attribute Name="ONWERID" Description="所有者ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute Name="XSRETURNSMASTERID" Description="表单ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute Name="XSRETURNSCODE" Description="销售退货编码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute Name="XSCONTRACTMASTERID" Description="合同单据" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+</System>

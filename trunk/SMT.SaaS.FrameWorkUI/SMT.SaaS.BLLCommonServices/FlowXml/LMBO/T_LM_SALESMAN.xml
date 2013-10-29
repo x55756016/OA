@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>Custom</Name>
+  <System>
+    <Function Description="" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_LM_SALESMAN"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+	<MsgOpen>
+		<AssemblyName>SMT.SaaS.LM.UI.Custom</AssemblyName>
+		<PublicClass>SMT.SaaS.LM.UI.Custom.PortalUtil</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.LM.UI.Custom.UserControls.FilialeData.DeliveryManControl</PageParameter>
+		<ApplicationOrder>{PERSONNELID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+	</MsgOpen>
+<Object Name="T_LM_SALESMAN" Description="T_LM_SALESMAN">
+    <Attribute  Name="CUSTOMREGIONNAME" Description="自定义区域名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CUSTOMREGIONID" Description="自定义区域ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NODECODE" Description="网点代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEPOSTID" Description="CREATEPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="CREATEDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="CREATECOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="OWNERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="OWNERPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="OWNERDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="OWNERCOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="UPDATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="UPDATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="CREATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="CREATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SMTYPE" Description="人员属性" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="INDATE" Description="入职时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="STATE" Description="人员状态" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="HABITATION" Description="居住地" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="HABITATCITY" Description="居住地城市" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="MOBILE" Description="手机号码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="PHONE" Description="联络电话" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="IDCARDNO" Description="身份证号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SEX" Description="性别" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="SMNAME" Description="人员姓名" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="NODENAME" Description="网点名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SMCODE" Description="人员编号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="PERSONNELID" Description="人员信息ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+</Object>
+
+
+</System>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/CtlInOilExceptRec/Edit</PageParameter>
+    <ApplicationOrder>{EXCEPTID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_CTLINOILEXCEPTREC" Description="T_VM_CtlInOilExceptRec 收车行程加油异常记录表&#xA;" Key="EXCEPTID" id="">
+    <Attribute Name="EXCEPTID" LableResourceID="EXCEPTID" Description="异常记录主键ID，GUID" DataType="string" DataValue="" DataText="异常记录主键ID，GUID" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID&#xA;缺省为调度的车辆" DataType="string" DataValue="" DataText="车辆主键ID&#xA;缺省为调度的车辆" />
+    <Attribute Name="MARKNO" LableResourceID="MARKNO" Description="车牌号" DataType="string" DataValue="" DataText="车牌号" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="B_CTLBILLSID" LableResourceID="B_CTLBILLSID" Description="前派车单主键ID" DataType="string" DataValue="" DataText="前派车单主键ID" />
+    <Attribute Name="B_CTLBILLSNO" LableResourceID="B_CTLBILLSNO" Description="前派车单号" DataType="string" DataValue="" DataText="前派车单号" />
+    <Attribute Name="B_DRIVERID" LableResourceID="B_DRIVERID" Description="前司机ID" DataType="string" DataValue="" DataText="前司机ID" />
+    <Attribute Name="B_DRIVER" LableResourceID="B_DRIVER" Description="前司机" DataType="string" DataValue="" DataText="前司机" />
+    <Attribute Name="L_CTLBILLSID" LableResourceID="L_CTLBILLSID" Description="后派车单主键ID" DataType="string" DataValue="" DataText="后派车单主键ID" />
+    <Attribute Name="L_CTLBILLSNO" LableResourceID="L_CTLBILLSNO" Description="后派车单号" DataType="string" DataValue="" DataText="后派车单号" />
+    <Attribute Name="L_DRIVERID" LableResourceID="L_DRIVERID" Description="后司机ID" DataType="string" DataValue="" DataText="后司机ID" />
+    <Attribute Name="L_DRIVER" LableResourceID="L_DRIVER" Description="后司机" DataType="string" DataValue="" DataText="后司机" />
+    <Attribute Name="IFCTLCFM" LableResourceID="IFCTLCFM" Description="是否调度确认（缺省0，0否1是）" DataType="string" DataValue="" DataText="是否调度确认（缺省0，0否1是）" />
+    <Attribute Name="CTLMANID" LableResourceID="CTLMANID" Description="调度人ID" DataType="string" DataValue="" DataText="调度人ID" />
+    <Attribute Name="CTLMAN" LableResourceID="CTLMAN" Description="调度人" DataType="string" DataValue="" DataText="调度人" />
+    <Attribute Name="CTLCFMIDEA" LableResourceID="CTLCFMIDEA" Description="调度确认意见" DataType="string" DataValue="" DataText="调度确认意见" />
+    <Attribute Name="CTLCFMDATE" LableResourceID="CTLCFMDATE" Description="调度确认时间" DataType="datetime" DataValue="" DataText="调度确认时间" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="B_OILDATE" LableResourceID="B_OILDATE" Description="前加油时间&#xA;存放保存上传数据时间" DataType="datetime" DataValue="" DataText="前加油时间&#xA;存放保存上传数据时间" />
+    <Attribute Name="B_OPLACE_PROV" LableResourceID="B_OPLACE_PROV" Description="前加油地点_省" DataType="string" DataValue="" DataText="前加油地点_省" />
+    <Attribute Name="B_OPLACE_CITY" LableResourceID="B_OPLACE_CITY" Description="前加油地点_市县" DataType="string" DataValue="" DataText="前加油地点_市县" />
+    <Attribute Name="B_OPLACE_TOWN" LableResourceID="B_OPLACE_TOWN" Description="前加油地点_区镇" DataType="string" DataValue="" DataText="前加油地点_区镇" />
+    <Attribute Name="B_OILPLACE" LableResourceID="B_OILPLACE" Description="前加油地点" DataType="string" DataValue="" DataText="前加油地点" />
+    <Attribute Name="B_COST" LableResourceID="B_COST" Description="前加油费用（元）" DataType="decimal" DataValue="" DataText="前加油费用（元）" />
+    <Attribute Name="OILCARDID" LableResourceID="OILCARDID" Description="加油卡主键ID&#xA;付款方式为油卡时，写入加油卡主键ID和加油卡编号；付款方式为现金时，为空" DataType="string" DataValue="" DataText="加油卡主键ID&#xA;付款方式为油卡时，写入加油卡主键ID和加油卡编号；付款方式为现金时，为空" />
+    <Attribute Name="OILCARDNO" LableResourceID="OILCARDNO" Description="加油卡编号" DataType="string" DataValue="" DataText="加油卡编号" />
+    <Attribute Name="B_GCBALANCE" LableResourceID="B_GCBALANCE" Description="加前余额（元）&#xA;加油前油卡显示余额，司机录入加油数据时录入" DataType="decimal" DataValue="" DataText="加前余额（元）&#xA;加油前油卡显示余额，司机录入加油数据时录入" />
+    <Attribute Name="L_OILDATE" LableResourceID="L_OILDATE" Description="后加油时间&#xA;存放保存上传数据时间" DataType="datetime" DataValue="" DataText="后加油时间&#xA;存放保存上传数据时间" />
+    <Attribute Name="L_OPLACE_PROV" LableResourceID="L_OPLACE_PROV" Description="后加油地点_省" DataType="string" DataValue="" DataText="后加油地点_省" />
+    <Attribute Name="L_OPLACE_CITY" LableResourceID="L_OPLACE_CITY" Description="后加油地点_市县" DataType="string" DataValue="" DataText="后加油地点_市县" />
+    <Attribute Name="L_OPLACE_TOWN" LableResourceID="L_OPLACE_TOWN" Description="后加油地点_区镇" DataType="string" DataValue="" DataText="后加油地点_区镇" />
+    <Attribute Name="L_OILPLACE" LableResourceID="L_OILPLACE" Description="后加油地点" DataType="string" DataValue="" DataText="后加油地点" />
+    <Attribute Name="L_GCBALANCE" LableResourceID="L_GCBALANCE" Description="后加前余额（元）&#xA;加油前油卡显示余额，司机录入加油数据时录入" DataType="decimal" DataValue="" DataText="后加前余额（元）&#xA;加油前油卡显示余额，司机录入加油数据时录入" />
+  </Object>
+</System>

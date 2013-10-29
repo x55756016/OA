@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/CarryDownCharge/Details</PageParameter>
+    <ApplicationOrder>{CDKEYID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_CARRYDOWN" Description="费用结转通知单(新)" Key="CDKEYID" id="">
+  <Attribute Name="CDKEYID" LableResourceID="CDKEYID" Description="结转主键ID，GUID" DataType="string" DataValue="" DataText="结转主键ID，GUID" />
+    <Attribute Name="CARRYDOWNDESC" LableResourceID="CARRYDOWNDESC" Description="结转说明" DataType="string" DataValue="" DataText="结转说明" />
+<Attribute Name="TASKCODE" LableResourceID="TASKCODE" Description="任务编号保存任务系统任务执行主键ID" DataType="string" DataValue="" DataText="任务编号保存任务系统任务执行主键ID" />
+<Attribute Name="ITEMAUDITNAME" LableResourceID="ITEMAUDITNAME" Description="事项审批标题" DataType="string" DataValue="" DataText="事项审批标题" />
+<Attribute Name="ITEMAUDITID" LableResourceID="ITEMAUDITID" Description="事项审批ID" DataType="string" DataValue="" DataText="事项审批ID" />
+<Attribute Name="CARRYDOWNTYPE" LableResourceID="CARRYDOWNTYPE" Description="结转类型:【0付款】【1付款结转预算】【2结转预算】" DataType="string" DataValue="" DataText="结转类型:【0付款】【1付款结转预算】【2结转预算】" />
+<Attribute Name="PAYINFO" LableResourceID="PAYINFO" Description="支付信息" DataType="string" DataValue="" DataText="支付信息" />
+<Attribute Name="TOTALMONEY" LableResourceID="TOTALMONEY" Description="费用金额(元)费用金额：任务计划的预算金额；" DataType="decimal " DataValue="" DataText="费用金额(元)费用金额：任务计划的预算金额；" />
+<Attribute Name="CHARGEMONEY" LableResourceID="CHARGEMONEY" Description="结转金额(合计)" DataType="decimal " DataValue="" DataText="结转金额(合计)" />
+<Attribute Name="ISSHARECFM" LableResourceID="ISSHARECFM" Description="分摊确认（缺省0，0未提交1确认中2全部已确认）" DataType="string" DataValue="" DataText="分摊确认（缺省0，0未提交1确认中2全部已确认）" />
+<Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="【0 删除状态】【1已生效】【2 未生效】【3 撤消中】【4 已撤消】" DataType="string" DataValue="" DataText="【0 删除状态】【1已生效】【2 未生效】【3 撤消中】【4 已撤消】" />
+<Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="【0 未提交】【1 审核中】【2审核通过】【3 审核不过】【4 保存】" DataType="string" DataValue="" DataText="【0 未提交】【1 审核中】【2审核通过】【3 审核不过】【4 保存】" />
+<Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属人公司" DataType="string" DataValue="" DataText="所属人公司" />
+<Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属人部门" DataType="string" DataValue="" DataText="所属人部门" />
+<Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属人岗位" DataType="string" DataValue="" DataText="所属人岗位" />
+<Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人" DataType="string" DataValue="" DataText="所属人" />
+<Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属人名称" DataType="string" DataValue="" DataText="所属人名称" />
+<Attribute Name="OWNERPOSTNAME" LableResourceID="OWNERPOSTNAME" Description="所属人岗位名称" DataType="string" DataValue="" DataText="所属人岗位名称" />
+<Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="所属人公司名称" DataType="string" DataValue="" DataText="所属人公司名称" />
+<Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="所属人部门名称" DataType="string" DataValue="" DataText="所属人部门名称" />
+<Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+<Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+<Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText="创建时间" />
+<Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+<Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText="修改时间" />
+<Attribute Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID" DataType="string" DataValue="" DataText="员工费用计划主键ID" />
+  </Object>
+</System>

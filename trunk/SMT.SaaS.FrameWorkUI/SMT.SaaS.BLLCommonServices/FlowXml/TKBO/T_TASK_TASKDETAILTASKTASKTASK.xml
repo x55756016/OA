@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/TaskReplay/Create</PageParameter>
+    <ApplicationOrder>{TASKCODE}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_TASKDETAIL" Description="任务表" Key="TASKCODE" id="">
+    <Attribute Name="TASKCODE" LableResourceID="TASKCODE" Description="任务单号" DataType="string" DataValue="" DataText="任务单号" />
+    <Attribute Name="TASKID" LableResourceID="TASKID" Description="任务ID" DataType="string" DataValue="" DataText="任务ID" />
+    <Attribute Name="TASKNAME" LableResourceID="TASKNAME" Description="任务名称" DataType="string" DataValue="" DataText="任务名称" />
+    <Attribute Name="REQSTARTDATE" LableResourceID="REQSTARTDATE" Description="要求开始日期" DataType="datetime" DataValue="" DataText="要求开始日期" />
+    <Attribute Name="REQENDTDATE" LableResourceID="REQENDTDATE" Description="要求结束日期" DataType="datetime" DataValue="" DataText="要求结束日期" />
+    <Attribute Name="TASKREMARK" LableResourceID="TASKREMARK" Description="任务说明" DataType="string" DataValue="" DataText="任务说明" />
+    <Attribute Name="MODULEID" LableResourceID="MODULEID" Description="模块ID" DataType="string" DataValue="" DataText="模块ID" />
+    <Attribute Name="MODULENAME" LableResourceID="MODULENAME" Description="模块名" DataType="string" DataValue="" DataText="模块名" />
+    <Attribute Name="FORMGUID" LableResourceID="FORMGUID" Description="审批单号" DataType="string" DataValue="" DataText="审批单号" />
+    <Attribute Name="ATTACHEDFILE" LableResourceID="ATTACHEDFILE" Description="附档文件" DataType="string" DataValue="" DataText="附档文件" />
+    <Attribute Name="EXEDATETIME" LableResourceID="EXEDATETIME" Description="发起时间" DataType="string" DataValue="" DataText="发起时间" />
+    <Attribute Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID，GUID，保存工作计划的员工费用计划" DataType="string" DataValue="" DataText="员工费用计划主键ID，GUID，保存工作计划的员工费用计划" />
+    <Attribute Name="COSTID" LableResourceID="COSTID" Description="计划总结主键ID" DataType="string" DataValue="" DataText="计划总结主键ID" />
+    <Attribute Name="ESTIMATIONCOST" LableResourceID="ESTIMATIONCOST" Description="预计费用" DataType="decimal" DataValue="" DataText="预计费用" />
+    <Attribute Name="COMPLETEDATE" LableResourceID="COMPLETEDATE" Description="任务完成时间" DataType="datetime" DataValue="" DataText="任务完成时间" />
+    <Attribute Name="TASKSTATUS" LableResourceID="TASKSTATUS" Description="任务状态" DataType="string" DataValue="" DataText="任务状态" />
+    <Attribute Name="TASKSTATUSNAME" LableResourceID="TASKSTATUSNAME" Description="任务状态名" DataType="string" DataValue="" DataText="任务状态名" />
+    <Attribute Name="REPLAYCOUNT" LableResourceID="REPLAYCOUNT" Description="回复数" DataType="decimal" DataValue="" DataText="回复数" />
+    <Attribute Name="REPLYERID" LableResourceID="REPLYERID" Description="最后回贴人ID" DataType="string" DataValue="" DataText="最后回贴人ID" />
+    <Attribute Name="REPLYERNAME" LableResourceID="REPLYERNAME" Description="最后回贴人姓名" DataType="string" DataValue="" DataText="最后回贴人姓名" />
+    <Attribute Name="REPLYERCOMPANYID" LableResourceID="REPLYERCOMPANYID" Description="最后回贴人公司ID" DataType="string" DataValue="" DataText="最后回贴人公司ID" />
+    <Attribute Name="REPLYERDEPARTMENTID" LableResourceID="REPLYERDEPARTMENTID" Description="最后回贴人部门ID" DataType="string" DataValue="" DataText="最后回贴人部门ID" />
+    <Attribute Name="REPLYERPOSTID" LableResourceID="REPLYERPOSTID" Description="最后回贴人岗位ID" DataType="string" DataValue="" DataText="最后回贴人岗位ID" />
+    <Attribute Name="REPLYERDEPARTMENTNAME" LableResourceID="REPLYERDEPARTMENTNAME" Description="最后回贴人部门" DataType="string" DataValue="" DataText="最后回贴人部门" />
+    <Attribute Name="REPLYERPOSTNAME" LableResourceID="REPLYERPOSTNAME" Description="最后回贴人岗位" DataType="string" DataValue="" DataText="最后回贴人岗位" />
+    <Attribute Name="REPLYERCOMPANYNAME" LableResourceID="REPLYERCOMPANYNAME" Description="最后回贴人公司" DataType="string" DataValue="" DataText="最后回贴人公司" />
+    <Attribute Name="REPLYDATE" LableResourceID="REPLYDATE" Description="最后回贴时间" DataType="string" DataValue="" DataText="最后回贴时间" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+  </Object>
+</System>

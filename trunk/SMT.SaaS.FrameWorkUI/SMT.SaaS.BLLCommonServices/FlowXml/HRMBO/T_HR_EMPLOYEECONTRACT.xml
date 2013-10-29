@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="员工合同" Address="EngineService.svc"   FuncName="CallWaitAppService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEECONTRACT" Name="EMPLOYEECONTACTID" Description="员工合同ID" Value=""></Para>
+        <Para TableName="T_HR_EMPLOYEECONTRACT" Name="EMPLOYEEID" Description="员工ID" Value="" ></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Personnel.EmployeeContractForm</PageParameter>
+    <ApplicationOrder>{EMPLOYEECONTACTID}</ApplicationOrder>
+    <FormTypes>Edit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_EMPLOYEECONTRACT" Description="员工合同" Key="EMPLOYEECONTACTID" id="">
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNER" LableResourceID="OWNER"  Description="所属人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECNAME" LableResourceID="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID"  Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECONTACTID" LableResourceID="EMPLOYEECONTACTID" Description="员工合同ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CONTACTCODE" LableResourceID="CONTACTCODE" Description="合同编号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FROMDATE" LableResourceID="EFFECTDATE" Description="生效日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TODATE" LableResourceID="ENDDATE" Description="到期日期" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CONTACTPERIOD" LableResourceID="CONTACTPERIOD" Description="合同期限" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ENDDATE" LableResourceID="TERMINATEDATE" Description="终止日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REASON" LableResourceID="ENDREASON" Description="终止原因" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ATTACHMENT" LableResourceID="ATTACHMENT" Description="合同扫描件" DataType="BinaryBlob" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="编辑状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ISSPECIALCONTRACT" LableResourceID="ISSPECIALCONTRACT" Description="是否有约束条件" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ALARMDAY" LableResourceID="ALARMDAY" Description="到期提前提醒天数" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ATTACHMENTPATH" LableResourceID="ATTACHMENTPATH" Description="合同扫描件地址" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="AttachMent" LableResourceID="ATTACHMENT" Description="附件" DataType="attachmentlist" DataValue="" DataText="" />
+    <Attribute Name="NOENDDATE" LableResourceID="NOENDDATE" Description="是否永久合同" DataType="string" DataValue="" DataText="" />
+  </Object>
+</System>

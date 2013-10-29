@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="EM">
+	 <ObjectList>
+      <Object Name="T_EM_EXAMPAPER" Description="试卷"></Object>	 
+      <Object Name="T_EM_SCOREREPORT" Description="考生成绩报告"></Object>	 
+      <Object Name="T_EM_EXAMTASK" Description="考试任务"></Object>   
+	 </ObjectList>
+</System>
+

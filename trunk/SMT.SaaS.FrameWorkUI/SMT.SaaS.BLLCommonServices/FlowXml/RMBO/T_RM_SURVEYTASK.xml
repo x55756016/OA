@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>RM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/CruQuestion/Create</PageParameter>
+    <ApplicationOrder>{RESUMEDELIVERYID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_SURVEY" Description="背景调查代办" Key="SURVEYID" id="">
+    <Attribute Name="SURVEYID" LableResourceID="SURVEYID" Description="背景调查ID" DataType="string" DataValue="" DataText="背景调查ID" />
+    <Attribute Name="RESUMEDELIVERYID" LableResourceID="RESUMEDELIVERYID" Description="简历应聘ID" DataType="string" DataValue="" DataText="简历应聘ID" />
+    <Attribute Name="IDCARDNUMBER" LableResourceID="IDCARDNUMBER" Description="身份证号码" DataType="string" DataValue="" DataText="身份证号码" />
+    <Attribute Name="IDCARDRESULT" LableResourceID="IDCARDRESULT" Description="身份证调查结果" DataType="string" DataValue="" DataText="身份证调查结果" />
+    <Attribute Name="SOCIALCARD" LableResourceID="SOCIALCARD" Description="社保卡" DataType="string" DataValue="" DataText="社保卡" />
+    <Attribute Name="RESUMELOCAL" LableResourceID="RESUMELOCAL" Description="简历所在单位" DataType="string" DataValue="" DataText="简历所在单位" />
+    <Attribute Name="SOCIALLOCAL" LableResourceID="SOCIALLOCAL" Description="查询后的社保缴纳单位" DataType="string" DataValue="" DataText="查询后的社保缴纳单位" />
+    <Attribute Name="COMPARERESULT" LableResourceID="COMPARERESULT" Description="比较后的结果" DataType="string" DataValue="" DataText="比较后的结果" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="datetime" DataValue="" DataText="" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText="所属公司ID" />
+  </Object>
+</System>

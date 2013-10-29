@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>FB</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="年度预算调拨申请" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г" />
+    <ParaStr>
+      <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+      <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+      <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+      <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+      <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_COMPANYTRANSFERMASTER" />
+    </ParaStr>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.FB.UI</AssemblyName>
+    <PublicClass>SMT.FB.UI.Common.CommonFunction</PublicClass>
+    <ProcessName>ShowAuditForm</ProcessName>
+    <PageParameter>T_FB_COMPANYTRANSFERMASTER</PageParameter>
+    <ApplicationOrder>{COMPANYTRANSFERMASTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_FB_COMPANYTRANSFERMASTER" Description="年度预算调拨申请" Key="COMPANYTRANSFERMASTERID" id="">
+    <Attribute Name="OrderTypeName" LableResourceID="OrderTypeName" Description="单据类型" DataType="string" DataValue="年度预算调拨申请" DataText="年度预算调拨申请" />
+    <Attribute Name="COMPANYTRANSFERMASTERID" LableResourceID="COMPANYTRANSFERMASTERID" Description="单据ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="COMPANYTRANSFERMASTERCODE" LableResourceID="INVOICESCODE" Description="单据编号" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="" />
+    <Attribute Name="BUDGETYEAR" LableResourceID="BUDGETYEAR" Description="预算年份" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="TRANSFERFROM" LableResourceID="BUDGETYEAR" Description="调出单位" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="TRANSFERTO" LableResourceID="BUDGETYEAR" Description="调入单位" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="申请人ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="AttachMent" LableResourceID="AttachMent" Description="附件" DataType="attachmentlist" DataValue="" DataText="" />
+    <ObjectList Name="COMPANYTRANSFERDETAILList" LableResourceID="COMPANYTRANSFERDETAILList" Description="年度预算调拨申请明细" DataText="">
+      <Object Name="T_FB_COMPANYTRANSFERDETAIL" LableResourceID="T_FB_COMPANYTRANSFERDETAIL" Description="年度预算调拨申请明细" Key="COMPANYTRANSFERDETAILID" id="">
+        <Attribute Name="COMPANYTRANSFERDETAILID" LableResourceID="COMPANYTRANSFERDETAILID" Description="年度预算调拨申请明细ID" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="T_FB_SUBJECT.SUBJECTCODE" LableResourceID="SUBJECTCODE" Description="科目编号" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="T_FB_SUBJECT.SUBJECTNAME" LableResourceID="SUBJECTNAME" Description="科目名称" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="USABLEMONEY" LableResourceID="USABLEMONEY" Description="可用额度" DataType="decimal" DataValue="" DataText="" />
+        <Attribute Name="TRANSFERMONEY" LableResourceID="ALLOCATEDAMOUNT" Description="调拨金额" DataType="decimal" DataValue="" DataText="" />
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>OA</Name>
+  <System>
+    <Function Description="房源申请" Address="SmtOACommonAdmin.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.SaaS.OA.UI</AssemblyName>
+    <PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.SaaS.OA.UI.UserControls.HouseHireAppForm</PageParameter>
+    <ApplicationOrder>{HIREAPPID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>  
+</MsgOpen>
+  <Object Name="T_OA_HIREAPP" Description="房源申请">
+    <Attribute  Name="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="所属岗位" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="所属部门" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="所属公司" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERNAME" Description="所属用户名称" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="所属用户ID" DataType="string" DataValue=""></Attribute>    
+    <Attribute  Name="UPDATEDATE" Description="修改日期" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERNAME" Description="修改人姓名" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="创建日期" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="创建人ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERNAME" Description="创建人姓名" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="ISSUANCEID" Description="GUID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审批状态" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="ISOK" Description="是否确认" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="ISBACK" Description="是否退房" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="SETTLEMENTTYPE" Description="缴费方式" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="RENTTYPE" Description="出租类型" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="BACKDATE" Description="退房时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="ENDDATE" Description="到期时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="STARTDATE" Description="开始时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="MANAGECOST" Description="管理费" DataType="decimal" DataValue=""></Attribute>
+    <Attribute  Name="DEPOSIT" Description="押金" DataType="decimal" DataValue=""></Attribute>
+    <Attribute  Name="RENTCOST" Description="租金" DataType="decimal" DataValue=""></Attribute>
+    <Attribute  Name="HOUSELISTID" Description="房源ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="HIREAPPID" Description="" DataType="string" DataValue=""></Attribute>
+
+  </Object>
+</System>

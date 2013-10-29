@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/VehicleOCAccount/Details</PageParameter>
+    <ApplicationOrder>{ACCOUNTID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_VEHICLEOCACCOUNT" Description="车辆油卡余额对账单表" Key="ACCOUNTID" id="">
+    <Attribute Name="ACCOUNTID" LableResourceID="ACCOUNTID" Description="对账单主键ID" DataType="string" DataValue="" DataText="对账单主键ID" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="MARKNO" LableResourceID="MARKNO" Description="车牌号" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="ACCOUNTYEAR" LableResourceID="ACCOUNTYEAR" Description="对账年度" DataType="string" DataValue="" DataText="对账年度" />
+    <Attribute Name="ACCOUNTMONTH" LableResourceID="ACCOUNTMONTH" Description="对账月份" DataType="string" DataValue="" DataText="对账月份" />
+    <Attribute Name="OILCARDID" LableResourceID="OILCARDID" Description="加油卡主键ID" DataType="string" DataValue="" DataText="加油卡主键ID" />
+    <Attribute Name="OILCARDNO" LableResourceID="OILCARDNO" Description="加油卡编号" DataType="string" DataValue="" DataText="加油卡编号" />
+    <Attribute Name="QUERYOILTOTAL" LableResourceID="QUERYOILTOTAL" Description="查询用油总额（元）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="SYSTEMOILTOTAL" LableResourceID="SYSTEMOILTOTAL" Description="系统用油总额（元）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="BALANCETOTAL" LableResourceID="BALANCETOTAL" Description="差额（元）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="MONTHMILEAGE" LableResourceID="MONTHMILEAGE" Description="月总里程（公里）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="MONTHOILMASS" LableResourceID="MONTHOILMASS" Description="月总加油量（升）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="PERCENTOILMASS" LableResourceID="PERCENTOILMASS" Description="百公里均耗油量（升）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="THEORYOILMASS" LableResourceID="THEORYOILMASS" Description="理论耗油量（升）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="UNUSUALIDEA" LableResourceID="UNUSUALIDEA" Description="异常审核意见说明" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

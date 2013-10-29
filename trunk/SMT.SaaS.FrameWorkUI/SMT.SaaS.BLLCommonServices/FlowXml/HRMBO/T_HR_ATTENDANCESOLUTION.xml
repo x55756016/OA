@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <System>
+    <Function Description="考勤方案" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_ATTENDANCESOLUTION" Name="ATTENDANCESOLUTIONID" Description="考勤方案ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Attendance.AttSolRdForm</PageParameter>
+    <ApplicationOrder>{ATTENDANCESOLUTIONID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_ATTENDANCESOLUTION" Description="考勤方案" Key="ATTENDANCESOLUTIONID" id="">
+    <Attribute Name="ATTENDANCESOLUTIONID" Description="考勤方案ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ATTENDANCESOLUTIONNAME" Description="考勤方案名称" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ATTENDANCETYPE" Description="考勤方式" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="WORKDAYTYPE" Description="工作天数计算方式" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="WORKDAYS" Description="固定方式下每月工作天数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="WORKMODE" Description="工作制" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CARDTYPE" Description="打卡方式" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ONEDAYOVERTIMEHOURS" Description="加班调休一天小时数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ALLOWLOSTCARDTIMES" Description="每月允许漏打卡次数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ALLOWLATEMAXMINUTE" Description="每月允许迟到总时间" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ALLOWLATEMAXTIMES" Description="每月允许迟到次数" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SETTLEMENTDATE" Description="考勤结算日" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ALARMDATE" Description="提醒通知日" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ANNUALLEAVESET" Description="年假休假方式" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="WORKTIMEPERDAY" Description="每天工作时长" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" Description="审核状态" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" Description="编辑状态" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REMARK" Description="备注" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" Description="创建人" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" Description="修改人" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ISEXPIRED" Description="调休是否过期" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ADJUSTEXPIREDVALUE" Description="调休过期时长" DataType="decimal" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OVERTIMEPAYTYPE" Description="加班支付方式" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OVERTIMEVALID" Description="加班生效方式" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ISCURRENTMONTH" Description="是否当月结算" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OVERTIMECHECK" Description="加班是否要打卡" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERID" Description="所属员工ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="YEARLYBALANCEDATE" Description="年度考勤结算日" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="YEARLYBALANCETYPE" Description="考情结算方式" DataType="string" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+  </Object>
+</System>
+

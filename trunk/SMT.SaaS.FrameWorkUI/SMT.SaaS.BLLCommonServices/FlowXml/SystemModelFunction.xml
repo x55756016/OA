@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <SystemList Name="HR" Description="人力资源管理系统">
+    <ModelList Name="T_HR_ATTENDANCESOLUTION" Description="考勤方案">
+      <Function Description="考勤方案" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+        <Para TableName="T_HR_ATTENDANCESOLUTION" Name="ATTENDANCESOLUTIONID" Description="考勤方案ID" Value=""></Para>
+      </Function>
+    </ModelList>
+    <ModelList Name="T_HR_ATTENDANCESOLUTIONASIGN" Description="考勤方案应用">
+      <Function Description="考勤方案应用" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+        <Para TableName="T_HR_ATTENDANCESOLUTIONASIGN" Name="ATTENDANCESOLUTIONASIGNID" Description="员工考勤方案ID" Value=""></Para>
+      </Function>
+    </ModelList>
+  </SystemList>
+  <SystemList Name="FB" Description="预算管理系统">
+    <ModelList Name="T_FB_CHARGEAPPLYMASTER" Description="个人费用报销申请单">
+      <Function Description="T_FB_CHARGEAPPLYMASTER" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г">
+        <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+        <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+        <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+        <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+        <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+        <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+        <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+        <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+        <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_CHARGEAPPLYMASTER" />
+      </Function>
+    </ModelList>
+    <ModelList Name="T_FB_TRAVELEXPAPPLYMASTER" Description="个人差旅报销申请单">
+      <Function Description="T_FB_TRAVELEXPAPPLYMASTER" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г">
+        <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+        <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+        <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+        <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+        <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+        <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+        <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+        <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+        <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_TRAVELEXPAPPLYMASTER" />
+      </Function>
+    </ModelList>
+  </SystemList>
+  <SystemList Name="Engine" Description="短信系统">
+    <ModelList Name="T_SMS_SENDPENDTASK" Description="短信待办">
+      <Function Description="发送待办提醒" Address="SMSAlertService.svc"   FuncName="CallApplicationService"  Binding="BasicHttpBinding" SplitChar="Г">
+       
+      </Function>
+    </ModelList>
+  </SystemList>
+</System>

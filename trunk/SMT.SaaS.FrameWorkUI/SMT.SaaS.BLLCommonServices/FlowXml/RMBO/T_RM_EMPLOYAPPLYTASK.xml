@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>RM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/EmployApply/Index</PageParameter>
+    <ApplicationOrder>{REQUIREAPPLYID}</ApplicationOrder>
+    <FormTypes>Task</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_EMPLOYAPPLY" Description="入职申请" Key="EMPLOYAPPLYID" id="">
+    <Attribute Name="EMPLOYAPPLYID" LableResourceID="EMPLOYAPPLYID" Description="需求ID" DataType="string" DataValue="" DataText="需求ID" />
+    <Attribute Name="RESUMEDELIVERYID" LableResourceID="RESUMEDELIVERYID" Description="简历应聘ID" DataType="string" DataValue="" DataText="简历应聘ID" />
+    <Attribute Name="ENTERDATE" LableResourceID="ENTERDATE" Description="到岗时间" DataType="datetime" DataValue="" DataText="到岗时间" />
+    <Attribute Name="PLANENTERDATE" LableResourceID="PLANENTERDATE" Description="预计入职日期" DataType="datetime" DataValue="" DataText="预计入职日期" />
+    <Attribute Name="ISACCEPTEMPLOIED" LableResourceID="ISACCEPTEMPLOIED" Description="应聘者是否答应被录用" DataType="string" DataValue="" DataText="应聘者是否答应被录用" />
+    <Attribute Name="RESUMENAME" LableResourceID="RESUMENAME" Description="应聘人姓名" DataType="string" DataValue="" DataText="应聘人姓名" />
+    <Attribute Name="REQUIREPOSTNAME" LableResourceID="REQUIREPOSTNAME" Description="应聘岗位" DataType="string" DataValue="" DataText="应聘岗位" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="录用备注" DataType="string" DataValue="" DataText="录用备注" />
+    <Attribute Name="SALARY" LableResourceID="SALARY" Description="薪资要求" DataType="decimal" DataValue="" DataText="薪资要求" />
+    <Attribute Name="CLASS" LableResourceID="CLASS" Description="对应薪资级别" DataType="string" DataValue="" DataText="对应薪资级别" />
+    <Attribute Name="TRYOUTSALARY" LableResourceID="TRYOUTSALARY" Description="试用期月薪" DataType="decimal" DataValue="" DataText="试用期月薪" />
+    <Attribute Name="FORMALSALARY" LableResourceID="FORMALSALARY" Description="转正月薪" DataType="decimal" DataValue="" DataText="转正月薪" />
+    <Attribute Name="INCOME" LableResourceID="INCOME" Description="年总收入" DataType="decimal" DataValue="" DataText="年总收入" />
+    <Attribute Name="PLANDATE" LableResourceID="PLANDATE" Description="到岗时间" DataType="datetime" DataValue="" DataText="到岗时间" />
+    <Attribute Name="SURVEYSTATUS" LableResourceID="SURVEYSTATUS" Description="是否已背景调查" DataType="string" DataValue="" DataText="是否已背景调查" />
+    <Attribute Name="SURVEYRESULT" LableResourceID="SURVEYRESULT" Description="背景调查结果" DataType="string" DataValue="" DataText="背景调查结果" />
+    <Attribute Name="ENTERLISTSTATUS" LableResourceID="ENTERLISTSTATUS" Description="入职手续状态" DataType="string" DataValue="" DataText="入职手续状态" />
+    <Attribute Name="ENTERLISTRESULT" LableResourceID="ENTERLISTRESULT" Description="入职手续结果" DataType="string" DataValue="" DataText="入职手续结果" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="EDITSTATES" LableResourceID="EDITSTATES" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="datetime" DataValue="" DataText="" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+  </Object>
+</System>

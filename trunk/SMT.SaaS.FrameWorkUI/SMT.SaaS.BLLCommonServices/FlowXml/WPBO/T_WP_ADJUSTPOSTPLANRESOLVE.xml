@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_ADJUSTPOSTPLANRESOLVE" Description="岗位员工年度计划调整分解表可变费用计划分解" Key="EMPONRID" id="">
+    <Attribute  Name="EMPONRID" LableResourceID="EMPONRID" Description="员工指标分解主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EADJUSTID" LableResourceID="EADJUSTID" Description="员工调整主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTID" LableResourceID="DEPARTMENTID" Description="所属部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="POSTEMPID" LableResourceID="POSTEMPID" Description="所属岗位员工ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度数据来自《工作计划下达表》保存数据，界面不处理" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COSTITEMID" LableResourceID="COSTITEMID" Description="费用项科目ID选择字典表PresetCostItemType（可变费用项目，即招待费、差旅费、礼品费、市内交通费、邮寄费等）" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COSTITEMNAME" LableResourceID="COSTITEMNAME" Description="费用项名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYCOST" LableResourceID="LYCOST" Description="上年费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CYCOST" LableResourceID="CYCOST" Description="本年费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="GROWTHRATE" LableResourceID="GROWTHRATE" Description="增长率%（(本年费用-上年费用)/上年费用）" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYPERFORM" LableResourceID="LYPERFORM" Description="上年同期执行情况" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CYPERFORM" LableResourceID="CYPERFORM" Description="本年执行情况" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="APPLYCAUSE" LableResourceID="APPLYCAUSE" Description="申请事由" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="APPLYATARGET" LableResourceID="APPLYATARGET" Description="申请调整至" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="AGROWTHRATE" LableResourceID="AGROWTHRATE" Description="调整后增长率%（(申请调整至-上年费用)/上年费用）" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/CarryDownFunds/Edit</PageParameter>
+    <ApplicationOrder>{CDKEYID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_CARRYDOWNFUNDS" Description="T_TASK_CarryDownFunds 活动经费结转单&#xA;&#xA;活动经费结转单：个人活动经费（固定成本费用项）结转分解到本公司指定人员的费用报销申请；&#xA;&#xA;在‘任务系统-执行人回复’页面，取出《T_Sys_ItemSubjectRelation 系统事项类别与会计科目关联表》表1中字段ItemTypeNo为HDJF01的从表中查找会计科目ID，然后根据查找出的会计科目ID到《T_WP_NormItemConfig 年度指标控制项配置管理》表2中NormItemID字段对应从表中找当前年度的活动经费对应的指标控制项ID，再到任务对应的计划任务《T_WP_PostEmpSummaryPlanFix 岗位员工周期总结下期计划固定费用从表》中查找是否有对应的活动经费报销额度，如有，则可操作活动经费结转单；&#xA;&#xA;错误判断：表1与表2对应的会计科目ID必须完全相同，即只能一对一（不能出现表1只有一个科目，表2有两个科目），否则报错，不允许报销活动经费及结转活动经费&#xA;" Key="CDKEYID" id="">
+    <Attribute Name="CDKEYID" LableResourceID="CDKEYID" Description="结转主键ID，GUID" DataType="string" DataValue="" DataText="结转主键ID，GUID" />
+    <Attribute Name="TASKCODE" LableResourceID="TASKCODE" Description="任务编号&#xA;保存任务系统任务执行主键ID" DataType="string" DataValue="" DataText="任务编号&#xA;保存任务系统任务执行主键ID" />
+    <Attribute Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID" DataType="string" DataValue="" DataText="员工费用计划主键ID" />
+    <Attribute Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度&#xA;费用发生的年月，将扣除该指定年月的成本费用" DataType="string" DataValue="" DataText="计划年度&#xA;费用发生的年月，将扣除该指定年月的成本费用" />
+    <Attribute Name="PLANMONTH" LableResourceID="PLANMONTH" Description="计划月份" DataType="string" DataValue="" DataText="计划月份" />
+    <Attribute Name="ITEMINFO" LableResourceID="ITEMINFO" Description="事项信息" DataType="string" DataValue="" DataText="事项信息" />
+    <Attribute Name="NORMITEMID" LableResourceID="NORMITEMID" Description="指标项科目ID&#xA;费用计划中，固定成本费用项ID&#xA;《T_WP_PostEmpSummaryPlanFix 岗位员工周期总结下期计划固定费用从表》NormID" DataType="string" DataValue="" DataText="指标项科目ID&#xA;费用计划中，固定成本费用项ID&#xA;《T_WP_PostEmpSummaryPlanFix 岗位员工周期总结下期计划固定费用从表》NormID" />
+    <Attribute Name="NORMITEMNAME" LableResourceID="NORMITEMNAME" Description="指标项科目名称" DataType="string" DataValue="" DataText="指标项科目名称" />
+    <Attribute Name="SERIALNO" LableResourceID="SERIALNO" Description="指标项科目序号" DataType="string" DataValue="" DataText="指标项科目序号" />
+    <Attribute Name="TOTALMONEY" LableResourceID="TOTALMONEY" Description="费用金额" DataType="decimal" DataValue="" DataText="费用金额" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 保存         Saved" DataType="string" DataValue="" DataText="///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 保存         Saved" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属人公司" DataType="string" DataValue="" DataText="所属人公司" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属人部门" DataType="string" DataValue="" DataText="所属人部门" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属人岗位" DataType="string" DataValue="" DataText="所属人岗位" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人" DataType="string" DataValue="" DataText="所属人" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属人名称" DataType="string" DataValue="" DataText="所属人名称" />
+    <Attribute Name="OWNERPOSTNAME" LableResourceID="OWNERPOSTNAME" Description="所属人岗位名称" DataType="string" DataValue="" DataText="所属人岗位名称" />
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="所属人公司名称" DataType="string" DataValue="" DataText="所属人公司名称" />
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="所属人部门名称" DataType="string" DataValue="" DataText="所属人部门名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REFUNDMONEY" LableResourceID="REFUNDMONEY" Description="已报销金额合计(元)&#xA;明细表中的已报销金额合计" DataType="decimal" DataValue="" DataText="已报销金额合计(元)&#xA;明细表中的已报销金额合计" />
+    <ObjectList Name="List" LableResourceID="List" Description="" DataText="">
+      <Object Name="" Description="" Key="" id="" />
+    </ObjectList>
+    <ObjectList Name="List" LableResourceID="List" Description="" DataText="">
+      <Object Name="" Description="" Key="" id="" />
+    </ObjectList>
+    <ObjectList Name="T_TASK_CARRYDOWNFUNDSDETAILList" LableResourceID="T_TASK_CARRYDOWNFUNDSDETAILList" Description="T_TASK_CarryDownFundsDetail 活动经费结转单分摊明细表&#xA;&#xA;&#xA;报销单审核通过时，回写累计已报销金额、最后报销日期，判断如果可报销费用金额大于已报销费用金额时，自动添加一条新的活动经费费用报销待办，直到可报销费用金额等于已报销费用金额为止。" DataText="">
+      <Object Name="T_TASK_CARRYDOWNFUNDSDETAIL" Description="T_TASK_CarryDownFundsDetail 活动经费结转单分摊明细表&#xA;&#xA;&#xA;报销单审核通过时，回写累计已报销金额、最后报销日期，判断如果可报销费用金额大于已报销费用金额时，自动添加一条新的活动经费费用报销待办，直到可报销费用金额等于已报销费用金额为止。" Key="CDDETAILID" id="">
+        <Attribute Name="CDDETAILID" LableResourceID="CDDETAILID" Description="结转明细主键ID，GUID" DataType="string" DataValue="" DataText="结转明细主键ID，GUID" />
+        <Attribute Name="CDKEYID" LableResourceID="CDKEYID" Description="结转主键ID" DataType="string" DataValue="" DataText="结转主键ID" />
+        <Attribute Name="SHARECOMPANYID" LableResourceID="SHARECOMPANYID" Description="分摊公司" DataType="string" DataValue="" DataText="分摊公司" />
+        <Attribute Name="SHAREDEPARTMENTID" LableResourceID="SHAREDEPARTMENTID" Description="分摊部门" DataType="string" DataValue="" DataText="分摊部门" />
+        <Attribute Name="SHARECOMPANYNAME" LableResourceID="SHARECOMPANYNAME" Description="分摊公司名称" DataType="string" DataValue="" DataText="分摊公司名称" />
+        <Attribute Name="SHAREDEPARTMENTNAME" LableResourceID="SHAREDEPARTMENTNAME" Description="分摊部门名称" DataType="string" DataValue="" DataText="分摊部门名称" />
+        <Attribute Name="SHAREID" LableResourceID="SHAREID" Description="分摊员工&#xA;冗余，结转时为空，结转确认时，填写部门负责人" DataType="string" DataValue="" DataText="分摊员工&#xA;冗余，结转时为空，结转确认时，填写部门负责人" />
+        <Attribute Name="SHAREPOSTID" LableResourceID="SHAREPOSTID" Description="分摊员工岗位&#xA;&#xA;冗余，结转时为空，结转确认时，填写部门负责人岗位" DataType="string" DataValue="" DataText="分摊员工岗位&#xA;&#xA;冗余，结转时为空，结转确认时，填写部门负责人岗位" />
+        <Attribute Name="SHARENAME" LableResourceID="SHARENAME" Description="分摊员工名称" DataType="string" DataValue="" DataText="分摊员工名称" />
+        <Attribute Name="SHAREPOSTNAME" LableResourceID="SHAREPOSTNAME" Description="分摊员工岗位名称" DataType="string" DataValue="" DataText="分摊员工岗位名称" />
+        <Attribute Name="NORMITEMID" LableResourceID="NORMITEMID" Description="指标项科目ID&#xA;费用计划中，固定成本费用项ID" DataType="string" DataValue="" DataText="指标项科目ID&#xA;费用计划中，固定成本费用项ID" />
+        <Attribute Name="NORMITEMNAME" LableResourceID="NORMITEMNAME" Description="指标项科目名称" DataType="string" DataValue="" DataText="指标项科目名称" />
+        <Attribute Name="ALLOCATEDLIMIT" LableResourceID="ALLOCATEDLIMIT" Description="下拨额度(元)" DataType="decimal" DataValue="" DataText="下拨额度(元)" />
+        <Attribute Name="CURRMONTHFUNDS" LableResourceID="CURRMONTHFUNDS" Description="本月下拨经费(元)" DataType="decimal" DataValue="" DataText="本月下拨经费(元)" />
+        <Attribute Name="ASSESSPROMPT" LableResourceID="ASSESSPROMPT" Description="考核提示&#xA;加载考核数据时，填写考核提示、下拨额度、人员信息" DataType="string" DataValue="" DataText="考核提示&#xA;加载考核数据时，填写考核提示、下拨额度、人员信息" />
+        <Attribute Name="SUMMARY" LableResourceID="SUMMARY" Description="摘要" DataType="string" DataValue="" DataText="摘要" />
+        <Attribute Name="REFUNDMONEY" LableResourceID="REFUNDMONEY" Description="已报销金额(元)&#xA;报销单审核通过时，回写已报销金额" DataType="decimal" DataValue="" DataText="已报销金额(元)&#xA;报销单审核通过时，回写已报销金额" />
+        <Attribute Name="LASTREFUNDDATE" LableResourceID="LASTREFUNDDATE" Description="最后报销日期&#xA;填写最后一次报销审核通过的日期" DataType="datetime" DataValue="" DataText="最后报销日期&#xA;填写最后一次报销审核通过的日期" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+        <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+      </Object>
+    </ObjectList>
+    <ObjectList Name="T_TASK_CARRYDOWNCHARGEList" LableResourceID="T_TASK_CARRYDOWNCHARGEList" Description="T_TASK_CarryDownCharge 费用结转单&#xA;&#xA;费用结转单：固定成本费用结转分解到指定部门的固定成本费用；&#xA;收入结账单：营业收入结转分解到指定部门的固定成本费用；&#xA;&#xA;费用报销单审核通过时，如果报销的费用中包含固定成本费用项，则给报销中包含的各固定成本费用项发费用预算结转单待办，那么费用项科目不需要进行选择；" DataText="">
+      <Object Name="T_TASK_CARRYDOWNCHARGE" Description="T_TASK_CarryDownCharge 费用结转单&#xA;&#xA;费用结转单：固定成本费用结转分解到指定部门的固定成本费用；&#xA;收入结账单：营业收入结转分解到指定部门的固定成本费用；&#xA;&#xA;费用报销单审核通过时，如果报销的费用中包含固定成本费用项，则给报销中包含的各固定成本费用项发费用预算结转单待办，那么费用项科目不需要进行选择；" Key="CDKEYID" id="">
+        <Attribute Name="CDKEYID" LableResourceID="CDKEYID" Description="结转主键ID，GUID" DataType="string" DataValue="" DataText="结转主键ID，GUID" />
+        <Attribute Name="TASKCODE" LableResourceID="TASKCODE" Description="任务编号&#xA;保存任务系统任务执行主键ID" DataType="string" DataValue="" DataText="任务编号&#xA;保存任务系统任务执行主键ID" />
+        <Attribute Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID" DataType="string" DataValue="" DataText="员工费用计划主键ID" />
+        <Attribute Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度&#xA;费用发生的年月，将扣除该指定年月的成本费用" DataType="string" DataValue="" DataText="计划年度&#xA;费用发生的年月，将扣除该指定年月的成本费用" />
+        <Attribute Name="PLANMONTH" LableResourceID="PLANMONTH" Description="计划月份" DataType="string" DataValue="" DataText="计划月份" />
+        <Attribute Name="ITEMINFO" LableResourceID="ITEMINFO" Description="事项信息" DataType="string" DataValue="" DataText="事项信息" />
+        <Attribute Name="NORMITEMID" LableResourceID="NORMITEMID" Description="指标项科目ID&#xA;费用计划中，固定成本费用项ID&#xA;《T_WP_PostEmpSummaryPlanFix 岗位员工周期总结下期计划固定费用从表》NormID" DataType="string" DataValue="" DataText="指标项科目ID&#xA;费用计划中，固定成本费用项ID&#xA;《T_WP_PostEmpSummaryPlanFix 岗位员工周期总结下期计划固定费用从表》NormID" />
+        <Attribute Name="NORMITEMNAME" LableResourceID="NORMITEMNAME" Description="指标项科目名称" DataType="string" DataValue="" DataText="指标项科目名称" />
+        <Attribute Name="SERIALNO" LableResourceID="SERIALNO" Description="指标项科目序号" DataType="string" DataValue="" DataText="指标项科目序号" />
+        <Attribute Name="TOTALMONEY" LableResourceID="TOTALMONEY" Description="费用金额(元)&#xA;费用金额：任务计划的预算金额；" DataType="decimal" DataValue="" DataText="费用金额(元)&#xA;费用金额：任务计划的预算金额；" />
+        <Attribute Name="CHARGEMONEY" LableResourceID="CHARGEMONEY" Description="已报销金额(元)&#xA;&#xA;已报销金额：报销审核通过时，指定任务计划的单费用项报销费用合计；" DataType="decimal" DataValue="" DataText="已报销金额(元)&#xA;&#xA;已报销金额：报销审核通过时，指定任务计划的单费用项报销费用合计；" />
+        <Attribute Name="ISSHARECFM" LableResourceID="ISSHARECFM" Description="分摊确认（缺省0，0未提交1确认中2全部已确认）&#xA;&#xA;0未提交：结转申请人尚未提交结转申请&#xA;1确认中：结转申请人已提交结转申请，各分摊部门确认中&#xA;2全部已确认：各分摊部门全部同意，转入申请人上级领导审核流程；" DataType="string" DataValue="" DataText="分摊确认（缺省0，0未提交1确认中2全部已确认）&#xA;&#xA;0未提交：结转申请人尚未提交结转申请&#xA;1确认中：结转申请人已提交结转申请，各分摊部门确认中&#xA;2全部已确认：各分摊部门全部同意，转入申请人上级领导审核流程；" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" />
+        <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 保存         Saved" DataType="string" DataValue="" DataText="///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 保存         Saved" />
+        <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属人公司" DataType="string" DataValue="" DataText="所属人公司" />
+        <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属人部门" DataType="string" DataValue="" DataText="所属人部门" />
+        <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属人岗位" DataType="string" DataValue="" DataText="所属人岗位" />
+        <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人" DataType="string" DataValue="" DataText="所属人" />
+        <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属人名称" DataType="string" DataValue="" DataText="所属人名称" />
+        <Attribute Name="OWNERPOSTNAME" LableResourceID="OWNERPOSTNAME" Description="所属人岗位名称" DataType="string" DataValue="" DataText="所属人岗位名称" />
+        <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="所属人公司名称" DataType="string" DataValue="" DataText="所属人公司名称" />
+        <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="所属人部门名称" DataType="string" DataValue="" DataText="所属人部门名称" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+        <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

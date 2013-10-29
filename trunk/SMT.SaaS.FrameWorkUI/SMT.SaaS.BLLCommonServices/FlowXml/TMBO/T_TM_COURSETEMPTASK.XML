@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="合理化课程模版待办" Address="TMServices.svc" FuncName="CallWaitAppService" Binding="BasicHttpBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_TM_COURSETEMP" Name="COURSEID" Description="课程ID" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TM/CourseTemp/Index</PageParameter>
+    <ApplicationOrder>{COURSEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TM_COURSETEMP" Description="课件模板" Key="TEMPID" id="">
+    <Attribute Name="TEMPID" LableResourceID="TEMPID" Description="课件模板ID" DataType="string" DataValue="" DataText="课件模板ID" />
+    <Attribute Name="COURSEID" LableResourceID="COURSEID" Description="课程ID" DataType="string" DataValue="" DataText="课程ID" />
+    <Attribute Name="COURSENAME" LableResourceID="COURSENAME" Description="课程名" DataType="string" DataValue="" DataText="课程名" />
+    <Attribute Name="TEMPPATH" LableResourceID="TEMPPATH" Description="模板路径" DataType="string" DataValue="" DataText="模板路径" />
+    <Attribute Name="TEMPLATEDESC" LableResourceID="TEMPLATEDESC" Description="模板要求说明" DataType="string" DataValue="" DataText="模板要求说明" />
+    <Attribute Name="DUTYCOPANYID" LableResourceID="DUTYCOPANYID" Description="责任公司ID" DataType="string" DataValue="" DataText="责任公司ID" />
+    <Attribute Name="DUTYDEPARTMENTID" LableResourceID="DUTYDEPARTMENTID" Description="责任岗位ID" DataType="string" DataValue="" DataText="责任岗位ID" />
+    <Attribute Name="DUTYDEPARTMENTNAME" LableResourceID="DUTYDEPARTMENTNAME" Description="责任部门" DataType="string" DataValue="" DataText="责任部门" />
+    <Attribute Name="DUTYPOSTID" LableResourceID="DUTYPOSTID" Description="责任岗位ID" DataType="string" DataValue="" DataText="责任岗位ID" />
+    <Attribute Name="DUTYPOSTNAME" LableResourceID="DUTYPOSTNAME" Description="责任岗位" DataType="string" DataValue="" DataText="责任岗位" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText="所属公司ID" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText="创建人公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText="创建人部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText="创建人岗位ID" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+  </Object>
+</System>

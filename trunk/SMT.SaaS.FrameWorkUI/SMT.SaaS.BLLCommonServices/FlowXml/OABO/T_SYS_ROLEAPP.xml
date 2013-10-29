@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>OA</Name>
+  <System>
+    <Function Description="权限申请" Address="PermissionService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+      
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.SaaS.Permission.UI</AssemblyName>
+    <PublicClass>SMT.SaaS.Permission.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.SaaS.Permission.UI.UserControls.UserRoleApplyForm</PageParameter>
+    <ApplicationOrder>{ROLEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>  
+</MsgOpen>
+<Object Name="T_SYS_ROLE" Description="权限申请">
+    <Attribute  Name="ROLEID" Description="角色ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="ROLEID" Description="角色ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="SYSTEMTYPE" Description="系统类型" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="ROLENAME" Description="角色名称" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="备注" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="ISAUTHORY" Description="是否受权限控制" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSER" Description="创建人ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="创建日期" DataType="DateTime" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSER" Description="修改人ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="修改日期" DataType="DateTime" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="所属岗位" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="所属部门" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="所属公司" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERNAME" Description="所属用户名称" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="所属用户ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERNAME" Description="修改人姓名" DataType="string" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审核状态" DataType="string" DataValue=""></Attribute>    
+</Object>
+</System>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>FB</Name>
+<Version>1.0</Version>
+  <System>
+    <Function Description="年度预算申请" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г" />
+    <ParaStr>
+      <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+      <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+      <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+      <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+      <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_COMPANYBUDGETAPPLYMASTER" />
+    </ParaStr>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.FB.UI</AssemblyName>
+    <PublicClass>SMT.FB.UI.Common.CommonFunction</PublicClass>
+    <ProcessName>ShowAuditForm</ProcessName>
+    <PageParameter>T_FB_COMPANYBUDGETAPPLYMASTER</PageParameter>
+    <ApplicationOrder>{COMPANYBUDGETAPPLYMASTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_FB_COMPANYBUDGETAPPLYMASTER" Description="年度预算申请" Key="COMPANYBUDGETAPPLYMASTERID" id="">
+    <Attribute Name="OrderTypeName" LableResourceID="OrderTypeName" Description="单据类型" DataType="string" DataValue="年度预算申请" DataText="年度预算申请" />
+    <Attribute Name="COMPANYBUDGETAPPLYMASTERID" LableResourceID="COMPANYBUDGETAPPLYMASTERID" Description="单据ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="COMPANYBUDGETAPPLYMASTERCODE" LableResourceID="INVOICESCODE" Description="单据编号" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="" />
+    <Attribute Name="BUDGETYEAR" LableResourceID="BUDGETYEAR" Description="预算年份" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="申请人ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="申请公司" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="申请部门" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="BUDGETMONEY" LableResourceID="TOTAL" Description="合计" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="ISVALID" LableResourceID="EFFECTIVESTATE" Description="状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="AttachMent" LableResourceID="AttachMent" Description="附件" DataType="attachmentlist" DataValue="" DataText="" />
+    <ObjectList Name="COMPANYBUDGETAPPLYDETAILList" LableResourceID="COMPANYBUDGETAPPLYDETAILDetailList" Description="年度预算申请明细" DataText="">
+      <Object Name="T_FB_COMPANYBUDGETAPPLYDETAIL" LableResourceID="T_FB_COMPANYBUDGETAPPLYDETAIL" Description="年度预算申请明细" Key="COMPANYBUDGETAPPLYDETAILID" id="">
+        <Attribute Name="COMPANYBUDGETAPPLYDETAILID" LableResourceID="COMPANYBUDGETAPPLYDETAILID" Description="年度预算申请明细ID" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="T_FB_SUBJECT.SUBJECTCODE" LableResourceID="SUBJECTCODE" Description="科目编号" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="T_FB_SUBJECT.SUBJECTNAME" LableResourceID="SUBJECTNAME" Description="科目名称" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="LASTBUDGETMONEY" LableResourceID="LASTYEARUALBUDGETMONEY" Description="上年发生" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="BUDGETMONEY" LableResourceID="FBBUDGETMONEY" Description="预算金额" DataType="decimal" DataValue="" DataText="" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="" />
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

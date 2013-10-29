@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="创建公司" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+<MsgOpen>
+		<AssemblyName>SMT.HRM.UI</AssemblyName>
+	<PublicClass>SMT.HRM.UI.Utility</PublicClass>
+	<ProcessName>CreateFormFromEngine</ProcessName>
+	<PageParameter>SMT.HRM.UI.Form.CompanyForm</PageParameter>
+		<ApplicationOrder>{COMPANYID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+ </MsgOpen>
+  <Object Name="T_HR_COMPANY" Description="公司信息" Key="COMPANYID" id="">
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNER" LableResourceID="OWNER"  Description="所属人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="COMPANYID" LableResourceID="COMPANYID" Description="公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="COMPANRYCODE" LableResourceID="COMPANRYCODE" Description="公司编号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ENAME" LableResourceID="ENAME" Description="公司英文名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CNAME" LableResourceID="CNAME" Description="公司中文名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="COMPANYCATEGORY" LableResourceID="COMPANYCATEGORY" Description="公司类型" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="COMPANYLEVEL" LableResourceID="COMPANYLEVEL" Description="公司级别" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FATHERID" LableResourceID="FATHERID" Description="上级机构ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ADDRESS" LableResourceID="ADDRESS" Description="公司地址" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LEGALPERSON" LableResourceID="LEGALPERSON" Description="法人代表" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LINKMAN" LableResourceID="LINKMAN" Description="联系人姓名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="TELNUMBER" LableResourceID="TELNUMBER" Description="联系电话" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LEGALPERSONID" LableResourceID="LEGALPERSONID" Description="法人身份证号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BUSSINESSLICENCENO" LableResourceID="BUSSINESSLICENCENO" Description="营业执照号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BUSSINESSAREA" LableResourceID="BUSSINESSAREA" Description="经营范围" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ACCOUNTCODE" LableResourceID="ACCOUNTCODE" Description="银行账号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BANKID" LableResourceID="BANKID" Description="开户银行代码" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMAIL" LableResourceID="EMAIL" Description="电子邮件" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ZIPCODE" LableResourceID="ZIPCODE" Description="邮政编码" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FAXNUMBER" LableResourceID="FAXNUMBER" Description="传真" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="编辑状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="COUNTYTYPE" LableResourceID="COUNTYTYPEORAREA" Description="国别" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CITY" LableResourceID="CITY" Description="所在地城市" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPROVINCE" LableResourceID="OWNERPROVINCE" Description="所在省" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="COMPANYTYPE" LableResourceID="COMPANYTYPE" Description="企业类型:1地产企业,2物流企业,3生产企业,4软件企业,零售企业" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FATHERTYPE" LableResourceID="FATHERTYPE" Description="上级机构类型(0:公司;1:部门)" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SUPERIORORG" LableResourceID="SUPERIORORG" Description="上级公司" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SUPERIORDEPARTMENT" LableResourceID="SUPERIORDEPARTMENT" Description="上级部门" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SORTINDEX" LableResourceID="ORDERNUMBER" Description="排序号" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BRIEFNAME" LableResourceID="BRIEFNAME" Description="简称" DataType="string" DataValue="" DataText=""></Attribute>
+  </Object>
+</System>

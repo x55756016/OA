@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>RM</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_HEALTHDATA" Description="体检明细" Key="T_RM_HEALTHDATA" id="">
+    <Attribute  Name="ENTERLISTID" LableResourceID="ENTERLISTID" Description="入职手续ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HEALTHID" LableResourceID="HEALTHID" Description="健康ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESUMEDELIVERYID" LableResourceID="RESUMEDELIVERYID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESUMENAME" LableResourceID="RESUMENAME" Description="应聘者姓名" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="YEARMONTH" LableResourceID="YEARMONTH" Description="年度" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SEX" LableResourceID="SEX" Description="性别1.男.2.女" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="AGE" LableResourceID="AGE" Description="年龄" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="MARRIAGE" LableResourceID="MARRIAGE" Description="婚姻状况1.已婚.2.未婚" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CURRENTADDRESS" LableResourceID="CURRENTADDRESS" Description="住址" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HEIGHT" LableResourceID="HEIGHT" Description="身高cm" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="WEIGHT" LableResourceID="WEIGHT" Description="体重kg" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="POST" LableResourceID="POST" Description="应聘职位" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LSIGHT" LableResourceID="LSIGHT" Description="裸眼视力左.1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LSIGHTP" LableResourceID="LSIGHTP" Description="裸眼视力左参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RSIGHT" LableResourceID="RSIGHT" Description="裸眼视力右1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RSIGHTP" LableResourceID="RSIGHTP" Description="裸眼视力右参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LEAR" LableResourceID="LEAR" Description="听力左1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LEARP" LableResourceID="LEARP" Description="听力左参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REAR" LableResourceID="REAR" Description="听力右1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REARP" LableResourceID="REARP" Description="听力右参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EARDISEASE" LableResourceID="EARDISEASE" Description="耳疾1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EARDISEASEP" LableResourceID="EARDISEASEP" Description="耳疾参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NOSEDISEASE" LableResourceID="NOSEDISEASE" Description="鼻疾1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NOSEDISEASEP" LableResourceID="NOSEDISEASEP" Description="鼻疾参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COLORVISION" LableResourceID="COLORVISION" Description="色觉1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COLORVISIONP" LableResourceID="COLORVISIONP" Description="色觉参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BLOODPRESSURE" LableResourceID="BLOODPRESSURE" Description="血压 1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BLOODPRESSUREP" LableResourceID="BLOODPRESSUREP" Description="血压参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FAUCE" LableResourceID="FAUCE" Description="咽喉 1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FAUCEP" LableResourceID="FAUCEP" Description="咽喉参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CHUNE" LableResourceID="CHUNE" Description="唇腭1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CHUNEP" LableResourceID="CHUNEP" Description="唇腭参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DENTALCARIES" LableResourceID="DENTALCARIES" Description="龋齿1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DENTALCARIESP" LableResourceID="DENTALCARIESP" Description="龋齿参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="MISSTOOTH" LableResourceID="MISSTOOTH" Description="缺齿1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="MISSTOOTHP" LableResourceID="MISSTOOTHP" Description="缺齿参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PERIODONTAL" LableResourceID="PERIODONTAL" Description="牙周疾病1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PERIODONTALP" LableResourceID="PERIODONTALP" Description="牙周疾病参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="STUTTER" LableResourceID="STUTTER" Description="口吃1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="STUTTERP" LableResourceID="STUTTERP" Description="口吃参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BUST" LableResourceID="BUST" Description="胸围1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BUSTP" LableResourceID="BUSTP" Description="胸围参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BRESTHDIFF" LableResourceID="BRESTHDIFF" Description="呼吸差1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BRESTHDIFFP" LableResourceID="BRESTHDIFFP" Description="呼吸差参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="THYROID" LableResourceID="THYROID" Description="甲状腺1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="THYROIDP" LableResourceID="THYROIDP" Description="甲状腺参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SKIN" LableResourceID="SKIN" Description="皮肤1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SKINP" LableResourceID="SKINP" Description="皮肤参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SPINE" LableResourceID="SPINE" Description="脊柱1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SPINEP" LableResourceID="SPINEP" Description="脊柱参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LIMB" LableResourceID="LIMB" Description="四肢1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LIMBP" LableResourceID="LIMBP" Description="四肢参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="JOINT" LableResourceID="JOINT" Description="关节1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="JOINTP" LableResourceID="JOINTP" Description="关节参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYMPH" LableResourceID="LYMPH" Description="淋巴1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYMPHP" LableResourceID="LYMPHP" Description="淋巴参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COLIC" LableResourceID="COLIC" Description="疝气1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COLICP" LableResourceID="COLICP" Description="疝气参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BELLY" LableResourceID="BELLY" Description="腹部1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BELLYP" LableResourceID="BELLYP" Description="腹部参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NEURAL" LableResourceID="NEURAL" Description="神经系统1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NEURALP" LableResourceID="NEURALP" Description="神经系统参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PSYCHIATRICHIST" LableResourceID="PSYCHIATRICHIST" Description="精神病史1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PSYCHIATRICHISTP" LableResourceID="PSYCHIATRICHISTP" Description="精神病史参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LUNGRES" LableResourceID="LUNGRES" Description="肺及呼吸道1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LUNGRESP" LableResourceID="LUNGRESP" Description="肺及呼吸道参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HEARTBLOOD" LableResourceID="HEARTBLOOD" Description="心脏及血管1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HEARTBLOODP" LableResourceID="HEARTBLOODP" Description="心脏及血管参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LIVER" LableResourceID="LIVER" Description="肝脏1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LIVERP" LableResourceID="LIVERP" Description="肝脏参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SPLEEN" LableResourceID="SPLEEN" Description="脾脏1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SPLEENP" LableResourceID="SPLEENP" Description="脾脏参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CHESTXRAY" LableResourceID="CHESTXRAY" Description="胸部X光1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CHESTXRAYP" LableResourceID="CHESTXRAYP" Description="胸部X光" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ANTHOR" LableResourceID="ANTHOR" Description="其它1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ANTHORP" LableResourceID="ANTHORP" Description="其它参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BLOOD" LableResourceID="BLOOD" Description="血常规1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="BLOODP" LableResourceID="BLOODP" Description="血常规参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBSAG" LableResourceID="HBSAG" Description="HBSAg1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBSAGP" LableResourceID="HBSAGP" Description="HBSAg参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBSAB" LableResourceID="HBSAB" Description="HBSAb1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBSABP" LableResourceID="HBSABP" Description="HBSAb参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBEAG" LableResourceID="HBEAG" Description="HBEAG1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBEAGP" LableResourceID="HBEAGP" Description="HBEAG参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBEAB" LableResourceID="HBEAB" Description="hBeAb1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBEABP" LableResourceID="HBEABP" Description="hBeAb参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBCAB" LableResourceID="HBCAB" Description="hBcAb1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HBCABP" LableResourceID="HBCABP" Description="hBcAb参数" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESULT" LableResourceID="RESULT" Description="检查结果:1合格.2不合格" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATES" LableResourceID="EDITSTATES" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+  </Object>
+
+</System>

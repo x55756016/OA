@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_POSTEMPSUMMARYEXEC" Description="岗位员工周期计划执行表" Key="PEMPEID" id="">
+    <Attribute  Name="PEMPEID" LableResourceID="PEMPEID" Description="费用计划执行主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PEMPID" LableResourceID="PEMPID" Description="员工费用主键ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID
+该计划执行所属的计划，关联（T_WP_PostEmpSummaryPlan 岗位员工周期总结下期计划表），可为空" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ITEMSNAME" LableResourceID="ITEMSNAME" Description="事项名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FINISHTYPE" LableResourceID="FINISHTYPE" Description="完成计划类别
+选择字典表EmpSummaryExecType（完成情况类型，即0计划制定、1完成计划、2变更计划、3增补任务等，缺省0计划制定）" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FINISHCASE" LableResourceID="FINISHCASE" Description="完成情况" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="STARTDATE" LableResourceID="STARTDATE" Description="开始时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ENDDATE" LableResourceID="ENDDATE" Description="结束时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates
+0 删除状态 Deleted
+1 已生效 Actived
+2 未生效 UnActived
+3 撤消中 PendingCancelled
+4 已撤消 Cancelled" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

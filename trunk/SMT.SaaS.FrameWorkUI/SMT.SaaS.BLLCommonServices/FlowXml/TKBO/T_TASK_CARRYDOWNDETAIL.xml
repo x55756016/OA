@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/CarryDownCharge/NewReceiveDeptment</PageParameter>
+    <ApplicationOrder>{CDDETAILID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_CARRYDOWNDETAIL" Description="费用结转通知单(确认)" Key="CDDETAILID" id="">
+  <Attribute Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID" DataType="string" DataValue="" DataText="员工费用计划主键ID" />
+<Attribute Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年份" DataType="string" DataValue="" DataText="计划年份" />
+<Attribute Name="PLANMONTH" LableResourceID="PLANMONTH" Description="计划月份" DataType="decimal " DataValue="" DataText="计划月份" />
+<Attribute Name="CDDETAILID" LableResourceID="CDDETAILID" Description="结转明细主键ID，GUID" DataType="string" DataValue="" DataText="结转明细主键ID，GUID" />
+<Attribute Name="CDKEYID" LableResourceID="CDKEYID" Description="结转主键ID，GUID" DataType="string" DataValue="" DataText="结转主键ID，GUID" />
+<Attribute Name="TASKCODE" LableResourceID="TASKCODE" Description="任务编号保存任务系统任务执行主键ID" DataType="string" DataValue="" DataText="任务编号保存任务系统任务执行主键ID" />
+<Attribute Name="SHARECOMPANYID" LableResourceID="SHARECOMPANYID" Description="分摊公司" DataType="string" DataValue="" DataText="分摊公司" />
+<Attribute Name="SHAREDEPARTMENTID" LableResourceID="SHAREDEPARTMENTID" Description="分摊部门" DataType="string" DataValue="" DataText="分摊部门" />
+<Attribute Name="SHARECOMPANYNAME" LableResourceID="SHARECOMPANYNAME" Description="分摊公司名称" DataType="string" DataValue="" DataText="分摊公司名称" />
+<Attribute Name="SHAREDEPARTMENTNAME" LableResourceID="SHAREDEPARTMENTNAME" Description="分摊部门名称" DataType="string" DataValue="" DataText="分摊部门名称" />
+<Attribute Name="ISSHARECFM" LableResourceID="ISSHARECFM" Description="部门负责人确认（缺省0，0未确认1同意2不同意）" DataType="string" DataValue="" DataText="部门负责人确认（缺省0，0未确认1同意2不同意）" />
+<Attribute Name="SHARECFMDATE" LableResourceID="SHARECFMDATE" Description="部门负责人确认时间" DataType="DateTime" DataValue="" DataText="部门负责人确认时间" />
+<Attribute Name="SHAREID" LableResourceID="SHAREID" Description="部门负责人冗余，结转时为空，结转确认时，填写部门负责人" DataType="string" DataValue="" DataText="部门负责人冗余，结转时为空，结转确认时，填写部门负责人" />
+<Attribute Name="SHAREPOSTID" LableResourceID="SHAREPOSTID" Description="部门负责岗位冗余，结转时为空，结转确认时，填写部门负责人岗位" DataType="string" DataValue="" DataText="部门负责岗位冗余，结转时为空，结转确认时，填写部门负责人岗位" />
+<Attribute Name="SHARENAME" LableResourceID="SHARENAME" Description="部门负责名称" DataType="string" DataValue="" DataText="部门负责名称" />
+<Attribute Name="SHAREPOSTNAME" LableResourceID="SHAREPOSTNAME" Description="部门负责岗位名称" DataType="string" DataValue="" DataText="部门负责岗位名称" />
+<Attribute Name="COMPNORMID" LableResourceID="COMPNORMID" Description="公司指标主键ID此处分摊科目只有固定成本费用，故缺省为900  固定成本费用" DataType="string" DataValue="" DataText="公司指标主键ID此处分摊科目只有固定成本费用，故缺省为900  固定成本费用" />
+<Attribute Name="NORMNAME" LableResourceID="NORMNAME" Description="指标名称" DataType="string" DataValue="" DataText="指标名称" />
+<Attribute Name="NORMITEMNAME" LableResourceID="NORMITEMNAME" Description="指标项科目名称" DataType="string" DataValue="" DataText="指标项科目名称" />
+<Attribute Name="SERIALNO" LableResourceID="SERIALNO" Description="指标项科目序号" DataType="string" DataValue="" DataText="指标项科目序号" />
+<Attribute Name="EMPNUMBER" LableResourceID="EMPNUMBER" Description="人员数" DataType="decimal " DataValue="" DataText="人员数" />
+<Attribute Name="CHARGEMONEY" LableResourceID="CHARGEMONEY" Description="结转金额" DataType="decimal " DataValue="" DataText="结转金额" />
+<Attribute Name="SUMMARY" LableResourceID="SUMMARY" Description="摘要" DataType="string" DataValue="" DataText="摘要" />
+<Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+<Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="【0未处理】【1报销中】【2已报销】【3已收款】" DataType="string" DataValue="" DataText="【0未处理】【1报销中】【2已报销】【3已收款】" />
+<Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+<Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+<Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText="创建时间" />
+<Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+<Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText="修改时间" />
+<Attribute Name="PLANID" LableResourceID="PLANID" Description="计划ID" DataType="string" DataValue="" DataText="计划ID" />
+<Attribute Name="PLANNAME" LableResourceID="PLANNAME" Description="计划名称" DataType="string" DataValue="" DataText="计划名称" />
+<Attribute Name="REIMBURSEMENT" LableResourceID="REIMBURSEMENT" Description="可报销金额" DataType="decimal " DataValue="" DataText="可报销金额" />
+  </Object>
+</System>

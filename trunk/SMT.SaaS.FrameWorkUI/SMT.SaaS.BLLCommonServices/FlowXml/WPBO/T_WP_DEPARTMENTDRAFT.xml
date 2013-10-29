@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_DEPARTMENTDRAFT" Description="年度计划机构调整申请表" Key="DEPARTMENTAID" id="">
+    <Attribute  Name="DEPARTMENTAID" LableResourceID="DEPARTMENTAID" Description="部门调整主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FICTIONID" LableResourceID="FICTIONID" Description="计划申请主键ID
+选择自计划拟制表主键" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTID" LableResourceID="DEPARTMENTID" Description="部门主键ID
+冗余字段，在新增部门时为空，否则填入从部门表加载的部门主键ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTLEVEL" LableResourceID="DEPARTMENTLEVEL" Description="部门级别" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTFUNCTION" LableResourceID="DEPARTMENTFUNCTION" Description="部门需求描述" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FATHERTYPE" LableResourceID="FATHERTYPE" Description="上级机构类型" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FATHERID" LableResourceID="FATHERID" Description="上级机构ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPTSTATUS" LableResourceID="DEPTSTATUS" Description="部门调整状态:0未调整,1增加,2撤除" DataType="CHAR" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTTYPE" LableResourceID="DEPARTMENTTYPE" Description="部门类别:0通用部门,1地产企业部门,2物流企业部门,3生产企业部门,4软件企业部门,零售企业部门" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DRAFTFOUNDTIME" LableResourceID="DRAFTFOUNDTIME" Description="计划成立时间" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DRAFTPEOPLES" LableResourceID="DRAFTPEOPLES" Description="计划人数" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

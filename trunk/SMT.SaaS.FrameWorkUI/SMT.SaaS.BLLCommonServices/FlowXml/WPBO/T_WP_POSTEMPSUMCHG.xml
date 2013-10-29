@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>WP</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+     <AssemblyName>SMT.WP.UI</AssemblyName>
+    <PublicClass>SMT.WP.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>WP/PostEmpSumChg/Audit</PageParameter>
+    <ApplicationOrder>{PLANCHGID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_POSTEMPSUMCHG" Description="T_WP_PostEmpSumChg 岗位员工周期总结计划变更主表&#xA;&#xA;当前计划所属的员工ID、岗位ID、部门ID、公司ID，与记录所属员工ID使用同一套字段&#xA;&#xA;此表业务将走审批流程" Key="PLANCHGID" id="">
+    <Attribute Name="PLANCHGID" LableResourceID="PLANCHGID" Description="员工费用主键ID，GUID" DataType="string" DataValue="" DataText="员工费用主键ID，GUID" />
+    <Attribute Name="PEMPID" LableResourceID="PEMPID" Description="员工费用主键ID" DataType="string" DataValue="" DataText="员工费用主键ID" />
+    <Attribute Name="PERIODDID" LableResourceID="PERIODDID" Description="周期从表主键ID" DataType="string" DataValue="" DataText="周期从表主键ID" />
+    <Attribute Name="PERIODTYPE" LableResourceID="PERIODTYPE" Description="周期类别&#xA;选择字典表YearPlanEmpPeriodType（1季度2月度3周）" DataType="string" DataValue="" DataText="周期类别&#xA;选择字典表YearPlanEmpPeriodType（1季度2月度3周）" />
+    <Attribute Name="PERIODTYPENAME" LableResourceID="PERIODTYPENAME" Description="周期类别名称" DataType="string" DataValue="" DataText="周期类别名称" />
+    <Attribute Name="PERIODCODE" LableResourceID="PERIODCODE" Description="周期编号&#xA;根据周期类别，记录当前年度的周期类型编号，如类型为季度，则为1、2、3、4季度，类型为月度则为1、2.....12月份" DataType="string" DataValue="" DataText="周期编号&#xA;根据周期类别，记录当前年度的周期类型编号，如类型为季度，则为1、2、3、4季度，类型为月度则为1、2.....12月份" />
+    <Attribute Name="APPLYDATE" LableResourceID="APPLYDATE" Description="申请日期" DataType="datetime" DataValue="" DataText="申请日期" />
+    <Attribute Name="STARTDATE" LableResourceID="STARTDATE" Description="周期开始时间" DataType="datetime" DataValue="" DataText="周期开始时间" />
+    <Attribute Name="ENDDATE" LableResourceID="ENDDATE" Description="周期结束时间" DataType="datetime" DataValue="" DataText="周期结束时间" />
+    <Attribute Name="COSTYEAR" LableResourceID="COSTYEAR" Description="费用年度" DataType="string" DataValue="" DataText="费用年度" />
+    <Attribute Name="CYBUSICOST" LableResourceID="CYBUSICOST" Description="本年指标费用" DataType="decimal" DataValue="" DataText="本年指标费用" />
+    <Attribute Name="CYBUSIFINISHCOST" LableResourceID="CYBUSIFINISHCOST" Description="本年完成费用" DataType="decimal" DataValue="" DataText="本年完成费用" />
+    <Attribute Name="LPBUSIPLANCOST" LableResourceID="LPBUSIPLANCOST" Description="上期计划费用" DataType="decimal" DataValue="" DataText="上期计划费用" />
+    <Attribute Name="LPBUSIFACTCOST" LableResourceID="LPBUSIFACTCOST" Description="上期实际费用" DataType="decimal" DataValue="" DataText="上期实际费用" />
+    <Attribute Name="CPBUSIPLANCOST" LableResourceID="CPBUSIPLANCOST" Description="本期计划费用" DataType="decimal" DataValue="" DataText="本期计划费用" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态 CheckStates&#xA;0 未提交 UnSubmit,&#xA;1 审核中 Approving,&#xA;2 审核通过 Approved,&#xA;3 审核未通过 UnApproved&#xA;4 待审核&#xA;5 所有" DataType="string" DataValue="" DataText="审核状态 CheckStates&#xA;0 未提交 UnSubmit,&#xA;1 审核中 Approving,&#xA;2 审核通过 Approved,&#xA;3 审核未通过 UnApproved&#xA;4 待审核&#xA;5 所有" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID&#xA;对应员工周期计划的员工ID" DataType="string" DataValue="" DataText="记录所属用户ID&#xA;对应员工周期计划的员工ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="O_CPBUSIPLANCOST" LableResourceID="O_CPBUSIPLANCOST" Description="原本期计划费用" DataType="decimal" DataValue="" DataText="原本期计划费用" />
+    <ObjectList Name="T_WP_POSTEMPSUMCHGPLANList" LableResourceID="T_WP_POSTEMPSUMCHGPLANList" Description="T_WP_PostEmpSumChgPlan 岗位员工周期总结计划变更从表&#xA;&#xA;" DataText="">
+      <Object Name="T_WP_POSTEMPSUMCHGPLAN" Description="T_WP_PostEmpSumChgPlan 岗位员工周期总结计划变更从表&#xA;&#xA;" Key="CHGDID" id="">
+        <Attribute Name="CHGDID" LableResourceID="CHGDID" Description="变更明细主键ID，GUID" DataType="string" DataValue="" DataText="变更明细主键ID，GUID" />
+        <Attribute Name="PLANCHGID" LableResourceID="PLANCHGID" Description="员工费用主键ID" DataType="string" DataValue="" DataText="员工费用主键ID" />
+        <Attribute Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID" DataType="string" DataValue="" DataText="员工费用计划主键ID" />
+        <Attribute Name="ITEMSNAME" LableResourceID="ITEMSNAME" Description="事项名称" DataType="string" DataValue="" DataText="事项名称" />
+        <Attribute Name="ISEVECTION" LableResourceID="ISEVECTION" Description="是否出差 (1是0否缺省0)" DataType="string" DataValue="" DataText="是否出差 (1是0否缺省0)" />
+        <Attribute Name="STARTDATE" LableResourceID="STARTDATE" Description="开始时间" DataType="datetime" DataValue="" DataText="开始时间" />
+        <Attribute Name="ENDDATE" LableResourceID="ENDDATE" Description="结束时间" DataType="datetime" DataValue="" DataText="结束时间" />
+        <Attribute Name="O_ITEMSNAME" LableResourceID="O_ITEMSNAME" Description="原事项名称" DataType="string" DataValue="" DataText="原事项名称" />
+        <Attribute Name="O_ISEVECTION" LableResourceID="O_ISEVECTION" Description="原是否出差 (1是0否缺省0)" DataType="string" DataValue="" DataText="原是否出差 (1是0否缺省0)" />
+        <Attribute Name="O_STARTDATE" LableResourceID="O_STARTDATE" Description="原开始时间" DataType="datetime" DataValue="" DataText="原开始时间" />
+        <Attribute Name="O_ENDDATE" LableResourceID="O_ENDDATE" Description="原结束时间" DataType="datetime" DataValue="" DataText="原结束时间" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+        <ObjectList Name="T_WP_POSTEMPSUMCHGPLANVARList" LableResourceID="T_WP_POSTEMPSUMCHGPLANVARList" Description="T_WP_PostEmpSumChgPlanVar 岗位员工周期总结计划变更可变费用表" DataText="">
+          <Object Name="T_WP_POSTEMPSUMCHGPLANVAR" Description="T_WP_PostEmpSumChgPlanVar 岗位员工周期总结计划变更可变费用表" Key="VARID" id="">
+            <Attribute Name="VARID" LableResourceID="VARID" Description="可变费用主键ID，GUID" DataType="string" DataValue="" DataText="可变费用主键ID，GUID" />
+            <Attribute Name="CHGDID" LableResourceID="CHGDID" Description="变更明细主键ID" DataType="string" DataValue="" DataText="变更明细主键ID" />
+            <Attribute Name="PLANCHGID" LableResourceID="PLANCHGID" Description="员工费用主键ID" DataType="string" DataValue="" DataText="员工费用主键ID" />
+            <Attribute Name="COSTITEMID" LableResourceID="COSTITEMID" Description="费用项科目ID&#xA;选择字典表PresetCostItemType（可变费用项目，即招待费、差旅费、礼品费、市内交通费、邮寄费等）" DataType="string" DataValue="" DataText="费用项科目ID&#xA;选择字典表PresetCostItemType（可变费用项目，即招待费、差旅费、礼品费、市内交通费、邮寄费等）" />
+            <Attribute Name="COSTITEMNAME" LableResourceID="COSTITEMNAME" Description="费用项名称" DataType="string" DataValue="" DataText="费用项名称" />
+            <Attribute Name="CPPLANCOST" LableResourceID="CPPLANCOST" Description="本期计划费用" DataType="decimal" DataValue="" DataText="本期计划费用" />
+            <Attribute Name="YEARSURPLUSCOST" LableResourceID="YEARSURPLUSCOST" Description="本期可用费用" DataType="decimal" DataValue="" DataText="本期可用费用" />
+            <Attribute Name="O_CPPLANCOST" LableResourceID="O_CPPLANCOST" Description="原本期计划费用" DataType="decimal" DataValue="" DataText="原本期计划费用" />
+            <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled" />
+            <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+            <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+            <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+            <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+            <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+          </Object>
+        </ObjectList>
+        <ObjectList Name="T_WP_POSTEMPSUMCHGPLANFIXList" LableResourceID="T_WP_POSTEMPSUMCHGPLANFIXList" Description="T_WP_PostEmpSumChgPlanFix 岗位员工周期总结计划变更固定费用表" DataText="">
+          <Object Name="T_WP_POSTEMPSUMCHGPLANFIX" Description="T_WP_PostEmpSumChgPlanFix 岗位员工周期总结计划变更固定费用表" Key="FIXID" id="">
+            <Attribute Name="FIXID" LableResourceID="FIXID" Description="固定费用主键ID，GUID" DataType="string" DataValue="" DataText="固定费用主键ID，GUID" />
+            <Attribute Name="CHGDID" LableResourceID="CHGDID" Description="变更明细主键ID" DataType="string" DataValue="" DataText="变更明细主键ID" />
+            <Attribute Name="PLANCHGID" LableResourceID="PLANCHGID" Description="员工费用主键ID" DataType="string" DataValue="" DataText="员工费用主键ID" />
+            <Attribute Name="NORMID" LableResourceID="NORMID" Description="指标定义ID&#xA;&#xA;T_WP_CompanyFixCostPost 年度固定费用分解下达负责岗位表&#xA;本岗位可使用费用科目项&#xA;(字典OperateFixCostType)&#xA;会计科目：1工资、2奖金、3福利、4社保、5租金、6管理费、7水电费、8电话费" DataType="string" DataValue="" DataText="指标定义ID&#xA;&#xA;T_WP_CompanyFixCostPost 年度固定费用分解下达负责岗位表&#xA;本岗位可使用费用科目项&#xA;(字典OperateFixCostType)&#xA;会计科目：1工资、2奖金、3福利、4社保、5租金、6管理费、7水电费、8电话费" />
+            <Attribute Name="NORMNAME" LableResourceID="NORMNAME" Description="指标名称" DataType="string" DataValue="" DataText="指标名称" />
+            <Attribute Name="NORMSERIALNO" LableResourceID="NORMSERIALNO" Description="指标序号" DataType="string" DataValue="" DataText="指标序号" />
+            <Attribute Name="CPPLANCOST" LableResourceID="CPPLANCOST" Description="本期计划费用" DataType="decimal" DataValue="" DataText="本期计划费用" />
+            <Attribute Name="CPUSABLECOST" LableResourceID="CPUSABLECOST" Description="本期可用费用" DataType="decimal" DataValue="" DataText="本期可用费用" />
+            <Attribute Name="O_CPPLANCOST" LableResourceID="O_CPPLANCOST" Description="原本期计划费用" DataType="decimal" DataValue="" DataText="原本期计划费用" />
+            <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled" />
+            <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+            <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+            <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+            <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+            <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+          </Object>
+        </ObjectList>
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

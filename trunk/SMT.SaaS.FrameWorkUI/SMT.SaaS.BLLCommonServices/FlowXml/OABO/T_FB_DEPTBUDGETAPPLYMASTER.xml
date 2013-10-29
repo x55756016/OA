@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>FB</Name>
+<Version>1.0</Version>
+  <System>
+    <Function Description="月度预算申请" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г" />
+    <ParaStr>
+      <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+      <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+      <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+      <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+      <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_DEPTBUDGETAPPLYMASTER" />
+    </ParaStr>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.FB.UI</AssemblyName>
+    <PublicClass>SMT.FB.UI.Common.CommonFunction</PublicClass>
+    <ProcessName>ShowAuditForm</ProcessName>
+    <PageParameter>T_FB_DEPTBUDGETAPPLYMASTER</PageParameter>
+    <ApplicationOrder>{DEPTBUDGETAPPLYMASTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>  
+  <Object Name="T_FB_DEPTBUDGETAPPLYMASTER" Description="月度预算申请" Key="DEPTBUDGETAPPLYMASTERID" id="">
+    <Attribute Name="OrderTypeName" LableResourceID="OrderTypeName" Description="单据类型" DataType="string" DataValue="月度预算申请" DataText="月度预算申请"/>
+    <Attribute Name="DEPTBUDGETAPPLYMASTERID" LableResourceID="DEPTBUDGETAPPLYMASTERID" Description="单据ID" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="DEPTBUDGETAPPLYMASTERCODE" LableResourceID="INVOICESCODE" Description="单据编号" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="BUDGETARYMONTH" LableResourceID="BUDGETARYMONTH" Description="预算月份" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="BUDGETMONEY" LableResourceID="TOTAL" Description="合计" DataType="decimal" DataValue="" DataText=""/>
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="状态" DataType="decimal" DataValue="" DataText=""/>
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""/>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="申请人ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="ApplicationDepartment" Description="申请部门" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="APPLYCOMPANYNAME" Description="申请公司" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="ISVALID" LableResourceID="ISVALID" Description="生效状态" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="AttachMent" LableResourceID="AttachMent" Description="附件" DataType="attachmentlist" DataValue="" DataText="" />
+    <ObjectList Name="T_FB_DEPTBUDGETAPPLYDETAILList" LableResourceID="T_FB_DEPTBUDGETAPPLYDETAILList" Description="月度申请明细" DataText="" >
+      <Object Name="T_FB_DEPTBUDGETAPPLYDETAIL" LableResourceID="T_FB_DEPTBUDGETAPPLYDETAIL" Description="月度预算申请明细" Key="DEPTBUDGETAPPLYDETAILID" id="">
+        <Attribute Name="DEPTBUDGETAPPLYDETAILID" LableResourceID="DEPTBUDGETAPPLYDETAILID" Description="月度预算申请明细ID" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="T_FB_SUBJECT.SUBJECTCODE" LableResourceID="SUBJECTCODE" Description="科目编号" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="T_FB_SUBJECT.SUBJECTNAME" LableResourceID="SUBJECTNAME" Description="科目名称" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="LASTACTUALBUDGETMONEY" LableResourceID="LASTACTUALBUDGETMONEY" Description="上期发生" DataType="decimal" DataValue="" DataText=""/>        
+        <Attribute Name="USABLEMONEY" LableResourceID="USABLEMONEY" Description="年度结余" DataType="decimal" DataValue="" DataText=""/>
+        <Attribute Name="BEGINNINGBUDGETBALANCE" LableResourceID="BEGINNINGBUDGETBALANCE" Description="可用结余" DataType="decimal" DataValue="" DataText=""/>
+        <Attribute Name="BUDGETMONEY" LableResourceID="BUDGETFUNDS" Description="预算资金" DataType="decimal" DataValue="" DataText=""/>
+        <Attribute Name="TOTALBUDGETMONEY" LableResourceID="BUTGETCHARGE" Description="预算金额" DataType="decimal" DataValue="" DataText=""/>
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="" />
+        <ObjectList Name="T_FB_PERSONBUDGETAPPLYDETAILList" ParentName="DEPTBUDGETAPPLYDETAILID" ParentID="" LableResourceID="T_FB_PERSONBUDGETAPPLYDETAILList" Description="个人预算申请明细" DataText="">
+          <Object Name="T_FB_PERSONBUDGETAPPLYDETAIL" LableResourceID="T_FB_DEPTBUDGETAPPLYDETAIL" Description="个人预算申请明细" Key="PERSONBUDGETAPPLYDETAILID" id="">
+            <Attribute Name="PERSONBUDGETAPPLYDETAILID" LableResourceID="PERSONBUDGETAPPLYDETAILID" Description="个人预算申请明细ID" DataType="string" DataValue="" DataText=""/>            
+            <Attribute Name="OWNERNAME" LableResourceID="REQUESTMAN" Description="申请人" DataType="string" DataValue="" DataText=""/>
+            <Attribute Name="OWNERPOSTNAME" LableResourceID="EMPLOYAPPLYOWNERPOST" Description="申请人岗位" DataType="string" DataValue="" DataText=""/>
+            <Attribute Name="LIMITBUDGETMONEY" LableResourceID="LIMITBUDGETMONEY" Description="可用结余" DataType="decimal" DataValue="" DataText=""/>
+            <Attribute Name="BUDGETMONEY" LableResourceID="BUDGETFUNDS" Description="预算资金" DataType="decimal" DataValue="" DataText=""/>
+          </Object>
+        </ObjectList>
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="员工离职" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_LEFTOFFICE" Name="DIMISSIONID" Description="离职记录ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+    <Function Description="离职确认" Address="EngineService.svc"   FuncName="CallWaitAppService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_LEFTOFFICECONFIRM" Name="DIMISSIONID" Description="离职记录ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Personnel.LeftOfficeForm</PageParameter>
+    <ApplicationOrder>{DIMISSIONID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_LEFTOFFICE" Description="员工离职" Key="DIMISSIONID" id="">
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNER" LableResourceID="OWNER"  Description="所属人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECNAME" LableResourceID="EMPLOYEECNAME" Description="员工中文名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID"  Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POST" LableResourceID="POST" Description="工作岗位" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEPOSTID" LableResourceID="EMPLOYEEPOSTID" Description="离职岗位关联ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DIMISSIONID" LableResourceID="DIMISSIONID" Description="离职记录ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LEFTOFFICEDATE" LableResourceID="LEFTOFFICEDATE" Description="离职时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="STOPPAYMENTDATE" LableResourceID="STOPPAYMENTDATE" Description="停薪日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LEFTOFFICECATEGORY" LableResourceID="LEFTOFFICECATEGORY" Description="离职类型" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="LEFTOFFICEREASON" LableResourceID="LEFTOFFICEREASON" Description="离职原因" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="LEFTOFFICEREMARK" Description="离职说明" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="APPLYDATE" LableResourceID="APPLYDATE" Description="申请时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CONFIRMDATE" LableResourceID="CONFIRMDATE" Description="确认时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ISAGENCY" LableResourceID="ISAGENCY" Description="是否代理:0非代理,1代理岗位" DataType="string" DataValue="" DataText=""></Attribute>
+  </Object>
+</System>

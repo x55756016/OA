@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/CarryDownZH/Details</PageParameter>
+    <ApplicationOrder>{ZHCDKEYID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_ZHCARRYDOWN" Description="综合结转单" Key="ZHCDKEYID" id="">
+    <Attribute Name="ZHCDKEYID" LableResourceID="ZHCDKEYID" Description="结转主键ID，GUID" DataType="string" DataValue="" DataText="结转主键ID" />
+    <Attribute Name="TASKCODE" LableResourceID="TASKCODE" Description="单据编号" DataType="string" DataValue="" DataText="单据编号" />
+    <Attribute Name="ITEMAUDITNAME" LableResourceID="ITEMAUDITNAME" Description="事项审批标题" DataType="string" DataValue="" DataText="事项审批标题" />
+    <Attribute Name="ITEMAUDITID" LableResourceID="ITEMAUDITID" Description="事项审批ID" DataType="string" DataValue="" DataText="事项审批ID" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="单据状态" DataType="string" DataValue="" DataText="单据状态" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属人公司" DataType="string" DataValue="" DataText="所属人公司" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属人部门" DataType="string" DataValue="" DataText="所属人部门" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属人岗位" DataType="string" DataValue="" DataText="所属人岗位" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人" DataType="string" DataValue="" DataText="所属人" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属人名称" DataType="string" DataValue="" DataText="所属人名称" />
+    <Attribute Name="OWNERPOSTNAME" LableResourceID="OWNERPOSTNAME" Description="所属人岗位名称" DataType="string" DataValue="" DataText="所属人岗位名称" />
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="所属人公司名称" DataType="string" DataValue="" DataText="所属人公司名称" />
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="所属人部门名称" DataType="string" DataValue="" DataText="所属人部门名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="CARRYDOWNDESC" LableResourceID="CARRYDOWNDESC" Description="结转说明" DataType="string" DataValue="" DataText="结转说明" />
+    <Attribute Name="OPDATESTRING" LableResourceID="OPDATESTRING" Description="结转年月" DataType="string" DataValue="" DataText="结转年月" />
+    <ObjectList Name="Details" ParentName="" ParentID="" LableResourceID="" Description="综合结转单明细" DataText="">
+      <Object Name="T_TASK_ZHCARRYDOWNDETAIL" Description="综合结转单明细" Key="ZHCDDETAILID" id="">
+        <Attribute Name="ZHCDDETAILID" LableResourceID="ZHCDDETAILID" Description="结转明细主键ID，GUID" DataType="string" DataValue="" DataText="结转明细主键ID，GUID" />
+        <Attribute Name="ZHCDKEYID" LableResourceID="ZHCDKEYID" Description="结转主键ID，GUID" DataType="string" DataValue="" DataText="结转主键ID，GUID" />
+        <Attribute Name="SHARECOMPANYID" LableResourceID="SHARECOMPANYID" Description="分摊公司ID" DataType="string" DataValue="" DataText="分摊公司ID" />
+        <Attribute Name="SHAREDEPARTMENTID" LableResourceID="SHAREDEPARTMENTID" Description="分摊部门ID" DataType="string" DataValue="" DataText="分摊部门ID" />
+        <Attribute Name="SHAREPOSTID" LableResourceID="SHAREPOSTID" Description="分摊岗位ID" DataType="string" DataValue="" DataText="分摊岗位ID" />
+        <Attribute Name="SHAREID" LableResourceID="SHAREID" Description="分摊人员ID" DataType="string" DataValue="" DataText="分摊人员ID" />
+        <Attribute Name="SHARECOMPANYNAME" LableResourceID="SHARECOMPANYNAME" Description="分摊公司名称" DataType="string" DataValue="" DataText="分摊公司名称" />
+        <Attribute Name="SHAREDEPARTMENTNAME" LableResourceID="SHAREDEPARTMENTNAME" Description="分摊部门名称" DataType="string" DataValue="" DataText="分摊部门名称" />
+        <Attribute Name="SHAREPOSTNAME" LableResourceID="SHAREPOSTNAME" Description="分摊岗位名称" DataType="string" DataValue="" DataText="分摊岗位名称" />
+        <Attribute Name="SHARENAME" LableResourceID="SHARENAME" Description="分摊人员名称" DataType="string" DataValue="" DataText="分摊人员名称" />
+        <Attribute Name="NORMITEMID" LableResourceID="NORMITEMID" Description="指标项科目ID" DataType="string" DataValue="" DataText="指标项科目ID" />
+        <Attribute Name="NORMITEMNAME" LableResourceID="NORMITEMNAME" Description="指标项科目名称" DataType="string" DataValue="" DataText="指标项科目名称" />
+        <Attribute Name="SERIALNO" LableResourceID="SERIALNO" Description="指标项科目序号" DataType="string" DataValue="" DataText="指标项科目序号" />
+        <Attribute Name="CHARGEMONEY" LableResourceID="CHARGEMONEY" Description="结转金额" DataType="decimal" DataValue="" DataText="结转金额" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+        <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+        <Attribute Name="REIMBURSEMENT" LableResourceID="REIMBURSEMENT" Description="可用金额" DataType="decimal" DataValue="" DataText="可用金额" />
+        <Attribute Name="EMPCIMID" LableResourceID="EMPCIMID" Description="员工月度分解主键ID，GUID" DataType="string" DataValue="" DataText="员工月度分解主键ID，GUID" />
+      </Object>
+    </ObjectList>
+
+  </Object>
+</System>

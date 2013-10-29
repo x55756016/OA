@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/TaskReplay/Create</PageParameter>
+    <ApplicationOrder>{TASKID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_TASKMAIN" Description="配置表" Key="TASKID" id="">
+    <Attribute Name="TASKID" LableResourceID="TASKID" Description="任务ID&#xA;GUID" DataType="string" DataValue="" DataText="任务ID&#xA;GUID" />
+    <Attribute Name="TASKNAME" LableResourceID="TASKNAME" Description="任务名称" DataType="string" DataValue="" DataText="任务名称" />
+    <Attribute Name="PROMOTERID" LableResourceID="PROMOTERID" Description="任务发起人ID&#xA;UserID" DataType="string" DataValue="" DataText="任务发起人ID&#xA;UserID" />
+    <Attribute Name="PROMOTERNAME" LableResourceID="PROMOTERNAME" Description="任务发起人" DataType="string" DataValue="" DataText="任务发起人" />
+    <Attribute Name="PROMOTERCOMPANYID" LableResourceID="PROMOTERCOMPANYID" Description="发起人公司ID" DataType="string" DataValue="" DataText="发起人公司ID" />
+    <Attribute Name="PROMOTERDEPARTMENTID" LableResourceID="PROMOTERDEPARTMENTID" Description="发起人部门ID" DataType="string" DataValue="" DataText="发起人部门ID" />
+    <Attribute Name="PROMOTERPOSTID" LableResourceID="PROMOTERPOSTID" Description="发起人岗位ID" DataType="string" DataValue="" DataText="发起人岗位ID" />
+    <Attribute Name="TASKMULTITYPE" LableResourceID="TASKMULTITYPE" Description="协同任务类型&#xA;0.未定义 .1.个人独立任务.2.多人协同任务" DataType="string" DataValue="" DataText="协同任务类型&#xA;0.未定义 .1.个人独立任务.2.多人协同任务" />
+    <Attribute Name="TASKMULTITYPENAME" LableResourceID="TASKMULTITYPENAME" Description="协同任务类型名" DataType="string" DataValue="" DataText="协同任务类型名" />
+    <Attribute Name="EXAMTYPEID" LableResourceID="EXAMTYPEID" Description="考核方式" DataType="string" DataValue="" DataText="考核方式" />
+    <Attribute Name="EXAMTYPENAME" LableResourceID="EXAMTYPENAME" Description="考核方式名称" DataType="string" DataValue="" DataText="考核方式名称" />
+    <Attribute Name="REQSTARTDATE" LableResourceID="REQSTARTDATE" Description="要求开始日期" DataType="datetime" DataValue="" DataText="要求开始日期" />
+    <Attribute Name="REQENDTDATE" LableResourceID="REQENDTDATE" Description="要求结束日期" DataType="datetime" DataValue="" DataText="要求结束日期" />
+    <Attribute Name="TASKREMARK" LableResourceID="TASKREMARK" Description="任务说明" DataType="string" DataValue="" DataText="任务说明" />
+    <Attribute Name="MODULEID" LableResourceID="MODULEID" Description="模块ID" DataType="string" DataValue="" DataText="模块ID" />
+    <Attribute Name="MODULENAME" LableResourceID="MODULENAME" Description="模块名" DataType="string" DataValue="" DataText="模块名" />
+    <Attribute Name="MODULETRIGTYPE" LableResourceID="MODULETRIGTYPE" Description="表单发起类型&#xA;0.未定义 1.与任务一起产生.2.任务完成后产生" DataType="string" DataValue="" DataText="表单发起类型&#xA;0.未定义 1.与任务一起产生.2.任务完成后产生" />
+    <Attribute Name="MODULETRIGTYPENAME" LableResourceID="MODULETRIGTYPENAME" Description="表单发起类型名称&#xA;0.未定义 1.与任务一起产生.2.任务完成后产生" DataType="string" DataValue="" DataText="表单发起类型名称&#xA;0.未定义 1.与任务一起产生.2.任务完成后产生" />
+    <Attribute Name="ATTACHEDFILE" LableResourceID="ATTACHEDFILE" Description="附档文件" DataType="string" DataValue="" DataText="附档文件" />
+    <Attribute Name="RULETYPE" LableResourceID="RULETYPE" Description="周期类型 0.一次 .1.每天.2.每周.3.每月" DataType="string" DataValue="" DataText="周期类型 0.一次 .1.每天.2.每周.3.每月" />
+    <Attribute Name="DAYNO" LableResourceID="DAYNO" Description="执行日期序号:1.周序号1~7 .2.月序号1~31" DataType="string" DataValue="" DataText="执行日期序号:1.周序号1~7 .2.月序号1~31" />
+    <Attribute Name="INTERVAL" LableResourceID="INTERVAL" Description="每隔x天，每隔x周，" DataType="decimal" DataValue="" DataText="每隔x天，每隔x周，" />
+    <Attribute Name="MONTHOFYEAR" LableResourceID="MONTHOFYEAR" Description="月序号,哪几个月，可以多个月，以逗号隔开的数字，1到12之间的数字" DataType="string" DataValue="" DataText="月序号,哪几个月，可以多个月，以逗号隔开的数字，1到12之间的数字" />
+    <Attribute Name="EXETIME" LableResourceID="EXETIME" Description="执行时间&#xA;周期行任务，执行的时间点，格式为 HH:MM:SS" DataType="string" DataValue="" DataText="执行时间&#xA;周期行任务，执行的时间点，格式为 HH:MM:SS" />
+    <Attribute Name="CYCLESTARTDATE" LableResourceID="CYCLESTARTDATE" Description="周期生效时间&#xA;周期性任务会有此值" DataType="string" DataValue="" DataText="周期生效时间&#xA;周期性任务会有此值" />
+    <Attribute Name="CYCLEENDDATE" LableResourceID="CYCLEENDDATE" Description="周期结束时间&#xA;周期性任务会有此值" DataType="string" DataValue="" DataText="周期结束时间&#xA;周期性任务会有此值" />
+    <Attribute Name="CYCLEDESC" LableResourceID="CYCLEDESC" Description="周期描述&#xA;选择完周期后，生成描述性文字，保存在此处&#xA;如 从2012-09-04起，每天，10:20" DataType="string" DataValue="" DataText="周期描述&#xA;选择完周期后，生成描述性文字，保存在此处&#xA;如 从2012-09-04起，每天，10:20" />
+    <Attribute Name="REQDAY" LableResourceID="REQDAY" Description="要求任务完成天数" DataType="decimal" DataValue="" DataText="要求任务完成天数" />
+    <Attribute Name="AHEADTIME" LableResourceID="AHEADTIME" Description="提前几小时发待办(小时)" DataType="decimal" DataValue="" DataText="提前几小时发待办(小时)" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态&#xA;///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled" DataType="string" DataValue="" DataText="对象编辑状态&#xA;///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属用户ID" DataType="string" DataValue="" DataText="所属用户ID" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属用户名称" DataType="string" DataValue="" DataText="所属用户名称" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司" DataType="string" DataValue="" DataText="所属公司" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门" DataType="string" DataValue="" DataText="所属部门" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位" DataType="string" DataValue="" DataText="所属岗位" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+    <ObjectList Name="T_TASK_TASKDETAILList" LableResourceID="T_TASK_TASKDETAILList" Description="T_TASK_TASKDETAIL  任务表，布置任务提交后具体的任务" DataText="">
+      <Object Name="T_TASK_TASKDETAIL" Description="T_TASK_TASKDETAIL  任务表，布置任务提交后具体的任务" Key="TASKCODE" id="">
+        <Attribute Name="TASKCODE" LableResourceID="TASKCODE" Description="任务单号" DataType="string" DataValue="" DataText="任务单号" />
+        <Attribute Name="TASKID" LableResourceID="TASKID" Description="任务ID&#xA;GUID" DataType="string" DataValue="" DataText="任务ID&#xA;GUID" />
+        <Attribute Name="TASKNAME" LableResourceID="TASKNAME" Description="任务名称" DataType="string" DataValue="" DataText="任务名称" />
+        <Attribute Name="REQSTARTDATE" LableResourceID="REQSTARTDATE" Description="要求开始日期&#xA;一次性任务时，要求开始执行时间" DataType="datetime" DataValue="" DataText="要求开始日期&#xA;一次性任务时，要求开始执行时间" />
+        <Attribute Name="REQENDTDATE" LableResourceID="REQENDTDATE" Description="要求结束日期&#xA;一次性任务时，要求结束执行时间" DataType="datetime" DataValue="" DataText="要求结束日期&#xA;一次性任务时，要求结束执行时间" />
+        <Attribute Name="TASKREMARK" LableResourceID="TASKREMARK" Description="任务说明" DataType="string" DataValue="" DataText="任务说明" />
+        <Attribute Name="MODULEID" LableResourceID="MODULEID" Description="模块ID" DataType="string" DataValue="" DataText="模块ID" />
+        <Attribute Name="MODULENAME" LableResourceID="MODULENAME" Description="模块名" DataType="string" DataValue="" DataText="模块名" />
+        <Attribute Name="FORMGUID" LableResourceID="FORMGUID" Description="审批单号&#xA;空单的GUID，" DataType="string" DataValue="" DataText="审批单号&#xA;空单的GUID，" />
+        <Attribute Name="ATTACHEDFILE" LableResourceID="ATTACHEDFILE" Description="附档文件" DataType="string" DataValue="" DataText="附档文件" />
+        <Attribute Name="EXEDATETIME" LableResourceID="EXEDATETIME" Description="发起时间" DataType="string" DataValue="" DataText="发起时间" />
+        <Attribute Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID，GUID，保存工作计划的员工费用计划" DataType="string" DataValue="" DataText="员工费用计划主键ID，GUID，保存工作计划的员工费用计划" />
+        <Attribute Name="COSTID" LableResourceID="COSTID" Description="计划总结主键ID&#xA;来源于工作计划模块 周期计划 ，计划任务的主键ID ,&#xA;T_WP_PostEmpSummaryPlan 岗位员工周期总结下期计划表" DataType="string" DataValue="" DataText="计划总结主键ID&#xA;来源于工作计划模块 周期计划 ，计划任务的主键ID ,&#xA;T_WP_PostEmpSummaryPlan 岗位员工周期总结下期计划表" />
+        <Attribute Name="ESTIMATIONCOST" LableResourceID="ESTIMATIONCOST" Description="预计费用" DataType="decimal" DataValue="" DataText="预计费用" />
+        <Attribute Name="COMPLETEDATE" LableResourceID="COMPLETEDATE" Description="任务完成时间" DataType="datetime" DataValue="" DataText="任务完成时间" />
+        <Attribute Name="TASKSTATUS" LableResourceID="TASKSTATUS" Description="任务状态&#xA;&#xA;字典名 EmpSummaryExecType&#xA;&#xA;0.进行中.1. 完成 2.终止任务 3.取消任务.4. 审请完成 .5.未开始" DataType="string" DataValue="" DataText="任务状态&#xA;&#xA;字典名 EmpSummaryExecType&#xA;&#xA;0.进行中.1. 完成 2.终止任务 3.取消任务.4. 审请完成 .5.未开始" />
+        <Attribute Name="TASKSTATUSNAME" LableResourceID="TASKSTATUSNAME" Description="任务状态名&#xA;&#xA;&#xA;" DataType="string" DataValue="" DataText="任务状态名&#xA;&#xA;&#xA;" />
+        <Attribute Name="REPLAYCOUNT" LableResourceID="REPLAYCOUNT" Description="回复数" DataType="decimal" DataValue="" DataText="回复数" />
+        <Attribute Name="REPLYERID" LableResourceID="REPLYERID" Description="最后回贴人ID" DataType="string" DataValue="" DataText="最后回贴人ID" />
+        <Attribute Name="REPLYERNAME" LableResourceID="REPLYERNAME" Description="最后回贴人姓名" DataType="string" DataValue="" DataText="最后回贴人姓名" />
+        <Attribute Name="REPLYERCOMPANYID" LableResourceID="REPLYERCOMPANYID" Description="最后回贴人公司ID" DataType="string" DataValue="" DataText="最后回贴人公司ID" />
+        <Attribute Name="REPLYERDEPARTMENTID" LableResourceID="REPLYERDEPARTMENTID" Description="最后回贴人部门ID" DataType="string" DataValue="" DataText="最后回贴人部门ID" />
+        <Attribute Name="REPLYERPOSTID" LableResourceID="REPLYERPOSTID" Description="最后回贴人岗位ID" DataType="string" DataValue="" DataText="最后回贴人岗位ID" />
+        <Attribute Name="REPLYERDEPARTMENTNAME" LableResourceID="REPLYERDEPARTMENTNAME" Description="最后回贴人部门" DataType="string" DataValue="" DataText="最后回贴人部门" />
+        <Attribute Name="REPLYERPOSTNAME" LableResourceID="REPLYERPOSTNAME" Description="最后回贴人岗位" DataType="string" DataValue="" DataText="最后回贴人岗位" />
+        <Attribute Name="REPLYERCOMPANYNAME" LableResourceID="REPLYERCOMPANYNAME" Description="最后回贴人公司" DataType="string" DataValue="" DataText="最后回贴人公司" />
+        <Attribute Name="REPLYDATE" LableResourceID="REPLYDATE" Description="最后回贴时间" DataType="string" DataValue="" DataText="最后回贴时间" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态&#xA;///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled" DataType="string" DataValue="" DataText="对象编辑状态&#xA;///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

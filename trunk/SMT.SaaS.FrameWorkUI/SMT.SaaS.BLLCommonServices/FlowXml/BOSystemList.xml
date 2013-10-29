@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SystemList>
+	<System Name="HR" Description="人力资源管理系统" ObjectFolder="HRMBO">
+	</System>
+	<System Name="FB" Description="预算管理系统" ObjectFolder="FBBO">
+	</System>
+	<System Name="OA" Description="办公自动化系统" ObjectFolder="OABO">
+	</System>
+  	<System Name="RM" Description="招聘系统" ObjectFolder="RMBO">
+  	</System>
+  	<System Name="TM" Description="培训系统" ObjectFolder="TMBO">
+  	</System> 
+   	<System Name="LM" Description="物流系统" ObjectFolder="LMBO">
+  	</System>
+  	 <System Name="EDM" Description="进销存系统" ObjectFolder="EDM">
+  	</System>
+	<System Name="WP" Description="工作计划" ObjectFolder="WPBO">
+  	</System>
+ 	<System Name="EM" Description="考试系统" ObjectFolder="EMBO">
+	</System>
+<System Name="TK" Description="任务系统" ObjectFolder="TKBO">
+	</System>
+</SystemList>

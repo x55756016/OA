@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/CarryDownIncome/DeptmentAudit</PageParameter>
+    <ApplicationOrder>{CDDETAILID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_CARRYDOWNINCOMEDETAIL" Description="T_TASK_CarryDownIncomeDetail 收入结转单分摊明细表&#xA;&#xA;&#xA;部门负责人确认时，如果一个费用结转单的任何一个部门确认为不同意，则退回结转单为审核不通过状态，当结转单再次提交时，设置部门负责人确认为未确认；" Key="CDDETAILID" id="">
+    <Attribute Name="CDDETAILID" LableResourceID="CDDETAILID" Description="结转明细主键ID，GUID" DataType="string" DataValue="" DataText="结转明细主键ID，GUID" />
+    <Attribute Name="CDKEYID" LableResourceID="CDKEYID" Description="结转主键ID" DataType="string" DataValue="" DataText="结转主键ID" />
+    <Attribute Name="TASKCODE" LableResourceID="TASKCODE" Description="任务编号&#xA;保存任务系统任务执行主键ID" DataType="string" DataValue="" DataText="任务编号&#xA;保存任务系统任务执行主键ID" />
+    <Attribute Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID" DataType="string" DataValue="" DataText="员工费用计划主键ID" />
+    <Attribute Name="ISEXTERNALINCOME" LableResourceID="ISEXTERNALINCOME" Description="是否外部收入 0否1是，缺省0" DataType="string" DataValue="" DataText="是否外部收入 0否1是，缺省0" />
+    <Attribute Name="SHARECOMPANYID" LableResourceID="SHARECOMPANYID" Description="分摊公司" DataType="string" DataValue="" DataText="分摊公司" />
+    <Attribute Name="SHAREDEPARTMENTID" LableResourceID="SHAREDEPARTMENTID" Description="分摊部门" DataType="string" DataValue="" DataText="分摊部门" />
+    <Attribute Name="SHARECOMPANYNAME" LableResourceID="SHARECOMPANYNAME" Description="分摊公司名称" DataType="string" DataValue="" DataText="分摊公司名称" />
+    <Attribute Name="SHAREDEPARTMENTNAME" LableResourceID="SHAREDEPARTMENTNAME" Description="分摊部门名称" DataType="string" DataValue="" DataText="分摊部门名称" />
+    <Attribute Name="ISSHARECFM" LableResourceID="ISSHARECFM" Description="部门负责人确认（缺省0，0未确认1同意2不同意）" DataType="string" DataValue="" DataText="部门负责人确认（缺省0，0未确认1同意2不同意）" />
+    <Attribute Name="SHARECFMDATE" LableResourceID="SHARECFMDATE" Description="部门负责人确认时间" DataType="datetime" DataValue="" DataText="部门负责人确认时间" />
+    <Attribute Name="SHAREID" LableResourceID="SHAREID" Description="部门负责人&#xA;冗余，结转时为空，结转确认时，填写部门负责人" DataType="string" DataValue="" DataText="部门负责人&#xA;冗余，结转时为空，结转确认时，填写部门负责人" />
+    <Attribute Name="SHAREPOSTID" LableResourceID="SHAREPOSTID" Description="部门负责岗位&#xA;&#xA;冗余，结转时为空，结转确认时，填写部门负责人岗位" DataType="string" DataValue="" DataText="部门负责岗位&#xA;&#xA;冗余，结转时为空，结转确认时，填写部门负责人岗位" />
+    <Attribute Name="SHARENAME" LableResourceID="SHARENAME" Description="部门负责名称" DataType="string" DataValue="" DataText="部门负责名称" />
+    <Attribute Name="SHAREPOSTNAME" LableResourceID="SHAREPOSTNAME" Description="部门负责岗位名称" DataType="string" DataValue="" DataText="部门负责岗位名称" />
+    <Attribute Name="COMPNORMID" LableResourceID="COMPNORMID" Description="公司指标主键ID&#xA;此处分摊科目只有固定成本费用，故缺省为900  固定成本费用&#xA;非外部收入时，不可为空&#xA;" DataType="string" DataValue="" DataText="公司指标主键ID&#xA;此处分摊科目只有固定成本费用，故缺省为900  固定成本费用&#xA;非外部收入时，不可为空&#xA;" />
+    <Attribute Name="NORMCODE" LableResourceID="NORMCODE" Description="指标编号&#xA;字典表，经营指标项类别BusinessIndicatorsType&#xA;2  个人受控费用&#xA;900  固定成本费用&#xA;950  营业收入&#xA;" DataType="string" DataValue="" DataText="指标编号&#xA;字典表，经营指标项类别BusinessIndicatorsType&#xA;2  个人受控费用&#xA;900  固定成本费用&#xA;950  营业收入&#xA;" />
+    <Attribute Name="NORMNAME" LableResourceID="NORMNAME" Description="指标名称" DataType="string" DataValue="" DataText="指标名称" />
+    <Attribute Name="NORMITEMID" LableResourceID="NORMITEMID" Description="指标项科目ID&#xA;费用计划中，固定成本费用项ID&#xA;《T_WP_DepartmentFixCostIssued 部门年度经营指标控制项分解下达表》NormItemID&#xA;非外部收入时，不可为空" DataType="string" DataValue="" DataText="指标项科目ID&#xA;费用计划中，固定成本费用项ID&#xA;《T_WP_DepartmentFixCostIssued 部门年度经营指标控制项分解下达表》NormItemID&#xA;非外部收入时，不可为空" />
+    <Attribute Name="NORMITEMNAME" LableResourceID="NORMITEMNAME" Description="指标项科目名称" DataType="string" DataValue="" DataText="指标项科目名称" />
+    <Attribute Name="SERIALNO" LableResourceID="SERIALNO" Description="指标项科目序号" DataType="string" DataValue="" DataText="指标项科目序号" />
+    <Attribute Name="EMPNUMBER" LableResourceID="EMPNUMBER" Description="人员数" DataType="decimal" DataValue="" DataText="人员数" />
+    <Attribute Name="CHARGEMONEY" LableResourceID="CHARGEMONEY" Description="费用金额(元)" DataType="decimal" DataValue="" DataText="费用金额(元)" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+  </Object>
+</System>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="创建薪资档案" Address="EngineService.svc"   FuncName="CallWaitAppService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_SALARYARCHIVE" Name="EMPLOYEEID" Description="员工ID" Value=""></Para>
+        <Para TableName="T_HR_SALARYARCHIVE" Name="SALARYARCHIVEID" Description="薪资档案ID" Value="" ></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Salary.SalaryArchiveForm</PageParameter>
+    <ApplicationOrder>{SALARYARCHIVEID}</ApplicationOrder>
+    <FormTypes>Edit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_SALARYARCHIVE" Description="员工基本薪资"  Key="SALARYARCHIVEID" id="">
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SALARYARCHIVEID" LableResourceID="SALARYARCHIVEID" Description="薪资档案ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTSALARY" LableResourceID="POSTSALARY" Description="岗位工资" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SECURITYALLOWANCE" LableResourceID="SECURITYALLOWANCE" Description="保密津贴" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="HOUSINGALLOWANCE" LableResourceID="HOUSINGALLOWANCE" Description="住房津贴" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="AREADIFALLOWANCE" LableResourceID="AREADIFALLOWANCE" Description="地区差异补贴" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FOODALLOWANCE" LableResourceID="FOODALLOWANCE" Description="餐费补贴" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OTHERADDDEDUCT" LableResourceID="AVAILABLEMONTH" Description="生效月份" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OTHERADDDEDUCTDESC" LableResourceID="OTHERADDDEDUCTDESC" Description="加扣款说明" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="HOUSINGALLOWANCEDEDUCT" LableResourceID="HOUSINGALLOWANCEDEDUCT" Description="住房津贴扣款" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PERSONALSIRATIO" LableResourceID="PERSONALSIRATIO" Description="个人社保比" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PERSONALINCOMERATIO" LableResourceID="PERSONALINCOMERATIO" Description="个人所得税比" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OTHERSUBJOIN" LableResourceID="AVAILABLEYEAR" Description="生效年份" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OTHERSUBJOINDESC" LableResourceID="OTHERSUBJOINDESC" Description="代扣说明" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SALARYSOLUTIONID" LableResourceID="SALARYSOLUTIONID" Description="薪资方案ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SALARYSTANDARDID" LableResourceID="SALARYSTANDARDID" Description="薪资标准ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID" Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECODE" LableResourceID="EMPLOYEECODE" Description="员工编号" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="编辑状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BASESALARY" LableResourceID="BASESALARY" Description="基本工资" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SALARYSOLUTIONNAME" LableResourceID="SALARYSOLUTIONNAME" Description="薪资方案名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SALARYSTANDARDNAME" LableResourceID="SALARYSTANDARDNAME" Description="薪资标准名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OVERYEAR" LableResourceID="OVERYEAR" Description="终止年份" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OVERMONTH" LableResourceID="OVERMONTH" Description="终止月份" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL" Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SALARYLEVEL" LableResourceID="NOWSALARYLEVEL" Description="现有薪级" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="BALANCE" LableResourceID="BALANCE" Description="差额" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OLDPOSTLEVEL" LableResourceID="OLDPOSTLEVEL" Description="异动前岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OLDSALARYLEVEL" LableResourceID="OLDSALARYLEVEL" Description="原有薪级" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PAYCOMPANY" LableResourceID="PAYCOMPANY" Description="发薪机构" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="AVAILABLEDATE" LableResourceID="AVAILABLEDATE" Description="生效时间" DataType="string" DataValue="" DataText=""></Attribute>
+
+    <Attribute Name="lkAttendanceCompany" LableResourceID="lkAttendanceCompany" Description="考勤机构" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="lkBalancePost" LableResourceID="lkBalancePost" Description="结算岗位" DataType="string" DataValue="" DataText=""></Attribute>
+	<Attribute Name="FUNDS" LableResourceID="FUNDS" Description="个人活动经费" DataType="string" DataValue="" DataText=""></Attribute>
+	<Attribute Name="FUNDSREMARK" LableResourceID="FUNDSREMARK" Description="活动经费备注" DataType="string" DataValue="" DataText=""></Attribute>
+	<Attribute Name="FUNDSPEASON" LableResourceID="FUNDSPEASON" Description="活动经费下拨人" DataType="string" DataValue="" DataText=""></Attribute>
+
+    <ObjectList Name="SALARYARCHIVEITEMLIST" LableResourceID="SALARYARCHIVEITEMLIST" Description="薪资档案薪资项" DataText="">
+      <Object Name="V_SALARYARCHIVEITEM" LableResourceID="SALARYARCHIVEITEMDetail" Description="薪资项" Key="SALARYARCHIVEITEM" id="">
+        <Attribute Name="SALARYARCHIVEITEM" LableResourceID="SALARYARCHIVEITEM" Description="薪资档案薪资项ID" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="SALARYITEMNAME" LableResourceID="SALARYITEMNAME" Description="薪资项名称" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="SUM" LableResourceID="GUERDONSUM" Description="金额" DataType="string" DataValue="" IsEncryption="True"  DataText=""></Attribute>
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

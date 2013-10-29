@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_DEPARTMENTNORMRESOLVEFIX" Description="部门年度经营指标分解固定费用表支出分解" Key="DFCOSTID" id="">
+    <Attribute  Name="DFCOSTID" LableResourceID="DFCOSTID" Description="部门固定费用主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPTONORMID" LableResourceID="DEPTONORMID" Description="部门经营指标计划分解主键ID外键关联T_WP_DepartmentNormResolve 部门年度经营总体指标分解表" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTID" LableResourceID="DEPARTMENTID" Description="所属部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度
+数据来自《工作计划下达表》保存数据，界面不处理" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMID" LableResourceID="NORMID" Description="指标定义ID(字典OperateFixCostType)
+会计科目：1工资、2奖金、3福利、4社保、5租金、6管理费、7水电费、8电话费" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMNAME" LableResourceID="NORMNAME" Description="指标名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMSERIALNO" LableResourceID="NORMSERIALNO" Description="指标序号" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYFACTCOST" LableResourceID="LYFACTCOST" Description="上年实际费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CYNORMCOST" LableResourceID="CYNORMCOST" Description="本年指标费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CYPLANCOST" LableResourceID="CYPLANCOST" Description="本年计划费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

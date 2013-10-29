@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/VehicleParkInfo/Edit</PageParameter>
+    <ApplicationOrder>{PAYRECID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_VEHICLEPARKCARDPAY" Description="T_VM_VehicleParkCardPay 车辆停车卡充值记录表" Key="PAYRECID" id="">
+    <Attribute Name="PAYRECID" LableResourceID="PAYRECID" Description="充值记录主键ID,GUID" DataType="string" DataValue="" DataText="充值记录主键ID,GUID" />
+    <Attribute Name="PARKCARDID" LableResourceID="PARKCARDID" Description="停车卡主键ID" DataType="string" DataValue="" DataText="停车卡主键ID" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID" DataType="string" DataValue="" DataText="车辆主键ID" />
+    <Attribute Name="EFFECTDATE" LableResourceID="EFFECTDATE" Description="充值日期" DataType="datetime" DataValue="" DataText="充值日期" />
+    <Attribute Name="COST" LableResourceID="COST" Description="金额（元）" DataType="decimal" DataValue="" DataText="金额（元）" />
+    <Attribute Name="FAILUREDATE" LableResourceID="FAILUREDATE" Description="截止有效期" DataType="datetime" DataValue="" DataText="截止有效期" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

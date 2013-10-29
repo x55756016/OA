@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>RM</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/Notify/BookInterviewer</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_NOTIFY" Description="通知" Key="NOTIFYID" id="">
+    <Attribute  Name="NOTIFYID" LableResourceID="NOTIFYID" Description="通知ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESUMEDELIVERYID" LableResourceID="RESUMEDELIVERYID" Description="简历应聘ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ISNOTIFIED" LableResourceID="ISNOTIFIED" Description="0:未通知, 1:已通知" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NOTIFIEDMETHOD" LableResourceID="NOTIFIEDMETHOD" Description="1. 邮件,2.电话,3.手机短信,4.其他" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NOTIFIEDRESULT" LableResourceID="NOTIFIEDRESULT" Description="1 :按时来,2.不来.3.改期.4.联系不上" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="INTERVIEWDATEPLAN" LableResourceID="INTERVIEWDATEPLAN" Description="计划面试时间，是应聘者的计划面试时间点" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="AHEADPROMPT" LableResourceID="AHEADPROMPT" Description="是否提前提醒0.不提前提醒 1.提前提醒" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="AHEADTIME" LableResourceID="AHEADTIME" Description="提前时间(分钟)" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="INTERVIEWDATEDUE" LableResourceID="INTERVIEWDATEDUE" Description="预约面试时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="INTERVIEWADDRESS" LableResourceID="INTERVIEWADDRESS" Description="面试地址" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+  </Object>
+
+</System>

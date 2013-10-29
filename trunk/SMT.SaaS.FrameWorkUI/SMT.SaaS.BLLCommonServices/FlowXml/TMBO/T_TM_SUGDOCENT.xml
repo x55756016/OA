@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="合理化建议讲师待办" Address="TMServices.svc" FuncName="CallWaitAppService" Binding="BasicHttpBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_TM_SUGDOCENT" Name="SUGDOCENTID" Description="建议讲师ID" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TM/SugDocent/Audit</PageParameter>
+    <ApplicationOrder>{SUGDOCENTID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TM_SUGDOCENT" Description="T_TM_SUGDOCENT 合理化建议讲师，资料的如口有3方面，来源于合理化建议培训；合理化建议课程；合理化建议讲师" Key="SUGDOCENTID" id="">
+    <Attribute Name="SUGDOCENTID" LableResourceID="SUGDOCENTID" Description="建议讲师ID" DataType="string" DataValue="" DataText="建议讲师ID" />
+    <Attribute Name="DOCENTID" LableResourceID="DOCENTID" Description="讲师ID,如果在合理化建议培训里，建议已有的讲师，&#xA;则此处存放已有的讲师ID,否则为空。" DataType="string" DataValue="" DataText="讲师ID,如果在合理化建议培训里，建议已有的讲师，&#xA;则此处存放已有的讲师ID,否则为空。" />
+    <Attribute Name="DOCENTNAME" LableResourceID="DOCENTNAME" Description="建议讲师" DataType="string" DataValue="" DataText="建议讲师" />
+    <Attribute Name="ISEXIST" LableResourceID="ISEXIST" Description="是否已存在1.不存在.2.已存在" DataType="string" DataValue="" DataText="是否已存在1.不存在.2.已存在" />
+    <Attribute Name="DOCENTFROM" LableResourceID="DOCENTFROM" Description="讲师来源1.内部 2.外部" DataType="string" DataValue="" DataText="讲师来源1.内部 2.外部" />
+    <Attribute Name="SUGTRAINID" LableResourceID="SUGTRAINID" Description="培训建议ID" DataType="string" DataValue="" DataText="培训建议ID" />
+    <Attribute Name="TRAINNAME" LableResourceID="TRAINNAME" Description="培训名称" DataType="string" DataValue="" DataText="培训名称" />
+    <Attribute Name="SUGCOURSEID" LableResourceID="SUGCOURSEID" Description="建议课程ID" DataType="string" DataValue="" DataText="建议课程ID" />
+    <Attribute Name="COURSENAME" LableResourceID="COURSENAME" Description="建议课程名" DataType="string" DataValue="" DataText="建议课程名" />
+    <Attribute Name="DOCENTCOMPANYID" LableResourceID="DOCENTCOMPANYID" Description="讲师公司ID" DataType="string" DataValue="" DataText="讲师公司ID" />
+    <Attribute Name="DOCENTDEPARTMENTID" LableResourceID="DOCENTDEPARTMENTID" Description="讲师部门ID" DataType="string" DataValue="" DataText="讲师部门ID" />
+    <Attribute Name="DOCENTPOSTID" LableResourceID="DOCENTPOSTID" Description="讲师岗位ID" DataType="string" DataValue="" DataText="讲师岗位ID" />
+    <Attribute Name="IDCARDNUMBER" LableResourceID="IDCARDNUMBER" Description="身份证号码" DataType="string" DataValue="" DataText="身份证号码" />
+    <Attribute Name="SEX" LableResourceID="SEX" Description="性别 Sex&#xA;1男&#xA;0 女" DataType="string" DataValue="" DataText="性别 Sex&#xA;1男&#xA;0 女" />
+    <Attribute Name="PROVINCE" LableResourceID="PROVINCE" Description="籍贯" DataType="string" DataValue="" DataText="籍贯" />
+    <Attribute Name="AGE" LableResourceID="AGE" Description="年纪" DataType="decimal" DataValue="" DataText="年纪" />
+    <Attribute Name="WORKUNIT" LableResourceID="WORKUNIT" Description="单位" DataType="string" DataValue="" DataText="单位" />
+    <Attribute Name="ADDRESS" LableResourceID="ADDRESS" Description="地址" DataType="string" DataValue="" DataText="地址" />
+    <Attribute Name="PHONE" LableResourceID="PHONE" Description="电话" DataType="string" DataValue="" DataText="电话" />
+    <Attribute Name="CELLPHONE" LableResourceID="CELLPHONE" Description="手机" DataType="string" DataValue="" DataText="手机" />
+    <Attribute Name="MAIL" LableResourceID="MAIL" Description="邮箱" DataType="string" DataValue="" DataText="邮箱" />
+    <Attribute Name="ZIPCODE" LableResourceID="ZIPCODE" Description="邮编" DataType="string" DataValue="" DataText="邮编" />
+    <Attribute Name="WORKYEAR" LableResourceID="WORKYEAR" Description="从业时间" DataType="decimal" DataValue="" DataText="从业时间" />
+    <Attribute Name="EDUCATIONLEVEL" LableResourceID="EDUCATIONLEVEL" Description="最高学历0:初中1:高中2:中技3: 中专4: 大专5: 本科6: 硕士7: 博士" DataType="string" DataValue="" DataText="最高学历0:初中1:高中2:中技3: 中专4: 大专5: 本科6: 硕士7: 博士" />
+    <Attribute Name="EDUCATIONLEVELNAME" LableResourceID="EDUCATIONLEVELNAME" Description="最高学历名称" DataType="string" DataValue="" DataText="最高学历名称" />
+    <Attribute Name="SCHOONAME" LableResourceID="SCHOONAME" Description="毕业院校" DataType="string" DataValue="" DataText="毕业院校" />
+    <Attribute Name="JOBTITLE" LableResourceID="JOBTITLE" Description="职称" DataType="string" DataValue="" DataText="职称" />
+    <Attribute Name="SOCIETYDUTY" LableResourceID="SOCIETYDUTY" Description="社会职务" DataType="string" DataValue="" DataText="社会职务" />
+    <Attribute Name="COURSE" LableResourceID="COURSE" Description="课程" DataType="string" DataValue="" DataText="课程" />
+    <Attribute Name="SUGRESON" LableResourceID="SUGRESON" Description="推荐理由" DataType="string" DataValue="" DataText="推荐理由" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态： CheckStates&#xA;///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 待审核&#xA;///5 所有" DataType="string" DataValue="" DataText="审核状态： CheckStates&#xA;///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 待审核&#xA;///5 所有" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText="所属公司ID" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText="创建人公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText="创建人部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText="创建人岗位ID" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+  </Object>
+</System>

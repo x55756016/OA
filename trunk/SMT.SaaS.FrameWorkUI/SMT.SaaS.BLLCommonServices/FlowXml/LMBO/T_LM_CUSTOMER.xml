@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>Custom</Name>
+  <System>
+    <Function Description="" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_LM_CUSTOMER"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+	<MsgOpen>
+		<AssemblyName>SMT.SaaS.LM.UI.Custom</AssemblyName>
+		<PublicClass>SMT.SaaS.LM.UI.Custom.PortalUtil</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.LM.UI.Custom.UserControls.CustomerData.CustomerControl</PageParameter>
+		<ApplicationOrder>{CUSTERID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+	</MsgOpen>
+<Object Name="T_LM_CUSTOMER" Description="T_LM_CUSTOMER">
+    <Attribute  Name="CREATEPOSTID" Description="CREATEPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="CREATEDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="CREATECOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="OWNERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="OWNERPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="OWNERDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="OWNERCOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="UPDATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="UPDATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="CREATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="CREATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ATTACHID" Description="附件ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ORGCODE" Description="机构代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CORPORATION" Description="法人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SHOPCARD" Description="营业执照号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="BELONGORGCODE" Description="客户所属客服" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="SHOTNAME" Description="客户简称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="COOPERATESTATE" Description="合作状态" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="COOPERATEENDTIME" Description="合作结束时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="COOPERATESTARTTIME" Description="开始合作时间" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="REGISTERFUND" Description="注册资金" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="PRODUCTKINDNAME" Description="产品性质名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="PRODUCTKIND" Description="产品性质" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="BUSINESSTYPENAME" Description="客户类型名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="BUSINESSTYPE" Description="客户类型" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="CORPTYPENAME" Description="企业类型名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CORPTYPE" Description="企业类型" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="HOMEPAGE" Description="客户主页" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="POSTCODE" Description="邮政编码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="EMAIL" Description="EMAIL地址" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="FAX" Description="传真" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="TEL" Description="电话" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ADDRESS" Description="地址" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ENNAME" Description="英文简称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SHORTPINYIN" Description="拼音简称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CUSTCODE" Description="客户代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CUSTNAME" Description="客户名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+   <Attribute  Name="CUSTERID" Description="客户ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+
+</Object>
+
+
+</System>

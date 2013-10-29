@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>RM</Name>
+  <System>
+    <Function Description="CompanyFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.InterView.NotifyForm</PageParameter>
+    <ApplicationOrder>{NOTIFYID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_NOTIFY" Description="T_RM_NOTIFY">
+    <Attribute Name="ONWERID" Description="所有者ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute Name="NOTIFYID" Description="表单ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+</System>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="HR">
+  <ObjectList>
+    <Object Name="T_LM_APPEAL" Description="投诉处理"></Object>
+    <Object Name="T_LM_ADVICE" Description="建议处理"></Object>
+    <Object Name="T_LM_CUSTOMER" Description="客户基本资料"></Object>
+    <Object Name="T_LM_NODE" Description="网点资料"></Object>
+    <Object Name="T_LM_SALESMAN" Description="网点配送员"></Object>
+    <Object Name="T_LM_RECIVEEXCEPTIONMASTER" Description="收货异常"></Object>
+    <Object Name="T_LM_STORAGEMASTER" Description="入库订单"></Object>
+    <Object Name="T_LM_DELIVERYMASTER" Description="提货订单"></Object>
+    <Object Name="T_LM_DISPATCHMASTER " Description="派送订单"></Object>
+    <Object Name="T_LM_PROCESSINGMASTER" Description="加工订单"></Object>
+    <Object Name="T_LM_RETURNMASTER" Description="退库订单"></Object>
+    <Object Name="T_LM_INVENTORYMASTER" Description="盘点订单"></Object>
+    <Object Name="T_LM_RECEIVEGOODSMASTER" Description="明细收货"></Object>
+    <Object Name="T_LM_RECEIVEPACKAGEMASTER" Description="包裹收货"></Object>
+  </ObjectList>
+</System>
+

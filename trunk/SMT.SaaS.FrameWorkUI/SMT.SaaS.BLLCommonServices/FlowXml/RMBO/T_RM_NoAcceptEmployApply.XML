@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>RM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/NoAcceptEmployApply/Create</PageParameter>
+    <ApplicationOrder>{RESUMEDELIVERYID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_RESUMEDELIVERY" Description="简历应聘" Key="RESUMEDELIVERYID" id="">
+    <Attribute Name="RESUMEDELIVERYID" LableResourceID="RESUMEDELIVERYID" Description="简历应聘ID" DataType="string" DataValue="" DataText="简历应聘ID" />
+    <Attribute Name="RESUMEID" LableResourceID="RESUMEID" Description="简历ID" DataType="string" DataValue="" DataText="简历ID" />
+    <Attribute Name="REQUIREAPPLYID" LableResourceID="REQUIREAPPLYID" Description="需求ID" DataType="string" DataValue="" DataText="需求ID" />
+    <Attribute Name="STAGE" LableResourceID="STAGE" Description="面试阶段0.未分类;1.电话初始.2.复试.3.拟录用.4.背景调查.5.入职手续 5.在职" DataType="string" DataValue="" DataText="面试阶段0.未分类;1.电话初始.2.复试.3.拟录用.4.背景调查.5.入职手续 5.在职" />
+    <Attribute Name="RESULT" LableResourceID="RESULT" Description="0.未面试 .1未通知 2.合格.3.不合格.4.拒绝参加.5.人才储备 6.推荐更高岗位 7.应聘者不来" DataType="string" DataValue="" DataText="0.未面试 .1未通知 2.合格.3.不合格.4.拒绝参加.5.人才储备 6.推荐更高岗位 7.应聘者不来" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="datetime" DataValue="" DataText="" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled" DataType="string" DataValue="" DataText="对象编辑状态///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled" />
+    <Attribute Name="RESULTNAME" LableResourceID="RESULTNAME" Description="结果名" DataType="string" DataValue="" DataText="结果名" />
+    <Attribute Name="REQUIREAPPLYCODE" LableResourceID="REQUIREAPPLYCODE" Description="申请编号" DataType="string" DataValue="" DataText="申请编号" />
+    <Attribute Name="RESUMENAME" LableResourceID="RESUMENAME" Description="应聘者姓名" DataType="string" DataValue="" DataText="应聘者姓名" />
+  </Object>
+</System>

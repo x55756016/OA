@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/LoanInfo/Details</PageParameter>
+    <ApplicationOrder>{LOANID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_LOANINFO" Description="T_TASK_LoanInfo 借款单信息表" Key="LOANID" id="">
+    <Attribute Name="LOANID" LableResourceID="LOANID" Description="借款申请ID" DataType="string" DataValue="" DataText="借款申请ID" />
+    <Attribute Name="LOANCODE" LableResourceID="LOANCODE" Description="借款单编号&#xA;单据编号系统自动生成，单号编码规则是JKDH_YYYYMMDDXXXXXX，其中XXXXXX是6位10进制编码，步长为1." DataType="string" DataValue="" DataText="借款单编号&#xA;单据编号系统自动生成，单号编码规则是JKDH_YYYYMMDDXXXXXX，其中XXXXXX是6位10进制编码，步长为1." />
+    <Attribute Name="LOANTYPE" LableResourceID="LOANTYPE" Description="借款类型 1.任务借款 .2.其他借款，缺省1" DataType="string" DataValue="" DataText="借款类型 1.任务借款 .2.其他借款，缺省1" />
+    <Attribute Name="LOANTYPENAME" LableResourceID="LOANTYPENAME" Description="借款类型名称" DataType="string" DataValue="" DataText="借款类型名称" />
+    <Attribute Name="FROMCODE" LableResourceID="FROMCODE" Description="来源单号" DataType="string" DataValue="" DataText="来源单号" />
+    <Attribute Name="FROMID" LableResourceID="FROMID" Description="来源ID" DataType="string" DataValue="" DataText="来源ID" />
+    <Attribute Name="LOANCAUSE" LableResourceID="LOANCAUSE" Description="借款事由" DataType="string" DataValue="" DataText="借款事由" />
+    <Attribute Name="PLANREFUNDDATE" LableResourceID="PLANREFUNDDATE" Description="预计还款日期&#xA;预计还款日期到期前（如提前1天），应还金额大于0时，发送还款待办给申请人；" DataType="datetime" DataValue="" DataText="预计还款日期&#xA;预计还款日期到期前（如提前1天），应还金额大于0时，发送还款待办给申请人；" />
+    <Attribute Name="PAYREMARK" LableResourceID="PAYREMARK" Description="支付信息" DataType="string" DataValue="" DataText="支付信息" />
+    <Attribute Name="LOANLIMIT" LableResourceID="LOANLIMIT" Description="借款限额(元)&#xA;借款类型，来源是任务系统时，借款事由不可修改，借款额度按费用项受任务计划预算限制（写入该任务的可报销费用合计），任务结算后不允许再进行任务借款；其他借款则额度不受限制" DataType="decimal" DataValue="" DataText="借款限额(元)&#xA;借款类型，来源是任务系统时，借款事由不可修改，借款额度按费用项受任务计划预算限制（写入该任务的可报销费用合计），任务结算后不允许再进行任务借款；其他借款则额度不受限制" />
+    <Attribute Name="LOANMONEY" LableResourceID="LOANMONEY" Description="借款金额(元)" DataType="decimal" DataValue="" DataText="借款金额(元)" />
+    <Attribute Name="NORETURNMONEY" LableResourceID="NORETURNMONEY" Description="未还金额(元)&#xA;借款时，保存与借款金额等值；报销冲借款或者还款金额填写并审核通过时，扣减未还金额" DataType="decimal" DataValue="" DataText="未还金额(元)&#xA;借款时，保存与借款金额等值；报销冲借款或者还款金额填写并审核通过时，扣减未还金额" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="ATTACHEDFILE" LableResourceID="ATTACHEDFILE" Description="附档文件" DataType="string" DataValue="" DataText="附档文件" />
+    <Attribute Name="LOANDATE" LableResourceID="LOANDATE" Description="借款日期&#xA;审核通过时，写入审核通过的日期" DataType="datetime" DataValue="" DataText="借款日期&#xA;审核通过时，写入审核通过的日期" />
+    <Attribute Name="RECEIVER" LableResourceID="RECEIVER" Description="收款人" DataType="string" DataValue="" DataText="收款人" />
+    <Attribute Name="BANK" LableResourceID="BANK" Description="开户银行" DataType="string" DataValue="" DataText="开户银行" />
+    <Attribute Name="BANKACCOUT" LableResourceID="BANKACCOUT" Description="银行帐号" DataType="string" DataValue="" DataText="银行帐号" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled&#xA;" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 保存         Saved" DataType="string" DataValue="" DataText="///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 保存         Saved" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人" DataType="string" DataValue="" DataText="所属人" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属人岗位" DataType="string" DataValue="" DataText="所属人岗位" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属人部门" DataType="string" DataValue="" DataText="所属人部门" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属人公司" DataType="string" DataValue="" DataText="所属人公司" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属人名称" DataType="string" DataValue="" DataText="所属人名称" />
+    <Attribute Name="OWNERPOSTNAME" LableResourceID="OWNERPOSTNAME" Description="所属人岗位名称" DataType="string" DataValue="" DataText="所属人岗位名称" />
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="所属人公司名称" DataType="string" DataValue="" DataText="所属人公司名称" />
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="所属人部门名称" DataType="string" DataValue="" DataText="所属人部门名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="公司ID" DataType="string" DataValue="" DataText="公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="部门ID" DataType="string" DataValue="" DataText="部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="岗位ID" DataType="string" DataValue="" DataText="岗位ID" />
+    <Attribute Name="CREATEPOSTNAME" LableResourceID="CREATEPOSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="CREATECOMPANYNAME" LableResourceID="CREATECOMPANYNAME" Description="公司名称" DataType="string" DataValue="" DataText="公司名称" />
+    <Attribute Name="CREATEDEPARTMENTNAME" LableResourceID="CREATEDEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="UPDATEUSERNAME" LableResourceID="UPDATEUSERNAME" Description="修改人名称" DataType="string" DataValue="" DataText="修改人名称" />
+  </Object>
+</System>

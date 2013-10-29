@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="FB">
+  <ObjectList>
+    <Object Name="T_FB_CHARGEAPPLYMASTER" Description="个人费用报销申请单" />
+    <Object Name="T_FB_TRAVELEXPAPPLYMASTER" Description="个人差旅报销申请单" />
+    <Object Name="T_FB_BORROWAPPLYMASTER" Description="个人借款申请单" />
+    <Object Name="T_FB_REPAYAPPLYMASTER" Description="个人还款申请单" />
+    <Object Name="T_FB_PERSONMONEYASSIGNMASTER" Description="个人经费下拨申请" />
+    <Object Name="T_FB_COMPANYBUDGETAPPLYMASTER" Description="部门年度预算申请" />
+    <Object Name="T_FB_COMPANYBUDGETSUMMASTER" Description="部门年度预算汇总申请单" />
+    <Object Name="T_FB_COMPANYBUDGETMODMASTER" Description="部门年度预算变更申请" />
+    <Object Name="T_FB_COMPANYTRANSFERMASTER" Description="部门年度预算调拨申请单" />
+    <Object Name="T_FB_DEPTBUDGETAPPLYMASTER" Description="部门月度预算申请单" />
+    <Object Name="T_FB_DEPTBUDGETSUMMASTER" Description="部门月度预算汇总申请单" />
+    <Object Name="T_FB_DEPTBUDGETADDMASTER" Description="部门月度预算变更申请单" />
+    <Object Name="T_FB_DEPTTRANSFERMASTER" Description="部门月度预算调拨申请" />
+	<Object Name="T_FB_EXTENSIONALORDER" Description="费用报销中间表" />
+
+  </ObjectList>
+</System>

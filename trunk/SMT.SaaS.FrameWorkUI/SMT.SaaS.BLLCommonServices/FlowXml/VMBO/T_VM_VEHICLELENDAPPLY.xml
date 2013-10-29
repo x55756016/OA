@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/VehicleLendApply/Details</PageParameter>
+    <ApplicationOrder>{UVAPPLYID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_USEVEHICLEAPPLY" Description="用车申请信息表" Key="UVAPPLYID" id="">
+    <Attribute Name="UVAPPLYID" LableResourceID="UVAPPLYID" Description="用车申请主键ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="APPLYNO" LableResourceID="APPLYNO" Description="申请单号" DataType="string" DataValue="" DataText="申请单号" />
+    <Attribute Name="APPLYMANID" LableResourceID="APPLYMANID" Description="申请人ID" DataType="string" DataValue="" DataText="申请人ID" />
+    <Attribute Name="APPLYMAN" LableResourceID="APPLYMAN" Description="申请人" DataType="string" DataValue="" DataText="申请人" />
+    <Attribute Name="IFSELFDRIVER" LableResourceID="IFSELFDRIVER" Description="是否自驾" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="APPLYDATE" LableResourceID="APPLYDATE" Description="申请日期" DataType="datetime" DataValue="" DataText="申请日期" />
+    <Attribute Name="TOTALNUM" LableResourceID="TOTALNUM" Description="总乘车人数" DataType="decimal" DataValue="" DataText="总乘车人数" />
+    <Attribute Name="USECAUSE" LableResourceID="USECAUSE" Description="用车事由" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="USECAUSENAME" LableResourceID="USECAUSENAME" Description="用车事由名称" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CAUSE" LableResourceID="CAUSE" Description="事由说明" DataType="string" DataValue="" DataText="事由说明" />
+    <Attribute Name="DISPORGANID" LableResourceID="DISPORGANID" Description="派车机构ID" DataType="string" DataValue="" DataText="派车机构ID" />
+    <Attribute Name="ORGANNAME" LableResourceID="ORGANNAME" Description="派车机构名称" DataType="string" DataValue="" DataText="派车机构名称" />
+    <Attribute Name="PUVSTARTDATE" LableResourceID="PUVSTARTDATE" Description="计划用车开始时间" DataType="datetime" DataValue="" DataText="计划用车开始时间" />
+    <Attribute Name="PUVENDDATE" LableResourceID="PUVENDDATE" Description="计划用车结束时间" DataType="datetime" DataValue="" DataText="计划用车结束时间" />
+    <Attribute Name="TRANSFERPLACE" LableResourceID="TRANSFERPLACE" Description="接送地" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="TRANSFERPLACENAME" LableResourceID="TRANSFERPLACENAME" Description="接送地名称" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="TRANSFERSCOPE" LableResourceID="TRANSFERSCOPE" Description="接送距离" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="TRANSFERSCOPENAME" LableResourceID="TRANSFERSCOPENAME" Description="接送距离名称" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="RIDEEXPLAIN" LableResourceID="RIDEEXPLAIN" Description="乘坐说明" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CUSTOMERNAME" LableResourceID="CUSTOMERNAME" Description="客户单位名称" DataType="string" DataValue="" DataText="客户单位名称" />
+    <Attribute Name="CUSTOMMAN" LableResourceID="CUSTOMMAN" Description="客户姓名" DataType="string" DataValue="" DataText="客户姓名" />
+    <Attribute Name="CUSTOMPOST" LableResourceID="CUSTOMPOST" Description="客户职务" DataType="string" DataValue="" DataText="客户职务" />
+    <Attribute Name="CUSTOMMOBILE" LableResourceID="CUSTOMMOBILE" Description="客户手机" DataType="string" DataValue="" DataText="客户手机" />
+    <Attribute Name="RECEIVEMANID" LableResourceID="RECEIVEMANID" Description="接待人ID" DataType="string" DataValue="" DataText="接待人ID" />
+    <Attribute Name="RECEIVEMAN" LableResourceID="RECEIVEMAN" Description="接待人" DataType="string" DataValue="" DataText="接待人" />
+    <Attribute Name="RECEIVEMOBILE" LableResourceID="RECEIVEMOBILE" Description="接待人手机" DataType="string" DataValue="" DataText="接待人手机" />
+    <Attribute Name="IFFOLLOW" LableResourceID="IFFOLLOW" Description="是否跟车" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="STARTSELECT" LableResourceID="STARTSELECT" Description="出发地点选择" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="STARTADDRESS" LableResourceID="STARTADDRESS" Description="出发地址" DataType="string" DataValue="" DataText="出发地址" />
+    <Attribute Name="STARTDATE" LableResourceID="STARTDATE" Description="出发时间" DataType="datetime" DataValue="" DataText="出发时间" />
+    <Attribute Name="DISPATCHSTATE" LableResourceID="DISPATCHSTATE" Description="派车状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="APPLYMOBILE" LableResourceID="APPLYMOBILE" Description="申请人手机" DataType="string" DataValue="" DataText="申请人手机" />
+  </Object>
+</System>

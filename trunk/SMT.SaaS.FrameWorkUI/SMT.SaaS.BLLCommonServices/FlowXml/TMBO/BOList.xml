@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="TM">
+  <ObjectList>
+    <Object Name="T_TM_SUGCOURSE" Description="合理化建议课程"></Object>
+    <Object Name="T_TM_COURSEMASTER" Description="合理化建议课程整理"></Object>
+    <Object Name="T_TM_COURSETEMP" Description="课件模板"></Object>
+<Object Name="T_TM_COURSETEMPTASK" Description="课件模板代办"></Object>
+    <Object Name="T_TM_WARE" Description="课件"></Object>
+    <Object Name="T_TM_WARETASKTASK" Description="制作课件待办"></Object>
+    <Object Name="T_TM_WARETASK" Description="更新课件待办"></Object>
+
+    <Object Name="T_TM_SUGDOCENT" Description="合理化建议讲师"></Object>
+    <Object Name="T_TM_DOCENTMASTER" Description="合理化建议讲师整理"></Object>
+    <Object Name="T_TM_DOCENTMASTERTASK" Description="合理化建议讲师整理代办"></Object>
+      <Object Name="T_TM_DOCENTNOTIFYTASK" Description="参训讲师通知代办"></Object>
+
+    <Object Name="T_TM_SUGTRAIN" Description="合理化建议培训"></Object>
+    <Object Name="T_TM_SUGTRAINTASK" Description="合理化建议培训代办"></Object>
+    <Object Name="T_TM_TRAINRELATION" Description="合理化建议培训整理"></Object>
+    <Object Name="T_TM_TRAINRELATIONTASK" Description="合理化建议培训整理代办"></Object>
+
+    <Object Name="T_TM_CONFCOURSE" Description="确认课程"></Object>
+    <Object Name="T_TM_CONFCOURSETASK" Description="确认课程代办"></Object>
+    <Object Name="T_TM_CONFCOURSEFAIL" Description="确认课程审核失败"></Object>
+
+    <Object Name="T_TM_CONFDOCENTTASK" Description="确认讲师代办"></Object>
+    <Object Name="T_TM_CONFDOCENT" Description="确认讲师"></Object>
+    <Object Name="T_TM_CONFDOCENTFAIL" Description="确认讲师审核失败"></Object>
+
+   <Object Name="T_TM_CONFDATEADDRTASK" Description="确认时间地点代办"></Object>
+   <Object Name="T_TM_CONFDATEADDR" Description="确认培训的时间地点"></Object>
+    <Object Name="T_TM_CONFDATEADDRFAIL" Description="确认培训的时间地点审核失败"></Object>
+
+    <Object Name="T_TM_CONFSTUDENT" Description="确认参训人员"></Object>
+    <Object Name="T_TM_CONFSTUDENTTASK" Description="确认参训人员代办"></Object>
+    <Object Name="T_TM_CONFSTUDENTFAIL" Description="确认参训人员审核失败"></Object>
+
+<Object Name="T_TM_TRAINRESOURCETASK" Description="培训组织待办"></Object>
+    <Object Name="T_TM_TRAINPLANTASK" Description="系统发起培训待办任务"></Object>
+
+    <Object Name="T_TM_STUDENTNOTIFYTASK" Description="参训人员通知代办"></Object>
+    <Object Name="T_TM_NOTIFYSTUDENTTASK" Description="通知参训人员代办"></Object>
+
+    <Object Name="T_TM_ESTFORDOCENTTASK" Description="学员对讲师的评价代办"></Object>
+    <Object Name="T_TM_ESTFORSTUDENTTASK" Description="讲师对学员的评价代办"></Object>
+    <Object Name="T_TM_TRAINTASK" Description="培训执行学员评价待办"></Object>
+  </ObjectList>
+</System>
+
