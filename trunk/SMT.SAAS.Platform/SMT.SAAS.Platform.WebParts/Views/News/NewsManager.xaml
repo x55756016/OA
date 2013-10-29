@@ -18,13 +18,21 @@
         <Grid x:Name="LayoutRoot" Background="White" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition  Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Border Style="{StaticResource ButtonToolBarBorder}">
+            <Border Style="{StaticResource ButtonToolBarBorder}" Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="新闻标题"  Margin="10,5,0,5" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto"/>
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtNewsTitle"  Width="200" Margin="5,5,0,5" />
+                    <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind"  Height="22" Margin="5,5,0,5" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnFind_Click" />
+                </StackPanel>
+            </Border>
+            <Border Style="{StaticResource ButtonToolBarBorder}" Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
                     <!--新建-->
                     <Button Height="26" Margin="5,0,0,0" x:Name="BtnAdd"  Width="50"
@@ -60,7 +68,7 @@
                     </Button>
                 </StackPanel>
             </Border>
-            <data:DataGrid x:Name="dgNewsList" AutoGenerateColumns="False" Margin="0 0 0 0" Grid.Row="1"
+            <data:DataGrid x:Name="dgNewsList" AutoGenerateColumns="False" Margin="0 0 0 0" Grid.Row="2"
                            SelectionMode="Single" 
                            ItemsSource="{Binding Items,Mode=TwoWay}"
                            SelectedItem="{Binding CurrentEntity,Mode=TwoWay}"
@@ -69,15 +77,26 @@
                            CellStyle="{StaticResource DataGridCellStyle}" 
                            RowStyle="{StaticResource DataGridRowStyle}" 
                            RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" 
-                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           LoadingRow="dgNewsList_LoadingRow">
                 <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn Header="序号" IsReadOnly="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="30">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock x:Name="tbOrder" >
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
                     <data:DataGridTextColumn Header="类    别" Binding="{Binding Path=NEWSTYPE.Name}"  />
                     <data:DataGridTextColumn Header="标    题" Binding="{Binding NEWSTITEL}" />
-                    <data:DataGridTextColumn Header="更新日期" Binding="{Binding Path=UPDATEDATE, Converter={StaticResource DataFormat}}" Visibility="Collapsed" />
                     <data:DataGridTextColumn Header="发布状态" Binding="{Binding Path=NEWSSTATE.Name}" />
+                    <data:DataGridTextColumn Header="更新日期" Binding="{Binding Path=UPDATEDATE, Converter={StaticResource DataFormat}}" />
                 </data:DataGrid.Columns>
             </data:DataGrid>
-            <v:DataGridPager Grid.Row="2" 
+            <v:DataGridPager Grid.Row="3" 
                                     PageCount="{Binding PageCount,Mode=TwoWay}" 
                                     PageIndex="{Binding PageIndex,Mode=TwoWay}"  
                                     ButtonCount="1"

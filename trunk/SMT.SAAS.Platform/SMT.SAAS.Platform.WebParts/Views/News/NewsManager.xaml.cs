@@ -98,5 +98,26 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
             // viewModel.Refresh();
         }
+
+        /// <summary>
+        /// 查询新闻
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            string strNewsTitle = this.txtNewsTitle.Text.Trim();
+            viewModel.newsTitle = strNewsTitle;
+            viewModel.Refresh();
+        }
+
+        private void dgNewsList_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            TextBlock tborder = dgNewsList.Columns[0].GetCellContent(e.Row).FindName("tbOrder") as TextBlock;
+            if (tborder != null)
+            {
+                tborder.Text = (e.Row.GetIndex() + 1).ToString();
+            }
+        }
     }
 }
