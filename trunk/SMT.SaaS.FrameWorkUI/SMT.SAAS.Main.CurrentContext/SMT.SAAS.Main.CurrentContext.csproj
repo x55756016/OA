@@ -76,9 +76,6 @@
     <AssemblyOriginatorKeyFile>SMT.SAAS.Main.CurrentContext.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.SaaS.LocalData">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
@@ -136,6 +133,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SMT.SAAS.Main.CurrentContext.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
+      <Project>{0fe5e626-1839-47b9-9457-79d042153ee0}</Project>
+      <Name>SMT.SaaS.LocalData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

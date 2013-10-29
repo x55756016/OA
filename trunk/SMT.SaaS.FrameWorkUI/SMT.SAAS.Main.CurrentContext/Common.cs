@@ -46,7 +46,7 @@ namespace SMT.SAAS.Main.CurrentContext
         }
 
         public static LoginUserInfo GetLoginUserInfo(string userID, string userName, string employeeCode, string employeeState, string sysUserID,
-            string telphone, string sex, List<V_EMPLOYEEPOSTBRIEF> posts, int workAge, byte[] photo, bool isManager)
+            string mobilePhone,string officePhone, string sex, List<V_EMPLOYEEPOSTBRIEF> posts, int workAge, byte[] photo, bool isManager)
         {
             try
             {
@@ -80,7 +80,8 @@ namespace SMT.SAAS.Main.CurrentContext
                       Photo = photo,
                       SexID = sex,
                       WorkingAge = workAge,
-                      Telphone = telphone,
+                      OfficeTelphone = officePhone,
+                      MobileTelphone=mobilePhone,
                       IsManager = isManager,
                       UserPosts = userPosts
                   };
