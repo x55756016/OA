@@ -3819,6 +3819,7 @@ namespace SMT.HRM.BLL
                               ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                               ep.T_HR_POST.COMPANYID,
                               ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME,
+                               ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.BRIEFNAME,
                               ep.POSTLEVEL
                           };
 
@@ -3886,6 +3887,7 @@ namespace SMT.HRM.BLL
                         employeeDetail.CURRENTADDRESS = item.CURRENTADDRESS;
                         employeeDetail.POSTID = item.POSTID;
                     }
+                    
                     V_EMPLOYEEPOSTBRIEF tmp = new V_EMPLOYEEPOSTBRIEF();
                     tmp.EMPLOYEEPOSTID = item.EMPLOYEEPOSTID;
                     tmp.ISAGENCY = item.ISAGENCY;
@@ -3894,7 +3896,15 @@ namespace SMT.HRM.BLL
                     tmp.CompanyID = item.COMPANYID;
                     tmp.PostName = item.POSTNAME;
                     tmp.DepartmentName = item.DEPARTMENTNAME;
-                    tmp.CompanyName = item.CNAME;
+                    string cname = string.Empty;
+                    if (!string.IsNullOrEmpty(item.BRIEFNAME))
+                    {
+                        tmp.CompanyName = item.BRIEFNAME;
+                    }
+                    else
+                    {
+                        tmp.CompanyName = item.CNAME;
+                    }
                     tmp.POSTLEVEL = item.POSTLEVEL;
                     employeeDetail.EMPLOYEEPOSTS.Add(tmp);
                 }
