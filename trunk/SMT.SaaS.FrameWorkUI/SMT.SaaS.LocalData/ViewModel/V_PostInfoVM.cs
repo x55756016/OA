@@ -1,4 +1,4 @@
-﻿using SterlingDemoProject.Tables;
+﻿using SMT.SaaS.LocalData.Tables;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -76,15 +76,12 @@ namespace SMT.SaaS.LocalData.ViewModel
                         where o.LazyValue.Value.UserID == strUserID
                         select o.LazyValue.Value).Count();
 
-            if (ents != null)
+            if (ents > 0)
             {
-                if (ents > 0)
-                {
-                    bIsExists = true;
-                }
+                bIsExists = true;
             }
 
-            return bIsExists;                 
+            return bIsExists;
         }
 
         public static List<V_PostInfo> GetAllV_PostInfo(string strUserID)
@@ -110,7 +107,7 @@ namespace SMT.SaaS.LocalData.ViewModel
         {
             V_PostInfo deleteV_PostInfo = (from o in SterlingService.Current.Database.Query<V_PostInfo, string>()
                                            where o.LazyValue.Value.POSTID == strPostID
-                                               select o.LazyValue.Value).FirstOrDefault();
+                                           select o.LazyValue.Value).FirstOrDefault();
             if (deleteV_PostInfo != null)
             {
                 SterlingService.Current.Database.Delete(deleteV_PostInfo);

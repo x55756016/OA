@@ -1,6 +1,9 @@
 ﻿
-namespace SterlingDemoProject.Tables
+namespace SMT.SaaS.LocalData.Tables
 {
+    /// <summary>
+    /// 本地公司信息实体
+    /// </summary>
     public class V_CompanyInfo
     {
         /// <summary>

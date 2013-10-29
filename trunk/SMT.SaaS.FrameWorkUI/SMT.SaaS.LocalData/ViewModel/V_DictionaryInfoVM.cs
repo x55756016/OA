@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using SMT.SaaS.LocalData;
-using SterlingDemoProject.Tables;
+using SMT.SaaS.LocalData.Tables;
 
 namespace SMT.SaaS.LocalData.ViewModel
 {
@@ -95,12 +95,9 @@ namespace SMT.SaaS.LocalData.ViewModel
             var ents = (from o in SterlingService.Current.Database.Query<V_DictionaryInfo, string>()
                         select o.LazyValue.Value).Count();
 
-            if (ents != null)
+            if (ents > 0)
             {
-                if (ents > 0)
-                {
-                    bIsExists = true;
-                }
+                bIsExists = true;
             }
 
             return bIsExists;
@@ -116,15 +113,12 @@ namespace SMT.SaaS.LocalData.ViewModel
             }
 
             var ents = (from o in SterlingService.Current.Database.Query<V_DictionaryInfo, string>()
-                        where o.LazyValue.Value.DICTIONARYID.Contains(strCategorys)
+                        where o.LazyValue.Value.DICTIONCATEGORY.Contains(strCategorys)
                         select o.LazyValue.Value).Count();
 
-            if (ents != null)
+            if (ents > 0)
             {
-                if (ents > 0)
-                {
-                    bIsExists = true;
-                }
+                bIsExists = true;
             }
 
             return bIsExists;

@@ -11,6 +11,9 @@ using System.Windows.Shapes;
 
 namespace SMT.SaaS.LocalData
 {
+    /// <summary>
+    /// 本地菜单实体
+    /// </summary>
     public class T_SYS_ENTITYMENU
     {
         /// <summary>

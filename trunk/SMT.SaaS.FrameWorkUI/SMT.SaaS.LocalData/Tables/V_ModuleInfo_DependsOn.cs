@@ -1,5 +1,5 @@
 ﻿
-namespace SterlingDemoProject.Tables
+namespace SMT.SaaS.LocalData.Tables
 {
     /// <summary>
     /// 系统模块依赖项实体

@@ -44,9 +44,13 @@ namespace SMT.SaaS.LocalData
         /// </summary>
         public decimal? WorkingAge { get; set; }
         /// <summary>
-        /// 员工电话
+        /// 员工办公电话
         /// </summary>
-        public string Telphone { set; get; }
+        public string OfficeTelphone { set; get; }
+        /// <summary>
+        /// 员工私人手机号码
+        /// </summary>
+        public string MobileTelphone { set; get; }
         /// <summary>
         /// 当前登录记录ID
         /// </summary>
@@ -57,7 +61,7 @@ namespace SMT.SaaS.LocalData
         public List<UserPost> UserPosts { get; set; }
         /// <summary>
         /// 用户名
-        /// </summary>
+        /// </summary>        
         public string UserName { get; set; }
         /// <summary>
         /// 用户密码
@@ -68,9 +72,15 @@ namespace SMT.SaaS.LocalData
         /// </summary>
         public List<V_UserPermissionUI> PermissionInfoUI { get; set; }
 
-        public LoginUserInfo() {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public LoginUserInfo() 
+        {
             if (UserPosts == null)
+            {
                 UserPosts = new List<UserPost>();
+            }
         }
     }
 }

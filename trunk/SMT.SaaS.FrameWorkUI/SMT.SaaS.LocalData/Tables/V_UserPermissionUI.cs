@@ -2,7 +2,7 @@
 
 namespace SMT.SaaS.LocalData
 {
-   /// <summary>
+    /// <summary>
     /// 用来处理各个项目的UI中的权限的获取
     /// </summary>
     public class V_UserPermissionUI
@@ -38,7 +38,6 @@ namespace SMT.SaaS.LocalData
 
     public class PermissionValue
     {
-
         public string Permission;
 
         public List<OrgObject> OrgObjects;

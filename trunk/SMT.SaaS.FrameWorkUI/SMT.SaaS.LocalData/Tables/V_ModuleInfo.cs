@@ -1,6 +1,9 @@
 ﻿
-namespace SterlingDemoProject.Tables
+namespace SMT.SaaS.LocalData.Tables
 {
+    /// <summary>
+    /// 本地系统信息实体
+    /// </summary>
     public class V_ModuleInfo
     {
         #region ModuleInfo成员
@@ -66,7 +69,6 @@ namespace SterlingDemoProject.Tables
             set { _modulename = value; }
             get { return _modulename; }
         }
-
 
         /// <summary>
         /// 模块类型，Type全称，包含DLL版本信息

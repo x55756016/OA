@@ -8,7 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using SterlingDemoProject.Tables;
+using SMT.SaaS.LocalData.Tables;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,12 +86,9 @@ namespace SMT.SaaS.LocalData.ViewModel
                         where o.LazyValue.Value.UserID == strUserID
                         select o.LazyValue.Value).Count();
 
-            if (ents != null)
+            if (ents > 0)
             {
-                if (ents > 0)
-                {
-                    bIsExists = true;
-                }
+                bIsExists = true;
             }
 
             return bIsExists;
@@ -120,7 +117,7 @@ namespace SMT.SaaS.LocalData.ViewModel
         {
             V_DepartmentInfo deleteV_DepartmentInfo = (from o in SterlingService.Current.Database.Query<V_DepartmentInfo, string>()
                                                        where o.LazyValue.Value.UserID == strUserID && o.LazyValue.Value.DEPARTMENTID == strDepartmentID
-                                                 select o.LazyValue.Value).FirstOrDefault();
+                                                       select o.LazyValue.Value).FirstOrDefault();
             if (deleteV_DepartmentInfo != null)
             {
                 SterlingService.Current.Database.Delete(deleteV_DepartmentInfo);

@@ -15,62 +15,115 @@ using SMT.SaaS.LocalData.Database;
 
 namespace SMT.SaaS.LocalData
 {
+    /// <summary>
+    /// 本地数据库服务类
+    /// </summary>
     public sealed class SterlingService : IApplicationService, IApplicationLifetimeAware, IDisposable
     {
-        private SterlingEngine _engine;
+        /// <summary>
+        /// 本地数据库引擎
+        /// </summary>
+        private SterlingEngine sengine;
+
+        /// <summary>
+        /// 本地数据库服务
+        /// </summary>
         public static SterlingService Current { get; private set; }
+
+        /// <summary>
+        /// 本地数据库接口
+        /// </summary>
         public ISterlingDatabaseInstance Database { get; private set; }
-        private SterlingDefaultLogger _logger;
+
+        /// <summary>
+        /// 本地数据库日志类
+        /// </summary>
+        private SterlingDefaultLogger sdlogger;
+
+        /// <summary>
+        /// 启动本地数据库服务
+        /// </summary>
+        /// <param name="context">应用程序池</param>
         public void StartService(ApplicationServiceContext context)
         {
-            if (DesignerProperties.IsInDesignTool) return;
-            _engine = new SterlingEngine();
+            if (DesignerProperties.IsInDesignTool)
+            { 
+                return; 
+            }
+            sengine = new SterlingEngine();
             Current = this;
         }
 
+        /// <summary>
+        /// 服务停止
+        /// </summary>
         public void StopService()
-        { return; }
+        { 
+            return; 
+        }
 
+        /// <summary>
+        /// 服务启动
+        /// </summary>
         public void Starting()
         {
-            if (DesignerProperties.IsInDesignTool) return;
-             if (Debugger.IsAttached)
-        {
-          _logger = new SterlingDefaultLogger(SterlingLogLevel.Verbose);
+            if (DesignerProperties.IsInDesignTool)
+            {
+                return;
+            }
+            if (Debugger.IsAttached)
+            {
+                sdlogger = new SterlingDefaultLogger(SterlingLogLevel.Verbose);
+            }
+
+            sengine.Activate();
+
+            Database = sengine.SterlingDatabase.RegisterDatabase<SMTLacalDB>();
         }
 
-            _engine.Activate();
-
-            Database = _engine.SterlingDatabase.RegisterDatabase<SMTLacalDB>();            
-        }
-
+        /// <summary>
+        /// 启动
+        /// </summary>
         public void Started()
-        { return; }
+        { 
+            return; 
+        }
 
+        /// <summary>
+        /// 注销
+        /// </summary>
         public void Exiting()
         {
-            if (DesignerProperties.IsInDesignTool) return;
-            if (Debugger.IsAttached && _logger != null)
+            if (DesignerProperties.IsInDesignTool)
             {
-                _logger.Detach();
+                return;
+            }
+            if (Debugger.IsAttached && sdlogger != null)
+            {
+                sdlogger.Detach();
             }
         }
 
+        /// <summary>
+        /// 注销完成
+        /// </summary>
         public void Exited()
         {
             Dispose();
-            _engine = null;
+            sengine = null;
             return;
         }
 
+        /// <summary>
+        /// 清理
+        /// </summary>
         public void Dispose()
         {
-            if (_engine != null)
+            if (sengine != null)
             {
-                _engine.Dispose();
+                sengine.Dispose();
             }
             GC.SuppressFinalize(this);
         }
     }
-
 }

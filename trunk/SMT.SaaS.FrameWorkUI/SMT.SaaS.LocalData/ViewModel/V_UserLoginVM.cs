@@ -1,8 +1,7 @@
-﻿using SterlingDemoProject.Tables;
+﻿using SMT.SaaS.LocalData.Tables;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using SMT.SaaS.LocalData.Tables;
 
 namespace SMT.SaaS.LocalData.ViewModel
 {
@@ -58,7 +57,7 @@ namespace SMT.SaaS.LocalData.ViewModel
                 {
                     DeleteAllV_PostInfo(UserName);
                 }
-            }                
+            }
             SterlingService.Current.Database.Save(ents);
             SterlingService.Current.Database.Flush();
         }
@@ -70,15 +69,12 @@ namespace SMT.SaaS.LocalData.ViewModel
                         where o.LazyValue.Value.EMPLOYEEID == UserName
                         select o.LazyValue.Value).Count();
 
-            if (ents != null)
+            if (ents > 0)
             {
-                if (ents > 0)
-                {
-                    bIsExists = true;
-                }
+                bIsExists = true;
             }
 
-            return bIsExists;                 
+            return bIsExists;
         }
 
         public static V_UserLogin Get_V_UserLogin(string UserName)

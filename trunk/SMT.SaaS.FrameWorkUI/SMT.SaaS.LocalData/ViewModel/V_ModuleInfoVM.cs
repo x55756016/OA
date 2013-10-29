@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using SMT.SaaS.LocalData;
-using SterlingDemoProject.Tables;
+using SMT.SaaS.LocalData.Tables;
 
 namespace SMT.SaaS.LocalData.ViewModel
 {
@@ -87,15 +87,12 @@ namespace SMT.SaaS.LocalData.ViewModel
                         where o.LazyValue.Value.UserID == strUserID
                         select o.LazyValue.Value).Count();
 
-            if (ents != null)
+            if (ents > 0)
             {
-                if (ents > 0)
-                {
-                    bIsExists = true;
-                }
+                bIsExists = true;
             }
 
-            return bIsExists;                 
+            return bIsExists;
         }
 
         public static List<V_ModuleInfo> GetAllV_ModuleInfo(string strUserID)

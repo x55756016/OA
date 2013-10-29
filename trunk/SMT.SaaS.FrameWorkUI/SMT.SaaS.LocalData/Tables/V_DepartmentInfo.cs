@@ -1,5 +1,5 @@
 ﻿
-namespace SterlingDemoProject.Tables
+namespace SMT.SaaS.LocalData.Tables
 {
     public class V_DepartmentInfo
     {

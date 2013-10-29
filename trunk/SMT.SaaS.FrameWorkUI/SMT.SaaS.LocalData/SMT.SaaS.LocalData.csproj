@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0FE5E626-1839-47B9-9457-79D042153EE0}</ProjectGuid>
+    <ProjectGuid>{ABE30DE4-D5DF-49A0-A0FF-E0E518DD7E10}</ProjectGuid>
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>SMT.SaaS.LocalData.snk</AssemblyOriginatorKeyFile>
@@ -76,6 +76,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tables\V_DictionaryInfo.cs" />
+    <Compile Include="Tables\V_PermissionCheck.cs" />
     <Compile Include="Tables\V_PostInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,22 +87,28 @@
     <Compile Include="Tables\T_SYS_ENTITYMENU.cs" />
     <Compile Include="Tables\UserPost.cs" />
     <Compile Include="Tables\V_UserLogin.cs" />
+    <Compile Include="Tables\V_UserPermUILocal.cs" />
     <Compile Include="ViewModel\V_CompanyInfoVM.cs" />
+    <Compile Include="ViewModel\V_CustomerPermissionVM.cs" />
     <Compile Include="ViewModel\V_DepartmentInfoVM.cs" />
     <Compile Include="ViewModel\V_DictionaryInfoVM.cs" />
     <Compile Include="Tables\V_EMPLOYEEPOSTBRIEF.cs" />
     <Compile Include="ViewModel\V_ModuleInfoVM.cs" />
     <Compile Include="ViewModel\V_ModuleInfo_DependsOnVM.cs" />
     <Compile Include="ViewModel\V_ModuleInfo_ParamsVM.cs" />
+    <Compile Include="ViewModel\V_OrgObjectVM.cs" />
+    <Compile Include="ViewModel\V_PermissionCheckVM.cs" />
+    <Compile Include="ViewModel\V_PermissionValueVM.cs" />
     <Compile Include="ViewModel\V_PostInfoVM.cs" />
     <Compile Include="ViewModel\V_UserLoginVM.cs" />
     <Compile Include="Tables\V_UserPermissionUI.cs" />
+    <Compile Include="ViewModel\V_UserPermUILocalVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dll\Sterling.snk" />
+    <None Include="Dll\Wintellect.Sterling.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Dll\Wintellect.Sterling.dll" />
     <None Include="SMT.SaaS.LocalData.snk" />
   </ItemGroup>
   <ItemGroup>

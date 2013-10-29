@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using SMT.SaaS.LocalData;
-using SterlingDemoProject.Tables;
+using SMT.SaaS.LocalData.Tables;
 
 namespace SMT.SaaS.LocalData.ViewModel
 {
