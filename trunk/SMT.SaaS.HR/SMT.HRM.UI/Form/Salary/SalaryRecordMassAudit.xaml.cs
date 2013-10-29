@@ -716,7 +716,7 @@ namespace SMT.HRM.UI.Form.Salary
 
             //client.GetAuditSalaryRecordsPagingsAsync(dataPager.PageIndex, dataPager.PageSize, "EMPLOYEESALARYRECORDID", filter, paras, pageCount, Convert.ToDateTime(starttimes), Convert.ToDateTime(endtimes), ObjectType, ObjectValue, CheckState, userID);
             //client.GetAuditSalaryRecordsAsync(dataPager.PageIndex, dataPager.PageSize, "EMPLOYEESALARYRECORDID", filter, paras, pageCount, Convert.ToDateTime(starttimes), Convert.ToDateTime(endtimes), ObjectType, ObjectValue, CheckState, userID);
-            client.GetAuditSalaryRecordsAsync(dataPager.PageIndex, dataPager.PageSize, "DEPARTMENT", filter, paras, pageCount, Convert.ToDateTime(starttimes), Convert.ToDateTime(endtimes), ObjectType, ObjectValue, CheckState, userID);
+            client.GetAuditSalaryRecordsAsync(dataPager.PageIndex, dataPager.PageSize, "COMPANY", filter, paras, pageCount, Convert.ToDateTime(starttimes), Convert.ToDateTime(endtimes), ObjectType, ObjectValue, CheckState, userID);
         }
         #endregion
 

@@ -28,7 +28,8 @@ namespace SMT.HRM.UI.Views.Attendance
         private AttendanceServiceClient clientAtt = new AttendanceServiceClient();
         public string Checkstate { get; set; }
         private SMTLoading loadbar = new SMTLoading();
-
+         private SaveFileDialog dialog = new SaveFileDialog();
+         private bool? result;
         #endregion
 
         #region 初始化
@@ -63,11 +64,84 @@ namespace SMT.HRM.UI.Views.Attendance
             toolbar1.btnDelete.Click += new RoutedEventHandler(btnDelete_Click);
             toolbar1.btnAudit.Click += new RoutedEventHandler(btnAudit_Click);
             toolbar1.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
+            toolbar1.btnOutExcel.Visibility = Visibility;
+            toolbar1.btnOutExcel.Click += new RoutedEventHandler(btnOutExcel_Click);//导出签卡明细
             toolbar1.cbxCheckState.SelectionChanged += new SelectionChangedEventHandler(cbxCheckState_SelectionChanged);
 
             clientAtt.EmployeeSignInRecordPagingCompleted += new EventHandler<EmployeeSignInRecordPagingCompletedEventArgs>(client_EmployeeSignInRecordPagingCompleted);
             clientAtt.EmployeeSigninRecordDeleteCompleted += new EventHandler<EmployeeSigninRecordDeleteCompletedEventArgs>(client_EmployeeSigninRecordDeleteCompleted);
+            clientAtt.ExportEmployeeSignInCompleted += new EventHandler<ExportEmployeeSignInCompletedEventArgs>(clientAtt_ExportEmployeeSignInCompleted);
+        }
 
+        /// <summary>
+        /// 导出单条员工异常签卡明细
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnOutExcel_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string strSignInID = string.Empty;
+                if (dgSignInList.SelectedItems == null)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("PLEASESELECTONE"));
+                    return;
+                }
+                if (dgSignInList.SelectedItems.Count == 0)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("PLEASESELECTONE"));
+                    return;
+                }
+                T_HR_EMPLOYEESIGNINRECORD entSignInRd = dgSignInList.SelectedItems[0] as T_HR_EMPLOYEESIGNINRECORD;
+                strSignInID = entSignInRd.SIGNINID;
+                dialog.Filter = "MS Excel Files|*.xls";
+                dialog.FilterIndex = 1;
+                result = dialog.ShowDialog();
+                clientAtt.ExportEmployeeSignInAsync(strSignInID);
+            }
+            catch (Exception ex)
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), ex.ToString(), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 导出单条员工异常签卡明细完成时间
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void clientAtt_ExportEmployeeSignInCompleted(object sender, ExportEmployeeSignInCompletedEventArgs e)
+        {
+            try
+            {
+                if (result == true)
+                {
+                    if (e.Error == null)
+                    {
+                        if (e.Result != null)
+                        {
+                            using (System.IO.Stream stream = dialog.OpenFile())
+                            {
+                                stream.Write(e.Result, 0, e.Result.Length);
+                                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("导出成功"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                            }
+                        }
+                        else
+                        {
+                            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("没有数据可导出"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), ex.ToString(), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
         }
 
         private void InitPage()
