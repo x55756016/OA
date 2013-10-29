@@ -18,14 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.10.0.93:8080/New/Services/PublicInterface/PublicService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.57/New/Services/PublicInterface/PublicService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PublicService.xsd" MetadataType="Schema" ID="f8c2862a-2c0e-4607-9a49-749e2dc6776c" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/PublicInterface/PublicService.svc?xsd=xsd1" />
-    <MetadataFile FileName="PublicService.disco" MetadataType="Disco" ID="4f187c48-0bbb-4bdc-96d5-f4e6b93258bd" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/PublicInterface/PublicService.svc?disco" />
-    <MetadataFile FileName="PublicService1.xsd" MetadataType="Schema" ID="947502d9-506a-4b5f-9023-6e40c33a9799" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/PublicInterface/PublicService.svc?xsd=xsd0" />
-    <MetadataFile FileName="PublicService.wsdl" MetadataType="Wsdl" ID="bc93a1a1-d61b-413d-bd9c-00499fec920f" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/PublicInterface/PublicService.svc?wsdl" />
-    <MetadataFile FileName="PublicService2.xsd" MetadataType="Schema" ID="fb1df7dd-caad-4fbc-b8d9-31ba4afb3daf" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/PublicInterface/PublicService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PublicService3.xsd" MetadataType="Schema" ID="352cea72-55aa-46bf-b8d7-ee0c497698fe" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PublicService1.wsdl" MetadataType="Wsdl" ID="10cde73e-163c-4644-9370-4753641ec3ae" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?wsdl" />
+    <MetadataFile FileName="PublicService1.disco" MetadataType="Disco" ID="ab5cb823-90a1-4a7e-9740-df952524f2d0" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?disco" />
+    <MetadataFile FileName="PublicService31.xsd" MetadataType="Schema" ID="dee9c556-e270-49f1-a6cf-210a39e53ef8" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PublicService32.xsd" MetadataType="Schema" ID="d53bbff5-6c6a-4e8e-96d2-ef62bd45c036" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

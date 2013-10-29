@@ -1051,14 +1051,14 @@
     <None Include="Service References\PMUserLoginWS\SMT.SaaS.BLLCommonServices.PMUserLoginWS.V_UserLogin.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PublicInterfaceWS\PublicService.wsdl" />
-    <None Include="Service References\PublicInterfaceWS\PublicService.xsd">
+    <None Include="Service References\PublicInterfaceWS\PublicService1.wsdl" />
+    <None Include="Service References\PublicInterfaceWS\PublicService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PublicInterfaceWS\PublicService1.xsd">
+    <None Include="Service References\PublicInterfaceWS\PublicService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PublicInterfaceWS\PublicService2.xsd">
+    <None Include="Service References\PublicInterfaceWS\PublicService32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\RMServicesWS\RMServices1.wsdl" />
@@ -1554,13 +1554,13 @@
     <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices1.disco" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\PublicInterfaceWS\PublicService1.disco" />
     <None Include="Service References\PublicInterfaceWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\PublicInterfaceWS\configuration.svcinfo" />
     <None Include="Service References\PublicInterfaceWS\configuration91.svcinfo" />
-    <None Include="Service References\PublicInterfaceWS\PublicService.disco" />
     <None Include="Service References\VMServiceWS\VMServices1.disco" />
     <None Include="Service References\TKServicesWS\TKServices1.disco" />
     <None Include="Service References\TMServicesWS\TMServices1.disco" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/PublicInterface/PublicService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.PublicInterface.BLL" />
+  <xs:import schemaLocation="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.PublicInterface.BLL" />
   <xs:element name="GetBusinessObject">
     <xs:complexType>
       <xs:sequence>
