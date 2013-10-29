@@ -1200,7 +1200,8 @@ namespace SMT.HRM.BLL
                     standerItems = GetstandardItemByStandardID(stand.SALARYSTANDARDID);
                     foreach (T_HR_SALARYSTANDARDITEM item in standerItems)
                     {
-                        if (item.T_HR_SALARYITEM.SALARYITEMID == "7692ec13-0785-432d-abd8-aa26b993216c")
+                        //if (item.T_HR_SALARYITEM.SALARYITEMID == "7692ec13-0785-432d-abd8-aa26b993216c")
+                        if (item.T_HR_SALARYITEM.SALARYITEMNAME == "固定收入合计")
                         {
                             fixSalary = Convert.ToDecimal(item.SUM);
                             break;

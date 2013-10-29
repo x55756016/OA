@@ -8,6 +8,7 @@ using SMT_HRM_EFModel;
 using System.Data.Objects.DataClasses;
 using System.Collections;
 using System.Linq.Dynamic;
+using System.Data;
 
 namespace SMT.HRM.BLL
 {
@@ -385,6 +386,146 @@ namespace SMT.HRM.BLL
 
         }
 
+        /// <summary>
+        /// 导出员工签卡明细
+        /// </summary>
+        /// <param name="signinID">签卡单ID</param>
+        /// <returns></returns>
+        public byte[] ExportEmployeeSignIn(string signinID)
+        {
+            try
+            {
+                EmployeeSignInRecordBLL bll=new EmployeeSignInRecordBLL();
+                T_HR_EMPLOYEESIGNINRECORD record = bll.GetEmployeeSigninRecordByID(signinID);
+                string empName = string.Empty;
+                if (record != null)
+                {
+                    empName = record.EMPLOYEENAME;
+                }
+                var ent = this.GetEmployeeSignInDetailBySigninID(signinID);
+                byte[] result;
+                DataTable dt = TableToExportInit();
+                if (ent!=null && ent.Any())
+                {
+                    DataTable dttoExport = GetDataConversion(dt, ent);
+                    result = Utility.OutFileStream(empName + Utility.GetResourceStr(" 异常签卡明细"), dttoExport);
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("ExportEmployeeSignIn导出员工签卡信息:" + ex.Message);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 数据组装
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="entSignIn"></param>
+        /// <returns></returns>
+        private DataTable GetDataConversion(DataTable dt, IQueryable<T_HR_EMPLOYEESIGNINDETAIL> entSignIn)
+        {
+            dt.Rows.Clear();
+            foreach (var item in entSignIn)
+            {
+                try
+                {
+                    var dic = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "ABNORMCATEGORY", "ATTENDPERIOD", "REASONCATEGORY" });//获取字典值
+                    // nationDict = tmp.Where(s => s.DICTIONCATEGORY == "NATION" && s.DICTIONARYVALUE == nationValue).FirstOrDefault();
+                    DataRow row = dt.NewRow();
+                    #region 每行数据
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0: row[i] = item.ABNORMALDATE.Value.ToString("yyyy-MM-dd"); break;//异常日期
+                            case 1:
+                                decimal? abCategory = Convert.ToDecimal(item.ABNORMCATEGORY);
+                                var dicAbCategory = dic.Where(s => s.DICTIONCATEGORY == "ABNORMCATEGORY" && s.DICTIONARYVALUE == abCategory).FirstOrDefault();
+                                if (dicAbCategory != null)
+                                {
+                                    row[i] = dicAbCategory.DICTIONARYNAME; ;//异常类型
+                                }
+                                break;
+                            case 2:
+                                decimal? abOd = Convert.ToDecimal(item.ATTENDPERIOD);
+                                var dicAbOd = dic.Where(s => s.DICTIONCATEGORY == "ATTENDPERIOD" && s.DICTIONARYVALUE == abOd).FirstOrDefault();
+                                if (dicAbOd != null)
+                                {
+                                    row[i] = dicAbOd.DICTIONARYNAME;//异常时间段
+                                }
+                                break;
+                            case 3: row[i] = item.ABNORMALTIME; break;//异常时长（分钟）
+                            case 4:
+                                decimal? reCategory = Convert.ToDecimal(item.REASONCATEGORY);
+                                var dicReCategory = dic.Where(s => s.DICTIONCATEGORY == "REASONCATEGORY" && s.DICTIONARYVALUE == reCategory).FirstOrDefault();
+                                if (dicReCategory != null)
+                                {
+                                    row[i] = dicReCategory.DICTIONARYNAME; ;//异常原因类型
+                                }
+                                break;
+                            case 5: row[i] = item.DETAILREASON; break;//异常原因
+                        }
+                    }
+                    dt.Rows.Add(row);
+                    #endregion
+                }
+                catch (Exception ex)
+                {
+                    SMT.Foundation.Log.Tracer.Debug("ExportEmployeeSignIn导出员工签卡信息组装DataTable时出错:" + ex.Message);
+                    return null;
+                }
+
+            }
+            return dt;
+        }
+
+        /// <summary>
+        /// 定义表头
+        /// </summary>
+        /// <returns></returns>
+        private DataTable TableToExportInit()
+        {
+            DataTable dt = new DataTable();
+            #region 定义表头名称
+            DataColumn col1 = new DataColumn();
+            col1.ColumnName = "异常时间";
+            col1.DataType = typeof(string);
+            dt.Columns.Add(col1);
+
+            DataColumn col2 = new DataColumn();
+            col2.ColumnName = "异常类型";
+            col2.DataType = typeof(string);
+            dt.Columns.Add(col2);
+
+            DataColumn col3 = new DataColumn();
+            col3.ColumnName = "异常时间段";
+            col3.DataType = typeof(string);
+            dt.Columns.Add(col3);
+
+            DataColumn col4 = new DataColumn();
+            col4.ColumnName = "异常时长(分钟)";
+            col4.DataType = typeof(decimal);
+            dt.Columns.Add(col4);
+
+            DataColumn col5 = new DataColumn();
+            col5.ColumnName = "异常原因类型";
+            col5.DataType = typeof(string);
+            dt.Columns.Add(col5);
+
+            DataColumn col6 = new DataColumn();
+            col6.ColumnName = Utility.GetResourceStr("异常原因");
+            col6.DataType = typeof(string);
+            dt.Columns.Add(col6);
+            #endregion
+            return dt;
+        }
         #endregion       
     
         

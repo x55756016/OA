@@ -3336,6 +3336,7 @@ namespace SMT.HRM.BLL
             s.Append("<td align=center class=\"title\" >看护假天数</td>");
             s.Append("<td align=center class=\"title\" >路程假天数</td>");
             s.Append("<td align=center class=\"title\" >工伤假天数</td>");
+            s.Append("<td align=center class=\"title\" >产前检查假天数</td>");            
             s.Append("<td align=center class=\"title\" >丧假天数</td>");
             s.Append("<td align=center class=\"title\" >出差天数</td>");
 
@@ -3372,14 +3373,17 @@ namespace SMT.HRM.BLL
                     s.Append("<td class=\"x1282\">" + Collects[i].ANNUALLEVELDAYS + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].LEAVEUSEDDAYS + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].AFFAIRLEAVEDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].SICKLEAVEDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].MARRYDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].MATERNITYLEAVEDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].NURSESDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].TRIPDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].INJURYLEAVEDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].FUNERALLEAVEDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].EVECTIONTIME + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].SICKLEAVEDAYS + "</td>");//病假
+                    s.Append("<td class=\"x1282\">" + Collects[i].MARRYDAYS + "</td>");//婚假
+                    s.Append("<td class=\"x1282\">" + Collects[i].MATERNITYLEAVEDAYS + "</td>");//产假
+                    s.Append("<td class=\"x1282\">" + Collects[i].NURSESDAYS + "</td>");//看护假
+                    s.Append("<td class=\"x1282\">" + Collects[i].TRIPDAYS + "</td>");//路程假
+                    s.Append("<td class=\"x1282\">" + Collects[i].INJURYLEAVEDAYS + "</td>");//公伤假
+                    s.Append("<td class=\"x1282\">" + Collects[i].PRENATALCARELEAVEDAYS + "</td>");//产前检查假
+                    s.Append("<td class=\"x1282\">" + Collects[i].FUNERALLEAVEDAYS + "</td>");//丧假
+                    s.Append("<td class=\"x1282\">" + Collects[i].EVECTIONTIME + "</td>");//出差天数
+
+
 
 
                     s.Append("</tr>");

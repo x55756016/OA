@@ -77,6 +77,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.Globalization.dll</HintPath>
     </Reference>
+    <Reference Include="SMT.SaaS.MoblieXml">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.MoblieXml.dll</HintPath>
+    </Reference>
     <Reference Include="SMT.SaaS.SmtOlineEn">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.SmtOlineEn.dll</HintPath>
     </Reference>
@@ -132,6 +135,7 @@
     <Compile Include="CheckPointLevelSetBLL.cs" />
     <Compile Include="CheckPointSetBLL.cs" />
     <Compile Include="CheckProjectSetBLL.cs" />
+    <Compile Include="Common\IAudit.cs" />
     <Compile Include="ClockInRecordBLL.cs" />
     <Compile Include="ClockInRecordBLLTe.cs" />
     <Compile Include="Common\Class1.cs" />
@@ -236,13 +240,14 @@
     <Compile Include="SalaryArchiveBLL.cs" />
     <Compile Include="EmployeeSalaryRecordBLL.cs" />
     <Compile Include="OutApplyBLL.cs" />
+    <Compile Include="NoAttendCardEmployeesBLL.cs" />
     <Compile Include="缓存 CompanyBLL.cs" />
     <Compile Include="缓存 DepartmentBLL.cs" />
     <Compile Include="缓存 PostBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
-      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
+      <Project>{6673751a-d03d-4d7a-acf3-f363469b73ae}</Project>
       <Name>SMT.SAAS.BLLCommonServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">

@@ -128,58 +128,70 @@ namespace SMT.HRM.BLL
         /// <returns>公司列表</returns>
         public IQueryable<T_HR_COMPANY> GetCompanyActived(string userID, string perm, string entity)
         {
-
-            string state = ((int)EditStates.Actived).ToString();
-            string checkState = ((int)CheckStates.Approved).ToString();
-            //var ents = from a in dal.GetObjects()
-            //           where a.EDITSTATE == state && a.CHECKSTATE == checkState
-            //       select a;
-            List<object> paras = new List<object>();
-            string filterString = "";
-
-            if (!string.IsNullOrEmpty(userID))
+            try
             {
-                SetOrganizationFilter(ref filterString, ref paras, userID, entity, perm);
-                SetCompanyFilter(ref filterString, ref paras, userID);
-            }
+                string state = ((int)EditStates.Actived).ToString();
+                string checkState = ((int)CheckStates.Approved).ToString();
+                //var ents = from a in dal.GetObjects()
+                //           where a.EDITSTATE == state && a.CHECKSTATE == checkState
+                //       select a;
+                List<object> paras = new List<object>();
+                string filterString = "";
 
-            if (!string.IsNullOrEmpty(filterString))
-            {
-                filterString = "(" + filterString + ")";
-                filterString += " and EDITSTATE==@" + paras.Count;
-                paras.Add(state);
-            }
-            else
-            {
-                filterString = "EDITSTATE==@" + paras.Count;
-                paras.Add(state);
-            }
-
-            filterString += " and CHECKSTATE==@" + paras.Count;
-            paras.Add(checkState);
-
-            IQueryable<T_HR_COMPANY> ents = dal.GetObjects();
-            if (!string.IsNullOrEmpty(filterString))
-            {
-                ents = ents.Where(filterString, paras.ToArray());
-            }
-            if (string.IsNullOrEmpty(userID))
-            {
-                List<T_HR_COMPANY> cl = new List<T_HR_COMPANY>();
-
-                foreach (var q in ents)
+                if (!string.IsNullOrEmpty(userID))
                 {
-                    T_HR_COMPANY c = new T_HR_COMPANY();
-                    c.COMPANYID = q.COMPANYID;
-                    c.CNAME = q.CNAME;
-                    c.FATHERID = q.FATHERID;
-                    c.FATHERTYPE = q.FATHERTYPE;
-                    cl.Add(c);
-
+                    SetOrganizationFilter(ref filterString, ref paras, userID, entity, perm);
+                    SetCompanyFilter(ref filterString, ref paras, userID);
                 }
-                return cl.AsQueryable();
+
+                if (!string.IsNullOrEmpty(filterString))
+                {
+                    filterString = "(" + filterString + ")";
+                    filterString += " and EDITSTATE==@" + paras.Count;
+                    paras.Add(state);
+                }
+                else
+                {
+                    filterString = "EDITSTATE==@" + paras.Count;
+                    paras.Add(state);
+                }
+
+                filterString += " and CHECKSTATE==@" + paras.Count;
+                paras.Add(checkState);
+
+                IQueryable<T_HR_COMPANY> ents = dal.GetObjects();
+                if (!string.IsNullOrEmpty(filterString))
+                {
+                    ents = ents.Where(filterString, paras.ToArray());
+                }
+                if (string.IsNullOrEmpty(userID))
+                {
+                    List<T_HR_COMPANY> cl = new List<T_HR_COMPANY>();
+
+                    foreach (var q in ents)
+                    {
+                        T_HR_COMPANY c = new T_HR_COMPANY();
+                        c.COMPANYID = q.COMPANYID;
+                       // c.CNAME = q.CNAME;
+                        c.CNAME = q.BRIEFNAME == null ? q.CNAME : q.BRIEFNAME;
+                        c.FATHERID = q.FATHERID;
+                        c.FATHERTYPE = q.FATHERTYPE;
+                        cl.Add(c);
+
+                    }
+                    return cl.AsQueryable();
+                }
+                foreach (var item in ents)
+                {
+                   item.CNAME = item.BRIEFNAME == null ? item.CNAME : item.BRIEFNAME;
+                }
+                return ents;
             }
-            return ents;
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + " GetCompanyActived获取公司信息错误:" + ex.Message);
+                return null;
+            }
         }
         /// <summary>
         /// 获取除审核状态不通过和编辑状态为删除全部可用的公司信息
@@ -1135,7 +1147,7 @@ namespace SMT.HRM.BLL
                                select new V_COMPANY
                                {
                                    COMPANYID = c.COMPANYID,
-                                   CNAME = c.CNAME,
+                                   CNAME = c.BRIEFNAME == null ? c.CNAME : c.BRIEFNAME,
                                    ENAME = c.ENAME,
                                    COMPANRYCODE = c.COMPANRYCODE,
                                    BRIEFNAME = c.BRIEFNAME,
@@ -1185,7 +1197,7 @@ namespace SMT.HRM.BLL
                                select new V_COMPANY
                                {
                                    COMPANYID = c.COMPANYID,
-                                   CNAME = c.CNAME,
+                                   CNAME = c.BRIEFNAME == null ? c.CNAME : c.BRIEFNAME,
                                    ENAME = c.ENAME,
                                    COMPANRYCODE = c.COMPANRYCODE,
                                    BRIEFNAME = c.BRIEFNAME,
@@ -1238,7 +1250,7 @@ namespace SMT.HRM.BLL
                                select new V_COMPANY
                                {
                                    COMPANYID = c.COMPANYID,
-                                   CNAME = c.CNAME,
+                                   CNAME = c.BRIEFNAME == null ? c.CNAME : c.BRIEFNAME,
                                    ENAME = c.ENAME,
                                    COMPANRYCODE = c.COMPANRYCODE,
                                    BRIEFNAME = c.BRIEFNAME,
