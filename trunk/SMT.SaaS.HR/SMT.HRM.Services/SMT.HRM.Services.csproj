@@ -61,10 +61,6 @@
     <Reference Include="Smt.Global.IContract">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\Smt.Global.IContract.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -132,7 +128,9 @@
     <Content Include="XML\T_HR_EMPLOYEEEVECTIONRECORD.xml" />
     <Content Include="XML\T_HR_EMPLOYEEEVECTIONREPORT.xml" />
     <Content Include="XML\T_HR_EMPLOYEEINSURANCE.xml" />
-    <Content Include="XML\T_HR_EMPLOYEELEAVERECORD.xml" />
+    <Content Include="XML\T_HR_EMPLOYEELEAVERECORD.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="XML\T_HR_OUTAPPLYRECORD.xml" />
     <Content Include="XML\T_HR_EMPLOYEEOVERTIMERECORD.xml" />
     <Content Include="XML\T_HR_EMPLOYEEPOST.xml" />
@@ -220,6 +218,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
+      <Project>{6673751a-d03d-4d7a-acf3-f363469b73ae}</Project>
+      <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.HRM.BLL\SMT.HRM.BLL.csproj">
       <Project>{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}</Project>
       <Name>SMT.HRM.BLL</Name>

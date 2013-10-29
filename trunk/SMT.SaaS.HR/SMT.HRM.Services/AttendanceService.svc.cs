@@ -2639,6 +2639,19 @@ namespace SMT.HRM.Services
                 bll.AbnormRecordCheckAlarm(strEmployeeId);
             }
         }
+        /// <summary>
+        /// 导出员工签卡明细
+        /// </summary>
+        /// <param name="signinID">签卡单ID</param>
+        /// <returns></returns>
+        [OperationContract]
+        public byte[] ExportEmployeeSignIn(string signinID)
+        {
+            using (EmployeeSignInDetailBLL bll = new EmployeeSignInDetailBLL())
+            {
+                return bll.ExportEmployeeSignIn(signinID);
+            }
+        }
         #endregion
 
         #region T_HR_EMPLOYEESIGNINDETAIL 员工签卡记录子表
