@@ -1028,11 +1028,11 @@ namespace SMT.HRM.BLL
             return ad;
         }
         #endregion
-        
 
-        public string GetBusinessObject(string SystemCode,string BusinessObjectName)
+
+        public string GetBusinessObject(TEntity entity)
         {
-            string BusinessObject = PublicInterfaceClient.GetBusinessObject(SystemCode, BusinessObjectName);
+            string BusinessObject = PublicInterfaceClient.GetBusinessObject("HR", entity.GetType().Name);
             return BusinessObject;
         }
         /// <summary>
