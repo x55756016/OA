@@ -29,11 +29,11 @@ namespace SMT.HRM.Services
         /// <param name="pageCount">返回总页数</param>
         /// <returns>查询结果集</returns>
         [OperationContract]
-        public List<T_HR_OUTAPPLYRECORD> EmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID)
+        public List<T_HR_OUTAPPLYRECORD> EmployeeOutApplyRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID)
         {
-            using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
+            using (OutApplyBLL bll = new OutApplyBLL())
             {
-                var ents = bllOverTimeRecord.EmployeeOverTimeRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID);
+                var ents = bll.EmployeeOutApplyRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID);
 
                 if (ents == null)
                 {
@@ -50,11 +50,11 @@ namespace SMT.HRM.Services
         /// <param name="strOverTimeRecordId">主键索引</param>
         /// <returns></returns>
         [OperationContract]
-        public T_HR_OUTAPPLYRECORD GetOverTimeRdByID(string strOverTimeRecordId)
+        public T_HR_OUTAPPLYRECORD GetOutApplyByID(string strOverTimeRecordId)
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
-                return bllOverTimeRecord.GetOverTimeRdByID(strOverTimeRecordId);
+                return bllOverTimeRecord.GetOutApplyByID(strOverTimeRecordId);
             }
         }
 
@@ -64,11 +64,11 @@ namespace SMT.HRM.Services
         /// <param name="entOTRd"></param>
         /// <returns></returns>
         [OperationContract]
-        public string AddOverTimeRd(T_HR_OUTAPPLYRECORD entOTRd)
+        public string AddOutApply(T_HR_OUTAPPLYRECORD entOTRd)
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
-                return bllOverTimeRecord.OverTimeRecordAdd(entOTRd);
+                return bllOverTimeRecord.AddOutApply(entOTRd);
             }
         }
 
@@ -78,11 +78,13 @@ namespace SMT.HRM.Services
         /// <param name="entOTRd"></param>
         /// <returns></returns>
         [OperationContract]
-        public string ModifyOverTimeRd(T_HR_OUTAPPLYRECORD entOTRd)
+        public string UpdateOutApply(T_HR_OUTAPPLYRECORD entOTRd)
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
-                return bllOverTimeRecord.ModifyOverTimeRd(entOTRd);
+                if (bllOverTimeRecord.UpdateOutApply(entOTRd) == 1)
+                    return "OK";
+                else return "Fail";
             }
         }
 
@@ -92,11 +94,11 @@ namespace SMT.HRM.Services
         /// <param name="strOverTimeRecordId">主键索引</param>
         /// <returns></returns>
         [OperationContract]
-        public bool RemoveOverTimeRd(string[] strOverTimeRecordId)
+        public bool DeleteOutApply(string[] strOverTimeRecordId)
         {
-            using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
+            using (OutApplyBLL bll = new OutApplyBLL())
             {
-                int rslt = bllOverTimeRecord.DeleteOverTimeRd(strOverTimeRecordId);
+                int rslt = bll.DeleteOutApply(strOverTimeRecordId);
                 return (rslt > 0);
             }
         }
@@ -108,18 +110,18 @@ namespace SMT.HRM.Services
         /// <param name="strCheckState">审核状态</param>
         /// <returns></returns>
         [OperationContract]
-        public string AuditOverTimeRd(string strOverTimeRecordID, string strCheckState)
+        public string AuditOutApply(string strOverTimeRecordID, string strCheckState)
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
-                string rslt = bllOverTimeRecord.AuditOverTimeRd(strOverTimeRecordID, strCheckState);
+                string rslt = bllOverTimeRecord.AuditOutApply(strOverTimeRecordID, strCheckState);
                 return rslt;
             }
         }
         #endregion
 
 
-        #region T_HR_NOATTENDCARDEMPLOYEES 员工加班记录服务
+        #region T_HR_NOATTENDCARDEMPLOYEES 员工免打卡设置
         /// <summary>
         /// 用于实体Grid中显示数据的分页查询,获取所有的出差记录信息
         /// </summary>
