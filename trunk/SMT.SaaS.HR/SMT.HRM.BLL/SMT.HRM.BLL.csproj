@@ -241,6 +241,7 @@
     <Compile Include="EmployeeSalaryRecordBLL.cs" />
     <Compile Include="OutApplyBLL.cs" />
     <Compile Include="NoAttendCardEmployeesBLL.cs" />
+    <Compile Include="OutApplyConfirmBLL.cs" />
     <Compile Include="缓存 CompanyBLL.cs" />
     <Compile Include="缓存 DepartmentBLL.cs" />
     <Compile Include="缓存 PostBLL.cs" />
