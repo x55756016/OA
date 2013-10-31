@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="SMT.SaaS.Permission.UI.Form.SysPermissionForms"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:smtlocal="clr-namespace:SMT.SaaS.Permission.UI.Form"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+   >
+    <Grid x:Name="LayoutRoot" Style="{StaticResource FormGridStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--系统类型-->
+            <!--<TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}"></TextBlock>-->
+            <!--<TextBox x:Name="txtSystemType" Style="{StaticResource SysTextBoxStyle}" Text="{Binding SYSTEMTYPE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Left"  TextWrapping="Wrap"/>-->
+            <!--<ComboBox Name="cbxSystemType" Width="150" Height="22" Grid.Column="1" Grid.Row="0" ></ComboBox>-->
+            <!--权限名称-->
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+        <TextBlock  Grid.Column="0" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PERMISSIONNAME}" Margin="2,4"></TextBlock>
+        <TextBox  Style="{StaticResource TextBoxStyle}" x:Name="txtPerName"  Text="{Binding PERMISSIONNAME,Mode=TwoWay}" 
+                      Grid.Column="1"  MaxLength="50" Margin="4,4,10,4" Height="20" VerticalAlignment="Top">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PERMISSIONNAME" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <!--权限值-->
+        <TextBlock  Grid.Column="0" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PERMISSIONVALUE}" Margin="2,4"></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" MaxLength="5" x:Name="txtPerValue"  Text="{Binding PERMISSIONVALUE ,Mode=TwoWay}" Grid.Column="1"
+                     Grid.Row="1"   Margin="4,4,10,4" Height="20">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="PERMISSIONVALUE" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <TextBlock  Margin="2,4"
+                   Grid.Row="2"
+                   Text="公共权限"
+                   TextWrapping="Wrap" />
+        <RadioButton x:Name="rbtIsAutoyes"
+                     HorizontalAlignment="Left"
+                     Margin="4,8,2,2"
+                     Width="45"
+                     Click="rbtIsAutoyes_Click"
+                     Content="是"
+                     Grid.Column="1"
+                     
+                     Grid.Row="2" />
+        <RadioButton x:Name="rbtIsAutono"
+                     HorizontalAlignment="Right"
+                     Margin="30,8,10,2"
+                     Width="43"
+                     Click="tbtIsAutono_Click"
+                     Content="否"
+                     
+                     Grid.Column="1"
+                     Grid.Row="2" />
+        <TextBlock  Margin="2,4"
+                   Grid.Row="3"
+                   Text="权限编码"
+                   TextWrapping="Wrap" />
+        
+        <TextBox x:Name="txtCode"
+                 Margin="4,2,10,2"
+                 Grid.Column="1"
+                 Text="{Binding PERMISSIONCODE ,Mode=TwoWay}"
+                 Grid.Row="3"
+                 MaxLength="50"
+                 TextWrapping="Wrap">
+            
+        </TextBox>
+        <TextBlock  Margin="2,4"
+                    Grid.Row="4"
+                    Text="菜单"
+                    TextWrapping="Wrap" />
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    x:Name="expander">
+            <TextBlock Text="系统类型"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       Margin="2,4,8,4" />            
+            <ComboBox x:Name="cbxSystemType"
+                      Width="150"
+                      Height="22"
+                      Grid.Column="1"
+                      Grid.Row="4"
+                      HorizontalAlignment="Left" />
+            <TextBlock  Margin="2,4"
+                        Grid.Row="4"
+                        Text="菜单"
+                        TextWrapping="Wrap" />
+
+            <smtx:LookUp Grid.Row="4"
+                         Grid.Column="1"
+                         FindClick="lkParentMenu_FindClick"
+                         x:Name="lkParentMenu"
+                         Margin="0,2,10,2"
+                         Width="150" />
+        </StackPanel>
+        
+        
+        <!--备注-->
+            <TextBlock  Grid.Column="0" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Height="20" VerticalAlignment="Top" Margin="2,4" ></TextBlock>
+            <TextBox x:Name="txtRemark" Text="{Binding REMARK,Mode=TwoWay}"
+                 Grid.Column="1"
+                 HorizontalScrollBarVisibility="Auto"
+                 HorizontalAlignment="Stretch"
+                 AcceptsReturn="True"
+                 MaxHeight="100"
+                 VerticalScrollBarVisibility="Auto"
+
+                     MaxLength="2000"
+                 Grid.Row="5"
+                 Style="{StaticResource TextBoxStyle}"
+                 Margin="4,4,10,4"
+                  />
+    </Grid>
+</UserControl>

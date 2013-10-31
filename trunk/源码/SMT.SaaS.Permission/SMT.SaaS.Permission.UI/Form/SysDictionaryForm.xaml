@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="SMT.SaaS.Permission.UI.Form.SysDictionaryForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot" Margin="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.1*"/>
+
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--系统类型名-->
+        <TextBlock  Grid.Column="0" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}" VerticalAlignment="Center"/>
+        <!--<smt:LookUp DataContext="{Binding T_SYS_DICTIONARY, Mode=TwoWay}" Grid.Row="0" Grid.Column="1"  FindClick="lkSysType_FindClick"  
+            					  x:Name="lkSysType" Height="24"  DisplayMemberPath="SYSTEMNAME" />-->
+        <ComboBox x:Name="cbxSystemType"  DisplayMemberPath="DICTIONARYNAME" Width="auto" Height="24" Grid.Column="1" Grid.Row="0" SelectionChanged="cbxSystemType_SelectionChanged" HorizontalAlignment="Stretch" Margin="6,0,0,0">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </ComboBox>
+        <!--父字典-->
+        <TextBlock  Grid.Column="3"  Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FATHERID}" VerticalAlignment="Center"/>
+        <smt:LookUp DataContext="{Binding T_SYS_DICTIONARY, Mode=TwoWay}" Grid.Row="0" Grid.Column="4" FindClick="lkFather_FindClick"  
+            					  x:Name="lkFather" Height="24"  DisplayMemberPath="DICTIONARYNAME" />
+
+        <!--字典类型-->
+        <TextBlock   Grid.Column="0" Grid.Row="1" 
+                     Text="{Binding Converter={StaticResource ResourceConveter}, Source=DICTIONCATEGORYNAME}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+
+        <smt:LookUp DataContext="{Binding T_SYS_DICTIONARY, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" FindClick="lkDictionaryType_FindClick" Height="24"
+            					  x:Name="lkDictionaryType"  DisplayMemberPath="DICTIONCATEGORYNAME"  />
+        <TextBlock   Grid.Column="3" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DICTIONCATEGORY}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDictCatogry"  Text="{Binding DICTIONCATEGORY, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+                     Grid.Column="4" Grid.Row="1" Height="24"  >
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </TextBox>
+        <!--字典名称-->
+        <TextBlock  Grid.Column="0" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DICTIONARYNAME}" VerticalAlignment="Center"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDictionayName" Text="{Binding DICTIONARYNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  MaxLength="50"
+                     Grid.Column="1" Grid.Row="2" Height="24"  HorizontalAlignment="Stretch">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+        </TextBox>
+        <!--字典值-->
+        <TextBlock Grid.Column="3" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=DICTIONARYVALUE}" VerticalAlignment="Center"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDictionaryValue"  Text="{Binding DICTIONARYVALUE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  IsReadOnly="True"
+                     Grid.Column="4" Grid.Row="2"  Height="24" TextWrapping="Wrap" />
+
+        <!--系统类型名-->
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtSystemCode"  Text="{Binding SYSTEMCODE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Visibility="Collapsed"
+                     Grid.Column="4" Grid.Row="2" Height="24" TextWrapping="Wrap" />
+
+        <!--排序号-->
+        <TextBlock  Grid.Column="0" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORDERNUMBER}" VerticalAlignment="Center"/>
+        <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Maximum="10000"  x:Name="txtOrderNumber" HorizontalAlignment="Stretch"  Height="24"  Value="{Binding ORDERNUMBER, Mode=TwoWay}" Margin="5,0,0,0" Grid.Column="1" Grid.Row="3"   />
+
+        <!--备注-->
+        <TextBlock  Grid.Column="0" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" VerticalAlignment="Top" Margin="0,4,0,0"/>
+        <TextBox x:Name="txtRemark" Text="{Binding REMARK, Mode=TwoWay}" VerticalAlignment="Top"  MaxLength="2000"
+                 Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4"  MinWidth="150" MinHeight="80" MaxHeight="120"
+                 Style="{StaticResource TextBoxStyle}" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
+
+    </Grid>
+</UserControl>

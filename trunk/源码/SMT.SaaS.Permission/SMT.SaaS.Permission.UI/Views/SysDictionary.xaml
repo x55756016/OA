@@ -1,0 +1,82 @@
+﻿<smtlocal:BasePage x:Class="SMT.SaaS.Permission.UI.Views.SysDictionary" 
+           xmlns:smtlocal="clr-namespace:SMT.SaaS.Permission.UI.Views;assembly=SMT.SaaS.Permission.UI"
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           Title="OrganizationSet Page"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data">
+          
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="FormTitleName" Grid.Row="0"></smtx:ViewTitle>
+            <controlsToolkit:Expander  Grid.Row="1" x:Name="expander" Style="{StaticResource ExpanderStyle}" VerticalAlignment="top" Background="Transparent">
+                <controlsToolkit:Expander.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}"  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="4,0,8,0"></TextBlock>
+                            <ComboBox x:Name="cbSysType"  Grid.Row="0" Grid.Column="1" Height="22" Width="120" Style="{StaticResource ComboBoxStyle}"   DisplayMemberPath="DICTIONARYNAME" Loaded="cbSysType_Loaded"></ComboBox>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DICTIONARYTYPE}"  Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"  Margin="14,0,8,0"></TextBlock>
+                            <!--<ComboBox Style="{StaticResource ComboBoxStyle}" Height="22"  Width="120" x:Name="cbDictionay" Grid.Row="0" Grid.Column="3"  DisplayMemberPath="DICTIONCATEGORYNAME" Loaded="cbDictionay_Loaded" Visibility="Collapsed"></ComboBox>-->
+                            <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}" Grid.Row="0" Grid.Column="0" Height="25" Margin="4,0,0,0" VerticalAlignment="Bottom" />-->
+                            <smtx:LookUp DataContext="{Binding T_SYS_DICTIONARY, Mode=TwoWay}" Grid.Row="0" Grid.Column="3" FindClick="lkDictionaryType_FindClick"
+            					  x:Name="lkDictionaryType"  DisplayMemberPath="DICTIONCATEGORYNAME"  Width="120" />
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DICTIONARYNAME}"  Grid.Row="0" Grid.Column="4" Height="22" Style="{StaticResource SysTextBlockStyle}"></TextBlock>
+                            <TextBox Style="{StaticResource TextBoxStyle}" Height="24" Grid.Row="0" Grid.Column="5" Name="txtSearch" Width="120"/>
+                            <Button Style="{StaticResource CommonButtonStyle}" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Left" Margin="20,0,0,0" Height="22" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Click="SearchButton_Click" x:Name="SearchButton"/>
+                        </Grid>
+                    </DataTemplate>
+                </controlsToolkit:Expander.HeaderTemplate>
+            </controlsToolkit:Expander>
+            <smtx:FormToolBar x:Name="FormToolBar1"  Grid.Row="2"></smtx:FormToolBar>
+            <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  Grid.Row="3"
+                     IsReadOnly="True" Style="{StaticResource DataGridStyle}" LoadingRow="DtGrid_LoadingRow"
+                     CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}"
+                     RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                <data:DataGrid.Columns>
+                    <data:DataGridTemplateColumn  x:Name="CheckColunm" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="entityLogo" Width="16" Height="16"  HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    <data:DataGridTextColumn Header="SYSTEMNAME" Binding="{Binding SYSTEMNAME}"/>
+                    <!--<data:DataGridTextColumn Header="SYSTEMTYPECODE" Binding="{Binding SYSTEMCODE}"/>-->
+                    <data:DataGridTextColumn Header="DICTIONCATEGORY" Binding="{Binding DICTIONCATEGORY}"/>
+                    <data:DataGridTextColumn Header="DICTIONARYTYPE" Binding="{Binding DICTIONCATEGORYNAME}"/>
+                    <data:DataGridTextColumn Header="BASEDATANAME" Binding="{Binding DICTIONARYNAME}"/>
+                    <data:DataGridTextColumn Header="DICTIONARYVALUE" Binding="{Binding DICTIONARYVALUE}"/>
+                    <data:DataGridTextColumn Header="FATHERID" Binding="{Binding T_SYS_DICTIONARY2.DICTIONARYNAME}"/>
+                    <data:DataGridTextColumn Header="SORTORDER" Binding="{Binding ORDERNUMBER}"/>
+                    <data:DataGridTextColumn Header="REMARK" Binding="{Binding REMARK}"/>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smtx:GridPager>
+        </Grid>
+    </Grid>
+</smtlocal:BasePage>

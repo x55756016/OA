@@ -1,0 +1,374 @@
+﻿<UserControl x:Class="SMT.SaaS.Permission.UI.UserControls.EntityMenuCustomerPermission2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+             xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             mc:Ignorable="d"
+             xmlns:smtLocal="clr-namespace:SMT.SaaS.Permission.UI"
+    >
+    <UserControl.Resources>
+        <smtLocal:ObjectTypeConverter x:Key="ObjectTypeConverter" />
+        <smtLocal:DictionaryConverter x:Key="DictionaryConverter" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.38*"></ColumnDefinition>
+            <ColumnDefinition Width="0.24*"></ColumnDefinition>
+            <ColumnDefinition Width="0.38*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--第一栏 菜单栏-->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0"
+                    x:Name="expander">
+                <TextBlock   Grid.Column="0"
+                         Grid.Row="1"
+                         Margin="4,6"
+                         VerticalAlignment="Center"
+                         Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}" />
+                <ComboBox x:Name="cbxSystemType"
+                      Style="{StaticResource ComboBoxStyle}"
+                      MinWidth="120"
+                      Height="22"
+                      SelectionChanged="cbxSystemType_SelectionChanged"
+                      HorizontalAlignment="Left"
+                      Margin="4,6" />
+                <Button x:Name="SearchBtn"
+                    Content="选择菜单"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Click="SearchBtn_Click"
+                    Style="{StaticResource CommonButtonStyle}"
+                     />
+
+            </StackPanel>
+            <ScrollViewer  VerticalAlignment="Top" Grid.Row="1">
+                <data:DataGrid x:Name="DaGrMenu" IsReadOnly="True"
+                           AutoGenerateColumns="False"                           
+                           ItemsSource="{Binding Collection}"
+                           RenderTransformOrigin="0.5,0.5"
+                           Style="{StaticResource DataGridStyle}"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}"
+                           RowStyle="{StaticResource DataGridRowStyle}"
+                           RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           CanUserReorderColumns="False"
+                           LoadingRow="DaGrMenu_LoadingRow"
+                           SelectionChanged="DaGrMenu_SelectionChanged"
+                           VerticalAlignment="Top" MinHeight="400"
+                           Grid.Column="1">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTextColumn x:Name="colSystemType"
+                                             Header="SYSTEMTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                             Binding="{Binding SYSTEMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}"/>
+                        <data:DataGridTextColumn Header="MENUNAME"
+                                             HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                             Binding="{Binding MENUNAME}" />
+                        <data:DataGridTemplateColumn Header="OPERATION">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                        <Button x:Name="DeleteBtn"
+                                            Style="{StaticResource ButtonToolBarStyle}"
+                                            VerticalAlignment="Center"
+                                            Click="DeleteBtn_Click">
+                                            <StackPanel  Orientation="Horizontal">
+                                                <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png"
+                                                   ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELBUTTON}"
+                                                   Margin="0"
+                                                   Width="16"
+                                                   Height="16" />
+                                                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"
+                                                       Height="20"
+                                                       Margin="1,3,0,0"></TextBlock>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+
+
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+            </ScrollViewer>
+        </Grid>
+        
+        <!--第2栏  权限-->
+        <data:DataGrid x:Name="DtGridPermission"
+                       AutoGenerateColumns="False"
+                       IsReadOnly="True"
+                       Grid.Row="0"
+                       Grid.RowSpan="2"
+                       Grid.Column="1"
+                       Style="{StaticResource DataGridStyle}"
+                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                       CellStyle="{StaticResource DataGridCellStyle}"
+                       RowStyle="{StaticResource DataGridRowStyle}"
+                       RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                       LoadingRow="DtGridPermission_LoadingRow" SelectionChanged="DtGridPermission_SelectionChanged"
+                       Margin="2">
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn>
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="DtGridPermissionChkBox"
+                                      Style="{StaticResource CheckBoxStyle}"
+                                      Width="28"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center" Checked="DtGridPermissionChkBox_Checked" Unchecked="DtGridPermissionChkBox_Unchecked"></CheckBox>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="PERMISSIONNAME"
+                                         Binding="{Binding PERMISSIONNAME}">
+                </data:DataGridTextColumn>
+
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+        <!--第2栏  权限范围(组织架构)-->
+        <Grid Grid.Row="0" Grid.RowSpan="2"
+              Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--公司列表-->
+            <Button x:Name="SelectCompany"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Content="选择公司"
+                    Click="SelectCompany_Click"
+                    Style="{StaticResource CommonButtonStyle}" />
+            <ScrollViewer MaxHeight="300" Grid.Row="1"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2">
+            <data:DataGrid x:Name="DtGridCompany"
+                           AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           
+                           Style="{StaticResource DataGridStyle}"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}"
+                           RowStyle="{StaticResource DataGridRowStyle}"
+                           RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           LoadingRow="DtGridCompany_LoadingRow"
+                           Margin="2">
+                <data:DataGrid.Columns>
+
+                    <data:DataGridTextColumn Header="CNAME"
+                                             Binding="{Binding CNAME}"
+                                             HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <data:DataGridTemplateColumn Header="OPERATION">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <Button x:Name="DeleteCompanyBtn"
+                                            Style="{StaticResource ButtonToolBarStyle}"
+                                            VerticalAlignment="Center"
+                                            Click="DeleteCompanyBtn_Click">
+                                        <StackPanel  Orientation="Horizontal">
+                                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png"
+                                                   ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELBUTTON}"
+                                                   Margin="0"
+                                                   Width="16"
+                                                   Height="16" />
+                                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"
+                                                       Height="20"
+                                                       Margin="1,3,0,0"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    
+                    <!--<data:DataGridTemplateColumn Header="OPERATION"
+                                                 HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="DeleteCompanyBtn"
+                                        Width="50"
+                                        Height="30"
+                                        Click="DeleteCompanyBtn_Click"
+                                        Content="删除"
+                                        Margin="5" />
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>-->
+
+
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            </ScrollViewer>
+            <!--部门列表-->
+            <Button x:Name="SelectDepartment"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Content="选择部门"
+                    Click="SelectDepartment_Click"
+                    Style="{StaticResource CommonButtonStyle}"/>
+            <ScrollViewer MaxHeight="300" Grid.Row="3"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2">
+            <data:DataGrid x:Name="DtGridDepartment"
+                           AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           
+                           Style="{StaticResource DataGridStyle}"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}"
+                           RowStyle="{StaticResource DataGridRowStyle}"
+                           RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           LoadingRow="DtGridDtGridDepartment_LoadingRow"
+                           Margin="2">
+                <data:DataGrid.Columns>                    
+                    <data:DataGridTextColumn Header="CNAME"
+                                             Binding="{Binding T_HR_COMPANY.CNAME}"
+                                             HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />                    
+                    <data:DataGridTextColumn Header="DEPARTMENTNAME"
+                                             Binding="{Binding T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME}"
+                                             HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <data:DataGridTemplateColumn Header="OPERATION">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <Button x:Name="DeleteDepartmentBtn"
+                                            Style="{StaticResource ButtonToolBarStyle}"
+                                            VerticalAlignment="Center"
+                                            Click="DeleteDepartmentBtn_Click">
+                                        <StackPanel  Orientation="Horizontal">
+                                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png"
+                                                   ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELBUTTON}"
+                                                   Margin="0"
+                                                   Width="16"
+                                                   Height="16" />
+                                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"
+                                                       Height="20"
+                                                       Margin="1,3,0,0"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    
+                    <!--<data:DataGridTemplateColumn Header="OPERATION"
+                                                 HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="DeleteDepartmentBtn"
+                                        Width="50"
+                                        Height="30"
+                                        Click="DeleteDepartmentBtn_Click"
+                                        Content="删除"
+                                        Margin="5" />
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>-->
+
+
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            </ScrollViewer>
+            <!--岗位列表-->
+            <Button x:Name="SelectPost"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Content="选择岗位"
+                    Click="SelectPost_Click"
+                    Style="{StaticResource CommonButtonStyle}"/>
+            <ScrollViewer MaxHeight="300" Grid.Row="5"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2">
+            <data:DataGrid x:Name="DtGridPost"
+                           AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           
+                           Style="{StaticResource DataGridStyle}"
+                           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                           CellStyle="{StaticResource DataGridCellStyle}"
+                           RowStyle="{StaticResource DataGridRowStyle}"
+                           RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                           LoadingRow="DtGridPost_LoadingRow"
+                           Margin="2">
+                <data:DataGrid.Columns>                    
+                    <data:DataGridTextColumn Header="CNAME"
+                                             Binding="{Binding T_HR_DEPARTMENT.T_HR_COMPANY.CNAME}"
+                                             HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <data:DataGridTextColumn Header="DEPARTMENTNAME"
+                                             Binding="{Binding T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME}"
+                                             HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />                    
+                    <data:DataGridTextColumn Header="POSTNAME"
+                                             Binding="{Binding T_HR_POSTDICTIONARY.POSTNAME}"
+                                             HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <data:DataGridTemplateColumn Header="OPERATION">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <Button x:Name="DeletePostBtn"
+                                            Style="{StaticResource ButtonToolBarStyle}"
+                                            VerticalAlignment="Center"
+                                            Click="DeletePostBtn_Click">
+                                        <StackPanel  Orientation="Horizontal">
+                                            <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png"
+                                                   ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELBUTTON}"
+                                                   Margin="0"
+                                                   Width="16"
+                                                   Height="16" />
+                                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"
+                                                       Height="20"
+                                                       Margin="1,3,0,0"></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                    
+                    <!--<data:DataGridTemplateColumn Header="OPERATION"
+                                                 HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="DeletePostBtn"
+                                        Width="50"
+                                        Height="30"
+                                        Click="DeletePostBtn_Click"
+                                        Content="删除"
+                                        Margin="5" />
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>-->
+
+
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+            </ScrollViewer>
+        </Grid>
+            
+        
+
+    </Grid>
+</UserControl>

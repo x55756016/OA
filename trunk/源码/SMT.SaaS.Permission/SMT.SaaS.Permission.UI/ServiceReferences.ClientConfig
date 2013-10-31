@@ -1,0 +1,92 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_PersonnelService" receiveTimeout="01:10:00"
+                    maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_FBService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+              <binding name="BasicHttpBinding_FileUploadManager" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+              </binding>
+              <binding name="BasicHttpBinding_IPersonalRecordService" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+              </binding>
+            </basicHttpBinding>
+            <customBinding>
+                <binding name="CustomBinding_PermissionService" closeTimeout="01:10:00"
+          openTimeout="01:10:00" sendTimeout="01:10:00">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_OrganizationService" closeTimeout="01:10:00"
+          openTimeout="01:10:00" sendTimeout="01:10:00">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                
+                <binding name="WSHttpBinding_IService">
+                    <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+              <binding name="CustomBinding_UseractLogService">
+                <binaryMessageEncoding />
+                <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+              </binding>
+              <binding name="CustomBinding_PerformanceService">
+                <binaryMessageEncoding />
+                <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+              </binding>
+              <binding name="CustomBinding_HrCommonService">
+                <binaryMessageEncoding />
+                <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+              </binding>
+            </customBinding>
+        </bindings>
+        <client>            
+          <endpoint address="http://10.10.0.57/New/Services/HR/PersonnelService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+                contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+          <!--<endpoint address="http://10.10.0.57/New/Services/System/FileUploadManager.svc"
+              binding="customBinding" bindingConfiguration="CustomBinding_FileUploadManager"
+              contract="FileUploadWS.FileUploadManager" name="CustomBinding_FileUploadManager" />-->
+          <endpoint address="http://localhost:1604/FileUploadManager.svc"
+              binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
+              contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
+          <endpoint address="http://10.10.0.57/New/Services/FB/FBService.svc"
+              binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
+              contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
+          <endpoint address="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+              binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
+              contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+          <endpoint address="http://10.10.0.57/New/Services/HR/OrganizationService.svc"
+              binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+              contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+          <endpoint address="http://10.10.0.57/New/Services/HR/PerformanceService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
+        contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
+          <endpoint address="http://10.10.0.57/New/Services/HR/HrCommonService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
+        contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
+          <endpoint address="http://10.10.0.57/New/Services/Main/PersonalRecordService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
+            contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
+          <!--<endpoint address="http://localhost:1604/PermissionService.svc"
+              binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+              contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />-->
+          <endpoint address="http://localhost:1604/PermissionService.svc"
+              binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+              contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+          <endpoint address="http://10.10.0.57/New/Services/system/UseractLogService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_UseractLogService"
+        contract="UseractWS.UseractLogService" name="CustomBinding_UseractLogService" />
+        </client>
+    </system.serviceModel>
+</configuration>
+

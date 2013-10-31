@@ -1,0 +1,177 @@
+﻿<UserControl x:Class="SMT.SaaS.Permission.UI.UserControls.RoleCustomMenuPermission"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:orgControl="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationControl;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:common="clr-namespace:System.Windows;assembly=System.Windows.Controls"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    d:DesignHeight="400" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!--treeview checkbox模板-->
+        <DataTemplate x:Key="NodeTemplate">
+            <StackPanel Orientation="Horizontal"
+                        Name="itemPanel">
+                <CheckBox Name="cbxSelected"
+                          Click="MenuItemCheckbox_Click"
+                          Style="{StaticResource CheckBoxStyle}"></CheckBox>
+                <TextBlock Text="{Binding}"
+                           Margin="2"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="OrgNodeTemplate">
+            <StackPanel Orientation="Horizontal"
+                        Name="itemPanel">
+                <CheckBox x:Name="cbxOrgSelected"
+                          Click="OrgItemCheckbox_Click"
+                          Style="{StaticResource CheckBoxStyle}"></CheckBox>
+                <TextBlock Text="{Binding}"
+                           Margin="2"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+        <Style TargetType="controls:TreeViewItem" x:Name="CheckBoxTreeItemStyle">
+        </Style>
+
+        <DataTemplate x:Key="CompanyNodeTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,4,2,0"></TextBlock>
+                <Button Style="{StaticResource ButtonToolBarStyle}" Width="22" Height="22" Margin="2,0,0,2">
+                    <StackPanel>
+                        <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png" Stretch="Fill" Height="16" Margin="0,0,0,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="DepartmentNodeTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,4,2,0"></TextBlock>
+                <TextBlock Text="/" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,4,2,0"></TextBlock>
+                <TextBlock Text="{Binding}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,4,2,0"></TextBlock>
+                <Button Style="{StaticResource ButtonToolBarStyle}" Width="22" Height="22" Margin="2,0,0,2">
+                    <StackPanel>
+                        <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png" Stretch="Fill" Height="16" Margin="0,0,0,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PostNodeTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,4,2,0"></TextBlock>
+                <TextBlock Text="/" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,4,2,0"></TextBlock>
+                <TextBlock Text="{Binding}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,4,2,0"></TextBlock>
+                <TextBlock Text="/" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,4,2,0"></TextBlock>
+                <TextBlock Text="{Binding}" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,4,2,0"></TextBlock>
+                <Button Style="{StaticResource ButtonToolBarStyle}" Width="22" Height="22" Margin="2,0,0,2">
+                    <StackPanel>
+                        <Image Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png" Stretch="Fill" Height="16" Margin="0,0,0,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions></Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--菜单tree-->
+        <Grid Grid.Column="0" x:Name="gridtree">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="28"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="功能菜单" Margin="10,6" HorizontalAlignment="Left" Grid.Column="1"></TextBlock>
+            <Button Content="添加" Style="{StaticResource CommonButtonStyle}" Height="22" Width="70" Grid.Column="2" HorizontalAlignment="Right" Margin="4,2"></Button>
+            <!--系统类型-->
+            <TextBlock   Grid.Column="0"
+                         Grid.Row="1"
+                         Margin="4,6"
+                         Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}" />
+            <!--<TextBox x:Name="txtSystemType" Style="{StaticResource SysTextBoxStyle}" Text="{Binding SYSTEMTYPE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Left"  TextWrapping="Wrap"/>-->
+            <ComboBox x:Name="cbxSystemType"
+                      Style="{StaticResource ComboBoxStyle}"
+                      Width="150"
+                      Height="22"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      SelectionChanged="cbxSystemType_SelectionChanged"
+                      HorizontalAlignment="Left"
+                      Margin="6,0,0,0" />
+            <!--<data:DataGrid x:Name="DtMenuGrid"
+                       AutoGenerateColumns="False"
+                       IsReadOnly="True"
+                       Grid.Column="0" Grid.ColumnSpan="2"
+                       Grid.Row="2"
+                       Style="{StaticResource DataGridStyle}"
+                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                       CellStyle="{StaticResource DataGridCellStyle}"
+                       RowStyle="{StaticResource DataGridRowStyle}"
+                       RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                       Margin="0">
+                <data:DataGrid.Columns>                    
+                    <data:DataGridTextColumn Header="系统名称"   Binding="{Binding}">
+                    </data:DataGridTextColumn>
+                    <data:DataGridTextColumn Header="系统菜单"   Binding="{Binding}">
+                    </data:DataGridTextColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>-->
+            <!--功能项--><!--由添加按钮双击显示 一下 树形弹出框-->
+            <controls:TreeView x:Name="treeMenu"
+                    Style="{StaticResource TreeViewStyle}"
+                    BorderThickness="0.8"
+                    SelectedItemChanged="treeMenu_SelectedItemChanged"
+                    Margin="5,5,5,5"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+            </controls:TreeView>
+        </Grid>
+
+        <!--权限项Grid-->
+        <data:DataGrid x:Name="DtGrid"
+                       AutoGenerateColumns="False"
+                       IsReadOnly="True"
+                       Grid.Column="1"
+                       Style="{StaticResource DataGridStyle}"
+                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                       CellStyle="{StaticResource DataGridCellStyle}"
+                       RowStyle="{StaticResource DataGridRowStyle}"
+                       RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                       LoadingRow="DtGrid_LoadingRow"
+                       Margin="2">
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn >
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="myChkBox" Click="myChkBtn_Click" Style="{StaticResource CheckBoxStyle}" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center" ></CheckBox>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <data:DataGridTextColumn Header="PERMISSIONNAME"
+                                         Binding="{Binding PERMISSIONNAME}">
+                </data:DataGridTextColumn>
+
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+        <!--组织架构-->
+        <Grid Grid.Column="2">
+            <!--由模板生成显示数据-->
+            <controls:TreeView x:Name="treeOrganization"
+                    Style="{StaticResource TreeViewStyle}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"  BorderThickness="0.8">
+            </controls:TreeView>  
+        </Grid>
+    </Grid>
+</UserControl>

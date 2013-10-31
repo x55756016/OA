@@ -1,0 +1,119 @@
+﻿<smtlocal:BasePage
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    x:Class="SMT.SaaS.Permission.UI.Views.UserRoleManagement" 
+           xmlns:smtlocal="clr-namespace:SMT.SaaS.Permission.UI.Views;assembly=SMT.SaaS.Permission.UI"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+    xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    Title="System Role Page"
+    xmlns:smtc ="clr-namespace:SMT.SaaS.Permission.UI"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data">
+    <smtlocal:BasePage.Resources>
+        <smtc:DictionaryConverter x:Key="DictionaryConverter"></smtc:DictionaryConverter>
+        <smtc:CompanyInfoConverter x:Key="CompanyConvert"></smtc:CompanyInfoConverter>
+    </smtlocal:BasePage.Resources>
+    <Grid x:Name="PARENT">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <smtx:ViewTitle x:Name="FormTitleName" Grid.Row="0"></smtx:ViewTitle>
+            <controlsToolkit:Expander Grid.Row="1" x:Name="expander" Style="{StaticResource ExpanderStyle}" 
+             VerticalAlignment="top" Background="Transparent" >
+                <controlsToolkit:Expander.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}" Grid.Row="0" Grid.Column="0" Height="22" Margin="4,4,0,0" VerticalAlignment="Center"/>
+
+                            <ComboBox x:Name="cbxSystemType"  Grid.Row="0" Grid.Column="1" Height="22" 
+                                      Width="120" Style="{StaticResource ComboBoxStyle}"></ComboBox>
+                            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=ROLENAME}" Grid.Row="0" Grid.Column="2" Height="22" Margin="4,4,0,0" VerticalAlignment="Center"/>
+                            <TextBox x:Name="TxtRoleName" Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="3" MinWidth="120" Height="22"  VerticalAlignment="Center"/>
+                            <Button Style="{StaticResource CommonButtonStyle}" Grid.Row="0" Grid.Column="4" Margin="20,0,0,0" 
+                                    Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center" Click="SearchButton_Click" x:Name="SearchButton"/>
+                        </Grid>
+                    </DataTemplate>
+                </controlsToolkit:Expander.HeaderTemplate>
+            </controlsToolkit:Expander>
+                <smtx:FormToolBar x:Name="FormToolBar1" Grid.Row="2" Grid.Column="0"></smtx:FormToolBar>
+                <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  IsReadOnly="True"
+                       Grid.Column="0" Grid.Row="3" LoadingRow="DtGrid_LoadingRow" Style="{StaticResource DataGridStyle}"
+                       CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
+                       RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+
+                    <data:DataGrid.Columns>
+                        <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Name="entityLogo" Width="16" Height="16"  HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="BELONGCOMPANY" Binding="{Binding OWNERCOMPANYID,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="OWNERDEPARTMENT" Binding="{Binding OWNERDEPARTMENTID,Converter={StaticResource CompanyConvert},ConverterParameter=Department}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="SYSTEMTYPE" Binding="{Binding SYSTEMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="ROLENAME" Binding="{Binding ROLENAME}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTemplateColumn Header="ACCREDIT">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource ButtonToolBarStyle}"
+                                            x:Name="AuthorizationBtn"
+                                            Width="70"
+                                            Height="24"
+                                            Click="AuthorizationBtn_Click"
+                                            Content="{Binding Converter={StaticResource ResourceConveter}, Source=ACCREDIT}" Margin="1"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTemplateColumn Header="CUSTOMPURVIEW">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Button Style="{StaticResource ButtonToolBarStyle}"
+                                            x:Name="CustomAuthorizationBtn"
+                                            Width="70"
+                                            Height="24"
+                                            Click="CustomAuthorizationBtn_Click"
+                                            Content="{Binding Converter={StaticResource ResourceConveter}, Source=CUSTOMPURVIEW}"
+                                            Margin="1" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                        </data:DataGridTemplateColumn>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+
+                <smtx:GridPager Name="dataPager" PageSize="20" Click="dataPager_Click" Grid.Row="4" Grid.Column="1"></smtx:GridPager>
+       
+
+
+        </Grid>
+    </Grid>
+</smtlocal:BasePage>

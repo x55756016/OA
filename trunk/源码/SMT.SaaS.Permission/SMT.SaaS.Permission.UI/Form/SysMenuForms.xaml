@@ -1,0 +1,156 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+    xmlns:smtc ="clr-namespace:SMT.SaaS.Permission.UI"
+    xmlns:validator="clr-namespace:SMT.SaaS.FrameworkUI.Validator;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="SMT.SaaS.Permission.UI.Form.SysMenuForms"
+    xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+    xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <smtc:DictionaryConverter x:Key="DictionaryConverter"></smtc:DictionaryConverter>
+        <smtc:CompanyInfoConverter x:Key="CompanyConvert"></smtc:CompanyInfoConverter>
+        <smtc:BoolenConverter x:Key="BoolenConverter"></smtc:BoolenConverter>
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Stretch" Background="Transparent" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+        <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
+
+            <!--系统类型-->
+            <TextBlock   Grid.Column="0" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}" VerticalAlignment="Center"/>
+            <!--<TextBox x:Name="txtSystemType" Style="{StaticResource SysTextBoxStyle}" Text="{Binding SYSTEMTYPE,Mode=TwoWay,ValidatesOnExceptions=true, NotifyOnValidationError=true}" Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Left"  TextWrapping="Wrap"/>-->
+            <ComboBox x:Name="cbxSystemType" Width="150" Height="22" Grid.Column="1" Grid.Row="0" SelectionChanged="cbxSystemType_SelectionChanged" HorizontalAlignment="Left" Margin="6,0,20,0">
+                
+            </ComboBox>
+
+            <!--菜单编码-->
+        <TextBlock VerticalAlignment="Center"  Grid.Column="0" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MENUCODE}"/>
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 x:Name="txtMenuCode"
+                 Text="{Binding MENUCODE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 MaxLength="200"
+
+                 Margin="6,4,20,0"
+                 d:LayoutOverrides="Width">
+            
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1"
+                                             ErrorMessage="REQUIRED"
+                                             ErrorMessageParameter="MENUCODE"></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <dataInput:DescriptionViewer  Target="{Binding ElementName=txtMenuCode}" Grid.Column="2" Grid.Row="1" Style="{StaticResource DescriptionViewerTooltipStyle}"
+                                          Description="{Binding MENUCODE}"/>
+            <!--菜单名称-->
+        <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MENUNAME}"/>
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 x:Name="txtMenuName"
+                 Text="{Binding MENUNAME, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                 Grid.Column="1"
+                 Grid.Row="2"
+
+                 MaxLength="50"
+                 Margin="6,4,20,0"
+                 Height="22"
+                 VerticalAlignment="Top">
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1"
+                                             ErrorMessage="REQUIRED"
+                                             ErrorMessageParameter="MENUNAME"></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
+        </TextBox>
+        <dataInput:DescriptionViewer  Target="{Binding ElementName=txtMenuName}" Grid.Column="2" Grid.Row="2"  
+                                          Style="{StaticResource DescriptionViewerTooltipStyle}"/>
+
+            <!--链接地址-->
+        <TextBlock  VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=URLADDRESS}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}"  x:Name="txtUrlAddress" Text="{Binding URLADDRESS, Mode=TwoWay}" MaxLength="500" Grid.Column="1" Grid.Row="3"  Margin="6,4,20,0"/>
+            <dataInput:DescriptionViewer  Target="{Binding ElementName=txtUrlAddress}" Grid.Column="2" Grid.Row="3" />
+
+            <!--图标地址-->
+        <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MENUICONPATH}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtMenuIconPath"  MaxHeight="100" Text="{Binding MENUICONPATH, Mode=TwoWay}" Grid.Column="1" Grid.Row="4"  Margin="6,4,20,0"/>
+
+            <!--实体名称-->
+        <TextBlock VerticalAlignment="Center"  Grid.Column="0" Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENTITYNAME}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEntityName" MaxLength="500"  Text="{Binding ENTITYNAME, Mode=TwoWay}" Grid.Column="1" Grid.Row="5"  Margin="6,4,20,0"/>
+
+            <!--实体编码-->
+        <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="6" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ENTITYCODE}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}"  x:Name="txtEntityCode" MaxLength="200" Text="{Binding ENTITYCODE, Mode=TwoWay}" Grid.Column="1" Grid.Row="6"   Margin="6,4,20,0"/>
+
+            <!--是否是菜单-->
+        <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="7" Text="{Binding Converter={StaticResource ResourceConveter}, Source=HASSYSTEMMENU}"/>
+            <CheckBox x:Name="cbxHasSystemMenu" Margin="6,5,5,5" IsChecked="{Binding HASSYSTEMMENU,Converter={StaticResource BoolenConverter}, ConverterParameter=0,  Mode=TwoWay}" Grid.Column="1" Grid.Row="7"  HorizontalAlignment="Left" BorderThickness="1,4,1,1"/>
+        <!--是否受权限控制-->
+        <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="8" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ISAUTHORITY}"/>
+        <CheckBox x:Name="cbxHasAuthority" Margin="6,5,5,5" IsChecked="{Binding ISAUTHORITY,Converter={StaticResource BoolenConverter}, ConverterParameter=0,  Mode=TwoWay}" Grid.Column="1" Grid.Row="8"  HorizontalAlignment="Left" BorderThickness="1,4,1,1"/>
+        <!--是否是移动菜单-->
+        <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="9" Text="是否移动菜单"/>
+        <CheckBox x:Name="cbxHasMobile" Margin="6,5,5,5" IsChecked="{Binding ISMOBILE,Converter={StaticResource BoolenConverter}, ConverterParameter=0,  Mode=TwoWay}" Grid.Column="1" Grid.Row="9"  HorizontalAlignment="Left" BorderThickness="1,4,1,1"/>
+        <!--系统子菜单-->
+        <TextBlock VerticalAlignment="Center"  Grid.Column="0" Grid.Row="10" Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHILDSYSTEMNAME}" Margin="0,0,10,0"/>
+
+        <TextBox Style="{StaticResource TextBoxStyle}"  x:Name="txtCHILDSYSTEMNAME" MaxLength="500" Text="{Binding CHILDSYSTEMNAME, Mode=TwoWay}" Grid.Column="1" Grid.Row="10"   Margin="6,4,20,0"/>
+
+            <!--菜单序号-->
+        <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="11" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ORDERNUMBER}"/>
+        <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}"   x:Name="txtOrderNumber"  Width="150" Height="22" Margin="6,2,0,0" Value="{Binding ORDERNUMBER, Mode=TwoWay}" Grid.Column="1" Grid.Row="11"  HorizontalAlignment="Left"  />
+            <dataInput:DescriptionViewer  Target="{Binding ElementName=txtOrderNumber}" Grid.Column="2" Grid.Row="10" />
+
+            <!--上级菜单-->
+        <TextBlock  VerticalAlignment="Center" Grid.Column="0"  Grid.Row="12" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PARENTMENU}"/>
+            <!--<ComboBox x:Name="cbxParentMenu" Width="150" Height="25" Grid.Column="1"  Grid.Row="9" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding T_SYS_ENTITYMENU2}" HorizontalAlignment="Left" />-->
+            <smt:LookUp DataContext="{Binding T_SYS_ENTITYMENU2, Mode=TwoWay}" Grid.Row="12" Grid.Column="1"
+            					FindClick="lkParentMenu_FindClick"  x:Name="lkParentMenu"  DisplayMemberPath="MENUNAME" Margin="1,0,20,0" />
+        <TextBlock  Grid.Column="0" Grid.Row="13" Text="帮助标题" Margin="0,4,0,0"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtHelpTitle" Text="{Binding HELPTITLE, Mode=TwoWay}" 
+                     Grid.Column="1" Grid.Row="13" MaxLength="100" TextWrapping="Wrap"   MinWidth="180" AcceptsReturn="false"   Margin="6,4,20,4" 
+                      VerticalAlignment="Top"  />
+        <TextBlock  Grid.Column="0" Grid.Row="14" Text="帮助文件" Margin="0,4,0,0"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtFileName" Text="{Binding HELPFILEPATH, Mode=TwoWay}" 
+                     Grid.Column="1" Grid.Row="14" MaxLength="100" TextWrapping="Wrap"   MinWidth="180" AcceptsReturn="false"   Margin="6,4,200,4" 
+                     VerticalScrollBarVisibility="Auto" VerticalAlignment="Top"  />
+        <Button x:Name="BtnFileName" Grid.Column="1" Grid.Row="14" Click="BtnSave_Click" Content="编辑帮助" Width="120" Margin="204,4,20,4"  Style="{StaticResource CommonButtonStyle}" />
+        <!--备注-->
+            <TextBlock  Grid.Column="0" Grid.Row="15" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Margin="0,4,0,0"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" Text="{Binding REMARK, Mode=TwoWay}" 
+                     Grid.Column="1" Grid.Row="15" MaxLength="2000" TextWrapping="Wrap"   MinWidth="150" AcceptsReturn="True"   Margin="6,4,20,4" 
+                     VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" MaxHeight="100" />
+
+        </Grid>
+</UserControl>

@@ -1,0 +1,74 @@
+﻿<smtlocal:BasePage
+    xmlns:smtlocal="clr-namespace:SMT.SaaS.Permission.UI.Views;assembly=SMT.SaaS.Permission.UI"
+    x:Class="SMT.SaaS.Permission.UI.Views.SysRolePerm" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"           
+           xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+           xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           Title="SysRolePerm Page">
+    <Grid x:Name="LayoutRoot">
+        <Border  Margin="0 0 0 25">
+            <StackPanel>
+                <smtx:ViewTitle x:Name="FormTitleName" ></smtx:ViewTitle>
+                <controlsToolkit:Expander x:Name="expander" Style="{StaticResource ExpanderStyle}" VerticalAlignment="top" Background="Transparent">
+                    <controlsToolkit:Expander.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.109*"/>
+                                    <ColumnDefinition Width="0.49*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="4,0,0,0" Height="25"/>
+                                <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="1" Name="txtSearchSystemType" Height="25"/>
+                                <Button Style="{StaticResource CommonButtonStyle}" Grid.Row="0" Grid.Column="2" Margin="20,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Left" VerticalAlignment="Center" Click="SearchButton_Click" x:Name="SearchButton"/>
+                            </Grid>
+                        </DataTemplate>
+                    </controlsToolkit:Expander.HeaderTemplate>
+                </controlsToolkit:Expander>
+                <StackPanel x:Name="GridStack">
+                    <smtx:FormToolBar x:Name="FormToolBar1" Background="Transparent"></smtx:FormToolBar>
+                    <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"
+                                IsReadOnly="True" LoadingRow="DtGrid_LoadingRow" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Style="{StaticResource DataGridStyle}"
+CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+>
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn  x:Name="CheckColunm" HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                         <Image Name="entityLogo" Width="16" Height="16"></Image>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn Header="SYSTEMTYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding T_SYS_ROLE.SYSTEMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}">
+                            </data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="ROLENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding T_SYS_ROLE.ROLENAME}">
+                            </data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="PERMISSIONNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding T_SYS_PERMISSION.PERMISSIONNAME}">
+                            </data:DataGridTextColumn>
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <Border  BorderBrush="Black"  Height="25" VerticalAlignment="Bottom" Margin="0 0 0 0">
+            <StackPanel  VerticalAlignment="bottom">
+                <datactr:DataPager x:Name="dataPager" DisplayMode="FirstLastPreviousNextNumeric" 
+                    Source="{Binding}" NumericButtonCount="{Binding Value, ElementName=numericButtonCount}" 
+                    AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}" 
+                    IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</smtlocal:BasePage>

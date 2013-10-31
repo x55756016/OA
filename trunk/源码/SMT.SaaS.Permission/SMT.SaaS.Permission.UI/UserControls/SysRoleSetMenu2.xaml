@@ -1,0 +1,527 @@
+﻿<UserControl 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"     
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:dataPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+    xmlns:primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+    mc:Ignorable="d"  
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+	xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    x:Class="SMT.SaaS.Permission.UI.UserControls.SysRoleSetMenu2" 
+    x:Name="SysRoleSetMenu2Name"
+    Loaded="SysRoleSetMenu2_Loaded" 
+    >
+    <UserControl.Resources>
+        <!--<DataTemplate x:Key="HRColumn">
+            <TextBlock x:Name="HRBtn" Text="{Binding Path= MENUNAME}" MouseLeftButtonDown="HRBtn_Click" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="110" Foreground="Black"></TextBlock>           
+        </DataTemplate>-->
+        <DataTemplate x:Key="HRCellTemplate">
+            <!--<TextBlock Width="60"
+                       HorizontalAlignment="center"
+                        MouseLeftButtonUp="HRrating_Click" x:Name="HRrating" Foreground="Red" Height="25" />-->
+            <Button Width="60"
+                       HorizontalAlignment="center"
+                       Click="HRrating_Click"
+                       x:Name="HRrating"
+                    Content=""
+                    Style="{StaticResource ButtonCompetenceStyle}"
+                    Height="25" />
+        </DataTemplate>
+        <DataTemplate x:Key="myOACellTemplate">
+            <!--<TextBlock Width="60"
+                       HorizontalAlignment="center"
+                       MouseLeftButtonUp="OArating_Click"  x:Name="OArating" Foreground="Red" Height="25" />-->
+            <Button Width="60"
+                       HorizontalAlignment="center"
+                       Click="OArating_Click"
+                    x:Name="OArating"
+                    Content=""
+                    Style="{StaticResource ButtonCompetenceStyle}"
+                    Height="25" />
+        </DataTemplate>
+        <DataTemplate x:Key="myLMCellTemplate">
+            <!--<TextBlock Width="60"
+                       HorizontalAlignment="center"
+                       MouseLeftButtonUp="LMrating_Click" x:Name="LMrating" Foreground="Red" Height="25" />-->
+            <Button Width="60"
+                       HorizontalAlignment="center"
+                       Click="LMrating_Click"
+                    x:Name="LMrating"
+                    Style="{StaticResource ButtonCompetenceStyle}"
+                    Content=""
+                       Height="25" />
+
+            <!--<Button Margin="2" Content=""  Width="60" HorizontalAlignment="center"  Click="LMrating_Click" x:Name="LMrating" Height="25" Style="{StaticResource ButtonCompetenceStyle}"/>-->
+        </DataTemplate>
+        <DataTemplate x:Key="myFBCellTemplate">
+            <!--<TextBlock Width="60"
+                       HorizontalAlignment="center"
+                       MouseLeftButtonUp="FBrating_Click" x:Name="FBrating" Foreground="Red" Height="25" />-->
+            <Button Width="60"
+                       HorizontalAlignment="center"
+                       Click="FBrating_Click"
+                    x:Name="FBrating"
+                    Content=""
+                    Style="{StaticResource ButtonCompetenceStyle}"
+                    Height="25" />
+
+            <!--<Button Margin="2" Content=""  Width="60" HorizontalAlignment="center"  Click="FBrating_Click" x:Name="FBrating" Height="25" Style="{StaticResource ButtonCompetenceStyle}"/>-->
+        </DataTemplate>
+        <DataTemplate x:Key="myPMCellTemplate">
+            <Button Margin="2" Content=""  Width="60" HorizontalAlignment="center" Style="{StaticResource ButtonCompetenceStyle}" Click="PMrating_Click" x:Name="PMrating" Height="25" />
+        </DataTemplate>
+        <DataTemplate x:Key="myEDMCellTemplate">            
+            <Button Width="60"
+                       HorizontalAlignment="center"
+                       Click="EDMrating_Click"
+                    x:Name="EDMrating"
+                    Content=""
+                    Style="{StaticResource ButtonCompetenceStyle}"
+                    Height="25" />
+        </DataTemplate>
+        <Style TargetType="primitives:DataGridColumnHeader"  x:Key="DataGridImageColumnHeaderStyle">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="功能项" Margin="4,0,0,0"></TextBlock>
+                            <Image Margin="2,2,0,0" Width="16" Height="16" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/mnu_actions.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"></Image>
+                        </StackPanel>
+
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="dataPrimitives:DataGridColumnHeader">
+                        <Grid x:Name="Root">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Fill).Color" To="#FF448DCA"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Fill).(GradientStops)[3].Color" To="#7FFFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Fill).(GradientStops)[2].Color" To="#CCFFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Fill).(GradientStops)[1].Color" To="#F2FFFFFF"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Fill).Color" To="#FF448DCA"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Fill).(GradientStops)[0].Color" To="#D8FFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Fill).(GradientStops)[1].Color" To="#C6FFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Fill).(GradientStops)[2].Color" To="#8CFFFFFF"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundGradient" Storyboard.TargetProperty="(Fill).(GradientStops)[3].Color" To="#3FFFFFFF"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SortStates">
+                                    <VisualState x:Name="Unsorted"/>
+                                    <VisualState x:Name="SortAscending">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="Opacity" To="1.0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SortDescending">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="Opacity" To="1.0"/>
+                                            <DoubleAnimation Duration="0" Storyboard.TargetName="SortIcon" Storyboard.TargetProperty="(RenderTransform).ScaleY" To="-.9"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="BackgroundRectangle" Fill="#FF1F3B53" Stretch="Fill" Grid.ColumnSpan="2"/>
+                            <Rectangle x:Name="BackgroundGradient" Stretch="Fill" Grid.ColumnSpan="2">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                        <GradientStop Color="#FCFFFFFF" Offset="0.015"/>
+                                        <GradientStop Color="#F7FFFFFF" Offset="0.375"/>
+                                        <GradientStop Color="#E5FFFFFF" Offset="0.6"/>
+                                        <GradientStop Color="#D1FFFFFF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="2" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter Content="{TemplateBinding Content}"/>
+                                <Path x:Name="SortIcon" Fill="#FF444444" Stretch="Uniform" HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Center" Width="0" Opacity="0" RenderTransformOrigin=".5,.5" Grid.Column="1" Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z ">
+                                    <Path.RenderTransform>
+                                        <ScaleTransform ScaleX=".9" ScaleY=".9"/>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                            <Rectangle x:Name="VerticalSeparator" Fill="{TemplateBinding SeparatorBrush}" VerticalAlignment="Stretch" Width="1" Visibility="{TemplateBinding SeparatorVisibility}" Grid.Column="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="PARENT">
+        <MediaElement>
+            <MediaElement.CacheMode>
+                <BitmapCache RenderAtScale="4"/>
+            </MediaElement.CacheMode>
+        </MediaElement>
+
+
+        <Grid x:Name="LayoutRoot" Background="Transparent" MinHeight="400" >
+            <Grid.RowDefinitions>
+            	<RowDefinition Height="28"></RowDefinition>                
+                <RowDefinition/>                
+            </Grid.RowDefinitions>
+			<StackPanel Grid.Row="0" Orientation="Horizontal"  VerticalAlignment="Stretch">
+                <TextBlock Text="★" Margin="10 0 0 0" Foreground="Red"></TextBlock>
+                <TextBlock Text="本人" Margin="4" ></TextBlock>
+                <TextBlock Text="★★"  Foreground="Red"></TextBlock>
+                <TextBlock Text="所属岗位" Margin="4"></TextBlock>
+                <TextBlock Text="★★★"  Foreground="Red"></TextBlock>
+                <TextBlock Text="所属部门" Margin="4" ></TextBlock>
+                <TextBlock Text="★★★★"  Foreground="Red"></TextBlock>
+                <TextBlock Text="所属公司" Margin="4"></TextBlock>
+            </StackPanel>            
+                <controls:TabControl   Grid.Row="1" x:Name="tabrolemenu"  VerticalAlignment="Stretch" Height="500"  SelectionChanged="TabControl_SelectionChanged">
+                <!--<controls:TabItem Header="角色信息">
+                    
+                </controls:TabItem>-->                
+                <controls:TabItem Header="HR" Name="tabhr">
+                    <!--<Grid MinHeight="400">--> 
+                        <!--<ScrollViewer>-->
+                            <!--<StackPanel x:Name="HrPanel"/>-->
+                        <!--</ScrollViewer>-->
+                    <Grid MinHeight="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Grid.Row="0"
+                                      VerticalScrollBarVisibility="Disabled"
+                                      HorizontalScrollBarVisibility="Disabled">
+                            <data:DataGrid x:Name="DaGrHRHead"
+                                           AreRowGroupHeadersFrozen="True"
+                                           CanUserReorderColumns="False" CanUserResizeColumns="False"
+                                           Style="{StaticResource DataGridStyle}">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn Width="110" HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>                                                
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Row="1">
+                            <data:DataGrid x:Name="DaGrHR" AutoGenerateColumns="False"  HeadersVisibility="None"
+                       ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                       CanUserReorderColumns="False" LoadingRow="DaGrHR_LoadingRow"
+                       Grid.Column="1">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}" >
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <!--<TextBlock x:Name="HRBtn2"
+                                                       Text="{Binding Path= MENUNAME}"
+                                                       MouseLeftButtonUp="HRBtn_Click" VerticalAlignment="Center"  HorizontalAlignment="Center"  Width="110" Foreground="Black"></TextBlock>-->
+                                                <Button x:Name="HRBtn2"
+                                                           Content="{Binding Path= MENUNAME}"
+                                                           Click="HRBtn_Click"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                        Width="110"
+                                                        Style="{StaticResource ButtonCompetenceStyle}"
+                                                        Foreground="Black"></Button>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+
+                </controls:TabItem>
+                <controls:TabItem Header="OA" Name="taboa">
+                    <Grid MinHeight="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Grid.Row="0"
+                                      VerticalScrollBarVisibility="Disabled"
+                                      HorizontalScrollBarVisibility="Disabled">
+                            <data:DataGrid x:Name="DaGrOAHead"
+                                           CanUserReorderColumns="False"
+                                           CanUserResizeColumns="False"
+                                           RenderTransformOrigin="0.5,0.5"
+                                           Style="{StaticResource DataGridStyle}">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn Width="110" HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Row="1">
+                            <data:DataGrid x:Name="DaGrOA" AutoGenerateColumns="False"  HeadersVisibility="None"
+                       ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                       CanUserReorderColumns="False" LoadingRow="DaGrOA_LoadingRow"
+                       Grid.Column="1">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}" >
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <!--<TextBlock x:Name="OABtn2"
+                                                       Text="{Binding Path= MENUNAME}"
+                                                       MouseLeftButtonUp="OABtn_Click" VerticalAlignment="Center"  HorizontalAlignment="Center"  Width="110" Foreground="Black"></TextBlock>-->
+                                                <Button x:Name="OABtn2"
+                                                           Content="{Binding Path= MENUNAME}"
+                                                           Click="OABtn_Click"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                        Width="110"
+                                                        Style="{StaticResource ButtonCompetenceStyle}"
+                                                        Foreground="Black"></Button>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+                </controls:TabItem>                
+                <controls:TabItem Header="FB" Name="tabfb">
+                    <Grid MinHeight="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Grid.Row="0"
+                                      VerticalScrollBarVisibility="Disabled"
+                                      HorizontalScrollBarVisibility="Disabled">
+                            <data:DataGrid x:Name="DaGrFBHead"
+                                           CanUserReorderColumns="False"
+                                           CanUserResizeColumns="False"
+                                           AreRowGroupHeadersFrozen="True"
+                                           Style="{StaticResource DataGridStyle}">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn Width="110" HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Row="1">
+                            <data:DataGrid x:Name="DaGrFB" AutoGenerateColumns="False"  LoadingRow="DaGrFB_LoadingRow"
+                           ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                           MinHeight="350" CanUserReorderColumns="False" HeadersVisibility="None"
+                           Grid.Column="1">
+                                <data:DataGrid.Columns>
+                                    <!--<data:DataGridTemplateColumn Header="全选" Width="60" Visibility="Collapsed">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="myChkBtnFB" ></CheckBox>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>-->
+                                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                            <!--<TextBlock x:Name="FBBtn2"
+                                                       Text="{Binding Path= MENUNAME}"
+                                                       MouseLeftButtonUp="FBBtn_Click" VerticalAlignment="Center"  HorizontalAlignment="Center"  Width="110" Foreground="Black"></TextBlock>-->
+                                                <Button x:Name="FBBtn2"
+                                                        Content="{Binding Path= MENUNAME}"
+                                                           Click="FBBtn_Click"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                           Width="110"
+                                                        Style="{StaticResource ButtonCompetenceStyle}"
+                                                        Foreground="Black"></Button>
+                                                <!--<Button x:Name="FBBtn" Width="110" Content="{Binding Path= MENUNAME}" Click="FBBtn_Click"  VerticalAlignment="Center"  HorizontalAlignment="Center"  Style="{StaticResource ButtonCompetenceStyle}" Foreground="Black"></Button>-->
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+                </controls:TabItem>
+                <controls:TabItem Header="LM" Name="tablm">
+                    <Grid MinHeight="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+                            <data:DataGrid x:Name="DaGrLMHead"
+                                           CanUserReorderColumns="False"
+                                           CanUserResizeColumns="False"
+                                           Style="{StaticResource DataGridStyle}">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn Width="110" HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Row="1">
+
+                            <data:DataGrid x:Name="DaGrLM" AutoGenerateColumns="False"  Grid.Row="1" HeadersVisibility="None"
+                           ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                           MinHeight="350" CanUserReorderColumns="False" LoadingRow="DaGrLM_LoadingRow"
+                           Grid.Column="1">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <!--<TextBlock x:Name="LMBtn2"
+                                                           Text="{Binding Path= MENUNAME}"
+                                                           MouseLeftButtonUp="LMBtn_Click" VerticalAlignment="Center"  HorizontalAlignment="Center"  Width="110" Foreground="Black"></TextBlock>-->
+                                                <Button x:Name="LMBtn2"
+                                                           Content="{Binding Path= MENUNAME}"
+                                                           Click="LMBtn_Click"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                        Width="110"
+                                                        Style="{StaticResource ButtonCompetenceStyle}"
+                                                        Foreground="Black"></Button>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+                </controls:TabItem>
+                <controls:TabItem Header="EDM" Name="tabedm">
+
+                    <Grid MinHeight="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Grid.Row="0"
+                                      VerticalScrollBarVisibility="Disabled"
+                                      HorizontalScrollBarVisibility="Disabled">
+                            <data:DataGrid x:Name="DaGrEDMHead"
+                                           AreRowGroupHeadersFrozen="True"
+                                           CanUserReorderColumns="False" CanUserResizeColumns="False"
+                                           Style="{StaticResource DataGridStyle}">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn Width="110" HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Row="1">
+                            <data:DataGrid x:Name="DaGrEDM" AutoGenerateColumns="False"  HeadersVisibility="None"
+                       ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5"
+                       CanUserReorderColumns="False" LoadingRow="DaGrEDM_LoadingRow"
+                       Grid.Column="1">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}" >
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <!--<TextBlock x:Name="HRBtn2"
+                                                       Text="{Binding Path= MENUNAME}"
+                                                       MouseLeftButtonUp="HRBtn_Click" VerticalAlignment="Center"  HorizontalAlignment="Center"  Width="110" Foreground="Black"></TextBlock>-->
+                                                <Button x:Name="EDMBtn2"
+                                                           Content="{Binding Path= MENUNAME}"
+                                                           Click="EDMBtn_Click"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                        Width="110"
+                                                        Style="{StaticResource ButtonCompetenceStyle}"
+                                                        Foreground="Black"></Button>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+
+                </controls:TabItem>
+                <controls:TabItem Header="EXM" x:Name="tabpm">
+                    <Grid MinHeight="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Grid.Row="0"
+                                      VerticalScrollBarVisibility="Disabled"
+                                      HorizontalScrollBarVisibility="Disabled">
+                            <data:DataGrid x:Name="DaGrPMHead"
+                                           AreRowGroupHeadersFrozen="True"
+                                           CanUserReorderColumns="False" CanUserResizeColumns="False"
+                                           Style="{StaticResource DataGridStyle}">
+                                <data:DataGrid.Columns>
+                                    <data:DataGridTemplateColumn Width="110" HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+                            </data:DataGrid>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Row="1">
+                            <data:DataGrid x:Name="DaGrPM" AutoGenerateColumns="False"  
+                       ItemsSource="{Binding Collection}"  RenderTransformOrigin="0.5,0.5" HeadersVisibility="None"
+                       LoadingRow="DaGrPM_LoadingRow"  Loaded="DaGrPM_Loaded" MinHeight="350" CanUserReorderColumns="False"
+                       Grid.Column="1">
+                                <data:DataGrid.Columns>
+                                    <!--<data:DataGridTemplateColumn Header="全选" Width="60" Visibility="Collapsed">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="myChkBtnPM" ></CheckBox>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>-->
+                                    <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridImageColumnHeaderStyle}">
+                                        <data:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="PMBtn" Content="{Binding Path= MENUNAME}" Click="PMBtn_Click"  VerticalAlignment="Center"  HorizontalAlignment="Center" Style="{StaticResource ButtonCompetenceStyle}" Width="110" Foreground="Black"></Button>
+                                            </DataTemplate>
+                                        </data:DataGridTemplateColumn.CellTemplate>
+                                    </data:DataGridTemplateColumn>
+                                </data:DataGrid.Columns>
+
+                            </data:DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+
+                </controls:TabItem>
+                
+            </controls:TabControl>
+            
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,49 @@
+<smtLocal:BaseForm 
+    xmlns:smtLocal="clr-namespace:SMT.SaaS.Permission.UI" 
+    xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"  
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+    x:Class="SMT.SaaS.Permission.UI.Form.SysPermMenuForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+    Width="400" Height="300" 
+    Title="{Binding Converter={StaticResource ResourceConveter}, Source=PERMISSIONMENUDEFINE}">   
+
+    
+    <Grid x:Name="LayoutRoot" Margin="2" HorizontalAlignment="Stretch">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26"></RowDefinition>
+                <RowDefinition Height="26"></RowDefinition>
+                <RowDefinition Height="26"></RowDefinition>              
+            </Grid.RowDefinitions>
+            <!--系统类型-->
+            <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=SYSTEMTYPE}"></TextBlock>
+            <ComboBox Name="cbxSysType" Width="150" Height="22" SelectionChanged="cbxSysType_SelectionChanged" Grid.Column="1" Grid.Row="0">
+            </ComboBox>
+            
+            <!--权限名称-->
+            <TextBlock Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="1" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PERMISSIONNAME}"></TextBlock>
+            <ComboBox Name="cbxSysPerm" Width="150" Height="22" Grid.Column="1" Grid.Row="1"></ComboBox>
+            
+            <!--菜单名称-->
+            <TextBlock Style="{StaticResource SysTextBlockStyle}" Grid.Column="0" Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MENUNAME}"></TextBlock>
+            <ComboBox Name="cbxSysMenu" Width="150" Height="22" Grid.Column="1" Grid.Row="2"></ComboBox>
+
+        </Grid>        
+
+        <Button x:Name="btnCancel" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCEL}" Click="btnCancel_Click"  Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1"/>
+        <Button x:Name="btnSave" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SAVE}" Click="btnSave_Click"  Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1"/>
+   </Grid>
+</smtLocal:BaseForm>

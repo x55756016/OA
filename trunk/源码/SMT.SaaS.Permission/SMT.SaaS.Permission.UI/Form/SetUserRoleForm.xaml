@@ -1,0 +1,48 @@
+﻿<smtlocal:BaseForm 
+    xmlns:smtlocal="clr-namespace:SMT.SaaS.Permission.UI"
+
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+	xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  
+    x:Class="SMT.SaaS.Permission.UI.Form.SetUserRoleForm" 
+    Width="400" Height="500" Title="SetUserRoleForm">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.128*"/>
+            <RowDefinition Height="0.872*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+		<StackPanel Grid.Row="1">
+            <CheckBox x:Name="chkAll" Content="全选" Margin="1,2,8,2" Click="chkAll_Click"></CheckBox>
+			<ScrollViewer Height="450" Margin="8,0">                
+			    <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" IsReadOnly="True"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LoadingRow="DaGr_LoadingRow" Loaded="DtGrid_Loaded" VerticalScrollBarVisibility="Auto">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTemplateColumn Header="选择"  Width="60">
+                                <data:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <dataFormToolkit:DataField Label="">
+                                            <CheckBox x:Name="myChkBtn" Click="myChkBtn_Click"></CheckBox>
+                                        </dataFormToolkit:DataField>
+                                    </DataTemplate>
+                                </data:DataGridTemplateColumn.CellTemplate>
+                            </data:DataGridTemplateColumn>
+                            <data:DataGridTextColumn Header="系统类型" Binding="{Binding SYSTEMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}">                                
+                            </data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="角色名称" Binding="{Binding ROLENAME}">
+                            </data:DataGridTextColumn>                           
+                        </data:DataGrid.Columns>
+                </data:DataGrid>
+			    
+			</ScrollViewer>
+		    
+		</StackPanel>
+
+        <Button x:Name="CancelButton" Content="取消" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="2"/>
+        <Button x:Name="OKButton" Content="确定" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="2"/>
+        <TextBlock x:Name="tblTitle" Margin="114,2,123,2" TextWrapping="Wrap" Foreground="#FFFB0404"/>
+    	
+    </Grid>
+</smtlocal:BaseForm>
