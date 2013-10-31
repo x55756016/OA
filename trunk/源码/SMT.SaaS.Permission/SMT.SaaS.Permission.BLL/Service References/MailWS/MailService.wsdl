@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MailService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://smtonlineim.sinomaster.com/imservice/MailService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://smtonlineim.sinomaster.com/imservice/MailService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://smtonlineim.sinomaster.com/imservice/MailService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMTIM.Application.DataObjects" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMailService_AddDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDept" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_AddDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_UpdateDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDept" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_UpdateDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_DelDept_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelDept" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_DelDept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_DelUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelUser" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_DelUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_AddDomain_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDomain" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_AddDomain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_DelDomain_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelDomain" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_DelDomain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_GetMailList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMailList" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_GetMailList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_ShowMailMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowMailMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_ShowMailMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowMailMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_AddDeptMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeptMember" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_AddDeptMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeptMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_DelDeptMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelDeptMember" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_DelDeptMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelDeptMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IMailService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMailService">
+    <wsdl:operation name="AddDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/AddDept" message="tns:IMailService_AddDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/AddDeptResponse" message="tns:IMailService_AddDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/UpdateDept" message="tns:IMailService_UpdateDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/UpdateDeptResponse" message="tns:IMailService_UpdateDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/DelDept" message="tns:IMailService_DelDept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/DelDeptResponse" message="tns:IMailService_DelDept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/AddUser" message="tns:IMailService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/AddUserResponse" message="tns:IMailService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/UpdateUser" message="tns:IMailService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/UpdateUserResponse" message="tns:IMailService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/DelUser" message="tns:IMailService_DelUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/DelUserResponse" message="tns:IMailService_DelUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDomain">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/AddDomain" message="tns:IMailService_AddDomain_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/AddDomainResponse" message="tns:IMailService_AddDomain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDomain">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/DelDomain" message="tns:IMailService_DelDomain_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/DelDomainResponse" message="tns:IMailService_DelDomain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/GetMailList" message="tns:IMailService_GetMailList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/GetMailListResponse" message="tns:IMailService_GetMailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowMailMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/ShowMailMessage" message="tns:IMailService_ShowMailMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/ShowMailMessageResponse" message="tns:IMailService_ShowMailMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDeptMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/AddDeptMember" message="tns:IMailService_AddDeptMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/AddDeptMemberResponse" message="tns:IMailService_AddDeptMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDeptMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/DelDeptMember" message="tns:IMailService_DelDeptMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/DelDeptMemberResponse" message="tns:IMailService_DelDeptMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailService/ChangePassword" message="tns:IMailService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailService/ChangePasswordResponse" message="tns:IMailService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMailService" type="tns:IMailService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDept">
+      <soap:operation soapAction="http://tempuri.org/IMailService/AddDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDept">
+      <soap:operation soapAction="http://tempuri.org/IMailService/UpdateDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDept">
+      <soap:operation soapAction="http://tempuri.org/IMailService/DelDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IMailService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IMailService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUser">
+      <soap:operation soapAction="http://tempuri.org/IMailService/DelUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDomain">
+      <soap:operation soapAction="http://tempuri.org/IMailService/AddDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDomain">
+      <soap:operation soapAction="http://tempuri.org/IMailService/DelDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailList">
+      <soap:operation soapAction="http://tempuri.org/IMailService/GetMailList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowMailMessage">
+      <soap:operation soapAction="http://tempuri.org/IMailService/ShowMailMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDeptMember">
+      <soap:operation soapAction="http://tempuri.org/IMailService/AddDeptMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDeptMember">
+      <soap:operation soapAction="http://tempuri.org/IMailService/DelDeptMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IMailService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MailService">
+    <wsdl:port name="BasicHttpBinding_IMailService" binding="tns:BasicHttpBinding_IMailService">
+      <soap:address location="http://smtonlineim.sinomaster.com/imservice/MailService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

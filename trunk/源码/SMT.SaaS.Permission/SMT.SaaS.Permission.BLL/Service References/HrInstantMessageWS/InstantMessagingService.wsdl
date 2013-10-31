@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Develop/Services/HR/InstantMessagingService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Develop/Services/HR/InstantMessagingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://smtonlineserver/SmtOnline/Develop/Services/HR/InstantMessagingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="InstantMessagingService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_GetAllCompany_InputMessage">
+    <wsdl:part name="parameters" element="GetAllCompany" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_GetAllCompany_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_GetAllDepartment_InputMessage">
+    <wsdl:part name="parameters" element="GetAllDepartment" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_GetAllDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_GetAllEmployee_InputMessage">
+    <wsdl:part name="parameters" element="GetAllEmployee" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_GetAllEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_GetSingelEmployee_InputMessage">
+    <wsdl:part name="parameters" element="GetSingelEmployee" />
+  </wsdl:message>
+  <wsdl:message name="InstantMessagingService_GetSingelEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="GetSingelEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InstantMessagingService">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:InstantMessagingService/DoWork" message="InstantMessagingService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:InstantMessagingService/DoWorkResponse" message="InstantMessagingService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompany">
+      <wsdl:input wsaw:Action="urn:InstantMessagingService/GetAllCompany" message="InstantMessagingService_GetAllCompany_InputMessage" />
+      <wsdl:output wsaw:Action="urn:InstantMessagingService/GetAllCompanyResponse" message="InstantMessagingService_GetAllCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDepartment">
+      <wsdl:input wsaw:Action="urn:InstantMessagingService/GetAllDepartment" message="InstantMessagingService_GetAllDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="urn:InstantMessagingService/GetAllDepartmentResponse" message="InstantMessagingService_GetAllDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployee">
+      <wsdl:input wsaw:Action="urn:InstantMessagingService/GetAllEmployee" message="InstantMessagingService_GetAllEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="urn:InstantMessagingService/GetAllEmployeeResponse" message="InstantMessagingService_GetAllEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingelEmployee">
+      <wsdl:input wsaw:Action="urn:InstantMessagingService/GetSingelEmployee" message="InstantMessagingService_GetSingelEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="urn:InstantMessagingService/GetSingelEmployeeResponse" message="InstantMessagingService_GetSingelEmployee_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

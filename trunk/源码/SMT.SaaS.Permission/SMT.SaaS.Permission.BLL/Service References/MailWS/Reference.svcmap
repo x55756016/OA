@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ffcf2dc1-27fb-47c6-905f-20b385f38e0e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://smtonlineim.sinomaster.com/imservice/MailService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MailService.wsdl" MetadataType="Wsdl" ID="5e837323-4748-4343-8d6c-9b3ef85aed7d" SourceId="1" SourceUrl="http://smtonlineim.sinomaster.com/imservice/MailService.svc?wsdl" />
+    <MetadataFile FileName="MailService.xsd" MetadataType="Schema" ID="7eb21b3d-6693-4d8f-9477-7d401f672658" SourceId="1" SourceUrl="http://smtonlineim.sinomaster.com/imservice/MailService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MailService1.xsd" MetadataType="Schema" ID="782c2245-7eac-4aa8-9a2b-9482606bd89e" SourceId="1" SourceUrl="http://smtonlineim.sinomaster.com/imservice/MailService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MailService2.xsd" MetadataType="Schema" ID="f3f6b82b-e881-4170-a1e9-cbcf295adf7b" SourceId="1" SourceUrl="http://smtonlineim.sinomaster.com/imservice/MailService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MailService.disco" MetadataType="Disco" ID="6449574c-49d4-45a5-a9e4-1dbca65cc187" SourceId="1" SourceUrl="http://smtonlineim.sinomaster.com/imservice/MailService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
