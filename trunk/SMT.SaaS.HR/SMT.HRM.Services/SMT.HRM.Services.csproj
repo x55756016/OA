@@ -184,6 +184,7 @@
     <Compile Include="OutAppliecrecordService.svc.cs">
       <DependentUpon>OutAppliecrecordService.svc</DependentUpon>
     </Compile>
+    <Compile Include="OutApply\Class1.cs" />
     <Compile Include="OutputInterface.svc.cs">
       <DependentUpon>OutputInterface.svc</DependentUpon>
     </Compile>
