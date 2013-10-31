@@ -1,0 +1,1819 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+<edmx:Runtime>
+<edmx:StorageModels>
+<Schema Namespace="SMT_System_EFModel.Store" Alias="Self" Provider="EFOracleProvider" ProviderManifestToken="11g" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="SMT_System_EFModelStoreContainer">
+    <EntitySet Name="T_SYS_COUNTRY" EntityType="SMT_System_EFModel.Store.T_SYS_COUNTRY" store:Type="Tables" />
+    <EntitySet Name="T_SYS_DICTIONARY" EntityType="SMT_System_EFModel.Store.T_SYS_DICTIONARY" store:Type="Tables" />
+    <EntitySet Name="T_SYS_ENTITYMENU" EntityType="SMT_System_EFModel.Store.T_SYS_ENTITYMENU" store:Type="Tables" />
+    <EntitySet Name="T_SYS_ENTITYMENUBAK" EntityType="SMT_System_EFModel.Store.T_SYS_ENTITYMENUBAK" store:Type="Tables" store:Schema="dbo" store:Name="T_SYS_ENTITYMENUBAK">
+      <DefiningQuery>SELECT 
+"T_SYS_ENTITYMENUBAK"."ENTITYMENUID" AS "ENTITYMENUID", 
+"T_SYS_ENTITYMENUBAK"."SYSTEMTYPE" AS "SYSTEMTYPE", 
+"T_SYS_ENTITYMENUBAK"."ENTITYNAME" AS "ENTITYNAME", 
+"T_SYS_ENTITYMENUBAK"."ENTITYCODE" AS "ENTITYCODE", 
+"T_SYS_ENTITYMENUBAK"."HASSYSTEMMENU" AS "HASSYSTEMMENU", 
+"T_SYS_ENTITYMENUBAK"."SUPERIORID" AS "SUPERIORID", 
+"T_SYS_ENTITYMENUBAK"."MENUCODE" AS "MENUCODE", 
+"T_SYS_ENTITYMENUBAK"."ORDERNUMBER" AS "ORDERNUMBER", 
+"T_SYS_ENTITYMENUBAK"."MENUNAME" AS "MENUNAME", 
+"T_SYS_ENTITYMENUBAK"."MENUICONPATH" AS "MENUICONPATH", 
+"T_SYS_ENTITYMENUBAK"."URLADDRESS" AS "URLADDRESS", 
+"T_SYS_ENTITYMENUBAK"."REMARK" AS "REMARK", 
+"T_SYS_ENTITYMENUBAK"."CREATEUSER" AS "CREATEUSER", 
+"T_SYS_ENTITYMENUBAK"."CREATEDATE" AS "CREATEDATE", 
+"T_SYS_ENTITYMENUBAK"."UPDATEUSER" AS "UPDATEUSER", 
+"T_SYS_ENTITYMENUBAK"."UPDATEDATE" AS "UPDATEDATE", 
+"T_SYS_ENTITYMENUBAK"."CHILDSYSTEMNAME" AS "CHILDSYSTEMNAME"
+FROM "dbo"."T_SYS_ENTITYMENUBAK" "T_SYS_ENTITYMENUBAK"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_SYS_ENTITYMENUCUSTOMPERM" EntityType="SMT_System_EFModel.Store.T_SYS_ENTITYMENUCUSTOMPERM" store:Type="Tables" />
+    <EntitySet Name="T_SYS_FBADMIN" EntityType="SMT_System_EFModel.Store.T_SYS_FBADMIN" store:Type="Tables" />
+    <EntitySet Name="T_SYS_FBADMINROLE" EntityType="SMT_System_EFModel.Store.T_SYS_FBADMINROLE" store:Type="Tables" />
+    <EntitySet Name="T_SYS_FILEUPLOAD" EntityType="SMT_System_EFModel.Store.T_SYS_FILEUPLOAD" store:Type="Tables" />
+    <EntitySet Name="T_SYS_PERMISSION" EntityType="SMT_System_EFModel.Store.T_SYS_PERMISSION" store:Type="Tables" />
+    <EntitySet Name="T_SYS_PROVINCECITY" EntityType="SMT_System_EFModel.Store.T_SYS_PROVINCECITY" store:Type="Tables" />
+    <EntitySet Name="T_SYS_ROLE" EntityType="SMT_System_EFModel.Store.T_SYS_ROLE" store:Type="Tables" />
+    <EntitySet Name="T_SYS_ROLEENTITYMENU" EntityType="SMT_System_EFModel.Store.T_SYS_ROLEENTITYMENU" store:Type="Tables" />
+    <EntitySet Name="T_SYS_ROLEMENUPERMISSION" EntityType="SMT_System_EFModel.Store.T_SYS_ROLEMENUPERMISSION" store:Type="Tables" />
+    <EntitySet Name="T_SYS_ROLE_BAK" EntityType="SMT_System_EFModel.Store.T_SYS_ROLE_BAK" store:Type="Tables" store:Schema="dbo" store:Name="T_SYS_ROLE_BAK">
+      <DefiningQuery>SELECT 
+"T_SYS_ROLE_BAK"."ROLEID" AS "ROLEID", 
+"T_SYS_ROLE_BAK"."SYSTEMTYPE" AS "SYSTEMTYPE", 
+"T_SYS_ROLE_BAK"."ROLENAME" AS "ROLENAME", 
+"T_SYS_ROLE_BAK"."REMARK" AS "REMARK", 
+"T_SYS_ROLE_BAK"."CREATEUSER" AS "CREATEUSER", 
+"T_SYS_ROLE_BAK"."CREATEDATE" AS "CREATEDATE", 
+"T_SYS_ROLE_BAK"."UPDATEUSER" AS "UPDATEUSER", 
+"T_SYS_ROLE_BAK"."UPDATEDATE" AS "UPDATEDATE", 
+"T_SYS_ROLE_BAK"."OWNERCOMPANYID" AS "OWNERCOMPANYID", 
+"T_SYS_ROLE_BAK"."OWNERID" AS "OWNERID", 
+"T_SYS_ROLE_BAK"."OWNERPOSTID" AS "OWNERPOSTID", 
+"T_SYS_ROLE_BAK"."OWNERDEPARTMENTID" AS "OWNERDEPARTMENTID"
+FROM "dbo"."T_SYS_ROLE_BAK" "T_SYS_ROLE_BAK"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_SYS_RTF" EntityType="SMT_System_EFModel.Store.T_SYS_RTF" store:Type="Tables" />
+    <EntitySet Name="T_SYS_USER" EntityType="SMT_System_EFModel.Store.T_SYS_USER" store:Type="Tables" />
+    <EntitySet Name="T_SYS_USERACTLOG" EntityType="SMT_System_EFModel.Store.T_SYS_USERACTLOG" store:Type="Tables" />
+    <EntitySet Name="T_SYS_USERDATALOG" EntityType="SMT_System_EFModel.Store.T_SYS_USERDATALOG" store:Type="Tables" />
+    <EntitySet Name="T_SYS_USERLOGINRECORD" EntityType="SMT_System_EFModel.Store.T_SYS_USERLOGINRECORD" store:Type="Tables" />
+    <EntitySet Name="T_SYS_USERLOGINRECORDHIS" EntityType="SMT_System_EFModel.Store.T_SYS_USERLOGINRECORDHIS" store:Type="Tables" />
+    <EntitySet Name="T_SYS_USERROLE" EntityType="SMT_System_EFModel.Store.T_SYS_USERROLE" store:Type="Tables" />
+    <AssociationSet Name="FK_T_ROLEENTITYMENU_T_SYS_EN" Association="SMT_System_EFModel.Store.FK_T_ROLEENTITYMENU_T_SYS_EN">
+      <End Role="T_SYS_ENTITYMENU" EntitySet="T_SYS_ENTITYMENU" />
+      <End Role="T_SYS_ROLEENTITYMENU" EntitySet="T_SYS_ROLEENTITYMENU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_DI_REFERENCE_T_SYS_DI" Association="SMT_System_EFModel.Store.FK_T_SYS_DI_REFERENCE_T_SYS_DI">
+      <End Role="T_SYS_DICTIONARY" EntitySet="T_SYS_DICTIONARY" />
+      <End Role="T_SYS_DICTIONARY1" EntitySet="T_SYS_DICTIONARY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_EN_REFERENCE_T_SYS_EN" Association="SMT_System_EFModel.Store.FK_T_SYS_EN_REFERENCE_T_SYS_EN">
+      <End Role="T_SYS_ENTITYMENU" EntitySet="T_SYS_ENTITYMENU" />
+      <End Role="T_SYS_ENTITYMENU1" EntitySet="T_SYS_ENTITYMENU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_EN_REFERENCE_T_SYS_PE" Association="SMT_System_EFModel.Store.FK_T_SYS_EN_REFERENCE_T_SYS_PE">
+      <End Role="T_SYS_PERMISSION" EntitySet="T_SYS_PERMISSION" />
+      <End Role="T_SYS_ENTITYMENUCUSTOMPERM" EntitySet="T_SYS_ENTITYMENUCUSTOMPERM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_EN_REFERENCE_T_SYS_RO" Association="SMT_System_EFModel.Store.FK_T_SYS_EN_REFERENCE_T_SYS_RO">
+      <End Role="T_SYS_ROLE" EntitySet="T_SYS_ROLE" />
+      <End Role="T_SYS_ENTITYMENUCUSTOMPERM" EntitySet="T_SYS_ENTITYMENUCUSTOMPERM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_FB_REFERENCE_T_SYS_FB" Association="SMT_System_EFModel.Store.FK_T_SYS_FB_REFERENCE_T_SYS_FB">
+      <End Role="T_SYS_FBADMIN" EntitySet="T_SYS_FBADMIN" />
+      <End Role="T_SYS_FBADMINROLE" EntitySet="T_SYS_FBADMINROLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_PE_REFERENCE_T_SYS_EN" Association="SMT_System_EFModel.Store.FK_T_SYS_PE_REFERENCE_T_SYS_EN">
+      <End Role="T_SYS_ENTITYMENU" EntitySet="T_SYS_ENTITYMENU" />
+      <End Role="T_SYS_PERMISSION" EntitySet="T_SYS_PERMISSION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_PR_REFERENCE_T_SYS_PR" Association="SMT_System_EFModel.Store.FK_T_SYS_PR_REFERENCE_T_SYS_PR">
+      <End Role="T_SYS_PROVINCECITY" EntitySet="T_SYS_PROVINCECITY" />
+      <End Role="T_SYS_PROVINCECITY1" EntitySet="T_SYS_PROVINCECITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_RO_ENTITYMENU" Association="SMT_System_EFModel.Store.FK_T_SYS_RO_ENTITYMENU">
+      <End Role="T_SYS_ENTITYMENU" EntitySet="T_SYS_ENTITYMENU" />
+      <End Role="T_SYS_ENTITYMENUCUSTOMPERM" EntitySet="T_SYS_ENTITYMENUCUSTOMPERM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_RO_RELATIONS_T_SYS_PE" Association="SMT_System_EFModel.Store.FK_T_SYS_RO_RELATIONS_T_SYS_PE">
+      <End Role="T_SYS_PERMISSION" EntitySet="T_SYS_PERMISSION" />
+      <End Role="T_SYS_ROLEMENUPERMISSION" EntitySet="T_SYS_ROLEMENUPERMISSION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_RO_ROLEENTITYMENU" Association="SMT_System_EFModel.Store.FK_T_SYS_RO_ROLEENTITYMENU">
+      <End Role="T_SYS_ROLEENTITYMENU" EntitySet="T_SYS_ROLEENTITYMENU" />
+      <End Role="T_SYS_ROLEMENUPERMISSION" EntitySet="T_SYS_ROLEMENUPERMISSION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_RO_T_SYS_ROLE" Association="SMT_System_EFModel.Store.FK_T_SYS_RO_T_SYS_ROLE">
+      <End Role="T_SYS_ROLE" EntitySet="T_SYS_ROLE" />
+      <End Role="T_SYS_ROLEENTITYMENU" EntitySet="T_SYS_ROLEENTITYMENU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_US_REFERENCE_T_SYS_RO" Association="SMT_System_EFModel.Store.FK_T_SYS_US_REFERENCE_T_SYS_RO">
+      <End Role="T_SYS_ROLE" EntitySet="T_SYS_ROLE" />
+      <End Role="T_SYS_USERROLE" EntitySet="T_SYS_USERROLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_US_REFERENCE_T_SYS_US" Association="SMT_System_EFModel.Store.FK_T_SYS_US_REFERENCE_T_SYS_US">
+      <End Role="T_SYS_USER" EntitySet="T_SYS_USER" />
+      <End Role="T_SYS_USERROLE" EntitySet="T_SYS_USERROLE" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="T_SYS_COUNTRY">
+    <Key>
+      <PropertyRef Name="COUNTRYID" />
+    </Key>
+    <Property Name="COUNTRYID" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="COUNTRYNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="CREATEUSERID" Type="varchar2" MaxLength="50" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="varchar2" MaxLength="50" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_SYS_DICTIONARY">
+    <Key>
+      <PropertyRef Name="DICTIONARYID" />
+    </Key>
+    <Property Name="DICTIONARYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="DICTIONCATEGORY" Type="nvarchar2" MaxLength="100" />
+    <Property Name="DICTIONARYNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="DICTIONARYVALUE" Type="number" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="DICTIONCATEGORYNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="FATHERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="SYSTEMNAME" Type="nvarchar2" MaxLength="200" />
+    <Property Name="SYSTEMCODE" Type="nvarchar2" MaxLength="200" />
+    <Property Name="ORDERNUMBER" Type="number" />
+    <Property Name="SYSTEMNEED" Type="nvarchar2" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="T_SYS_ENTITYMENU">
+    <Key>
+      <PropertyRef Name="ENTITYMENUID" />
+    </Key>
+    <Property Name="ENTITYMENUID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SYSTEMTYPE" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ENTITYNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="ENTITYCODE" Type="nvarchar2" MaxLength="400" />
+    <Property Name="HASSYSTEMMENU" Type="nvarchar2" MaxLength="2" />
+    <Property Name="SUPERIORID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="MENUCODE" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ORDERNUMBER" Type="number" Nullable="false" Precision="38" />
+    <Property Name="MENUNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MENUICONPATH" Type="nvarchar2" MaxLength="200" />
+    <Property Name="URLADDRESS" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="CHILDSYSTEMNAME" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="ISAUTHORITY" Type="nvarchar2" MaxLength="2" />
+    <Property Name="HELPTITLE" Type="nvarchar2" MaxLength="200" />
+    <Property Name="HELPFILEPATH" Type="nvarchar2" MaxLength="1000" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“dbo.T_SYS_ENTITYMENUBAK”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+-->
+  <EntityType Name="T_SYS_ENTITYMENUBAK">
+    <Key>
+      <PropertyRef Name="ENTITYMENUID" />
+      <PropertyRef Name="SYSTEMTYPE" />
+      <PropertyRef Name="MENUCODE" />
+      <PropertyRef Name="ORDERNUMBER" />
+      <PropertyRef Name="MENUNAME" />
+    </Key>
+    <Property Name="ENTITYMENUID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SYSTEMTYPE" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ENTITYNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="ENTITYCODE" Type="nvarchar2" MaxLength="400" />
+    <Property Name="HASSYSTEMMENU" Type="nvarchar2" MaxLength="2" />
+    <Property Name="SUPERIORID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="MENUCODE" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ORDERNUMBER" Type="number" Nullable="false" Precision="38" />
+    <Property Name="MENUNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MENUICONPATH" Type="nvarchar2" MaxLength="200" />
+    <Property Name="URLADDRESS" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="CHILDSYSTEMNAME" Type="nvarchar2" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="T_SYS_ENTITYMENUCUSTOMPERM">
+    <Key>
+      <PropertyRef Name="ENTITYMENUCUSTOMPERMID" />
+    </Key>
+    <Property Name="ENTITYMENUCUSTOMPERMID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="PERMISSIONID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ENTITYMENUID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="COMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="COMPANYNAME" Type="nvarchar2" MaxLength="200" />
+    <Property Name="DEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="DEPARTMENTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="POSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="POSTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="STARTDATE" Type="date" />
+    <Property Name="ENDDATE" Type="date" />
+    <Property Name="ROLEID" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_SYS_FBADMIN">
+    <Key>
+      <PropertyRef Name="FBADMINID" />
+    </Key>
+    <Property Name="FBADMINID" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="SYSUSERID" Type="varchar2" MaxLength="50" />
+    <Property Name="OWNERCOMPANYID" Type="varchar2" MaxLength="50" />
+    <Property Name="OWNERDEPARTMENTID" Type="varchar2" MaxLength="50" />
+    <Property Name="OWNERPOSTID" Type="varchar2" MaxLength="50" />
+    <Property Name="CREATEUSERID" Type="varchar2" MaxLength="50" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSERID" Type="varchar2" MaxLength="50" />
+    <Property Name="ADDUSERNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="ISSUPPERADMIN" Type="varchar2" MaxLength="50" />
+    <Property Name="ISCOMPANYADMIN" Type="varchar2" MaxLength="50" />
+    <Property Name="UPDATEUSERNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="ROLENAME" Type="varchar2" MaxLength="50" />
+    <Property Name="REMARK" Type="varchar2" MaxLength="200" />
+    <Property Name="EMPLOYEEID" Type="varchar2" MaxLength="50" />
+    <Property Name="EMPLOYEECOMPANYID" Type="varchar2" MaxLength="50" />
+    <Property Name="EMPLOYEEDEPARTMENTID" Type="varchar2" MaxLength="50" />
+    <Property Name="EMPLOYEEPOSTID" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T_SYS_FBADMINROLE">
+    <Key>
+      <PropertyRef Name="FBADMINROLEID" />
+    </Key>
+    <Property Name="FBADMINROLEID" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="FBADMINID" Type="varchar2" MaxLength="50" />
+    <Property Name="ROLEID" Type="varchar2" MaxLength="50" />
+    <Property Name="ADDDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_SYS_FILEUPLOAD">
+    <Key>
+      <PropertyRef Name="FILEUPLOADID" />
+    </Key>
+    <Property Name="FILEUPLOADID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SYSTEMCODE" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="COMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODELNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="FORMID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="FILENAME" Type="nvarchar2" Nullable="false" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_SYS_PERMISSION">
+    <Key>
+      <PropertyRef Name="PERMISSIONID" />
+    </Key>
+    <Property Name="PERMISSIONID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="PERMISSIONNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="PERMISSIONVALUE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="ENTITYMENUID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ISCOMMOM" Type="nvarchar2" MaxLength="2" />
+    <Property Name="PERMISSIONCODE" Type="nvarchar2" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="T_SYS_PROVINCECITY">
+    <Key>
+      <PropertyRef Name="PROVINCEID" />
+    </Key>
+    <Property Name="PROVINCEID" Type="varchar2" Nullable="false" MaxLength="50" />
+    <Property Name="AREANAME" Type="varchar2" MaxLength="50" />
+    <Property Name="COUNTRYID" Type="varchar2" MaxLength="50" />
+    <Property Name="FATHERID" Type="varchar2" MaxLength="50" />
+    <Property Name="ISPROVINCE" Type="varchar2" MaxLength="32" />
+    <Property Name="ISCITY" Type="varchar2" MaxLength="32" />
+    <Property Name="ISCOUNTRYTOWN" Type="varchar2" MaxLength="32" />
+    <Property Name="AREAVALUE" Type="number" Precision="38" />
+    <Property Name="CREATEUSERID" Type="varchar2" MaxLength="50" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="varchar2" MaxLength="50" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_SYS_ROLE">
+    <Key>
+      <PropertyRef Name="ROLEID" />
+    </Key>
+    <Property Name="ROLEID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SYSTEMTYPE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ROLENAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CHECKSTATE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ISAUTHORY" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_SYS_ROLEENTITYMENU">
+    <Key>
+      <PropertyRef Name="ROLEENTITYMENUID" />
+    </Key>
+    <Property Name="ROLEENTITYMENUID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ROLEID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ENTITYMENUID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_SYS_ROLEMENUPERMISSION">
+    <Key>
+      <PropertyRef Name="ROLEMENUPERMID" />
+    </Key>
+    <Property Name="ROLEMENUPERMID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="PERMISSIONID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ROLEENTITYMENUID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="EXTENDVALUE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="DATARANGE" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“dbo.T_SYS_ROLE_BAK”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+-->
+  <EntityType Name="T_SYS_ROLE_BAK">
+    <Key>
+      <PropertyRef Name="ROLEID" />
+    </Key>
+    <Property Name="ROLEID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SYSTEMTYPE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ROLENAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_SYS_RTF">
+    <Key>
+      <PropertyRef Name="RTFID" />
+    </Key>
+    <Property Name="RTFID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SYSTEMCODE" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="COMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="MODELNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="FORMID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="CONTENT" Type="blob" />
+  </EntityType>
+  <EntityType Name="T_SYS_USER">
+    <Key>
+      <PropertyRef Name="SYSUSERID" />
+    </Key>
+    <Property Name="SYSUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="EMPLOYEEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="EMPLOYEENAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="EMPLOYEECODE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="USERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="PASSWORD" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="STATE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ISMANGER" Type="number" Precision="38" />
+    <Property Name="ISFLOWMANAGER" Type="nvarchar2" MaxLength="2" />
+    <Property Name="ISENGINEMANAGER" Type="nvarchar2" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERACTLOG">
+    <Key>
+      <PropertyRef Name="LOGID" />
+    </Key>
+    <Property Name="LOGID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CLIENTOS" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CLIENTOSLANGUAGE" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CLIENTBROWSER" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CLIENTHOSTADDRESS" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CLIENTNETRUNTIME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="ENTITYMENU" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="LOGTYPE" Type="nvarchar2" MaxLength="4" />
+    <Property Name="LOGCONTEXT" Type="nvarchar2" />
+    <Property Name="SERVEROS" Type="nvarchar2" MaxLength="100" />
+    <Property Name="SERVERNETRUNTIME" Type="nvarchar2" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="COMPANYNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="DEPARTMENTNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="POSTNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="EMPLOYEENAME" Type="nvarchar2" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERDATALOG">
+    <Key>
+      <PropertyRef Name="LOGID" />
+    </Key>
+    <Property Name="LOGID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CLIENTOS" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CLIENTOSLANGUAGE" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CLIENTBROWSER" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CLIENTHOSTADDRESS" Type="nvarchar2" MaxLength="400" />
+    <Property Name="CLIENTNETRUNTIME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="ENTITYMENU" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="LOGTYPE" Type="nvarchar2" MaxLength="4" />
+    <Property Name="LOGCONTEXT" Type="nvarchar2" />
+    <Property Name="SERVEROS" Type="nvarchar2" MaxLength="100" />
+    <Property Name="SERVERNETRUNTIME" Type="nvarchar2" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="COMPANYNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="DEPARTMENTNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="POSTNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="EMPLOYEENAME" Type="nvarchar2" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERLOGINRECORD">
+    <Key>
+      <PropertyRef Name="LOGINRECORDID" />
+    </Key>
+    <Property Name="LOGINRECORDID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="USERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="LOGINDATE" Type="date" />
+    <Property Name="LOGINTIME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="LOGINIP" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ONLINESTATE" Type="nvarchar2" MaxLength="2" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="LOGINYEAR" Type="number" />
+    <Property Name="LOGINMONTH" Type="number" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERLOGINRECORDHIS">
+    <Key>
+      <PropertyRef Name="LOGINRECORDHISID" />
+    </Key>
+    <Property Name="LOGINRECORDHISID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="USERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="LOGINDATE" Type="date" />
+    <Property Name="LOGINTIME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="LOGINIP" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ONLINESTATE" Type="nvarchar2" MaxLength="2" />
+    <Property Name="REMARK" Type="nvarchar2" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERROLE">
+    <Key>
+      <PropertyRef Name="USERROLEID" />
+    </Key>
+    <Property Name="USERROLEID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="ROLEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="SYSUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSER" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="POSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="EMPLOYEEPOSTID" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_T_ROLEENTITYMENU_T_SYS_EN">
+    <End Role="T_SYS_ENTITYMENU" Type="SMT_System_EFModel.Store.T_SYS_ENTITYMENU" Multiplicity="1" />
+    <End Role="T_SYS_ROLEENTITYMENU" Type="SMT_System_EFModel.Store.T_SYS_ROLEENTITYMENU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_ENTITYMENU">
+        <PropertyRef Name="ENTITYMENUID" />
+      </Principal>
+      <Dependent Role="T_SYS_ROLEENTITYMENU">
+        <PropertyRef Name="ENTITYMENUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_DI_REFERENCE_T_SYS_DI">
+    <End Role="T_SYS_DICTIONARY" Type="SMT_System_EFModel.Store.T_SYS_DICTIONARY" Multiplicity="0..1" />
+    <End Role="T_SYS_DICTIONARY1" Type="SMT_System_EFModel.Store.T_SYS_DICTIONARY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_DICTIONARY">
+        <PropertyRef Name="DICTIONARYID" />
+      </Principal>
+      <Dependent Role="T_SYS_DICTIONARY1">
+        <PropertyRef Name="FATHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_EN_REFERENCE_T_SYS_EN">
+    <End Role="T_SYS_ENTITYMENU" Type="SMT_System_EFModel.Store.T_SYS_ENTITYMENU" Multiplicity="0..1" />
+    <End Role="T_SYS_ENTITYMENU1" Type="SMT_System_EFModel.Store.T_SYS_ENTITYMENU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_ENTITYMENU">
+        <PropertyRef Name="ENTITYMENUID" />
+      </Principal>
+      <Dependent Role="T_SYS_ENTITYMENU1">
+        <PropertyRef Name="SUPERIORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_EN_REFERENCE_T_SYS_PE">
+    <End Role="T_SYS_PERMISSION" Type="SMT_System_EFModel.Store.T_SYS_PERMISSION" Multiplicity="0..1" />
+    <End Role="T_SYS_ENTITYMENUCUSTOMPERM" Type="SMT_System_EFModel.Store.T_SYS_ENTITYMENUCUSTOMPERM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_PERMISSION">
+        <PropertyRef Name="PERMISSIONID" />
+      </Principal>
+      <Dependent Role="T_SYS_ENTITYMENUCUSTOMPERM">
+        <PropertyRef Name="PERMISSIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_EN_REFERENCE_T_SYS_RO">
+    <End Role="T_SYS_ROLE" Type="SMT_System_EFModel.Store.T_SYS_ROLE" Multiplicity="0..1" />
+    <End Role="T_SYS_ENTITYMENUCUSTOMPERM" Type="SMT_System_EFModel.Store.T_SYS_ENTITYMENUCUSTOMPERM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_ROLE">
+        <PropertyRef Name="ROLEID" />
+      </Principal>
+      <Dependent Role="T_SYS_ENTITYMENUCUSTOMPERM">
+        <PropertyRef Name="ROLEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_FB_REFERENCE_T_SYS_FB">
+    <End Role="T_SYS_FBADMIN" Type="SMT_System_EFModel.Store.T_SYS_FBADMIN" Multiplicity="0..1" />
+    <End Role="T_SYS_FBADMINROLE" Type="SMT_System_EFModel.Store.T_SYS_FBADMINROLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_FBADMIN">
+        <PropertyRef Name="FBADMINID" />
+      </Principal>
+      <Dependent Role="T_SYS_FBADMINROLE">
+        <PropertyRef Name="FBADMINID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_PE_REFERENCE_T_SYS_EN">
+    <End Role="T_SYS_ENTITYMENU" Type="SMT_System_EFModel.Store.T_SYS_ENTITYMENU" Multiplicity="0..1" />
+    <End Role="T_SYS_PERMISSION" Type="SMT_System_EFModel.Store.T_SYS_PERMISSION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_ENTITYMENU">
+        <PropertyRef Name="ENTITYMENUID" />
+      </Principal>
+      <Dependent Role="T_SYS_PERMISSION">
+        <PropertyRef Name="ENTITYMENUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_PR_REFERENCE_T_SYS_PR">
+    <End Role="T_SYS_PROVINCECITY" Type="SMT_System_EFModel.Store.T_SYS_PROVINCECITY" Multiplicity="0..1" />
+    <End Role="T_SYS_PROVINCECITY1" Type="SMT_System_EFModel.Store.T_SYS_PROVINCECITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_PROVINCECITY">
+        <PropertyRef Name="PROVINCEID" />
+      </Principal>
+      <Dependent Role="T_SYS_PROVINCECITY1">
+        <PropertyRef Name="FATHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_RO_ENTITYMENU">
+    <End Role="T_SYS_ENTITYMENU" Type="SMT_System_EFModel.Store.T_SYS_ENTITYMENU" Multiplicity="0..1" />
+    <End Role="T_SYS_ENTITYMENUCUSTOMPERM" Type="SMT_System_EFModel.Store.T_SYS_ENTITYMENUCUSTOMPERM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_ENTITYMENU">
+        <PropertyRef Name="ENTITYMENUID" />
+      </Principal>
+      <Dependent Role="T_SYS_ENTITYMENUCUSTOMPERM">
+        <PropertyRef Name="ENTITYMENUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_RO_RELATIONS_T_SYS_PE">
+    <End Role="T_SYS_PERMISSION" Type="SMT_System_EFModel.Store.T_SYS_PERMISSION" Multiplicity="0..1" />
+    <End Role="T_SYS_ROLEMENUPERMISSION" Type="SMT_System_EFModel.Store.T_SYS_ROLEMENUPERMISSION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_PERMISSION">
+        <PropertyRef Name="PERMISSIONID" />
+      </Principal>
+      <Dependent Role="T_SYS_ROLEMENUPERMISSION">
+        <PropertyRef Name="PERMISSIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_RO_ROLEENTITYMENU">
+    <End Role="T_SYS_ROLEENTITYMENU" Type="SMT_System_EFModel.Store.T_SYS_ROLEENTITYMENU" Multiplicity="0..1" />
+    <End Role="T_SYS_ROLEMENUPERMISSION" Type="SMT_System_EFModel.Store.T_SYS_ROLEMENUPERMISSION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_ROLEENTITYMENU">
+        <PropertyRef Name="ROLEENTITYMENUID" />
+      </Principal>
+      <Dependent Role="T_SYS_ROLEMENUPERMISSION">
+        <PropertyRef Name="ROLEENTITYMENUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_RO_T_SYS_ROLE">
+    <End Role="T_SYS_ROLE" Type="SMT_System_EFModel.Store.T_SYS_ROLE" Multiplicity="1" />
+    <End Role="T_SYS_ROLEENTITYMENU" Type="SMT_System_EFModel.Store.T_SYS_ROLEENTITYMENU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_ROLE">
+        <PropertyRef Name="ROLEID" />
+      </Principal>
+      <Dependent Role="T_SYS_ROLEENTITYMENU">
+        <PropertyRef Name="ROLEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_US_REFERENCE_T_SYS_RO">
+    <End Role="T_SYS_ROLE" Type="SMT_System_EFModel.Store.T_SYS_ROLE" Multiplicity="0..1" />
+    <End Role="T_SYS_USERROLE" Type="SMT_System_EFModel.Store.T_SYS_USERROLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_ROLE">
+        <PropertyRef Name="ROLEID" />
+      </Principal>
+      <Dependent Role="T_SYS_USERROLE">
+        <PropertyRef Name="ROLEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SYS_US_REFERENCE_T_SYS_US">
+    <End Role="T_SYS_USER" Type="SMT_System_EFModel.Store.T_SYS_USER" Multiplicity="0..1" />
+    <End Role="T_SYS_USERROLE" Type="SMT_System_EFModel.Store.T_SYS_USERROLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_SYS_USER">
+        <PropertyRef Name="SYSUSERID" />
+      </Principal>
+      <Dependent Role="T_SYS_USERROLE">
+        <PropertyRef Name="SYSUSERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
+</edmx:StorageModels>
+<edmx:ConceptualModels>
+<Schema Namespace="SMT_System_EFModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="SMT_System_EFModelContext">
+    <EntitySet Name="T_SYS_COUNTRY" EntityType="SMT_System_EFModel.T_SYS_COUNTRY" />
+    <EntitySet Name="T_SYS_DICTIONARY" EntityType="SMT_System_EFModel.T_SYS_DICTIONARY" />
+    <EntitySet Name="T_SYS_ENTITYMENU" EntityType="SMT_System_EFModel.T_SYS_ENTITYMENU" />
+    <EntitySet Name="T_SYS_ENTITYMENUBAK" EntityType="SMT_System_EFModel.T_SYS_ENTITYMENUBAK" />
+    <EntitySet Name="T_SYS_ENTITYMENUCUSTOMPERM" EntityType="SMT_System_EFModel.T_SYS_ENTITYMENUCUSTOMPERM" />
+    <EntitySet Name="T_SYS_FBADMIN" EntityType="SMT_System_EFModel.T_SYS_FBADMIN" />
+    <EntitySet Name="T_SYS_FBADMINROLE" EntityType="SMT_System_EFModel.T_SYS_FBADMINROLE" />
+    <EntitySet Name="T_SYS_FILEUPLOAD" EntityType="SMT_System_EFModel.T_SYS_FILEUPLOAD" />
+    <EntitySet Name="T_SYS_PERMISSION" EntityType="SMT_System_EFModel.T_SYS_PERMISSION" />
+    <EntitySet Name="T_SYS_PROVINCECITY" EntityType="SMT_System_EFModel.T_SYS_PROVINCECITY" />
+    <EntitySet Name="T_SYS_ROLE" EntityType="SMT_System_EFModel.T_SYS_ROLE" />
+    <EntitySet Name="T_SYS_ROLEENTITYMENU" EntityType="SMT_System_EFModel.T_SYS_ROLEENTITYMENU" />
+    <EntitySet Name="T_SYS_ROLEMENUPERMISSION" EntityType="SMT_System_EFModel.T_SYS_ROLEMENUPERMISSION" />
+    <EntitySet Name="T_SYS_ROLE_BAK" EntityType="SMT_System_EFModel.T_SYS_ROLE_BAK" />
+    <EntitySet Name="T_SYS_RTF" EntityType="SMT_System_EFModel.T_SYS_RTF" />
+    <EntitySet Name="T_SYS_USER" EntityType="SMT_System_EFModel.T_SYS_USER" />
+    <EntitySet Name="T_SYS_USERACTLOG" EntityType="SMT_System_EFModel.T_SYS_USERACTLOG" />
+    <EntitySet Name="T_SYS_USERDATALOG" EntityType="SMT_System_EFModel.T_SYS_USERDATALOG" />
+    <EntitySet Name="T_SYS_USERLOGINRECORD" EntityType="SMT_System_EFModel.T_SYS_USERLOGINRECORD" />
+    <EntitySet Name="T_SYS_USERLOGINRECORDHIS" EntityType="SMT_System_EFModel.T_SYS_USERLOGINRECORDHIS" />
+    <EntitySet Name="T_SYS_USERROLE" EntityType="SMT_System_EFModel.T_SYS_USERROLE" />
+    <AssociationSet Name="FK_T_SYS_DI_REFERENCE_T_SYS_DI" Association="SMT_System_EFModel.FK_T_SYS_DI_REFERENCE_T_SYS_DI">
+      <End Role="T_SYS_DICTIONARY" EntitySet="T_SYS_DICTIONARY" />
+      <End Role="T_SYS_DICTIONARY1" EntitySet="T_SYS_DICTIONARY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ROLEENTITYMENU_T_SYS_EN" Association="SMT_System_EFModel.FK_T_ROLEENTITYMENU_T_SYS_EN">
+      <End Role="T_SYS_ENTITYMENU" EntitySet="T_SYS_ENTITYMENU" />
+      <End Role="T_SYS_ROLEENTITYMENU" EntitySet="T_SYS_ROLEENTITYMENU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_EN_REFERENCE_T_SYS_EN" Association="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_EN">
+      <End Role="T_SYS_ENTITYMENU" EntitySet="T_SYS_ENTITYMENU" />
+      <End Role="T_SYS_ENTITYMENU1" EntitySet="T_SYS_ENTITYMENU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_PE_REFERENCE_T_SYS_EN" Association="SMT_System_EFModel.FK_T_SYS_PE_REFERENCE_T_SYS_EN">
+      <End Role="T_SYS_ENTITYMENU" EntitySet="T_SYS_ENTITYMENU" />
+      <End Role="T_SYS_PERMISSION" EntitySet="T_SYS_PERMISSION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_RO_ENTITYMENU" Association="SMT_System_EFModel.FK_T_SYS_RO_ENTITYMENU">
+      <End Role="T_SYS_ENTITYMENU" EntitySet="T_SYS_ENTITYMENU" />
+      <End Role="T_SYS_ENTITYMENUCUSTOMPERM" EntitySet="T_SYS_ENTITYMENUCUSTOMPERM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_EN_REFERENCE_T_SYS_PE" Association="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_PE">
+      <End Role="T_SYS_PERMISSION" EntitySet="T_SYS_PERMISSION" />
+      <End Role="T_SYS_ENTITYMENUCUSTOMPERM" EntitySet="T_SYS_ENTITYMENUCUSTOMPERM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_EN_REFERENCE_T_SYS_RO" Association="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_RO">
+      <End Role="T_SYS_ROLE" EntitySet="T_SYS_ROLE" />
+      <End Role="T_SYS_ENTITYMENUCUSTOMPERM" EntitySet="T_SYS_ENTITYMENUCUSTOMPERM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_FB_REFERENCE_T_SYS_FB" Association="SMT_System_EFModel.FK_T_SYS_FB_REFERENCE_T_SYS_FB">
+      <End Role="T_SYS_FBADMIN" EntitySet="T_SYS_FBADMIN" />
+      <End Role="T_SYS_FBADMINROLE" EntitySet="T_SYS_FBADMINROLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_RO_RELATIONS_T_SYS_PE" Association="SMT_System_EFModel.FK_T_SYS_RO_RELATIONS_T_SYS_PE">
+      <End Role="T_SYS_PERMISSION" EntitySet="T_SYS_PERMISSION" />
+      <End Role="T_SYS_ROLEMENUPERMISSION" EntitySet="T_SYS_ROLEMENUPERMISSION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_PR_REFERENCE_T_SYS_PR" Association="SMT_System_EFModel.FK_T_SYS_PR_REFERENCE_T_SYS_PR">
+      <End Role="T_SYS_PROVINCECITY" EntitySet="T_SYS_PROVINCECITY" />
+      <End Role="T_SYS_PROVINCECITY1" EntitySet="T_SYS_PROVINCECITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_RO_T_SYS_ROLE" Association="SMT_System_EFModel.FK_T_SYS_RO_T_SYS_ROLE">
+      <End Role="T_SYS_ROLE" EntitySet="T_SYS_ROLE" />
+      <End Role="T_SYS_ROLEENTITYMENU" EntitySet="T_SYS_ROLEENTITYMENU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_US_REFERENCE_T_SYS_RO" Association="SMT_System_EFModel.FK_T_SYS_US_REFERENCE_T_SYS_RO">
+      <End Role="T_SYS_ROLE" EntitySet="T_SYS_ROLE" />
+      <End Role="T_SYS_USERROLE" EntitySet="T_SYS_USERROLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_RO_ROLEENTITYMENU" Association="SMT_System_EFModel.FK_T_SYS_RO_ROLEENTITYMENU">
+      <End Role="T_SYS_ROLEENTITYMENU" EntitySet="T_SYS_ROLEENTITYMENU" />
+      <End Role="T_SYS_ROLEMENUPERMISSION" EntitySet="T_SYS_ROLEMENUPERMISSION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SYS_US_REFERENCE_T_SYS_US" Association="SMT_System_EFModel.FK_T_SYS_US_REFERENCE_T_SYS_US">
+      <End Role="T_SYS_USER" EntitySet="T_SYS_USER" />
+      <End Role="T_SYS_USERROLE" EntitySet="T_SYS_USERROLE" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="T_SYS_COUNTRY">
+    <Key>
+      <PropertyRef Name="COUNTRYID" />
+    </Key>
+    <Property Name="COUNTRYID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="COUNTRYNAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_SYS_DICTIONARY">
+    <Key>
+      <PropertyRef Name="DICTIONARYID" />
+    </Key>
+    <Property Name="DICTIONARYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DICTIONCATEGORY" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DICTIONARYNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DICTIONARYVALUE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="DICTIONCATEGORYNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="SYSTEMNAME" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="SYSTEMCODE" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="ORDERNUMBER" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SYSTEMNEED" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="T_SYS_DICTIONARY1" Relationship="SMT_System_EFModel.FK_T_SYS_DI_REFERENCE_T_SYS_DI" FromRole="T_SYS_DICTIONARY" ToRole="T_SYS_DICTIONARY1" />
+    <NavigationProperty Name="T_SYS_DICTIONARY2" Relationship="SMT_System_EFModel.FK_T_SYS_DI_REFERENCE_T_SYS_DI" FromRole="T_SYS_DICTIONARY1" ToRole="T_SYS_DICTIONARY" />
+  </EntityType>
+  <EntityType Name="T_SYS_ENTITYMENU">
+    <Key>
+      <PropertyRef Name="ENTITYMENUID" />
+    </Key>
+    <Property Name="ENTITYMENUID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SYSTEMTYPE" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ENTITYNAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ENTITYCODE" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="HASSYSTEMMENU" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="MENUCODE" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ORDERNUMBER" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="MENUNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MENUICONPATH" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="URLADDRESS" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="CHILDSYSTEMNAME" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="ISAUTHORITY" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="HELPTITLE" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="HELPFILEPATH" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="T_SYS_ROLEENTITYMENU" Relationship="SMT_System_EFModel.FK_T_ROLEENTITYMENU_T_SYS_EN" FromRole="T_SYS_ENTITYMENU" ToRole="T_SYS_ROLEENTITYMENU" />
+    <NavigationProperty Name="T_SYS_ENTITYMENU1" Relationship="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_EN" FromRole="T_SYS_ENTITYMENU" ToRole="T_SYS_ENTITYMENU1" />
+    <NavigationProperty Name="T_SYS_ENTITYMENU2" Relationship="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_EN" FromRole="T_SYS_ENTITYMENU1" ToRole="T_SYS_ENTITYMENU" />
+    <NavigationProperty Name="T_SYS_PERMISSION" Relationship="SMT_System_EFModel.FK_T_SYS_PE_REFERENCE_T_SYS_EN" FromRole="T_SYS_ENTITYMENU" ToRole="T_SYS_PERMISSION" />
+    <NavigationProperty Name="T_SYS_ENTITYMENUCUSTOMPERM" Relationship="SMT_System_EFModel.FK_T_SYS_RO_ENTITYMENU" FromRole="T_SYS_ENTITYMENU" ToRole="T_SYS_ENTITYMENUCUSTOMPERM" />
+  </EntityType>
+  <EntityType Name="T_SYS_ENTITYMENUBAK">
+    <Key>
+      <PropertyRef Name="ENTITYMENUID" />
+      <PropertyRef Name="SYSTEMTYPE" />
+      <PropertyRef Name="MENUCODE" />
+      <PropertyRef Name="ORDERNUMBER" />
+      <PropertyRef Name="MENUNAME" />
+    </Key>
+    <Property Name="ENTITYMENUID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SYSTEMTYPE" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ENTITYNAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ENTITYCODE" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="HASSYSTEMMENU" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="SUPERIORID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MENUCODE" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ORDERNUMBER" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="MENUNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MENUICONPATH" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="URLADDRESS" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="CHILDSYSTEMNAME" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_SYS_ENTITYMENUCUSTOMPERM">
+    <Key>
+      <PropertyRef Name="ENTITYMENUCUSTOMPERMID" />
+    </Key>
+    <Property Name="ENTITYMENUCUSTOMPERMID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="COMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="COMPANYNAME" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="DEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DEPARTMENTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="POSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="POSTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="STARTDATE" Type="DateTime" />
+    <Property Name="ENDDATE" Type="DateTime" />
+    <NavigationProperty Name="T_SYS_ENTITYMENU" Relationship="SMT_System_EFModel.FK_T_SYS_RO_ENTITYMENU" FromRole="T_SYS_ENTITYMENUCUSTOMPERM" ToRole="T_SYS_ENTITYMENU" />
+    <NavigationProperty Name="T_SYS_PERMISSION" Relationship="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_PE" FromRole="T_SYS_ENTITYMENUCUSTOMPERM" ToRole="T_SYS_PERMISSION" />
+    <NavigationProperty Name="T_SYS_ROLE" Relationship="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_RO" FromRole="T_SYS_ENTITYMENUCUSTOMPERM" ToRole="T_SYS_ROLE" />
+  </EntityType>
+  <EntityType Name="T_SYS_FBADMIN">
+    <Key>
+      <PropertyRef Name="FBADMINID" />
+    </Key>
+    <Property Name="FBADMINID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SYSUSERID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ADDUSERNAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="ISSUPPERADMIN" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ISCOMPANYADMIN" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ROLENAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="EMPLOYEEID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EMPLOYEECOMPANYID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EMPLOYEEDEPARTMENTID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EMPLOYEEPOSTID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="T_SYS_FBADMINROLE" Relationship="SMT_System_EFModel.FK_T_SYS_FB_REFERENCE_T_SYS_FB" FromRole="T_SYS_FBADMIN" ToRole="T_SYS_FBADMINROLE" />
+  </EntityType>
+  <EntityType Name="T_SYS_FBADMINROLE">
+    <Key>
+      <PropertyRef Name="FBADMINROLEID" />
+    </Key>
+    <Property Name="FBADMINROLEID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ROLEID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ADDDATE" Type="DateTime" />
+    <NavigationProperty Name="T_SYS_FBADMIN" Relationship="SMT_System_EFModel.FK_T_SYS_FB_REFERENCE_T_SYS_FB" FromRole="T_SYS_FBADMINROLE" ToRole="T_SYS_FBADMIN" />
+  </EntityType>
+  <EntityType Name="T_SYS_FILEUPLOAD">
+    <Key>
+      <PropertyRef Name="FILEUPLOADID" />
+    </Key>
+    <Property Name="FILEUPLOADID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SYSTEMCODE" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="COMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODELNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FORMID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FILENAME" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="T_SYS_PERMISSION">
+    <Key>
+      <PropertyRef Name="PERMISSIONID" />
+    </Key>
+    <Property Name="PERMISSIONID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="PERMISSIONNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="PERMISSIONVALUE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="ISCOMMOM" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="PERMISSIONCODE" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="T_SYS_ENTITYMENU" Relationship="SMT_System_EFModel.FK_T_SYS_PE_REFERENCE_T_SYS_EN" FromRole="T_SYS_PERMISSION" ToRole="T_SYS_ENTITYMENU" />
+    <NavigationProperty Name="T_SYS_ENTITYMENUCUSTOMPERM" Relationship="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_PE" FromRole="T_SYS_PERMISSION" ToRole="T_SYS_ENTITYMENUCUSTOMPERM" />
+    <NavigationProperty Name="T_SYS_ROLEMENUPERMISSION" Relationship="SMT_System_EFModel.FK_T_SYS_RO_RELATIONS_T_SYS_PE" FromRole="T_SYS_PERMISSION" ToRole="T_SYS_ROLEMENUPERMISSION" />
+  </EntityType>
+  <EntityType Name="T_SYS_PROVINCECITY">
+    <Key>
+      <PropertyRef Name="PROVINCEID" />
+    </Key>
+    <Property Name="PROVINCEID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="AREANAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="COUNTRYID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ISPROVINCE" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="ISCITY" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="ISCOUNTRYTOWN" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="AREAVALUE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <NavigationProperty Name="T_SYS_PROVINCECITY1" Relationship="SMT_System_EFModel.FK_T_SYS_PR_REFERENCE_T_SYS_PR" FromRole="T_SYS_PROVINCECITY" ToRole="T_SYS_PROVINCECITY1" />
+    <NavigationProperty Name="T_SYS_PROVINCECITY2" Relationship="SMT_System_EFModel.FK_T_SYS_PR_REFERENCE_T_SYS_PR" FromRole="T_SYS_PROVINCECITY1" ToRole="T_SYS_PROVINCECITY" />
+  </EntityType>
+  <EntityType Name="T_SYS_ROLE">
+    <Key>
+      <PropertyRef Name="ROLEID" />
+    </Key>
+    <Property Name="ROLEID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SYSTEMTYPE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ROLENAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CHECKSTATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ISAUTHORY" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="T_SYS_ENTITYMENUCUSTOMPERM" Relationship="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_RO" FromRole="T_SYS_ROLE" ToRole="T_SYS_ENTITYMENUCUSTOMPERM" />
+    <NavigationProperty Name="T_SYS_ROLEENTITYMENU" Relationship="SMT_System_EFModel.FK_T_SYS_RO_T_SYS_ROLE" FromRole="T_SYS_ROLE" ToRole="T_SYS_ROLEENTITYMENU" />
+    <NavigationProperty Name="T_SYS_USERROLE" Relationship="SMT_System_EFModel.FK_T_SYS_US_REFERENCE_T_SYS_RO" FromRole="T_SYS_ROLE" ToRole="T_SYS_USERROLE" />
+  </EntityType>
+  <EntityType Name="T_SYS_ROLEENTITYMENU">
+    <Key>
+      <PropertyRef Name="ROLEENTITYMENUID" />
+    </Key>
+    <Property Name="ROLEENTITYMENUID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <NavigationProperty Name="T_SYS_ENTITYMENU" Relationship="SMT_System_EFModel.FK_T_ROLEENTITYMENU_T_SYS_EN" FromRole="T_SYS_ROLEENTITYMENU" ToRole="T_SYS_ENTITYMENU" />
+    <NavigationProperty Name="T_SYS_ROLE" Relationship="SMT_System_EFModel.FK_T_SYS_RO_T_SYS_ROLE" FromRole="T_SYS_ROLEENTITYMENU" ToRole="T_SYS_ROLE" />
+    <NavigationProperty Name="T_SYS_ROLEMENUPERMISSION" Relationship="SMT_System_EFModel.FK_T_SYS_RO_ROLEENTITYMENU" FromRole="T_SYS_ROLEENTITYMENU" ToRole="T_SYS_ROLEMENUPERMISSION" />
+  </EntityType>
+  <EntityType Name="T_SYS_ROLEMENUPERMISSION">
+    <Key>
+      <PropertyRef Name="ROLEMENUPERMID" />
+    </Key>
+    <Property Name="ROLEMENUPERMID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="EXTENDVALUE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DATARANGE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="T_SYS_PERMISSION" Relationship="SMT_System_EFModel.FK_T_SYS_RO_RELATIONS_T_SYS_PE" FromRole="T_SYS_ROLEMENUPERMISSION" ToRole="T_SYS_PERMISSION" />
+    <NavigationProperty Name="T_SYS_ROLEENTITYMENU" Relationship="SMT_System_EFModel.FK_T_SYS_RO_ROLEENTITYMENU" FromRole="T_SYS_ROLEMENUPERMISSION" ToRole="T_SYS_ROLEENTITYMENU" />
+  </EntityType>
+  <EntityType Name="T_SYS_ROLE_BAK">
+    <Key>
+      <PropertyRef Name="ROLEID" />
+    </Key>
+    <Property Name="ROLEID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SYSTEMTYPE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ROLENAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_SYS_RTF">
+    <Key>
+      <PropertyRef Name="RTFID" />
+    </Key>
+    <Property Name="RTFID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SYSTEMCODE" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="COMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODELNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FORMID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="CONTENT" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_SYS_USER">
+    <Key>
+      <PropertyRef Name="SYSUSERID" />
+    </Key>
+    <Property Name="SYSUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEENAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEECODE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="STATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ISMANGER" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ISFLOWMANAGER" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="ISENGINEMANAGER" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="T_SYS_USERROLE" Relationship="SMT_System_EFModel.FK_T_SYS_US_REFERENCE_T_SYS_US" FromRole="T_SYS_USER" ToRole="T_SYS_USERROLE" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERACTLOG">
+    <Key>
+      <PropertyRef Name="LOGID" />
+    </Key>
+    <Property Name="LOGID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTOS" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTOSLANGUAGE" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTBROWSER" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTHOSTADDRESS" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTNETRUNTIME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ENTITYMENU" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="LOGTYPE" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="LOGCONTEXT" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="SERVEROS" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SERVERNETRUNTIME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="COMPANYNAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="DEPARTMENTNAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="POSTNAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEENAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERDATALOG">
+    <Key>
+      <PropertyRef Name="LOGID" />
+    </Key>
+    <Property Name="LOGID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTOS" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTOSLANGUAGE" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTBROWSER" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTHOSTADDRESS" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="CLIENTNETRUNTIME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ENTITYMENU" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="LOGTYPE" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="LOGCONTEXT" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="SERVEROS" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SERVERNETRUNTIME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="COMPANYNAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="DEPARTMENTNAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="POSTNAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEENAME" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERLOGINRECORD">
+    <Key>
+      <PropertyRef Name="LOGINRECORDID" />
+    </Key>
+    <Property Name="LOGINRECORDID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LOGINDATE" Type="DateTime" />
+    <Property Name="LOGINTIME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LOGINIP" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ONLINESTATE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LOGINYEAR" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LOGINMONTH" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERLOGINRECORDHIS">
+    <Key>
+      <PropertyRef Name="LOGINRECORDHISID" />
+    </Key>
+    <Property Name="LOGINRECORDHISID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LOGINDATE" Type="DateTime" />
+    <Property Name="LOGINTIME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LOGINIP" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ONLINESTATE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_SYS_USERROLE">
+    <Key>
+      <PropertyRef Name="USERROLEID" />
+    </Key>
+    <Property Name="USERROLEID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSER" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="POSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="T_SYS_ROLE" Relationship="SMT_System_EFModel.FK_T_SYS_US_REFERENCE_T_SYS_RO" FromRole="T_SYS_USERROLE" ToRole="T_SYS_ROLE" />
+    <NavigationProperty Name="T_SYS_USER" Relationship="SMT_System_EFModel.FK_T_SYS_US_REFERENCE_T_SYS_US" FromRole="T_SYS_USERROLE" ToRole="T_SYS_USER" />
+  </EntityType>
+  <Association Name="FK_T_SYS_DI_REFERENCE_T_SYS_DI">
+    <End Role="T_SYS_DICTIONARY" Type="SMT_System_EFModel.T_SYS_DICTIONARY" Multiplicity="0..1" />
+    <End Role="T_SYS_DICTIONARY1" Type="SMT_System_EFModel.T_SYS_DICTIONARY" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_ROLEENTITYMENU_T_SYS_EN">
+    <End Role="T_SYS_ENTITYMENU" Type="SMT_System_EFModel.T_SYS_ENTITYMENU" Multiplicity="1" />
+    <End Role="T_SYS_ROLEENTITYMENU" Type="SMT_System_EFModel.T_SYS_ROLEENTITYMENU" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_EN_REFERENCE_T_SYS_EN">
+    <End Role="T_SYS_ENTITYMENU" Type="SMT_System_EFModel.T_SYS_ENTITYMENU" Multiplicity="0..1" />
+    <End Role="T_SYS_ENTITYMENU1" Type="SMT_System_EFModel.T_SYS_ENTITYMENU" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_PE_REFERENCE_T_SYS_EN">
+    <End Role="T_SYS_ENTITYMENU" Type="SMT_System_EFModel.T_SYS_ENTITYMENU" Multiplicity="0..1" />
+    <End Role="T_SYS_PERMISSION" Type="SMT_System_EFModel.T_SYS_PERMISSION" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_RO_ENTITYMENU">
+    <End Role="T_SYS_ENTITYMENU" Type="SMT_System_EFModel.T_SYS_ENTITYMENU" Multiplicity="0..1" />
+    <End Role="T_SYS_ENTITYMENUCUSTOMPERM" Type="SMT_System_EFModel.T_SYS_ENTITYMENUCUSTOMPERM" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_EN_REFERENCE_T_SYS_PE">
+    <End Role="T_SYS_PERMISSION" Type="SMT_System_EFModel.T_SYS_PERMISSION" Multiplicity="0..1" />
+    <End Role="T_SYS_ENTITYMENUCUSTOMPERM" Type="SMT_System_EFModel.T_SYS_ENTITYMENUCUSTOMPERM" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_EN_REFERENCE_T_SYS_RO">
+    <End Role="T_SYS_ROLE" Type="SMT_System_EFModel.T_SYS_ROLE" Multiplicity="0..1" />
+    <End Role="T_SYS_ENTITYMENUCUSTOMPERM" Type="SMT_System_EFModel.T_SYS_ENTITYMENUCUSTOMPERM" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_FB_REFERENCE_T_SYS_FB">
+    <End Role="T_SYS_FBADMIN" Type="SMT_System_EFModel.T_SYS_FBADMIN" Multiplicity="0..1" />
+    <End Role="T_SYS_FBADMINROLE" Type="SMT_System_EFModel.T_SYS_FBADMINROLE" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_RO_RELATIONS_T_SYS_PE">
+    <End Role="T_SYS_PERMISSION" Type="SMT_System_EFModel.T_SYS_PERMISSION" Multiplicity="0..1" />
+    <End Role="T_SYS_ROLEMENUPERMISSION" Type="SMT_System_EFModel.T_SYS_ROLEMENUPERMISSION" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_PR_REFERENCE_T_SYS_PR">
+    <End Role="T_SYS_PROVINCECITY" Type="SMT_System_EFModel.T_SYS_PROVINCECITY" Multiplicity="0..1" />
+    <End Role="T_SYS_PROVINCECITY1" Type="SMT_System_EFModel.T_SYS_PROVINCECITY" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_RO_T_SYS_ROLE">
+    <End Role="T_SYS_ROLE" Type="SMT_System_EFModel.T_SYS_ROLE" Multiplicity="1" />
+    <End Role="T_SYS_ROLEENTITYMENU" Type="SMT_System_EFModel.T_SYS_ROLEENTITYMENU" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_US_REFERENCE_T_SYS_RO">
+    <End Role="T_SYS_ROLE" Type="SMT_System_EFModel.T_SYS_ROLE" Multiplicity="0..1" />
+    <End Role="T_SYS_USERROLE" Type="SMT_System_EFModel.T_SYS_USERROLE" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_RO_ROLEENTITYMENU">
+    <End Role="T_SYS_ROLEENTITYMENU" Type="SMT_System_EFModel.T_SYS_ROLEENTITYMENU" Multiplicity="0..1" />
+    <End Role="T_SYS_ROLEMENUPERMISSION" Type="SMT_System_EFModel.T_SYS_ROLEMENUPERMISSION" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_SYS_US_REFERENCE_T_SYS_US">
+    <End Role="T_SYS_USER" Type="SMT_System_EFModel.T_SYS_USER" Multiplicity="0..1" />
+    <End Role="T_SYS_USERROLE" Type="SMT_System_EFModel.T_SYS_USERROLE" Multiplicity="*" />
+  </Association>
+</Schema>
+</edmx:ConceptualModels>
+<edmx:Mappings>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="SMT_System_EFModelStoreContainer" CdmEntityContainer="SMT_System_EFModelContext">
+    <EntitySetMapping Name="T_SYS_COUNTRY">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_COUNTRY">
+        <MappingFragment StoreEntitySet="T_SYS_COUNTRY">
+          <ScalarProperty Name="COUNTRYID" ColumnName="COUNTRYID" />
+          <ScalarProperty Name="COUNTRYNAME" ColumnName="COUNTRYNAME" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_DICTIONARY">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_DICTIONARY">
+        <MappingFragment StoreEntitySet="T_SYS_DICTIONARY">
+          <ScalarProperty Name="DICTIONARYID" ColumnName="DICTIONARYID" />
+          <ScalarProperty Name="DICTIONCATEGORY" ColumnName="DICTIONCATEGORY" />
+          <ScalarProperty Name="DICTIONARYNAME" ColumnName="DICTIONARYNAME" />
+          <ScalarProperty Name="DICTIONARYVALUE" ColumnName="DICTIONARYVALUE" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="DICTIONCATEGORYNAME" ColumnName="DICTIONCATEGORYNAME" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="SYSTEMNAME" ColumnName="SYSTEMNAME" />
+          <ScalarProperty Name="SYSTEMCODE" ColumnName="SYSTEMCODE" />
+          <ScalarProperty Name="ORDERNUMBER" ColumnName="ORDERNUMBER" />
+          <ScalarProperty Name="SYSTEMNEED" ColumnName="SYSTEMNEED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_ENTITYMENU">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_ENTITYMENU">
+        <MappingFragment StoreEntitySet="T_SYS_ENTITYMENU">
+          <ScalarProperty Name="ENTITYMENUID" ColumnName="ENTITYMENUID" />
+          <ScalarProperty Name="SYSTEMTYPE" ColumnName="SYSTEMTYPE" />
+          <ScalarProperty Name="ENTITYNAME" ColumnName="ENTITYNAME" />
+          <ScalarProperty Name="ENTITYCODE" ColumnName="ENTITYCODE" />
+          <ScalarProperty Name="HASSYSTEMMENU" ColumnName="HASSYSTEMMENU" />
+          <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
+          <ScalarProperty Name="ORDERNUMBER" ColumnName="ORDERNUMBER" />
+          <ScalarProperty Name="MENUNAME" ColumnName="MENUNAME" />
+          <ScalarProperty Name="MENUICONPATH" ColumnName="MENUICONPATH" />
+          <ScalarProperty Name="URLADDRESS" ColumnName="URLADDRESS" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="CHILDSYSTEMNAME" ColumnName="CHILDSYSTEMNAME" />
+          <ScalarProperty Name="ISAUTHORITY" ColumnName="ISAUTHORITY" />
+          <ScalarProperty Name="HELPTITLE" ColumnName="HELPTITLE" />
+          <ScalarProperty Name="HELPFILEPATH" ColumnName="HELPFILEPATH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_ENTITYMENUBAK">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_ENTITYMENUBAK">
+        <MappingFragment StoreEntitySet="T_SYS_ENTITYMENUBAK">
+          <ScalarProperty Name="ENTITYMENUID" ColumnName="ENTITYMENUID" />
+          <ScalarProperty Name="SYSTEMTYPE" ColumnName="SYSTEMTYPE" />
+          <ScalarProperty Name="ENTITYNAME" ColumnName="ENTITYNAME" />
+          <ScalarProperty Name="ENTITYCODE" ColumnName="ENTITYCODE" />
+          <ScalarProperty Name="HASSYSTEMMENU" ColumnName="HASSYSTEMMENU" />
+          <ScalarProperty Name="SUPERIORID" ColumnName="SUPERIORID" />
+          <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
+          <ScalarProperty Name="ORDERNUMBER" ColumnName="ORDERNUMBER" />
+          <ScalarProperty Name="MENUNAME" ColumnName="MENUNAME" />
+          <ScalarProperty Name="MENUICONPATH" ColumnName="MENUICONPATH" />
+          <ScalarProperty Name="URLADDRESS" ColumnName="URLADDRESS" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="CHILDSYSTEMNAME" ColumnName="CHILDSYSTEMNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_ENTITYMENUCUSTOMPERM">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_ENTITYMENUCUSTOMPERM">
+        <MappingFragment StoreEntitySet="T_SYS_ENTITYMENUCUSTOMPERM">
+          <ScalarProperty Name="ENTITYMENUCUSTOMPERMID" ColumnName="ENTITYMENUCUSTOMPERMID" />
+          <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+          <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
+          <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
+          <ScalarProperty Name="DEPARTMENTNAME" ColumnName="DEPARTMENTNAME" />
+          <ScalarProperty Name="POSTID" ColumnName="POSTID" />
+          <ScalarProperty Name="POSTNAME" ColumnName="POSTNAME" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_FBADMIN">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_FBADMIN">
+        <MappingFragment StoreEntitySet="T_SYS_FBADMIN">
+          <ScalarProperty Name="FBADMINID" ColumnName="FBADMINID" />
+          <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="ADDUSERNAME" ColumnName="ADDUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="ISSUPPERADMIN" ColumnName="ISSUPPERADMIN" />
+          <ScalarProperty Name="ISCOMPANYADMIN" ColumnName="ISCOMPANYADMIN" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+          <ScalarProperty Name="EMPLOYEECOMPANYID" ColumnName="EMPLOYEECOMPANYID" />
+          <ScalarProperty Name="EMPLOYEEDEPARTMENTID" ColumnName="EMPLOYEEDEPARTMENTID" />
+          <ScalarProperty Name="EMPLOYEEPOSTID" ColumnName="EMPLOYEEPOSTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_FBADMINROLE">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_FBADMINROLE">
+        <MappingFragment StoreEntitySet="T_SYS_FBADMINROLE">
+          <ScalarProperty Name="FBADMINROLEID" ColumnName="FBADMINROLEID" />
+          <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+          <ScalarProperty Name="ADDDATE" ColumnName="ADDDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_FILEUPLOAD">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_FILEUPLOAD">
+        <MappingFragment StoreEntitySet="T_SYS_FILEUPLOAD">
+          <ScalarProperty Name="FILEUPLOADID" ColumnName="FILEUPLOADID" />
+          <ScalarProperty Name="SYSTEMCODE" ColumnName="SYSTEMCODE" />
+          <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+          <ScalarProperty Name="MODELNAME" ColumnName="MODELNAME" />
+          <ScalarProperty Name="FORMID" ColumnName="FORMID" />
+          <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_PERMISSION">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_PERMISSION">
+        <MappingFragment StoreEntitySet="T_SYS_PERMISSION">
+          <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
+          <ScalarProperty Name="PERMISSIONNAME" ColumnName="PERMISSIONNAME" />
+          <ScalarProperty Name="PERMISSIONVALUE" ColumnName="PERMISSIONVALUE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="ISCOMMOM" ColumnName="ISCOMMOM" />
+          <ScalarProperty Name="PERMISSIONCODE" ColumnName="PERMISSIONCODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_PROVINCECITY">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_PROVINCECITY">
+        <MappingFragment StoreEntitySet="T_SYS_PROVINCECITY">
+          <ScalarProperty Name="PROVINCEID" ColumnName="PROVINCEID" />
+          <ScalarProperty Name="AREANAME" ColumnName="AREANAME" />
+          <ScalarProperty Name="COUNTRYID" ColumnName="COUNTRYID" />
+          <ScalarProperty Name="ISPROVINCE" ColumnName="ISPROVINCE" />
+          <ScalarProperty Name="ISCITY" ColumnName="ISCITY" />
+          <ScalarProperty Name="ISCOUNTRYTOWN" ColumnName="ISCOUNTRYTOWN" />
+          <ScalarProperty Name="AREAVALUE" ColumnName="AREAVALUE" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_ROLE">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_ROLE">
+        <MappingFragment StoreEntitySet="T_SYS_ROLE">
+          <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+          <ScalarProperty Name="SYSTEMTYPE" ColumnName="SYSTEMTYPE" />
+          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CHECKSTATE" ColumnName="CHECKSTATE" />
+          <ScalarProperty Name="ISAUTHORY" ColumnName="ISAUTHORY" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_ROLEENTITYMENU">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_ROLEENTITYMENU">
+        <MappingFragment StoreEntitySet="T_SYS_ROLEENTITYMENU">
+          <ScalarProperty Name="ROLEENTITYMENUID" ColumnName="ROLEENTITYMENUID" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_ROLEMENUPERMISSION">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_ROLEMENUPERMISSION">
+        <MappingFragment StoreEntitySet="T_SYS_ROLEMENUPERMISSION">
+          <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="EXTENDVALUE" ColumnName="EXTENDVALUE" />
+          <ScalarProperty Name="DATARANGE" ColumnName="DATARANGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_ROLE_BAK">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_ROLE_BAK">
+        <MappingFragment StoreEntitySet="T_SYS_ROLE_BAK">
+          <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+          <ScalarProperty Name="SYSTEMTYPE" ColumnName="SYSTEMTYPE" />
+          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_RTF">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_RTF">
+        <MappingFragment StoreEntitySet="T_SYS_RTF">
+          <ScalarProperty Name="RTFID" ColumnName="RTFID" />
+          <ScalarProperty Name="SYSTEMCODE" ColumnName="SYSTEMCODE" />
+          <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+          <ScalarProperty Name="MODELNAME" ColumnName="MODELNAME" />
+          <ScalarProperty Name="FORMID" ColumnName="FORMID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_USER">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_USER">
+        <MappingFragment StoreEntitySet="T_SYS_USER">
+          <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
+          <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+          <ScalarProperty Name="EMPLOYEENAME" ColumnName="EMPLOYEENAME" />
+          <ScalarProperty Name="EMPLOYEECODE" ColumnName="EMPLOYEECODE" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="ISMANGER" ColumnName="ISMANGER" />
+          <ScalarProperty Name="ISFLOWMANAGER" ColumnName="ISFLOWMANAGER" />
+          <ScalarProperty Name="ISENGINEMANAGER" ColumnName="ISENGINEMANAGER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_USERACTLOG">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_USERACTLOG">
+        <MappingFragment StoreEntitySet="T_SYS_USERACTLOG">
+          <ScalarProperty Name="LOGID" ColumnName="LOGID" />
+          <ScalarProperty Name="CLIENTOS" ColumnName="CLIENTOS" />
+          <ScalarProperty Name="CLIENTOSLANGUAGE" ColumnName="CLIENTOSLANGUAGE" />
+          <ScalarProperty Name="CLIENTBROWSER" ColumnName="CLIENTBROWSER" />
+          <ScalarProperty Name="CLIENTHOSTADDRESS" ColumnName="CLIENTHOSTADDRESS" />
+          <ScalarProperty Name="CLIENTNETRUNTIME" ColumnName="CLIENTNETRUNTIME" />
+          <ScalarProperty Name="ENTITYMENU" ColumnName="ENTITYMENU" />
+          <ScalarProperty Name="LOGTYPE" ColumnName="LOGTYPE" />
+          <ScalarProperty Name="LOGCONTEXT" ColumnName="LOGCONTEXT" />
+          <ScalarProperty Name="SERVEROS" ColumnName="SERVEROS" />
+          <ScalarProperty Name="SERVERNETRUNTIME" ColumnName="SERVERNETRUNTIME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
+          <ScalarProperty Name="DEPARTMENTNAME" ColumnName="DEPARTMENTNAME" />
+          <ScalarProperty Name="POSTNAME" ColumnName="POSTNAME" />
+          <ScalarProperty Name="EMPLOYEENAME" ColumnName="EMPLOYEENAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_USERDATALOG">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_USERDATALOG">
+        <MappingFragment StoreEntitySet="T_SYS_USERDATALOG">
+          <ScalarProperty Name="LOGID" ColumnName="LOGID" />
+          <ScalarProperty Name="CLIENTOS" ColumnName="CLIENTOS" />
+          <ScalarProperty Name="CLIENTOSLANGUAGE" ColumnName="CLIENTOSLANGUAGE" />
+          <ScalarProperty Name="CLIENTBROWSER" ColumnName="CLIENTBROWSER" />
+          <ScalarProperty Name="CLIENTHOSTADDRESS" ColumnName="CLIENTHOSTADDRESS" />
+          <ScalarProperty Name="CLIENTNETRUNTIME" ColumnName="CLIENTNETRUNTIME" />
+          <ScalarProperty Name="ENTITYMENU" ColumnName="ENTITYMENU" />
+          <ScalarProperty Name="LOGTYPE" ColumnName="LOGTYPE" />
+          <ScalarProperty Name="LOGCONTEXT" ColumnName="LOGCONTEXT" />
+          <ScalarProperty Name="SERVEROS" ColumnName="SERVEROS" />
+          <ScalarProperty Name="SERVERNETRUNTIME" ColumnName="SERVERNETRUNTIME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
+          <ScalarProperty Name="DEPARTMENTNAME" ColumnName="DEPARTMENTNAME" />
+          <ScalarProperty Name="POSTNAME" ColumnName="POSTNAME" />
+          <ScalarProperty Name="EMPLOYEENAME" ColumnName="EMPLOYEENAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_USERLOGINRECORD">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_USERLOGINRECORD">
+        <MappingFragment StoreEntitySet="T_SYS_USERLOGINRECORD">
+          <ScalarProperty Name="LOGINRECORDID" ColumnName="LOGINRECORDID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="LOGINDATE" ColumnName="LOGINDATE" />
+          <ScalarProperty Name="LOGINTIME" ColumnName="LOGINTIME" />
+          <ScalarProperty Name="LOGINIP" ColumnName="LOGINIP" />
+          <ScalarProperty Name="ONLINESTATE" ColumnName="ONLINESTATE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERPOSTNAME" ColumnName="OWNERPOSTNAME" />
+          <ScalarProperty Name="OWNERDEPARTMENTNAME" ColumnName="OWNERDEPARTMENTNAME" />
+          <ScalarProperty Name="OWNERCOMPANYNAME" ColumnName="OWNERCOMPANYNAME" />
+          <ScalarProperty Name="LOGINYEAR" ColumnName="LOGINYEAR" />
+          <ScalarProperty Name="LOGINMONTH" ColumnName="LOGINMONTH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_USERLOGINRECORDHIS">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_USERLOGINRECORDHIS">
+        <MappingFragment StoreEntitySet="T_SYS_USERLOGINRECORDHIS">
+          <ScalarProperty Name="LOGINRECORDHISID" ColumnName="LOGINRECORDHISID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="LOGINDATE" ColumnName="LOGINDATE" />
+          <ScalarProperty Name="LOGINTIME" ColumnName="LOGINTIME" />
+          <ScalarProperty Name="LOGINIP" ColumnName="LOGINIP" />
+          <ScalarProperty Name="ONLINESTATE" ColumnName="ONLINESTATE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SYS_USERROLE">
+      <EntityTypeMapping TypeName="SMT_System_EFModel.T_SYS_USERROLE">
+        <MappingFragment StoreEntitySet="T_SYS_USERROLE">
+          <ScalarProperty Name="USERROLEID" ColumnName="USERROLEID" />
+          <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="POSTID" ColumnName="POSTID" />
+          <ScalarProperty Name="EMPLOYEEPOSTID" ColumnName="EMPLOYEEPOSTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_DI_REFERENCE_T_SYS_DI" TypeName="SMT_System_EFModel.FK_T_SYS_DI_REFERENCE_T_SYS_DI" StoreEntitySet="T_SYS_DICTIONARY">
+      <EndProperty Name="T_SYS_DICTIONARY">
+        <ScalarProperty Name="DICTIONARYID" ColumnName="FATHERID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_DICTIONARY1">
+        <ScalarProperty Name="DICTIONARYID" ColumnName="DICTIONARYID" />
+      </EndProperty>
+      <Condition ColumnName="FATHERID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_ROLEENTITYMENU_T_SYS_EN" TypeName="SMT_System_EFModel.FK_T_ROLEENTITYMENU_T_SYS_EN" StoreEntitySet="T_SYS_ROLEENTITYMENU">
+      <EndProperty Name="T_SYS_ENTITYMENU">
+        <ScalarProperty Name="ENTITYMENUID" ColumnName="ENTITYMENUID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_ROLEENTITYMENU">
+        <ScalarProperty Name="ROLEENTITYMENUID" ColumnName="ROLEENTITYMENUID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_EN_REFERENCE_T_SYS_EN" TypeName="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_EN" StoreEntitySet="T_SYS_ENTITYMENU">
+      <EndProperty Name="T_SYS_ENTITYMENU">
+        <ScalarProperty Name="ENTITYMENUID" ColumnName="SUPERIORID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_ENTITYMENU1">
+        <ScalarProperty Name="ENTITYMENUID" ColumnName="ENTITYMENUID" />
+      </EndProperty>
+      <Condition ColumnName="SUPERIORID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_PE_REFERENCE_T_SYS_EN" TypeName="SMT_System_EFModel.FK_T_SYS_PE_REFERENCE_T_SYS_EN" StoreEntitySet="T_SYS_PERMISSION">
+      <EndProperty Name="T_SYS_ENTITYMENU">
+        <ScalarProperty Name="ENTITYMENUID" ColumnName="ENTITYMENUID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_PERMISSION">
+        <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
+      </EndProperty>
+      <Condition ColumnName="ENTITYMENUID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_RO_ENTITYMENU" TypeName="SMT_System_EFModel.FK_T_SYS_RO_ENTITYMENU" StoreEntitySet="T_SYS_ENTITYMENUCUSTOMPERM">
+      <EndProperty Name="T_SYS_ENTITYMENU">
+        <ScalarProperty Name="ENTITYMENUID" ColumnName="ENTITYMENUID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_ENTITYMENUCUSTOMPERM">
+        <ScalarProperty Name="ENTITYMENUCUSTOMPERMID" ColumnName="ENTITYMENUCUSTOMPERMID" />
+      </EndProperty>
+      <Condition ColumnName="ENTITYMENUID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_EN_REFERENCE_T_SYS_PE" TypeName="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_PE" StoreEntitySet="T_SYS_ENTITYMENUCUSTOMPERM">
+      <EndProperty Name="T_SYS_PERMISSION">
+        <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_ENTITYMENUCUSTOMPERM">
+        <ScalarProperty Name="ENTITYMENUCUSTOMPERMID" ColumnName="ENTITYMENUCUSTOMPERMID" />
+      </EndProperty>
+      <Condition ColumnName="PERMISSIONID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_EN_REFERENCE_T_SYS_RO" TypeName="SMT_System_EFModel.FK_T_SYS_EN_REFERENCE_T_SYS_RO" StoreEntitySet="T_SYS_ENTITYMENUCUSTOMPERM">
+      <EndProperty Name="T_SYS_ROLE">
+        <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_ENTITYMENUCUSTOMPERM">
+        <ScalarProperty Name="ENTITYMENUCUSTOMPERMID" ColumnName="ENTITYMENUCUSTOMPERMID" />
+      </EndProperty>
+      <Condition ColumnName="ROLEID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_FB_REFERENCE_T_SYS_FB" TypeName="SMT_System_EFModel.FK_T_SYS_FB_REFERENCE_T_SYS_FB" StoreEntitySet="T_SYS_FBADMINROLE">
+      <EndProperty Name="T_SYS_FBADMIN">
+        <ScalarProperty Name="FBADMINID" ColumnName="FBADMINID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_FBADMINROLE">
+        <ScalarProperty Name="FBADMINROLEID" ColumnName="FBADMINROLEID" />
+      </EndProperty>
+      <Condition ColumnName="FBADMINID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_RO_RELATIONS_T_SYS_PE" TypeName="SMT_System_EFModel.FK_T_SYS_RO_RELATIONS_T_SYS_PE" StoreEntitySet="T_SYS_ROLEMENUPERMISSION">
+      <EndProperty Name="T_SYS_PERMISSION">
+        <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_ROLEMENUPERMISSION">
+        <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
+      </EndProperty>
+      <Condition ColumnName="PERMISSIONID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_PR_REFERENCE_T_SYS_PR" TypeName="SMT_System_EFModel.FK_T_SYS_PR_REFERENCE_T_SYS_PR" StoreEntitySet="T_SYS_PROVINCECITY">
+      <EndProperty Name="T_SYS_PROVINCECITY">
+        <ScalarProperty Name="PROVINCEID" ColumnName="FATHERID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_PROVINCECITY1">
+        <ScalarProperty Name="PROVINCEID" ColumnName="PROVINCEID" />
+      </EndProperty>
+      <Condition ColumnName="FATHERID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_RO_T_SYS_ROLE" TypeName="SMT_System_EFModel.FK_T_SYS_RO_T_SYS_ROLE" StoreEntitySet="T_SYS_ROLEENTITYMENU">
+      <EndProperty Name="T_SYS_ROLE">
+        <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_ROLEENTITYMENU">
+        <ScalarProperty Name="ROLEENTITYMENUID" ColumnName="ROLEENTITYMENUID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_US_REFERENCE_T_SYS_RO" TypeName="SMT_System_EFModel.FK_T_SYS_US_REFERENCE_T_SYS_RO" StoreEntitySet="T_SYS_USERROLE">
+      <EndProperty Name="T_SYS_ROLE">
+        <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_USERROLE">
+        <ScalarProperty Name="USERROLEID" ColumnName="USERROLEID" />
+      </EndProperty>
+      <Condition ColumnName="ROLEID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_RO_ROLEENTITYMENU" TypeName="SMT_System_EFModel.FK_T_SYS_RO_ROLEENTITYMENU" StoreEntitySet="T_SYS_ROLEMENUPERMISSION">
+      <EndProperty Name="T_SYS_ROLEENTITYMENU">
+        <ScalarProperty Name="ROLEENTITYMENUID" ColumnName="ROLEENTITYMENUID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_ROLEMENUPERMISSION">
+        <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
+      </EndProperty>
+      <Condition ColumnName="ROLEENTITYMENUID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_SYS_US_REFERENCE_T_SYS_US" TypeName="SMT_System_EFModel.FK_T_SYS_US_REFERENCE_T_SYS_US" StoreEntitySet="T_SYS_USERROLE">
+      <EndProperty Name="T_SYS_USER">
+        <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
+      </EndProperty>
+      <EndProperty Name="T_SYS_USERROLE">
+        <ScalarProperty Name="USERROLEID" ColumnName="USERROLEID" />
+      </EndProperty>
+      <Condition ColumnName="SYSUSERID" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
+</edmx:Mappings>
+</edmx:Runtime>
+<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+<Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
+<edmx:Options />
+<edmx:Diagrams />
+</edmx:Designer></edmx:Edmx>
