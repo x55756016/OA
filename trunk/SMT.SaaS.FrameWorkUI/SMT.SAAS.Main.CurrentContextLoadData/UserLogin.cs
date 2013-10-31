@@ -125,11 +125,11 @@ namespace SMT.SAAS.Main.CurrentContextLoadData
                                 ISAGENCY = ent.ISAGENCY,
                                 POSTLEVEL = ent.POSTLEVEL
                             };
-                    Common.CurrentLoginUserInfo = Common.GetLoginUserInfo(epDetail.EMPLOYEEID, epDetail.EMPLOYEENAME, epDetail.EMPLOYEECODE, epDetail.EMPLOYEESTATE, User.SYSUSERID, epDetail.OFFICEPHONE, epDetail.SEX, postlist.ToList(), epDetail.WORKAGE, epDetail.PHOTO, IsManager);
+                    Common.CurrentLoginUserInfo = Common.GetLoginUserInfo(epDetail.EMPLOYEEID, epDetail.EMPLOYEENAME, epDetail.EMPLOYEECODE, epDetail.EMPLOYEESTATE, User.SYSUSERID,epDetail.MOBILE, epDetail.OFFICEPHONE, epDetail.SEX, postlist.ToList(), epDetail.WORKAGE, epDetail.PHOTO, IsManager);
                 }
                 else
                 {
-                    Common.CurrentLoginUserInfo = Common.GetLoginUserInfo(epDetail.EMPLOYEEID, epDetail.EMPLOYEENAME, epDetail.EMPLOYEECODE, epDetail.EMPLOYEESTATE, User.SYSUSERID, epDetail.OFFICEPHONE, epDetail.SEX, null, epDetail.WORKAGE, epDetail.PHOTO, IsManager);
+                    Common.CurrentLoginUserInfo = Common.GetLoginUserInfo(epDetail.EMPLOYEEID, epDetail.EMPLOYEENAME, epDetail.EMPLOYEECODE, epDetail.EMPLOYEESTATE, User.SYSUSERID, epDetail.MOBILE, epDetail.OFFICEPHONE, epDetail.SEX, null, epDetail.WORKAGE, epDetail.PHOTO, IsManager);
                 }
                  //var q= from ent in Permission
                  //       select new SMT.SaaS.LocalData.V_UserPermissionUI
