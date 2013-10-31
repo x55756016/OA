@@ -402,7 +402,7 @@ namespace SMT.FB.BLL
         /// <param name="virtualCompany"></param>
         /// <param name="listSubject"></param>
         /// <returns></returns>
-        public List<FBEntity> GetSubjectCompany_Company(VirtualCompany virtualCompany, List<T_FB_SUBJECT> listSubject)
+        public List<FBEntity> GetSubjectCompany_Company(VirtualCompany virtualCompany, List<T_FB_SUBJECT> listSubject, string filterString)
         {
             string companyID = virtualCompany.ID;
             QueryExpression qeSubjectCompany = new QueryExpression();
@@ -411,8 +411,16 @@ namespace SMT.FB.BLL
             qeSubjectCompany.PropertyValue = companyID;
             qeSubjectCompany.Operation = QueryExpression.Operations.Equal;
 
+            if (!string.IsNullOrWhiteSpace(filterString))
+            {
+                QueryExpression qeFilterString = QueryExpression.Equal("T_FB_SUBJECT.SUBJECTNAME", filterString);
+                qeFilterString.Operation = QueryExpression.Operations.Like;
+                qeFilterString.RelatedType = QueryExpression.RelationType.And;
+                qeSubjectCompany.RelatedExpression = qeFilterString;
+            }
+
             List<T_FB_SUBJECTCOMPANY> listSubjectCompany = this.GetEntities<T_FB_SUBJECTCOMPANY>(qeSubjectCompany);
-            
+
             return listSubjectCompany.ToFBEntityList();
         }
 

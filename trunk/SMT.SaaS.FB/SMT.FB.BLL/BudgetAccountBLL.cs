@@ -3772,23 +3772,57 @@ namespace SMT.FB.BLL
 
             // 按访问人过滤 ？
             List<FBEntity> listCompany = oBll.GetCompany(queryExpression);
-            ///这样循环去查找数据导致公司维护和部门维护加载都很慢，数据太多，都是字符形式，居然有50多兆，比较奇怪
+
+            QueryExpression qeCompanyID = queryExpression.GetQueryExpression("COMPANYID");//公司ID
+            QueryExpression qeFilterString = queryExpression.GetQueryExpression("filterString");//查询条件
+            string filterString = string.Empty;
+            if (qeFilterString != null)
+            {
+                filterString = qeFilterString.PropertyValue;
+            }
+            #region 点击公司后开始加载该公司的科目分配信息，单个公司
+            if (qeCompanyID != null)
+            {
+                listCompany.ForEach(fbCompany =>
+                {
+                    VirtualCompany company = fbCompany.Entity as VirtualCompany;
+                    string companyID = company.ID;
+                    if (companyID == qeCompanyID.PropertyValue)
+                    {
+                        QueryExpression qeSubjectCompany = QueryExpression.Equal("OWNERCOMPANYID", companyID);
+                        qeSubjectCompany.QueryType = typeof(T_FB_SUBJECTCOMPANY).Name;
+                        List<T_FB_SUBJECTCOMPANY> listSubjectCompany = GetSubjectCompany(qeSubjectCompany);
+                        fbCompany.CollectionEntity[0].FBEntities.ForEach(fbDepartment =>
+                        {
+                            VirtualDepartment department = fbDepartment.Entity as VirtualDepartment;
+                            List<FBEntity> listsd = GetSubjectDepartment(department, listSubjectCompany);
+                            fbDepartment.AddFBEntities<T_FB_SUBJECTDEPTMENT>(listsd);
+                            fbDepartment.OrderDetailBy<T_FB_SUBJECTDEPTMENT>(item => item.T_FB_SUBJECT.SUBJECTCODE);
+                            listDepartment.Add(fbDepartment);
+                        });
+                    }
+                });
+                return listDepartment;
+            }
+            #endregion
+
+            #region 全部的数据，但是不加载科目信息
             listCompany.ForEach(fbCompany =>
             {
                 VirtualCompany company = fbCompany.Entity as VirtualCompany;
                 string companyID = company.ID;
                 QueryExpression qeSubjectCompany = QueryExpression.Equal("OWNERCOMPANYID", companyID);
                 qeSubjectCompany.QueryType = typeof(T_FB_SUBJECTCOMPANY).Name;
-                // qeSubjectCompany.Include = new string[] { "T_FB_SUBJECT" };
+
 
                 List<T_FB_SUBJECTCOMPANY> listSubjectCompany = GetSubjectCompany(qeSubjectCompany);
 
                 fbCompany.CollectionEntity[0].FBEntities.ForEach(fbDepartment =>
                 {
                     VirtualDepartment department = fbDepartment.Entity as VirtualDepartment;
-                    List<FBEntity> listsd = GetSubjectDepartment(department, listSubjectCompany);
+                    //  List<FBEntity> listsd = GetSubjectDepartment(department, listSubjectCompany);
+                    //   fbDepartment.AddFBEntities<T_FB_SUBJECTDEPTMENT>(listsd);
 
-                    fbDepartment.AddFBEntities<T_FB_SUBJECTDEPTMENT>(listsd);
 
                     fbDepartment.OrderDetailBy<T_FB_SUBJECTDEPTMENT>(item => item.T_FB_SUBJECT.SUBJECTCODE);
 
@@ -3796,6 +3830,7 @@ namespace SMT.FB.BLL
                 });
 
             });
+            #endregion
             return listDepartment;
 
         }
@@ -3861,12 +3896,33 @@ namespace SMT.FB.BLL
             List<VirtualCompany> listCompany = oBll.GetVirtualCompany(queryExpression);
             List<T_FB_SUBJECT> listSubject = GetSubject(null);
             List<FBEntity> listResult = new List<FBEntity>();
-            listCompany.ForEach(company =>
+
+            QueryExpression qeCompanyID = queryExpression.GetQueryExpression("COMPANYID");//公司ID
+            QueryExpression qeFilterString = queryExpression.GetQueryExpression("filterString");//查询条件
+            string filterString = string.Empty;
+            if (qeFilterString != null)
             {
-                List<FBEntity> listsc = GetSubjectCompany_Company(company, listSubject);
+                filterString = qeFilterString.PropertyValue;
+            }
+            if (qeCompanyID != null)
+            {
+                VirtualCompany com = listCompany.Where(t => t.ID == qeCompanyID.PropertyValue).FirstOrDefault();
+                List<FBEntity> listsc = GetSubjectCompany_Company(com, listSubject, filterString);
                 RelationManyEntity rme = new RelationManyEntity();
                 rme.EntityType = "T_FB_SUBJECTCOMPANY";
                 rme.FBEntities = listsc;
+                FBEntity fbEntity = com.ToFBEntity();
+                fbEntity.CollectionEntity.Add(rme);
+                fbEntity.OrderDetailBy<T_FB_SUBJECTCOMPANY>(item => item.T_FB_SUBJECT.SUBJECTCODE);
+                listResult.Add(fbEntity);
+                return listResult;
+            }
+            listCompany.ForEach(company =>
+            {
+                // List<FBEntity> listsc = GetSubjectCompany_Company(company, listSubject);
+                RelationManyEntity rme = new RelationManyEntity();
+                rme.EntityType = "T_FB_SUBJECTCOMPANY";
+                //  rme.FBEntities = listsc;
                 FBEntity fbEntity = company.ToFBEntity();
                 fbEntity.CollectionEntity.Add(rme);
                 fbEntity.OrderDetailBy<T_FB_SUBJECTCOMPANY>(item => item.T_FB_SUBJECT.SUBJECTCODE);
