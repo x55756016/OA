@@ -75,14 +75,18 @@ namespace SMT.FB.UI.Views.SubjectManagement
 
         #endregion
 
+        #region 全局变量
+        private string companyId = string.Empty;//保存公司ID，在查询是使用
+        #endregion
+
         private void InitForm()
         {
             this.FormTitleName.TextTitle.Text = "部门科目维护管理";
 
             tooBarTop.InitToolBarItem(new List<ToolbarItem>() { ToolBarItems.Save });
             tooBarTop.ItemClicked += new EventHandler<ToolBar.ToolBarItemClickArgs>(tooBarTop_ItemClicked);
-           
-           
+
+
             orderEntityService = new OrderEntityService();
             orderEntityService.ModelCode = typeof(T_FB_SUBJECTDEPTMENT).Name;
             orderEntityService.SaveListCompleted += new EventHandler<ActionCompletedEventArgs<bool>>(orderEntityService_SaveListCompleted);
@@ -91,47 +95,67 @@ namespace SMT.FB.UI.Views.SubjectManagement
             forms = new ObjectList<EditForm>();
             dictTreeViewItem = new Dictionary<EntityObject, OrderEntity>();
             dictDepartment = new Dictionary<VirtualDepartment, OrderEntity>();
-            
+
             this.FormTitleName.Visibility = FBBasePage.ShowTitleBar ? Visibility.Visible : Visibility.Collapsed;
             InitData();
         }
 
 
-
+        bool isInit = false;
         void orderEntityService_QueryFBEntitiesCompleted(object sender, QueryFBEntitiesCompletedEventArgs e)
         {
             Dictionary<VirtualCompany, TreeViewItem> dictCompany = new Dictionary<VirtualCompany, TreeViewItem>();
 
-            this.TreeView.Items.Clear();
+            //  this.TreeView.Items.Clear();
             List<OrderEntity> listDepartment = e.Result.ToEntityAdapterList<OrderEntity>().ToList();
 
+            if (currTreeItmes != null)
+            {
+                currTreeItmes.Items.Clear();
+            }
+            if (!isInit)
+            {
+                this.TreeView.Items.Clear();
+            }
             listDepartment.ForEach(department =>
             {
                 TreeViewItem tvItemCompany = null;
                 VirtualDepartment virtualDepartment = department.Entity as VirtualDepartment;
-                if (!dictCompany.ContainsKey(virtualDepartment.VirtualCompany))
+                if (isInit)
                 {
-                    tvItemCompany = this.TreeView.Items.AddObject<VirtualCompany>(virtualDepartment.VirtualCompany, "Name");
-                    dictCompany.Add(virtualDepartment.VirtualCompany, tvItemCompany);
+                    //  tvItemCompany = currTreeItmes.Items.AddObject<VirtualCompany>(virtualDepartment.VirtualCompany, "Name");
+                    tvItemCompany = currTreeItmes.Items.AddObject<OrderEntity>(department, "Entity.Name");
+                    tvItemCompany.Items.AddObjectList<VirtualPost>(virtualDepartment.PostCollection.ToList(), "Name");
+                    dictDepartment.Add(virtualDepartment, department);
+                    AttachEventToSubjectDepartment(department);
                 }
-                tvItemCompany = dictCompany[virtualDepartment.VirtualCompany];
-                TreeViewItem tvItemDepartment = tvItemCompany.Items.AddObject<OrderEntity>(department, "Entity.Name");
-                tvItemDepartment.Items.AddObjectList<VirtualPost>(virtualDepartment.PostCollection.ToList(), "Name");
+                else
+                {
+                    if (!dictCompany.ContainsKey(virtualDepartment.VirtualCompany))
+                    {
+                        tvItemCompany = this.TreeView.Items.AddObject<VirtualCompany>(virtualDepartment.VirtualCompany, "Name");
+                        dictCompany.Add(virtualDepartment.VirtualCompany, tvItemCompany);
+                    }
+                    tvItemCompany = dictCompany[virtualDepartment.VirtualCompany];
+                    TreeViewItem tvItemDepartment = tvItemCompany.Items.AddObject<OrderEntity>(department, "Entity.Name");
+                    tvItemDepartment.Items.AddObjectList<VirtualPost>(virtualDepartment.PostCollection.ToList(), "Name");
 
-                dictDepartment.Add(virtualDepartment, department);
-                AttachEventToSubjectDepartment(department);
-                EntityList.Add(department);
+                    dictDepartment.Add(virtualDepartment, department);
+                    AttachEventToSubjectDepartment(department);
+                    EntityList.Add(department);
+                }
+                //  tvItemCompany = this.TreeView.Items.AddObject<VirtualCompany>(virtualDepartment.VirtualCompany, "Name");
 
             });
+            //TreeViewItem tvi = this.TreeView.Items.FirstOrDefault() as TreeViewItem;
+            //if (tvi != null)
+            //{
+            //    tvi.IsSelected = true;
 
-            TreeViewItem tvi = this.TreeView.Items.FirstOrDefault() as TreeViewItem;
-            if (tvi != null)
-            {
-                tvi.IsSelected = true;
-
-                RoutedPropertyChangedEventArgs<object> ea = new RoutedPropertyChangedEventArgs<object>(null, tvi);
-                TreeView_SelectedItemChanged(tvi, ea);
-            }
+            //    RoutedPropertyChangedEventArgs<object> ea = new RoutedPropertyChangedEventArgs<object>(null, tvi);
+            //    TreeView_SelectedItemChanged(tvi, ea);
+            //}
+            isInit = true;
             this.CloseProcess();
         }
 
@@ -143,13 +167,14 @@ namespace SMT.FB.UI.Views.SubjectManagement
                 InitData();
             }
             this.CloseProcess();
-            
+
         }
 
         protected void InitData()
         {
             try
             {
+                isInit = false;
                 this.ShowProcess();
                 EntityList.Clear();
 
@@ -161,7 +186,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                 orderEntityService.QueryFBEntities(qe);
 
                 this.TreeView.Items.AddTempLoadingItem();
-                
+
             }
             catch
             {
@@ -171,7 +196,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
 
         protected void GetEditForm(OrderEntity orderEntity)
         {
-        
+
             forms.ToList().ForEach(
                 form =>
                 {
@@ -221,17 +246,24 @@ namespace SMT.FB.UI.Views.SubjectManagement
             BeginMoneyAssign(grid);
         }
 
+        TreeViewItem currTreeItmes;
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            if (sender!=null)
+            {
+                var treeView = sender as TreeView;
+                currTreeItmes = treeView.SelectedItem as TreeViewItem;
+            }
             TreeViewItem treeViewItem = e.NewValue as TreeViewItem;
             if (treeViewItem != null)
             {
+                QuerySubjectCompanyData(treeViewItem);
                 this.currentTreeViewItem = treeViewItem;
 
                 VirtualPost virtualPost = currentTreeViewItem.DataContext as VirtualPost;
                 if (virtualPost != null)
                 {
-                    this.CurrentOrderEntity = CreatePostEntity(virtualPost, treeViewItem,string.Empty);
+                    this.CurrentOrderEntity = CreatePostEntity(virtualPost, treeViewItem, string.Empty);
                 }
                 else
                 {
@@ -240,6 +272,35 @@ namespace SMT.FB.UI.Views.SubjectManagement
                 }
             }
         }
+
+        /// <summary>
+        /// 点击公司右边显示科目
+        /// </summary>
+        /// <param name="item"></param>
+        void QuerySubjectCompanyData(TreeViewItem item)
+        {
+            try
+            {
+                var com = item.DataContext as VirtualEntityObject;
+                if (com != null && com.GetType().ToString() == "SMT.FB.UI.FBCommonWS.VirtualCompany")
+                {
+                    QueryExpression qe = new QueryExpression();
+                    qe.QueryType = typeof(T_FB_SUBJECTDEPTMENT).Name;
+                    QueryExpression company = new QueryExpression();
+                    company.PropertyName = "COMPANYID";
+                    company.PropertyValue = com.ID;
+                    companyId = com.ID;
+                    qe.RelatedExpression = company;
+                    orderEntityService.QueryFBEntities(qe);
+                }
+            }
+            catch (Exception ex)
+            {
+                CommonFunction.ShowErrorMessage(ex.Message);
+                CloseProcess();
+            }
+        }
+
 
         #region ToolBar
 
@@ -250,7 +311,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                 ShowProcess();
 
                 Save();
-                
+
             }
             catch (Exception ex)
             {
@@ -261,19 +322,19 @@ namespace SMT.FB.UI.Views.SubjectManagement
 
         public void Save()
         {
-             ObservableCollection<FBEntity> listOfFBEntity = new ObservableCollection<FBEntity>();
+            ObservableCollection<FBEntity> listOfFBEntity = new ObservableCollection<FBEntity>();
             for (int i = 0; i < EntityList.Count; i++)
             {
                 OrderEntity item = EntityList[i];
-                
+
                 FBEntity fbEntitySave = item.GetModifiedFBEntity();
                 ObservableCollection<FBEntity> listSave = null;
                 if (fbEntitySave.Entity.GetType() == typeof(VirtualDepartment))
                 {
                     listSave = fbEntitySave.GetRelationFBEntities(typeof(T_FB_SUBJECTDEPTMENT).Name);
-                                        
-                   //活动经费
-                   // CheckMoneyAssign(listSave);
+
+                    //活动经费
+                    // CheckMoneyAssign(listSave);
                 }
                 else
                 {
@@ -281,14 +342,14 @@ namespace SMT.FB.UI.Views.SubjectManagement
 
                     // 删除 不是active的岗位项目记录
                     listSave.RemoveAll(itemRemove =>
-                        {
-                            bool isAdded = itemRemove.FBEntityState == FBEntityState.Added;
-                            bool isNew = (itemRemove.Entity as T_FB_SUBJECTPOST).ACTIVED != 1;
-                            return isAdded && isNew;
+                    {
+                        bool isAdded = itemRemove.FBEntityState == FBEntityState.Added;
+                        bool isNew = (itemRemove.Entity as T_FB_SUBJECTPOST).ACTIVED != 1;
+                        return isAdded && isNew;
 
-                        });
+                    });
                 }
-                
+
                 listSave.ToList().ForEach(fbEntity =>
                 {
                     bool tf = true;//外键为空的不处理
@@ -297,7 +358,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                     {
                         fbEntity.FBEntityState = FBEntityState.Added;
 
-                        
+
                         fbEntity.SetObjValue("Entity.CREATECOMPANYID", item.LoginUser.Company.Value);
                         fbEntity.SetObjValue("Entity.CREATECOMPANYNAME", item.LoginUser.Company.Text);
                         fbEntity.SetObjValue("Entity.CREATEDEPARTMENTID", item.LoginUser.Department.Value);
@@ -308,7 +369,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                         fbEntity.SetObjValue("Entity.CREATEUSERNAME", item.LoginUser.Text);
 
                         fbEntity.SetObjValue("Entity.EDITSTATES", decimal.Parse("1"));
-                       
+
                     }
                     fbEntity.SetObjValue("Entity.UPDATEUSERID", item.LoginUser.Value);
                     fbEntity.SetObjValue("Entity.UPDATEUSERNAME", item.LoginUser.Text);
@@ -338,7 +399,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                     }
                     else
                     {
-                        if (sp.T_FB_SUBJECTDEPTMENT != null && sp.T_FB_SUBJECT!=null)
+                        if (sp.T_FB_SUBJECTDEPTMENT != null && sp.T_FB_SUBJECT != null)
                         {
                             EntityKey parentKey = sp.T_FB_SUBJECTDEPTMENT.EntityKey;
                             if (parentKey.EntityKeyValues == null)
@@ -370,8 +431,8 @@ namespace SMT.FB.UI.Views.SubjectManagement
                             tf = false;
                         }
                     }
-                    if(tf)
-                    listOfFBEntity.Add(fbEntity);
+                    if (tf)
+                        listOfFBEntity.Add(fbEntity);
 
                 });
             }
@@ -380,7 +441,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
             {
                 this.CurrentOrderEntity = new OrderEntity(typeof(VirtualCompany));
 
-                
+
                 this.orderEntityService.SaveList(listOfFBEntity);
             }
             else
@@ -400,7 +461,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
         /// </summary>
         /// <param name="virtualPost"></param>
         /// <returns></returns>
-        private OrderEntity CreatePostEntity(VirtualPost virtualPost, TreeViewItem treeViewItem,string strFlag)
+        private OrderEntity CreatePostEntity(VirtualPost virtualPost, TreeViewItem treeViewItem, string strFlag)
         {
             ObservableCollection<FBEntity> listFBEntities = new ObservableCollection<FBEntity>();
             OrderEntity oeDepartment = dictDepartment[virtualPost.VirtualDepartment];
@@ -411,11 +472,11 @@ namespace SMT.FB.UI.Views.SubjectManagement
             //　1. 获取所有已启用的部门科目
             var itemsDepartmentActived = listOfSubjectDepartmentFB.Where(item =>
             {
-               return (item.Entity as T_FB_SUBJECTDEPTMENT).ACTIVED == 1;
+                return (item.Entity as T_FB_SUBJECTDEPTMENT).ACTIVED == 1;
             });
 
             // 2. 遍历所有已启用的部门科目, 添加相应的岗位科目,已有科目的，则加上原有的，没有的，则新增
-                
+
             foreach (FBEntity entityDepartment in itemsDepartmentActived)
             {
                 T_FB_SUBJECTDEPTMENT sd = entityDepartment.Entity as T_FB_SUBJECTDEPTMENT;
@@ -454,7 +515,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                     }
                 }
             }
-            
+
             FBEntity postFBEntity = virtualPost.ToFBEntity();
             postFBEntity.AddFBEntities<T_FB_SUBJECTPOST>(listFBEntities);
             OrderEntity entityPost = new OrderEntity(postFBEntity);
@@ -472,7 +533,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
         /// </summary>
         /// <param name="sd"></param>
         /// <returns></returns>
-        private FBEntity CreateSubjectPost(T_FB_SUBJECTDEPTMENT sd, VirtualPost virtualPost,string strFlag)
+        private FBEntity CreateSubjectPost(T_FB_SUBJECTDEPTMENT sd, VirtualPost virtualPost, string strFlag)
         {
             T_FB_SUBJECTPOST post = new T_FB_SUBJECTPOST();
             post.T_FB_SUBJECTDEPTMENT = sd;
@@ -486,8 +547,8 @@ namespace SMT.FB.UI.Views.SubjectManagement
             post.OWNERCOMPANYID = virtualPost.OWNERCOMPANYID;
 
             //岗位默认处理
-            post= SubjectPostChanged(sd, post, strFlag);
-           
+            post = SubjectPostChanged(sd, post, strFlag);
+
             FBEntity fbEntityPostNew = post.ToFBEntity();
             fbEntityPostNew.FBEntityState = FBEntityState.Added;
 
@@ -504,9 +565,9 @@ namespace SMT.FB.UI.Views.SubjectManagement
             ObservableCollection<FBEntity> listOfSubjectDepartmentFB = departmentEntity.GetRelationFBEntities(typeof(T_FB_SUBJECTDEPTMENT).Name);
 
             listOfSubjectDepartmentFB.ToList().ForEach(item =>
-                {
-                    item.Entity.PropertyChanged += new PropertyChangedEventHandler(SubjectDepartment_PropertyChanged);
-                });
+            {
+                item.Entity.PropertyChanged += new PropertyChangedEventHandler(SubjectDepartment_PropertyChanged);
+            });
         }
 
         /// <summary>
@@ -551,7 +612,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                             }
                             else if (e.PropertyName == "ISPERSON")//修改科目
                             {
-                              oe= IsPersonChanged(oe,subjectDepartment);
+                                oe = IsPersonChanged(oe, subjectDepartment);
                             }
                         }
                         else // 从集合中去除相应的subjectPost
@@ -576,8 +637,8 @@ namespace SMT.FB.UI.Views.SubjectManagement
                         {
                             if (e.PropertyName == "ACTIVED")//启用科目
                             {
-                              //  FBEntity fbEntityPostNew = CreateSubjectPost(subjectDepartment, virtualPost, "ACTIVED");
-                              //  curOrderEntity.FBEntity.AddFBEntities<T_FB_SUBJECTPOST>(new List<FBEntity> { fbEntityPostNew });
+                                //  FBEntity fbEntityPostNew = CreateSubjectPost(subjectDepartment, virtualPost, "ACTIVED");
+                                //  curOrderEntity.FBEntity.AddFBEntities<T_FB_SUBJECTPOST>(new List<FBEntity> { fbEntityPostNew });
 
                                 CreatePostEntity(virtualPost, item, "ACTIVED");
                             }
@@ -587,7 +648,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                             }
                         }
                         else // 从集合中去除相应的subjectPost
-                        {                           
+                        {
                             ObservableCollection<FBEntity> fbEntities = curOrderEntity.GetRelationFBEntities(typeof(T_FB_SUBJECTPOST).Name);
                             fbEntities.RemoveAll(entity =>
                             {
@@ -645,7 +706,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
         //处理默认活动经费岗位的设置
         public void BeginMoneyAssign(DetailGrid grid)
         {
-         OrderEntity oe = grid.DataContext as OrderEntity;
+            OrderEntity oe = grid.DataContext as OrderEntity;
 
             oe.FBEntity.CollectionEntity.ForEach(p =>
             {
@@ -731,11 +792,11 @@ namespace SMT.FB.UI.Views.SubjectManagement
                 oe.FBEntity.CollectionEntity.ForEach(p =>
                 {
                     p.FBEntities.ForEach(f =>
-                        {
-                            T_FB_SUBJECTPOST post = f.Entity as T_FB_SUBJECTPOST;
-                            if (post != null && subjectDepartment.T_FB_SUBJECT.SUBJECTID == post.T_FB_SUBJECT.SUBJECTID)
-                                post.ISPERSON = 1;
-                        });
+                    {
+                        T_FB_SUBJECTPOST post = f.Entity as T_FB_SUBJECTPOST;
+                        if (post != null && subjectDepartment.T_FB_SUBJECT.SUBJECTID == post.T_FB_SUBJECT.SUBJECTID)
+                            post.ISPERSON = 1;
+                    });
                 });
             }
             else

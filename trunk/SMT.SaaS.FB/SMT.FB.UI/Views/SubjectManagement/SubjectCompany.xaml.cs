@@ -70,7 +70,9 @@ namespace SMT.FB.UI.Views.SubjectManagement
         public bool RefreshEntityWhenLoad { get; set; }
         #endregion
 
-
+        #region 全局变量
+        private string companyId = string.Empty;//保存公司ID，在查询是使用
+        #endregion
 
         #region 获取数据
         protected void InitData()
@@ -81,27 +83,42 @@ namespace SMT.FB.UI.Views.SubjectManagement
 
             QueryExpression qe = new QueryExpression();
             qe.QueryType = typeof(T_FB_SUBJECTCOMPANY).Name + "_COMPANY";
+
             orderEntityService.QueryFBEntities(qe);
 
             this.TreeView.Items.AddTempLoadingItem();
         }
 
+
         void orderEntityService_QueryFBEntitiesCompleted(object sender, QueryFBEntitiesCompletedEventArgs e)
         {
-            this.TreeView.Items.Clear();
+             //this.TreeView.Items.Clear();
 
             List<OrderEntity> listCompany = e.Result.ToEntityAdapterList<OrderEntity>().ToList();
-            List<TreeViewItem> items = TreeView.Items.AddObjectList(listCompany, "Entity.Name");
-            EntityList = listCompany;
 
-            TreeViewItem tvi = this.TreeView.Items.FirstOrDefault() as TreeViewItem;
-            if (tvi != null)
+          
+            if (listCompany!=null && listCompany.Count==1)
             {
-                tvi.IsSelected = true;
-
-                RoutedPropertyChangedEventArgs<object> ea = new RoutedPropertyChangedEventArgs<object>(null, tvi);
-                TreeView_SelectedItemChanged(tvi, ea);
+                this.CurrentOrderEntity = listCompany.FirstOrDefault();
             }
+            else
+            {
+                this.TreeView.Items.Clear();
+                List<TreeViewItem> items = TreeView.Items.AddObjectList(listCompany, "Entity.Name");
+            }
+            
+            EntityList = listCompany;
+            //TreeView.SelectedItemChanged += new RoutedPropertyChangedEventHandler<object>(TreeView_SelectedItemChanged);
+
+            //TreeViewItem tvi = this.TreeView.Items.FirstOrDefault() as TreeViewItem;
+            //if (tvi != null)
+            //{
+            //    tvi.IsSelected = true;
+
+            //    RoutedPropertyChangedEventArgs<object> ea = new RoutedPropertyChangedEventArgs<object>(null, tvi);
+            //    TreeView_SelectedItemChanged(tvi, ea);
+            //}
+
         }
 
        
@@ -191,19 +208,46 @@ namespace SMT.FB.UI.Views.SubjectManagement
         {
             
         }
-
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             TreeViewItem treeViewItem = e.NewValue as TreeViewItem;
             if (treeViewItem != null)
             {
+                QuerySubjectCompanyData(treeViewItem);
                 this.currentTreeViewItem = treeViewItem;
                 OrderEntity entity = currentTreeViewItem.DataContext as OrderEntity;
                 this.CurrentOrderEntity = entity;// new OrderEntity(typeof(VirtualCompany));               
             }
             //PermissionHelper.GetPermissionValue(orderEntityService.ModelCode, Permissions.Edit);
             //tooBarTop.ShowItem("Save", 
+        }
 
+        /// <summary>
+        /// 点击公司右边显示科目
+        /// </summary>
+        /// <param name="item"></param>
+        void QuerySubjectCompanyData(TreeViewItem item)
+        {
+            try
+            {
+                var com = (item.DataContext as EntityAdapter).Entity as VirtualEntityObject;
+                if (com != null)
+                {
+                    QueryExpression qe = new QueryExpression();
+                    qe.QueryType = typeof(T_FB_SUBJECTCOMPANY).Name + "_COMPANY";
+                    QueryExpression company = new QueryExpression();
+                    company.PropertyName = "COMPANYID";
+                    company.PropertyValue = com.ID;
+                    companyId = com.ID;
+                    qe.RelatedExpression = company;
+                    orderEntityService.QueryFBEntities(qe);
+                }
+            }
+            catch (Exception ex)
+            {
+                CommonFunction.ShowErrorMessage(ex.Message);
+                CloseProcess();
+            }
         }
 
         #region 保存
@@ -214,7 +258,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
             try
             {
                 ShowProcess();
-                
+              //  ComfirmWindow.ConfirmationBoxs("提示", "测试页面", Utility.GetResourceStr("CONFIRM"), MessageIcon.Question);
                 Save();
                 
             }
@@ -325,6 +369,58 @@ namespace SMT.FB.UI.Views.SubjectManagement
             // 需要大于等公司的范围权限
             return !(perm > (int)PermissionRange.Company || perm < 0);
        
+        }
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(companyId))
+                {
+                    CommonFunction.ShowMessage("请选择公司");
+                    return;
+                }
+                string tbText = this.tbSubjectName.Text.Trim();
+                if (string.IsNullOrWhiteSpace(tbText))
+                {
+                    CommonFunction.ShowMessage("请输入查询条件");
+                    return;
+                }
+                QueryExpression qe = new QueryExpression();
+                qe.QueryType = typeof(T_FB_SUBJECTCOMPANY).Name + "_COMPANY";
+
+                QueryExpression qeCompany = new QueryExpression();
+                qeCompany.PropertyName = "COMPANYID";
+                qeCompany.PropertyValue = companyId;
+
+                QueryExpression qeFilterString = new QueryExpression();
+                qeFilterString.PropertyName = "filterString";
+                qeFilterString.PropertyValue = tbText;
+
+                qeCompany.RelatedExpression = qeFilterString;
+                qe.RelatedExpression = qeCompany;
+                orderEntityService.QueryFBEntities(qe);
+            }
+            catch (Exception ex)
+            {
+                CommonFunction.ShowErrorMessage(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 重置刷新
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            this.tbSubjectName.Text = "";
+            this.InitData();
         }
 
     }
