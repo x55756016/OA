@@ -27,6 +27,39 @@ namespace SMT.SaaS.OA.UI
 {
     public class Utility
     {
+
+        public static string GetEmployeePhone()
+        {
+
+            string TelePhone = string.Empty;
+            try
+            {
+                if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.Telphone))
+                {
+                    TelePhone = Common.CurrentLoginUserInfo.Telphone;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            //try
+            //{
+            //    if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.MobileTelphone))
+            //    {
+            //        TelePhone = Common.CurrentLoginUserInfo.MobileTelphone;
+            //    }
+            //    if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.OfficeTelphone))
+            //    {
+            //        TelePhone = TelePhone + " / " + Common.CurrentLoginUserInfo.OfficeTelphone;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.SetLogAndShowLog(ex.ToString());
+            //}
+            return TelePhone;
+        }
+
         /// <summary>
         /// 加载字典
         /// Added by 安凯航 2011年7月15日

@@ -216,8 +216,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
 
             ApprovalForm_aud frm = new ApprovalForm_aud();
             EntityBrowser browser = new EntityBrowser(frm);
-            browser.MinWidth = 860;
-            browser.MinHeight = 500;
+            browser.MinWidth = 688;
+            browser.MinHeight = 400;
             browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
             browser.Show<string>(DialogMode.Default, Common.ParentLayoutRoot, "", (result) => { }, true);
 

@@ -144,8 +144,7 @@
                     </data:DataGridTemplateColumn>
                     <data:DataGridTextColumn  Header="CODINGMATTERS"
                                               Binding="{Binding APPROVALCODE}"></data:DataGridTextColumn>
-                    <data:DataGridTemplateColumn Header="TITLEMATTERS"
-                                                 MaxWidth="250">
+                    <data:DataGridTemplateColumn Header="TITLEMATTERS">
                         <data:DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel HorizontalAlignment="Left"

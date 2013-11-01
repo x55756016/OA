@@ -54,7 +54,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             Utility.BindComboBox(cmbConserVationName, "CONSERVANAME", 0);
             dateREPAIRDATE.Text = DateTime.Today.ToShortDateString();
             dateRETRIEVEDATE.Text = DateTime.Today.AddDays(2).ToShortDateString();
-            txtTel.Text = Common.CurrentLoginUserInfo.Telphone == null ? "" : Common.CurrentLoginUserInfo.Telphone;
+            txtTel.Text = Utility.GetEmployeePhone();
             if (conserVation != null)
                 SetFormDefailValue(conserVation);
             if (types != FormTypes.New)
@@ -73,7 +73,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             Utility.BindComboBox(cmbConserVationName, "CONSERVANAME", 0);
             dateREPAIRDATE.Text = DateTime.Today.ToShortDateString();
             dateRETRIEVEDATE.Text = DateTime.Today.AddDays(2).ToShortDateString();
-            txtTel.Text = Common.CurrentLoginUserInfo.Telphone == null ? "" : Common.CurrentLoginUserInfo.Telphone;
+            txtTel.Text = Utility.GetEmployeePhone();
             if (conserVation != null)
                 SetFormDefailValue(conserVation);
             if (types != FormTypes.New)

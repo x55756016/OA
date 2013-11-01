@@ -421,7 +421,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             DaGrs.SelectedItem = e.Row;
                             T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
                             T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
-
+                           
                             entareaallowance = StandardsMethod(i);
 
                             if (formType != FormTypes.New)

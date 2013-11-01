@@ -294,10 +294,11 @@ namespace SMT.SaaS.OA.UI.UserControls
             StrDepartmentName = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
             StrCompanyName = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
             txtOwnerName.Text = StrName;
-            if (Common.CurrentLoginUserInfo.Telphone != null)
-            {
-                txtTel.Text = Common.CurrentLoginUserInfo.Telphone;
-            }
+            //if (Common.CurrentLoginUserInfo.Telphone != null)
+            //{
+            //    txtTel.Text = Common.CurrentLoginUserInfo.Telphone;
+            //}
+            txtTel.Text = Utility.GetEmployeePhone();
             ToolTipService.SetToolTip(txtOwnerName, StrName);
         }
 

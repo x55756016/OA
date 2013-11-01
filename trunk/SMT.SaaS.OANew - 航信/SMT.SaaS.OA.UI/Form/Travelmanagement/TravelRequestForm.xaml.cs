@@ -182,11 +182,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 Master_Golbal.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
                 Master_Golbal.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
                 Master_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
-                if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.Telphone))
-                {
-                    Master_Golbal.TEL = Common.CurrentLoginUserInfo.Telphone;
-                    txtTELL.Text = Common.CurrentLoginUserInfo.Telphone;
-                }
+               
+                Master_Golbal.TEL = Utility.GetEmployeePhone();
+                txtTELL.Text = Utility.GetEmployeePhone();
+               
+
                 Master_Golbal.CREATEDATE = DateTime.Now;//创建时间
                 Master_Golbal.UPDATEDATE = DateTime.Now;//更新时间
                 Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交

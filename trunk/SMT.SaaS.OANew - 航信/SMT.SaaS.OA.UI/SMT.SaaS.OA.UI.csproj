@@ -111,9 +111,6 @@
     <Reference Include="SMT.SAAS.Controls.Toolkit">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
     </Reference>
@@ -126,11 +123,12 @@
     <Reference Include="SMT.SaaS.LocalData">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, PublicKeyToken=7cc70637b746d9be, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
+    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.MoblieXml">
@@ -148,7 +146,8 @@
     <Reference Include="SMT.Saas.Tools">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.Window">
+    <Reference Include="SMT.SaaS.Window, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
@@ -3136,6 +3135,10 @@
     <WCFMetadataStorage Include="Service References\TravelExpApplyMaster\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
+      <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
+      <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</Project>
       <Name>SMT.SAAS.FrameworkUI</Name>

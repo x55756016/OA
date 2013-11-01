@@ -169,10 +169,11 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 tmpSendDocT.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
                 //SVAudit.Visibility = Visibility.Collapsed;
-                if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.Telphone))
-                {
-                    this.txtTel.Text = Common.CurrentLoginUserInfo.Telphone;
-                }
+                //if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.Telphone))
+                //{
+                //    this.txtTel.Text = Common.CurrentLoginUserInfo.Telphone;
+                //}
+                 this.txtTel.Text =Utility.GetEmployeePhone();
                 tmpSendDocT.SENDDOCID = System.Guid.NewGuid().ToString();
                 Utility.InitFileLoad("CompanyDoc", tmpSendDocT.SENDDOCID, operationType, uploadFile);
                 InitComboxSource();

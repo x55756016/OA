@@ -73,6 +73,17 @@ namespace SMT.SaaS.OA.UI
             //    Common.CurrentConfig.CurrentUser.EmployeeInfo.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME);
         }
 
+        private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
+        {
+            //permClient.GetSysLeftMenuAsync("1", Common.CurrentConfig.CurrentUser.UserInfo.SYSUSERID);
+            permClient.GetSysLeftMenuFilterPermissionAsync("1", Common.CurrentLoginUserInfo.SysUserID, MenuInfosList);
+            HeaderMenu.HBPervious.Click += new RoutedEventHandler(HBPervious_Click);
+
+            HeaderMenu.HBNext.Click += new RoutedEventHandler(HBNext_Click);
+            HeaderMenu.HBFullScreen.Click += new RoutedEventHandler(HBFullScreen_Click);
+
+        }
+
 
         void HBFullScreen_Click(object sender, RoutedEventArgs e)
         {
@@ -350,16 +361,6 @@ namespace SMT.SaaS.OA.UI
 
         }
 
-        private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
-        {
-            //permClient.GetSysLeftMenuAsync("1", Common.CurrentConfig.CurrentUser.UserInfo.SYSUSERID);
-            permClient.GetSysLeftMenuFilterPermissionAsync("1", Common.CurrentLoginUserInfo.SysUserID, MenuInfosList);
-            HeaderMenu.HBPervious.Click += new RoutedEventHandler(HBPervious_Click);
-
-            HeaderMenu.HBNext.Click += new RoutedEventHandler(HBNext_Click);
-            HeaderMenu.HBFullScreen.Click += new RoutedEventHandler(HBFullScreen_Click);
-
-        }
 
 
         #region 上一页下一页事件
