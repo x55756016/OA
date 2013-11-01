@@ -58,7 +58,6 @@ namespace SMT.HRM.UI.Views.Attendance
             nuYear.Value = DateTime.Now.Year;
             nuMonth.Value = DateTime.Now.Month;
             endYear.Value = DateTime.Now.Year;
-            
             client.EmployeeLeaveRecordPagingCompleted += new EventHandler<EmployeeLeaveRecordPagingCompletedEventArgs>(client_EmployeeLeaveRecordPagingCompleted);
             client.EmployeeLeaveRecordDeleteCompleted += new EventHandler<EmployeeLeaveRecordDeleteCompletedEventArgs>(client_EmployeeLeaveRecordDeleteCompleted);
 
@@ -69,7 +68,19 @@ namespace SMT.HRM.UI.Views.Attendance
             toolbar1.BtnView.Click += new RoutedEventHandler(BtnView_Click);
             toolbar1.btnAudit.Click += new RoutedEventHandler(btnAudit_Click);
             toolbar1.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
+            toolbar1.btnOutExcel.Visibility = Visibility;
+            toolbar1.btnOutExcel.Click += new RoutedEventHandler(btnOutExcel_Click);
             toolbar1.cbxCheckState.SelectionChanged += new SelectionChangedEventHandler(cbxCheckState_SelectionChanged);
+        }
+
+        /// <summary>
+        /// 导出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnOutExcel_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToCSV.ExportDataGridSaveAs(dgEmpLeaveRdList);
         }
 
         /// <summary>
@@ -125,10 +136,10 @@ namespace SMT.HRM.UI.Views.Attendance
             }
 
             startDate = nuYear.Value.ToString() + "-" + startMonth.Value.ToString() + "-1";
-            recorderDate = endYear.Value.ToString() + "-" + (nuMonth.Value).ToString() + "-1";
-            if (nuMonth.Value == 12)
+            recorderDate = endYear.Value.ToString() + "-" + (nuMonth.Value+1).ToString() + "-1";
+            if (nuMonth.Value==12)
             {
-                recorderDate = (endYear.Value + 1).ToString() + "-" + "1-1";
+                 recorderDate = (endYear.Value+1).ToString() + "-1-1";
             }
             if (DateTime.Parse(startDate) <= DateTime.Parse("1900-1-1"))
             {
@@ -326,6 +337,7 @@ namespace SMT.HRM.UI.Views.Attendance
         {
             //string strCurDateMonth = "2013-09";
             //client.CalculateEmployeeAttendanceMonthlyByEmployeeIDAsync(strCurDateMonth, "98b3e4e0-1e62-492c-97c7-6a5a1599d936");
+
 
             EmployeeLeaveRecordForm form = new EmployeeLeaveRecordForm(FormTypes.New, "");
             EntityBrowser entBrowser = new EntityBrowser(form);

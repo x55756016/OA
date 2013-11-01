@@ -227,5 +227,15 @@ namespace SMT.HRM.UI.Views.Attendance
         }
 
         #endregion
+
+        /// <summary>
+        /// 导出Excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOutExcel_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToCSV.ExportDataGridSaveAs(dgAbnormRecordList);
+        }
     }
 }

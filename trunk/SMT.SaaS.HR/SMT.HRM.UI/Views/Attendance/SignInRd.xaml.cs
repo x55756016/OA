@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SaaS.FrameworkUI.OrganizationControl;
 
+
 namespace SMT.HRM.UI.Views.Attendance
 {
     public partial class SignInRd : BasePage, IClient
@@ -80,6 +81,10 @@ namespace SMT.HRM.UI.Views.Attendance
         /// <param name="e"></param>
         void btnOutExcel_Click(object sender, RoutedEventArgs e)
         {
+
+            //ExportToCSV.ExportDataGridSaveAs(dgSignInList);
+            //return;
+
             try
             {
                 string strSignInID = string.Empty;

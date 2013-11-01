@@ -34,6 +34,7 @@
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock x:Name="tbEmpNameTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Margin="5,0,0,0" />
                 <smtx:LookUp Name="lkEmpName" DataContext="{Binding T_HR_EMPLOYEE}"  Grid.Row="0" Grid.Column="1" DisplayMemberPath="EMPLOYEECNAME" FindClick="lkEmpName_FindClick" Margin="5,0,0,0" Height="24" Width="110" HorizontalAlignment="Left" />
@@ -48,6 +49,7 @@
                 <!--异常结束时间 -->
                 <controls:DatePicker x:Name="dpClockInRdEndDate" Grid.Row="0" Grid.Column="5" Width="120" Height="24" Margin="5,0,0,0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}" />
                 <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Row="0" Grid.Column="6" Width="70"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnSearch_Click" />
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnOutExcel" Margin="5,0,0,0" Grid.Row="0" Grid.Column="7" Width="70"  Content="{Binding Converter={StaticResource ResourceConveter}, Source=EXPORTEXCEL}" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnOutExcel_Click" />
             </Grid>
             <data:DataGrid x:Name="dgAbnormRecordList" Grid.Row="2" AutoGenerateColumns="false" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource DataGridStyle}"
                         CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" LoadingRow="dgAbnormRecordList_LoadingRow"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">

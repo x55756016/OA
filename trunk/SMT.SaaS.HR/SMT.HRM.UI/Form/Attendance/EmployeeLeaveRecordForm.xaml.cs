@@ -157,20 +157,8 @@ namespace SMT.HRM.UI.Form.Attendance
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
-            //可冲减+扣款天数
             double totalDays = nudTotalAdjustLeaveDays.Value + nudDeductDays.Value;
             AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "TOTALDAYS", Convert.ToString(totalDays), Convert.ToString(totalDays)));
-            
-            string strLevTime = string.Empty;
-            if (Info.LEAVEDAYS > 0)
-            {
-                strLevTime = Info.LEAVEDAYS + "天";
-            }
-            if (Info.LEAVEHOURS > 0)
-            {
-                strLevTime = strLevTime + Info.LEAVEHOURS + "小时";
-            }
-            AutoList.Add(basedata("T_HR_EMPLOYEELEAVERECORD", "LEAVETIME", strLevTime, strLevTime));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERCOMPANYID", approvalInfo.OWNERCOMPANYID, StrCompanyName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERDEPARTMENTID", approvalInfo.OWNERDEPARTMENTID, StrDepartmentName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERPOSTID", approvalInfo.OWNERPOSTID, StrPostName));
@@ -907,7 +895,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 return;
             }
             T_HR_LEAVETYPESET entLeave = lkLeaveTypeName.DataContext as T_HR_LEAVETYPESET;
-            if (entLeave.FINETYPE == (Convert.ToInt32(LeaveFineType.Deduct) + 1).ToString())
+            if (entLeave.FINETYPE == (Convert.ToInt32(LeaveFineType.Deduct) + 1).ToString() || LeaveRecordType == "11")//11为产前检查假，一月0.5天
             {
                 decimal WorkTimePerDay = 0, dLeaveTotalTime = 0;
                 decimal.TryParse(tbWorkTimePerDay.Text, out WorkTimePerDay);

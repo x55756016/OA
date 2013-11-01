@@ -198,6 +198,7 @@
     <Compile Include="Common\DictionaryConverter.cs" />
     <Compile Include="Common\Common.cs" />
     <Compile Include="Common\DynamicDataBuilder.cs" />
+    <Compile Include="Common\ExportToCSV.cs" />
     <Compile Include="Common\GridHelper.cs" />
     <Compile Include="Common\HanziZhuanPingYin.cs">
       <SubType>Code</SubType>
