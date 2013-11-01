@@ -935,6 +935,7 @@
                 Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("请输入员工社保缴纳起始时间"));
                 return false;
             }
+            Employee.SOCIALSERVICEYEAR = Convert.ToDateTime(Employee.SOCIALSERVICEYEAR).ToString("yyyy-MM-dd");
             //缴交日期字段采用员工个人档案表里面的字段SOCIALSERVICEYEAR
             //if (Pesion != null)
             //{                
