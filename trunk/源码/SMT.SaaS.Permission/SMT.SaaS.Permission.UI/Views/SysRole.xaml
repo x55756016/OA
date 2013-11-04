@@ -85,9 +85,9 @@
                                     <Image Name="entityLogo" Width="16" Height="16"  HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
                                 </DataTemplate>
                             </data:DataGridTemplateColumn.CellTemplate>
-                        </data:DataGridTemplateColumn>                        
-                        <data:DataGridTextColumn Header="BELONGCOMPANY" Binding="{Binding OWNERCOMPANYID,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
-                        <data:DataGridTextColumn Header="OWNERDEPARTMENT" Binding="{Binding OWNERDEPARTMENTID,Converter={StaticResource CompanyConvert},ConverterParameter=Department}"></data:DataGridTextColumn>
+                        </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="BELONGCOMPANY" Binding="{Binding OWNERCOMPANYNAME,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="OWNERDEPARTMENT" Binding="{Binding OWNERDEPARTMENTNAME,Converter={StaticResource CompanyConvert},ConverterParameter=Department}"></data:DataGridTextColumn>
                         <data:DataGridTextColumn Header="SYSTEMTYPE" Binding="{Binding SYSTEMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}">
                         </data:DataGridTextColumn>
                         <data:DataGridTextColumn Header="ROLENAME" Binding="{Binding ROLENAME}">

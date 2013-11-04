@@ -21,15 +21,15 @@ namespace SMT.SaaS.Permission.UI.Views
 {
     public partial class SysRole : BasePage
     {
-        //private SMT.SaaS.Permission.UI.SysRoleManagementWS.T_SYS_ROLE role;
-        private T_SYS_ROLE role;
+        //private SMT.SaaS.Permission.UI.SysRoleManagementWS.T_SYS_ROLE_V role;
+        private T_SYS_ROLE_V role;
         private ObservableCollection<string> DelInfosList = new ObservableCollection<string>();
         private SMTLoading loadbar = new SMTLoading();
 
-        public T_SYS_ROLE SelectRole { get; set; }
+        public T_SYS_ROLE_V SelectRole { get; set; }
         //private OrganizationServiceClient organClient = new OrganizationServiceClient();
         private List<T_HR_COMPANY> allCompanys;
-        private ObservableCollection<string> CompanyIDList = new ObservableCollection<string>();
+        private ObservableCollection<string> DepartMentIDList = new ObservableCollection<string>();
 
         //private List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> allTreeCompanys;
         //private List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> allDepartments;
@@ -39,7 +39,7 @@ namespace SMT.SaaS.Permission.UI.Views
 
         private BindOrgTree bingtree = new BindOrgTree();
 
-        public T_SYS_ROLE Role
+        public T_SYS_ROLE_V Role
         {
             get { return role; }
             set { role = value; }
@@ -58,7 +58,7 @@ namespace SMT.SaaS.Permission.UI.Views
             ListDict.Add("SYSTEMTYPE");//系统类型
             //Utility.DisplayGridToolBarButton(FormToolBar1, "SYSROLE", true);
             this.Loaded += new RoutedEventHandler(SysRole_Loaded);
-            GetEntityLogo("T_SYS_ROLE");
+            GetEntityLogo("T_SYS_ROLE_V");
 
             bingtree.BindOrgTreeCompleted += new EventHandler(bingtree_BindOrgTreeCompleted);
             TreeViewItem item = new TreeViewItem();
@@ -111,7 +111,7 @@ namespace SMT.SaaS.Permission.UI.Views
             DataGrid grid = sender as DataGrid;
             if (grid.SelectedItem != null)
             {
-                SelectRole = (T_SYS_ROLE)grid.SelectedItems[0];//获取当前选中的行数据并转换为对应的实体   
+                SelectRole = (T_SYS_ROLE_V)grid.SelectedItems[0];//获取当前选中的行数据并转换为对应的实体   
                 
             }
         }
@@ -219,7 +219,7 @@ namespace SMT.SaaS.Permission.UI.Views
             DelInfosList.Clear();
             if (this.DtGrid.SelectedItems != null)
             {
-                foreach (T_SYS_ROLE n in this.DtGrid.SelectedItems)
+                foreach (T_SYS_ROLE_V n in this.DtGrid.SelectedItems)
                 {
                     
                     if (!(DelInfosList.IndexOf(n.ROLEID) > 0))
@@ -263,9 +263,55 @@ namespace SMT.SaaS.Permission.UI.Views
             
             ServiceClient.GetSysDictionaryByCategoryCompleted+=new EventHandler<GetSysDictionaryByCategoryCompletedEventArgs>(ServiceClient_GetSysDictionaryByCategoryCompleted);
             //ServiceClient.GetSysRoleInfosPagingCompleted += new EventHandler<GetSysRoleInfosPagingCompletedEventArgs>(ServiceClient_GetSysRoleInfosPagingCompleted);
-            ServiceClient.GetSysRoleInfosPagingByCompanyIDsCompleted += new EventHandler<GetSysRoleInfosPagingByCompanyIDsCompletedEventArgs>(ServiceClient_GetSysRoleInfosPagingByCompanyIDsCompleted);
+            //ServiceClient.GetSysRoleInfosPagingByCompanyIDsCompleted += new EventHandler<GetSysRoleInfosPagingByCompanyIDsCompletedEventArgs>(ServiceClient_GetSysRoleInfosPagingByCompanyIDsCompleted);
+            ServiceClient.GetRoleViewCompleted += ServiceClient_GetRoleViewCompleted;
             //绑定系统类型
             DictManager.OnDictionaryLoadCompleted += new EventHandler<OnDictionaryLoadArgs>(DictManager_OnDictionaryLoadCompleted);
+        }
+
+        void ServiceClient_GetRoleViewCompleted(object sender, GetRoleViewCompletedEventArgs e)
+        {
+            loadbar.Stop();
+            if (!e.Cancelled)
+            {
+                if (e.Error == null)
+                {
+                    try
+                    {
+                        if (e.Result != null)
+                        {
+                            if (e.Result.Count() > 0)
+                            {
+                                BindDataGrid(e.Result.ToList(), e.pageCount);
+                            }
+                            else
+                            {
+                                BindDataGrid(null, 0);
+                            }
+                        }
+                        else
+                        {
+                            BindDataGrid(null, 0);
+                        }
+                    }
+                    catch (Exception ex)
+                    {SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "SysRole", "Views/SysRole.xaml", "SysRole", ex);
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Error.ToString());
+                    SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--GetSysRoleInfosPagingByCompanyIDs");
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                    return;
+                }
+
+
+            }
         }
 
         private void DictManager_OnDictionaryLoadCompleted(object sender, OnDictionaryLoadArgs e)
@@ -283,93 +329,102 @@ namespace SMT.SaaS.Permission.UI.Views
             }
         }
 
-        private void ServiceClient_GetSysRoleInfosPagingByCompanyIDsCompleted(object sender, GetSysRoleInfosPagingByCompanyIDsCompletedEventArgs e)
-        {
-            loadbar.Stop();
-            if (!e.Cancelled)
-            {
-                if (e.Error == null)
-                {
-                    try
-                    {
-                        if (e.Result != null)
-                        {
+        //private void ServiceClient_GetSysRoleInfosPagingByCompanyIDsCompleted(object sender, GetSysRoleInfosPagingByCompanyIDsCompletedEventArgs e)
+        //{
+        //    //loadbar.Stop();
+        //    //if (!e.Cancelled)
+        //    //{
+        //    //    if (e.Error == null)
+        //    //    {
+        //    //        try
+        //    //        {
+        //    //            if (e.Result != null)
+        //    //            {
 
-                            BindDataGrid(e.Result.ToList(), e.pageCount);
-                        }
-                        else
-                        {
-                            BindDataGrid(null, 0);
-                        }
+
+        //    //                if (e.Result.Count() > 0)
+        //    //                {
+        //    //                    BindDataGrid(e.Result.ToList(), e.pageCount);
+        //    //                }
+        //    //                else
+        //    //                {
+        //    //                    BindDataGrid(null, 0);
+        //    //                }
+
+        //    //            }
+        //    //            else
+        //    //            {
+        //    //                BindDataGrid(null, 0);
+        //    //            }
                         
-                    }
-                    catch (Exception ex)
-                    {
+        //    //        }
+        //    //        catch (Exception ex)
+        //    //        {
 
-                        //ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                        SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "SysRole", "Views/SysRole.xaml", "SysRole", ex);
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),                            
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                        return;
-                    }
-                }
-                else
-                {
-                    //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Error.ToString());
-                    SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--GetSysRoleInfosPagingByCompanyIDs");
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                    return;
-                }
+        //    //            //ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+        //    //            SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "SysRole", "Views/SysRole.xaml", "SysRole", ex);
+        //    //            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),                            
+        //    //        Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+        //    //            return;
+        //    //        }
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Error.ToString());
+        //    //        SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--GetSysRoleInfosPagingByCompanyIDs");
+        //    //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+        //    //        Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+        //    //        return;
+        //    //    }
 
 
-            }
-        }
+        //    //}
+        //}
     
         private void ServiceClient_GetSysRoleInfosPagingCompleted(object sender, GetSysRoleInfosPagingCompletedEventArgs e)
         {
-            loadbar.Stop();
-            if (!e.Cancelled)
-            {
-                if (e.Error == null)
-                {
-                    try
-                    {
-                        if (e.Result != null)
-                        {
+            //loadbar.Stop();
+            //if (!e.Cancelled)
+            //{
+            //    if (e.Error == null)
+            //    {
+            //        try
+            //        {
+            //            if (e.Result != null)
+            //            {
 
-                            BindDataGrid(e.Result.ToList(), e.pageCount);
-                        }
-                        else
-                        {
-                            BindDataGrid(null, 0);
-                        }
+            //                BindDataGrid(e.Result.ToList(), e.pageCount);
+            //            }
+            //            else
+            //            {
+            //                BindDataGrid(null, 0);
+            //            }
                         
-                    }
-                    catch (Exception ex)
-                    {
-                        SMT.SAAS.Application.ExceptionManager.SendException("角色管理","SysRole","Views/SysRole.xaml","SysRole", ex);
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            SMT.SAAS.Application.ExceptionManager.SendException("角色管理","SysRole","Views/SysRole.xaml","SysRole", ex);
                      
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                        return;
-                    }
-                }
-                else
-                {
-                    //Utility.ShowCustomMessage(MessageTypes.Message,Utility.GetResourceStr("ERROR"),e.Error.ToString());
-                    SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--GetSysRoleInfosPaging");
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                    return;
-                }
+            //            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+            //        Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            //            return;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        //Utility.ShowCustomMessage(MessageTypes.Message,Utility.GetResourceStr("ERROR"),e.Error.ToString());
+            //        SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--GetSysRoleInfosPaging");
+            //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+            //        Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            //        return;
+            //    }
 
 
-            }
+            //}
         }
 
         //  绑定DataGird
-        private void BindDataGrid(List<T_SYS_ROLE> obj, int pageCount)
+        private void BindDataGrid(List<T_SYS_ROLE_V> obj, int pageCount)
         {
             GridHelper.HandleDataPageDisplay(dataPager, pageCount);
             if (obj == null || obj.Count < 1)
@@ -523,8 +578,18 @@ namespace SMT.SaaS.Permission.UI.Views
             //        CompanyIDList.Add(str.CompanyID);
             //    }
             //}
-            ServiceClient.GetSysRoleInfosPagingByCompanyIDsAsync(dataPager.PageIndex, dataPager.PageSize, "CREATEDATE", 
-                filter, paras, pageCount, loginUserInfo,CompanyIDList);
+            var userPost = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts;
+            string ownerDepartmentid = string.Empty;
+            foreach (var post in userPost)
+            {
+                ownerDepartmentid = ownerDepartmentid + post.DepartmentID + ",";
+            }
+            DepartMentIDList.Add(ownerDepartmentid);
+            //ServiceClient.GetSysRoleInfosPagingByCompanyIDsAsync(dataPager.PageIndex, dataPager.PageSize, "CREATEDATE", 
+            //    filter, paras, pageCount, loginUserInfo,DepartMentIDList);
+            ServiceClient.GetRoleViewAsync(dataPager.PageIndex, dataPager.PageSize, "CREATEDATE",
+                filter, paras, pageCount, loginUserInfo, DepartMentIDList);
+            DepartMentIDList.Clear();
             
         }
 
@@ -555,7 +620,7 @@ namespace SMT.SaaS.Permission.UI.Views
             DataGrid grid = sender as DataGrid;
             if (grid.SelectedItem != null)
             {
-                Role = (T_SYS_ROLE)grid.SelectedItems[0];//获取当前选中的行数据并转换为对应的实体     
+                Role = (T_SYS_ROLE_V)grid.SelectedItems[0];//获取当前选中的行数据并转换为对应的实体     
             }
         }
 
@@ -606,13 +671,13 @@ namespace SMT.SaaS.Permission.UI.Views
         private void DaGr_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             //T_OA_SENDDOC OrderInfoT = (T_OA_SENDDOC)e.Row.DataContext;
-            T_SYS_ROLE RoleT = (T_SYS_ROLE)e.Row.DataContext;
+            T_SYS_ROLE_V RoleT = (T_SYS_ROLE_V)e.Row.DataContext;
            
             Button MyAuthorBtn = DtGrid.Columns[5].GetCellContent(e.Row).FindName("AuthorizationBtn") as Button;
 
             MyAuthorBtn.Tag = RoleT;
 
-            SetRowLogo(DtGrid, e.Row, "T_SYS_ROLE");
+            SetRowLogo(DtGrid, e.Row, "T_SYS_ROLE_V");
         }
 
         #endregion
@@ -621,9 +686,12 @@ namespace SMT.SaaS.Permission.UI.Views
         private void AuthorizationBtn_Click(object sender, RoutedEventArgs e)
         {
             Button AuthorBtn = sender as Button;
-            T_SYS_ROLE AuthorRole = AuthorBtn.Tag as T_SYS_ROLE;            
+            T_SYS_ROLE_V AuthorRole = AuthorBtn.Tag as T_SYS_ROLE_V;
+            T_SYS_ROLE role = new T_SYS_ROLE();
+            role.ROLEID = AuthorRole.ROLEID;
+
             //SysRoleSetMenu UserInfo = new SysRoleSetMenu(AuthorRole);
-            SysRoleSetMenu2 UserInfo = new SysRoleSetMenu2(AuthorRole);//龙康才新增
+            SysRoleSetMenu2 UserInfo = new SysRoleSetMenu2(role);//龙康才新增
             EntityBrowser browser = new EntityBrowser(UserInfo);
             browser.MinWidth = 850;
             browser.MinHeight = 500;
@@ -653,7 +721,7 @@ namespace SMT.SaaS.Permission.UI.Views
                 return;
             }
 
-            T_SYS_ROLE entRole = DtGrid.SelectedItems[0] as T_SYS_ROLE;
+            T_SYS_ROLE_V entRole = DtGrid.SelectedItems[0] as T_SYS_ROLE_V;
             //SysRoleSetMenu UserInfo = new SysRoleSetMenu(AuthorRole);
             strRoleID = entRole.ROLEID;
             //RoleCustomMenuPermission UserInfo = new RoleCustomMenuPermission(FormTypes.Edit, strRoleID);//自定义权限
