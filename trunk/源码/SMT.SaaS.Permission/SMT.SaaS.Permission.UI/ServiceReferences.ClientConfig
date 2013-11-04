@@ -50,31 +50,31 @@
             </customBinding>
         </bindings>
         <client>            
-          <endpoint address="http://10.10.0.57/New/Services/HR/PersonnelService.svc"
+          <endpoint address="http://10.10.0.93:8080/New/Services/HR/PersonnelService.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
                 contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
-          <!--<endpoint address="http://10.10.0.57/New/Services/System/FileUploadManager.svc"
+          <!--<endpoint address="http://10.10.0.93:8080/New/Services/System/FileUploadManager.svc"
               binding="customBinding" bindingConfiguration="CustomBinding_FileUploadManager"
               contract="FileUploadWS.FileUploadManager" name="CustomBinding_FileUploadManager" />-->
           <endpoint address="http://localhost:1604/FileUploadManager.svc"
               binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
               contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
-          <endpoint address="http://10.10.0.57/New/Services/FB/FBService.svc"
+          <endpoint address="http://10.10.0.93:8080/New/Services/FB/FBService.svc"
               binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
               contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
-          <endpoint address="http://10.10.0.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+          <endpoint address="http://10.10.0.93:8080/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
               binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
               contract="FlowWFService.IService" name="WSHttpBinding_IService" />
-          <endpoint address="http://10.10.0.57/New/Services/HR/OrganizationService.svc"
+          <endpoint address="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc"
               binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
               contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
-          <endpoint address="http://10.10.0.57/New/Services/HR/PerformanceService.svc"
+          <endpoint address="http://10.10.0.93:8080/New/Services/HR/PerformanceService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
         contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
-          <endpoint address="http://10.10.0.57/New/Services/HR/HrCommonService.svc"
+          <endpoint address="http://10.10.0.93:8080/New/Services/HR/HrCommonService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_HrCommonService"
         contract="HrCommonServiceWS.HrCommonService" name="CustomBinding_HrCommonService" />
-          <endpoint address="http://10.10.0.57/New/Services/Main/PersonalRecordService.svc"
+          <endpoint address="http://10.10.0.93:8080/New/Services/Main/PersonalRecordService.svc"
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
             contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
           <!--<endpoint address="http://localhost:1604/PermissionService.svc"
@@ -83,7 +83,7 @@
           <endpoint address="http://localhost:1604/PermissionService.svc"
               binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
               contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
-          <endpoint address="http://10.10.0.57/New/Services/system/UseractLogService.svc"
+          <endpoint address="http://10.10.0.93:8080/New/Services/system/UseractLogService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_UseractLogService"
         contract="UseractWS.UseractLogService" name="CustomBinding_UseractLogService" />
         </client>

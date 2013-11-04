@@ -20,8 +20,8 @@
             <TextBlock Height="25" Width="60" Canvas.Left="45" Canvas.Top="103" Text="{Binding Converter={StaticResource ResourceConveter}, Source=PASSWORD}" TextWrapping="Wrap"/>
             <Button Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CONFIRM}" x:Name="OKButton" Canvas.Left="52" Canvas.Top="160" Click="OKButton_Click" RenderTransformOrigin="0.467,-0.833" FontSize="12"/>
             <Button Style="{StaticResource CommonButtonStyle}" Content="{Binding Converter={StaticResource ResourceConveter}, Source=CANCELBUTTON}" x:Name="CancelButton"  Canvas.Left="233" Canvas.Top="160" Click="CancelButton_Click" FontSize="12"/>
-            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="nam" Height="26" Width="177" Canvas.Left="105" Canvas.Top="47" Text="admin" TextWrapping="Wrap"/>
-            <PasswordBox Style="{StaticResource PasswordBoxStyle}" x:Name="paw" Password="admin_123" Height="26" Width="177" Canvas.Left="104" Canvas.Top="100"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="nam" Height="26" Width="177" Canvas.Left="105" Canvas.Top="47" Text="smtwangl" TextWrapping="Wrap"/>
+            <PasswordBox Style="{StaticResource PasswordBoxStyle}" x:Name="paw" Password="smt123456" Height="26" Width="177" Canvas.Left="104" Canvas.Top="100"/>
         </Canvas>
     </Grid>
 </controls:ChildWindow>

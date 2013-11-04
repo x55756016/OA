@@ -96,17 +96,22 @@
       <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.ClientServices.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.ClientUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="SMT.SAAS.Controls.Toolkit">
-      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Controls.Toolkit.dll</HintPath>
+    <Reference Include="SMT.SAAS.Controls.Toolkit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Controls.Toolkit.Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Extensions.dll</HintPath>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.FrameworkUI, Version=1.1.1.1218, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SMT.SaaS.FrameworkUI.RichNotepad">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.RichNotepad.dll</HintPath>
+    </Reference>
     <Reference Include="SMT.SaaS.Globalization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\SMT.SAAS.FrameWork\SMT.SaaS.Globalization\Bin\Debug\SMT.SaaS.Globalization.dll</HintPath>
     </Reference>
@@ -128,8 +133,9 @@
     <Reference Include="SMT.SAAS.Themes">
       <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SAAS.Themes.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.Window">
-      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client_old\SMT.SaaS.Window.dll</HintPath>
+    <Reference Include="SMT.SaaS.Window, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
@@ -690,7 +696,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
+    <ProjectReference Include="..\..\..\SMT.SaaS.FrameWorkUI\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
       <Project>{9484c541-b0a2-437a-8c6f-0bfd7e13934e}</Project>
       <Name>SMT.Saas.Tools</Name>
     </ProjectReference>

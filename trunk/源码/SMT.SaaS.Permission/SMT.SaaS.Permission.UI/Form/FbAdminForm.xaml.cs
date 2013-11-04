@@ -96,12 +96,20 @@ namespace SMT.SaaS.Permission.UI.Form
 
         void PermClient_BatchAddFBAdminsCompleted(object sender, BatchAddFBAdminsCompletedEventArgs e)
         {
-            if (e.Error != null)
+            if (e.Error == null)
             {
-                if (e.Result != "")
+                if (e.Result == "")
                 {
                     Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), "设置预算管理员成功！");
                 }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Result));
+                }
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(Convert.ToString(e.Error)));
             }
             RefreshUI(RefreshType);
         }

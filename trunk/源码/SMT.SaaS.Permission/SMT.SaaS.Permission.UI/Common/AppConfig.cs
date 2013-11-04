@@ -8,8 +8,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-
-using SMT.Saas.Tools.PermissionWS;
 using System.Collections.Generic;
 using System.Windows.Controls.Theming;
 //using SMT.Saas.Tools.PersonnelWS;

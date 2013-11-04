@@ -18,9 +18,11 @@ using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
 using SMT.SAAS.Main.CurrentContext;
 using SMT.SAAS.ClientServices;
 using SMT.SAAS.ClientUtility;
-
 namespace SMT.SaaS.Permission.UI.Views
 {
+    /// <summary>
+    /// 系统用户列表-ken
+    /// </summary>
     public partial class SysUserManagement : BasePage
     {
 
