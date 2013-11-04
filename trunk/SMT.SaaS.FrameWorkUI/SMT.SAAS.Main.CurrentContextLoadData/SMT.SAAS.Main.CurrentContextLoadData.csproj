@@ -71,10 +71,6 @@
     <Compile Include="UserLogin.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
-      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
-      <Name>SMT.SAAS.Main.CurrentContext</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
       <Project>{9484C541-B0A2-437A-8C6F-0BFD7E13934E}</Project>
       <Name>SMT.Saas.Tools</Name>
