@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="InterActiveDirectory.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="InterActiveDirectory_kmoapassword_CHTWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://kmoa.aisidi.com/kmoa_webservice/CHTWebService.asmx</Value>
+    </Setting>
+    <Setting Name="InterActiveDirectory_ExchangeServices_ExchangeServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://172.16.1.16/adserver/ExchangeServices.asmx</Value>
+    </Setting>
+    <Setting Name="InterActiveDirectory_AdOperate_AD_ExchangePassWord" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://172.16.1.16/adserver/AD_ExchangePassWord.asmx</Value>
+    </Setting>
+    <Setting Name="InterActiveDirectory_com_sinomaster_cttest_ChangePWD" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://cttest.sinomaster.com/AD/ChangePWD.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

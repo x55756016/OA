@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetConnString">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetConnStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConnStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exchange_PassWord_hls">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exchange_PassWord_hlsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Exchange_PassWord_hlsResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="err" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exchange_PassWord_erp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exchange_PassWord_erpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Exchange_PassWord_erpResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="err" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exchange_PassWord_kmoa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exchange_PassWord_kmoaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Exchange_PassWord_kmoaResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="err" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exchange_PassWord_RTX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exchange_PassWord_RTXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Exchange_PassWord_RTXResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetConnStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConnString" />
+  </wsdl:message>
+  <wsdl:message name="GetConnStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConnStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exchange_PassWord_hlsSoapIn">
+    <wsdl:part name="parameters" element="tns:Exchange_PassWord_hls" />
+  </wsdl:message>
+  <wsdl:message name="Exchange_PassWord_hlsSoapOut">
+    <wsdl:part name="parameters" element="tns:Exchange_PassWord_hlsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exchange_PassWord_erpSoapIn">
+    <wsdl:part name="parameters" element="tns:Exchange_PassWord_erp" />
+  </wsdl:message>
+  <wsdl:message name="Exchange_PassWord_erpSoapOut">
+    <wsdl:part name="parameters" element="tns:Exchange_PassWord_erpResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exchange_PassWord_kmoaSoapIn">
+    <wsdl:part name="parameters" element="tns:Exchange_PassWord_kmoa" />
+  </wsdl:message>
+  <wsdl:message name="Exchange_PassWord_kmoaSoapOut">
+    <wsdl:part name="parameters" element="tns:Exchange_PassWord_kmoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exchange_PassWord_RTXSoapIn">
+    <wsdl:part name="parameters" element="tns:Exchange_PassWord_RTX" />
+  </wsdl:message>
+  <wsdl:message name="Exchange_PassWord_RTXSoapOut">
+    <wsdl:part name="parameters" element="tns:Exchange_PassWord_RTXResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ChangePWDSoap">
+    <wsdl:operation name="GetConnString">
+      <wsdl:input message="tns:GetConnStringSoapIn" />
+      <wsdl:output message="tns:GetConnStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_hls">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改HLS密码</wsdl:documentation>
+      <wsdl:input message="tns:Exchange_PassWord_hlsSoapIn" />
+      <wsdl:output message="tns:Exchange_PassWord_hlsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_erp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改ERP密码</wsdl:documentation>
+      <wsdl:input message="tns:Exchange_PassWord_erpSoapIn" />
+      <wsdl:output message="tns:Exchange_PassWord_erpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_kmoa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改KMOA密码</wsdl:documentation>
+      <wsdl:input message="tns:Exchange_PassWord_kmoaSoapIn" />
+      <wsdl:output message="tns:Exchange_PassWord_kmoaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_RTX">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改RTX密码</wsdl:documentation>
+      <wsdl:input message="tns:Exchange_PassWord_RTXSoapIn" />
+      <wsdl:output message="tns:Exchange_PassWord_RTXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ChangePWDSoap" type="tns:ChangePWDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetConnString">
+      <soap:operation soapAction="http://tempuri.org/GetConnString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_hls">
+      <soap:operation soapAction="http://tempuri.org/Exchange_PassWord_hls" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_erp">
+      <soap:operation soapAction="http://tempuri.org/Exchange_PassWord_erp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_kmoa">
+      <soap:operation soapAction="http://tempuri.org/Exchange_PassWord_kmoa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_RTX">
+      <soap:operation soapAction="http://tempuri.org/Exchange_PassWord_RTX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ChangePWDSoap12" type="tns:ChangePWDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetConnString">
+      <soap12:operation soapAction="http://tempuri.org/GetConnString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_hls">
+      <soap12:operation soapAction="http://tempuri.org/Exchange_PassWord_hls" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_erp">
+      <soap12:operation soapAction="http://tempuri.org/Exchange_PassWord_erp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_kmoa">
+      <soap12:operation soapAction="http://tempuri.org/Exchange_PassWord_kmoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exchange_PassWord_RTX">
+      <soap12:operation soapAction="http://tempuri.org/Exchange_PassWord_RTX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChangePWD">
+    <wsdl:port name="ChangePWDSoap" binding="tns:ChangePWDSoap">
+      <soap:address location="http://cttest.sinomaster.com/AD/ChangePWD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ChangePWDSoap12" binding="tns:ChangePWDSoap12">
+      <soap12:address location="http://cttest.sinomaster.com/AD/ChangePWD.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
