@@ -3,6 +3,31 @@
 <edmx:StorageModels>
 <Schema Namespace="SMT_HRM_EFModel.Store" Alias="Self" Provider="EFOracleProvider" ProviderManifestToken="11g" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
   <EntityContainer Name="SMT_HRM_EFModelStoreContainer">
+    <EntitySet Name="TEMP_SIGNINDETAIL" EntityType="SMT_HRM_EFModel.Store.TEMP_SIGNINDETAIL" store:Type="Tables" store:Name="TEMP_SIGNINDETAIL">
+      <DefiningQuery>SELECT 
+"TEMP_SIGNINDETAIL"."SIGNINDETAILID" AS "SIGNINDETAILID", 
+"TEMP_SIGNINDETAIL"."SIGNINID" AS "SIGNINID", 
+"TEMP_SIGNINDETAIL"."ABNORMRECORDID" AS "ABNORMRECORDID", 
+"TEMP_SIGNINDETAIL"."ABNORMALDATE" AS "ABNORMALDATE", 
+"TEMP_SIGNINDETAIL"."ABNORMCATEGORY" AS "ABNORMCATEGORY", 
+"TEMP_SIGNINDETAIL"."ATTENDPERIOD" AS "ATTENDPERIOD", 
+"TEMP_SIGNINDETAIL"."ABNORMALTIME" AS "ABNORMALTIME", 
+"TEMP_SIGNINDETAIL"."REASONCATEGORY" AS "REASONCATEGORY", 
+"TEMP_SIGNINDETAIL"."DETAILREASON" AS "DETAILREASON", 
+"TEMP_SIGNINDETAIL"."REMARK" AS "REMARK", 
+"TEMP_SIGNINDETAIL"."CREATEUSERID" AS "CREATEUSERID", 
+"TEMP_SIGNINDETAIL"."CREATEDATE" AS "CREATEDATE", 
+"TEMP_SIGNINDETAIL"."UPDATEUSERID" AS "UPDATEUSERID", 
+"TEMP_SIGNINDETAIL"."UPDATEDATE" AS "UPDATEDATE", 
+"TEMP_SIGNINDETAIL"."CREATECOMPANYID" AS "CREATECOMPANYID", 
+"TEMP_SIGNINDETAIL"."CREATEDEPARTMENTID" AS "CREATEDEPARTMENTID", 
+"TEMP_SIGNINDETAIL"."CREATEPOSTID" AS "CREATEPOSTID", 
+"TEMP_SIGNINDETAIL"."OWNERID" AS "OWNERID", 
+"TEMP_SIGNINDETAIL"."OWNERPOSTID" AS "OWNERPOSTID", 
+"TEMP_SIGNINDETAIL"."OWNERDEPARTMENTID" AS "OWNERDEPARTMENTID", 
+"TEMP_SIGNINDETAIL"."OWNERCOMPANYID" AS "OWNERCOMPANYID"
+FROM "dbo"."TEMP_SIGNINDETAIL" "TEMP_SIGNINDETAIL"</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="T_HR_ADJUSTLEAVE" EntityType="SMT_HRM_EFModel.Store.T_HR_ADJUSTLEAVE" store:Type="Tables" />
     <EntitySet Name="T_HR_AREAALLOWANCE" EntityType="SMT_HRM_EFModel.Store.T_HR_AREAALLOWANCE" store:Type="Tables" />
     <EntitySet Name="T_HR_AREACITY" EntityType="SMT_HRM_EFModel.Store.T_HR_AREACITY" store:Type="Tables" />
@@ -53,7 +78,6 @@
     <EntitySet Name="T_HR_EMPLOYEELEVELDAYCOUNT" EntityType="SMT_HRM_EFModel.Store.T_HR_EMPLOYEELEVELDAYCOUNT" store:Type="Tables" />
     <EntitySet Name="T_HR_EMPLOYEELEVELDAYDETAILS" EntityType="SMT_HRM_EFModel.Store.T_HR_EMPLOYEELEVELDAYDETAILS" store:Type="Tables" />
     <EntitySet Name="T_HR_EMPLOYEELOGINRECORD" EntityType="SMT_HRM_EFModel.Store.T_HR_EMPLOYEELOGINRECORD" store:Type="Tables" />
-    <EntitySet Name="T_HR_EMPLOYEEOUTAPPLIECRECORD" EntityType="SMT_HRM_EFModel.Store.T_HR_EMPLOYEEOUTAPPLIECRECORD" store:Type="Tables" />
     <EntitySet Name="T_HR_EMPLOYEEOVERTIMEDETAILRD" EntityType="SMT_HRM_EFModel.Store.T_HR_EMPLOYEEOVERTIMEDETAILRD" store:Type="Tables" />
     <EntitySet Name="T_HR_EMPLOYEEOVERTIMERECORD" EntityType="SMT_HRM_EFModel.Store.T_HR_EMPLOYEEOVERTIMERECORD" store:Type="Tables" />
     <EntitySet Name="T_HR_EMPLOYEEPOST" EntityType="SMT_HRM_EFModel.Store.T_HR_EMPLOYEEPOST" store:Type="Tables" />
@@ -76,6 +100,9 @@
     <EntitySet Name="T_HR_LEAVETYPESET" EntityType="SMT_HRM_EFModel.Store.T_HR_LEAVETYPESET" store:Type="Tables" />
     <EntitySet Name="T_HR_LEFTOFFICE" EntityType="SMT_HRM_EFModel.Store.T_HR_LEFTOFFICE" store:Type="Tables" />
     <EntitySet Name="T_HR_LEFTOFFICECONFIRM" EntityType="SMT_HRM_EFModel.Store.T_HR_LEFTOFFICECONFIRM" store:Type="Tables" />
+    <EntitySet Name="T_HR_NOATTENDCARDEMPLOYEES" EntityType="SMT_HRM_EFModel.Store.T_HR_NOATTENDCARDEMPLOYEES" store:Type="Tables" />
+    <EntitySet Name="T_HR_OUTAPPLYCONFIRM" EntityType="SMT_HRM_EFModel.Store.T_HR_OUTAPPLYCONFIRM" store:Type="Tables" />
+    <EntitySet Name="T_HR_OUTAPPLYRECORD" EntityType="SMT_HRM_EFModel.Store.T_HR_OUTAPPLYRECORD" store:Type="Tables" />
     <EntitySet Name="T_HR_OUTPLANDAYS" EntityType="SMT_HRM_EFModel.Store.T_HR_OUTPLANDAYS" store:Type="Tables" />
     <EntitySet Name="T_HR_OVERTIMEREWARD" EntityType="SMT_HRM_EFModel.Store.T_HR_OVERTIMEREWARD" store:Type="Tables" />
     <EntitySet Name="T_HR_PENSIONALARMSET" EntityType="SMT_HRM_EFModel.Store.T_HR_PENSIONALARMSET" store:Type="Tables" />
@@ -601,6 +628,10 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
       <End Role="T_HR_VACATIONSET" EntitySet="T_HR_VACATIONSET" />
       <End Role="T_HR_OUTPLANDAYS" EntitySet="T_HR_OUTPLANDAYS" />
     </AssociationSet>
+    <AssociationSet Name="FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT" Association="SMT_HRM_EFModel.Store.FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT">
+      <End Role="T_HR_OUTAPPLYRECORD" EntitySet="T_HR_OUTAPPLYRECORD" />
+      <End Role="T_HR_OUTAPPLYCONFIRM" EntitySet="T_HR_OUTAPPLYCONFIRM" />
+    </AssociationSet>
     <AssociationSet Name="FK_T_HR_PEN_REFERENCE_T_HR_PEN" Association="SMT_HRM_EFModel.Store.FK_T_HR_PEN_REFERENCE_T_HR_PEN">
       <End Role="T_HR_PENSIONMASTER" EntitySet="T_HR_PENSIONMASTER" />
       <End Role="T_HR_PENSIONDETAIL" EntitySet="T_HR_PENSIONDETAIL" />
@@ -682,6 +713,35 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
       <End Role="T_HR_STANDARDPERFORMANCEREWARD" EntitySet="T_HR_STANDARDPERFORMANCEREWARD" />
     </AssociationSet>
   </EntityContainer>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“dbo.TEMP_SIGNINDETAIL”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+-->
+  <EntityType Name="TEMP_SIGNINDETAIL">
+    <Key>
+      <PropertyRef Name="SIGNINDETAILID" />
+    </Key>
+    <Property Name="SIGNINDETAILID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SIGNINID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ABNORMRECORDID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ABNORMALDATE" Type="date" />
+    <Property Name="ABNORMCATEGORY" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ATTENDPERIOD" Type="nvarchar2" MaxLength="2" />
+    <Property Name="ABNORMALTIME" Type="number" />
+    <Property Name="REASONCATEGORY" Type="nvarchar2" MaxLength="2" />
+    <Property Name="DETAILREASON" Type="nvarchar2" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
   <EntityType Name="T_HR_ADJUSTLEAVE">
     <Key>
       <PropertyRef Name="ADJUSTLEAVEID" />
@@ -2061,35 +2121,6 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
     <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
   </EntityType>
-  <EntityType Name="T_HR_EMPLOYEEOUTAPPLIECRECORD">
-    <Key>
-      <PropertyRef Name="OVERTIMERECORDID" />
-    </Key>
-    <Property Name="OVERTIMERECORDID" Type="nvarchar2" Nullable="false" MaxLength="100" />
-    <Property Name="EMPLOYEEID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="EMPLOYEENAME" Type="nvarchar2" MaxLength="100" />
-    <Property Name="OVERTIMECATE" Type="nvarchar2" MaxLength="100" />
-    <Property Name="STARTDATE" Type="date" />
-    <Property Name="ENDDATE" Type="date" />
-    <Property Name="OVERTIMEHOURS" Type="nvarchar2" MaxLength="100" />
-    <Property Name="BEGINCARDTIME" Type="nvarchar2" MaxLength="100" />
-    <Property Name="BEGINCARDTYPE" Type="nvarchar2" MaxLength="2" />
-    <Property Name="ENDCARDTIME" Type="nvarchar2" MaxLength="100" />
-    <Property Name="ENDCARDTYPE" Type="nvarchar2" MaxLength="2" />
-    <Property Name="CHECKSTATE" Type="nvarchar2" MaxLength="2" />
-    <Property Name="REMARK" Type="nvarchar2" />
-    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="CREATEPOSTID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="CREATECOMPANYID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="CREATEDATE" Type="date" />
-    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
-    <Property Name="UPDATEDATE" Type="date" />
-  </EntityType>
   <EntityType Name="T_HR_EMPLOYEEOVERTIMEDETAILRD">
     <Key>
       <PropertyRef Name="OVERTIMEDETAILRDID" />
@@ -2655,6 +2686,86 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="EMPLOYEECNAME" Type="nvarchar2" MaxLength="100" />
     <Property Name="APPLYDATE" Type="date" />
     <Property Name="EMPLOYEEPOSTID" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_HR_NOATTENDCARDEMPLOYEES">
+    <Key>
+      <PropertyRef Name="NOATTENDCARDEMPLOYEESID" />
+    </Key>
+    <Property Name="NOATTENDCARDEMPLOYEESID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="EMPLOYEENAME" Type="nvarchar2" />
+    <Property Name="EMPLOYEEID" Type="nvarchar2" />
+    <Property Name="ALWAYS" Type="nvarchar2" MaxLength="100" />
+    <Property Name="STARTDATE" Type="date" />
+    <Property Name="ENDDATE" Type="date" />
+    <Property Name="CHECKSTATE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_HR_OUTAPPLYCONFIRM">
+    <Key>
+      <PropertyRef Name="OUTAPPLYCONFIRMID" />
+    </Key>
+    <Property Name="OUTAPPLYCONFIRMID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OUTAPPLYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="EMPLOYEEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="EMPLOYEENAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="STARTDATE" Type="date" />
+    <Property Name="ENDDATE" Type="date" />
+    <Property Name="OUTAPLLYTIMES" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CHECKSTATE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OUTREPORT" Type="nvarchar2" />
+    <Property Name="ISCANCELED" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CANCELREASON" Type="nvarchar2" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_HR_OUTAPPLYRECORD">
+    <Key>
+      <PropertyRef Name="OUTAPPLYID" />
+    </Key>
+    <Property Name="OUTAPPLYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="EMPLOYEEID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="EMPLOYEENAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OVERTIMECATE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="STARTDATE" Type="date" />
+    <Property Name="ISSAMEDAYRETURN" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ENDDATE" Type="date" />
+    <Property Name="OUTAPLLYTIMES" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ISCONFIRMED" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CHECKSTATE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="REASON" Type="nvarchar2" />
+    <Property Name="REMARK" Type="nvarchar2" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
   </EntityType>
   <EntityType Name="T_HR_OUTPLANDAYS">
     <Key>
@@ -3959,7 +4070,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="ISMASTERPOSTCHANGE" Type="nvarchar2" MaxLength="100" />
     <Property Name="CHANGETYPE" Type="nvarchar2" MaxLength="100" />
     <Property Name="CHANGETIME" Type="date" />
-    <Property Name="CHANGEREASON" Type="nvarchar2" MaxLength="200" />
+    <Property Name="CHANGEREASON" Type="nvarchar2" />
     <Property Name="OLDPOSTID" Type="nvarchar2" MaxLength="100" />
     <Property Name="OLDPOSTNAME" Type="nvarchar2" MaxLength="100" />
     <Property Name="OLDPOSTLEVEL" Type="number" />
@@ -3974,7 +4085,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="NEXTDEPARTMENTNAME" Type="nvarchar2" MaxLength="100" />
     <Property Name="NEXTCOMPANYID" Type="nvarchar2" MaxLength="100" />
     <Property Name="NEXTCOMPANYNAME" Type="nvarchar2" MaxLength="200" />
-    <Property Name="REMART" Type="nvarchar2" MaxLength="200" />
+    <Property Name="REMART" Type="nvarchar2" />
     <Property Name="CREATEDATE" Type="date" />
     <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
     <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
@@ -4976,6 +5087,18 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT">
+    <End Role="T_HR_OUTAPPLYRECORD" Type="SMT_HRM_EFModel.Store.T_HR_OUTAPPLYRECORD" Multiplicity="0..1" />
+    <End Role="T_HR_OUTAPPLYCONFIRM" Type="SMT_HRM_EFModel.Store.T_HR_OUTAPPLYCONFIRM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_HR_OUTAPPLYRECORD">
+        <PropertyRef Name="OUTAPPLYID" />
+      </Principal>
+      <Dependent Role="T_HR_OUTAPPLYCONFIRM">
+        <PropertyRef Name="OUTAPPLYID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_T_HR_PEN_REFERENCE_T_HR_PEN">
     <End Role="T_HR_PENSIONMASTER" Type="SMT_HRM_EFModel.Store.T_HR_PENSIONMASTER" Multiplicity="0..1" />
     <End Role="T_HR_PENSIONDETAIL" Type="SMT_HRM_EFModel.Store.T_HR_PENSIONDETAIL" Multiplicity="*" />
@@ -5224,11 +5347,22 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
   <Function Name="STR_EMPNAMELIST" ReturnType="varchar2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion">
     <Parameter Name="STR_IN" Type="varchar2" Mode="In" />
   </Function>
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“dbo.SYS_TEMP_FBT”未定义主键，无法推断有效的主键。已排除该表/视图。要使用该实体，您将需要检查架构，添加正确的键并对它取消注释。
+警告 6005: 不支持数据类型“urowid”，已排除表“dbo.SYS_TEMP_FBT中的列“RID”。
+警告 6005: 不支持数据类型“char”，已排除表“dbo.SYS_TEMP_FBT中的列“ACTION”。
+
+<EntityType Name="SYS_TEMP_FBT">
+  <Property Name="SCHEMA" Type="varchar2" MaxLength="32" />
+  <Property Name="OBJECT_NAME" Type="varchar2" MaxLength="32" />
+  <Property Name="OBJECT#" Type="number" />
+</EntityType>-->
 </Schema>
 </edmx:StorageModels>
 <edmx:ConceptualModels>
 <Schema Namespace="SMT_HRM_EFModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
   <EntityContainer Name="SMT_HRM_EFModelContext">
+    <EntitySet Name="TEMP_SIGNINDETAIL" EntityType="SMT_HRM_EFModel.TEMP_SIGNINDETAIL" />
     <EntitySet Name="T_HR_ADJUSTLEAVE" EntityType="SMT_HRM_EFModel.T_HR_ADJUSTLEAVE" />
     <EntitySet Name="T_HR_AREAALLOWANCE" EntityType="SMT_HRM_EFModel.T_HR_AREAALLOWANCE" />
     <EntitySet Name="T_HR_AREACITY" EntityType="SMT_HRM_EFModel.T_HR_AREACITY" />
@@ -5279,7 +5413,6 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <EntitySet Name="T_HR_EMPLOYEELEVELDAYCOUNT" EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEELEVELDAYCOUNT" />
     <EntitySet Name="T_HR_EMPLOYEELEVELDAYDETAILS" EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEELEVELDAYDETAILS" />
     <EntitySet Name="T_HR_EMPLOYEELOGINRECORD" EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEELOGINRECORD" />
-    <EntitySet Name="T_HR_EMPLOYEEOUTAPPLIECRECORD" EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEOUTAPPLIECRECORD" />
     <EntitySet Name="T_HR_EMPLOYEEOVERTIMEDETAILRD" EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEOVERTIMEDETAILRD" />
     <EntitySet Name="T_HR_EMPLOYEEOVERTIMERECORD" EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEOVERTIMERECORD" />
     <EntitySet Name="T_HR_EMPLOYEEPOST" EntityType="SMT_HRM_EFModel.T_HR_EMPLOYEEPOST" />
@@ -5302,6 +5435,9 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <EntitySet Name="T_HR_LEAVETYPESET" EntityType="SMT_HRM_EFModel.T_HR_LEAVETYPESET" />
     <EntitySet Name="T_HR_LEFTOFFICE" EntityType="SMT_HRM_EFModel.T_HR_LEFTOFFICE" />
     <EntitySet Name="T_HR_LEFTOFFICECONFIRM" EntityType="SMT_HRM_EFModel.T_HR_LEFTOFFICECONFIRM" />
+    <EntitySet Name="T_HR_NOATTENDCARDEMPLOYEES" EntityType="SMT_HRM_EFModel.T_HR_NOATTENDCARDEMPLOYEES" />
+    <EntitySet Name="T_HR_OUTAPPLYCONFIRM" EntityType="SMT_HRM_EFModel.T_HR_OUTAPPLYCONFIRM" />
+    <EntitySet Name="T_HR_OUTAPPLYRECORD" EntityType="SMT_HRM_EFModel.T_HR_OUTAPPLYRECORD" />
     <EntitySet Name="T_HR_OUTPLANDAYS" EntityType="SMT_HRM_EFModel.T_HR_OUTPLANDAYS" />
     <EntitySet Name="T_HR_OVERTIMEREWARD" EntityType="SMT_HRM_EFModel.T_HR_OVERTIMEREWARD" />
     <EntitySet Name="T_HR_PENSIONALARMSET" EntityType="SMT_HRM_EFModel.T_HR_PENSIONALARMSET" />
@@ -5620,6 +5756,10 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
       <End Role="T_HR_LEFTOFFICE" EntitySet="T_HR_LEFTOFFICE" />
       <End Role="T_HR_LEFTOFFICECONFIRM" EntitySet="T_HR_LEFTOFFICECONFIRM" />
     </AssociationSet>
+    <AssociationSet Name="FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT" Association="SMT_HRM_EFModel.FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT">
+      <End Role="T_HR_OUTAPPLYRECORD" EntitySet="T_HR_OUTAPPLYRECORD" />
+      <End Role="T_HR_OUTAPPLYCONFIRM" EntitySet="T_HR_OUTAPPLYCONFIRM" />
+    </AssociationSet>
     <AssociationSet Name="FK_T_HR_OUT_REFERENCE_T_HR_VAC" Association="SMT_HRM_EFModel.FK_T_HR_OUT_REFERENCE_T_HR_VAC">
       <End Role="T_HR_VACATIONSET" EntitySet="T_HR_VACATIONSET" />
       <End Role="T_HR_OUTPLANDAYS" EntitySet="T_HR_OUTPLANDAYS" />
@@ -5741,6 +5881,32 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
       <End Role="T_HR_SCHEDULINGTEMPLATEDETAIL" EntitySet="T_HR_SCHEDULINGTEMPLATEDETAIL" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="TEMP_SIGNINDETAIL">
+    <Key>
+      <PropertyRef Name="SIGNINDETAILID" />
+    </Key>
+    <Property Name="SIGNINDETAILID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SIGNINID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ABNORMRECORDID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ABNORMALDATE" Type="DateTime" />
+    <Property Name="ABNORMCATEGORY" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ATTENDPERIOD" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="ABNORMALTIME" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="REASONCATEGORY" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="DETAILREASON" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="CREATECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
   <EntityType Name="T_HR_ADJUSTLEAVE">
     <Key>
       <PropertyRef Name="ADJUSTLEAVEID" />
@@ -7159,35 +7325,6 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
   </EntityType>
-  <EntityType Name="T_HR_EMPLOYEEOUTAPPLIECRECORD">
-    <Key>
-      <PropertyRef Name="OVERTIMERECORDID" />
-    </Key>
-    <Property Name="OVERTIMERECORDID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="EMPLOYEEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="EMPLOYEENAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="OVERTIMECATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="STARTDATE" Type="DateTime" />
-    <Property Name="ENDDATE" Type="DateTime" />
-    <Property Name="OVERTIMEHOURS" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="BEGINCARDTIME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="BEGINCARDTYPE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
-    <Property Name="ENDCARDTIME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="ENDCARDTYPE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
-    <Property Name="CHECKSTATE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
-    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
-    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="CREATEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="CREATECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="CREATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="CREATEDATE" Type="DateTime" />
-    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="UPDATEDATE" Type="DateTime" />
-  </EntityType>
   <EntityType Name="T_HR_EMPLOYEEOVERTIMEDETAILRD">
     <Key>
       <PropertyRef Name="OVERTIMEDETAILRDID" />
@@ -7766,6 +7903,87 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="APPLYDATE" Type="DateTime" />
     <Property Name="EMPLOYEEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="T_HR_LEFTOFFICE" Relationship="SMT_HRM_EFModel.FK_T_HR_LEF_LEFTOFFICECONFIRM" FromRole="T_HR_LEFTOFFICECONFIRM" ToRole="T_HR_LEFTOFFICE" />
+  </EntityType>
+  <EntityType Name="T_HR_NOATTENDCARDEMPLOYEES">
+    <Key>
+      <PropertyRef Name="NOATTENDCARDEMPLOYEESID" />
+    </Key>
+    <Property Name="NOATTENDCARDEMPLOYEESID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEENAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEEID" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ALWAYS" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="STARTDATE" Type="DateTime" />
+    <Property Name="ENDDATE" Type="DateTime" />
+    <Property Name="CHECKSTATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_HR_OUTAPPLYCONFIRM">
+    <Key>
+      <PropertyRef Name="OUTAPPLYCONFIRMID" />
+    </Key>
+    <Property Name="OUTAPPLYCONFIRMID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEENAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="STARTDATE" Type="DateTime" />
+    <Property Name="ENDDATE" Type="DateTime" />
+    <Property Name="OUTAPLLYTIMES" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CHECKSTATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OUTREPORT" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ISCANCELED" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CANCELREASON" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <NavigationProperty Name="T_HR_OUTAPPLYRECORD" Relationship="SMT_HRM_EFModel.FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT" FromRole="T_HR_OUTAPPLYCONFIRM" ToRole="T_HR_OUTAPPLYRECORD" />
+  </EntityType>
+  <EntityType Name="T_HR_OUTAPPLYRECORD">
+    <Key>
+      <PropertyRef Name="OUTAPPLYID" />
+    </Key>
+    <Property Name="OUTAPPLYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEEID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EMPLOYEENAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OVERTIMECATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="STARTDATE" Type="DateTime" />
+    <Property Name="ISSAMEDAYRETURN" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ENDDATE" Type="DateTime" />
+    <Property Name="OUTAPLLYTIMES" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ISCONFIRMED" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CHECKSTATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="REASON" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="REMARK" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <NavigationProperty Name="T_HR_OUTAPPLYCONFIRM" Relationship="SMT_HRM_EFModel.FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT" FromRole="T_HR_OUTAPPLYRECORD" ToRole="T_HR_OUTAPPLYCONFIRM" />
   </EntityType>
   <EntityType Name="T_HR_OUTPLANDAYS">
     <Key>
@@ -9074,7 +9292,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="ISMASTERPOSTCHANGE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="CHANGETYPE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="CHANGETIME" Type="DateTime" />
-    <Property Name="CHANGEREASON" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="CHANGEREASON" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <Property Name="OLDPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="OLDPOSTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="OLDPOSTLEVEL" Type="Decimal" Precision="18" Scale="0" />
@@ -9089,7 +9307,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="NEXTDEPARTMENTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="NEXTCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="NEXTCOMPANYNAME" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-    <Property Name="REMART" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="REMART" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <Property Name="CREATEDATE" Type="DateTime" />
     <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
@@ -9431,6 +9649,10 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <End Role="T_HR_LEFTOFFICE" Type="SMT_HRM_EFModel.T_HR_LEFTOFFICE" Multiplicity="0..1" />
     <End Role="T_HR_LEFTOFFICECONFIRM" Type="SMT_HRM_EFModel.T_HR_LEFTOFFICECONFIRM" Multiplicity="*" />
   </Association>
+  <Association Name="FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT">
+    <End Role="T_HR_OUTAPPLYRECORD" Type="SMT_HRM_EFModel.T_HR_OUTAPPLYRECORD" Multiplicity="0..1" />
+    <End Role="T_HR_OUTAPPLYCONFIRM" Type="SMT_HRM_EFModel.T_HR_OUTAPPLYCONFIRM" Multiplicity="*" />
+  </Association>
   <Association Name="FK_T_HR_OUT_REFERENCE_T_HR_VAC">
     <End Role="T_HR_VACATIONSET" Type="SMT_HRM_EFModel.T_HR_VACATIONSET" Multiplicity="0..1" />
     <End Role="T_HR_OUTPLANDAYS" Type="SMT_HRM_EFModel.T_HR_OUTPLANDAYS" Multiplicity="*" />
@@ -9556,6 +9778,33 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
 <edmx:Mappings>
 <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
   <EntityContainerMapping StorageEntityContainer="SMT_HRM_EFModelStoreContainer" CdmEntityContainer="SMT_HRM_EFModelContext">
+    <EntitySetMapping Name="TEMP_SIGNINDETAIL">
+      <EntityTypeMapping TypeName="SMT_HRM_EFModel.TEMP_SIGNINDETAIL">
+        <MappingFragment StoreEntitySet="TEMP_SIGNINDETAIL">
+          <ScalarProperty Name="SIGNINDETAILID" ColumnName="SIGNINDETAILID" />
+          <ScalarProperty Name="SIGNINID" ColumnName="SIGNINID" />
+          <ScalarProperty Name="ABNORMRECORDID" ColumnName="ABNORMRECORDID" />
+          <ScalarProperty Name="ABNORMALDATE" ColumnName="ABNORMALDATE" />
+          <ScalarProperty Name="ABNORMCATEGORY" ColumnName="ABNORMCATEGORY" />
+          <ScalarProperty Name="ATTENDPERIOD" ColumnName="ATTENDPERIOD" />
+          <ScalarProperty Name="ABNORMALTIME" ColumnName="ABNORMALTIME" />
+          <ScalarProperty Name="REASONCATEGORY" ColumnName="REASONCATEGORY" />
+          <ScalarProperty Name="DETAILREASON" ColumnName="DETAILREASON" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="T_HR_ADJUSTLEAVE">
       <EntityTypeMapping TypeName="SMT_HRM_EFModel.T_HR_ADJUSTLEAVE">
         <MappingFragment StoreEntitySet="T_HR_ADJUSTLEAVE">
@@ -10944,36 +11193,6 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="T_HR_EMPLOYEEOUTAPPLIECRECORD">
-      <EntityTypeMapping TypeName="SMT_HRM_EFModel.T_HR_EMPLOYEEOUTAPPLIECRECORD">
-        <MappingFragment StoreEntitySet="T_HR_EMPLOYEEOUTAPPLIECRECORD">
-          <ScalarProperty Name="OVERTIMERECORDID" ColumnName="OVERTIMERECORDID" />
-          <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
-          <ScalarProperty Name="EMPLOYEENAME" ColumnName="EMPLOYEENAME" />
-          <ScalarProperty Name="OVERTIMECATE" ColumnName="OVERTIMECATE" />
-          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
-          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
-          <ScalarProperty Name="OVERTIMEHOURS" ColumnName="OVERTIMEHOURS" />
-          <ScalarProperty Name="BEGINCARDTIME" ColumnName="BEGINCARDTIME" />
-          <ScalarProperty Name="BEGINCARDTYPE" ColumnName="BEGINCARDTYPE" />
-          <ScalarProperty Name="ENDCARDTIME" ColumnName="ENDCARDTIME" />
-          <ScalarProperty Name="ENDCARDTYPE" ColumnName="ENDCARDTYPE" />
-          <ScalarProperty Name="CHECKSTATE" ColumnName="CHECKSTATE" />
-          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
-          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
-          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
-          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
-          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
-          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
-          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
-          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
-          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
-          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
-          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
-          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="T_HR_EMPLOYEEOVERTIMEDETAILRD">
       <EntityTypeMapping TypeName="SMT_HRM_EFModel.T_HR_EMPLOYEEOVERTIMEDETAILRD">
         <MappingFragment StoreEntitySet="T_HR_EMPLOYEEOVERTIMEDETAILRD">
@@ -11539,6 +11758,88 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
           <ScalarProperty Name="EMPLOYEECNAME" ColumnName="EMPLOYEECNAME" />
           <ScalarProperty Name="APPLYDATE" ColumnName="APPLYDATE" />
           <ScalarProperty Name="EMPLOYEEPOSTID" ColumnName="EMPLOYEEPOSTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_HR_NOATTENDCARDEMPLOYEES">
+      <EntityTypeMapping TypeName="SMT_HRM_EFModel.T_HR_NOATTENDCARDEMPLOYEES">
+        <MappingFragment StoreEntitySet="T_HR_NOATTENDCARDEMPLOYEES">
+          <ScalarProperty Name="NOATTENDCARDEMPLOYEESID" ColumnName="NOATTENDCARDEMPLOYEESID" />
+          <ScalarProperty Name="EMPLOYEENAME" ColumnName="EMPLOYEENAME" />
+          <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+          <ScalarProperty Name="ALWAYS" ColumnName="ALWAYS" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+          <ScalarProperty Name="CHECKSTATE" ColumnName="CHECKSTATE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_HR_OUTAPPLYCONFIRM">
+      <EntityTypeMapping TypeName="SMT_HRM_EFModel.T_HR_OUTAPPLYCONFIRM">
+        <MappingFragment StoreEntitySet="T_HR_OUTAPPLYCONFIRM">
+          <ScalarProperty Name="OUTAPPLYCONFIRMID" ColumnName="OUTAPPLYCONFIRMID" />
+          <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+          <ScalarProperty Name="EMPLOYEENAME" ColumnName="EMPLOYEENAME" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+          <ScalarProperty Name="OUTAPLLYTIMES" ColumnName="OUTAPLLYTIMES" />
+          <ScalarProperty Name="CHECKSTATE" ColumnName="CHECKSTATE" />
+          <ScalarProperty Name="OUTREPORT" ColumnName="OUTREPORT" />
+          <ScalarProperty Name="ISCANCELED" ColumnName="ISCANCELED" />
+          <ScalarProperty Name="CANCELREASON" ColumnName="CANCELREASON" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_HR_OUTAPPLYRECORD">
+      <EntityTypeMapping TypeName="SMT_HRM_EFModel.T_HR_OUTAPPLYRECORD">
+        <MappingFragment StoreEntitySet="T_HR_OUTAPPLYRECORD">
+          <ScalarProperty Name="OUTAPPLYID" ColumnName="OUTAPPLYID" />
+          <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+          <ScalarProperty Name="EMPLOYEENAME" ColumnName="EMPLOYEENAME" />
+          <ScalarProperty Name="OVERTIMECATE" ColumnName="OVERTIMECATE" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="ISSAMEDAYRETURN" ColumnName="ISSAMEDAYRETURN" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+          <ScalarProperty Name="OUTAPLLYTIMES" ColumnName="OUTAPLLYTIMES" />
+          <ScalarProperty Name="ISCONFIRMED" ColumnName="ISCONFIRMED" />
+          <ScalarProperty Name="CHECKSTATE" ColumnName="CHECKSTATE" />
+          <ScalarProperty Name="REASON" ColumnName="REASON" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -13482,6 +13783,15 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
         <ScalarProperty Name="CONFIRMID" ColumnName="CONFIRMID" />
       </EndProperty>
       <Condition ColumnName="DIMISSIONID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT" TypeName="SMT_HRM_EFModel.FK_T_HR_OUT_T_HR_OUTA_T_HR_OUT" StoreEntitySet="T_HR_OUTAPPLYCONFIRM">
+      <EndProperty Name="T_HR_OUTAPPLYRECORD">
+        <ScalarProperty Name="OUTAPPLYID" ColumnName="OUTAPPLYID" />
+      </EndProperty>
+      <EndProperty Name="T_HR_OUTAPPLYCONFIRM">
+        <ScalarProperty Name="OUTAPPLYCONFIRMID" ColumnName="OUTAPPLYCONFIRMID" />
+      </EndProperty>
+      <Condition ColumnName="OUTAPPLYID" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="FK_T_HR_OUT_REFERENCE_T_HR_VAC" TypeName="SMT_HRM_EFModel.FK_T_HR_OUT_REFERENCE_T_HR_VAC" StoreEntitySet="T_HR_OUTPLANDAYS">
       <EndProperty Name="T_HR_VACATIONSET">

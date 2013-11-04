@@ -33,7 +33,7 @@ namespace SMT_HRM_EFModel
             using (SMT_HRM_EFModelContext context = new SMT_HRM_EFModelContext())
             {
                 
-                //var q=from ent in context.T_HR_EMPLOYEEOUTAPPLIECRECORD
+                //var q=from ent in context.T_HR_OUTAPPLYRECORD
                 //System.Data.Common.DbConnection cn = context.Connection;
                 //System.Data.Common.DbCommand dbcd = cn.CreateCommand();
                 //dbcd.CommandText = "seleclt * from T_HR_COMPANY";
