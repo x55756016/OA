@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.Permission.Services", "SMT.SaaS.Permission.Services\SMT.SaaS.Permission.Services.csproj", "{F0A89557-3F7A-4487-8514-DEFFCA53733E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.Permission.DAL", "SMT.SaaS.Permission.DAL\SMT.SaaS.Permission.DAL.csproj", "{5E6B2FA5-7ABB-481B-9D3B-F54506D5B7DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.Permission.BLL", "SMT.SaaS.Permission.BLL\SMT.SaaS.Permission.BLL.csproj", "{81B7E77D-F0B7-4AAB-97D2-E3FD500A3A24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.Permission.UI", "SMT.SaaS.Permission.UI\SMT.SaaS.Permission.UI.csproj", "{D48CE0BC-F6F4-4AE0-8C55-A8217F279268}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F0A89557-3F7A-4487-8514-DEFFCA53733E} = {F0A89557-3F7A-4487-8514-DEFFCA53733E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT_System_EFModel", "SMT_System_EFModel\SMT_System_EFModel.csproj", "{792419E7-4F0F-4881-AD01-AB64AF014458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.InterActiveDirectory", "SMT.SaaS.InterActiveDirectory\SMT.SaaS.InterActiveDirectory.csproj", "{B555A23F-65CD-4483-9B80-07C1E32EA338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.Saas.Tools", "..\..\SMT.SaaS.FrameWorkUI\SMT.Saas.Tools\SMT.Saas.Tools.csproj", "{9484C541-B0A2-437A-8C6F-0BFD7E13934E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refrence", "Refrence", "{03A30538-13EB-42A5-8FE8-735720D9E69A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.BLLCommonServices", "..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj", "{6673751A-D03D-4D7A-ACF3-F363469B73AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.Permission.CustomerModel", "SMT.SaaS.Permission.CustomerModel\SMT.SaaS.Permission.CustomerModel.csproj", "{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = SMT.SaaS.Permission1.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0A89557-3F7A-4487-8514-DEFFCA53733E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0A89557-3F7A-4487-8514-DEFFCA53733E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0A89557-3F7A-4487-8514-DEFFCA53733E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0A89557-3F7A-4487-8514-DEFFCA53733E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E6B2FA5-7ABB-481B-9D3B-F54506D5B7DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6B2FA5-7ABB-481B-9D3B-F54506D5B7DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6B2FA5-7ABB-481B-9D3B-F54506D5B7DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6B2FA5-7ABB-481B-9D3B-F54506D5B7DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B7E77D-F0B7-4AAB-97D2-E3FD500A3A24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B7E77D-F0B7-4AAB-97D2-E3FD500A3A24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B7E77D-F0B7-4AAB-97D2-E3FD500A3A24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B7E77D-F0B7-4AAB-97D2-E3FD500A3A24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D48CE0BC-F6F4-4AE0-8C55-A8217F279268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D48CE0BC-F6F4-4AE0-8C55-A8217F279268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D48CE0BC-F6F4-4AE0-8C55-A8217F279268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D48CE0BC-F6F4-4AE0-8C55-A8217F279268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{792419E7-4F0F-4881-AD01-AB64AF014458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792419E7-4F0F-4881-AD01-AB64AF014458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{792419E7-4F0F-4881-AD01-AB64AF014458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{792419E7-4F0F-4881-AD01-AB64AF014458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B555A23F-65CD-4483-9B80-07C1E32EA338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B555A23F-65CD-4483-9B80-07C1E32EA338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B555A23F-65CD-4483-9B80-07C1E32EA338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6673751A-D03D-4D7A-ACF3-F363469B73AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6673751A-D03D-4D7A-ACF3-F363469B73AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6673751A-D03D-4D7A-ACF3-F363469B73AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6673751A-D03D-4D7A-ACF3-F363469B73AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6673751A-D03D-4D7A-ACF3-F363469B73AE} = {03A30538-13EB-42A5-8FE8-735720D9E69A}
+		{9484C541-B0A2-437A-8C6F-0BFD7E13934E} = {03A30538-13EB-42A5-8FE8-735720D9E69A}
+	EndGlobalSection
+EndGlobal
