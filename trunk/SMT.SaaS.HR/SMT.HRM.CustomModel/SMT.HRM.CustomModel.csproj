@@ -62,6 +62,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SMT.SaaS.BLLCommonServices">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
     <Reference Include="SMT_HRM_EFModel">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT_HRM_EFModel.dll</HintPath>
     </Reference>
@@ -83,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flow_FlowRecord_T.cs" />
     <Compile Include="CLOCKINRECORDINFO.cs" />
     <Compile Include="DataColumnInfo.cs" />
     <Compile Include="DataSetData.cs" />
