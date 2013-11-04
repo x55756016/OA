@@ -78,8 +78,8 @@
                                 </DataTemplate>
                             </data:DataGridTemplateColumn.CellTemplate>
                         </data:DataGridTemplateColumn>
-                        <data:DataGridTextColumn Header="BELONGCOMPANY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding OWNERCOMPANYID,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
-                        <data:DataGridTextColumn Header="OWNERDEPARTMENT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding OWNERDEPARTMENTID,Converter={StaticResource CompanyConvert},ConverterParameter=Department}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="BELONGCOMPANY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding COMPANYNAME,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="OWNERDEPARTMENT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEPARTMENTNAME,Converter={StaticResource CompanyConvert},ConverterParameter=Department}"></data:DataGridTextColumn>
                         <data:DataGridTextColumn Header="EMPLOYEECODE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEECODE}">
                         </data:DataGridTextColumn>
                         <data:DataGridTextColumn Header="EMPLOYEECNAME" Binding="{Binding EMPLOYEECNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">

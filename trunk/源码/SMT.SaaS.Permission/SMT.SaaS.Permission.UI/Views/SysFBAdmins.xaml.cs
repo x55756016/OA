@@ -98,7 +98,8 @@ namespace SMT.SaaS.Permission.UI.Views
                 client = new SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient();
                 client.GetEmployeePagingCompleted += new EventHandler<GetEmployeePagingCompletedEventArgs>(client_GetEmployeePagingCompleted);
                 //client.GetEmployeesWithOutPermissionsCompleted += new EventHandler<GetEmployeesWithOutPermissionsCompletedEventArgs>(client_GetEmployeesWithOutPermissionsCompleted);
-                client.GetEmployeeViewsPagingCompleted += new EventHandler<GetEmployeeViewsPagingCompletedEventArgs>(client_GetEmployeeViewsPagingCompleted);
+               // client.GetEmployeeViewsPagingCompleted+=new EventHandler<GetEmployeeViewsPagingCompletedEventArgs>(client_GetEmployeeViewsPagingCompleted);
+                client.GetEmployeeViewsWithOutPermissionsCompleted += new EventHandler<GetEmployeeViewsWithOutPermissionsCompletedEventArgs>(client_GetEmployeeViewsWithOutPermissionsCompleted);
                 client.EmployeeDeleteCompleted += new EventHandler<EmployeeDeleteCompletedEventArgs>(client_EmployeeDeleteCompleted);
 
                 orgClient = new SMT.Saas.Tools.OrganizationWS.OrganizationServiceClient();
@@ -122,6 +123,7 @@ namespace SMT.SaaS.Permission.UI.Views
                 return;
             }
         }
+
 
         void permclient_DeleteFbAdminCompleted(object sender, DeleteFbAdminCompletedEventArgs e)
         {
@@ -222,7 +224,7 @@ namespace SMT.SaaS.Permission.UI.Views
             ToolBar.stpOtherAction.Children.Clear();
             
             ImageButton ChangeMeetingBtn = new ImageButton();                
-            ChangeMeetingBtn.TextBlock.Text = "预算管理员可以为子公司设置管理员，还可以进行跨级设置，请根据实际情况进行操作";             
+            ChangeMeetingBtn.TextBlock.Text = "预算管理员可以为子公司设置管理员，还可以进行跨级设置，请根据实际情况进行操作，列表只显示员工主岗位";             
             SolidColorBrush brush = new SolidColorBrush();                    
             brush.Color = Colors.Red;
             
@@ -592,7 +594,7 @@ namespace SMT.SaaS.Permission.UI.Views
             LoadData();
             BindTree();
         }
-        void client_GetEmployeeViewsPagingCompleted(object sender, GetEmployeeViewsPagingCompletedEventArgs e)
+        void client_GetEmployeeViewsWithOutPermissionsCompleted(object sender, GetEmployeeViewsWithOutPermissionsCompletedEventArgs e)
         {
             List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> list = new List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>();
             if (e.Error != null && e.Error.Message != "")
@@ -601,25 +603,22 @@ namespace SMT.SaaS.Permission.UI.Views
             }
             else
             {
-                if (e.Result != null)
+                if (e.Result != null && e.Result.Any())
                 {
-                    if (e.Result.ToList().Count() > 0)
-                    {
-                        e.Result.ToList().ForEach(item => {
+                    List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> tempList = e.Result.ToList();
+                        tempList.ForEach(item =>
+                        {
                             var Employees = from ent in LstFbAdmin
-                                            where ent.OWNERCOMPANYID == item.OWNERCOMPANYID && ent.OWNERPOSTID == item.OWNERPOSTID
-                                            && ent.OWNERDEPARTMENTID == item.OWNERDEPARTMENTID 
+                                            join c in companyids on ent.OWNERCOMPANYID equals c
+                                            where ent.EMPLOYEEID == item.EMPLOYEEID
+                                            //&& ent.OWNERPOSTID == item.OWNERPOSTID
+                                            //&& ent.OWNERDEPARTMENTID == item.OWNERDEPARTMENTID 
                                             select ent;
-                            if (Employees != null)
+                            if (Employees != null && Employees.Any() && item.ISAGENCY=="0")//只显示主岗位
                             {
-                                if (Employees.Count() > 0)
-                                {
                                     list.Add(item);
-                                }
                             }
                         });
-                    }
-                    //list = e.Result.ToList();
                 }
                 DtGrid.ItemsSource = list;
                 dataPager.PageCount = e.pageCount;
@@ -658,7 +657,7 @@ namespace SMT.SaaS.Permission.UI.Views
             loadbar.Start();
             int pageCount = 0;
             string filter = "";
-            System.Collections.ObjectModel.ObservableCollection<string> paras = new System.Collections.ObjectModel.ObservableCollection<string>();
+            System.Collections.ObjectModel.ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();
 
             TextBox txtEmpName = Utility.FindChildControl<TextBox>(expander, "txtEmpName");
             TextBox txtEmpCode = Utility.FindChildControl<TextBox>(expander, "txtEmpCode");
@@ -727,11 +726,8 @@ namespace SMT.SaaS.Permission.UI.Views
                 OrganizationWS.T_HR_COMPANY company = selectedItem.DataContext as OrganizationWS.T_HR_COMPANY;
                 sType = "Company";
                 sValue = company.COMPANYID;
-                
             }
-            
-            
-            client.GetEmployeeViewsPagingAsync(dataPager.PageIndex, dataPager.PageSize,"EMPLOYEECNAME", filter, paras, pageCount, sType, sValue,SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
+            client.GetEmployeeViewsWithOutPermissionsAsync(dataPager.PageIndex, dataPager.PageSize, "EMPLOYEECNAME", filter, paras, pageCount, sType, sValue);
         }
 
         private void GridPager_Click(object sender, RoutedEventArgs e)
