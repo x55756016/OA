@@ -75,6 +75,7 @@
           <xs:element minOccurs="0" name="NEEDATTENDDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="NURSESDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="OTHERLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OUTAPPLYTIME" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="OVERTIMESUMDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="OVERTIMESUMHOURS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="OVERTIMETIMES" nillable="true" type="xs:decimal" />

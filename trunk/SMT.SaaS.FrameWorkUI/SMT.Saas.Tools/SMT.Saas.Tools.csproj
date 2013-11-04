@@ -1024,6 +1024,12 @@
     <None Include="Service References\PermissionWS\PermissionService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\PermissionWS\PermissionService20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PermissionWS\PermissionService3.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1076,6 +1082,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.T_SYS_USER.datasource">

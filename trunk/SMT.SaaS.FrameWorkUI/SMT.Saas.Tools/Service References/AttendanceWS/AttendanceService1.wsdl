@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AttendanceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AttendanceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:import namespace="" location="http://localhost:12168/AttendanceService.svc?wsdl=wsdl0" />
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_AttendanceService" type="AttendanceService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByCompanyID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAttendMonthlyBatchBalanceByMonthlyBalanceId">
       <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMonthlyBalanceId" style="document" />
       <wsdl:input>
@@ -159,15 +177,6 @@
     </wsdl:operation>
     <wsdl:operation name="EmployeeCancelLeaveAdd">
       <soap:operation soapAction="urn:AttendanceService/EmployeeCancelLeaveAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EmployeeCancelLeaveAdd2">
-      <soap:operation soapAction="urn:AttendanceService/EmployeeCancelLeaveAdd2" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -357,6 +366,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAttendSolAsignForOutEngineXml">
       <soap:operation soapAction="urn:AttendanceService/GetAttendSolAsignForOutEngineXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionAsignByEmployeeIDAndDate">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionAsignByEmployeeIDAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetByID">
+      <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetByID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -895,6 +922,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeSignIn">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeSignIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetEmployeeSignInDetailBySigninID">
       <soap:operation soapAction="urn:AttendanceService/GetEmployeeSignInDetailBySigninID" style="document" />
       <wsdl:input>
@@ -1111,24 +1147,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByCompanyID">
-      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAttendMonthlyBatchBalanceByID">
-      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="DoWork">
       <soap:operation soapAction="urn:AttendanceService/DoWork" style="document" />
       <wsdl:input>
@@ -1248,6 +1266,15 @@
     </wsdl:operation>
     <wsdl:operation name="OutClockInRdListByMultSearch">
       <soap:operation soapAction="urn:AttendanceService/OutClockInRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompulsoryInitialization">
+      <soap:operation soapAction="urn:AttendanceService/CompulsoryInitialization" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1878,15 +1905,6 @@
     </wsdl:operation>
     <wsdl:operation name="RemoveAttendanceSolutionDeduct">
       <soap:operation soapAction="urn:AttendanceService/RemoveAttendanceSolutionDeduct" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetFreeLeaveDaySetByID">
-      <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetByID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

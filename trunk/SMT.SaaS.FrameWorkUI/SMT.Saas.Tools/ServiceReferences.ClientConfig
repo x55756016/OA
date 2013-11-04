@@ -154,12 +154,12 @@
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
-      <endpoint address="http://localhost:1604/PermissionService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
-        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/AttendanceService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
         contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
+      <endpoint address="http://localhost:1604/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
     </client>
 
   </system.serviceModel>
