@@ -137,7 +137,7 @@ namespace System.Windows.Controls
             {
                 this.Show<TResult>(windowmodel, this, result, close, false);
 
-            }         
+            }
         }
         /// <summary>
         /// 显示窗口
@@ -152,9 +152,9 @@ namespace System.Windows.Controls
         {
             //MessageBox.Show("test");
             //this._window = ProgramManager.ShowProgram(TitleContent.ToString(), "", Guid.NewGuid().ToString(), this, isResizable, false, null);
-            this.Show<TResult>(windowmodel, this, result, close, true,Guid.NewGuid().ToString());
+            this.Show<TResult>(windowmodel, this, result, close, true, Guid.NewGuid().ToString());
         }
-       
+
 
         /// <summary>
         /// 显示窗口
@@ -212,7 +212,7 @@ namespace System.Windows.Controls
         /// </summary>
         public void ShowMvcPlat<TResult>(DialogMode windowmodel, FrameworkElement parent, TResult result, Action<TResult> close)
         {
-            this._window = ProgramManager.ShowMvcProgram(TitleContent.ToString(), string.Empty, Guid.NewGuid().ToString(),this,false,true, null);
+            this._window = ProgramManager.ShowMvcProgram(TitleContent.ToString(), string.Empty, Guid.NewGuid().ToString(), this, false, true, null);
         }
 
         /// <summary>
@@ -252,7 +252,7 @@ namespace System.Windows.Controls
 
         public static void Show(Program program, string assemblyName, object param)
         {
-            ProgramManager.ShowProgram(program, assemblyName, param,true);
+            ProgramManager.ShowProgram(program, assemblyName, param, true);
 
         }
         /// <summary>
