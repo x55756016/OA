@@ -797,6 +797,48 @@ namespace SMT.HRM.Services
             {
                 return bll.GetEmployeeByNumberID(sNumberID);
             }
+        }        /// <summary>
+        /// 根据身份证号码，查询简历库是否有员工信息，如果有，就赋值给员工实体
+        /// </summary>
+        /// <param name="sNumberID">身份证号码</param>
+        /// <returns></returns>
+        [OperationContract]
+        public V_EMPLOYEEDETAIL GetEmployeeByFingerPrintID(string FingerPrintID)
+        {
+            using (EmployeeBLL bll = new EmployeeBLL())
+            {
+                return bll.GetEmployeeOrgByFingerPrintID(FingerPrintID);
+            }
+        }
+
+        /// <summary>
+        /// 登录验证，并返回员工组织架构信息
+        /// </summary>
+        /// <param name="UserName"></param>
+        /// <param name="UserPassword"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public V_EMPLOYEEDETAIL GetEmployeeOrgByEmployeeid(string employeeid)
+        {
+            try
+            {
+                using (EmployeeBLL bll = new EmployeeBLL())
+                {
+                    V_EMPLOYEEDETAIL employee = bll.GetEmployeeDetailView(employeeid);
+                    if (employee == null)
+                    {
+                        Tracer.Debug("通过员工id获取到员工详细信息为空，员工id：" + employeeid);
+                        return null;
+                    }
+                    return employee;
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("通过员工id获取到员工详细信息出错，员工id：" + employeeid + ex.ToString());
+                throw ex;
+            }
         }
         /// <summary>
         /// 是否存在相同的指纹编号
