@@ -512,6 +512,10 @@
       <Project>{81B7E77D-F0B7-4AAB-97D2-E3FD500A3A24}</Project>
       <Name>SMT.SaaS.Permission.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SMT.SaaS.Permission.CustomerModel\SMT.SaaS.Permission.CustomerModel.csproj">
+      <Project>{cbede1b9-39ed-49b4-90d3-4f8320b991b4}</Project>
+      <Name>SMT.SaaS.Permission.CustomerModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.Permission.DAL\SMT.SaaS.Permission.DAL.csproj">
       <Project>{5E6B2FA5-7ABB-481B-9D3B-F54506D5B7DB}</Project>
       <Name>SMT.SaaS.Permission.DAL</Name>

@@ -15,6 +15,7 @@ using SMT.SaaS.Permission.DAL.views;
 using SMT.Foundation.Log;
 using InterActiveDirectory;
 using SMT.SaaS.Permission.BLL.PersonnelWS;
+using SMT.SaaS.Permission.CustomerModel;
 //using SMT.SaaS.BLLCommonServices.FlowWFService;
 
 
@@ -1458,6 +1459,47 @@ namespace SMT.SaaS.Permission.Services
                 //GetSysLeftMenuFilterPermissionToNewFrame("85b414ab-87b3-4740-aef4-1d89f3f380cc");
                 //GetUserByEmployeeID("940d667e-4c04-425a-b347-b82719f39c71");
                 
+                if (SysRoleInfosList == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return SysRoleInfosList.ToList();
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// 服务器端分页 角色
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="sort"></param>
+        /// <param name="filterString"></param>
+        /// <param name="paras"></param>
+        /// <param name="pageCount"></param>
+        /// <param name="loginUserInfo"></param>
+        /// <returns></returns>
+        [OperationContract]
+        //获取系统角色-视图
+        public List<T_SYS_ROLE_V> GetRoleView(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, LoginUserInfo loginUserInfo, string[] CompanyIDs)
+        {
+
+            using (SysRoleBLL RoleBll = new SysRoleBLL())
+            {
+                //SysUserBLL userbll = new SysUserBLL();
+                //SysUserBLL userbll = new SysUserBLL();
+                //string companyids = "";
+                //string departids = "";
+                //string postids = "";
+                //userbll.GetUserMenuPermsByUserPermisionBllCommon("T_OA_APPROVALINFO", "2ec631ed-0fc0-4b7f-a86c-28581eeab068", ref companyids, ref departids, ref postids);
+                IQueryable<T_SYS_ROLE_V> SysRoleInfosList = RoleBll.GetRoleView(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, loginUserInfo.userID, CompanyIDs);
+                //GetSysLeftMenuFilterPermissionToNewFrame("543e0360-6e27-4f8a-82cb-6df1f9ea6a8d");//85b414ab-87b3-4740-aef4-1d89f3f380cc
+                //GetSysLeftMenuFilterPermissionToNewFrame("85b414ab-87b3-4740-aef4-1d89f3f380cc");
+                //GetUserByEmployeeID("940d667e-4c04-425a-b347-b82719f39c71");
+
                 if (SysRoleInfosList == null)
                 {
                     return null;
