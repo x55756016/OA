@@ -18,6 +18,7 @@ using SMT.HRM.IMServices.IMServiceWS;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using SMT.Foundation.Log;
 
 
 
@@ -985,6 +986,30 @@ namespace SMT.HRM.BLL
 
             return ents.Count() > 0 ? ents.FirstOrDefault() : null;
         }
+
+        /// <summary>
+        /// 根据员工打卡机指纹编号查询员工
+        /// </summary>
+        /// <param name="strFingerPrintID"></param>
+        /// <returns></returns>
+        public V_EMPLOYEEDETAIL GetEmployeeOrgByFingerPrintID(string strFingerPrintID)
+        {
+            try
+            {
+                var ents = (from o in dal.GetObjects()
+                            where o.FINGERPRINTID == strFingerPrintID
+                            select o).FirstOrDefault();
+                V_EMPLOYEEDETAIL employee = GetEmployeeDetailView(ents.EMPLOYEEID);
+                return employee != null ? employee : null;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+                return null;
+            }
+           
+        }
+
         /// <summary>
         /// 根据员工名称获取员工信息
         /// </summary>
@@ -2092,6 +2117,7 @@ namespace SMT.HRM.BLL
             }
             return retEnt;
         }
+
 
         /// <summary>
         /// 存在相同的指纹编号返回true
@@ -3788,7 +3814,7 @@ namespace SMT.HRM.BLL
         /// 获取员工的信息概要
         /// </summary>
         /// <param name="employeeID"></param>
-        /// <returns>员工的姓名，工龄，照片，岗位集合</returns>
+        /// <returns>员工的姓名，工龄，岗位集合</returns>
         public V_EMPLOYEEDETAIL GetEmployeeDetailView(string employeeID)
         {
             try
