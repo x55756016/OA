@@ -19,6 +19,7 @@ namespace SMT.SaaS.Permission.BLL
         public CommDAL<TEntity> dal ;
         //protected PermissionWS.PermissionServiceClient permissionclient = new PermissionWS.PermissionServiceClient();
         public static PersonnelWS.PersonnelServiceClient personnelclient;
+        public static SMT.SaaS.BLLCommonServices.OrganizationWS.OrganizationServiceClient Orgclinet;
         public BaseBll()
         {
             if (dal == null)
@@ -27,10 +28,12 @@ namespace SMT.SaaS.Permission.BLL
             }
             if(personnelclient ==null)
             {
-                personnelclient=new PersonnelWS.PersonnelServiceClient();
-                
+                personnelclient=new PersonnelWS.PersonnelServiceClient();                
             }
-        
+            if (Orgclinet == null)
+            {
+                Orgclinet = new BLLCommonServices.OrganizationWS.OrganizationServiceClient();
+            }        
         }
 
         public bool Add(TEntity entity)
