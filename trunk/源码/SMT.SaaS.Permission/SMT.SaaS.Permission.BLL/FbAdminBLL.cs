@@ -37,12 +37,10 @@ namespace SMT.SaaS.Permission.BLL
 
 
                         #region 初始化变量
-
                         var entroles = from ent in dal.GetObjects<T_SYS_ROLE>()
                                        select ent;
                         var entusers = from ent in dal.GetObjects<T_SYS_USER>()
                                        select ent;
-
                         string SysDictEntity = GetMenuid("T_FB_SUBJECTTYPE");//系统字典MUNUid
                         string CompanySubEntity = GetMenuid("T_FB_SUBJECTCOMPANY");//公司科目维护ID
                         string DepartmentSubEntity = GetMenuid("T_FB_SUBJECTDEPTMENT");//部门科目维护ID
@@ -57,7 +55,17 @@ namespace SMT.SaaS.Permission.BLL
                         for (int i = 0; i < lstobj.Count(); i++)
                         {
                             //dal.Add(lstobj[i]);
-                            string stremployid =lstobj[i].EMPLOYEEID;
+                            string stremployid = lstobj[i].EMPLOYEEID;
+                            string strCompanyId = lstobj[i].EMPLOYEECOMPANYID;
+                            var entFb = from e in dal.GetObjects<T_SYS_FBADMIN>()
+                                        where e.EMPLOYEEID == stremployid && e.EMPLOYEECOMPANYID == strCompanyId
+                                        select e;
+                            if (entFb != null && entFb.Any())//判断该员工在此公司有没有记录，有则不能进行添加
+                            {
+                                StrReturn = "该员工已在此公司有管理员角色";
+                                dal.RollbackTransaction();
+                                return StrReturn;
+                            }
                             var entuser = entusers.Where(p => p.EMPLOYEEID == stremployid);
                             string SysuserID = "";
                             if (entuser.Count() > 0)
@@ -68,52 +76,27 @@ namespace SMT.SaaS.Permission.BLL
                             {
                                 break;
                             }
-                            string strcompanyid =lstobj[i].OWNERCOMPANYID;//公司ID
-                            string strrolename =lstobj[i].ROLENAME;
+                            string strcompanyid = lstobj[i].OWNERCOMPANYID;//公司ID
+                            string strrolename = lstobj[i].ROLENAME;
                             var companyrole = entroles.Where(p => p.OWNERCOMPANYID == strcompanyid && p.ROLENAME.Contains(strrolename));
                             if (companyrole != null)
                             {
                                 //这里控制了一个公司只有一个人
                                 //if (companyrole.Count() == 0)
                                 //{
-                                    T_SYS_ROLE role;//角色实体
-                                    int k;//添加角色返回的值
-                                    AddRole(lstobj, i, out role, out k);
-                                    if (k > 0)
+                                T_SYS_ROLE role;//角色实体
+                                int k;//添加角色返回的值
+                                AddRole(lstobj, i, out role, out k);
+                                if (k > 0)
+                                {
+                                    #region 添加系统字典菜单
+
+                                    if (lstobj[i].ISSUPPERADMIN == "1") //只有超级预算管理员才可以显示系统字典
                                     {
-                                        #region 添加系统字典菜单
-
-                                        if (lstobj[i].ISSUPPERADMIN == "1") //只有超级预算管理员才可以显示系统字典
+                                        if (SysDictEntity != null)//添加系统字典菜单角色
                                         {
-                                            if (SysDictEntity != null)//添加系统字典菜单角色
-                                            {
-                                                T_SYS_ROLEENTITYMENU roleSystemDicEnt = AddRoleEntity(SysDictEntity, role);
-                                                if (roleSystemDicEnt == null)
-                                                {
-                                                    dal.RollbackTransaction();
-                                                    StrReturn = "ERROR";
-                                                    return StrReturn;
-                                                }
-                                                else
-                                                {
-                                                    bool IsResult = AddRoleEntityPermissionByCEDV(PermissionAddID, PermissionEditID, PermissionDelID, PermissionViewID, role, roleSystemDicEnt);
-                                                    if (IsResult == false)
-                                                    {
-                                                        dal.RollbackTransaction();
-                                                        StrReturn = "ERROR";
-                                                        return StrReturn;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        #endregion
-
-                                        #region 添加公司科目维护菜单
-
-                                        if (CompanySubEntity != null)//添加公司科目菜单角色
-                                        {
-                                            T_SYS_ROLEENTITYMENU roleCompanyEnt = AddRoleEntity(CompanySubEntity, role);
-                                            if (roleCompanyEnt == null)
+                                            T_SYS_ROLEENTITYMENU roleSystemDicEnt = AddRoleEntity(SysDictEntity, role);
+                                            if (roleSystemDicEnt == null)
                                             {
                                                 dal.RollbackTransaction();
                                                 StrReturn = "ERROR";
@@ -121,7 +104,7 @@ namespace SMT.SaaS.Permission.BLL
                                             }
                                             else
                                             {
-                                                bool IsResult = AddRoleEntityPermissionByCEDV(PermissionAddID, PermissionEditID, PermissionDelID, PermissionViewID, role, roleCompanyEnt);
+                                                bool IsResult = AddRoleEntityPermissionByCEDV(PermissionAddID, PermissionEditID, PermissionDelID, PermissionViewID, role, roleSystemDicEnt);
                                                 if (IsResult == false)
                                                 {
                                                     dal.RollbackTransaction();
@@ -130,88 +113,105 @@ namespace SMT.SaaS.Permission.BLL
                                                 }
                                             }
                                         }
-                                        #endregion
+                                    }
+                                    #endregion
 
-                                        #region 添加部门科目维护菜单
+                                    #region 添加公司科目维护菜单
 
-                                        if (DepartmentSubEntity != null)//添加部门科目维护菜单角色
-                                        {
-                                            T_SYS_ROLEENTITYMENU roleDepartmentEnt = AddRoleEntity(DepartmentSubEntity, role);
-                                            if (roleDepartmentEnt == null)
-                                            {
-                                                dal.RollbackTransaction();
-                                                StrReturn = "ERROR";
-                                                return StrReturn;
-                                            }
-                                            else
-                                            {
-                                                bool IsResult = AddRoleEntityPermissionByCEDV(PermissionAddID, PermissionEditID, PermissionDelID, PermissionViewID, role, roleDepartmentEnt);
-                                                if (IsResult == false)
-                                                {
-                                                    dal.RollbackTransaction();
-                                                    StrReturn = "ERROR";
-                                                    return StrReturn;
-                                                }
-                                            }
-                                        }
-                                        #endregion
-
-                                        #region 添加公司科目分配
-
-                                        if (SubjectCompanySet != null)//添加部门科目维护菜单角色
-                                        {
-                                            T_SYS_ROLEENTITYMENU SubjectSetEnt = AddRoleEntity(SubjectCompanySet, role);
-                                            if (SubjectSetEnt == null)
-                                            {
-                                                dal.RollbackTransaction();
-                                                StrReturn = "ERROR";
-                                                return StrReturn;
-                                            }
-                                            else
-                                            {
-                                                bool IsResult = AddRoleEntityPermissionByCEDV(PermissionAddID, PermissionEditID, PermissionDelID, PermissionViewID, role, SubjectSetEnt);
-                                                if (IsResult == false)
-                                                {
-                                                    dal.RollbackTransaction();
-                                                    StrReturn = "ERROR";
-                                                    return StrReturn;
-                                                }
-                                            }
-                                        }
-                                        #endregion
-
-                                        #region 用户赋角色并提交事务
-                                        lstobj[i].CREATEDATE = System.DateTime.Now;
-                                        lstobj[i].SYSUSERID = SysuserID;
-                                        int IntFb = dal.Add(lstobj[i]);
-                                        if (IntFb > 0)
-                                        {
-
-                                            T_SYS_FBADMINROLE fbrole = new T_SYS_FBADMINROLE();
-                                            fbrole.FBADMINROLEID = System.Guid.NewGuid().ToString();
-                                            fbrole.ROLEID = role.ROLEID;
-                                            fbrole.T_SYS_FBADMINReference.EntityKey = new System.Data.EntityKey("SMT_System_EFModelContext.T_SYS_FBADMIN", "FBADMINID", lstobj[i].FBADMINID);
-                                            fbrole.ADDDATE = System.DateTime.Now;
-                                            int IntAdminRole = dal.Add(fbrole);
-                                            if (IntAdminRole == 0)
-                                            {
-                                                dal.RollbackTransaction();
-                                                StrReturn = "ERROR";
-                                                return StrReturn;
-                                            }
-                                        }
-                                        int IntUserRole = AddUserRole(lstobj, i, SysuserID, role);
-                                        if (IntUserRole > 0)
-                                        {
-                                            //dal.CommitTransaction();
-                                        }
-                                        else
+                                    if (CompanySubEntity != null)//添加公司科目菜单角色
+                                    {
+                                        T_SYS_ROLEENTITYMENU roleCompanyEnt = AddRoleEntity(CompanySubEntity, role);
+                                        if (roleCompanyEnt == null)
                                         {
                                             dal.RollbackTransaction();
                                             StrReturn = "ERROR";
                                             return StrReturn;
                                         }
-                                        #endregion
+                                        else
+                                        {
+                                            bool IsResult = AddRoleEntityPermissionByCEDV(PermissionAddID, PermissionEditID, PermissionDelID, PermissionViewID, role, roleCompanyEnt);
+                                            if (IsResult == false)
+                                            {
+                                                dal.RollbackTransaction();
+                                                StrReturn = "ERROR";
+                                                return StrReturn;
+                                            }
+                                        }
+                                    }
+                                    #endregion
+
+                                    #region 添加部门科目维护菜单
+
+                                    if (DepartmentSubEntity != null)//添加部门科目维护菜单角色
+                                    {
+                                        T_SYS_ROLEENTITYMENU roleDepartmentEnt = AddRoleEntity(DepartmentSubEntity, role);
+                                        if (roleDepartmentEnt == null)
+                                        {
+                                            dal.RollbackTransaction();
+                                            StrReturn = "ERROR";
+                                            return StrReturn;
+                                        }
+                                        else
+                                        {
+                                            bool IsResult = AddRoleEntityPermissionByCEDV(PermissionAddID, PermissionEditID, PermissionDelID, PermissionViewID, role, roleDepartmentEnt);
+                                            if (IsResult == false)
+                                            {
+                                                dal.RollbackTransaction();
+                                                StrReturn = "ERROR";
+                                                return StrReturn;
+                                            }
+                                        }
+                                    }
+                                    #endregion
+
+                                    #region 添加公司科目分配
+
+                                    if (SubjectCompanySet != null)//添加部门科目维护菜单角色
+                                    {
+                                        T_SYS_ROLEENTITYMENU SubjectSetEnt = AddRoleEntity(SubjectCompanySet, role);
+                                        if (SubjectSetEnt == null)
+                                        {
+                                            dal.RollbackTransaction();
+                                            StrReturn = "ERROR";
+                                            return StrReturn;
+                                        }
+                                        else
+                                        {
+                                            bool IsResult = AddRoleEntityPermissionByCEDV(PermissionAddID, PermissionEditID, PermissionDelID, PermissionViewID, role, SubjectSetEnt);
+                                            if (IsResult == false)
+                                            {
+                                                dal.RollbackTransaction();
+                                                StrReturn = "ERROR";
+                                                return StrReturn;
+                                            }
+                                        }
+                                    }
+                                    #endregion
+
+                                    #region 用户赋角色并提交事务
+                                    lstobj[i].CREATEDATE = System.DateTime.Now;
+                                    lstobj[i].SYSUSERID = SysuserID;
+                                    int IntFb = dal.Add(lstobj[i]);
+                                    if (IntFb > 0)
+                                    {
+
+                                        T_SYS_FBADMINROLE fbrole = new T_SYS_FBADMINROLE();
+                                        fbrole.FBADMINROLEID = System.Guid.NewGuid().ToString();
+                                        fbrole.ROLEID = role.ROLEID;
+                                        fbrole.T_SYS_FBADMINReference.EntityKey = new System.Data.EntityKey("SMT_System_EFModelContext.T_SYS_FBADMIN", "FBADMINID", lstobj[i].FBADMINID);
+                                        fbrole.ADDDATE = System.DateTime.Now;
+                                        int IntAdminRole = dal.Add(fbrole);
+                                        if (IntAdminRole == 0)
+                                        {
+                                            dal.RollbackTransaction();
+                                            StrReturn = "ERROR";
+                                            return StrReturn;
+                                        }
+                                    }
+                                    int IntUserRole = AddUserRole(lstobj, i, SysuserID, role);
+                                    if (IntUserRole > 0)
+                                    {
+                                        //dal.CommitTransaction();
                                     }
                                     else
                                     {
@@ -219,6 +219,14 @@ namespace SMT.SaaS.Permission.BLL
                                         StrReturn = "ERROR";
                                         return StrReturn;
                                     }
+                                    #endregion
+                                }
+                                else
+                                {
+                                    dal.RollbackTransaction();
+                                    StrReturn = "ERROR";
+                                    return StrReturn;
+                                }
                                 //} //控制了只一个人，暂时先注释
                             }
                         }
@@ -232,9 +240,7 @@ namespace SMT.SaaS.Permission.BLL
                 StrReturn = "ERROR";
                 Tracer.Debug("FBADMINBLL中AddFbAdmin出现错误" + System.DateTime.Now.ToString() + "错误信息：" + ex.ToString());
             }
-            
             return StrReturn;
-
         }
 
 
@@ -556,6 +562,12 @@ namespace SMT.SaaS.Permission.BLL
         }
         #endregion
 
+        /// <summary>
+        /// 获取管理员
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="companyids"></param>
+        /// <returns></returns>
         public IQueryable<V_FBAdmin> GetFbAdmins(string userID,List<string>  companyids)
         {
             IQueryable<V_FBAdmin> LstFbAdmins=null ;
@@ -577,13 +589,14 @@ namespace SMT.SaaS.Permission.BLL
                             fbadmin.FBADMINID = item.FBADMINID;
                             fbadmin.ADDUSERID = item.CREATEUSERID;
                             fbadmin.EMPLOYEEID = item.EMPLOYEEID;
-                            fbadmin.OWNERCOMPANYID = item.EMPLOYEECOMPANYID;
-                            fbadmin.OWNERDEPARTMENTID = item.EMPLOYEEDEPARTMENTID;
-                            fbadmin.OWNERPOSTID = item.EMPLOYEEPOSTID;
+                            fbadmin.OWNERCOMPANYID = item.OWNERCOMPANYID;
+                            fbadmin.OWNERDEPARTMENTID = item.OWNERDEPARTMENTID;
+                            fbadmin.OWNERPOSTID = item.OWNERPOSTID;
                             fbadmin.AddDate =(DateTime?) item.CREATEDATE;
                             FbAdmins.Add(fbadmin);
                         });
                     }
+                  
                 }
                 
                 if (FbAdmins.Count() > 0)
@@ -638,7 +651,7 @@ namespace SMT.SaaS.Permission.BLL
         /// 根据系统用户ID，判断用户是否是预算管理员
         /// 
         /// </summary>
-        /// <param name="sysUserID"></param>
+        /// <param name="EmployeeID"></param>
         /// <returns>0 为有错误  1 公司预算员  2超级预算员</returns>
         public int getFbAdminByUserID(string EmployeeID)
         {
@@ -711,28 +724,30 @@ namespace SMT.SaaS.Permission.BLL
                               }
                             }
                         }
+                        foreach (var item in ents)//删除一个人，则该公司下面所有的预算管理员都删除
+                        {
+                            var fbRoles = from ent in dal.GetObjects<T_SYS_FBADMINROLE>().Include("T_SYS_FBADMIN")
+                                          where ent.T_SYS_FBADMIN.FBADMINID == item.FBADMINID
 
-                        var fbRoles = from ent in dal.GetObjects<T_SYS_FBADMINROLE>().Include("T_SYS_FBADMIN")
-                                     where ent.T_SYS_FBADMIN.FBADMINID == ents.FirstOrDefault().FBADMINID
-                                     
-                                     select ent;
-                       if (fbRoles != null)
-                       {
-                           if (fbRoles.Count() > 0)
-                           {
-                               int IntR = dal.Delete(fbRoles.FirstOrDefault());
-                               if (IntR == 0)
-                               {
-                                   StrReturn = "DELFBROLEERROR";
-                               }
-                           }
-                       }
-                       int IntM = dal.Delete(ents.FirstOrDefault());
-                       if (IntM == 0)
-                       {
-                           StrReturn = "DELFBADMINERROR";
-                       }
+                                          select ent;
+                            if (fbRoles != null)
+                            {
+                                if (fbRoles.Count() > 0)
+                                {
+                                    int IntR = dal.Delete(fbRoles.FirstOrDefault());
+                                    if (IntR == 0)
+                                    {
+                                        StrReturn = "DELFBROLEERROR";
+                                    }
+                                }
+                            }
 
+                            int IntM = dal.Delete(item);
+                            if (IntM == 0)
+                            {
+                                StrReturn = "DELFBADMINERROR";
+                            }
+                        }
                     }
                 }
             }
