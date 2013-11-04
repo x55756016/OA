@@ -7,13 +7,13 @@
                       xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
                       xmlns:orgControl="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationControl"
                       TitleContent="{Binding Converter={StaticResource ResourceConveter},Source=ORGANIZATION}"
-                     >
+                      MinWidth="600" MinHeight="450" >
  <Grid x:Name="PARENT">
-    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
-    <Grid x:Name="LayoutRoot" Margin="2" MinWidth="600" MinHeight="100" >
+    <!--<ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">-->
+    <Grid x:Name="LayoutRoot" Margin="2">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="450"  MaxHeight="500"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -28,9 +28,9 @@
             <CheckBox Name="organizationHistory" Style="{StaticResource CheckBoxStyle}" Width="auto"  Height="20" HorizontalAlignment="Stretch" Checked="organizationHistory_Checked" Unchecked="organizationHistory_Unchecked"/>
             <Button x:Name="btnFind" Margin="20,0,0,0" Height="22" Width="70" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="btnFind_Click" Style="{StaticResource CommonButtonStyle}"/>
         </StackPanel>
-                <ScrollViewer BorderBrush="Gray" BorderThickness="1" Grid.Row="1" Grid.Column="0"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <orgControl:OrganizationTree x:Name="orgTree" />
-        </ScrollViewer>
+            <ScrollViewer BorderBrush="Gray" BorderThickness="1" Grid.Row="1" Grid.Column="0"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <orgControl:OrganizationTree x:Name="orgTree" />
+            </ScrollViewer>
         <data:DataGrid x:Name="dgEmployeeList" Grid.Row="1" Grid.Column="1"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
              LoadingRow="dgEmployeeList_LoadingRow" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
             <data:DataGrid.Columns>
@@ -55,6 +55,6 @@
         </StackPanel>
         <TextBlock x:Name="tbSelectFlag" HorizontalAlignment="Center" Foreground="Red" Grid.Row="2"/>
     </Grid>
-    </ScrollViewer>
+    <!--</ScrollViewer>-->
 </Grid>
 </swc:Window>
