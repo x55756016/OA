@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <Permissions>
+        <Employes>
+            <employee employeeid="dc8e9ba4-caf9-4e66-b3ff-1b47ee7220c6" name="王京" companyname="" departmentname=""/>
+        </Employes>
+        <Menus>
+            <Menu menucode="T_HR_SALARYARCHIVE" menuname="员工基本薪资" menuid="BBDDFF0C-0E6C-4401-AA87-9FAD7E7BC07A"/>
+            <Menu menucode="T_HR_SALARYARCHIVE" menuname="薪资设置" menuid="D36579BF-9670-434c-BABE-8D87DB305A0C"/>
+            <Menu menucode="T_HR_SALARYARCHIVE" menuname="薪资体系设置" menuid="0c8d6f5b-d77e-4b96-b14b-c372d764934d"/>
+        </Menus>
+    </Permissions>
