@@ -69,10 +69,6 @@
     <Reference Include="SMT.HRM.IMServices">
       <HintPath>..\..\SMT.SaaS.HR\SMT.HRM.IMServices\bin\SMT.HRM.IMServices.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\mysmtproject\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SaaS.SmtOlineEn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=74f4f6f1a2a6aac2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.SaaS.SmtOlineEn.dll</HintPath>
@@ -147,6 +143,14 @@
     <Compile Include="EntityMenuCustomPermBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
+      <Project>{6673751a-d03d-4d7a-acf3-f363469b73ae}</Project>
+      <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.SaaS.Permission.CustomerModel\SMT.SaaS.Permission.CustomerModel.csproj">
+      <Project>{cbede1b9-39ed-49b4-90d3-4f8320b991b4}</Project>
+      <Name>SMT.SaaS.Permission.CustomerModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.Permission.DAL\SMT.SaaS.Permission.DAL.csproj">
       <Project>{5E6B2FA5-7ABB-481B-9D3B-F54506D5B7DB}</Project>
       <Name>SMT.SaaS.Permission.DAL</Name>

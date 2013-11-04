@@ -9,6 +9,7 @@ using System.Collections;
 using System.Linq.Dynamic;
 using SMT.Foundation.Log;
 using SMT.SaaS.Permission.BLL.PersonnelWS;
+using SMT.SaaS.Permission.CustomerModel;
 
 
 
@@ -476,12 +477,70 @@ namespace SMT.SaaS.Permission.BLL
                 var ents = from ent in dal.GetObjects<T_SYS_ROLE>()//DataContext.T_SYS_ROLE
                            where !ent.ROLENAME.Contains("预算配置员")
                            select ent;
-                if(CompanyIDs.Count() >0)
-                    ents = ents.Where(p=> CompanyIDs.Contains(p.OWNERCOMPANYID));//增加公司过滤
+
+
+
+               
+
+                //BLLCommonServices.OrganizationWS.OrganizationServiceClient clinet = new BLLCommonServices.OrganizationWS.OrganizationServiceClient();
+
+                //var q = from cp in dal.GetObjects<T_SYS_ENTITYMENUCUSTOMPERM>()
+                //        join n in dal.GetObjects<T_SYS_PERMISSION>() on cp.T_SYS_PERMISSION.PERMISSIONID equals n.PERMISSIONID
+                //        join m in dal.GetObjects<T_SYS_ENTITYMENU>() on cp.T_SYS_ENTITYMENU.ENTITYMENUID equals m.ENTITYMENUID
+                //        join r in dal.GetObjects<T_SYS_ROLE>() on cp.T_SYS_ROLE.ROLEID equals r.ROLEID
+                //        join ur in dal.GetObjects<T_SYS_USERROLE>() on r.ROLEID equals ur.T_SYS_ROLE.ROLEID
+                //        where ur.T_SYS_USER.SYSUSERID == userID
+                //        && m.ENTITYCODE == "T_HR_DEPARTMENT"
+                //        && n.PERMISSIONVALUE == "3"//查看部门的权限
+                //        select cp;
+                //if (q.Count() > 0)
+                //{
+                //    foreach (var item in q.ToList())
+                //    {
+                //        ownerDepartmentids.Add(item.DEPARTMENTID);
+                //    }
+                //    foreach (var item in q.ToList())
+                //    {
+                //        SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_DEPARTMENT[] departMents = clinet.GetDepartmentActivedByCompanyID(item.COMPANYID);
+                //        if (departMents.Length > 0)
+                //        {
+                //            foreach (var dep in departMents)
+                //            {
+                //                ownerDepartmentids.Add(dep.DEPARTMENTID);
+                //            }
+                //        }
+                //    }
+                    
+                //}
+                List<string> ownerCompanyids = new List<string>();
+                V_EMPLOYEEPOST ep = personnelclient.GetEmployeeDetailByID(userID);
+                if (ep.EMPLOYEEPOSTS.Count() > 0)
+                {
+                    foreach (var item in ep.EMPLOYEEPOSTS.ToList())
+                    {
+
+                        ownerCompanyids.Add(item.T_HR_POST.COMPANYID);
+                          
+                    }
+                }
+
+                //if (ownerCompanyids.Count() > 0)
+                //{
+                //    ents = from ent in ents
+                //           where ownerCompanyids.Contains(ent.OWNERCOMPANYID)
+                //           select ent;//增加员工所有岗位的部门id过滤条件-ken2013-11-1
+                //}
+                //if (CompanyIDs.Count() > 0)
+                //{
+                //    string ownerCompanyid = CompanyIDs[0];
+                //    ents = ents.Where(p => ownerCompanyid.Contains(p.OWNERCOMPANYID));//增加员工所有岗位的部门id过滤条件-ken2013-11-1
+                //}
                 List<object> queryParas = new List<object>();
                 queryParas.AddRange(paras);
                 //BLLCommonServices.Utility aa = new BLLCommonServices.Utility();
-                //aa.SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_SYS_ROLE");
+                //aa.SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_HR_DEPARTMENT");
+
+
                 if (queryParas.Count > 0)
                 {
                     if (!string.IsNullOrEmpty(filterString))
@@ -493,6 +552,7 @@ namespace SMT.SaaS.Permission.BLL
                 }
                 ents = ents.OrderBy(sort);
                 ents = Utility.Pager<T_SYS_ROLE>(ents, pageIndex, pageSize, ref pageCount);
+              
                 return ents;
 
             }
@@ -505,6 +565,34 @@ namespace SMT.SaaS.Permission.BLL
 
         }
 
+        public IQueryable<T_SYS_ROLE_V> GetRoleView(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, string userID, string[] CompanyIDs)
+        {
+            try
+            {
+                var ents = GetAllSysRoleInfosWithPagingByCompanyIDs(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, userID, CompanyIDs);
+
+                List<T_SYS_ROLE_V> roles=new List<T_SYS_ROLE_V>();
+                foreach(var item in ents.ToList())
+                {
+                    T_SYS_ROLE_V role=new T_SYS_ROLE_V();
+                    role.ROLEID= item.ROLEID;
+                    role.ROLENAME=item.ROLENAME;
+                    role.OWNERDEPARTMENTNAME=GetDepartMentNameByid(item.OWNERDEPARTMENTID);
+                    role.OWNERCOMPANYNAME=GetCompanNameByid(item.OWNERCOMPANYID);
+                    role.SYSTTMTYPENAME = item.SYSTEMTYPE;
+                    roles.Add(role);
+                }
+                return roles.AsQueryable();
+
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("角色SysRoleBLL-GetAllSysRoleInfosWithPagingByCompanyIDs" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+
+            }
+
+        }
 
         //批量删除角色信息
         public string BatchDeleteSysRoleInfos(string[] ArrSysRoleIDs)

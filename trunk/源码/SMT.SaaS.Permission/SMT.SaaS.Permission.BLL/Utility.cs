@@ -11,12 +11,14 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Reflection;
 using System.Data;
+using SMT.SaaS.BLLCommonServices.OrganizationWS;
 
 namespace SMT.SaaS.Permission.BLL
 {
 
     public class Utility
     {
+       
         //public static EntityObject[] GetLookupData(EntityNames entity, Dictionary<string, string> args)
         //{
         //    EntityObject[] ents = null;

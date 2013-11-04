@@ -36,6 +36,41 @@ namespace SMT.SaaS.Permission.BLL
             }        
         }
 
+
+        public static string GetCompanNameByid(string id)
+        {
+            var company = Orgclinet.GetCompanyById(id);
+            if (company == null)
+            {
+                return string.Empty;
+            }
+            if (!string.IsNullOrEmpty(company.CNAME))
+            {
+                return company.CNAME;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        public static string GetDepartMentNameByid(string id)
+        {
+            var department = Orgclinet.GetDepartmentById(id);
+            if (department == null)
+            {
+                return string.Empty;
+            }
+            if (!string.IsNullOrEmpty(department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME))
+            {
+                return department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
         public bool Add(TEntity entity)
         {
             try
