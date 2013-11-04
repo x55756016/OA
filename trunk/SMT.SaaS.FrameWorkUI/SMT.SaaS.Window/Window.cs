@@ -173,14 +173,20 @@ namespace System.Windows.Controls
         {
             try
             {
-                double height = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualHeight;
-                double width = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualWidth;
-                //MessageBox.Show("1高：" + (height - 50) + " 宽：" + (width - 50));
+                try
+                {
+                    double height = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualHeight;
+                    double width = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualWidth;
+                    //MessageBox.Show("1高：" + (height - 50) + " 宽：" + (width - 50));
+                    this.MinHeight = height - 50;
+                    this.MinWidth = width - 50;
+                }
+                catch (Exception ex)
+                {
 
+                }
                 this._window = ProgramManager.ShowProgram(TitleContent.ToString(), string.Empty, GUID, this, isResizable, true, null);
 
-                this.MinHeight = height - 50;
-                this.MinWidth = width - 50;
                 //MessageBox.Show("1高：" + this._window.MinHeight + " 宽：" + this._window.MinWidth);
             }
             catch (Exception ex)
