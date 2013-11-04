@@ -15,251 +15,30 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ASSESSMENTFORMDETAIL", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECONTRACT", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
     [System.SerializableAttribute()]
-    public partial class T_HR_ASSESSMENTFORMDETAIL : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+    public partial class T_HR_EMPLOYEECONTRACT : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ASSESSMENTFORMDETAILIDField;
+        private string ALARMDAYField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKPOINTField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEUSERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FIRSTNIBSGRADEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> FIRSTSCOREField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string REMARKField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SECONDNIBSGRADEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> SECONDSCOREField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER T_HR_ASSESSMENTFORMMASTERField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER> T_HR_ASSESSMENTFORMMASTERReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSETField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET> T_HR_CHECKPOINTSETReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UPDATEUSERIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ASSESSMENTFORMDETAILID {
-            get {
-                return this.ASSESSMENTFORMDETAILIDField;
-            }
-            set {
-                this.ASSESSMENTFORMDETAILIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKPOINT {
-            get {
-                return this.CHECKPOINTField;
-            }
-            set {
-                this.CHECKPOINTField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                this.CREATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                this.CREATEUSERIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FIRSTNIBSGRADE {
-            get {
-                return this.FIRSTNIBSGRADEField;
-            }
-            set {
-                this.FIRSTNIBSGRADEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> FIRSTSCORE {
-            get {
-                return this.FIRSTSCOREField;
-            }
-            set {
-                this.FIRSTSCOREField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                this.REMARKField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SECONDNIBSGRADE {
-            get {
-                return this.SECONDNIBSGRADEField;
-            }
-            set {
-                this.SECONDNIBSGRADEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> SECONDSCORE {
-            get {
-                return this.SECONDSCOREField;
-            }
-            set {
-                this.SECONDSCOREField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER T_HR_ASSESSMENTFORMMASTER {
-            get {
-                return this.T_HR_ASSESSMENTFORMMASTERField;
-            }
-            set {
-                this.T_HR_ASSESSMENTFORMMASTERField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER> T_HR_ASSESSMENTFORMMASTERReference {
-            get {
-                return this.T_HR_ASSESSMENTFORMMASTERReferenceField;
-            }
-            set {
-                this.T_HR_ASSESSMENTFORMMASTERReferenceField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSET {
-            get {
-                return this.T_HR_CHECKPOINTSETField;
-            }
-            set {
-                this.T_HR_CHECKPOINTSETField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET> T_HR_CHECKPOINTSETReference {
-            get {
-                return this.T_HR_CHECKPOINTSETReferenceField;
-            }
-            set {
-                this.T_HR_CHECKPOINTSETReferenceField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                this.UPDATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                this.UPDATEUSERIDField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ASSESSMENTFORMMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class T_HR_ASSESSMENTFORMMASTER : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ASSESSMENTFORMMASTERIDField;
+        private byte[] ATTACHMENTField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ATTACHMENTPATHField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> AWARDSSCOREField;
+        private string CHECKSTATEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKENDDATEField;
+        private string CONTACTCODEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKPERSONField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKREASONField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKSTARTDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKTYPEField;
+        private System.Nullable<decimal> CONTACTPERIODField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CREATECOMPANYIDField;
@@ -277,37 +56,22 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         private string CREATEUSERIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEECODEField;
+        private string EDITSTATEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEEIDField;
+        private string EMPLOYEECONTACTIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEELEVELField;
+        private System.Nullable<System.DateTime> ENDDATEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEENAMEField;
+        private System.Nullable<System.DateTime> FROMDATEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FIRSTCOMMENTField;
+        private string ISSPECIALCONTRACTField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> FIRSTCOMMENTDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FIRSTCOMMENTNAMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> FIRSTNIBSGRADESUMField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> HRCOMMENTDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string HRCOMMENTNAMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string HRDEPARTMENTCOMMENTField;
+        private string NOENDDATEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OWNERCOMPANYIDField;
@@ -322,40 +86,19 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         private string OWNERPOSTIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> PUNISHMENTSCOREField;
+        private string REASONField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string REMARKField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SECONDCOMMENTField;
+        private string TODATEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> SECONDCOMMENTDATEField;
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SECONDCOMMENTNAMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> SECONDNIBSGRADESUMField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> TOTALSCOREField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] T_HR_ASSESSMENTFORMDETAILField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK T_HR_EMPLOYEECHECKField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK> T_HR_EMPLOYEECHECKReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE T_HR_EMPLOYEEPOSTCHANGEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE> T_HR_EMPLOYEEPOSTCHANGEReferenceField;
+        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE> T_HR_EMPLOYEEReferenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> UPDATEDATEField;
@@ -374,12 +117,22 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ASSESSMENTFORMMASTERID {
+        public string ALARMDAY {
             get {
-                return this.ASSESSMENTFORMMASTERIDField;
+                return this.ALARMDAYField;
             }
             set {
-                this.ASSESSMENTFORMMASTERIDField = value;
+                this.ALARMDAYField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] ATTACHMENT {
+            get {
+                return this.ATTACHMENTField;
+            }
+            set {
+                this.ATTACHMENTField = value;
             }
         }
         
@@ -394,62 +147,32 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AWARDSSCORE {
+        public string CHECKSTATE {
             get {
-                return this.AWARDSSCOREField;
+                return this.CHECKSTATEField;
             }
             set {
-                this.AWARDSSCOREField = value;
+                this.CHECKSTATEField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKENDDATE {
+        public string CONTACTCODE {
             get {
-                return this.CHECKENDDATEField;
+                return this.CONTACTCODEField;
             }
             set {
-                this.CHECKENDDATEField = value;
+                this.CONTACTCODEField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKPERSON {
+        public System.Nullable<decimal> CONTACTPERIOD {
             get {
-                return this.CHECKPERSONField;
+                return this.CONTACTPERIODField;
             }
             set {
-                this.CHECKPERSONField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKREASON {
-            get {
-                return this.CHECKREASONField;
-            }
-            set {
-                this.CHECKREASONField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTARTDATE {
-            get {
-                return this.CHECKSTARTDATEField;
-            }
-            set {
-                this.CHECKSTARTDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKTYPE {
-            get {
-                return this.CHECKTYPEField;
-            }
-            set {
-                this.CHECKTYPEField = value;
+                this.CONTACTPERIODField = value;
             }
         }
         
@@ -504,112 +227,62 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECODE {
+        public string EDITSTATE {
             get {
-                return this.EMPLOYEECODEField;
+                return this.EDITSTATEField;
             }
             set {
-                this.EMPLOYEECODEField = value;
+                this.EDITSTATEField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEID {
+        public string EMPLOYEECONTACTID {
             get {
-                return this.EMPLOYEEIDField;
+                return this.EMPLOYEECONTACTIDField;
             }
             set {
-                this.EMPLOYEEIDField = value;
+                this.EMPLOYEECONTACTIDField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEELEVEL {
+        public System.Nullable<System.DateTime> ENDDATE {
             get {
-                return this.EMPLOYEELEVELField;
+                return this.ENDDATEField;
             }
             set {
-                this.EMPLOYEELEVELField = value;
+                this.ENDDATEField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEENAME {
+        public System.Nullable<System.DateTime> FROMDATE {
             get {
-                return this.EMPLOYEENAMEField;
+                return this.FROMDATEField;
             }
             set {
-                this.EMPLOYEENAMEField = value;
+                this.FROMDATEField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FIRSTCOMMENT {
+        public string ISSPECIALCONTRACT {
             get {
-                return this.FIRSTCOMMENTField;
+                return this.ISSPECIALCONTRACTField;
             }
             set {
-                this.FIRSTCOMMENTField = value;
+                this.ISSPECIALCONTRACTField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> FIRSTCOMMENTDATE {
+        public string NOENDDATE {
             get {
-                return this.FIRSTCOMMENTDATEField;
+                return this.NOENDDATEField;
             }
             set {
-                this.FIRSTCOMMENTDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FIRSTCOMMENTNAME {
-            get {
-                return this.FIRSTCOMMENTNAMEField;
-            }
-            set {
-                this.FIRSTCOMMENTNAMEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> FIRSTNIBSGRADESUM {
-            get {
-                return this.FIRSTNIBSGRADESUMField;
-            }
-            set {
-                this.FIRSTNIBSGRADESUMField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> HRCOMMENTDATE {
-            get {
-                return this.HRCOMMENTDATEField;
-            }
-            set {
-                this.HRCOMMENTDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string HRCOMMENTNAME {
-            get {
-                return this.HRCOMMENTNAMEField;
-            }
-            set {
-                this.HRCOMMENTNAMEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string HRDEPARTMENTCOMMENT {
-            get {
-                return this.HRDEPARTMENTCOMMENTField;
-            }
-            set {
-                this.HRDEPARTMENTCOMMENTField = value;
+                this.NOENDDATEField = value;
             }
         }
         
@@ -654,12 +327,12 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> PUNISHMENTSCORE {
+        public string REASON {
             get {
-                return this.PUNISHMENTSCOREField;
+                return this.REASONField;
             }
             set {
-                this.PUNISHMENTSCOREField = value;
+                this.REASONField = value;
             }
         }
         
@@ -674,360 +347,12 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SECONDCOMMENT {
+        public string TODATE {
             get {
-                return this.SECONDCOMMENTField;
+                return this.TODATEField;
             }
             set {
-                this.SECONDCOMMENTField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> SECONDCOMMENTDATE {
-            get {
-                return this.SECONDCOMMENTDATEField;
-            }
-            set {
-                this.SECONDCOMMENTDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SECONDCOMMENTNAME {
-            get {
-                return this.SECONDCOMMENTNAMEField;
-            }
-            set {
-                this.SECONDCOMMENTNAMEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> SECONDNIBSGRADESUM {
-            get {
-                return this.SECONDNIBSGRADESUMField;
-            }
-            set {
-                this.SECONDNIBSGRADESUMField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> TOTALSCORE {
-            get {
-                return this.TOTALSCOREField;
-            }
-            set {
-                this.TOTALSCOREField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] T_HR_ASSESSMENTFORMDETAIL {
-            get {
-                return this.T_HR_ASSESSMENTFORMDETAILField;
-            }
-            set {
-                this.T_HR_ASSESSMENTFORMDETAILField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK T_HR_EMPLOYEECHECK {
-            get {
-                return this.T_HR_EMPLOYEECHECKField;
-            }
-            set {
-                this.T_HR_EMPLOYEECHECKField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK> T_HR_EMPLOYEECHECKReference {
-            get {
-                return this.T_HR_EMPLOYEECHECKReferenceField;
-            }
-            set {
-                this.T_HR_EMPLOYEECHECKReferenceField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE T_HR_EMPLOYEEPOSTCHANGE {
-            get {
-                return this.T_HR_EMPLOYEEPOSTCHANGEField;
-            }
-            set {
-                this.T_HR_EMPLOYEEPOSTCHANGEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE> T_HR_EMPLOYEEPOSTCHANGEReference {
-            get {
-                return this.T_HR_EMPLOYEEPOSTCHANGEReferenceField;
-            }
-            set {
-                this.T_HR_EMPLOYEEPOSTCHANGEReferenceField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                this.UPDATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                this.UPDATEUSERIDField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPOINTSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class T_HR_CHECKPOINTSET : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKEMPLOYEETYPEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKPOINTField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKPOINTDESField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> CHECKPOINTSCOREField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKPOINTSETIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEUSERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string REMARKField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] T_HR_ASSESSMENTFORMDETAILField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[] T_HR_CHECKPOINTLEVELSETField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET T_HR_CHECKPROJECTSETField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET> T_HR_CHECKPROJECTSETReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UPDATEUSERIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKEMPLOYEETYPE {
-            get {
-                return this.CHECKEMPLOYEETYPEField;
-            }
-            set {
-                this.CHECKEMPLOYEETYPEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKPOINT {
-            get {
-                return this.CHECKPOINTField;
-            }
-            set {
-                this.CHECKPOINTField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKPOINTDES {
-            get {
-                return this.CHECKPOINTDESField;
-            }
-            set {
-                this.CHECKPOINTDESField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> CHECKPOINTSCORE {
-            get {
-                return this.CHECKPOINTSCOREField;
-            }
-            set {
-                this.CHECKPOINTSCOREField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKPOINTSETID {
-            get {
-                return this.CHECKPOINTSETIDField;
-            }
-            set {
-                this.CHECKPOINTSETIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                this.CREATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                this.CREATEUSERIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                this.REMARKField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] T_HR_ASSESSMENTFORMDETAIL {
-            get {
-                return this.T_HR_ASSESSMENTFORMDETAILField;
-            }
-            set {
-                this.T_HR_ASSESSMENTFORMDETAILField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[] T_HR_CHECKPOINTLEVELSET {
-            get {
-                return this.T_HR_CHECKPOINTLEVELSETField;
-            }
-            set {
-                this.T_HR_CHECKPOINTLEVELSETField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET T_HR_CHECKPROJECTSET {
-            get {
-                return this.T_HR_CHECKPROJECTSETField;
-            }
-            set {
-                this.T_HR_CHECKPROJECTSETField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET> T_HR_CHECKPROJECTSETReference {
-            get {
-                return this.T_HR_CHECKPROJECTSETReferenceField;
-            }
-            set {
-                this.T_HR_CHECKPROJECTSETReferenceField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                this.UPDATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                this.UPDATEUSERIDField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_EMPLOYEEPOST", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class V_EMPLOYEEPOST : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST[] EMPLOYEEPOSTSField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST[] EMPLOYEEPOSTS {
-            get {
-                return this.EMPLOYEEPOSTSField;
-            }
-            set {
-                this.EMPLOYEEPOSTSField = value;
+                this.TODATEField = value;
             }
         }
         
@@ -1038,6 +363,36 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
             }
             set {
                 this.T_HR_EMPLOYEEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE> T_HR_EMPLOYEEReference {
+            get {
+                return this.T_HR_EMPLOYEEReferenceField;
+            }
+            set {
+                this.T_HR_EMPLOYEEReferenceField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                this.UPDATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                this.UPDATEUSERIDField = value;
             }
         }
     }
@@ -1929,6 +1284,52 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
             }
             set {
                 this.WORKINGAGEField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_EMPLOYEEPOST", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class V_EMPLOYEEPOST : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST[] EMPLOYEEPOSTSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST[] EMPLOYEEPOSTS {
+            get {
+                return this.EMPLOYEEPOSTSField;
+            }
+            set {
+                this.EMPLOYEEPOSTSField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE T_HR_EMPLOYEE {
+            get {
+                return this.T_HR_EMPLOYEEField;
+            }
+            set {
+                this.T_HR_EMPLOYEEField = value;
             }
         }
     }
@@ -4421,390 +3822,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECONTRACT", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class T_HR_EMPLOYEECONTRACT : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ALARMDAYField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] ATTACHMENTField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ATTACHMENTPATHField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKSTATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CONTACTCODEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> CONTACTPERIODField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATECOMPANYIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEDEPARTMENTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEPOSTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEUSERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EDITSTATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEECONTACTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> ENDDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> FROMDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ISSPECIALCONTRACTField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NOENDDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OWNERCOMPANYIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OWNERDEPARTMENTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OWNERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OWNERPOSTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string REASONField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string REMARKField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TODATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE> T_HR_EMPLOYEEReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UPDATEUSERIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ALARMDAY {
-            get {
-                return this.ALARMDAYField;
-            }
-            set {
-                this.ALARMDAYField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] ATTACHMENT {
-            get {
-                return this.ATTACHMENTField;
-            }
-            set {
-                this.ATTACHMENTField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ATTACHMENTPATH {
-            get {
-                return this.ATTACHMENTPATHField;
-            }
-            set {
-                this.ATTACHMENTPATHField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                this.CHECKSTATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CONTACTCODE {
-            get {
-                return this.CONTACTCODEField;
-            }
-            set {
-                this.CONTACTCODEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> CONTACTPERIOD {
-            get {
-                return this.CONTACTPERIODField;
-            }
-            set {
-                this.CONTACTPERIODField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                this.CREATECOMPANYIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                this.CREATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                this.CREATEDEPARTMENTIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                this.CREATEPOSTIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                this.CREATEUSERIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITSTATE {
-            get {
-                return this.EDITSTATEField;
-            }
-            set {
-                this.EDITSTATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECONTACTID {
-            get {
-                return this.EMPLOYEECONTACTIDField;
-            }
-            set {
-                this.EMPLOYEECONTACTIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ENDDATE {
-            get {
-                return this.ENDDATEField;
-            }
-            set {
-                this.ENDDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> FROMDATE {
-            get {
-                return this.FROMDATEField;
-            }
-            set {
-                this.FROMDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ISSPECIALCONTRACT {
-            get {
-                return this.ISSPECIALCONTRACTField;
-            }
-            set {
-                this.ISSPECIALCONTRACTField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NOENDDATE {
-            get {
-                return this.NOENDDATEField;
-            }
-            set {
-                this.NOENDDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                this.OWNERCOMPANYIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                this.OWNERDEPARTMENTIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                this.OWNERIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                this.OWNERPOSTIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REASON {
-            get {
-                return this.REASONField;
-            }
-            set {
-                this.REASONField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                this.REMARKField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TODATE {
-            get {
-                return this.TODATEField;
-            }
-            set {
-                this.TODATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE T_HR_EMPLOYEE {
-            get {
-                return this.T_HR_EMPLOYEEField;
-            }
-            set {
-                this.T_HR_EMPLOYEEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE> T_HR_EMPLOYEEReference {
-            get {
-                return this.T_HR_EMPLOYEEReferenceField;
-            }
-            set {
-                this.T_HR_EMPLOYEEReferenceField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                this.UPDATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                this.UPDATEUSERIDField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEENTRY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class T_HR_EMPLOYEEENTRY : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
@@ -6517,6 +5534,911 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ASSESSMENTFORMMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class T_HR_ASSESSMENTFORMMASTER : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ASSESSMENTFORMMASTERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ATTACHMENTPATHField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> AWARDSSCOREField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKENDDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKPERSONField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKREASONField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKSTARTDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKTYPEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATECOMPANYIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEDEPARTMENTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEPOSTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEUSERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMPLOYEECODEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMPLOYEEIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMPLOYEELEVELField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMPLOYEENAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FIRSTCOMMENTField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> FIRSTCOMMENTDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FIRSTCOMMENTNAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> FIRSTNIBSGRADESUMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> HRCOMMENTDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HRCOMMENTNAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HRDEPARTMENTCOMMENTField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OWNERCOMPANYIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OWNERDEPARTMENTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OWNERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OWNERPOSTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> PUNISHMENTSCOREField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string REMARKField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SECONDCOMMENTField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> SECONDCOMMENTDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SECONDCOMMENTNAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> SECONDNIBSGRADESUMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> TOTALSCOREField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] T_HR_ASSESSMENTFORMDETAILField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK T_HR_EMPLOYEECHECKField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK> T_HR_EMPLOYEECHECKReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE T_HR_EMPLOYEEPOSTCHANGEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE> T_HR_EMPLOYEEPOSTCHANGEReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UPDATEUSERIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ASSESSMENTFORMMASTERID {
+            get {
+                return this.ASSESSMENTFORMMASTERIDField;
+            }
+            set {
+                this.ASSESSMENTFORMMASTERIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ATTACHMENTPATH {
+            get {
+                return this.ATTACHMENTPATHField;
+            }
+            set {
+                this.ATTACHMENTPATHField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AWARDSSCORE {
+            get {
+                return this.AWARDSSCOREField;
+            }
+            set {
+                this.AWARDSSCOREField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKENDDATE {
+            get {
+                return this.CHECKENDDATEField;
+            }
+            set {
+                this.CHECKENDDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKPERSON {
+            get {
+                return this.CHECKPERSONField;
+            }
+            set {
+                this.CHECKPERSONField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKREASON {
+            get {
+                return this.CHECKREASONField;
+            }
+            set {
+                this.CHECKREASONField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTARTDATE {
+            get {
+                return this.CHECKSTARTDATEField;
+            }
+            set {
+                this.CHECKSTARTDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKTYPE {
+            get {
+                return this.CHECKTYPEField;
+            }
+            set {
+                this.CHECKTYPEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                this.CREATECOMPANYIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                this.CREATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                this.CREATEDEPARTMENTIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                this.CREATEPOSTIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                this.CREATEUSERIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEECODE {
+            get {
+                return this.EMPLOYEECODEField;
+            }
+            set {
+                this.EMPLOYEECODEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                this.EMPLOYEEIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEELEVEL {
+            get {
+                return this.EMPLOYEELEVELField;
+            }
+            set {
+                this.EMPLOYEELEVELField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                this.EMPLOYEENAMEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FIRSTCOMMENT {
+            get {
+                return this.FIRSTCOMMENTField;
+            }
+            set {
+                this.FIRSTCOMMENTField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> FIRSTCOMMENTDATE {
+            get {
+                return this.FIRSTCOMMENTDATEField;
+            }
+            set {
+                this.FIRSTCOMMENTDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FIRSTCOMMENTNAME {
+            get {
+                return this.FIRSTCOMMENTNAMEField;
+            }
+            set {
+                this.FIRSTCOMMENTNAMEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> FIRSTNIBSGRADESUM {
+            get {
+                return this.FIRSTNIBSGRADESUMField;
+            }
+            set {
+                this.FIRSTNIBSGRADESUMField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> HRCOMMENTDATE {
+            get {
+                return this.HRCOMMENTDATEField;
+            }
+            set {
+                this.HRCOMMENTDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HRCOMMENTNAME {
+            get {
+                return this.HRCOMMENTNAMEField;
+            }
+            set {
+                this.HRCOMMENTNAMEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HRDEPARTMENTCOMMENT {
+            get {
+                return this.HRDEPARTMENTCOMMENTField;
+            }
+            set {
+                this.HRDEPARTMENTCOMMENTField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                this.OWNERCOMPANYIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                this.OWNERDEPARTMENTIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                this.OWNERIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                this.OWNERPOSTIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> PUNISHMENTSCORE {
+            get {
+                return this.PUNISHMENTSCOREField;
+            }
+            set {
+                this.PUNISHMENTSCOREField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                this.REMARKField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SECONDCOMMENT {
+            get {
+                return this.SECONDCOMMENTField;
+            }
+            set {
+                this.SECONDCOMMENTField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> SECONDCOMMENTDATE {
+            get {
+                return this.SECONDCOMMENTDATEField;
+            }
+            set {
+                this.SECONDCOMMENTDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SECONDCOMMENTNAME {
+            get {
+                return this.SECONDCOMMENTNAMEField;
+            }
+            set {
+                this.SECONDCOMMENTNAMEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> SECONDNIBSGRADESUM {
+            get {
+                return this.SECONDNIBSGRADESUMField;
+            }
+            set {
+                this.SECONDNIBSGRADESUMField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> TOTALSCORE {
+            get {
+                return this.TOTALSCOREField;
+            }
+            set {
+                this.TOTALSCOREField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] T_HR_ASSESSMENTFORMDETAIL {
+            get {
+                return this.T_HR_ASSESSMENTFORMDETAILField;
+            }
+            set {
+                this.T_HR_ASSESSMENTFORMDETAILField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK T_HR_EMPLOYEECHECK {
+            get {
+                return this.T_HR_EMPLOYEECHECKField;
+            }
+            set {
+                this.T_HR_EMPLOYEECHECKField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK> T_HR_EMPLOYEECHECKReference {
+            get {
+                return this.T_HR_EMPLOYEECHECKReferenceField;
+            }
+            set {
+                this.T_HR_EMPLOYEECHECKReferenceField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE T_HR_EMPLOYEEPOSTCHANGE {
+            get {
+                return this.T_HR_EMPLOYEEPOSTCHANGEField;
+            }
+            set {
+                this.T_HR_EMPLOYEEPOSTCHANGEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE> T_HR_EMPLOYEEPOSTCHANGEReference {
+            get {
+                return this.T_HR_EMPLOYEEPOSTCHANGEReferenceField;
+            }
+            set {
+                this.T_HR_EMPLOYEEPOSTCHANGEReferenceField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                this.UPDATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                this.UPDATEUSERIDField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPOINTSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class T_HR_CHECKPOINTSET : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKEMPLOYEETYPEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKPOINTField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKPOINTDESField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> CHECKPOINTSCOREField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKPOINTSETIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEUSERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string REMARKField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] T_HR_ASSESSMENTFORMDETAILField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[] T_HR_CHECKPOINTLEVELSETField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET T_HR_CHECKPROJECTSETField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET> T_HR_CHECKPROJECTSETReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UPDATEUSERIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKEMPLOYEETYPE {
+            get {
+                return this.CHECKEMPLOYEETYPEField;
+            }
+            set {
+                this.CHECKEMPLOYEETYPEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKPOINT {
+            get {
+                return this.CHECKPOINTField;
+            }
+            set {
+                this.CHECKPOINTField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKPOINTDES {
+            get {
+                return this.CHECKPOINTDESField;
+            }
+            set {
+                this.CHECKPOINTDESField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> CHECKPOINTSCORE {
+            get {
+                return this.CHECKPOINTSCOREField;
+            }
+            set {
+                this.CHECKPOINTSCOREField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKPOINTSETID {
+            get {
+                return this.CHECKPOINTSETIDField;
+            }
+            set {
+                this.CHECKPOINTSETIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                this.CREATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                this.CREATEUSERIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                this.REMARKField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] T_HR_ASSESSMENTFORMDETAIL {
+            get {
+                return this.T_HR_ASSESSMENTFORMDETAILField;
+            }
+            set {
+                this.T_HR_ASSESSMENTFORMDETAILField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[] T_HR_CHECKPOINTLEVELSET {
+            get {
+                return this.T_HR_CHECKPOINTLEVELSETField;
+            }
+            set {
+                this.T_HR_CHECKPOINTLEVELSETField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET T_HR_CHECKPROJECTSET {
+            get {
+                return this.T_HR_CHECKPROJECTSETField;
+            }
+            set {
+                this.T_HR_CHECKPROJECTSETField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET> T_HR_CHECKPROJECTSETReference {
+            get {
+                return this.T_HR_CHECKPROJECTSETReferenceField;
+            }
+            set {
+                this.T_HR_CHECKPROJECTSETReferenceField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                this.UPDATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                this.UPDATEUSERIDField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPROJECTSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class T_HR_CHECKPROJECTSET : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKPROJECTField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKPROJECTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> CHECKPROJECTSCOREField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEUSERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string REMARKField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[] T_HR_CHECKPOINTSETField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UPDATEUSERIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKPROJECT {
+            get {
+                return this.CHECKPROJECTField;
+            }
+            set {
+                this.CHECKPROJECTField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKPROJECTID {
+            get {
+                return this.CHECKPROJECTIDField;
+            }
+            set {
+                this.CHECKPROJECTIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> CHECKPROJECTSCORE {
+            get {
+                return this.CHECKPROJECTSCOREField;
+            }
+            set {
+                this.CHECKPROJECTSCOREField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                this.CREATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                this.CREATEUSERIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                this.REMARKField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[] T_HR_CHECKPOINTSET {
+            get {
+                return this.T_HR_CHECKPOINTSETField;
+            }
+            set {
+                this.T_HR_CHECKPOINTSETField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                this.UPDATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                this.UPDATEUSERIDField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_COMPANY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class T_HR_COMPANY : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
@@ -8040,143 +7962,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPROJECTSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class T_HR_CHECKPROJECTSET : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKPROJECTField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKPROJECTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> CHECKPROJECTSCOREField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEUSERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string REMARKField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[] T_HR_CHECKPOINTSETField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UPDATEUSERIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKPROJECT {
-            get {
-                return this.CHECKPROJECTField;
-            }
-            set {
-                this.CHECKPROJECTField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKPROJECTID {
-            get {
-                return this.CHECKPROJECTIDField;
-            }
-            set {
-                this.CHECKPROJECTIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> CHECKPROJECTSCORE {
-            get {
-                return this.CHECKPROJECTSCOREField;
-            }
-            set {
-                this.CHECKPROJECTSCOREField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                this.CREATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                this.CREATEUSERIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                this.REMARKField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[] T_HR_CHECKPOINTSET {
-            get {
-                return this.T_HR_CHECKPOINTSETField;
-            }
-            set {
-                this.T_HR_CHECKPOINTSETField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                this.UPDATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                this.UPDATEUSERIDField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_IMPORTSETMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class T_HR_IMPORTSETMASTER : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
@@ -8431,6 +8216,371 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
             }
             set {
                 this.T_HR_IMPORTSETDETAILField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                this.UPDATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                this.UPDATEUSERIDField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ASSESSMENTFORMDETAIL", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class T_HR_ASSESSMENTFORMDETAIL : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ASSESSMENTFORMDETAILIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKPOINTField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEUSERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FIRSTNIBSGRADEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> FIRSTSCOREField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string REMARKField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SECONDNIBSGRADEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> SECONDSCOREField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER T_HR_ASSESSMENTFORMMASTERField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER> T_HR_ASSESSMENTFORMMASTERReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSETField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET> T_HR_CHECKPOINTSETReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UPDATEUSERIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ASSESSMENTFORMDETAILID {
+            get {
+                return this.ASSESSMENTFORMDETAILIDField;
+            }
+            set {
+                this.ASSESSMENTFORMDETAILIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKPOINT {
+            get {
+                return this.CHECKPOINTField;
+            }
+            set {
+                this.CHECKPOINTField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                this.CREATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                this.CREATEUSERIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FIRSTNIBSGRADE {
+            get {
+                return this.FIRSTNIBSGRADEField;
+            }
+            set {
+                this.FIRSTNIBSGRADEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> FIRSTSCORE {
+            get {
+                return this.FIRSTSCOREField;
+            }
+            set {
+                this.FIRSTSCOREField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                this.REMARKField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SECONDNIBSGRADE {
+            get {
+                return this.SECONDNIBSGRADEField;
+            }
+            set {
+                this.SECONDNIBSGRADEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> SECONDSCORE {
+            get {
+                return this.SECONDSCOREField;
+            }
+            set {
+                this.SECONDSCOREField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER T_HR_ASSESSMENTFORMMASTER {
+            get {
+                return this.T_HR_ASSESSMENTFORMMASTERField;
+            }
+            set {
+                this.T_HR_ASSESSMENTFORMMASTERField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER> T_HR_ASSESSMENTFORMMASTERReference {
+            get {
+                return this.T_HR_ASSESSMENTFORMMASTERReferenceField;
+            }
+            set {
+                this.T_HR_ASSESSMENTFORMMASTERReferenceField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSET {
+            get {
+                return this.T_HR_CHECKPOINTSETField;
+            }
+            set {
+                this.T_HR_CHECKPOINTSETField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET> T_HR_CHECKPOINTSETReference {
+            get {
+                return this.T_HR_CHECKPOINTSETReferenceField;
+            }
+            set {
+                this.T_HR_CHECKPOINTSETReferenceField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                this.UPDATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                this.UPDATEUSERIDField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPOINTLEVELSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class T_HR_CHECKPOINTLEVELSET : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEUSERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string POINTLEVEIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string POINTLEVELField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> POINTSCOREField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string REMARKField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSETField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET> T_HR_CHECKPOINTSETReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UPDATEUSERIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                this.CREATEDATEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                this.CREATEUSERIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POINTLEVEID {
+            get {
+                return this.POINTLEVEIDField;
+            }
+            set {
+                this.POINTLEVEIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POINTLEVEL {
+            get {
+                return this.POINTLEVELField;
+            }
+            set {
+                this.POINTLEVELField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> POINTSCORE {
+            get {
+                return this.POINTSCOREField;
+            }
+            set {
+                this.POINTSCOREField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                this.REMARKField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSET {
+            get {
+                return this.T_HR_CHECKPOINTSETField;
+            }
+            set {
+                this.T_HR_CHECKPOINTSETField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET> T_HR_CHECKPOINTSETReference {
+            get {
+                return this.T_HR_CHECKPOINTSETReferenceField;
+            }
+            set {
+                this.T_HR_CHECKPOINTSETReferenceField = value;
             }
         }
         
@@ -11464,156 +11614,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
             }
             set {
                 this.UNDERNUMBERField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                this.UPDATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                this.UPDATEUSERIDField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPOINTLEVELSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class T_HR_CHECKPOINTLEVELSET : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEUSERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string POINTLEVEIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string POINTLEVELField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> POINTSCOREField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string REMARKField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSETField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET> T_HR_CHECKPOINTSETReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UPDATEUSERIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                this.CREATEDATEField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                this.CREATEUSERIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POINTLEVEID {
-            get {
-                return this.POINTLEVEIDField;
-            }
-            set {
-                this.POINTLEVEIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POINTLEVEL {
-            get {
-                return this.POINTLEVELField;
-            }
-            set {
-                this.POINTLEVELField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> POINTSCORE {
-            get {
-                return this.POINTSCOREField;
-            }
-            set {
-                this.POINTSCOREField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                this.REMARKField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSET {
-            get {
-                return this.T_HR_CHECKPOINTSETField;
-            }
-            set {
-                this.T_HR_CHECKPOINTSETField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET> T_HR_CHECKPOINTSETReference {
-            get {
-                return this.T_HR_CHECKPOINTSETReferenceField;
-            }
-            set {
-                this.T_HR_CHECKPOINTSETReferenceField = value;
             }
         }
         
@@ -17816,6 +17816,547 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_EmployeeEntryInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
+    [System.SerializableAttribute()]
+    public partial class V_EmployeeEntryInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BankField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BankCardNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BirthdayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompamyIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompanyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CurrentAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DepartmentIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DepartmentNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmployeeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmployeeNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EntryDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMsgField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FamilyAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FingerPrintIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MobileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OnPostDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerCompanyIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerDepartmentIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerPostIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PassWordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PostIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PostLevelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PostNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RegResidenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SexField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SexDicField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SocialServiceYearField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Bank {
+            get {
+                return this.BankField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BankField, value) != true)) {
+                    this.BankField = value;
+                    this.RaisePropertyChanged("Bank");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BankCardNumber {
+            get {
+                return this.BankCardNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BankCardNumberField, value) != true)) {
+                    this.BankCardNumberField = value;
+                    this.RaisePropertyChanged("BankCardNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Birthday {
+            get {
+                return this.BirthdayField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BirthdayField, value) != true)) {
+                    this.BirthdayField = value;
+                    this.RaisePropertyChanged("Birthday");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompamyID {
+            get {
+                return this.CompamyIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompamyIDField, value) != true)) {
+                    this.CompamyIDField = value;
+                    this.RaisePropertyChanged("CompamyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompanyName {
+            get {
+                return this.CompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
+                    this.CompanyNameField = value;
+                    this.RaisePropertyChanged("CompanyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CurrentAddress {
+            get {
+                return this.CurrentAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CurrentAddressField, value) != true)) {
+                    this.CurrentAddressField = value;
+                    this.RaisePropertyChanged("CurrentAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DepartmentID {
+            get {
+                return this.DepartmentIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentIDField, value) != true)) {
+                    this.DepartmentIDField = value;
+                    this.RaisePropertyChanged("DepartmentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DepartmentName {
+            get {
+                return this.DepartmentNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentNameField, value) != true)) {
+                    this.DepartmentNameField = value;
+                    this.RaisePropertyChanged("DepartmentName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeeID {
+            get {
+                return this.EmployeeIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeeIDField, value) != true)) {
+                    this.EmployeeIDField = value;
+                    this.RaisePropertyChanged("EmployeeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeeName {
+            get {
+                return this.EmployeeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeeNameField, value) != true)) {
+                    this.EmployeeNameField = value;
+                    this.RaisePropertyChanged("EmployeeName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EntryDate {
+            get {
+                return this.EntryDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntryDateField, value) != true)) {
+                    this.EntryDateField = value;
+                    this.RaisePropertyChanged("EntryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMsg {
+            get {
+                return this.ErrorMsgField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMsgField, value) != true)) {
+                    this.ErrorMsgField = value;
+                    this.RaisePropertyChanged("ErrorMsg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FamilyAddress {
+            get {
+                return this.FamilyAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FamilyAddressField, value) != true)) {
+                    this.FamilyAddressField = value;
+                    this.RaisePropertyChanged("FamilyAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FingerPrintID {
+            get {
+                return this.FingerPrintIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FingerPrintIDField, value) != true)) {
+                    this.FingerPrintIDField = value;
+                    this.RaisePropertyChanged("FingerPrintID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Height {
+            get {
+                return this.HeightField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HeightField, value) != true)) {
+                    this.HeightField = value;
+                    this.RaisePropertyChanged("Height");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdNumber {
+            get {
+                return this.IdNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdNumberField, value) != true)) {
+                    this.IdNumberField = value;
+                    this.RaisePropertyChanged("IdNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mobile {
+            get {
+                return this.MobileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MobileField, value) != true)) {
+                    this.MobileField = value;
+                    this.RaisePropertyChanged("Mobile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OnPostDate {
+            get {
+                return this.OnPostDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OnPostDateField, value) != true)) {
+                    this.OnPostDateField = value;
+                    this.RaisePropertyChanged("OnPostDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OwnerCompanyID {
+            get {
+                return this.OwnerCompanyIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerCompanyIDField, value) != true)) {
+                    this.OwnerCompanyIDField = value;
+                    this.RaisePropertyChanged("OwnerCompanyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OwnerDepartmentID {
+            get {
+                return this.OwnerDepartmentIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerDepartmentIDField, value) != true)) {
+                    this.OwnerDepartmentIDField = value;
+                    this.RaisePropertyChanged("OwnerDepartmentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OwnerID {
+            get {
+                return this.OwnerIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerIDField, value) != true)) {
+                    this.OwnerIDField = value;
+                    this.RaisePropertyChanged("OwnerID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OwnerPostID {
+            get {
+                return this.OwnerPostIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerPostIDField, value) != true)) {
+                    this.OwnerPostIDField = value;
+                    this.RaisePropertyChanged("OwnerPostID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PassWord {
+            get {
+                return this.PassWordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PassWordField, value) != true)) {
+                    this.PassWordField = value;
+                    this.RaisePropertyChanged("PassWord");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PostID {
+            get {
+                return this.PostIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostIDField, value) != true)) {
+                    this.PostIDField = value;
+                    this.RaisePropertyChanged("PostID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PostLevel {
+            get {
+                return this.PostLevelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostLevelField, value) != true)) {
+                    this.PostLevelField = value;
+                    this.RaisePropertyChanged("PostLevel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PostName {
+            get {
+                return this.PostNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostNameField, value) != true)) {
+                    this.PostNameField = value;
+                    this.RaisePropertyChanged("PostName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RegResidence {
+            get {
+                return this.RegResidenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RegResidenceField, value) != true)) {
+                    this.RegResidenceField = value;
+                    this.RaisePropertyChanged("RegResidence");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sex {
+            get {
+                return this.SexField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SexField, value) != true)) {
+                    this.SexField = value;
+                    this.RaisePropertyChanged("Sex");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SexDic {
+            get {
+                return this.SexDicField;
+            }
+            set {
+                if ((this.SexDicField.Equals(value) != true)) {
+                    this.SexDicField = value;
+                    this.RaisePropertyChanged("SexDic");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SocialServiceYear {
+            get {
+                return this.SocialServiceYearField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SocialServiceYearField, value) != true)) {
+                    this.SocialServiceYearField = value;
+                    this.RaisePropertyChanged("SocialServiceYear");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="V_PENSIONALARMSET", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
     [System.SerializableAttribute()]
     public partial class V_PENSIONALARMSET : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -17959,15 +18500,35 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="PersonnelWS.PersonnelService")]
     public interface PersonnelService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetAssessmentFormDetailByMasterID", ReplyAction="urn:PersonnelService/GetAssessmentFormDetailByMasterIDResponse")]
-        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] GetAssessmentFormDetailByMasterID(string masterID);
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeeContractEngineXml", ReplyAction="urn:PersonnelService/GetEmployeeContractEngineXmlResponse")]
+        void GetEmployeeContractEngineXml(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT entity);
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/ImportSetMasterPaging", ReplyAction="urn:PersonnelService/ImportSetMasterPagingResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/EmployeeContractAlarm", ReplyAction="urn:PersonnelService/EmployeeContractAlarmResponse")]
+        void EmployeeContractAlarm(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT entity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/AssessmentFormMasterAdd", ReplyAction="urn:PersonnelService/AssessmentFormMasterAddResponse")]
+        void AssessmentFormMasterAdd(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER entity, SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] tmpList);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/AssessmentFormMasterUpdate", ReplyAction="urn:PersonnelService/AssessmentFormMasterUpdateResponse")]
+        void AssessmentFormMasterUpdate(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER entity, SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] tmpList);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetAssessMentFormMasterByObjectID", ReplyAction="urn:PersonnelService/GetAssessMentFormMasterByObjectIDResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER GetAssessMentFormMasterByObjectID(string objectID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetAssessMentFormMasterByID", ReplyAction="urn:PersonnelService/GetAssessMentFormMasterByIDResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER GetAssessMentFormMasterByID(string strID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/AssessmentFormMasterPaging", ReplyAction="urn:PersonnelService/AssessmentFormMasterPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -17977,11 +18538,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -18026,23 +18582,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -18071,7 +18635,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -18084,11 +18647,149 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONALARMSET))]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[] AssessmentFormMasterPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetAssessmentFormDetailByMasterID", ReplyAction="urn:PersonnelService/GetAssessmentFormDetailByMasterIDResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] GetAssessmentFormDetailByMasterID(string masterID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/ImportSetMasterPaging", ReplyAction="urn:PersonnelService/ImportSetMasterPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_POINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_POINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTBRIEF[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_UserLogin))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANYHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANYHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -18118,6 +18819,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -18127,11 +18833,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -18176,23 +18877,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -18221,7 +18930,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -18234,11 +18942,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -18259,6 +18962,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -18268,11 +18976,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -18317,23 +19020,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -18362,7 +19073,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -18375,11 +19085,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -18409,6 +19114,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -18418,11 +19128,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -18467,23 +19172,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -18512,7 +19225,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -18525,11 +19237,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -18577,6 +19284,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -18586,11 +19298,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -18635,23 +19342,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -18680,7 +19395,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -18693,11 +19407,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -18715,6 +19424,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -18724,11 +19438,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -18773,23 +19482,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -18818,7 +19535,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -18831,11 +19547,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -18856,6 +19567,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -18865,11 +19581,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -18914,23 +19625,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -18959,7 +19678,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -18972,11 +19690,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -18994,6 +19707,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -19003,11 +19721,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -19052,23 +19765,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -19097,7 +19818,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -19110,11 +19830,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -19135,6 +19850,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -19144,11 +19864,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -19193,23 +19908,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -19238,7 +19961,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -19251,11 +19973,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -19273,6 +19990,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -19282,11 +20004,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -19331,23 +20048,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -19376,7 +20101,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -19389,11 +20113,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -19414,6 +20133,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -19423,11 +20147,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -19472,23 +20191,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -19517,7 +20244,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -19530,11 +20256,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -19552,6 +20273,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -19561,11 +20287,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -19610,23 +20331,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -19655,7 +20384,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -19668,11 +20396,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -19684,12 +20407,35 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONALARMSET))]
         byte[] ExportEmployeeTructReports(string[] companyids, string sort, string filterString, object[] paras, string userID, string CompanyID, System.DateTime DtStart, System.DateTime DtEnd);
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/ExportPensionDetailReport", ReplyAction="urn:PersonnelService/ExportPensionDetailReportResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionMasterAdd", ReplyAction="urn:PersonnelService/PensionMasterAddResponse")]
+        void PensionMasterAdd(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER entity, ref string strMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionMasterUpdate", ReplyAction="urn:PersonnelService/PensionMasterUpdateResponse")]
+        void PensionMasterUpdate(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER entity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionMasterDelete", ReplyAction="urn:PersonnelService/PensionMasterDeleteResponse")]
+        bool PensionMasterDelete(string[] pensionMasterIDs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetPensionMasterByID", ReplyAction="urn:PersonnelService/GetPensionMasterByIDResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER GetPensionMasterByID(string pensionMasterID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetPensionMasterByEmployeeID", ReplyAction="urn:PersonnelService/GetPensionMasterByEmployeeIDResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER GetPensionMasterByEmployeeID(string employeeID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/UpdateEmployeeWorkAgeByID", ReplyAction="urn:PersonnelService/UpdateEmployeeWorkAgeByIDResponse")]
+        void UpdateEmployeeWorkAgeByID(string companyID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionDetailPaging", ReplyAction="urn:PersonnelService/PensionDetailPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -19699,11 +20445,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -19748,23 +20489,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -19793,7 +20542,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -19806,11 +20554,146 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONALARMSET))]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL[] PensionDetailPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/ExportPensionDetailReport", ReplyAction="urn:PersonnelService/ExportPensionDetailReportResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_POINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_POINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTBRIEF[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_UserLogin))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANYHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANYHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -19840,6 +20723,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -19849,11 +20737,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -19898,23 +20781,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -19943,7 +20834,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -19956,11 +20846,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -19990,6 +20875,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -19999,11 +20889,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -20048,23 +20933,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -20093,7 +20986,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -20106,11 +20998,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -20146,6 +21033,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -20155,11 +21047,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -20204,23 +21091,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -20249,7 +21144,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -20262,11 +21156,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -20284,6 +21173,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -20293,11 +21187,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -20342,23 +21231,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -20387,7 +21284,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -20400,11 +21296,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -20446,6 +21337,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -20455,11 +21351,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -20504,23 +21395,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -20549,7 +21448,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -20562,11 +21460,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -20584,6 +21477,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -20593,11 +21491,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -20642,23 +21535,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -20687,7 +21588,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -20700,11 +21600,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -20737,6 +21632,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -20746,11 +21646,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -20795,23 +21690,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -20840,7 +21743,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -20853,11 +21755,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -20983,6 +21880,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -20992,11 +21894,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -21041,23 +21938,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -21086,7 +21991,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -21099,11 +22003,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -21121,6 +22020,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -21130,11 +22034,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -21179,23 +22078,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -21224,7 +22131,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -21237,11 +22143,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -21268,162 +22169,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeeContractByEmployeeID", ReplyAction="urn:PersonnelService/GetEmployeeContractByEmployeeIDResponse")]
         SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT GetEmployeeContractByEmployeeID(string employeeID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeeContractEngineXml", ReplyAction="urn:PersonnelService/GetEmployeeContractEngineXmlResponse")]
-        void GetEmployeeContractEngineXml(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT entity);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/EmployeeContractAlarm", ReplyAction="urn:PersonnelService/EmployeeContractAlarmResponse")]
-        void EmployeeContractAlarm(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT entity);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/AssessmentFormMasterAdd", ReplyAction="urn:PersonnelService/AssessmentFormMasterAddResponse")]
-        void AssessmentFormMasterAdd(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER entity, SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] tmpList);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/AssessmentFormMasterUpdate", ReplyAction="urn:PersonnelService/AssessmentFormMasterUpdateResponse")]
-        void AssessmentFormMasterUpdate(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER entity, SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] tmpList);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetAssessMentFormMasterByObjectID", ReplyAction="urn:PersonnelService/GetAssessMentFormMasterByObjectIDResponse")]
-        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER GetAssessMentFormMasterByObjectID(string objectID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetAssessMentFormMasterByID", ReplyAction="urn:PersonnelService/GetAssessMentFormMasterByIDResponse")]
-        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER GetAssessMentFormMasterByID(string strID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/AssessmentFormMasterPaging", ReplyAction="urn:PersonnelService/AssessmentFormMasterPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTDICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_POINTSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_POINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTBRIEF[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_UserLogin))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANYHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONALARMSET))]
-        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[] AssessmentFormMasterPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID);
-        
         [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/DoWork", ReplyAction="urn:PersonnelService/DoWorkResponse")]
         void DoWork();
         
@@ -21442,6 +22187,9 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeeByID", ReplyAction="urn:PersonnelService/GetEmployeeByIDResponse")]
         SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE GetEmployeeByID(string employeeID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/ExportEmployee", ReplyAction="urn:PersonnelService/ExportEmployeeResponse")]
+        byte[] ExportEmployee(string companyID);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeesByIdnumber", ReplyAction="urn:PersonnelService/GetEmployeesByIdnumberResponse")]
         SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW[] GetEmployeesByIdnumber(string[] idnumbers);
@@ -21530,6 +22278,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -21539,11 +22292,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -21588,23 +22336,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -21633,7 +22389,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -21646,11 +22401,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -21668,6 +22418,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -21677,11 +22432,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -21726,23 +22476,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -21771,7 +22529,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -21784,11 +22541,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -21809,6 +22561,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -21818,11 +22575,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -21867,23 +22619,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -21912,7 +22672,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -21925,11 +22684,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -21947,6 +22701,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -21956,11 +22715,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -22005,23 +22759,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -22050,7 +22812,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -22063,11 +22824,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -22084,6 +22840,12 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeeByNumberID", ReplyAction="urn:PersonnelService/GetEmployeeByNumberIDResponse")]
         SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE GetEmployeeByNumberID(string sNumberID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeeByFingerPrintID", ReplyAction="urn:PersonnelService/GetEmployeeByFingerPrintIDResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL GetEmployeeByFingerPrintID(string FingerPrintID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeeOrgByEmployeeid", ReplyAction="urn:PersonnelService/GetEmployeeOrgByEmployeeidResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL GetEmployeeOrgByEmployeeid(string employeeid);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/IsExistFingerPrintID", ReplyAction="urn:PersonnelService/IsExistFingerPrintIDResponse")]
         bool IsExistFingerPrintID(string FingerPrintID, string employeeID);
@@ -22172,6 +22934,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -22181,11 +22948,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -22230,23 +22992,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -22275,7 +23045,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -22288,11 +23057,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -22313,12 +23077,26 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetEmployeeEntryByEmployeeIDAndCOMPANYID", ReplyAction="urn:PersonnelService/GetEmployeeEntryByEmployeeIDAndCOMPANYIDResponse")]
         SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[] GetEmployeeEntryByEmployeeIDAndCOMPANYID(string employeeID, string COMPANYID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/ImportEmployeeEntry", ReplyAction="urn:PersonnelService/ImportEmployeeEntryResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[] ImportEmployeeEntry(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel uploadFile, string companyID, System.Collections.Generic.Dictionary<string, string> empInfoDic);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/ValidUserNameIsExist", ReplyAction="urn:PersonnelService/ValidUserNameIsExistResponse")]
+        SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[] ValidUserNameIsExist(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[] listEmpInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/AddBatchEmployeeEntry", ReplyAction="urn:PersonnelService/AddBatchEmployeeEntryResponse")]
+        bool AddBatchEmployeeEntry(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[] listEmpEntry, string companyID, ref string strMsg);
+        
         [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetPensionAlarmSetPaging", ReplyAction="urn:PersonnelService/GetPensionAlarmSetPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -22328,11 +23106,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -22377,23 +23150,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -22422,7 +23203,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -22435,11 +23215,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -22472,6 +23247,11 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
@@ -22481,11 +23261,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
@@ -22530,23 +23305,31 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
@@ -22575,7 +23358,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
@@ -22588,11 +23370,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
@@ -22604,161 +23381,8 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONALARMSET))]
         SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[] PensionMasterPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckstate, string userID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionMasterAdd", ReplyAction="urn:PersonnelService/PensionMasterAddResponse")]
-        void PensionMasterAdd(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER entity, ref string strMsg);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionMasterUpdate", ReplyAction="urn:PersonnelService/PensionMasterUpdateResponse")]
-        void PensionMasterUpdate(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER entity);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionMasterDelete", ReplyAction="urn:PersonnelService/PensionMasterDeleteResponse")]
-        bool PensionMasterDelete(string[] pensionMasterIDs);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetPensionMasterByID", ReplyAction="urn:PersonnelService/GetPensionMasterByIDResponse")]
-        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER GetPensionMasterByID(string pensionMasterID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/GetPensionMasterByEmployeeID", ReplyAction="urn:PersonnelService/GetPensionMasterByEmployeeIDResponse")]
-        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER GetPensionMasterByEmployeeID(string employeeID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/UpdateEmployeeWorkAgeByID", ReplyAction="urn:PersonnelService/UpdateEmployeeWorkAgeByIDResponse")]
-        void UpdateEmployeeWorkAgeByID(string companyID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionDetailPaging", ReplyAction="urn:PersonnelService/PensionDetailPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTDICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_MOBILEEMPLOYEE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTFORFB))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeBasicInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeChangeInfos))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeLeftOfficeInfos))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTCHANGE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_LEFTOFFICEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PROJECTPOINT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_POINTSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_POINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPOYEEPOSTLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTBRIEF[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_UserLogin))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.EmployeeContactWays))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEESTATICINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECHECK[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEENTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEINSURANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_LEFTOFFICECONFIRM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANYHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_POSTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_FAMILYMEMBER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EDUCATEHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPOINTSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_IMPORTSETDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_CHECKPROJECTSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_RESUME[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_BLACKLIST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONALARMSET))]
-        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL[] PensionDetailPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID);
+        [System.ServiceModel.OperationContractAttribute(Action="urn:PersonnelService/PensionMaterToEmployee", ReplyAction="urn:PersonnelService/PensionMaterToEmployeeResponse")]
+        void PensionMaterToEmployee();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22786,6 +23410,34 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         
         public PersonnelServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void GetEmployeeContractEngineXml(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT entity) {
+            base.Channel.GetEmployeeContractEngineXml(entity);
+        }
+        
+        public void EmployeeContractAlarm(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT entity) {
+            base.Channel.EmployeeContractAlarm(entity);
+        }
+        
+        public void AssessmentFormMasterAdd(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER entity, SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] tmpList) {
+            base.Channel.AssessmentFormMasterAdd(entity, tmpList);
+        }
+        
+        public void AssessmentFormMasterUpdate(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER entity, SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] tmpList) {
+            base.Channel.AssessmentFormMasterUpdate(entity, tmpList);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER GetAssessMentFormMasterByObjectID(string objectID) {
+            return base.Channel.GetAssessMentFormMasterByObjectID(objectID);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER GetAssessMentFormMasterByID(string strID) {
+            return base.Channel.GetAssessMentFormMasterByID(strID);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[] AssessmentFormMasterPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID) {
+            return base.Channel.AssessmentFormMasterPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID);
         }
         
         public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] GetAssessmentFormDetailByMasterID(string masterID) {
@@ -22926,6 +23578,34 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         
         public byte[] ExportEmployeeTructReports(string[] companyids, string sort, string filterString, object[] paras, string userID, string CompanyID, System.DateTime DtStart, System.DateTime DtEnd) {
             return base.Channel.ExportEmployeeTructReports(companyids, sort, filterString, paras, userID, CompanyID, DtStart, DtEnd);
+        }
+        
+        public void PensionMasterAdd(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER entity, ref string strMsg) {
+            base.Channel.PensionMasterAdd(entity, ref strMsg);
+        }
+        
+        public void PensionMasterUpdate(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER entity) {
+            base.Channel.PensionMasterUpdate(entity);
+        }
+        
+        public bool PensionMasterDelete(string[] pensionMasterIDs) {
+            return base.Channel.PensionMasterDelete(pensionMasterIDs);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER GetPensionMasterByID(string pensionMasterID) {
+            return base.Channel.GetPensionMasterByID(pensionMasterID);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER GetPensionMasterByEmployeeID(string employeeID) {
+            return base.Channel.GetPensionMasterByEmployeeID(employeeID);
+        }
+        
+        public void UpdateEmployeeWorkAgeByID(string companyID) {
+            base.Channel.UpdateEmployeeWorkAgeByID(companyID);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL[] PensionDetailPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID) {
+            return base.Channel.PensionDetailPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID);
         }
         
         public byte[] ExportPensionDetailReport(string sort, string filterString, object[] paras, string userID, string CompanyID, string StrYear, string StrMonth) {
@@ -23240,34 +23920,6 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
             return base.Channel.GetEmployeeContractByEmployeeID(employeeID);
         }
         
-        public void GetEmployeeContractEngineXml(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT entity) {
-            base.Channel.GetEmployeeContractEngineXml(entity);
-        }
-        
-        public void EmployeeContractAlarm(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEECONTRACT entity) {
-            base.Channel.EmployeeContractAlarm(entity);
-        }
-        
-        public void AssessmentFormMasterAdd(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER entity, SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] tmpList) {
-            base.Channel.AssessmentFormMasterAdd(entity, tmpList);
-        }
-        
-        public void AssessmentFormMasterUpdate(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER entity, SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL[] tmpList) {
-            base.Channel.AssessmentFormMasterUpdate(entity, tmpList);
-        }
-        
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER GetAssessMentFormMasterByObjectID(string objectID) {
-            return base.Channel.GetAssessMentFormMasterByObjectID(objectID);
-        }
-        
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER GetAssessMentFormMasterByID(string strID) {
-            return base.Channel.GetAssessMentFormMasterByID(strID);
-        }
-        
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_ASSESSMENTFORMMASTER[] AssessmentFormMasterPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID) {
-            return base.Channel.AssessmentFormMasterPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID);
-        }
-        
         public void DoWork() {
             base.Channel.DoWork();
         }
@@ -23290,6 +23942,10 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
         
         public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE GetEmployeeByID(string employeeID) {
             return base.Channel.GetEmployeeByID(employeeID);
+        }
+        
+        public byte[] ExportEmployee(string companyID) {
+            return base.Channel.ExportEmployee(companyID);
         }
         
         public SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEVIEW[] GetEmployeesByIdnumber(string[] idnumbers) {
@@ -23428,6 +24084,14 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
             return base.Channel.GetEmployeeByNumberID(sNumberID);
         }
         
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL GetEmployeeByFingerPrintID(string FingerPrintID) {
+            return base.Channel.GetEmployeeByFingerPrintID(FingerPrintID);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEDETAIL GetEmployeeOrgByEmployeeid(string employeeid) {
+            return base.Channel.GetEmployeeOrgByEmployeeid(employeeid);
+        }
+        
         public bool IsExistFingerPrintID(string FingerPrintID, string employeeID) {
             return base.Channel.IsExistFingerPrintID(FingerPrintID, employeeID);
         }
@@ -23552,6 +24216,18 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
             return base.Channel.GetEmployeeEntryByEmployeeIDAndCOMPANYID(employeeID, COMPANYID);
         }
         
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[] ImportEmployeeEntry(SMT.SaaS.BLLCommonServices.PersonnelWS.UploadFileModel uploadFile, string companyID, System.Collections.Generic.Dictionary<string, string> empInfoDic) {
+            return base.Channel.ImportEmployeeEntry(uploadFile, companyID, empInfoDic);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[] ValidUserNameIsExist(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[] listEmpInfo) {
+            return base.Channel.ValidUserNameIsExist(listEmpInfo);
+        }
+        
+        public bool AddBatchEmployeeEntry(SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo[] listEmpEntry, string companyID, ref string strMsg) {
+            return base.Channel.AddBatchEmployeeEntry(listEmpEntry, companyID, ref strMsg);
+        }
+        
         public SMT.SaaS.BLLCommonServices.PersonnelWS.V_PENSIONALARMSET[] GetPensionAlarmSetPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID) {
             return base.Channel.GetPensionAlarmSetPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID);
         }
@@ -23580,32 +24256,8 @@ namespace SMT.SaaS.BLLCommonServices.PersonnelWS {
             return base.Channel.PensionMasterPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckstate, userID);
         }
         
-        public void PensionMasterAdd(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER entity, ref string strMsg) {
-            base.Channel.PensionMasterAdd(entity, ref strMsg);
-        }
-        
-        public void PensionMasterUpdate(SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER entity) {
-            base.Channel.PensionMasterUpdate(entity);
-        }
-        
-        public bool PensionMasterDelete(string[] pensionMasterIDs) {
-            return base.Channel.PensionMasterDelete(pensionMasterIDs);
-        }
-        
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER GetPensionMasterByID(string pensionMasterID) {
-            return base.Channel.GetPensionMasterByID(pensionMasterID);
-        }
-        
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONMASTER GetPensionMasterByEmployeeID(string employeeID) {
-            return base.Channel.GetPensionMasterByEmployeeID(employeeID);
-        }
-        
-        public void UpdateEmployeeWorkAgeByID(string companyID) {
-            base.Channel.UpdateEmployeeWorkAgeByID(companyID);
-        }
-        
-        public SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_PENSIONDETAIL[] PensionDetailPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID) {
-            return base.Channel.PensionDetailPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID);
+        public void PensionMaterToEmployee() {
+            base.Channel.PensionMaterToEmployee();
         }
     }
 }

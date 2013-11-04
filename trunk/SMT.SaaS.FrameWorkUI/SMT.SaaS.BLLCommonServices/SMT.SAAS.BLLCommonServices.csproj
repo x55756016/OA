@@ -905,7 +905,6 @@
     <None Include="Service References\PersonalRecordWS\PersonalRecordService12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PersonalRecordWS\PersonalRecordService2.wsdl" />
     <None Include="Service References\PersonalRecordWS\PersonalRecordService2.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -919,14 +918,157 @@
     <None Include="Service References\PersonalRecordWS\PersonalRecordService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PersonalRecordWS\PersonalRecordService6.xsd">
+    <None Include="Service References\PersonalRecordWS\PersonnelService.wsdl" />
+    <None Include="Service References\PersonalRecordWS\PersonnelService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PersonalRecordWS\PersonalRecordService7.xsd">
+    <None Include="Service References\PersonalRecordWS\PersonnelService1.wsdl" />
+    <None Include="Service References\PersonalRecordWS\PersonnelService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PersonalRecordWS\PersonalRecordService8.xsd">
+    <None Include="Service References\PersonalRecordWS\PersonnelService2.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonnelService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonnelService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonnelService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonnelService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\PersonnelService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.EmployeeContactWays.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_ASSESSMENTFORMDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_ASSESSMENTFORMMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_BLACKLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_CHECKPOINTLEVELSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_CHECKPOINTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_CHECKPROJECTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EDUCATEHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EMPLOYEECHECK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EMPLOYEECONTRACT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EMPLOYEEINSURANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_EXPERIENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_IMPORTSETDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_IMPORTSETMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_LEFTOFFICE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_LEFTOFFICECONFIRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_PENSIONDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_PENSIONMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_HR_RESUME.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EmployeeBasicInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EmployeeChangeInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPLOYEEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EmployeeEntryInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPLOYEEFUNDS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EmployeeLeftOfficeInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPLOYEEPOSTFORFB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPLOYEESTATICINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPLOYEEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_EMPOYEEPOSTLEVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_FlowUserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_LEFTOFFICEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_MOBILEEMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.V_PROJECTPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PersonnelWS\PersonnelService.wsdl" />
     <None Include="Service References\PersonnelWS\PersonnelService.xsd">
@@ -1036,6 +1178,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EmployeeEntryInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PersonnelWS\SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEFUNDS.datasource">
@@ -1413,9 +1558,6 @@
     <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_UserPermissionUI1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PersonalRecordWS\SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_PF_PERSONALRECORD.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EngineConfigWS\configuration91.svcinfo" />
@@ -1594,6 +1736,7 @@
     <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices1.disco" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\PersonalRecordWS\PersonnelService.disco" />
     <None Include="Service References\PublicInterfaceWS\PublicService1.disco" />
     <None Include="Service References\PublicInterfaceWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
@@ -1637,7 +1780,6 @@
     </None>
     <None Include="Service References\WPServicesWS\configuration.svcinfo" />
     <None Include="Service References\WPServicesWS\configuration91.svcinfo" />
-    <None Include="Service References\PersonalRecordWS\PersonalRecordService1.disco" />
     <None Include="Service References\RMServicesWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
