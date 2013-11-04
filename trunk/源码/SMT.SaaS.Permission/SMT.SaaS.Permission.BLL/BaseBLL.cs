@@ -18,7 +18,7 @@ namespace SMT.SaaS.Permission.BLL
 
         public CommDAL<TEntity> dal ;
         //protected PermissionWS.PermissionServiceClient permissionclient = new PermissionWS.PermissionServiceClient();
-        protected static PersonnelWS.PersonnelServiceClient personnelclient;
+        public static PersonnelWS.PersonnelServiceClient personnelclient;
         public BaseBll()
         {
             if (dal == null)
