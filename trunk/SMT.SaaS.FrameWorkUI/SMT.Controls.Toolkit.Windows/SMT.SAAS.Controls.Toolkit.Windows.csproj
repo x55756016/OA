@@ -127,12 +127,6 @@
   <ItemGroup>
     <Resource Include="images\default.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
-      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
-      <Name>SMT.SAAS.Main.CurrentContext</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
