@@ -7,9 +7,10 @@
                       xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
                       xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
                       xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
-                      Width="420" Height="500"
+                    
                       TitleContent="{Binding Converter={StaticResource ResourceConveter}, Source=DICTIONSELECTOR}" >
-    <Grid x:Name="LayoutRoot" Margin="2" Background="Transparent">
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <Grid x:Name="LayoutRoot" Margin="2" Background="Transparent" MinWidth="60" MinHeight="100" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -73,4 +74,5 @@
             
         </Grid>
     </Grid>
+    </ScrollViewer>
 </swc:Window>
