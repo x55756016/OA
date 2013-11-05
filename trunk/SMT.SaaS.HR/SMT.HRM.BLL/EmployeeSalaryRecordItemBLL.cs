@@ -283,22 +283,46 @@ namespace SMT.HRM.BLL
                 tmp.IdNumber = ent.IDNumber + "\t";
                 tmp.EmployeeName = ent.EmployeeName;
 
-                var CalculateDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "68d52d34-805e-4873-bb21-544746ec5d1e").FirstOrDefault();//速算扣除数
+               // var CalculateDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "68d52d34-805e-4873-bb21-544746ec5d1e").FirstOrDefault();//速算扣除数
+                var CalculateDeduct = (from si in ent.SalaryItems
+                                       join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                       where s.SALARYITEMNAME == "速算扣除数"
+                                       select si).FirstOrDefault();
                 tmp.CalculateDeduct = CalculateDeduct == null ? string.Empty : CalculateDeduct.SUM;
 
-                var banlance = ent.SalaryItems.Where(s => s.SALARYITEMID == "d62310ea-f5ec-4393-862c-da3500722689").FirstOrDefault();//差额
+                //var banlance = ent.SalaryItems.Where(s => s.SALARYITEMID == "d62310ea-f5ec-4393-862c-da3500722689").FirstOrDefault();//差额
+                var banlance = (from si in ent.SalaryItems
+                                       join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                where s.SALARYITEMNAME == "差额"
+                                       select si).FirstOrDefault();
                 tmp.Balance = banlance == null ? string.Empty : banlance.SUM;
 
-                var Personalincometax = ent.SalaryItems.Where(s => s.SALARYITEMID == "a3162966-cb70-497a-a972-180337d8fffd").FirstOrDefault();//个人所得税
+                //var Personalincometax = ent.SalaryItems.Where(s => s.SALARYITEMID == "a3162966-cb70-497a-a972-180337d8fffd").FirstOrDefault();//个人所得税
+                var Personalincometax = (from si in ent.SalaryItems
+                                join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                         where s.SALARYITEMNAME == "个人所得税"
+                                select si).FirstOrDefault();
                 tmp.Personalincometax = Personalincometax == null ? string.Empty : Personalincometax.SUM;
 
-                var Sum = ent.SalaryItems.Where(s => s.SALARYITEMID == "9a42a345-7d5f-439f-9820-9cdbbcbec871").FirstOrDefault();//计税工资
+                //var Sum = ent.SalaryItems.Where(s => s.SALARYITEMID == "9a42a345-7d5f-439f-9820-9cdbbcbec871").FirstOrDefault();//计税工资
+                var Sum = (from si in ent.SalaryItems
+                                         join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                           where s.SALARYITEMNAME == "计税工资"
+                                         select si).FirstOrDefault();
                 tmp.Sum = Sum == null ? string.Empty : Sum.SUM;
 
-                var TaxesBasic = ent.SalaryItems.Where(s => s.SALARYITEMID == "039e58e4-7877-49f0-8a1b-3250634f785c").FirstOrDefault();//扣税基数
+                //var TaxesBasic = ent.SalaryItems.Where(s => s.SALARYITEMID == "039e58e4-7877-49f0-8a1b-3250634f785c").FirstOrDefault();//扣税基数
+                var TaxesBasic = (from si in ent.SalaryItems
+                           join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                  where s.SALARYITEMNAME == "扣税基数"
+                           select si).FirstOrDefault();
                 tmp.TaxesBasic = TaxesBasic == null ? string.Empty : TaxesBasic.SUM;
 
-                var TaxesRate = ent.SalaryItems.Where(s => s.SALARYITEMID == "5c142665-ecda-489c-8e7d-95a39c2144cf").FirstOrDefault();//税率
+                //var TaxesRate = ent.SalaryItems.Where(s => s.SALARYITEMID == "5c142665-ecda-489c-8e7d-95a39c2144cf").FirstOrDefault();//税率
+                var TaxesRate = (from si in ent.SalaryItems
+                                  join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                 where s.SALARYITEMNAME == "税率"
+                                  select si).FirstOrDefault();
                 tmp.TaxesRate = TaxesRate == null ? string.Empty : TaxesRate.SUM;
                 VmonthDeductiontaxs.Add(tmp);
             }
@@ -390,13 +414,25 @@ namespace SMT.HRM.BLL
                 tmp.IdNumber = ent.IDNumber + "\t";
                 tmp.EmployeeName = ent.EmployeeName;
 
-                var OtherAddDeduction = ent.SalaryItems.Where(s => s.SALARYITEMID == "2c8c93e5-c870-470d-9339-007e191232ed").FirstOrDefault();//其它加扣款
+                //var OtherAddDeduction = ent.SalaryItems.Where(s => s.SALARYITEMID == "2c8c93e5-c870-470d-9339-007e191232ed").FirstOrDefault();//其它加扣款
+                var OtherAddDeduction = (from si in ent.SalaryItems
+                                       join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                         where s.SALARYITEMNAME == "其它加扣款"
+                                       select si).FirstOrDefault();
                 tmp.OtherAddDeduction = OtherAddDeduction == null ? string.Empty : OtherAddDeduction.SUM;
 
-                var OtherSubjoin = ent.SalaryItems.Where(s => s.SALARYITEMID == "c356bcf0-add3-40fe-b4f6-2e30e86daebe").FirstOrDefault();//其它代扣款
+                //var OtherSubjoin = ent.SalaryItems.Where(s => s.SALARYITEMID == "c356bcf0-add3-40fe-b4f6-2e30e86daebe").FirstOrDefault();//其它代扣款
+                var OtherSubjoin = (from si in ent.SalaryItems
+                                       join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                    where s.SALARYITEMNAME == "其它代扣款"
+                                       select si).FirstOrDefault();
                 tmp.OtherSubjoin = OtherSubjoin == null ? string.Empty : OtherSubjoin.SUM;
 
-                var MantissaDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "c8bf6ab9-6578-4fff-8d69-6ec274754de5").FirstOrDefault();//尾数扣款
+                //var MantissaDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "c8bf6ab9-6578-4fff-8d69-6ec274754de5").FirstOrDefault();//尾数扣款
+                var MantissaDeduct = (from si in ent.SalaryItems
+                                    join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                      where s.SALARYITEMNAME == "尾数扣款"
+                                    select si).FirstOrDefault();
                 tmp.MantissaDeduct = MantissaDeduct == null ? string.Empty : MantissaDeduct.SUM;
 
                 var Remarks = addsums.Where(s => s.EMPLOYEEID == ent.EmployeeID);
@@ -496,91 +532,212 @@ namespace SMT.HRM.BLL
                         //   }
                     }
                 }
-                var VacationDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "7a4a0abf-24a0-481d-ade1-c52d4a0c56cf").FirstOrDefault();//假期其它扣款
+               // var VacationDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "7a4a0abf-24a0-481d-ade1-c52d4a0c56cf").FirstOrDefault();//假期其它扣款
+                var VacationDeduct = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                      where s.SALARYITEMNAME == "假期其它扣款"
+                                      select si).FirstOrDefault();
+
+                var aaa=from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                      where s.SALARYITEMNAME == "假期其它扣款"
+                                      select si;
                 tmp.VacationDeduct = VacationDeduct == null ? string.Empty : VacationDeduct.SUM;
 
-                var BasicSalary = ent.SalaryItems.Where(s => s.SALARYITEMID == "ea67192b-a34a-42b9-b56c-253c9f8e0f35").FirstOrDefault();//基本工资
+                //var BasicSalary = ent.SalaryItems.Where(s => s.SALARYITEMID == "ea67192b-a34a-42b9-b56c-253c9f8e0f35").FirstOrDefault();//基本工资
+                var BasicSalary = (from si in ent.SalaryItems
+                                   join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                   where s.SALARYITEMNAME == "基本工资"
+                                   select si).FirstOrDefault();
                 tmp.BasicSalary = BasicSalary == null ? string.Empty : BasicSalary.SUM;
 
-                var SecurityAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "4b83c88a-2b60-43f0-bf22-9a88a78204d0").FirstOrDefault();//保密津贴
+                //var SecurityAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "4b83c88a-2b60-43f0-bf22-9a88a78204d0").FirstOrDefault();//保密津贴
+                var SecurityAllowance = (from si in ent.SalaryItems
+                                         join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                         where s.SALARYITEMNAME == "保密津贴"
+                                         select si).FirstOrDefault();
                 tmp.SecurityAllowance = SecurityAllowance == null ? string.Empty : SecurityAllowance.SUM;
 
-                var HousingAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "f4ad7117-1d2f-4515-b216-0586d2fd8664").FirstOrDefault();//住房补贴
+                //var HousingAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "f4ad7117-1d2f-4515-b216-0586d2fd8664").FirstOrDefault();//住房补贴
+                var HousingAllowance = (from si in ent.SalaryItems
+                                         join s in  dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                        where s.SALARYITEMNAME == "住房补贴"
+                                         select si).FirstOrDefault();
                 tmp.HousingAllowance = HousingAllowance == null ? string.Empty : HousingAllowance.SUM;
 
-                var WorkingSalary = ent.SalaryItems.Where(s => s.SALARYITEMID == "916ddaea-a612-40b8-908e-cd28c1a57137").FirstOrDefault();//出勤工资
+                //var WorkingSalary = ent.SalaryItems.Where(s => s.SALARYITEMID == "916ddaea-a612-40b8-908e-cd28c1a57137").FirstOrDefault();//出勤工资
+                var WorkingSalary = (from si in  ent.SalaryItems
+                                     join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                     where s.SALARYITEMNAME == "出勤工资"
+                                        select si).FirstOrDefault();
                 tmp.WorkingSalary = WorkingSalary == null ? string.Empty : WorkingSalary.SUM;
 
-                var TaxCoefficient = ent.SalaryItems.Where(s => s.SALARYITEMID == "8540c3f1-b448-4eec-adf7-83bff08550bd").FirstOrDefault();//纳税系数
+                //var TaxCoefficient = ent.SalaryItems.Where(s => s.SALARYITEMID == "8540c3f1-b448-4eec-adf7-83bff08550bd").FirstOrDefault();//纳税系数
+                var TaxCoefficient = (from si in ent.SalaryItems
+                                     join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                      where s.SALARYITEMNAME == "纳税系数"
+                                     select si).FirstOrDefault();
                 tmp.TaxCoefficient = TaxCoefficient == null ? string.Empty : TaxCoefficient.SUM;
 
-                var Sum = ent.SalaryItems.Where(s => s.SALARYITEMID == "9a42a345-7d5f-439f-9820-9cdbbcbec871").FirstOrDefault();//计税工资
+               // var Sum = ent.SalaryItems.Where(s => s.SALARYITEMID == "9a42a345-7d5f-439f-9820-9cdbbcbec871").FirstOrDefault();//计税工资
+                var Sum = (from si in ent.SalaryItems
+                                      join s in  dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                           where s.SALARYITEMNAME == "计税工资"
+                                      select si).FirstOrDefault();
                 tmp.Sum = Sum == null ? string.Empty : Sum.SUM;
 
-                var AreadifAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "58d9c878-150f-4d14-b1a9-d7f07f8527c1").FirstOrDefault();//地区差异补贴
+                //var AreadifAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "58d9c878-150f-4d14-b1a9-d7f07f8527c1").FirstOrDefault();//地区差异补贴
+                var AreadifAllowance = (from si in ent.SalaryItems
+                                      join s in  dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                        where s.SALARYITEMNAME == "地区差异补贴"
+                                      select si).FirstOrDefault();
                 tmp.AreadifAllowance = AreadifAllowance == null ? string.Empty : AreadifAllowance.SUM;
 
-                var TaxesBasic = ent.SalaryItems.Where(s => s.SALARYITEMID == "039e58e4-7877-49f0-8a1b-3250634f785c").FirstOrDefault();//扣税基数
+                //var TaxesBasic = ent.SalaryItems.Where(s => s.SALARYITEMID == "039e58e4-7877-49f0-8a1b-3250634f785c").FirstOrDefault();//扣税基数
+                var TaxesBasic = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                  where s.SALARYITEMNAME == "扣税基数"
+                                      select si).FirstOrDefault();
                 tmp.TaxesBasic = TaxesBasic == null ? string.Empty : TaxesBasic.SUM;
 
-                var PersonalsiCost = ent.SalaryItems.Where(s => s.SALARYITEMID == "a1448582-f354-43db-a2a9-1f138b98d2d2").FirstOrDefault();//个人社保负担
+                //var PersonalsiCost = ent.SalaryItems.Where(s => s.SALARYITEMID == "a1448582-f354-43db-a2a9-1f138b98d2d2").FirstOrDefault();//个人社保负担
+                var PersonalsiCost = (from si in ent.SalaryItems 
+                                      join s in  dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                      where s.SALARYITEMNAME == "个人社保负担"
+                                      select si).FirstOrDefault();
                 tmp.PersonalsiCost = PersonalsiCost == null ? string.Empty : PersonalsiCost.SUM;
 
-                var PostSalary = ent.SalaryItems.Where(s => s.SALARYITEMID == "fba9f626-ab50-41e6-b479-2649cd7e20d4").FirstOrDefault();//岗位工资
+                //var PostSalary = ent.SalaryItems.Where(s => s.SALARYITEMID == "fba9f626-ab50-41e6-b479-2649cd7e20d4").FirstOrDefault();//岗位工资
+                var PostSalary = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                  where s.SALARYITEMNAME == "岗位工资"
+                                      select si).FirstOrDefault();
                 tmp.PostSalary = PostSalary == null ? string.Empty : PostSalary.SUM;
 
-                var HousingDeduction = ent.SalaryItems.Where(s => s.SALARYITEMID == "bee94c6a-e860-4939-8572-fff587486392").FirstOrDefault();//住房公积金扣款
+                //var HousingDeduction = ent.SalaryItems.Where(s => s.SALARYITEMID == "bee94c6a-e860-4939-8572-fff587486392").FirstOrDefault();//住房公积金扣款
+                var HousingDeduction = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                        where s.SALARYITEMNAME == "住房公积金扣款"
+                                      select si).FirstOrDefault();
                 tmp.HousingDeduction = HousingDeduction == null ? string.Empty : HousingDeduction.SUM;
 
-                var TaxesRate = ent.SalaryItems.Where(s => s.SALARYITEMID == "5c142665-ecda-489c-8e7d-95a39c2144cf").FirstOrDefault();//税率
+                //var TaxesRate = ent.SalaryItems.Where(s => s.SALARYITEMID == "5c142665-ecda-489c-8e7d-95a39c2144cf").FirstOrDefault();//税率
+                var TaxesRate = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                 where s.SALARYITEMNAME == "税率"
+                                      select si).FirstOrDefault();
                 tmp.TaxesRate = TaxesRate == null ? string.Empty : TaxesRate.SUM;
 
-                var FoodAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "86926078-d4c4-4fb6-a9c2-1910843a9309").FirstOrDefault();//餐费补贴
+                //var FoodAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "86926078-d4c4-4fb6-a9c2-1910843a9309").FirstOrDefault();//餐费补贴
+                var FoodAllowance = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                     where s.SALARYITEMNAME == "餐费补贴"
+                                      select si).FirstOrDefault();
                 tmp.FoodAllowance = FoodAllowance == null ? string.Empty : FoodAllowance.SUM;
 
-                var Personalincometax = ent.SalaryItems.Where(s => s.SALARYITEMID == "a3162966-cb70-497a-a972-180337d8fffd").FirstOrDefault();//个人所得税
+                //var Personalincometax = ent.SalaryItems.Where(s => s.SALARYITEMID == "a3162966-cb70-497a-a972-180337d8fffd").FirstOrDefault();//个人所得税
+                var Personalincometax = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                         where s.SALARYITEMNAME == "个人所得税"
+                                      select si).FirstOrDefault();
                 tmp.Personalincometax = Personalincometax == null ? string.Empty : Personalincometax.SUM;
 
-                var AbsenceDays = ent.SalaryItems.Where(s => s.SALARYITEMID == "857b5020-0abb-4a7b-b087-812450c5c0e9").FirstOrDefault();//缺勤天数
+                //var AbsenceDays = ent.SalaryItems.Where(s => s.SALARYITEMID == "857b5020-0abb-4a7b-b087-812450c5c0e9").FirstOrDefault();//缺勤天数
+                var AbsenceDays = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                   where s.SALARYITEMNAME == "缺勤天数"
+                                      select si).FirstOrDefault();
                 tmp.AbsenceDays = AbsenceDays == null ? string.Empty : AbsenceDays.SUM;
 
-                var OvertimeSum = ent.SalaryItems.Where(s => s.SALARYITEMID == "23993b15-5e3e-4780-8273-a367b143b046").FirstOrDefault();//加班费
+                //var OvertimeSum = ent.SalaryItems.Where(s => s.SALARYITEMID == "23993b15-5e3e-4780-8273-a367b143b046").FirstOrDefault();//加班费
+                var OvertimeSum = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                   where s.SALARYITEMNAME == "加班费"
+                                      select si).FirstOrDefault();
                 tmp.OvertimeSum = OvertimeSum == null ? string.Empty : OvertimeSum.SUM;
 
-                var OtherSubjoin = ent.SalaryItems.Where(s => s.SALARYITEMID == "c356bcf0-add3-40fe-b4f6-2e30e86daebe").FirstOrDefault();//其它代扣款
+                //var OtherSubjoin = ent.SalaryItems.Where(s => s.SALARYITEMID == "c356bcf0-add3-40fe-b4f6-2e30e86daebe").FirstOrDefault();//其它代扣款
+                var OtherSubjoin = (from si in ent.SalaryItems
+                                      join s in  dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                    where s.SALARYITEMNAME == "其它代扣款"
+                                      select si).FirstOrDefault();
                 tmp.OtherSubjoin = OtherSubjoin == null ? string.Empty : OtherSubjoin.SUM;
 
-                var FixIncomeSum = ent.SalaryItems.Where(s => s.SALARYITEMID == "7692ec13-0785-432d-abd8-aa26b993216c").FirstOrDefault();//固定收入合计
+                //var FixIncomeSum = ent.SalaryItems.Where(s => s.SALARYITEMID == "7692ec13-0785-432d-abd8-aa26b993216c").FirstOrDefault();//固定收入合计
+                var FixIncomeSum = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                    where s.SALARYITEMNAME == "固定收入合计"
+                                      select si).FirstOrDefault();
                 tmp.FixIncomeSum = FixIncomeSum == null ? string.Empty : FixIncomeSum.SUM;
 
-                var AttendanceUnusualDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "c6cfc5c4-8d5b-4290-aa8d-2af3858502d1").FirstOrDefault();//考勤异常扣款
+                //var AttendanceUnusualDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "c6cfc5c4-8d5b-4290-aa8d-2af3858502d1").FirstOrDefault();//考勤异常扣款
+                var AttendanceUnusualDeduct = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                               where s.SALARYITEMNAME == "考勤异常扣款"
+                                      select si).FirstOrDefault();
                 tmp.AttendanceUnusualDeduct = AttendanceUnusualDeduct == null ? string.Empty : AttendanceUnusualDeduct.SUM;
 
-                var DutyAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "99e04010-9e4b-4853-9b4c-616846865bea").FirstOrDefault();//值班津贴
+                //var DutyAllowance = ent.SalaryItems.Where(s => s.SALARYITEMID == "99e04010-9e4b-4853-9b4c-616846865bea").FirstOrDefault();//值班津贴
+                var DutyAllowance = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                     where s.SALARYITEMNAME == "值班津贴"
+                                      select si).FirstOrDefault();
                 tmp.DutyAllowance = DutyAllowance == null ? string.Empty : DutyAllowance.SUM;
 
-                var OtherAddDeduction = ent.SalaryItems.Where(s => s.SALARYITEMID == "2c8c93e5-c870-470d-9339-007e191232ed").FirstOrDefault();//其它加扣款
+                //var OtherAddDeduction = ent.SalaryItems.Where(s => s.SALARYITEMID == "2c8c93e5-c870-470d-9339-007e191232ed").FirstOrDefault();//其它加扣款
+                var OtherAddDeduction = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                         where s.SALARYITEMNAME == "其它加扣款"
+                                      select si).FirstOrDefault();
                 tmp.OtherAddDeduction = OtherAddDeduction == null ? string.Empty : OtherAddDeduction.SUM;
 
-                var PretaxSubTotal = ent.SalaryItems.Where(s => s.SALARYITEMID == "0c473d24-fa15-431a-994f-40523d5fe09a").FirstOrDefault();//税前应发合计
+                //var PretaxSubTotal = ent.SalaryItems.Where(s => s.SALARYITEMID == "0c473d24-fa15-431a-994f-40523d5fe09a").FirstOrDefault();//税前应发合计
+                var PretaxSubTotal = (from si in ent.SalaryItems
+                                      join s in  dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                      where s.SALARYITEMNAME == "税前应发合计"
+                                      select si).FirstOrDefault();
                 tmp.PretaxSubTotal = PretaxSubTotal == null ? string.Empty : PretaxSubTotal.SUM;
 
-                var SubTotal = ent.SalaryItems.Where(s => s.SALARYITEMID == "bc8a3557-c931-4ec5-984f-42a01b8cf75b").FirstOrDefault();//应发小计
+                //var SubTotal = ent.SalaryItems.Where(s => s.SALARYITEMID == "bc8a3557-c931-4ec5-984f-42a01b8cf75b").FirstOrDefault();//应发小计
+                var SubTotal = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                where s.SALARYITEMNAME == "应发小计"
+                                      select si).FirstOrDefault();
                 tmp.SubTotal = SubTotal == null ? string.Empty : SubTotal.SUM;
 
-                var Balance = ent.SalaryItems.Where(s => s.SALARYITEMID == "d62310ea-f5ec-4393-862c-da3500722689").FirstOrDefault();//差额
+                //var Balance = ent.SalaryItems.Where(s => s.SALARYITEMID == "d62310ea-f5ec-4393-862c-da3500722689").FirstOrDefault();//差额
+                var Balance = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                               where s.SALARYITEMNAME == "差额"
+                                      select si).FirstOrDefault();
                 tmp.Balance = Balance == null ? string.Empty : Balance.SUM;
 
-                var CalculateDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "68d52d34-805e-4873-bb21-544746ec5d1e").FirstOrDefault();//速算扣除数
+                //var CalculateDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "68d52d34-805e-4873-bb21-544746ec5d1e").FirstOrDefault();//速算扣除数
+                var CalculateDeduct = (from si in ent.SalaryItems
+                                      join s in  dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                       where s.SALARYITEMNAME == "速算扣除数"
+                                      select si).FirstOrDefault();
                 tmp.CalculateDeduct = CalculateDeduct == null ? string.Empty : CalculateDeduct.SUM;
 
-                var MantissaDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "c8bf6ab9-6578-4fff-8d69-6ec274754de5").FirstOrDefault();//尾数扣款
+                //var MantissaDeduct = ent.SalaryItems.Where(s => s.SALARYITEMID == "c8bf6ab9-6578-4fff-8d69-6ec274754de5").FirstOrDefault();//尾数扣款
+                var MantissaDeduct = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                      where s.SALARYITEMNAME == "尾数扣款"
+                                      select si).FirstOrDefault();
                 tmp.MantissaDeduct = MantissaDeduct == null ? string.Empty : MantissaDeduct.SUM;
 
-                var DeductTotal = ent.SalaryItems.Where(s => s.SALARYITEMID == "e7e58f22-eae0-4026-970d-c8c70a9faee9").FirstOrDefault();//扣款合计
+                //var DeductTotal = ent.SalaryItems.Where(s => s.SALARYITEMID == "e7e58f22-eae0-4026-970d-c8c70a9faee9").FirstOrDefault();//扣款合计
+                var DeductTotal = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                   where s.SALARYITEMNAME == "扣款合计"
+                                      select si).FirstOrDefault();
                 tmp.DeductTotal = DeductTotal == null ? string.Empty : DeductTotal.SUM;
 
-                var PerformancerewardRecord = ent.SalaryItems.Where(s => s.SALARYITEMID == "421cc017-b203-4cfa-9396-f617663107eb").FirstOrDefault();//绩效奖金
+               // var PerformancerewardRecord = ent.SalaryItems.Where(s => s.SALARYITEMID == "421cc017-b203-4cfa-9396-f617663107eb").FirstOrDefault();//绩效奖金
+                var PerformancerewardRecord = (from si in ent.SalaryItems
+                                      join s in dal.GetObjects<T_HR_SALARYITEM>() on si.SALARYITEMID equals s.SALARYITEMID
+                                               where s.SALARYITEMNAME == "绩效奖金"
+                                      select si).FirstOrDefault();
                 tmp.PerformancerewardRecord = PerformancerewardRecord == null ? string.Empty : PerformancerewardRecord.SUM;
 
                 var deducts = addsums.Where(s => s.EMPLOYEEID == ent.EmployeeID);//扣款备注

@@ -341,7 +341,7 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="companyIds">字符串的公司ID，以‘，’分隔各个ID</param>
         /// <returns></returns>
-        public List<SMT.HRM.CustomModel.V_DEPARTMENTSWITHCOMPANY> GetDepartmentByCompanyIDs(string companyIds)
+        public List<V_DEPARTMENTSWITHCOMPANY> GetDepartmentByCompanyIDs(string companyIds)
         {
             try
             {
@@ -351,7 +351,7 @@ namespace SMT.HRM.BLL
                     var QListDep = from c in dal.GetObjects<T_HR_COMPANY>()
                                    join d in dal.GetObjects<T_HR_DEPARTMENT>() on c.COMPANYID equals d.T_HR_COMPANY.COMPANYID
                                    where c.COMPANYID.Contains(companyIds) && d.EDITSTATE == "1"
-                                   select new SMT.HRM.CustomModel.V_DEPARTMENTSWITHCOMPANY
+                                   select new V_DEPARTMENTSWITHCOMPANY
                                    {
                                        DEPARTMENTID = d.DEPARTMENTID,
                                        COMPANYID = c.COMPANYID,
@@ -495,9 +495,11 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                string checkState = Convert.ToInt32(CheckStates.UnApproved).ToString();
+                string checkState = Convert.ToInt32(CheckStates.Approved).ToString();
+                string editState = Convert.ToInt32(EditStates.Actived).ToString();
                 var temp = dal.GetObjects().FirstOrDefault(s => s.T_HR_COMPANY.COMPANYID == entity.T_HR_COMPANY.COMPANYID
-                && s.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTCODE == entity.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTCODE && s.CHECKSTATE != checkState 
+                && s.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTCODE == entity.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTCODE
+                && s.DEPARTMENTID != entity.DEPARTMENTID && s.CHECKSTATE == checkState && s.EDITSTATE == editState
                 && s.FATHERID == entity.FATHERID);
                 if (temp != null)
                 {

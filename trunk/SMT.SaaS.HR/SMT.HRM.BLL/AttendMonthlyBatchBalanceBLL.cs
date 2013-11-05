@@ -363,6 +363,7 @@ namespace SMT.HRM.BLL
                 AttendMonthlyBalanceBLL bllBalance = new AttendMonthlyBalanceBLL();
                 IQueryable<T_HR_ATTENDMONTHLYBALANCE> entBalanceList = bllBalance.GetAllAttendMonthlyBalanceRdListForAudit(entTemp.BALANCEOBJECTTYPE,
                     entTemp.BALANCEOBJECTID, entTemp.OWNERID, strTempCheckState, entTemp.BALANCEYEAR.Value, entTemp.BALANCEMONTH.Value, "BALANCEYEAR, BALANCEMONTH");
+                int cout = 0;
                 foreach (T_HR_ATTENDMONTHLYBALANCE item in entBalanceList)
                 {
                     //item.T_HR_ATTENDMONTHLYBATCHBALANCEReference.EntityKey = new EntityKey("SMT_HRM_EFModelContext.T_HR_ATTENDMONTHLYBATCHBALANCE", "MONTHLYBATCHID", entAudit.MONTHLYBATCHID);                    
@@ -370,8 +371,15 @@ namespace SMT.HRM.BLL
                     item.CHECKSTATE = entTemp.CHECKSTATE;
                     item.EDITSTATE = entTemp.EDITSTATE;
                     bllBalance.ModifyMonthlyBalance(item);
+                    cout++;
                 }
                 strMsg = "{SAVESUCCESSED}";
+                //添加日志
+                if (entAudit != null)
+                {
+                    string str = entAudit.MONTHLYBATCHID + entAudit.BALANCEOBJECTNAME + entAudit.BALANCEYEAR + "年" + entAudit.BALANCEMONTH + "月" + "的人数为" + cout;
+                    Utility.SaveLog(str);
+                }
             }
             catch (Exception ex)
             {
