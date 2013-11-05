@@ -112,9 +112,6 @@ namespace SMT.HRM.UI.Form.Personnel
         }
         private void InitParas(string strID)
         {
-
-           
-
             client.GetLeftOfficeConfirmByIDCompleted += new EventHandler<GetLeftOfficeConfirmByIDCompletedEventArgs>(client_GetLeftOfficeConfirmByIDCompleted);
             client.LeftOfficeConfirmUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_LeftOfficeConfirmUpdateCompleted);
             client.GetEmployeeToEngineCompleted += new EventHandler<GetEmployeeToEngineCompletedEventArgs>(client_GetEmployeeToEngineCompleted);
@@ -866,7 +863,8 @@ namespace SMT.HRM.UI.Form.Personnel
                 RefreshUI(RefreshedTypes.HideProgressBar);
                 return false;
             }
-            if (string.IsNullOrEmpty(dpConfirmDate.Text))
+           // if (string.IsNullOrEmpty(dpConfirmDate.Text))
+            if (string.IsNullOrEmpty(Convert.ToString(LeftOfficeConfirm.CONFIRMDATE)))
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "CONFIRMDATE"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
@@ -895,14 +893,12 @@ namespace SMT.HRM.UI.Form.Personnel
 
         private void SaveConfirm()
         {
-            //xiedx
             //判断有没有借款
             if (DtBorrowMoney.ItemsSource != null)
             {
                 List<T_FB_PERSONACCOUNT> bors = DtBorrowMoney.ItemsSource as List<T_FB_PERSONACCOUNT>;
                 if (bors != null)
                 {
-                    //xiedx
                     //2012-8-27
                     foreach (var temp in bors)
                     {
@@ -924,7 +920,6 @@ namespace SMT.HRM.UI.Form.Personnel
 
                 }
             }
-            //xiedx
             //2012-09-06
             //确认时间明明有，但是提示没有，在这里再次赋值
             dpConfirmDate.Text = DateTime.Now.ToString();
