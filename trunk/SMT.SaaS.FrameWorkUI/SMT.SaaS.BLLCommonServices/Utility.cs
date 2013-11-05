@@ -883,7 +883,7 @@ namespace SMT.SaaS.BLLCommonServices
         /// </summary>
         /// <param name="employeeID"></param>
         /// <returns></returns>
-        private T_HR_EMPLOYEE GetCacheEmployeeByID(string employeeID)
+        public T_HR_EMPLOYEE GetCacheEmployeeByID(string employeeID)
         {
             string keyString = "CachePerson" + employeeID;
             if (CacheManager.Current[keyString] == null)
@@ -903,7 +903,7 @@ namespace SMT.SaaS.BLLCommonServices
         /// </summary>
         /// <param name="employeeID"></param>
         /// <returns></returns>
-        private List<string> GetCacheEmployeeForCompanyIDs(string[] strCompanys, string employeeID)
+        public List<string> GetCacheEmployeeForCompanyIDs(string[] strCompanys, string employeeID)
         {
             string keyString = "GetCacheEmployeeForCompanyIDs" + employeeID;
             if (CacheManager.Current[keyString] == null)
@@ -2294,6 +2294,79 @@ namespace SMT.SaaS.BLLCommonServices
             catch(Exception ex)
             {
                 SMT.Foundation.Log.Tracer.Debug("通知MVC缓存清空错误，实体：" + entityName+" 实体id:"+entityKey + ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 根据公司id获取公司名称
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static string GetCompanNameByid(string id)
+        {
+            if (OrgClient == null)
+            {
+                OrgClient = new OrganizationWS.OrganizationServiceClient();
+            }
+            var company = OrgClient.GetCompanyById(id);
+            if (company == null)
+            {
+                return string.Empty;
+            }
+            if (!string.IsNullOrEmpty(company.CNAME))
+            {
+                return company.CNAME;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+        /// <summary>
+        /// 根据部门id获取部门名称
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static string GetDepartMentNameByid(string id)
+        { 
+            if (OrgClient == null)
+            {
+                OrgClient = new OrganizationWS.OrganizationServiceClient();
+            }
+            var department = OrgClient.GetDepartmentById(id);
+            if (department == null)
+            {
+                return string.Empty;
+            }
+            if (!string.IsNullOrEmpty(department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME))
+            {
+                return department.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// 根据员工id获取员工组织架构信息，包括兼职岗位
+        /// </summary>
+        /// <param name="employeeid"></param>
+        /// <returns></returns>
+        public static V_EMPLOYEEPOST GetEmployeeOrgByid(string employeeid)
+        {
+            if (PersonClient == null)
+            {
+                PersonClient = new PersonnelServiceClient();
+            }
+            V_EMPLOYEEPOST ep = PersonClient.GetEmployeeDetailByID(employeeid);
+            if (ep != null)
+            {
+                return ep;
+            }
+            else
+            {
+                return null;
             }
         }
     
