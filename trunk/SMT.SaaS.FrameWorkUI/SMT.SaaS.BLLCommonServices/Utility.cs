@@ -2369,6 +2369,17 @@ namespace SMT.SaaS.BLLCommonServices
                 return null;
             }
         }
+
+        /// <summary>
+        /// 根据字典类型及值获取字典名称
+        /// </summary>
+        /// <param name="dictionaryName"></param>
+        /// <param name="dictionaryValue"></param>
+        /// <returns></returns>
+        public static string GetDictionaryNameByValue(string dictionaryName, decimal dictionaryValue)
+        {
+            return PermClient.GetDictionaryByCategoryArray(new string[] { dictionaryName }).Where(p => p.DICTIONARYVALUE == dictionaryValue).FirstOrDefault().DICTIONARYNAME;
+        }
     
     }
 
