@@ -73,12 +73,8 @@
     <Reference Include="SMT.Foundation.Log">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.Globalization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=313418dd5b9fe6fe, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.Globalization.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SaaS.MoblieXml">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.MoblieXml.dll</HintPath>
+    <Reference Include="SMT.SaaS.Globalization">
+      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Globalization.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.SmtOlineEn">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.SaaS.SmtOlineEn.dll</HintPath>

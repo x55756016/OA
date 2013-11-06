@@ -1273,11 +1273,16 @@ namespace SMT.HRM.BLL
                     {
                         continue;
                     }
-
-                    string strAttendanceSolutionId = entAttRds.FirstOrDefault().ATTENDANCESOLUTIONID;
+                    
+                    string strEmployeeId = entAttRds.FirstOrDefault().EMPLOYEEID;
+                    DateTime dt=entAttRds.FirstOrDefault().ATTENDANCEDATE.Value;
 
                     //获取考勤记录对应的考勤方案
-                    T_HR_ATTENDANCESOLUTION entAttSol = bllAttendanceSolution.GetAttendanceSolutionByID(strAttendanceSolutionId);
+                    T_HR_ATTENDANCESOLUTION entAttSol = bllAttendanceSolution.GetAttendanceSolutionByEmployeeIDAndDate(strEmployeeId, dtStart, dtEnd);
+
+                    Tracer.Debug(" 结算月度考勤结果，结算时间范围：" + dtStart.ToString("yyyy-MM-dd") + "--" + dtEnd.ToString("yyyy-MM-dd")
+                        +"员工姓名：+" + item.EMPLOYEECNAME + " 使用的考勤方案名：" + entAttSol.ATTENDANCESOLUTIONNAME 
+                        );
 
                     decimal dNeedAttendDays = 0, dRealNeedAttendDays = 0;    //标称应出勤天数, 实际应出勤天数
                     decimal? dWorkTimePerDay = entAttSol.WORKTIMEPERDAY;    //每日工作时长

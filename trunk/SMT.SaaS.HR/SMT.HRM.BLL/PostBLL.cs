@@ -330,8 +330,10 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                string checkState = Convert.ToInt32(CheckStates.Approved).ToString();
+                string editState = Convert.ToInt32(EditStates.Actived).ToString();
                 var temp = dal.GetObjects().FirstOrDefault(s => s.T_HR_DEPARTMENT.DEPARTMENTID == entity.T_HR_DEPARTMENT.DEPARTMENTID
-                && s.T_HR_POSTDICTIONARY.POSTCODE == entity.T_HR_POSTDICTIONARY.POSTCODE);
+                && s.T_HR_POSTDICTIONARY.POSTCODE == entity.T_HR_POSTDICTIONARY.POSTCODE && s.CHECKSTATE == checkState && s.EDITSTATE == editState);
                 if (temp != null)
                 {
                     // throw new Exception("Repetition");
@@ -365,8 +367,11 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                string checkState = Convert.ToInt32(CheckStates.Approved).ToString();
+                string editState = Convert.ToInt32(EditStates.Actived).ToString();
                 var temp = dal.GetObjects().FirstOrDefault(s => s.T_HR_DEPARTMENT.DEPARTMENTID == entity.T_HR_DEPARTMENT.DEPARTMENTID
-                   && s.T_HR_POSTDICTIONARY.POSTCODE == entity.T_HR_POSTDICTIONARY.POSTCODE && s.POSTID != entity.POSTID);
+                   && s.T_HR_POSTDICTIONARY.POSTCODE == entity.T_HR_POSTDICTIONARY.POSTCODE && s.POSTID != entity.POSTID 
+                   && s.CHECKSTATE == checkState && s.EDITSTATE == editState);
                 if (temp != null)
                 {
                     // throw new Exception("Repetition");

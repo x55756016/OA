@@ -25,7 +25,7 @@ using System.Threading;
 
 namespace SMT.HRM.BLL
 {
-    public class OutApplyBLL : BaseBll<T_HR_OUTAPPLYRECORD>, IOperate,IAudit
+    public class OutApplyBLL : BaseBll<T_HR_OUTAPPLYRECORD>, IOperate
     {
         public OutApplyBLL()
         {
@@ -1057,19 +1057,39 @@ namespace SMT.HRM.BLL
         }
 
         #region 审核
-        public void SetFlowRecordEntity(Flow_FlowRecord_T entity)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void OnSubmitCompleted(AuditEventArgs.AuditResult args)
+        public string GetXmlString(string Formid)
         {
-            throw new NotImplementedException();
-        }
+            T_HR_OUTAPPLYRECORD Info = GetOutApplyByID(Formid);
+            //SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
+            decimal? stateValue = Convert.ToDecimal("1");
+            string checkState = string.Empty;
+            string checkStateDict
+                = PermClient.GetDictionaryByCategoryArray(new string[] { "CHECKSTATE" }).Where(p => p.DICTIONARYVALUE == stateValue).FirstOrDefault().DICTIONARYNAME;
+            checkState = checkStateDict == null ? "" : checkStateDict;
 
-        public string GetAuditState()
-        {
-            throw new NotImplementedException();
+            SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST employee
+                = SMT.SaaS.BLLCommonServices.Utility.GetEmployeeOrgByid(Info.EMPLOYEEID);
+            decimal? postlevelValue = Convert.ToDecimal(employee.EMPLOYEEPOSTS[0].POSTLEVEL.ToString());
+            string postLevelName = string.Empty;
+            string postLevelDict
+                 = PermClient.GetDictionaryByCategoryArray(new string[] { "CHECKSTATE" }).Where(p => p.DICTIONARYVALUE == stateValue).FirstOrDefault().DICTIONARYNAME;
+            postLevelName = postLevelDict == null ? "" : postLevelDict;
+
+            //decimal? overTimeValue = Convert.ToDecimal(Info);
+            SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
+            List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CHECKSTATE", "1", checkState));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "POSTLEVEL", employee.EMPLOYEEPOSTS[0].POSTLEVEL.ToString(), postLevelName));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "EMPLOYEENAM", Info.EMPLOYEENAME, Info.EMPLOYEENAME));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, Info.EMPLOYEENAME));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, Info.OWNERDEPARTMENTID));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERPOSTID", Info.OWNERPOSTID, Info.OWNERPOSTID));
+
+            string StrSource = GetBusinessObject("T_HR_OUTAPPLYRECORD");
+            string outApplyXML = mx.TableToXml(Info, null, StrSource, AutoList);
+
+            return outApplyXML;
         }
         #endregion
     }

@@ -53,10 +53,7 @@ namespace SMT.HRM.BLL
             {
                 flowSeriviceClient = new FlowServiceWS.ServiceClient();
             }
-            //if (PublicInterfaceClient == null)
-            //{
-            //    PublicInterfaceClient = new PublicServiceClient();
-            //}
+           
             if (dal == null)
             {
                 dal = new CommDal<TEntity>();
@@ -946,75 +943,7 @@ namespace SMT.HRM.BLL
 
         #region 提交审核
 
-        #region 每个业务层单据构造
-        //public void SetFlowRecordEntity(Flow_FlowRecord_T entity, string POSTLEVEL)
-        //{
-        //    Dictionary<string, string> para = new Dictionary<string, string>();
-        //    para.Add("POSTLEVEL", POSTLEVEL);
-        //    entity.SystemCode = "HR";
-
-        //    //Dictionary<string, string> para2 = new Dictionary<string, string>();
-        //    //para2.Add("COMPANYTYPE", (cbxCompanyType.SelectedItem as T_SYS_DICTIONARY) == null ? "" : (cbxCompanyType.SelectedItem as T_SYS_DICTIONARY).DICTIONARYNAME);
-        //    //para2.Add("COUNTYTYPE", (cbxCountry.SelectedItem as T_SYS_DICTIONARY) == null ? "" : (cbxCountry.SelectedItem as T_SYS_DICTIONARY).DICTIONARYNAME);
-        //    //para2.Add("COMPANYLEVEL", (cbxCompanyLevel.SelectedItem as T_SYS_DICTIONARY) == null ? "" : (cbxCompanyLevel.SelectedItem as T_SYS_DICTIONARY).DICTIONARYNAME);
-        //    //para2.Add("CITY", (cbxCity.SelectedItem as T_SYS_DICTIONARY) == null ? "" : (cbxCity.SelectedItem as T_SYS_DICTIONARY).DICTIONARYNAME);
-        //    //para2.Add("T_HR_COMPANY2Reference", Company.T_HR_COMPANY2 == null ? "" : Company.T_HR_COMPANY2.COMPANYID + "#" + Company.T_HR_COMPANY2.CNAME);
-
-        //    entity.SystemCode = "HR";
-        //    string strXmlObjectSource = string.Empty;
-        //    if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML))
-        //        strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, Company);
-        //    //strXmlObjectSource = Utility.ObjListToXml<T_HR_COMPANY>(Company, para, "HR");
-        //    //  strXmlObjectSource = Utility.ObjListToXml<T_HR_COMPANY>(Company, para, "HR", para2, null);
-
-        //    Utility.SetAuditEntity(entity, "T_HR_COMPANY", Company.COMPANYID, strXmlObjectSource);
-        //}
-
-        //private string GetXmlString(string StrSource, object Info,
-        //    string POSTLEVEL
-        //        ,string EMPLOYEENAME
-        //            )
-        //{
-        //    //SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
-        //    decimal? stateValue = Convert.ToDecimal("1");
-        //    string checkState = string.Empty;
-        //    string checkStateDict
-        //        = PermClient.GetDictionaryByCategoryArray(new string[]{"CHECKSTATE"}).Where(p => p.DICTIONARYVALUE == stateValue).FirstOrDefault().DICTIONARYNAME;
-        //    checkState = checkStateDict == null ? "" : checkStateDict;
-
-
-        //    decimal? postlevelValue = Convert.ToDecimal(POSTLEVEL);
-        //    string postLevelName = string.Empty;
-        //    string postLevelDict
-        //         = PermClient.GetDictionaryByCategoryArray(new string[] { "CHECKSTATE" }).Where(p => p.DICTIONARYVALUE == stateValue).FirstOrDefault().DICTIONARYNAME;
-        //    postLevelName = postLevelDict == null ? "" : postLevelDict;
-
-        //    //decimal? payCatogryValue = Convert.ToDecimal(Info.PAYCATEGORY);
-        //    //SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY PayCatogryDict = (Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>).Where(s => s.DICTIONCATEGORY == "PAYCATEGORY" && s.DICTIONARYVALUE == payCatogryValue).FirstOrDefault();
-
-        //    decimal? overTimeValue = Convert.ToDecimal(Info.OVERTIMECATE);
-           
-        //    SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
-        //    List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
-        //    AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CHECKSTATE", "1", checkState));
-        //    AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "POSTLEVEL", POSTLEVEL, postLevelName));
-        //    AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "EMPLOYEENAME", Info.EMPLOYEENAME, tbEmpName.Text));
-        //    AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
-        //    AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
-        //    AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
-        //    //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "PAYCATEGORY", Info.PAYCATEGORY, PayCatogryDict == null ? "" : PayCatogryDict.DICTIONARYNAME));
-        //    AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OVERTIMECATE", Info.OVERTIMECATE, overTimeDict == null ? "" : overTimeDict.DICTIONARYNAME));
-        //    //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERCOMPANYID", approvalInfo.OWNERCOMPANYID, StrCompanyName));
-        //    //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERDEPARTMENTID", approvalInfo.OWNERDEPARTMENTID, StrDepartmentName));
-        //    //AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERPOSTID", approvalInfo.OWNERPOSTID, StrPostName));
-        //    //AutoList.Add(basedata("T_OA_APPROVALINFO", "TYPEAPPROVAL", approvalInfo.TYPEAPPROVAL, StrApprovalTypeName));
-        //    //AutoList.Add(basedata("T_OA_APPROVALINFO", "CONTENT", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
-        //    //AutoList.Add(basedata("T_OA_APPROVALINFO", "AttachMent", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
-        //    //    AutoList.Add(basedata("T_HR_LEFTOFFICE", "LEFTOFFICECATEGORY", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYVALUE.ToString() : "0", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYNAME : ""));
-        //    string a = mx.TableToXml(Info, null, StrSource, AutoList);
-
-        //    return a;
-        //}
+        #region 每个业务层单据构造XML
 
         public AutoDictionary basedata(string TableName, string Name, string Value, string Text)
         {
@@ -1030,9 +959,13 @@ namespace SMT.HRM.BLL
         #endregion
 
 
-        public string GetBusinessObject(TEntity entity)
-        {
-            string BusinessObject = PublicInterfaceClient.GetBusinessObject("HR", entity.GetType().Name);
+        public string GetBusinessObject(string ModeCode)
+        { 
+            if (PublicInterfaceClient == null)
+            {
+                PublicInterfaceClient = new PublicServiceClient();
+            }
+            string BusinessObject = PublicInterfaceClient.GetBusinessObject("HR", ModeCode);
             return BusinessObject;
         }
         /// <summary>
@@ -1043,88 +976,88 @@ namespace SMT.HRM.BLL
         /// <param name="FormID"></param>
         /// <param name="ModelCode"></param>
         /// <returns></returns>
-        public DataResult Audit(object Entity,object auditobj, string FormID,string ModelCode)
-        {
-            //if (EntityEditor is IAudit)
-            //{
-            //    ((IAudit)EntityEditor).SetFlowRecordEntity(AuditCtrl.AuditEntity);
-            //}
+        //public DataResult Audit(object Entity,object auditobj, string FormID,string ModelCode)
+        //{
+        //    //if (EntityEditor is IAudit)
+        //    //{
+        //    //    ((IAudit)EntityEditor).SetFlowRecordEntity(AuditCtrl.AuditEntity);
+        //    //}
 
-            VirtualAudit auditEntity = auditobj as VirtualAudit;
-            //flowSerivice.Open();
+        //    VirtualAudit auditEntity = auditobj as VirtualAudit;
+        //    //flowSerivice.Open();
             
-            string POSTLEVEL=string.Empty;
-            string EMPLOYEENAME = string.Empty;
-            //string xml = GetAuditXml(fbEntity);
-            string StrSource=string.Empty;
-            string xml = string.Empty;// GetXmlString(StrSource, Entity, POSTLEVEL, EMPLOYEENAME);
-            //Tracer.Debug(xml);
+        //    string POSTLEVEL=string.Empty;
+        //    string EMPLOYEENAME = string.Empty;
+        //    //string xml = GetAuditXml(fbEntity);
+        //    string StrSource=string.Empty;
+        //    string xml = string.Empty;// GetXmlString(StrSource, Entity, POSTLEVEL, EMPLOYEENAME);
+        //    //Tracer.Debug(xml);
 
-            SubmitData AuditSubmitData = new SubmitData();
-            AuditSubmitData.FormID = FormID;
-            AuditSubmitData.ModelCode = ModelCode;
-            AuditSubmitData.ApprovalUser = new SMT.SaaS.BLLCommonServices.FlowWFService.UserInfo
-            {
-                CompanyID = auditEntity.CREATECOMPANYID,
-                CompanyName = auditEntity.CREATECOMPANYNAME,
-                DepartmentID = auditEntity.CREATEDEPARTMENTID,
-                DepartmentName = auditEntity.CREATEDEPARTMENTNAME,
-                PostID = auditEntity.CREATEPOSTID,
-                PostName = auditEntity.CREATEPOSTNAME,
-                UserID = auditEntity.CREATEUSERID,
-                UserName = auditEntity.CREATEUSERNAME
-            };
-            AuditSubmitData.ApprovalContent = auditEntity.Content;
-            AuditSubmitData.NextStateCode = auditEntity.NextStateCode;
-            AuditSubmitData.NextApprovalUser = new SMT.SaaS.BLLCommonServices.FlowWFService.UserInfo
-            {
-                UserID = auditEntity.OWNERID,
-                UserName = auditEntity.OWNERNAME,
-                CompanyID = auditEntity.OWNERCOMPANYID,
-                CompanyName = auditEntity.OWNERCOMPANYNAME,
-                DepartmentID = auditEntity.OWNERDEPARTMENTID,
-                DepartmentName = auditEntity.OWNERDEPARTMENTNAME,
-                PostID = auditEntity.OWNERPOSTID,
-                PostName = auditEntity.OWNERPOSTNAME
-            };
-            AuditSubmitData.ApprovalResult = (ApprovalResult)auditEntity.Result;
-            AuditSubmitData.FlowSelectType = (FlowSelectType)auditEntity.FlowSelectType;
+        //    SubmitData AuditSubmitData = new SubmitData();
+        //    AuditSubmitData.FormID = FormID;
+        //    AuditSubmitData.ModelCode = ModelCode;
+        //    AuditSubmitData.ApprovalUser = new SMT.SaaS.BLLCommonServices.FlowWFService.UserInfo
+        //    {
+        //        CompanyID = auditEntity.CREATECOMPANYID,
+        //        CompanyName = auditEntity.CREATECOMPANYNAME,
+        //        DepartmentID = auditEntity.CREATEDEPARTMENTID,
+        //        DepartmentName = auditEntity.CREATEDEPARTMENTNAME,
+        //        PostID = auditEntity.CREATEPOSTID,
+        //        PostName = auditEntity.CREATEPOSTNAME,
+        //        UserID = auditEntity.CREATEUSERID,
+        //        UserName = auditEntity.CREATEUSERNAME
+        //    };
+        //    AuditSubmitData.ApprovalContent = auditEntity.Content;
+        //    AuditSubmitData.NextStateCode = auditEntity.NextStateCode;
+        //    AuditSubmitData.NextApprovalUser = new SMT.SaaS.BLLCommonServices.FlowWFService.UserInfo
+        //    {
+        //        UserID = auditEntity.OWNERID,
+        //        UserName = auditEntity.OWNERNAME,
+        //        CompanyID = auditEntity.OWNERCOMPANYID,
+        //        CompanyName = auditEntity.OWNERCOMPANYNAME,
+        //        DepartmentID = auditEntity.OWNERDEPARTMENTID,
+        //        DepartmentName = auditEntity.OWNERDEPARTMENTNAME,
+        //        PostID = auditEntity.OWNERPOSTID,
+        //        PostName = auditEntity.OWNERPOSTNAME
+        //    };
+        //    AuditSubmitData.ApprovalResult = (ApprovalResult)auditEntity.Result;
+        //    AuditSubmitData.FlowSelectType = (FlowSelectType)auditEntity.FlowSelectType;
 
-            SubmitFlag AuditSubmitFlag = auditEntity.Op.ToUpper() == "ADD" ? SubmitFlag.New : SubmitFlag.Approval;
-            AuditSubmitData.SubmitFlag = AuditSubmitFlag;
-            AuditSubmitData.XML = xml;
-            //#region 
-            //FlowWFService.DataResult ar = new FlowWFService.DataResult();
-            //ar.FlowResult = FlowWFService.FlowResult.FAIL;
+        //    SubmitFlag AuditSubmitFlag = auditEntity.Op.ToUpper() == "ADD" ? SubmitFlag.New : SubmitFlag.Approval;
+        //    AuditSubmitData.SubmitFlag = AuditSubmitFlag;
+        //    AuditSubmitData.XML = xml;
+        //    //#region 
+        //    //FlowWFService.DataResult ar = new FlowWFService.DataResult();
+        //    //ar.FlowResult = FlowWFService.FlowResult.FAIL;
 
-            //return testResult;
-            //#endregion
+        //    //return testResult;
+        //    //#endregion
 
-            DataResult ar = flowSeriviceClient.SubimtFlow(AuditSubmitData);
+        //    DataResult ar = flowSeriviceClient.SubimtFlow(AuditSubmitData);
 
-            if (ar.FlowResult == FlowResult.FAIL)
-            {
-                string msg = @"流程提交or审核失败. 参数: "
-                      + string.Format("\r\n ApprovalUser.CompanyID: {0} ", AuditSubmitData.ApprovalUser.CompanyID)
-                      + string.Format("\r\n ApprovalUser.DepartmentID: {0} ", AuditSubmitData.ApprovalUser.DepartmentID)
-                      + string.Format("\r\n ApprovalUser.PostID: {0} ", AuditSubmitData.ApprovalUser.PostID)
-                      + string.Format("\r\n ApprovalUser.UserName: {0} ", AuditSubmitData.ApprovalUser.UserName)
-                      + string.Format("\r\n FormID: {0} ", AuditSubmitData.FormID)
-                      + string.Format("\r\n ModelCode: {0} ", AuditSubmitData.ModelCode)
-                      + string.Format("\r\n ApprovalContent: {0} ", AuditSubmitData.ApprovalContent)
-                      + string.Format("\r\n NextStateCode: {0} ", AuditSubmitData.NextStateCode)
-                      + string.Format("\r\n ApprovalResult: {0} ", AuditSubmitData.ApprovalResult)
-                      + string.Format("\r\n FlowSelectType: {0} ", AuditSubmitData.FlowSelectType.ToString())
-                      + string.Format("\r\n SubmitFlag: {0} ", AuditSubmitData.SubmitFlag.ToString())
-                      + string.Format("\r\n NextApprovalUser.UserID: {0} ", AuditSubmitData.NextApprovalUser.UserName)
-                      + string.Format("\r\n NextApprovalUser.UserName: {0} ", AuditSubmitData.NextApprovalUser.UserName)
-                      + string.Format("\r\n ErrMessage: {0} ", ar.Err);
+        //    if (ar.FlowResult == FlowResult.FAIL)
+        //    {
+        //        string msg = @"流程提交or审核失败. 参数: "
+        //              + string.Format("\r\n ApprovalUser.CompanyID: {0} ", AuditSubmitData.ApprovalUser.CompanyID)
+        //              + string.Format("\r\n ApprovalUser.DepartmentID: {0} ", AuditSubmitData.ApprovalUser.DepartmentID)
+        //              + string.Format("\r\n ApprovalUser.PostID: {0} ", AuditSubmitData.ApprovalUser.PostID)
+        //              + string.Format("\r\n ApprovalUser.UserName: {0} ", AuditSubmitData.ApprovalUser.UserName)
+        //              + string.Format("\r\n FormID: {0} ", AuditSubmitData.FormID)
+        //              + string.Format("\r\n ModelCode: {0} ", AuditSubmitData.ModelCode)
+        //              + string.Format("\r\n ApprovalContent: {0} ", AuditSubmitData.ApprovalContent)
+        //              + string.Format("\r\n NextStateCode: {0} ", AuditSubmitData.NextStateCode)
+        //              + string.Format("\r\n ApprovalResult: {0} ", AuditSubmitData.ApprovalResult)
+        //              + string.Format("\r\n FlowSelectType: {0} ", AuditSubmitData.FlowSelectType.ToString())
+        //              + string.Format("\r\n SubmitFlag: {0} ", AuditSubmitData.SubmitFlag.ToString())
+        //              + string.Format("\r\n NextApprovalUser.UserID: {0} ", AuditSubmitData.NextApprovalUser.UserName)
+        //              + string.Format("\r\n NextApprovalUser.UserName: {0} ", AuditSubmitData.NextApprovalUser.UserName)
+        //              + string.Format("\r\n ErrMessage: {0} ", ar.Err);
 
-                Tracer.Debug(msg);
-                //Tracer.Debug(xml);
-            }
-            return ar;
-        }
+        //        Tracer.Debug(msg);
+        //        //Tracer.Debug(xml);
+        //    }
+        //    return ar;
+        //}
         
         #endregion
 
