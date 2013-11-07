@@ -349,7 +349,16 @@ namespace SMT.SaaS.BLLCommonServices {
         }
         
         /// <summary>
-        ///   查找类似 SMT.HRM.UI.Form.Attendance.OutAppliecationForm 的本地化字符串。
+        ///   查找类似 HRM/OutApplyConfirm/Details 的本地化字符串。
+        /// </summary>
+        internal static string T_HR_OUTAPPLYCONFIRM {
+            get {
+                return ResourceManager.GetString("T_HR_OUTAPPLYCONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 HRM/OutApply/Details 的本地化字符串。
         /// </summary>
         internal static string T_HR_OUTAPPLYRECORD {
             get {

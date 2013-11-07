@@ -222,7 +222,7 @@
     <comment>请假申请Form类名</comment>
   </data>
   <data name="T_HR_OUTAPPLYRECORD" xml:space="preserve">
-    <value>SMT.HRM.UI.Form.Attendance.OutAppliecationForm</value>
+    <value>HRM/OutApply/Details</value>
     <comment>员工外出申请Form类名</comment>
   </data>
   <data name="T_HR_EMPLOYEEOVERTIMERECORD" xml:space="preserve">
@@ -320,5 +320,9 @@
   <data name="T_HR_NOATTENDCARDEMPLOYEES" xml:space="preserve">
     <value>SMT.HRM.UI.Form.Attendance.NoAttendCardEmployeesForm</value>
     <comment>员工免打卡设置申请Form类名</comment>
+  </data>
+  <data name="T_HR_OUTAPPLYCONFIRM" xml:space="preserve">
+    <value>HRM/OutApplyConfirm/Details</value>
+    <comment>外出申请确认</comment>
   </data>
 </root>
