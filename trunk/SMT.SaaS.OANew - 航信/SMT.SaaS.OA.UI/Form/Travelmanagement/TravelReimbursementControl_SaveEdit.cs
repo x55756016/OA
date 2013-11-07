@@ -49,6 +49,8 @@ namespace SMT.SaaS.OA.UI.UserControls
             ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
 
             #region 出差时间验证
+            
+            
             foreach (object obje in DaGrs.ItemsSource)
             {
                 SearchCity myCitys = DaGrs.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
@@ -172,9 +174,22 @@ namespace SMT.SaaS.OA.UI.UserControls
             //字段赋值及子表城市赋值
             SetTraveAndFBChargeValue();
 
-            #region "判断出差开始城市是否用重复"           
+            #region "判断出差开始城市是否用重复,下一条开始时间是否小于上一条结束时间"           
             for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
             {
+                if (TravelDetailList_Golbal.Count > 1)
+                {
+                    //如果不是第一条记录，判断结束时间是否大于上一条开始时间
+                    if (i>0)
+                    {
+                        if (TravelDetailList_Golbal[i].STARTDATE < TravelDetailList_Golbal[i - 1].ENDDATE)
+                        {
+                            //出发城市为空
+                            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差开始时间大于上一条出差记录的结束时间！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                            return false;
+                        }
+                    }
+                }
                 if (string.IsNullOrEmpty(TravelDetailList_Golbal[i].DEPCITY) || string.IsNullOrEmpty(TravelDetailList_Golbal[i].DESTCITY))
                 {
                     //出发城市为空
