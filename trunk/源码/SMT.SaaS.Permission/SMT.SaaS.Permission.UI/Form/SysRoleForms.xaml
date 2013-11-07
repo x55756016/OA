@@ -62,8 +62,7 @@
 
         <!--角色名称-->
         <TextBlock Grid.Column="0" Grid.Row="3" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ROLENAME}" Margin="8,2,0,2"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRoleName" MaxLength="50" Text="{Binding ROLENAME, Mode=TwoWay}" Grid.Column="1" Grid.Row="3"  
-MaxWidth="300" Margin="5,2,25,2">
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRoleName" MaxLength="50" Text="{Binding ROLENAME, Mode=TwoWay}" Grid.Column="1" Grid.Row="3"  Margin="5,2,25,2">
             <interaction:Interaction.Behaviors>
                 <behaviors:ShowRequire></behaviors:ShowRequire>
             </interaction:Interaction.Behaviors>
@@ -75,7 +74,7 @@ MaxWidth="300" Margin="5,2,25,2">
         <!--备注-->
         <TextBlock Grid.Column="0" Grid.Row="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" Margin="8,2,0,0"/>
         <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" Text="{Binding REMARK, Mode=TwoWay}"  VerticalAlignment="Top"  
-            MinWidth="150" MaxHeight="120" MaxWidth="300"    Grid.Column="1" Grid.Row="4" Margin="5,2,25,2" MaxLength="2000" TextWrapping="Wrap" TextAlignment="Left" AcceptsReturn="True" HorizontalAlignment="Stretch"
+            MinWidth="150" MaxHeight="120"     Grid.Column="1" Grid.Row="4" Margin="5,2,25,2" MaxLength="2000" TextWrapping="Wrap" TextAlignment="Left" AcceptsReturn="True" HorizontalAlignment="Stretch"
           VerticalScrollBarVisibility="Auto"/>
         
     </Grid>
