@@ -106,7 +106,7 @@ namespace SMT.HRM.DAL
         public T_HR_ATTENDANCESOLUTION GetAttendanceSolutionByEmployeeIDAndDate(string strEmployeeID, DateTime dtStart, DateTime dtEnd)
         {
             var qr = from r in GetObjects<T_HR_ATTENDANCERECORD>()
-                     where r.EMPLOYEEID == strEmployeeID && r.ATTENDANCEDATE >= dtStart && r.ATTENDANCEDATE <= dtEnd
+                     where r.EMPLOYEEID == strEmployeeID && r.ATTENDANCEDATE >= dtStart && r.ATTENDANCEDATE <= dtEnd                     
                      select r;
 
             if (qr.Count() == 0)

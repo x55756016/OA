@@ -203,7 +203,7 @@ namespace SMT.HRM.BLL
         }
 
         /// <summary>
-        /// 根据员工ID,起止时间(一般为月头至月尾)获取其应用的考勤方案
+        /// 根据考勤初始化记录获取考勤方案，获取不到则获取员工最新分配的考勤方案
         /// </summary>
         /// <param name="strEmployeeID">员工ID</param>
         /// <param name="dtStart">考勤记录参考起始日期</param>

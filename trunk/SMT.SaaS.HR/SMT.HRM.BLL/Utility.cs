@@ -150,6 +150,7 @@ namespace SMT.HRM.BLL
                 EntityRelation.Add("T_HR_SALARYRECORDBATCH", "SalaryRecordBatchBLL");
                 EntityRelation.Add("T_HR_SALARYSYSTEM", "SalarySystemBLL");
                 EntityRelation.Add("T_HR_OUTAPPLYRECORD", "OutApplyBLL");
+                EntityRelation.Add("T_HR_OUTAPPLYCONFIRM", "OutApplyConfirmBLL");
                 EntityRelation.Add("T_HR_NOATTENDCARDEMPLOYEES", "NoAttendCardEmployeesBLL");
             }
         }

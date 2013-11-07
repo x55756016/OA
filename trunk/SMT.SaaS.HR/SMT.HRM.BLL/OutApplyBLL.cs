@@ -147,7 +147,7 @@ namespace SMT.HRM.BLL
                 string strMsg = string.Empty;
                 if (GetAttendanceSolution(entity.EMPLOYEEID, entity.STARTDATE) == null)
                 {
-                    return "TYPEERROR";
+                    return "未获取到用户的考勤方案，保存失败";
                 }
 
                 decimal dTotalHours = 0;
@@ -254,6 +254,28 @@ namespace SMT.HRM.BLL
 
                 if (entOTRd.CHECKSTATE != Convert.ToInt32(CheckStates.Approved).ToString())
                 {
+                    T_HR_OUTAPPLYCONFIRM confirm = new T_HR_OUTAPPLYCONFIRM();
+                    confirm.OUTAPPLYCONFIRMID = Guid.NewGuid().ToString();
+                    confirm.STARTDATE = entOTRd.STARTDATE;
+                    confirm.ENDDATE = entOTRd.ENDDATE;
+                    confirm.CHECKSTATE = "0";
+                    confirm.OWNERCOMPANYID = entOTRd.OWNERCOMPANYID;
+                    confirm.OWNERDEPARTMENTID = entOTRd.OWNERDEPARTMENTID;
+                    confirm.OWNERID = entOTRd.OWNERID;
+                    confirm.CREATECOMPANYID = entOTRd.CREATECOMPANYID;
+                    confirm.CREATEDATE = DateTime.Now;
+                    confirm.CREATEDEPARTMENTID = entOTRd.CREATEDEPARTMENTID;
+                    confirm.CREATEPOSTID = entOTRd.CREATEPOSTID;
+                    confirm.CREATEUSERID = entOTRd.CREATEUSERID;
+                    confirm.EMPLOYEEID = entOTRd.EMPLOYEEID;
+                    confirm.EMPLOYEENAME = entOTRd.EMPLOYEENAME;
+                    //confirm.T_HR_OUTAPPLYRECORD = entOTRd;
+                    confirm.T_HR_OUTAPPLYRECORDReference.EntityKey =
+                    new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_OUTAPPLYRECORD", "OUTAPPLYID", entOTRd.OUTAPPLYID);
+                
+                    OutApplyConfirmBLL bll = new OutApplyConfirmBLL();
+                    bll.Add(confirm);
+
                     return "{SAVESUCCESSED}";
                 }
                 else
@@ -1056,7 +1078,7 @@ namespace SMT.HRM.BLL
             }
         }
 
-        #region 审核
+        #region 审核手机版元数据构造
 
         public string GetXmlString(string Formid)
         {
@@ -1079,7 +1101,8 @@ namespace SMT.HRM.BLL
             //decimal? overTimeValue = Convert.ToDecimal(Info);
             SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
             List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
-            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CHECKSTATE", "1", checkState));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CURRENTEMPLOYEENAME", employee.T_HR_EMPLOYEE.EMPLOYEECNAME, employee.T_HR_EMPLOYEE.EMPLOYEECNAME));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CHECKSTATE", Info.CHECKSTATE, checkState));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "POSTLEVEL", employee.EMPLOYEEPOSTS[0].POSTLEVEL.ToString(), postLevelName));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "EMPLOYEENAM", Info.EMPLOYEENAME, Info.EMPLOYEENAME));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, Info.EMPLOYEENAME));
