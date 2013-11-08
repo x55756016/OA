@@ -121,7 +121,7 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public T_HR_OUTAPPLYCONFIRM GetOutApplyConfirmByID(string strOverTimeRecordId)
         {
-            var ents = from a in dal.GetTable()
+            var ents = from a in dal.GetObjects().Include("T_HR_OUTAPPLYRECORD")
                        where a.OUTAPPLYCONFIRMID == strOverTimeRecordId
                        select a;
             if (ents.Count() > 0)

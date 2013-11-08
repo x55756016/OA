@@ -251,51 +251,65 @@ namespace SMT.HRM.BLL
                 }
                 SaveMyRecord(entOTRd);
 
-
-                if (entOTRd.CHECKSTATE != Convert.ToInt32(CheckStates.Approved).ToString())
+                try
                 {
-                    T_HR_OUTAPPLYCONFIRM confirm = new T_HR_OUTAPPLYCONFIRM();
-                    confirm.OUTAPPLYCONFIRMID = Guid.NewGuid().ToString();
-                    confirm.STARTDATE = entOTRd.STARTDATE;
-                    confirm.ENDDATE = entOTRd.ENDDATE;
-                    confirm.CHECKSTATE = "0";
-                    confirm.OWNERCOMPANYID = entOTRd.OWNERCOMPANYID;
-                    confirm.OWNERDEPARTMENTID = entOTRd.OWNERDEPARTMENTID;
-                    confirm.OWNERID = entOTRd.OWNERID;
-                    confirm.CREATECOMPANYID = entOTRd.CREATECOMPANYID;
-                    confirm.CREATEDATE = DateTime.Now;
-                    confirm.CREATEDEPARTMENTID = entOTRd.CREATEDEPARTMENTID;
-                    confirm.CREATEPOSTID = entOTRd.CREATEPOSTID;
-                    confirm.CREATEUSERID = entOTRd.CREATEUSERID;
-                    confirm.EMPLOYEEID = entOTRd.EMPLOYEEID;
-                    confirm.EMPLOYEENAME = entOTRd.EMPLOYEENAME;
-                    //confirm.T_HR_OUTAPPLYRECORD = entOTRd;
-                    confirm.T_HR_OUTAPPLYRECORDReference.EntityKey =
-                    new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_OUTAPPLYRECORD", "OUTAPPLYID", entOTRd.OUTAPPLYID);
-                
-                    OutApplyConfirmBLL bll = new OutApplyConfirmBLL();
-                    bll.Add(confirm);
+                    Tracer.Debug("流程更新外出申请,外出员工"+entOTRd.EMPLOYEENAME+ " 外出时间："+entOTRd.STARTDATE+" 外出原因："+entOTRd.REASON);
+                    if (entOTRd.CHECKSTATE != Convert.ToInt32(CheckStates.Approved).ToString())
+                    {
+                        T_HR_OUTAPPLYCONFIRM confirm = new T_HR_OUTAPPLYCONFIRM();
+                        confirm.OUTAPPLYCONFIRMID = Guid.NewGuid().ToString();
+                        confirm.STARTDATE = entOTRd.STARTDATE;
+                        confirm.ENDDATE = entOTRd.ENDDATE;
+                        confirm.CHECKSTATE = "0";
+                        confirm.OWNERCOMPANYID = entOTRd.OWNERCOMPANYID;
+                        confirm.OWNERDEPARTMENTID = entOTRd.OWNERDEPARTMENTID;
+                        confirm.OWNERID = entOTRd.OWNERID;
+                        confirm.CREATECOMPANYID = entOTRd.CREATECOMPANYID;
+                        confirm.CREATEDATE = DateTime.Now;
+                        confirm.CREATEDEPARTMENTID = entOTRd.CREATEDEPARTMENTID;
+                        confirm.CREATEPOSTID = entOTRd.CREATEPOSTID;
+                        confirm.CREATEUSERID = entOTRd.CREATEUSERID;
+                        confirm.EMPLOYEEID = entOTRd.EMPLOYEEID;
+                        confirm.EMPLOYEENAME = entOTRd.EMPLOYEENAME;
+                        //confirm.T_HR_OUTAPPLYRECORD = entOTRd;
+                        confirm.T_HR_OUTAPPLYRECORDReference.EntityKey =
+                        new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_OUTAPPLYRECORD", "OUTAPPLYID", entOTRd.OUTAPPLYID);
 
-                    return "{SAVESUCCESSED}";
+                        OutApplyConfirmBLL bll = new OutApplyConfirmBLL();
+                        if (bll.Add(confirm))
+                        {
+                            Tracer.Debug("外出申请审核新增外出确认单成功,外出确认员工" + confirm.EMPLOYEENAME + " 外出确认时间：" + confirm.STARTDATE + " 外出确认原因：" + confirm.REMARK);
+                        }
+                        else
+                        {
+                            Tracer.Debug("外出申请审核新增外出确认单保存失败！");
+                        }
+
+                        return "{SAVESUCCESSED}";
+                    }
+                    else
+                    {
+
+                        #region  启动处理考勤异常的线程
+
+                        string attState = (Convert.ToInt32(Common.AttendanceState.OutApply) + 1).ToString();
+                        Dictionary<string, object> d = new Dictionary<string, object>();
+                        d.Add("EMPLOYEEID", entOTRd.EMPLOYEEID);
+                        d.Add("STARTDATETIME", entOTRd.STARTDATE.Value);
+                        d.Add("ENDDATETIME", entOTRd.ENDDATE.Value);
+                        d.Add("ATTSTATE", attState);
+                        Thread thread = new Thread(dealAttend);
+                        thread.Start(d);
+
+                        Tracer.Debug("外出申请启动消除异常的线程，外出申请开始时间:" + entOTRd.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                                + " 结束时间：" + entOTRd.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss") + "员工id：" + entOTRd.EMPLOYEEID);
+
+                        #endregion
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-
-                    #region  启动处理考勤异常的线程
-
-                    string attState = (Convert.ToInt32(Common.AttendanceState.OutApply) + 1).ToString();
-                    Dictionary<string, object> d = new Dictionary<string, object>();
-                    d.Add("EMPLOYEEID", entOTRd.EMPLOYEEID);
-                    d.Add("STARTDATETIME", entOTRd.STARTDATE.Value);
-                    d.Add("ENDDATETIME", entOTRd.ENDDATE.Value);
-                    d.Add("ATTSTATE", attState);
-                    Thread thread = new Thread(dealAttend);
-                    thread.Start(d);
-
-                    Tracer.Debug("外出申请启动消除异常的线程，外出申请开始时间:" + entOTRd.STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                            + " 结束时间：" + entOTRd.ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss") + "员工id：" + entOTRd.EMPLOYEEID);
-
-                    #endregion
+                    Tracer.Debug(ex.ToString());
                 }
                 return "{SAVESUCCESSED}";
 
