@@ -249,6 +249,8 @@ namespace SMT.HRM.UI.Form.Salary
             EmployeeAddSum.OWNERID = EmployeeAddSumView.OWNERID;
             EmployeeAddSum.PROJECTMONEY = EmployeeAddSumView.PROJECTMONEY;
             EmployeeAddSum.PROJECTNAME = EmployeeAddSumView.PROJECTNAME;
+            //加扣款类型，this.DataContext绑定的值为EmployeeAddSum不是EmployeeAddSumView，所以EmployeeAddSumView值不会改变
+            EmployeeAddSumView.SYSTEMTYPE = Convert.ToString(combProtectType.SelectedIndex);
             EmployeeAddSum.SYSTEMTYPE = EmployeeAddSumView.SYSTEMTYPE;
             EmployeeAddSum.REMARK = EmployeeAddSumView.REMARK;
             EmployeeAddSum.UPDATEDATE = EmployeeAddSumView.UPDATEDATE;

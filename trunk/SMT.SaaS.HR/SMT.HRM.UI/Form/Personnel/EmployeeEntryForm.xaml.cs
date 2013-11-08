@@ -1254,6 +1254,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 }
             }
         }
+
         void EnablControl()
         {
             //lkPost.IsEnabled = false;
@@ -1266,6 +1267,13 @@ namespace SMT.HRM.UI.Form.Personnel
             dpEntryDate.IsEnabled = false;
             dpOnPostDate.IsEnabled = false;
             cbxPostLevel.IsEnabled = false;
+            if (FormType == FormTypes.Resubmit)
+            {
+                dpEntryDate.IsEnabled = true;
+                dpOnPostDate.IsEnabled = true;
+                cbxPostLevel.IsEnabled = true;
+                numPorbationperiod.IsEnabled = true;
+            }
         }
         //void SendEngineXml()
         //{

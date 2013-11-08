@@ -80,6 +80,7 @@ namespace SMT.HRM.UI.Form.Personnel
             LeftOfficeConfirm.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
             LeftOfficeConfirm.CREATEDATE = DateTime.Now;
             LeftOfficeConfirm.CONFIRMDATE = DateTime.Now;
+            this.dpConfirmDate.Text = DateTime.Now.ToString("yyyy-MM-dd");//奇怪
             LeftOfficeConfirm.EMPLOYEECNAME = leftOffice.T_HR_EMPLOYEE.EMPLOYEECNAME;
             LeftOfficeConfirm.APPLYDATE = leftOffice.APPLYDATE;
             LeftOfficeConfirm.LEFTOFFICEDATE = leftOffice.LEFTOFFICEDATE;
@@ -198,7 +199,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     LeftOfficeConfirm.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
                     LeftOfficeConfirm.CREATEDATE = DateTime.Now;
                     LeftOfficeConfirm.CONFIRMDATE = DateTime.Now;
-                    dpConfirmDate.Text = DateTime.Now.ToString();
+                    //dpConfirmDate.Text = DateTime.Now.ToString();
                     createUserName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
                     SetToolBar();
                 }
@@ -544,10 +545,10 @@ namespace SMT.HRM.UI.Form.Personnel
                 {
                     dpStopPaymentDate.Text = LeftOfficeConfirm.STOPPAYMENTDATE.ToString();
                 }
-                if (LeftOfficeConfirm.CONFIRMDATE != null)
-                {
-                    dpConfirmDate.Text = LeftOfficeConfirm.CONFIRMDATE.ToString();
-                }
+                //if (LeftOfficeConfirm.CONFIRMDATE != null)
+                //{
+                //    dpConfirmDate.Text = LeftOfficeConfirm.CONFIRMDATE.ToString();
+                //}
                // fbClient.GetLeavingUserAsync(LeftOfficeConfirm.EMPLOYEEID);
                 //oaClient.GetEmployeeNotReturnListByUserIdAsync(LeftOfficeConfirm.EMPLOYEEID);
 
@@ -922,7 +923,7 @@ namespace SMT.HRM.UI.Form.Personnel
             }
             //2012-09-06
             //确认时间明明有，但是提示没有，在这里再次赋值
-            dpConfirmDate.Text = DateTime.Now.ToString();
+            //dpConfirmDate.Text = DateTime.Now.ToString();
             //if (string.IsNullOrEmpty(LeftOfficeConfirm.EMPLOYEEID))
             //{
             //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "EMPLOYEENAME"),
@@ -951,24 +952,31 @@ namespace SMT.HRM.UI.Form.Personnel
             //    RefreshUI(RefreshedTypes.HideProgressBar);
             //    return;
             //}
-            LeftOfficeConfirm.CONFIRMDATE = Convert.ToDateTime(dpConfirmDate.Text);
-            LeftOfficeConfirm.STOPPAYMENTDATE = Convert.ToDateTime(dpStopPaymentDate.Text);
-            if (!string.IsNullOrEmpty(dpApplyDate.Text) && !string.IsNullOrEmpty(dpApplyDate.Text.Trim()))
+            string confirDate = Convert.ToString(dpConfirmDate.Text);
+            string stopDate = Convert.ToString(dpStopPaymentDate.Text);
+            string applyDate = Convert.ToString(dpApplyDate.Text);
+            string leftDate = Convert.ToString(dpLeftDate.Text);
+           // MessageBox.Show(confirDate + "***" + stopDate + "***" + applyDate + "***" + leftDate);
+            if (!string.IsNullOrEmpty(confirDate))
             {
-                LeftOfficeConfirm.APPLYDATE = Convert.ToDateTime(dpApplyDate.Text);
+                LeftOfficeConfirm.CONFIRMDATE = Convert.ToDateTime(confirDate);
             }
-            if (!string.IsNullOrEmpty(dpLeftDate.Text.Trim()))
+            LeftOfficeConfirm.STOPPAYMENTDATE = Convert.ToDateTime(stopDate);
+            if (!string.IsNullOrEmpty(applyDate) && !string.IsNullOrEmpty(applyDate.Trim()))
             {
-                LeftOfficeConfirm.LEFTOFFICEDATE = Convert.ToDateTime(dpLeftDate.Text);
+                LeftOfficeConfirm.APPLYDATE = Convert.ToDateTime(applyDate);
+            }
+            if (!string.IsNullOrEmpty(leftDate))
+            {
+                LeftOfficeConfirm.LEFTOFFICEDATE = Convert.ToDateTime(leftDate);
             }
             LeftOfficeConfirm.LEFTOFFICECATEGORY = (cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYVALUE.ToString();
             LeftOfficeConfirm.REMARK = txtLeftRemark.Text;
             LeftOfficeConfirm.LEFTOFFICEREASON = txtLeftReason.Text;
-            if (!string.IsNullOrEmpty(dpLeftDate.Text))
+            if (!string.IsNullOrEmpty(leftDate))
             {
-                LeftOfficeConfirm.LEFTOFFICEDATE = Convert.ToDateTime(dpLeftDate.Text);
+                LeftOfficeConfirm.LEFTOFFICEDATE = Convert.ToDateTime(leftDate);
             }
-
             if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
             {
                 LeftOfficeConfirm.UPDATEDATE = System.DateTime.Now;
