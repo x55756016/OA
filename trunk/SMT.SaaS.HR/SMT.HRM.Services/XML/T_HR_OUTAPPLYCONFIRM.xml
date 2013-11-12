@@ -3,9 +3,9 @@
   <Name>HR</Name>
   <Version>1.0</Version>
   <System>
-    <Function Description="外出申请" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+    <Function Description="外出确认" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
       <ParaStr>
-        <Para TableName="T_HR_OUTAPPLYCONFIRM" Name="OUTAPPLYCONFIRMID" Description="外出申请ID" Value=""></Para>
+        <Para TableName="T_HR_OUTAPPLYCONFIRM" Name="OUTAPPLYCONFIRMID" Description="外出确认ID" Value=""></Para>
       </ParaStr>
     </Function>
   </System>
@@ -17,16 +17,20 @@
     <ApplicationOrder>{OUTAPPLYCONFIRMID}</ApplicationOrder>
     <FormTypes>Audit</FormTypes>
   </MsgOpen>
-  <Object Name="T_HR_OUTAPPLYCONFIRM" Description="员工外出申请" Key="OUTAPPLYCONFIRMID" id="">
+  <Object Name="T_HR_OUTAPPLYCONFIRM" Description="员工外出确认" Key="OUTAPPLYCONFIRMID" id="">
     <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="OUTAPPLYCONFIRMID" LableResourceID="OUTAPPLYCONFIRMID" Description="外出申请记录ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OUTAPPLYCONFIRMID" LableResourceID="OUTAPPLYCONFIRMID" Description="外出确认ID" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID" Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工姓名" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="EMPLOYEECODE" LableResourceID="EMPLOYEECODE" Description="员工编号" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
-    <Attribute Name="OVERTIMECATE" LableResourceID="OVERTIMECATE" Description="外出申请生效方式
-0 审核通过的外出申请申请；1 超过工作时间外自动累计；2 仅节假日累计；" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="PAYCATEGORY" LableResourceID="PAYCATEGORY" Description="外出申请报酬方式：0 调休方式、1 外出申请工资方式、2 先调休再付工资方式、3 无报酬方式；" DataType="string" DataValue="" DataText=""></Attribute>
+
+    <Attribute Name="ISCANCELED" LableResourceID="ISCANCELED" Description="是否取消外出" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CANCELREASON" LableResourceID="CANCELREASON" Description="取消外出原因" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="STARTDATE" LableResourceID="STARTDATE" Description="实际外出时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ENDDATE" LableResourceID="ENDDATE" Description="实际返回时间" DataType="DateTime" DataValue="" DataText=""></Attribute>   
+    <Attribute Name="OUTREPORT" LableResourceID="OUTREPORT" Description="外出报告" DataType="string" DataValue="" DataText=""></Attribute>    
+   <Attribute Name="OUTAPLLYTIMES" LableResourceID="OUTAPLLYTIMES" Description="外出时长" DataType="decimal" DataValue="" DataText=""></Attribute>
+
     <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
@@ -40,16 +44,6 @@
     <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="STARTDATE" LableResourceID="STARTDATETIME" Description="外出申请开始日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
-    <Attribute Name="STARTDATETIME" LableResourceID="STARTDATE" Description="外出申请开始时间" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="ENDDATE" LableResourceID="ENDDATETIME" Description="外出申请结束日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
-    <Attribute Name="ENDDATETIME" LableResourceID="ENDDATE" Description="外出申请结束时间" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="OVERTIMEHOURS" LableResourceID="OVERTIMEHOURS" Description="外出申请时长" DataType="decimal" DataValue="" DataText=""></Attribute>
-    <Attribute Name="BEGINCARDTIME" LableResourceID="BEGINCARDTIME" Description="上班刷卡时间" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="BEGINCARDTYPE" LableResourceID="BEGINCARDTYPE" Description="0,正常刷卡,1 签卡" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="BEGINCARDSTATE" LableResourceID="BEGINCARDSTATE" Description="上班状态" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="ENDCARDTIME" LableResourceID="ENDCARDTIME" Description="下班刷卡时间" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="ENDCARDTYPE" LableResourceID="ENDCARDTYPE" Description="0,正常刷卡,1 签卡" DataType="string" DataValue="" DataText=""></Attribute>
-    <Attribute Name="ENDCARDSTATE" LableResourceID="ENDCARDSTATE" Description="下班状态" DataType="string" DataValue="" DataText=""></Attribute>
+   
   </Object>
 </System>
