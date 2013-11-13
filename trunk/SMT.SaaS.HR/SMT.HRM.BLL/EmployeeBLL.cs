@@ -973,6 +973,22 @@ namespace SMT.HRM.BLL
             return ents.Count() > 0 ? ents.ToList() : null;
 
         }
+
+        /// <summary>
+        /// 根据员工id查询员工打卡机指纹编号
+        /// </summary>
+        /// <param name="EmployeeID"></param>
+        /// <returns></returns>
+        public string GetEmployeePrintIDByEmployeeID(string EmployeeID)
+        {
+            var ents = from o in dal.GetObjects()
+                       where o.EMPLOYEEID == EmployeeID
+                       select o.FINGERPRINTID;
+
+            return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+        }
+
+
         /// <summary>
         /// 根据员工打卡机指纹编号查询员工
         /// </summary>
@@ -983,6 +999,20 @@ namespace SMT.HRM.BLL
             var ents = from o in dal.GetObjects()
                        where o.FINGERPRINTID == strFingerPrintID
                        select o;
+
+            return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+        }
+
+        /// <summary>
+        /// 根据员工打卡机指纹编号查询员工
+        /// </summary>
+        /// <param name="strFingerPrintID"></param>
+        /// <returns></returns>
+        public string GetEmployeeIdByFingerPrintID(string strFingerPrintID)
+        {
+            var ents = from o in dal.GetObjects()
+                       where o.FINGERPRINTID == strFingerPrintID
+                       select o.EMPLOYEEID;
 
             return ents.Count() > 0 ? ents.FirstOrDefault() : null;
         }
@@ -3811,7 +3841,7 @@ namespace SMT.HRM.BLL
             return employees;
         }
         /// <summary>
-        /// 获取员工的信息概要
+        /// 获取员工的生效信息概要
         /// </summary>
         /// <param name="employeeID"></param>
         /// <returns>员工的姓名，工龄，岗位集合</returns>
@@ -3848,51 +3878,6 @@ namespace SMT.HRM.BLL
                                ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.BRIEFNAME,
                               ep.POSTLEVEL
                           };
-
-
-                //var entList = ent.ToList();
-                ////////
-                //int workAges=0;
-                //var entry = from en in dal.GetObjects<T_HR_EMPLOYEEENTRY>()
-                //            where en.T_HR_EMPLOYEE.EMPLOYEEID == employeeID && en.EDITSTATE == "1"
-                //            select en;
-                //if (entry.Count() > 0)
-                //{
-                //    if (entry.FirstOrDefault().ENTRYDATE != null)
-                //    {
-                //        DateTime entryDate = entry.FirstOrDefault().ENTRYDATE.Value;
-                //        DateTime Nowdate = System.DateTime.Now;
-                //        int workAge = (Nowdate.Year - entryDate.Year) * 12 + (Nowdate.Month - entryDate.Month - 1);
-                //        if (Nowdate.Day >= entryDate.Day)
-                //        {
-                //            workAge += 1;
-                //        }
-                //        workAges = workAge;
-                //        //employeeDetail.WORKAGE = workAge;
-                //        //employeeDetail.WORKAGE = (int)Math.Floor(Convert.ToDouble((System.DateTime.Now - entry.FirstOrDefault().ENTRYDATE.Value).Days / 30));
-                //    }
-
-                //}
-
-                ////////////////////////////////
-
-                //var vemployee = (from e in ent
-                //                 select new V_EMPLOYEEDETAIL
-                //                 {
-                //                     EMPLOYEEID = e.EMPLOYEEID,
-                //                     EMPLOYEENAME = e.EMPLOYEECNAME,
-                //                     EMPLOYEEENAME = e.EMPLOYEEENAME,
-                //                     EMPLOYEECODE = e.EMPLOYEECODE,
-                //                     EMPLOYEESTATE = e.EMPLOYEESTATE,
-                //                     OFFICEPHONE = e.OFFICEPHONE,
-                //                     SEX = e.SEX,
-                //                     //PHOTO = e.PHOTO,
-                //                     MOBILE = e.MOBILE,
-                //                     CURRENTADDRESS = e.CURRENTADDRESS,
-                //                     //WORKAGE = workAges
-                //                 });
-                //if (vemployee.Count() > 0)
-                //{
                 //employeeDetail = vemployee.FirstOrDefault();
                 V_EMPLOYEEDETAIL employeeDetail = new V_EMPLOYEEDETAIL();
                 employeeDetail.EMPLOYEEPOSTS = new List<V_EMPLOYEEPOSTBRIEF>();
@@ -3947,6 +3932,125 @@ namespace SMT.HRM.BLL
             return null;
         }
 
+
+        /// <summary>
+        /// 获取员工的历史信息概要（包括已离职员工）
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <returns>员工的姓名，工龄，岗位集合</returns>
+        public V_EMPLOYEEDETAIL GetEmployeeHistoryDetailView(string employeeID)
+        {
+            try
+            {
+                var ent = from em in dal.GetObjects<T_HR_EMPLOYEE>()
+                          //join en in dal.GetObjects<T_HR_EMPLOYEEENTRY>() on c.EMPLOYEEID equals en.T_HR_EMPLOYEE.EMPLOYEEID
+                          join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_POST.T_HR_POSTDICTIONARY").Include("T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY").Include("T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY")
+                          on em.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
+                          where ep.EDITSTATE == "1" && ep.CHECKSTATE == "2" && em.EMPLOYEEID == employeeID
+                          select new
+                          {
+                              //employee = em,
+                              em.EMPLOYEEID,
+                              em.EMPLOYEECNAME,
+                              em.EMPLOYEEENAME,
+                              em.EMPLOYEECODE,
+                              em.EMPLOYEESTATE,
+                              em.OFFICEPHONE,
+                              em.SEX,
+                              //em.PHOTO,
+                              em.MOBILE,
+                              em.CURRENTADDRESS,
+                              ep.EMPLOYEEPOSTID,
+                              ep.ISAGENCY,
+                              ep.T_HR_POST.POSTID,
+                              ep.T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME,
+                              ep.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID,
+                              ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                              ep.T_HR_POST.COMPANYID,
+                              ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME,
+                              ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.BRIEFNAME,
+                              ep.POSTLEVEL
+                          };
+                if (ent.Count() < 1)
+                {
+                    ent = from em in dal.GetObjects<T_HR_EMPLOYEE>()
+                          join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_POST.T_HR_POSTDICTIONARY").Include("T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY").Include("T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY")
+                          on em.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
+                          where em.EMPLOYEEID == employeeID
+                          select new
+                          {
+                              em.EMPLOYEEID,
+                              em.EMPLOYEECNAME,
+                              em.EMPLOYEEENAME,
+                              em.EMPLOYEECODE,
+                              em.EMPLOYEESTATE,
+                              em.OFFICEPHONE,
+                              em.SEX,
+                              em.MOBILE,
+                              em.CURRENTADDRESS,
+                              ep.EMPLOYEEPOSTID,
+                              ep.ISAGENCY,
+                              ep.T_HR_POST.POSTID,
+                              ep.T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME,
+                              ep.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID,
+                              ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                              ep.T_HR_POST.COMPANYID,
+                              ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME,
+                              ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.BRIEFNAME,
+                              ep.POSTLEVEL
+                          };
+                }
+                V_EMPLOYEEDETAIL employeeDetail = new V_EMPLOYEEDETAIL();
+                employeeDetail.EMPLOYEEPOSTS = new List<V_EMPLOYEEPOSTBRIEF>();
+                foreach (var item in ent.ToList())
+                {
+                    if (item.ISAGENCY == "0")
+                    {
+                        employeeDetail.EMPLOYEEID = item.EMPLOYEEID;
+                        employeeDetail.EMPLOYEENAME = item.EMPLOYEECNAME;
+                        employeeDetail.EMPLOYEEENAME = item.EMPLOYEEENAME;
+                        employeeDetail.EMPLOYEECODE = item.EMPLOYEECODE;
+                        employeeDetail.EMPLOYEESTATE = item.EMPLOYEESTATE;
+                        employeeDetail.OFFICEPHONE = item.OFFICEPHONE;
+                        employeeDetail.SEX = item.SEX;
+                        //PHOTO = e.PHOTO,
+                        employeeDetail.MOBILE = item.MOBILE;
+                        employeeDetail.CURRENTADDRESS = item.CURRENTADDRESS;
+                        employeeDetail.POSTID = item.POSTID;
+                    }
+
+                    V_EMPLOYEEPOSTBRIEF tmp = new V_EMPLOYEEPOSTBRIEF();
+                    tmp.EMPLOYEEPOSTID = item.EMPLOYEEPOSTID;
+                    tmp.ISAGENCY = item.ISAGENCY;
+                    tmp.POSTID = item.POSTID;
+                    tmp.DepartmentID = item.DEPARTMENTID;
+                    tmp.CompanyID = item.COMPANYID;
+                    tmp.PostName = item.POSTNAME;
+                    tmp.DepartmentName = item.DEPARTMENTNAME;
+                    string cname = string.Empty;
+                    if (!string.IsNullOrEmpty(item.BRIEFNAME))
+                    {
+                        tmp.CompanyName = item.BRIEFNAME;
+                    }
+                    else
+                    {
+                        tmp.CompanyName = item.CNAME;
+                    }
+                    tmp.POSTLEVEL = item.POSTLEVEL;
+                    employeeDetail.EMPLOYEEPOSTS.Add(tmp);
+                }
+                //}
+
+                employeeDetail.EMPLOYEEPOSTS = employeeDetail.EMPLOYEEPOSTS.OrderBy(s => s.ISAGENCY).ToList();
+
+                return employeeDetail;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug(ex.ToString());
+            }
+            return null;
+        }
         /// <summary>
         /// 根据员工ID获取员工照片
         /// </summary>

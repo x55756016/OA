@@ -83,7 +83,7 @@ namespace SMT.HRM.BLL
                 paras.Add(strCheckState);
             }
 
-            IQueryable<T_HR_OUTAPPLYRECORD> ents = dal.GetObjects();
+            IQueryable<T_HR_OUTAPPLYRECORD> ents = dal.GetObjects().Include("T_HR_OUTAPPLYCONFIRM");
             if (!string.IsNullOrEmpty(filterString))
             {
                 ents = ents.Where(filterString, paras.ToArray());
@@ -261,13 +261,18 @@ namespace SMT.HRM.BLL
             var ent = GetOutApplyByID(entity.OUTAPPLYID);
             if (ent != null)
             {
-                Utility.CloneEntity(entity, ent);
                 string msg = "修改外出申请单:" + entity.EMPLOYEENAME + " 外出时间：" + entity.STARTDATE
               + " 外出结束时间：" + entity.ENDDATE + " 外出原因：" + entity.REASON
               + " 是否当天往返：0为否:" + entity.ISSAMEDAYRETURN;
                 //计算外出时长
-                string strMsg = OutApplySetValue(msg, entity);
+                ent.ISSAMEDAYRETURN = entity.ISSAMEDAYRETURN;
+                ent.STARTDATE = entity.STARTDATE;
+                ent.ENDDATE = entity.ENDDATE;
+                ent.REASON = entity.REASON;
+                ent.UPDATEDATE = DateTime.Now;
+                string strMsg = OutApplySetValue(msg, ent);
 
+                //Utility.CloneEntity(entity, ent);
                 if (!string.IsNullOrWhiteSpace(strMsg))
                 {
                     Tracer.Debug(strMsg);
