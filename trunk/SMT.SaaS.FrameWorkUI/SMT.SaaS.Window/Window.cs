@@ -178,8 +178,14 @@ namespace System.Windows.Controls
                     double height = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualHeight;
                     double width = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualWidth;
                     //MessageBox.Show("1高：" + (height - 50) + " 宽：" + (width - 50));
-                    this.MinHeight = height - 50;
-                    this.MinWidth = width - 50;
+                    if (this.Height > height)
+                    {
+                        this.MinHeight = height-50;
+                    }
+                    if (this.Width > width)
+                    {
+                        this.MinWidth = width-50;
+                    }
                 }
                 catch (Exception ex)
                 {
