@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="V_EMPLOYEEPOST">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EMPLOYEEPOSTS" nillable="true" type="q2:ArrayOfT_HR_EMPLOYEEPOST" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_EMPLOYEE" nillable="true" type="q3:T_HR_EMPLOYEE" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="V_EMPLOYEEPOST" nillable="true" type="tns:V_EMPLOYEEPOST" />
+  <xs:complexType name="V_ATTENDANCEDEDUCTMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ATTENDABNORMALTYPENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FINETYPENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISACCUMULATINGNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISPERFECTATTENDANCEFACTORNAME" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_ATTENDANCEDEDUCTMASTER" nillable="true" type="q5:T_HR_ATTENDANCEDEDUCTMASTER" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="V_ATTENDANCEDEDUCTMASTER" nillable="true" type="tns:V_ATTENDANCEDEDUCTMASTER" />
+  <xs:complexType name="ArrayOfV_COMPANY">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_COMPANY" nillable="true" type="tns:V_COMPANY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_COMPANY" nillable="true" type="tns:ArrayOfV_COMPANY" />
+  <xs:complexType name="V_COMPANY">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BRIEFNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANRYCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FATHERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FATHERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FATHERTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SORTINDEX" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_COMPANY" nillable="true" type="tns:V_COMPANY" />
+  <xs:complexType name="ArrayOfV_DEPARTMENTSWITHCOMPANY">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_DEPARTMENTSWITHCOMPANY" nillable="true" type="tns:V_DEPARTMENTSWITHCOMPANY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_DEPARTMENTSWITHCOMPANY" nillable="true" type="tns:ArrayOfV_DEPARTMENTSWITHCOMPANY" />
+  <xs:complexType name="V_DEPARTMENTSWITHCOMPANY">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BRIEFNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_DEPARTMENTSWITHCOMPANY" nillable="true" type="tns:V_DEPARTMENTSWITHCOMPANY" />
+  <xs:complexType name="ArrayOfV_DEPARTMENT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_DEPARTMENT" nillable="true" type="tns:V_DEPARTMENT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_DEPARTMENT" nillable="true" type="tns:ArrayOfV_DEPARTMENT" />
+  <xs:complexType name="V_DEPARTMENT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTBOSSHEAD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTDICTIONARYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FATHERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FATHERTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SORTINDEX" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_DEPARTMENT" nillable="true" type="tns:V_DEPARTMENT" />
+  <xs:complexType name="ArrayOfV_POST">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_POST" nillable="true" type="tns:V_POST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_POST" nillable="true" type="tns:ArrayOfV_POST" />
+  <xs:complexType name="V_POST">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FATHERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSTNAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_POST" nillable="true" type="tns:V_POST" />
+  <xs:complexType name="ArrayOfV_RELATIONPOST">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_RELATIONPOST" nillable="true" type="tns:V_RELATIONPOST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_RELATIONPOST" nillable="true" type="tns:ArrayOfV_RELATIONPOST" />
+  <xs:complexType name="V_RELATIONPOST">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="Post" nillable="true" type="q6:T_HR_POST" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelationPostID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_RELATIONPOST" nillable="true" type="tns:V_RELATIONPOST" />
+</xs:schema>

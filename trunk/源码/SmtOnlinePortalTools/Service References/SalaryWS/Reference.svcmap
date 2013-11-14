@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cdd3c7fc-b299-4d82-bdab-fdea733fbd6a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://portal.smt-online.net/New/Services/HR/SalaryService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SalaryService.xsd" MetadataType="Schema" ID="9b4a128c-8f57-4205-969e-a9ed6736cc19" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SalaryService.disco" MetadataType="Disco" ID="f34bd1af-c230-445c-be5d-fb92ca7698f5" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?disco" />
+    <MetadataFile FileName="SalaryService.wsdl" MetadataType="Wsdl" ID="9fcd56b0-3db1-4977-ae46-795c7701ceec" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SalaryService1.xsd" MetadataType="Schema" ID="3508b1a7-e859-4e42-946a-b8b5baca581a" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SalaryService2.xsd" MetadataType="Schema" ID="d2f16ec7-88db-42b1-b658-7709391568ef" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SalaryService3.xsd" MetadataType="Schema" ID="85e59ac8-932a-4771-8de0-45bb6df4ea09" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SalaryService4.xsd" MetadataType="Schema" ID="e70ea2f7-235a-4c0a-ab6b-24365810c3f1" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?xsd=xsd7" />
+    <MetadataFile FileName="SalaryService5.xsd" MetadataType="Schema" ID="6646bce1-7bcd-4798-98b0-0ac44112e77d" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SalaryService6.xsd" MetadataType="Schema" ID="ae27562d-0b4f-4888-b7c4-dfcc02413c8b" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?xsd=xsd6" />
+    <MetadataFile FileName="SalaryService1.wsdl" MetadataType="Wsdl" ID="4f3f933d-2e09-42ee-98e3-713172838d67" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?wsdl" />
+    <MetadataFile FileName="SalaryService7.xsd" MetadataType="Schema" ID="4ebc9525-6123-40b2-8c6f-de0ee9de8156" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/SalaryService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

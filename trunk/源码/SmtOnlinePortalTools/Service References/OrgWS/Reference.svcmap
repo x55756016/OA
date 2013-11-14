@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="517d5e66-7c0b-4c12-82f1-0cd3e1c68eff" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OrganizationService.xsd" MetadataType="Schema" ID="7bdbf439-8e2b-4edb-99f8-e145c0d7ed7e" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="OrganizationService1.xsd" MetadataType="Schema" ID="aa552105-7f1e-4576-87a5-56d709973b31" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OrganizationService2.xsd" MetadataType="Schema" ID="aa9afa8e-a4c4-42bc-94ee-e8d4f680abad" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="OrganizationService3.xsd" MetadataType="Schema" ID="fa61902d-81a2-42f0-8fe1-80c0515ddf57" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="OrganizationService4.xsd" MetadataType="Schema" ID="aeeb890d-6e23-4c39-99c4-acd825f2d4a3" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="OrganizationService5.xsd" MetadataType="Schema" ID="2b2522c7-407f-4838-ace6-7aa8d4965d6d" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd5" />
+    <MetadataFile FileName="OrganizationService6.xsd" MetadataType="Schema" ID="e716c988-d654-45b8-b15e-ea342a615842" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd6" />
+    <MetadataFile FileName="OrganizationService7.xsd" MetadataType="Schema" ID="e029632b-f37f-4f62-85e2-3de33b71a5f3" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?xsd=xsd7" />
+    <MetadataFile FileName="OrganizationService.wsdl" MetadataType="Wsdl" ID="274e9974-f5f5-4062-8b52-84331a17e0ce" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?wsdl" />
+    <MetadataFile FileName="OrganizationService.disco" MetadataType="Disco" ID="21301c16-1216-4182-9386-5b6b61130cd0" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?disco" />
+    <MetadataFile FileName="OrganizationService1.wsdl" MetadataType="Wsdl" ID="44590d2c-b1fe-4008-85d2-0807cb316770" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

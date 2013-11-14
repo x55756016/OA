@@ -1,0 +1,1024 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5FC9D39C-7894-4975-8EE2-136BFE93AB17}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmtOnlinePortalTools</RootNamespace>
+    <AssemblyName>SmtOnlinePortalTools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="HR\TestDo.aspx" />
+    <Content Include="HR\TestDo2.aspx" />
+    <None Include="Service References\AttWS\AttendanceService.wsdl" />
+    <None Include="Service References\AttWS\AttendanceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService1.wsdl" />
+    <None Include="Service References\AttWS\AttendanceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.AbnormalAttendanceeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDANCEDEDUCTDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDANCEDEDUCTMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDANCESOLUTION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDANCESOLUTIONASIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDANCESOLUTIONDEDUCT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDFREELEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDMACHINESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDMONTHLYBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDMONTHLYBATCHBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_ATTENDYEARLYBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEEABNORMRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEECANCELLEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEECLOCKINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEEEVECTIONRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEEEVECTIONREPORT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEELEAVERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEELEVELDAYCOUNT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEELEVELDAYDETAILS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEEOVERTIMERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEESIGNINDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_EMPLOYEESIGNINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_FREELEAVEDAYSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_LEAVETYPESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_OUTPLANDAYS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_OVERTIMEREWARD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_SCHEDULINGTEMPLATEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_SCHEDULINGTEMPLATEMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_SHIFTDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.T_HR_VACATIONSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.V_ADJUSTLEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.V_ATTENDANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.V_EMPLOYEELEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.V_EMPLOYEELEAVERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.V_LandDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SmtOnlinePortalTools.AttWS.V_LandStatistic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBWS\FBService.wsdl" />
+    <None Include="Service References\FBWS\FBService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService1.wsdl" />
+    <None Include="Service References\FBWS\FBService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\FBService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FBWS\SmtOnlinePortalTools.FBWS.DebtInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBWS\SmtOnlinePortalTools.FBWS.FBEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBWS\SmtOnlinePortalTools.FBWS.SaveResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBWS\SmtOnlinePortalTools.FBWS.T_FB_BUDGETACCOUNT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FBWS\SmtOnlinePortalTools.FBWS.T_FB_EXTENSIONALORDER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HrCommonSV\HrCommonService.wsdl" />
+    <None Include="Service References\HrCommonSV\HrCommonService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrCommonSV\HrCommonService1.wsdl" />
+    <None Include="Service References\HrCommonSV\HrCommonService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrCommonSV\HrCommonService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrUpdateWS\HRUpdateCheckStateServices.wsdl" />
+    <None Include="Service References\HrUpdateWS\HRUpdateCheckStateServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HrUpdateWS\HRUpdateCheckStateServices1.wsdl" />
+    <None Include="Service References\HrUpdateWS\HRUpdateCheckStateServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService.wsdl" />
+    <None Include="Service References\OrgWS\OrganizationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService1.wsdl" />
+    <None Include="Service References\OrgWS\OrganizationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.T_HR_COMPANY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.T_HR_COMPANYHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.T_HR_DEPARTMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.T_HR_DEPARTMENTDICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.T_HR_DEPARTMENTHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.T_HR_POST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.T_HR_POSTDICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.T_HR_POSTHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.V_ATTENDANCEDEDUCTMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.V_COMPANY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.V_DEPARTMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.V_DEPARTMENTSWITHCOMPANY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.V_POST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrgWS\SmtOnlinePortalTools.OrgWS.V_RELATIONPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService.disco" />
+    <None Include="Service References\PermissWS\configuration91.svcinfo" />
+    <None Include="Service References\PermissWS\configuration.svcinfo" />
+    <None Include="Service References\PermissWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService.disco" />
+    <None Include="Service References\PersonWS\configuration91.svcinfo" />
+    <None Include="Service References\PersonWS\configuration.svcinfo" />
+    <None Include="Service References\PersonWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\OrgWS\OrganizationService.disco" />
+    <None Include="Service References\OrgWS\configuration91.svcinfo" />
+    <None Include="Service References\OrgWS\configuration.svcinfo" />
+    <None Include="Service References\OrgWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService.disco" />
+    <None Include="Service References\AttWS\configuration91.svcinfo" />
+    <None Include="Service References\AttWS\configuration.svcinfo" />
+    <None Include="Service References\AttWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\HrUpdateWS\HRUpdateCheckStateServices.disco" />
+    <None Include="Service References\HrUpdateWS\configuration91.svcinfo" />
+    <None Include="Service References\HrUpdateWS\configuration.svcinfo" />
+    <None Include="Service References\HrUpdateWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\FBWS\FBService.disco" />
+    <None Include="Service References\FBWS\configuration91.svcinfo" />
+    <None Include="Service References\FBWS\configuration.svcinfo" />
+    <None Include="Service References\FBWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService.disco" />
+    <None Include="Service References\SalaryWS\configuration91.svcinfo" />
+    <None Include="Service References\SalaryWS\configuration.svcinfo" />
+    <None Include="Service References\SalaryWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\HrCommonSV\HrCommonService.disco" />
+    <None Include="Service References\HrCommonSV\configuration91.svcinfo" />
+    <None Include="Service References\HrCommonSV\configuration.svcinfo" />
+    <None Include="Service References\HrCommonSV\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Service References\PermissWS\PermissionService.wsdl" />
+    <None Include="Service References\PermissWS\PermissionService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.CustomerPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.FlowUserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_COUNTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_DICTIONARY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_ENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_ENTITYMENUCUSTOMPERM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_FBADMIN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_PERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_ROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_ROLEENTITYMENU.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_ROLEMENUPERMISSION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_USER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_USERLOGINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.T_SYS_USERROLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_Dictionary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_EntityMenu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_FBAdmin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_MenuSetRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_OnlineUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_Permission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_PermissionUpdateState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_ProvinceCity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_RoleEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_UserLoginRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_UserLoginRecordHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_UserMenuPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_UserPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_UserPermissionRoleID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissWS\SmtOnlinePortalTools.PermissWS.V_UserPermissionUI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService.wsdl" />
+    <None Include="Service References\PersonWS\PersonnelService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService1.wsdl" />
+    <None Include="Service References\PersonWS\PersonnelService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonWS\PersonnelService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.EmployeeContactWays.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_ASSESSMENTFORMDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_ASSESSMENTFORMMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_BLACKLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_CHECKPOINTLEVELSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_CHECKPOINTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_CHECKPROJECTSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EDUCATEHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EMPLOYEECHECK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EMPLOYEECONTRACT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EMPLOYEEINSURANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_EXPERIENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_IMPORTSETDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_IMPORTSETMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_LEFTOFFICE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_LEFTOFFICECONFIRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_PENSIONDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_PENSIONMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.T_HR_RESUME.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EmployeeBasicInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EmployeeChangeInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPLOYEEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPLOYEEENTRY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPLOYEEFUNDS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EmployeeLeftOfficeInfos.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPLOYEEPOST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPLOYEEPOSTCHANGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPLOYEEPOSTFORFB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPLOYEESTATICINFO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPLOYEEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_EMPOYEEPOSTLEVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_FlowUserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_LEFTOFFICEVIEW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_MOBILEEMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_PENSIONALARMSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonWS\SmtOnlinePortalTools.PersonWS.V_PROJECTPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService.wsdl" />
+    <None Include="Service References\SalaryWS\SalaryService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService1.wsdl" />
+    <None Include="Service References\SalaryWS\SalaryService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SalaryService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.DataSetData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_AREAALLOWANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_AREACITY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_AREADIFFERENCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_CUSTOMGUERDON.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_CUSTOMGUERDONRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_CUSTOMGUERDONSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_EMPLOYEEADDSUM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_EMPLOYEESALARYRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_PERFORMANCEREWARDSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_POSTLEVELDISTINCTION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYARCHIVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYLEVEL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYRECORDBATCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYSOLUTION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYSOLUTIONITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYSTANDARD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYSTANDARDITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYSYSTEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SALARYTAXES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.T_HR_SYSTEMSETTING.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_CUSTOMGUERDON.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_CUSTOMGUERDONARCHIVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_CUSTOMGUERDONARCHIVEHIS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_EmployeeAddsumView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_EmployeeDeductionMoney.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_EMPLOYEESALARYRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_EMPLOYEESALARYRECORDITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_MonthDeductionTax.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_PAYMENT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_RESIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_RETURNFBI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_SALARYARCHIVEITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_SALARYARCHIVEMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_SALARYARCHIVES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_salaryRecordDetailView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_SALARYSOLUTIONASSIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_SALARYSOLUTIONITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_SALARYSTANDARDITEM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SalaryWS\SmtOnlinePortalTools.SalaryWS.V_SalarySummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HR\HrCommonServiceClient.cs" />
+    <Compile Include="HR\TestDo.aspx.cs">
+      <DependentUpon>TestDo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HR\TestDo.aspx.designer.cs">
+      <DependentUpon>TestDo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HR\TestDo2.aspx.cs">
+      <DependentUpon>TestDo2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HR\TestDo2.aspx.designer.cs">
+      <DependentUpon>TestDo2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AttWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FBWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\HrCommonSV\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\HrUpdateWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OrgWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PermissWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PersonWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SalaryWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AttWS\" />
+    <WCFMetadataStorage Include="Service References\FBWS\" />
+    <WCFMetadataStorage Include="Service References\HrCommonSV\" />
+    <WCFMetadataStorage Include="Service References\HrUpdateWS\" />
+    <WCFMetadataStorage Include="Service References\OrgWS\" />
+    <WCFMetadataStorage Include="Service References\PermissWS\" />
+    <WCFMetadataStorage Include="Service References\PersonWS\" />
+    <WCFMetadataStorage Include="Service References\SalaryWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PermissWS\PermissionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PermissWS\PermissionService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMT.HRM.BLL\SMT.HRM.BLL.csproj">
+      <Project>{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}</Project>
+      <Name>SMT.HRM.BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6300</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f4e4152f-4c20-46d5-966a-217e72389414" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://portal.smt-online.net/New/Services/HR/HrCommonService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HrCommonService.xsd" MetadataType="Schema" ID="ca3f5611-5483-4b31-9e3c-21c677c3b1eb" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/HrCommonService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HrCommonService.disco" MetadataType="Disco" ID="ce6a342b-ea11-4826-ba75-d81e12a64c25" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/HrCommonService.svc?disco" />
+    <MetadataFile FileName="HrCommonService.wsdl" MetadataType="Wsdl" ID="95df064b-d67e-4b6b-a3e6-7e7ddc1f5ab9" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/HrCommonService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="HrCommonService1.wsdl" MetadataType="Wsdl" ID="ef586686-d914-4032-92a6-20b305431e5a" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/HrCommonService.svc?wsdl" />
+    <MetadataFile FileName="HrCommonService1.xsd" MetadataType="Schema" ID="63dbe404-6580-46fc-a7c0-2b7a64b3c86c" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/HrCommonService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HrCommonService2.xsd" MetadataType="Schema" ID="5a5f261b-b668-44c8-bd9a-59e1da1d26de" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/HR/HrCommonService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
