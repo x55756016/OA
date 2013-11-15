@@ -166,7 +166,7 @@ namespace SMT.HRM.BLL
                     return "TYPEERROR";
                 }
 
-                decimal dTotalHours = 0;
+                string dTotalHours = string.Empty;
                 strMsg = CalculateOverTimeHours(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, ref dTotalHours);
 
                 if (!string.IsNullOrWhiteSpace(strMsg))
@@ -316,7 +316,7 @@ namespace SMT.HRM.BLL
             #region 计算外出时长
             string strMsg = string.Empty;
             //
-            decimal dTotalHours = 0;
+            string dTotalHours = string.Empty;
             if (entity.STARTDATE == new DateTime(2001, 1, 1))//实际出发时间选择为未打卡不计算外出时长
             {
                 entity.OUTAPLLYTIMES = "外出确认实际出发时间未打卡";
@@ -480,7 +480,7 @@ namespace SMT.HRM.BLL
         /// <param name="dtOTEnd"></param>
         /// <param name="dOverTimeHours"></param>
         /// <returns></returns>
-        public string CalculateOverTimeHours(string strEmployeeId, DateTime dtOTStart, DateTime dtOTEnd, ref decimal dOverTimeHours)
+        public string CalculateOverTimeHours(string strEmployeeId, DateTime dtOTStart, DateTime dtOTEnd, ref string dOverTimeHours)
         {
             string strRes = string.Empty;
             decimal dTotalOverTimeHours = 0;
@@ -525,7 +525,14 @@ namespace SMT.HRM.BLL
             int iOTDays = ts.Days;
             string strMsg = string.Empty;
             dTotalOverTimeHours = iOTDays * dWorkTimePerDay + ts.Hours;
-            dOverTimeHours = dTotalOverTimeHours;
+            if (dTotalOverTimeHours > 0)
+            {
+                dOverTimeHours = Math.Round(dTotalOverTimeHours, 0) + "小时";
+            }
+            if (ts.Minutes > 0)
+            {
+                dOverTimeHours = dOverTimeHours + ts.Minutes + "分";
+            }
             return strRes + strMsg;
         }
 
