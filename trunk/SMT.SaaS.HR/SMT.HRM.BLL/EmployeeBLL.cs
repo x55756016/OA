@@ -988,6 +988,31 @@ namespace SMT.HRM.BLL
             return ents.Count() > 0 ? ents.FirstOrDefault() : null;
         }
 
+        /// <summary>
+        /// 根据员工id查询员工打卡机指纹编号
+        /// </summary>
+        /// <param name="EmployeeID"></param>
+        /// <returns></returns>
+        public List<string> GetEmployeePrintIDByCompanyID(string CompanyID)
+        {
+            List<string> empPrint = new List<string>();
+            var ents = from o in dal.GetObjects()
+                       join empPost in dal.GetObjects<T_HR_EMPLOYEEPOST>() on o.EMPLOYEEID equals empPost.T_HR_EMPLOYEE.EMPLOYEEID
+                       join post in dal.GetObjects<T_HR_POST>() on empPost.T_HR_POST.POSTID equals post.POSTID
+                       join dep in dal.GetObjects<T_HR_DEPARTMENT>() on post.T_HR_DEPARTMENT.DEPARTMENTID equals dep.DEPARTMENTID                       
+                       where dep.T_HR_COMPANY.COMPANYID == CompanyID
+                       && o.FINGERPRINTID !=null
+                       orderby o.FINGERPRINTID
+                       select o.FINGERPRINTID;
+            if (ents.Count() > 0)
+            {
+                empPrint = ents.Distinct().ToList();
+
+            }
+            return empPrint;
+        }
+
+
 
         /// <summary>
         /// 根据员工打卡机指纹编号查询员工
