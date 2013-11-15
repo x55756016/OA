@@ -294,7 +294,10 @@ namespace SMT.HRM.BLL
                         DateTime dtstar = entity.T_HR_OUTAPPLYRECORD.STARTDATE.Value;
                         DateTime ShiftstartDateAndTime = new DateTime(dtstar.Year, dtstar.Month, dtstar.Day
                             , ShiftFirstStartTime.Hour, ShiftFirstStartTime.Minute, ShiftFirstStartTime.Second);
-                        entity.ENDDATE = ShiftstartDateAndTime;
+                        if (entity.ENDDATE == new DateTime(2001, 1, 1))//实际出发时间选择为未打卡不计算外出时长
+                        {
+                            entity.ENDDATE = ShiftstartDateAndTime;
+                        }
                     }
                     else
                     {
