@@ -56,28 +56,28 @@ namespace SMT.SaaS.OA.UI.UserControls
             string EndDt = "";    //结束时间
             string StrEndTime = ""; //结束时：分
             int i = 0;
-            if (DaGrs.ItemsSource != null)
+            if (DaGrEdit.ItemsSource != null)
             {
-                foreach (Object obje in DaGrs.ItemsSource)
+                foreach (Object obje in DaGrEdit.ItemsSource)
                 {
                     TrDetail = new T_OA_REIMBURSEMENTDETAIL();
                     TrDetail.REIMBURSEMENTDETAILID = (obje as T_OA_REIMBURSEMENTDETAIL).REIMBURSEMENTDETAILID;
                     TrDetail.T_OA_TRAVELREIMBURSEMENT = TravelReimbursement_Golbal;
 
-                    DateTimePicker StartDate = ((DateTimePicker)((StackPanel)DaGrs.Columns[0].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;
-                    DateTimePicker EndDate = ((DateTimePicker)((StackPanel)DaGrs.Columns[2].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;
-                    TextBox datys = ((TextBox)((StackPanel)DaGrs.Columns[4].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    TextBox Newdatys = ((TextBox)((StackPanel)DaGrs.Columns[5].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    TravelDictionaryComboBox ToolType = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
-                    TravelDictionaryComboBox ToolLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
-                    TextBox txtToolubsidies = ((TextBox)((StackPanel)DaGrs.Columns[8].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    TextBox txtASubsidies = ((TextBox)((StackPanel)DaGrs.Columns[9].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    TextBox txtTFSubsidies = ((TextBox)((StackPanel)DaGrs.Columns[10].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    TextBox txtMealSubsidies = ((TextBox)((StackPanel)DaGrs.Columns[11].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    TextBox txtOthercosts = ((TextBox)((StackPanel)DaGrs.Columns[12].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    CheckBox IsCheck = ((CheckBox)((StackPanel)DaGrs.Columns[13].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
-                    CheckBox IsCheckMeet = ((CheckBox)((StackPanel)DaGrs.Columns[14].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
-                    CheckBox IsCheckCar = ((CheckBox)((StackPanel)DaGrs.Columns[15].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
+                    DateTimePicker StartDate = ((DateTimePicker)((StackPanel)DaGrEdit.Columns[0].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;
+                    DateTimePicker EndDate = ((DateTimePicker)((StackPanel)DaGrEdit.Columns[2].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;
+                    TextBox datys = ((TextBox)((StackPanel)DaGrEdit.Columns[4].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    TextBox Newdatys = ((TextBox)((StackPanel)DaGrEdit.Columns[5].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    TravelDictionaryComboBox ToolType = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                    TravelDictionaryComboBox ToolLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                    TextBox txtToolubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[8].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    TextBox txtASubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[9].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    TextBox txtTFSubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[10].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    TextBox txtMealSubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[11].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    TextBox txtOthercosts = ((TextBox)((StackPanel)DaGrEdit.Columns[12].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    CheckBox IsCheck = ((CheckBox)((StackPanel)DaGrEdit.Columns[13].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
+                    CheckBox IsCheckMeet = ((CheckBox)((StackPanel)DaGrEdit.Columns[14].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
+                    CheckBox IsCheckCar = ((CheckBox)((StackPanel)DaGrEdit.Columns[15].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
 
                     StrStartDt = StartDate.Value.Value.ToString("d");//开始日期
                     EndDt = EndDate.Value.Value.ToString("d");//结束日期

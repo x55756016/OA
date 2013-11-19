@@ -99,7 +99,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             if (e.Message != null && e.Message.Count() > 0)
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Message[0]);
-                DaGrs.IsEnabled = false;
+                DaGrEdit.IsEnabled = false;
                 fbCtr.IsEnabled = false;
                 if (needsubmit == false)
                 {
@@ -406,9 +406,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetTranSportcostsTextBox(TextBox txtTranSportcosts, int i)
         {
-            if (DaGrs.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (DaGrEdit.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtTranSportcosts = DaGrs.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
+                txtTranSportcosts = DaGrEdit.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
             }
             return txtTranSportcosts;
         }
@@ -420,9 +420,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetASubsidiesTextBox(TextBox txtASubsidies, int i)
         {
-            if (DaGrs.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (DaGrEdit.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtASubsidies = DaGrs.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtACCOMMODATION") as TextBox;//住宿费
+                txtASubsidies = DaGrEdit.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtACCOMMODATION") as TextBox;//住宿费
             }
             return txtASubsidies;
         }
@@ -434,9 +434,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetTFSubsidiesTextBox(TextBox txtTFSubsidies, int i)
         {
-            if (DaGrs.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (DaGrEdit.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtTFSubsidies = DaGrs.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
             }
 
             return txtTFSubsidies;
@@ -449,9 +449,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetMealSubsidiesTextBox(TextBox txtMealSubsidies, int i)
         {
-            if (DaGrs.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (DaGrEdit.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtMealSubsidies = DaGrs.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
             }
             return txtMealSubsidies;
         }
@@ -463,9 +463,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <returns></returns>
         private TextBox GetOtherCostsTextBox(TextBox txtOtherCosts, int i)
         {
-            if (DaGrs.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (DaGrEdit.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
             {
-                txtOtherCosts = DaGrs.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtOtherCosts") as TextBox;//其他费用
+                txtOtherCosts = DaGrEdit.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtOtherCosts") as TextBox;//其他费用
             }
             return txtOtherCosts;
         }
@@ -551,7 +551,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// </summary>
         public void TravelTime()
         {
-            if (TravelDetailList_Golbal == null || DaGrs.ItemsSource == null)
+            if (TravelDetailList_Golbal == null || DaGrEdit.ItemsSource == null)
             {
                 return;
             }
@@ -632,9 +632,9 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         private TextBox GetTraveDayTextBox(TextBox myDaysTime, int i)
         {
-            if (DaGrs.Columns[4].GetCellContent(TravelDetailList_Golbal[i]) != null)
+            if (DaGrEdit.Columns[4].GetCellContent(TravelDetailList_Golbal[i]) != null)
             {
-                myDaysTime = DaGrs.Columns[4].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtTOTALDAYS") as TextBox;
+                myDaysTime = DaGrEdit.Columns[4].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtTOTALDAYS") as TextBox;
             }
             return myDaysTime;
         }
@@ -670,7 +670,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         public void TravelTimeCalculation()
         {
-            if (TravelDetailList_Golbal == null || DaGrs.ItemsSource == null)
+            if (TravelDetailList_Golbal == null || DaGrEdit.ItemsSource == null)
             {
                 return;
             }
@@ -751,9 +751,9 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         private TextBox GetTraveTimeCalculationTextBox(TextBox myDaysTime, int i)
         {
-            if (DaGrs.Columns[5].GetCellContent(TravelDetailList_Golbal[i]) != null)
+            if (DaGrEdit.Columns[5].GetCellContent(TravelDetailList_Golbal[i]) != null)
             {
-                myDaysTime = DaGrs.Columns[5].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
+                myDaysTime = DaGrEdit.Columns[5].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
             }
             return myDaysTime;
         }
@@ -781,13 +781,13 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <summary>
         /// 计算补贴
         /// </summary>
-        private void TravelAllowance()
+        private void TravelAllowance(DataGrid DaGrEdit)
         {
-            if (DaGrs.ItemsSource != null)
+            if (DaGrEdit.ItemsSource != null)
             {
                 T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
 
-                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
                 double total = 0;
                 int i = 0;
                 foreach (var obje in objs)
@@ -800,8 +800,8 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                     //GetTFSubsidiesTextBox(txtTFSubsidies, i).Text = string.Empty;//再次计算的时候先清空已存在的交通补贴
                     //GetMealSubsidiesTextBox(txtMealSubsidies, i).Text = string.Empty;//再次计算的时候先清空已存在的餐费补贴
-                    if (i >= 1) txtTFSubsidies = DaGrs.Columns[10].GetCellContent(obje).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
-                    if (i >= 1) txtMealSubsidies = DaGrs.Columns[11].GetCellContent(obje).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                    if (i >= 1) txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(obje).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                    if (i >= 1) txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(obje).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
 
                     List<string> list = new List<string>
                                 {
@@ -1258,20 +1258,20 @@ namespace SMT.SaaS.OA.UI.UserControls
             try
             {
                 int i = 0;
-                if (DaGrss.ItemsSource == null)
+                if (DaGrReadOnly.ItemsSource == null)
                 {
                     return;
                 }
                 //住宿费，交通费，其他费用
 
-                TextBox myDaysTime = DaGrss.Columns[5].GetCellContent(e.Row).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
-                TextBox textAccommodation = DaGrss.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;
+                TextBox myDaysTime = DaGrReadOnly.Columns[5].GetCellContent(e.Row).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
+                TextBox textAccommodation = DaGrReadOnly.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;
 
-                foreach (object obj in DaGrss.ItemsSource)
+                foreach (object obj in DaGrReadOnly.ItemsSource)
                 {
                     i++;
 
-                    //if (DaGrss.Columns[9].GetCellContent(obj) == null)
+                    //if (DaGrReadOnly.Columns[9].GetCellContent(obj) == null)
                     //{
                     //    break;
                     //}
@@ -1279,7 +1279,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
 
                         T_OA_REIMBURSEMENTDETAIL obje = obj as T_OA_REIMBURSEMENTDETAIL;
-                        ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrss.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                        ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrReadOnly.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
                         //出差天数
                         double toodays = 0;
                         //获取出差补贴
@@ -1350,7 +1350,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                 }
 
-                DaGrss.Columns[5].Visibility = Visibility.Collapsed;
+                DaGrReadOnly.Columns[5].Visibility = Visibility.Collapsed;
             }
             catch (Exception ex)
             {
@@ -1610,23 +1610,23 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 出差报销行删除事件
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            if (DaGrs.SelectedItems == null)
+            if (DaGrEdit.SelectedItems == null)
             {
                 return;
             }
 
-            if (DaGrs.SelectedItems.Count == 0)
+            if (DaGrEdit.SelectedItems.Count == 0)
             {
                 return;
             }
 
-            TravelDetailList_Golbal = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+            TravelDetailList_Golbal = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
             if (TravelDetailList_Golbal.Count() > 1)
             {
-                for (int i = 0; i < DaGrs.SelectedItems.Count; i++)
+                for (int i = 0; i < DaGrEdit.SelectedItems.Count; i++)
                 {
-                    int k = DaGrs.SelectedIndex;//当前选中行
-                    T_OA_REIMBURSEMENTDETAIL entDel = DaGrs.SelectedItems[i] as T_OA_REIMBURSEMENTDETAIL;
+                    int k = DaGrEdit.SelectedIndex;//当前选中行
+                    T_OA_REIMBURSEMENTDETAIL entDel = DaGrEdit.SelectedItems[i] as T_OA_REIMBURSEMENTDETAIL;
 
                     if (TravelDetailList_Golbal.Contains(entDel))
                     {
@@ -1636,12 +1636,12 @@ namespace SMT.SaaS.OA.UI.UserControls
                         {
 
                             int EachCount = 0;
-                            foreach (Object obje in DaGrs.ItemsSource)//将下一个出发城市的值修改
+                            foreach (Object obje in DaGrEdit.ItemsSource)//将下一个出发城市的值修改
                             {
                                 EachCount++;
-                                if (DaGrs.Columns[1].GetCellContent(obje) != null)
+                                if (DaGrEdit.Columns[1].GetCellContent(obje) != null)
                                 {
-                                    SearchCity mystarteachCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
+                                    SearchCity mystarteachCity = DaGrEdit.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
                                     if ((k + 1) == EachCount)
                                     {
                                         if (k > 0)
@@ -1657,7 +1657,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                         }
                     }
                 }
-                DaGrs.ItemsSource = TravelDetailList_Golbal;
+                DaGrEdit.ItemsSource = TravelDetailList_Golbal;
             }
             else
             {
@@ -1712,7 +1712,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             //if (e.Key == Key.Enter)
             //{
-            //    if (DaGrs.SelectedIndex == TrList.Count - 1)
+            //    if (DaGrEdit.SelectedIndex == TrList.Count - 1)
             //    {
             //        T_OA_REIMBURSEMENTDETAIL buport = new T_OA_REIMBURSEMENTDETAIL();
             //        buport.REIMBURSEMENTDETAILID = Guid.NewGuid().ToString();

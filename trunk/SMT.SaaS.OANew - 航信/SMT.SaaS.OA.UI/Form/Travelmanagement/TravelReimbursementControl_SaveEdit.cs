@@ -46,18 +46,18 @@ namespace SMT.SaaS.OA.UI.UserControls
             string StrEndTime = string.Empty;
             bool checkPrivate = false;
             bool checkMeet = false;
-            ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+            ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
 
             #region 出差时间验证
             
             
-            foreach (object obje in DaGrs.ItemsSource)
+            foreach (object obje in DaGrEdit.ItemsSource)
             {
-                SearchCity myCitys = DaGrs.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
-                DateTimePicker StartDate = DaGrs.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
-                DateTimePicker EndDate = DaGrs.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
-                CheckBox chbPrivate = DaGrs.Columns[13].GetCellContent(obje).FindName("myChkBox") as CheckBox;
-                CheckBox chbMeet = DaGrs.Columns[14].GetCellContent(obje).FindName("myChkBoxMeet") as CheckBox;
+                SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
+                DateTimePicker StartDate = DaGrEdit.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
+                DateTimePicker EndDate = DaGrEdit.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
+                CheckBox chbPrivate = DaGrEdit.Columns[13].GetCellContent(obje).FindName("myChkBox") as CheckBox;
+                CheckBox chbMeet = DaGrEdit.Columns[14].GetCellContent(obje).FindName("myChkBoxMeet") as CheckBox;
 
                 if (chbPrivate.IsChecked == true) checkPrivate = true;
                 if (chbMeet.IsChecked == true) checkMeet = true;
@@ -90,8 +90,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                     return false;
                 }
 
-                DateTimePicker dpStartTime = DaGrs.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
-                DateTimePicker dpEndTime = DaGrs.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
+                DateTimePicker dpStartTime = DaGrEdit.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
+                DateTimePicker dpEndTime = DaGrEdit.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
                 if (dpStartTime.Value != null)
                 {
                     TimeSpan tsStart = new TimeSpan(dpStartTime.Value.Value.Hour);
@@ -154,14 +154,14 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
 
 
-                TravelDictionaryComboBox ComVechile = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                TravelDictionaryComboBox ComVechile = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
                 if (ComVechile.SelectedIndex <= 0)//交通工具类型
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "TYPEOFTRAVELTOOLS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
                 }
 
-                TravelDictionaryComboBox ComVechileLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                TravelDictionaryComboBox ComVechileLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
                 if (ComVechileLevel.SelectedIndex < 0)//交通工具级别
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"),"交通工具级别不能为空", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
@@ -275,7 +275,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             TravelTime();
 
             //计算补贴
-            TravelAllowance();
+            TravelAllowance(this.DaGrEdit);
 
             //添加子表数据
             NewDetail_Golbal();
@@ -367,8 +367,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "回程无住宿费，请重新填写！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                                     //TravelDetailList_Golbal[i].ACCOMMODATION = 0;
                                     //只有这样能获取到Textbox
-                                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                                    TextBox textAccommodation = DaGrs.Columns[9].GetCellContent(TripDetails[i]).FindName("txtACCOMMODATION") as TextBox;
+                                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                                    TextBox textAccommodation = DaGrEdit.Columns[9].GetCellContent(TripDetails[i]).FindName("txtACCOMMODATION") as TextBox;
                                    
                                     textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
                                     textAccommodation.IsReadOnly = false;
@@ -710,34 +710,34 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 删除
         //private void myDelete_Click(object sender, RoutedEventArgs e)
         //{
-        //    if (DaGrs.SelectedItems == null)
+        //    if (DaGrEdit.SelectedItems == null)
         //    {
         //        return;
         //    }
 
-        //    if (DaGrs.SelectedItems.Count == 0)
+        //    if (DaGrEdit.SelectedItems.Count == 0)
         //    {
         //        return;
         //    }
-        //    if (DaGrs.SelectedItems.Count > 0)//判断是否有选中数据,否则提醒用户
+        //    if (DaGrEdit.SelectedItems.Count > 0)//判断是否有选中数据,否则提醒用户
         //    {
         //        string Result = "";
         //        ComfirmWindow com = new ComfirmWindow();//提醒用户是否真的删除该数据,以免操作失误。
         //        com.OnSelectionBoxClosed += (obj, result) =>
         //        {
-        //            TrList = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+        //            TrList = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
         //            if (TrList.Count() > 1)
         //            {
-        //                for (int i = 0; i < DaGrs.SelectedItems.Count; i++)
+        //                for (int i = 0; i < DaGrEdit.SelectedItems.Count; i++)
         //                {
-        //                    T_OA_REIMBURSEMENTDETAIL entDel = DaGrs.SelectedItems[i] as T_OA_REIMBURSEMENTDETAIL;
+        //                    T_OA_REIMBURSEMENTDETAIL entDel = DaGrEdit.SelectedItems[i] as T_OA_REIMBURSEMENTDETAIL;
 
         //                    if (TrList.Contains(entDel))
         //                    {
         //                        TrList.Remove(entDel);
         //                    }
         //                }
-        //                DaGrs.ItemsSource = TrList;
+        //                DaGrEdit.ItemsSource = TrList;
         //            }
         //        };
         //        com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("DELETEALTER"), ComfirmWindow.titlename, Result);

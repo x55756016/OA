@@ -336,11 +336,11 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
-                DaGrss.ItemsSource = TravelDetailList_Golbal;
+                DaGrReadOnly.ItemsSource = TravelDetailList_Golbal;
             }
             else
             {
-                DaGrs.ItemsSource = TravelDetailList_Golbal;
+                DaGrEdit.ItemsSource = TravelDetailList_Golbal;
             }
         }
 
@@ -357,27 +357,27 @@ namespace SMT.SaaS.OA.UI.UserControls
         Brush txtASubsidiesForeBrush;
         Brush txtASubsidiesBorderBrush;
 
-        private void DaGrs_LoadingRow(object sender, DataGridRowEventArgs e)
+        private void DaGrEdit_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             try
             {
                 T_OA_REIMBURSEMENTDETAIL tmp = (T_OA_REIMBURSEMENTDETAIL)e.Row.DataContext;
 
-                DateTimePicker dpStartTime = DaGrs.Columns[0].GetCellContent(e.Row).FindName("StartTime") as DateTimePicker;
-                DateTimePicker dpEndTime = DaGrs.Columns[2].GetCellContent(e.Row).FindName("EndTime") as DateTimePicker;
-                SearchCity myCity = DaGrs.Columns[1].GetCellContent(e.Row).FindName("txtDEPARTURECITY") as SearchCity;
-                SearchCity myCitys = DaGrs.Columns[3].GetCellContent(e.Row).FindName("txtTARGETCITIES") as SearchCity;
-                TextBox txtTranSportcosts = DaGrs.Columns[8].GetCellContent(e.Row).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
-                TextBox txtASubsidies = DaGrs.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;//住宿标准
-                TextBox txtTFSubsidies = DaGrs.Columns[10].GetCellContent(e.Row).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
-                TextBox txtMealSubsidies = DaGrs.Columns[11].GetCellContent(e.Row).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
-                TravelDictionaryComboBox ComVechile = DaGrs.Columns[6].GetCellContent(e.Row).FindName("ComVechileType") as TravelDictionaryComboBox;
-                TravelDictionaryComboBox ComLevel = DaGrs.Columns[7].GetCellContent(e.Row).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
-                TextBox txtOtherCosts = DaGrs.Columns[12].GetCellContent(e.Row).FindName("txtOtherCosts") as TextBox;//其他费用
-                CheckBox IsCheck = DaGrs.Columns[13].GetCellContent(e.Row).FindName("myChkBox") as CheckBox;
-                CheckBox IsCheckMeet = DaGrs.Columns[14].GetCellContent(e.Row).FindName("myChkBoxMeet") as CheckBox;
-                CheckBox IsCheckCar = DaGrs.Columns[15].GetCellContent(e.Row).FindName("myChkBoxCar") as CheckBox;
-                ImageButton MyButton_Delbaodao = DaGrs.Columns[16].GetCellContent(e.Row).FindName("myDelete") as ImageButton;
+                DateTimePicker dpStartTime = DaGrEdit.Columns[0].GetCellContent(e.Row).FindName("StartTime") as DateTimePicker;
+                DateTimePicker dpEndTime = DaGrEdit.Columns[2].GetCellContent(e.Row).FindName("EndTime") as DateTimePicker;
+                SearchCity myCity = DaGrEdit.Columns[1].GetCellContent(e.Row).FindName("txtDEPARTURECITY") as SearchCity;
+                SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(e.Row).FindName("txtTARGETCITIES") as SearchCity;
+                TextBox txtTranSportcosts = DaGrEdit.Columns[8].GetCellContent(e.Row).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
+                TextBox txtASubsidies = DaGrEdit.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;//住宿标准
+                TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(e.Row).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(e.Row).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                TravelDictionaryComboBox ComVechile = DaGrEdit.Columns[6].GetCellContent(e.Row).FindName("ComVechileType") as TravelDictionaryComboBox;
+                TravelDictionaryComboBox ComLevel = DaGrEdit.Columns[7].GetCellContent(e.Row).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
+                TextBox txtOtherCosts = DaGrEdit.Columns[12].GetCellContent(e.Row).FindName("txtOtherCosts") as TextBox;//其他费用
+                CheckBox IsCheck = DaGrEdit.Columns[13].GetCellContent(e.Row).FindName("myChkBox") as CheckBox;
+                CheckBox IsCheckMeet = DaGrEdit.Columns[14].GetCellContent(e.Row).FindName("myChkBoxMeet") as CheckBox;
+                CheckBox IsCheckCar = DaGrEdit.Columns[15].GetCellContent(e.Row).FindName("myChkBoxCar") as CheckBox;
+                ImageButton MyButton_Delbaodao = DaGrEdit.Columns[16].GetCellContent(e.Row).FindName("myDelete") as ImageButton;
 
                 //对默认控件的颜色进行赋值
                 tempcomTypeBorderBrush = ComVechile.BorderBrush;
@@ -406,9 +406,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                 myCitys.Tag = tmp;
 
                 //查询出发城市&目标城市&&将ID转换为Name
-                if (DaGrs.ItemsSource != null)
+                if (DaGrEdit.ItemsSource != null)
                 {
-                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
                     int i = 0;
                     foreach (var obje in objs)
                     {
@@ -418,7 +418,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             string dictid = "";
                             ComVechile.SelectedIndex = 0;
                             ComLevel.SelectedIndex = 0;
-                            DaGrs.SelectedItem = e.Row;
+                            DaGrEdit.SelectedItem = e.Row;
                             T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
                             T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
                            
@@ -691,33 +691,34 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DaGrss_LoadingRow(object sender, DataGridRowEventArgs e)
+        private void DaGrReadOnly_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             try
             {
+                #region 设置值
                 T_OA_REIMBURSEMENTDETAIL tmp = (T_OA_REIMBURSEMENTDETAIL)e.Row.DataContext;
 
-                TextBlock dpStartTimelook = DaGrss.Columns[0].GetCellContent(e.Row).FindName("tbStartTime") as TextBlock;
-                TextBlock dpEndTime = DaGrss.Columns[2].GetCellContent(e.Row).FindName("tbEndTime") as TextBlock;
-                TextBlock myCity = DaGrss.Columns[1].GetCellContent(e.Row).FindName("tbDEPARTURECITY") as TextBlock;
-                TextBlock myCitys = DaGrss.Columns[3].GetCellContent(e.Row).FindName("tbTARGETCITIES") as TextBlock;
-                TextBox txtTranSportcosts = DaGrss.Columns[8].GetCellContent(e.Row).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
-                TextBox txtASubsidies = DaGrss.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;//住宿标准
-                TextBox txtTFSubsidies = DaGrss.Columns[10].GetCellContent(e.Row).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
-                TextBox txtMealSubsidies = DaGrss.Columns[11].GetCellContent(e.Row).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
-                TextBlock ComVechile = DaGrss.Columns[6].GetCellContent(e.Row).FindName("tbComVechileType") as TextBlock;
-                TextBlock ComLevel = DaGrss.Columns[7].GetCellContent(e.Row).FindName("tbComVechileTypeLeve") as TextBlock;
-                TextBox txtOtherCosts = DaGrss.Columns[12].GetCellContent(e.Row).FindName("txtOtherCosts") as TextBox;//其他费用
-                CheckBox IsCheck = DaGrss.Columns[13].GetCellContent(e.Row).FindName("myChkBox") as CheckBox;
-                CheckBox IsCheckMeet = DaGrss.Columns[14].GetCellContent(e.Row).FindName("myChkBoxMeet") as CheckBox;
-                CheckBox IsCheckCar = DaGrss.Columns[15].GetCellContent(e.Row).FindName("myChkBoxCar") as CheckBox;
+                TextBlock dpStartTimelook = DaGrReadOnly.Columns[0].GetCellContent(e.Row).FindName("tbStartTime") as TextBlock;
+                TextBlock dpEndTime = DaGrReadOnly.Columns[2].GetCellContent(e.Row).FindName("tbEndTime") as TextBlock;
+                TextBlock myCity = DaGrReadOnly.Columns[1].GetCellContent(e.Row).FindName("tbDEPARTURECITY") as TextBlock;
+                TextBlock myCitys = DaGrReadOnly.Columns[3].GetCellContent(e.Row).FindName("tbTARGETCITIES") as TextBlock;
+                TextBox txtTranSportcosts = DaGrReadOnly.Columns[8].GetCellContent(e.Row).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
+                TextBox txtASubsidies = DaGrReadOnly.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;//住宿标准
+                TextBox txtTFSubsidies = DaGrReadOnly.Columns[10].GetCellContent(e.Row).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                TextBox txtMealSubsidies = DaGrReadOnly.Columns[11].GetCellContent(e.Row).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                TextBlock ComVechile = DaGrReadOnly.Columns[6].GetCellContent(e.Row).FindName("tbComVechileType") as TextBlock;
+                TextBlock ComLevel = DaGrReadOnly.Columns[7].GetCellContent(e.Row).FindName("tbComVechileTypeLeve") as TextBlock;
+                TextBox txtOtherCosts = DaGrReadOnly.Columns[12].GetCellContent(e.Row).FindName("txtOtherCosts") as TextBox;//其他费用
+                CheckBox IsCheck = DaGrReadOnly.Columns[13].GetCellContent(e.Row).FindName("myChkBox") as CheckBox;
+                CheckBox IsCheckMeet = DaGrReadOnly.Columns[14].GetCellContent(e.Row).FindName("myChkBoxMeet") as CheckBox;
+                CheckBox IsCheckCar = DaGrReadOnly.Columns[15].GetCellContent(e.Row).FindName("myChkBoxCar") as CheckBox;
 
                 //对默认控件的颜色进行赋值
                 tempcomTypeForeBrush = ComVechile.Foreground;
                 tempcomLevelForeBrush = ComLevel.Foreground;
                 txtASubsidiesForeBrush = txtASubsidies.Foreground;
                 txtASubsidiesBorderBrush = txtASubsidies.BorderBrush;
-                //DaGrss.Columns[5].Visibility = Visibility.Collapsed;
+                //DaGrReadOnly.Columns[5].Visibility = Visibility.Collapsed;
 
                 if (BtnNewButton == true)
                 {
@@ -730,16 +731,16 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
 
                 //查询出发城市&目标城市&&将ID转换为Name
-                if (DaGrss.ItemsSource != null)
+                if (DaGrReadOnly.ItemsSource != null)
                 {
-                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrss.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrReadOnly.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
                     int i = 0;
                     foreach (var obje in objs)
                     {
                         i++;
                         if (obje.REIMBURSEMENTDETAILID == tmp.REIMBURSEMENTDETAILID)//判断记录的ID是否相同
                         {
-                            DaGrss.SelectedItem = e.Row;
+                            DaGrReadOnly.SelectedItem = e.Row;
                             T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
                             T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
 
@@ -934,7 +935,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                             #endregion
                         }
                     }
+
+                #endregion
                     //CountMoneyA();
+                    TravelAllowance(this.DaGrReadOnly);
                     CountTravelDays(tmp,e);
                 }
             }

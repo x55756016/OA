@@ -83,7 +83,7 @@
                                 Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,1,20,4" 
 				ScrollViewer.VerticalScrollBarVisibility="Hidden"
 				HorizontalScrollBarVisibility="auto">
-                    <data:DataGrid x:Name="DaGrs" AutoGenerateColumns="False" Grid.Row="4" Grid.Column="1" LoadingRow="DaGrs_LoadingRow" 
+                    <data:DataGrid x:Name="DaGrEdit" AutoGenerateColumns="False" Grid.Row="4" Grid.Column="1" LoadingRow="DaGrEdit_LoadingRow" 
 				SelectionMode="Single" Style="{StaticResource DataGridStyle}" CanUserSortColumns="False"
                 CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
                 RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" 
@@ -314,7 +314,7 @@
 				<!--查看或审核时不显示控件只读取数据-->
 		        <ScrollViewer x:Name="tbShowAudits"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" Grid.ColumnSpan="3" 
                                   Grid.Column="1" Margin="5,1,20,4" ScrollViewer.VerticalScrollBarVisibility="Hidden" Width="auto" Visibility="Collapsed">
-		        <data:DataGrid x:Name="DaGrss" AutoGenerateColumns="False" Grid.Row="2" Grid.Column="1"  LoadingRow="DaGrss_LoadingRow" 
+                    <data:DataGrid x:Name="DaGrReadOnly" AutoGenerateColumns="False" Grid.Row="2" Grid.Column="1"  LoadingRow="DaGrReadOnly_LoadingRow" 
 				                  Style="{StaticResource DataGridStyle}" CanUserSortColumns="False" IsReadOnly="True"
 								  RowStyle="{StaticResource DataGridRowStyle}"
                                 CellStyle="{StaticResource DataGridCellStyle}" 

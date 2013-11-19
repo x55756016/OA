@@ -97,36 +97,36 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                 double totall = 0;
                 int i = 0;
-                if (DaGrs.ItemsSource == null)
+                if (DaGrEdit.ItemsSource == null)
                 {
                     return;
                 }
                 //住宿费，交通费，其他费用
                 bool IsPassEd = false;//住宿费是否超标
-                foreach (object obj in DaGrs.ItemsSource)
+                foreach (object obj in DaGrEdit.ItemsSource)
                 {
                     i++;
-                    if (DaGrs.Columns[8].GetCellContent(obj) == null)
+                    if (DaGrEdit.Columns[8].GetCellContent(obj) == null)
                     {
                         return;
                     }
-                    if (DaGrs.Columns[9].GetCellContent(obj) == null)
+                    if (DaGrEdit.Columns[9].GetCellContent(obj) == null)
                     {
                         return;
                     }
-                    if (DaGrs.Columns[12].GetCellContent(obj) == null)
+                    if (DaGrEdit.Columns[12].GetCellContent(obj) == null)
                     {
                         return;
                     }
-                    TextBox myDaysTime = DaGrs.Columns[5].GetCellContent(obj).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
-                    TextBox textTransportcosts = DaGrs.Columns[8].GetCellContent(obj).FindName("txtTRANSPORTCOSTS") as TextBox;
-                    TextBox textAccommodation = DaGrs.Columns[9].GetCellContent(obj).FindName("txtACCOMMODATION") as TextBox;
-                    TextBox textOthercosts = DaGrs.Columns[12].GetCellContent(obj).FindName("txtOtherCosts") as TextBox;
-                    TextBox txtTFSubsidies = DaGrs.Columns[10].GetCellContent(obj).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
-                    TextBox txtMealSubsidies = DaGrs.Columns[11].GetCellContent(obj).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                    TextBox myDaysTime = DaGrEdit.Columns[5].GetCellContent(obj).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
+                    TextBox textTransportcosts = DaGrEdit.Columns[8].GetCellContent(obj).FindName("txtTRANSPORTCOSTS") as TextBox;
+                    TextBox textAccommodation = DaGrEdit.Columns[9].GetCellContent(obj).FindName("txtACCOMMODATION") as TextBox;
+                    TextBox textOthercosts = DaGrEdit.Columns[12].GetCellContent(obj).FindName("txtOtherCosts") as TextBox;
+                    TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(obj).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                    TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(obj).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
 
                     T_OA_REIMBURSEMENTDETAIL obje = obj as T_OA_REIMBURSEMENTDETAIL;
-                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
                     //出差天数
                     double toodays = 0;
                     //获取出差补贴
@@ -238,16 +238,16 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 开始时间控件事件
         private void StartTime_OnValueChanged(object sender, EventArgs e)
         {
-            object obj = DaGrs.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
+            object obj = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
 
             if (obj == null)
             {
                 return;
             }
 
-            DateTimePicker dpStartTime = DaGrs.Columns[0].GetCellContent(obj).FindName("StartTime") as DateTimePicker;
-            DateTimePicker dpEndTime = DaGrs.Columns[2].GetCellContent(obj).FindName("EndTime") as DateTimePicker;
-            TextBox myDaysTime = DaGrs.Columns[4].GetCellContent(obj).FindName("txtTOTALDAYS") as TextBox;
+            DateTimePicker dpStartTime = DaGrEdit.Columns[0].GetCellContent(obj).FindName("StartTime") as DateTimePicker;
+            DateTimePicker dpEndTime = DaGrEdit.Columns[2].GetCellContent(obj).FindName("EndTime") as DateTimePicker;
+            TextBox myDaysTime = DaGrEdit.Columns[4].GetCellContent(obj).FindName("txtTOTALDAYS") as TextBox;
 
             if (dpStartTime == null || dpEndTime == null || myDaysTime == null)
             {
@@ -289,16 +289,16 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 结束时间控件事件
         private void EndTime_OnValueChanged(object sender, EventArgs e)
         {
-            object obj = DaGrs.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
+            object obj = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
 
             if (obj == null)
             {
                 return;
             }
 
-            DateTimePicker dpStartTime = DaGrs.Columns[0].GetCellContent(obj).FindName("StartTime") as DateTimePicker;
-            DateTimePicker dpEndTime = DaGrs.Columns[2].GetCellContent(obj).FindName("EndTime") as DateTimePicker;
-            TextBox myDaysTime = DaGrs.Columns[4].GetCellContent(obj).FindName("txtTOTALDAYS") as TextBox;
+            DateTimePicker dpStartTime = DaGrEdit.Columns[0].GetCellContent(obj).FindName("StartTime") as DateTimePicker;
+            DateTimePicker dpEndTime = DaGrEdit.Columns[2].GetCellContent(obj).FindName("EndTime") as DateTimePicker;
+            TextBox myDaysTime = DaGrEdit.Columns[4].GetCellContent(obj).FindName("txtTOTALDAYS") as TextBox;
 
             if (dpStartTime == null || dpEndTime == null || myDaysTime == null)
             {
@@ -448,14 +448,14 @@ namespace SMT.SaaS.OA.UI.UserControls
             SelectCity.SelectedClicked += (obj, ea) =>
             {
                 txt.TxtSelectedCity.Text = SelectCity.Result.Keys.FirstOrDefault();
-                if (DaGrs.SelectedItem != null)
+                if (DaGrEdit.SelectedItem != null)
                 {
-                    if (DaGrs.Columns[1].GetCellContent(DaGrs.SelectedItem) != null)
+                    if (DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem) != null)
                     {
-                        //T_OA_BUSINESSTRIPDETAIL list = DaGrs.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
-                        T_OA_REIMBURSEMENTDETAIL list = DaGrs.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
-                        SearchCity myCitys = DaGrs.Columns[1].GetCellContent(DaGrs.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;//出发城市
-                        SearchCity mystartCity = DaGrs.Columns[3].GetCellContent(DaGrs.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;//目标城市
+                        //T_OA_BUSINESSTRIPDETAIL list = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
+                        T_OA_REIMBURSEMENTDETAIL list = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
+                        SearchCity myCitys = DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;//出发城市
+                        SearchCity mystartCity = DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;//目标城市
                         int k = citysStartList_Golbal.IndexOf(list.DEPCITY);
 
                         if (k > -1)
@@ -507,16 +507,16 @@ namespace SMT.SaaS.OA.UI.UserControls
             SelectCity.SelectedClicked += (obj, ea) =>
             {
                 txt.TxtSelectedCity.Text = SelectCity.Result.Keys.FirstOrDefault();
-                if (DaGrs.SelectedItem != null)
+                if (DaGrEdit.SelectedItem != null)
                 {
-                    int SelectIndex = DaGrs.SelectedIndex;//选择的行数，选择的行数也就是目的城市的位置
-                    if (DaGrs.Columns[3].GetCellContent(DaGrs.SelectedItem) != null)
+                    int SelectIndex = DaGrEdit.SelectedIndex;//选择的行数，选择的行数也就是目的城市的位置
+                    if (DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem) != null)
                     {
-                        T_OA_REIMBURSEMENTDETAIL list = DaGrs.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
+                        T_OA_REIMBURSEMENTDETAIL list = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
 
-                        //T_OA_BUSINESSTRIPDETAIL list = DaGrs.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
-                        SearchCity myCitys = DaGrs.Columns[3].GetCellContent(DaGrs.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;
-                        SearchCity mystartCity = DaGrs.Columns[1].GetCellContent(DaGrs.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;
+                        //T_OA_BUSINESSTRIPDETAIL list = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
+                        SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;
+                        SearchCity mystartCity = DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;
                         if (citysStartList_Golbal.Count() > 0)
                         {
                             mystartCity.Tag = citysStartList_Golbal[SelectIndex];//将旧的传递起来
@@ -597,12 +597,12 @@ namespace SMT.SaaS.OA.UI.UserControls
         private void SetNextDepartureCity(int SelectIndex)
         {
             int EachCount = 0;
-            foreach (Object obje in DaGrs.ItemsSource)//将下一个出发城市的值修改
+            foreach (Object obje in DaGrEdit.ItemsSource)//将下一个出发城市的值修改
             {
                 EachCount++;
-                if (DaGrs.Columns[1].GetCellContent(obje) != null)
+                if (DaGrEdit.Columns[1].GetCellContent(obje) != null)
                 {
-                    SearchCity mystarteachCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
+                    SearchCity mystarteachCity = DaGrEdit.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
                     if ((SelectIndex + 2) == EachCount)
                     {
                         mystarteachCity.TxtSelectedCity.Text = GetCityName(citysStartList_Golbal[SelectIndex + 1]);
@@ -631,11 +631,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                     var thd = takethestandardtransport.FirstOrDefault();
                     thd = this.GetVehicleTypeValue("");
                     T_SYS_DICTIONARY VechileTypeObj = vechiletype.SelectedItem as T_SYS_DICTIONARY;
-                    if (DaGrs.SelectedItem != null)
+                    if (DaGrEdit.SelectedItem != null)
                     {
-                        if (DaGrs.Columns[7].GetCellContent(DaGrs.SelectedItem) != null)
+                        if (DaGrEdit.Columns[7].GetCellContent(DaGrEdit.SelectedItem) != null)
                         {
-                            TravelDictionaryComboBox ComLevel = DaGrs.Columns[7].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
+                            TravelDictionaryComboBox ComLevel = DaGrEdit.Columns[7].GetCellContent(DaGrEdit.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
 
                             var ListObj = from ent in ListVechileLevel
                                           where ent.T_SYS_DICTIONARY2.DICTIONARYID == VechileTypeObj.DICTIONARYID
@@ -651,12 +651,12 @@ namespace SMT.SaaS.OA.UI.UserControls
                     if (employeepost != null)
                     {
 
-                        if (DaGrs.SelectedItem != null)
+                        if (DaGrEdit.SelectedItem != null)
                         {
-                            if (DaGrs.Columns[7].GetCellContent(DaGrs.SelectedItem) != null)
+                            if (DaGrEdit.Columns[7].GetCellContent(DaGrEdit.SelectedItem) != null)
                             {
-                                TravelDictionaryComboBox ComLevel = DaGrs.Columns[7].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
-                                TravelDictionaryComboBox ComType = DaGrs.Columns[6].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileType") as TravelDictionaryComboBox;
+                                TravelDictionaryComboBox ComLevel = DaGrEdit.Columns[7].GetCellContent(DaGrEdit.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
+                                TravelDictionaryComboBox ComType = DaGrEdit.Columns[6].GetCellContent(DaGrEdit.SelectedItem).FindName("ComVechileType") as TravelDictionaryComboBox;
                                 T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
                                 T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
                                 level = ComLevel.SelectedItem as T_SYS_DICTIONARY;
@@ -743,12 +743,12 @@ namespace SMT.SaaS.OA.UI.UserControls
                         var thd = takethestandardtransport.FirstOrDefault();
 
                         T_SYS_DICTIONARY VechileTypeObj = vechiletype.SelectedItem as T_SYS_DICTIONARY;
-                        if (DaGrs.SelectedItem != null)
+                        if (DaGrEdit.SelectedItem != null)
                         {
-                            if (DaGrs.Columns[7].GetCellContent(DaGrs.SelectedItem) != null)
+                            if (DaGrEdit.Columns[7].GetCellContent(DaGrEdit.SelectedItem) != null)
                             {
-                                TravelDictionaryComboBox ComLevel = DaGrs.Columns[7].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
-                                TravelDictionaryComboBox ComType = DaGrs.Columns[6].GetCellContent(DaGrs.SelectedItem).FindName("ComVechileType") as TravelDictionaryComboBox;
+                                TravelDictionaryComboBox ComLevel = DaGrEdit.Columns[7].GetCellContent(DaGrEdit.SelectedItem).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
+                                TravelDictionaryComboBox ComType = DaGrEdit.Columns[6].GetCellContent(DaGrEdit.SelectedItem).FindName("ComVechileType") as TravelDictionaryComboBox;
                                 T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
                                 T_SYS_DICTIONARY level = new T_SYS_DICTIONARY();
                                 level = ComLevel.SelectedItem as T_SYS_DICTIONARY;
@@ -868,13 +868,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
                 buip.ENDDATE = DateTime.Now;
                 TravelDetailList_Golbal.Add(buip);
-                DaGrs.ItemsSource = TravelDetailList_Golbal;
+                DaGrEdit.ItemsSource = TravelDetailList_Golbal;
 
-                foreach (Object obje in DaGrs.ItemsSource)
+                foreach (Object obje in DaGrEdit.ItemsSource)
                 {
-                    if (DaGrs.Columns[1].GetCellContent(obje) != null)
+                    if (DaGrEdit.Columns[1].GetCellContent(obje) != null)
                     {
-                        SearchCity myCity = DaGrs.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
+                        SearchCity myCity = DaGrEdit.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
 
                         if (myCity != null)
                         {
@@ -894,17 +894,17 @@ namespace SMT.SaaS.OA.UI.UserControls
             string EndDt = "";
             string StrStartTime = "";
             string StrEndTime = "";
-            foreach (object obje in DaGrs.ItemsSource)
+            foreach (object obje in DaGrEdit.ItemsSource)
             {
                 TrDetail = new T_OA_REIMBURSEMENTDETAIL();
-                SearchCity myCitys = DaGrs.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
+                SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
 
                 TrDetail.T_OA_TRAVELREIMBURSEMENT = TravelReimbursement_Golbal;
-                DateTimePicker StartDate = DaGrs.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
-                DateTimePicker EndDate = DaGrs.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
+                DateTimePicker StartDate = DaGrEdit.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
+                DateTimePicker EndDate = DaGrEdit.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
 
-                TravelDictionaryComboBox ToolType = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
-                TravelDictionaryComboBox ToolLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                TravelDictionaryComboBox ToolType = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                TravelDictionaryComboBox ToolLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
 
                 StrStartDt = StartDate.Value.Value.ToString("d");//开始日期
                 EndDt = EndDate.Value.Value.ToString("d");//结束日期
@@ -946,9 +946,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             try
             {
-                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                var temp = DaGrs.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
-                CheckBox chbMeet = DaGrs.Columns[14].GetCellContent(temp).FindName("myChkBoxMeet") as CheckBox;
+                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                var temp = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
+                CheckBox chbMeet = DaGrEdit.Columns[14].GetCellContent(temp).FindName("myChkBoxMeet") as CheckBox;
                 if (chbMeet.IsChecked == true)
                 {
                     temp.GOOUTTOMEET = "1";
@@ -958,7 +958,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     temp.GOOUTTOMEET = "0";
                 }
 
-                TravelAllowance();
+                TravelAllowance(this.DaGrEdit);
             }
             catch
             {
@@ -970,9 +970,9 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             try
             {
-                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrs.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                var temp = DaGrs.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
-                CheckBox chbMeet = DaGrs.Columns[13].GetCellContent(temp).FindName("myChkBox") as CheckBox;
+                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                var temp = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
+                CheckBox chbMeet = DaGrEdit.Columns[13].GetCellContent(temp).FindName("myChkBox") as CheckBox;
                 if (chbMeet.IsChecked == true)
                 {
                     temp.PRIVATEAFFAIR = "1";
@@ -982,7 +982,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     temp.PRIVATEAFFAIR = "0";
                 }
 
-                TravelAllowance();
+                TravelAllowance(DaGrEdit);
             }
             catch
             {
