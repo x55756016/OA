@@ -958,7 +958,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     temp.GOOUTTOMEET = "0";
                 }
 
-                TravelAllowance(this.DaGrEdit);
+                TravelAllowance(false);
             }
             catch
             {
@@ -982,7 +982,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     temp.PRIVATEAFFAIR = "0";
                 }
 
-                TravelAllowance(DaGrEdit);
+                TravelAllowance(false);
             }
             catch
             {
