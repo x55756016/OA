@@ -132,15 +132,16 @@ namespace SMT.SaaS.OA.UI.UserControls
 
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
-                ShowAudits.Visibility = Visibility.Collapsed;
-                tbShowAudits.Visibility = Visibility.Visible;                
+                DaGrEditScrollView.Visibility = Visibility.Collapsed;
+                DaGrReadOnlyScrollView.Visibility = Visibility.Visible;                
             }
             else
             {                
-                ShowAudits.Visibility = Visibility.Visible;
-                tbShowAudits.Visibility = Visibility.Collapsed;
+                DaGrEditScrollView.Visibility = Visibility.Visible;
+                DaGrReadOnlyScrollView.Visibility = Visibility.Collapsed;
             }
             this.Loaded += new RoutedEventHandler(TravelReimbursementControl_Loaded);
+            //this.DaGrReadOnly.Loaded += DaGrReadOnly_Loaded;
         }
 
         void TravelReimbursementControl_Loaded(object sender, RoutedEventArgs e)
@@ -229,8 +230,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                             || TravelReimbursement_Golbal.CHECKSTATE == (Convert.ToInt32(CheckStates.UnApproved)).ToString())
                         {
                             formType = FormTypes.Audit;
-                            ShowAudits.Visibility = Visibility.Collapsed;
-                            tbShowAudits.Visibility = Visibility.Visible;
+                            DaGrEditScrollView.Visibility = Visibility.Collapsed;
+                            DaGrReadOnlyScrollView.Visibility = Visibility.Visible;
                             Utility.InitFileLoad("TravelRequest", TravelReimbursement_Golbal.TRAVELREIMBURSEMENTID, formType, uploadFile);
                         }
                     }
@@ -337,10 +338,12 @@ namespace SMT.SaaS.OA.UI.UserControls
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
                 DaGrReadOnly.ItemsSource = TravelDetailList_Golbal;
+                TravelAllowance(true);
             }
             else
             {
                 DaGrEdit.ItemsSource = TravelDetailList_Golbal;
+                TravelAllowance(false);
             }
         }
 
@@ -938,7 +941,6 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                 #endregion
                     //CountMoneyA();
-                    TravelAllowance(this.DaGrReadOnly);
                     CountTravelDays(tmp,e);
                 }
             }
