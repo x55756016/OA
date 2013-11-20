@@ -207,6 +207,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (fbCtr.Order.REMARK != null)
                 {
                     AutoList.Add(basedata("T_FB_EXTENSIONORDERDETAIL", "FBREMARK", fbCtr.Order.REMARK, fbCtr.Order.REMARK, fbCtr.Order.EXTENSIONALORDERID));//科目报销备注
+
+                    AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "FBREMARK", fbCtr.Order.REMARK, fbCtr.Order.REMARK));//科目报销备注,同时加入主表
                 }
                 if (fbCtr.Order.APPLYTYPE == 1)
                 {
@@ -219,6 +221,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (fbCtr.Order.REMARK != null)
                 {
                     AutoList.Add(basedata("T_FB_EXTENSIONORDERDETAIL", "EXTENSIONTYPE", StrType, StrType, fbCtr.Order.EXTENSIONALORDERID));//科目报销备注
+                    AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "EXTENSIONTYPE", StrType, StrType));//科目报销备注,同时加入主表
                 }
                 foreach (FBEntity item in fbCtr.ListDetail)//预算费用报销明细
                 {
