@@ -275,7 +275,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             TravelTime();
 
             //计算补贴
-            TravelAllowance(this.DaGrEdit);
+            TravelAllowance(false);
 
             //添加子表数据
             NewDetail_Golbal();
