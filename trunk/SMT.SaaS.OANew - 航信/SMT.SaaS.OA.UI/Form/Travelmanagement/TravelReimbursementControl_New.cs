@@ -71,8 +71,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                     TravelDictionaryComboBox ToolType = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
                     TravelDictionaryComboBox ToolLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
                     TextBox txtToolubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[8].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    //住宿费
                     TextBox txtASubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[9].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    //交通补贴
                     TextBox txtTFSubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[10].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    //餐费补贴
                     TextBox txtMealSubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[11].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
                     TextBox txtOthercosts = ((TextBox)((StackPanel)DaGrEdit.Columns[12].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
                     CheckBox IsCheck = ((CheckBox)((StackPanel)DaGrEdit.Columns[13].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
