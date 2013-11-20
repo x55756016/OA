@@ -399,73 +399,126 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         #region 获取DataGrid中的各项费用控件
         /// <summary>
-        /// 交通费
+        /// 获取DataGrid交通费
         /// </summary>
         /// <param name="txtTranSportcosts"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private TextBox GetTranSportcostsTextBox(TextBox txtTranSportcosts, int i)
+        private TextBox GetTranSportcostsTextBox(TextBox txtTranSportcosts, int i,bool FromReadOnlyDataGrid)
         {
-            if (DaGrEdit.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            DataGrid dataGrid = new DataGrid();
+            if (FromReadOnlyDataGrid)//查看模式下
             {
-                txtTranSportcosts = DaGrEdit.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
+                dataGrid = this.DaGrReadOnly;
+            }
+            else
+            {
+                dataGrid = this.DaGrEdit;
+            }
+            if (dataGrid.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            {
+                txtTranSportcosts = dataGrid.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
             }
             return txtTranSportcosts;
         }
         /// <summary>
-        /// 住宿费
+        /// 获取DataGrid住宿费
         /// </summary>
         /// <param name="txtASubsidies"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private TextBox GetASubsidiesTextBox(TextBox txtASubsidies, int i)
+        private TextBox GetASubsidiesTextBox(TextBox txtASubsidies, int i,bool FromReadOnlyDataGrid)
         {
-            if (DaGrEdit.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            DataGrid dataGrid = new DataGrid();
+            if (FromReadOnlyDataGrid)//查看模式下
             {
-                txtASubsidies = DaGrEdit.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtACCOMMODATION") as TextBox;//住宿费
+                dataGrid = this.DaGrReadOnly;
+            }
+            else
+            {
+                dataGrid = this.DaGrEdit;
+            }
+            if (dataGrid.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            {
+                txtASubsidies = dataGrid.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtACCOMMODATION") as TextBox;//住宿费
             }
             return txtASubsidies;
         }
         /// <summary>
-        /// 交通补贴
+        /// 获取DataGrid交通补贴控件
         /// </summary>
         /// <param name="txtTFSubsidies"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private TextBox GetTFSubsidiesTextBox(TextBox txtTFSubsidies, int i)
+        private TextBox GetTFSubsidiesTextBox(TextBox txtTFSubsidies, int i, bool FromReadOnlyDataGrid)
         {
-            if (DaGrEdit.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            try
             {
-                txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                DataGrid dataGrid = new DataGrid();
+                if (FromReadOnlyDataGrid)//查看模式下
+                {
+                    dataGrid = this.DaGrReadOnly;
+                }
+                else
+                {
+                    dataGrid = this.DaGrEdit;
+                }
+                if (dataGrid.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+                {
+                    txtTFSubsidies = dataGrid.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.SetLog(ex.ToString());
+                txtTFSubsidies = null;
             }
 
             return txtTFSubsidies;
         }
         /// <summary>
-        /// 餐费补贴
+        /// 获取DataGrid餐费补贴控件
         /// </summary>
         /// <param name="txtMealSubsidies"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private TextBox GetMealSubsidiesTextBox(TextBox txtMealSubsidies, int i)
+        private TextBox GetMealSubsidiesTextBox(TextBox txtMealSubsidies, int i, bool FromReadOnlyDataGrid)
         {
-            if (DaGrEdit.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            DataGrid dataGrid = new DataGrid();
+            if (FromReadOnlyDataGrid)//查看模式下
             {
-                txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                dataGrid = this.DaGrReadOnly;
+            }
+            else
+            {
+                dataGrid = this.DaGrEdit;
+            }
+            if (dataGrid.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            {
+                txtMealSubsidies = dataGrid.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
             }
             return txtMealSubsidies;
         }
         /// <summary>
-        /// 其他费用
+        /// 获取DataGrid其他费用
         /// </summary>
         /// <param name="txtMealSubsidies"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private TextBox GetOtherCostsTextBox(TextBox txtOtherCosts, int i)
+        private TextBox GetOtherCostsTextBox(TextBox txtOtherCosts, int i, bool FromReadOnlyDataGrid)
         {
-            if (DaGrEdit.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            DataGrid dataGrid = new DataGrid();
+            if (FromReadOnlyDataGrid)//查看模式下
             {
-                txtOtherCosts = DaGrEdit.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtOtherCosts") as TextBox;//其他费用
+                dataGrid = this.DaGrReadOnly;
+            }
+            else
+            {
+                dataGrid = this.DaGrEdit;
+            }
+            if (dataGrid.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            {
+                txtOtherCosts = dataGrid.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtOtherCosts") as TextBox;//其他费用
             }
             return txtOtherCosts;
         }
@@ -781,474 +834,786 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <summary>
         /// 计算补贴
         /// </summary>
-        private void TravelAllowance(DataGrid DaGrEdit)
+        /// <param name="FromReadOnlyDataGrid">是否显示只读的查看Grid</param>
+        private void TravelAllowance(bool FromReadOnlyDataGrid)
         {
-            if (DaGrEdit.ItemsSource != null)
+            try
             {
-                T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-
-                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                double total = 0;
-                int i = 0;
-                foreach (var obje in objs)
+                DataGrid dataGrid = new DataGrid();
+                if (FromReadOnlyDataGrid)//查看模式下
                 {
-                    i++;
-                    double toodays = 0;
-                    TextBox txtTFSubsidies = new TextBox();//初始化交通补贴控件
-                    TextBox txtMealSubsidies = new TextBox();//初始化餐费补贴控件
-                    TextBox txtASubsidies = new TextBox();//初始化住宿费控件
+                    dataGrid = this.DaGrReadOnly;
+                }
+                else
+                {
+                    dataGrid = this.DaGrEdit;
+                }
 
-                    //GetTFSubsidiesTextBox(txtTFSubsidies, i).Text = string.Empty;//再次计算的时候先清空已存在的交通补贴
-                    //GetMealSubsidiesTextBox(txtMealSubsidies, i).Text = string.Empty;//再次计算的时候先清空已存在的餐费补贴
-                    if (i >= 1) txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(obje).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
-                    if (i >= 1) txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(obje).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
-
-                    List<string> list = new List<string>
-                                {
-                                     obje.BUSINESSDAYS
-                                };
-
-                    if (obje.BUSINESSDAYS != null && !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+                if (dataGrid.ItemsSource != null)
+                {
+                    T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
+                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = dataGrid.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                    double total = 0;
+                    int i = 0;
+                    foreach (var obje in objs)
                     {
-                        double totalHours = System.Convert.ToDouble(list[0]);
-                        toodays = totalHours;
-                    }
-                    double tresult = toodays;//计算本次出差的总天数
-
-                    string cityValue = citysEndList_Golbal[i - 1].Replace(",", "");//目标城市值
-                    entareaallowance = this.GetAllowanceByCityValue(cityValue);
-
-                    #region 根据本次出差的总天数,根据天数获取相应的补贴
-                    if (travelsolutions != null && employeepost != null)
+                        i++;
+                        double toodays = 0;
+                        List<string> list = new List<string>
                     {
-                        TextBox txtTranSportcosts = new TextBox();//初始化交通费控件
-                        TextBox txtOtherCosts = new TextBox();//初始化其他费用控件
+                            obje.BUSINESSDAYS
+                    };
 
-                        txtTFSubsidies = GetTFSubsidiesTextBox(txtTFSubsidies, i);//交通补贴控件赋值
-                        txtTranSportcosts = GetTranSportcostsTextBox(txtTranSportcosts, i);//交通费控件赋值
-                        txtASubsidies = GetASubsidiesTextBox(txtASubsidies, i);//住宿费控件赋值
-                        txtOtherCosts = GetOtherCostsTextBox(txtOtherCosts, i);//其他费用控件赋值
-                        txtMealSubsidies = GetMealSubsidiesTextBox(txtMealSubsidies, i);//餐费补贴控件赋值
-
-                        if (tresult <= travelsolutions.MINIMUMINTERVALDAYS.ToInt32())//本次出差总时间小于等于设定天数的报销标准
+                        if (obje.BUSINESSDAYS != null && !string.IsNullOrEmpty(obje.BUSINESSDAYS))
                         {
-                            if (entareaallowance != null)
-                            {
-                                if (txtTFSubsidies != null)//交通补贴
-                                {
-                                    if (obje.BUSINESSDAYS != null)
-                                    {
-                                        if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                                        {
-                                            txtTFSubsidies.Text = "0";
-                                            txtTFSubsidies.IsReadOnly = true;
-                                            txtTranSportcosts.IsReadOnly = true;//交通费
-                                            txtASubsidies.IsReadOnly = true;//住宿标准
-                                            txtOtherCosts.IsReadOnly = true;//其他费用
-                                        }
-                                        else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
-                                        {
-                                            txtTFSubsidies.Text = "0";
-                                        }
-                                        else
-                                        {
-                                            if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                                            {
-                                                txtTFSubsidies.Text = (entareaallowance.TRANSPORTATIONSUBSIDIES.ToDouble() * toodays).ToString();
-                                                //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
-                                                if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
-                                                {
-                                                    ComfirmWindow com = new ComfirmWindow();
-                                                    com.OnSelectionBoxClosed += (obj, result) =>
-                                                    {
-                                                        txtTranSportcosts.IsReadOnly = true;//交通费
-                                                        txtASubsidies.IsReadOnly = true;//住宿标准
-                                                        txtOtherCosts.IsReadOnly = true;//其他费用
-                                                    };
-                                                    if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
-                                                    {
-                                                        if (formType == FormTypes.Audit) return;
-                                                        com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
-                                                    }
-                                                }
-                                            }
-                                            else
-                                            {
-                                                txtTFSubsidies.Text = "0";
-                                                txtTFSubsidies.IsReadOnly = false;
-                                            }
-                                        }
-                                    }
-                                    else//如果天数为null的禁用住宿费控件
-                                    {
-                                        txtASubsidies.IsReadOnly = true;
-                                    }
-                                }
-                                if (txtMealSubsidies != null)//餐费补贴
-                                {
-                                    if (obje.BUSINESSDAYS != null)
-                                    {
-                                        if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                                        {
-                                            txtMealSubsidies.Text = "0";
-                                            txtMealSubsidies.IsReadOnly = true;
-                                            txtTranSportcosts.IsReadOnly = true;//交通费
-                                            txtASubsidies.IsReadOnly = true;//住宿标准
-                                            txtOtherCosts.IsReadOnly = true;//其他费用
-                                        }
-                                        else if (obje.GOOUTTOMEET == "1")//如果是开会
-                                        {
-                                            txtMealSubsidies.Text = "0";
-                                        }
-                                        else
-                                        {
-                                            if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                                            {
-                                                txtMealSubsidies.Text = (entareaallowance.MEALSUBSIDIES.ToDouble() * toodays).ToString();
-                                                //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
-                                                if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
-                                                {
-                                                    ComfirmWindow com = new ComfirmWindow();
-                                                    com.OnSelectionBoxClosed += (obj, result) =>
-                                                    {
-                                                        txtTranSportcosts.IsReadOnly = true;//交通费
-                                                        txtASubsidies.IsReadOnly = true;//住宿标准
-                                                        txtOtherCosts.IsReadOnly = true;//其他费用
-                                                    };
-                                                    if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
-                                                    {
-                                                        if (formType == FormTypes.Audit) return;
-                                                        com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
-                                                    }
-                                                }
-                                            }
-                                            else
-                                            {
-                                                txtMealSubsidies.Text = "0";
-                                                txtMealSubsidies.IsReadOnly = false;
-                                            }
-                                        }
-                                    }
-                                    else//如果天数为null的禁用住宿费控件
-                                    {
-                                        txtASubsidies.IsReadOnly = true;
-                                    }
-                                }
-                            }
+                            double totalHours = System.Convert.ToDouble(list[0]);
+                            toodays = totalHours;
                         }
-                        else
+                        double totolDay = toodays;//计算本次出差的总天数
+
+                        string cityValue = citysEndList_Golbal[i - 1].Replace(",", "");//目标城市值
+                        entareaallowance = this.GetAllowanceByCityValue(cityValue);
+                        if (travelsolutions != null && employeepost != null)
                         {
+
                             if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
                             {
-                                txtTFSubsidies.Text = "0";
-                                txtMealSubsidies.Text = "0";
+                                MessageBox.Show("您的岗位级别小于8，无交通补贴及住宿补贴");
+                                obje.TRANSPORTATIONSUBSIDIES = 0;
+                                obje.MEALSUBSIDIES = 0;
                             }
-                        }
-                    }
-                    #endregion
-
-                    #region 如果出差天数大于设定的最大天数,按驻外标准获取补贴
-                    if (travelsolutions != null && employeepost != null)
-                    {
-                        TextBox txtTranSportcosts = new TextBox();//初始化交通费控件
-                        TextBox txtOtherCosts = new TextBox();//初始化其他费用控件
-
-                        txtTFSubsidies = GetTFSubsidiesTextBox(txtTFSubsidies, i);//交通补贴控件赋值
-                        txtTranSportcosts = GetTranSportcostsTextBox(txtTranSportcosts, i);//交通费控件赋值
-                        txtASubsidies = GetASubsidiesTextBox(txtASubsidies, i);//住宿费控件赋值
-                        txtOtherCosts = GetOtherCostsTextBox(txtOtherCosts, i);//其他费用控件赋值
-                        txtMealSubsidies = GetMealSubsidiesTextBox(txtMealSubsidies, i);//餐费补贴控件赋值
-
-                        if (tresult > travelsolutions.MAXIMUMRANGEDAYS.ToInt32())
-                        {
-                            if (entareaallowance != null)
+                            else
                             {
-                                double DbTranceport = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble();
-                                double DbMeal = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble();
-                                double tfSubsidies = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
-                                double mealSubsidies = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
-                                if (entareaallowance != null)
+                                #region 根据本次出差的总天数,根据天数获取相应的补贴
+                                if (totolDay <= travelsolutions.MINIMUMINTERVALDAYS.ToInt32())//本次出差总时间小于等于设定天数的报销标准
                                 {
-                                    if (txtTFSubsidies != null)//交通补贴
+                                    if (entareaallowance != null)
                                     {
                                         if (obje.BUSINESSDAYS != null)
                                         {
                                             if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
                                             {
-                                                txtTFSubsidies.Text = "0";
-                                                txtTFSubsidies.IsReadOnly = true;
-                                                txtTranSportcosts.IsReadOnly = true;//交通费
-                                                txtASubsidies.IsReadOnly = true;//住宿标准
-                                                txtOtherCosts.IsReadOnly = true;//其他费用
+                                                obje.TRANSPORTATIONSUBSIDIES = 0;
                                             }
                                             else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
                                             {
-                                                txtTFSubsidies.Text = "0";
+                                                obje.TRANSPORTATIONSUBSIDIES = 0;
+                                            }
+                                            else
+                                            {
+                                                if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                {
+                                                    obje.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES.ToDouble() * toodays);
+                                                }
+                                                else
+                                                {
+                                                    obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                }
+                                            }
+                                        }
+                                        else//如果天数为null的禁用住宿费控件
+                                        {
+                                            obje.TRANSPORTATIONSUBSIDIES = 0;
+                                        }
+                                        if (obje.BUSINESSDAYS != null)
+                                        {
+                                            if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            {
+                                                obje.MEALSUBSIDIES = 0;
+                                            }
+                                            else if (obje.GOOUTTOMEET == "1")//如果是开会
+                                            {
+                                                obje.MEALSUBSIDIES = 0;
+                                            }
+                                            else
+                                            {
+                                                if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                {
+                                                    obje.MEALSUBSIDIES = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES.ToDouble() * toodays);
+                                                }
+                                                else
+                                                {
+                                                    obje.MEALSUBSIDIES = 0;
+                                                }
+                                            }
+                                        }
+                                        else//如果天数为null的禁用住宿费控件
+                                        {
+                                            //txtASubsidies.IsReadOnly = true;
+                                        }
+                                    }
+                                }
+
+                                #endregion
+
+                                #region 如果出差天数大于设定的最大天数,按驻外标准获取补贴
+
+                                else if (totolDay > travelsolutions.MAXIMUMRANGEDAYS.ToInt32())
+                                {
+                                    if (entareaallowance != null)
+                                    {
+                                        double DbTranceport = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble();
+                                        double DbMeal = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble();
+                                        //区间补贴标准 区间报销比例（50）/100
+                                        double tfSubsidies = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
+                                        double mealSubsidies = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
+                                        if (entareaallowance != null)
+                                        {
+                                            if (obje.BUSINESSDAYS != null)
+                                            {
+                                                if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                                {
+                                                    obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                    obje.TRANSPORTCOSTS = 0;
+                                                }
+                                                else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+                                                {
+                                                    obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                }
+                                                else
+                                                {
+                                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                    {
+                                                        //可全额报销天数*每天的补贴
+                                                        double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbTranceport;
+                                                        //区间可以报销天数*报销比例50%
+                                                        double middlemoney = (travelsolutions.MAXIMUMRANGEDAYS.ToDouble() - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
+                                                        //餐补及交通补贴都按驻外标准计算
+                                                        double lastmoney = (totolDay - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
+                                                        obje.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney + lastmoney);
+                                                    }
+                                                    else
+                                                    {
+                                                        obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                    }
+                                                }
+                                            }
+                                            else//如果天数为null的禁用住宿费控件
+                                            {
+                                            }
+                                            if (obje.BUSINESSDAYS != null)
+                                            {
+                                                if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                                {
+                                                    obje.MEALSUBSIDIES = 0;
+                                                }
+                                                else if (obje.GOOUTTOMEET == "1")//如果是开会
+                                                {
+                                                    obje.MEALSUBSIDIES = 0;
+                                                }
+                                                else
+                                                {
+                                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                    {
+                                                        double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbMeal;
+                                                        //double middlemoney = (travelsolutions.MAXIMUMRANGEDAYS.ToDouble() - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * mealSubsidies;
+                                                        double IntMaxDays = travelsolutions.MAXIMUMRANGEDAYS.ToDouble();
+                                                        double IntMinDAys = travelsolutions.MINIMUMINTERVALDAYS.ToDouble();
+                                                        double middlemoney = (IntMaxDays - IntMinDAys) * mealSubsidies;
+                                                        //double lastmoney = (tresult - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble();
+                                                        //驻外标准：交通费和餐费补贴为一起的，所以除以2
+                                                        double lastmoney = (totolDay - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
+                                                        obje.MEALSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney + lastmoney);
+                                                    }
+                                                    else
+                                                    {
+                                                        obje.MEALSUBSIDIES = 0;
+                                                    }
+                                                }
+                                            }
+                                            else//如果天数为null的禁用住宿费控件
+                                            {
+                                            }
+                                        }
+                                    }
+                                }
+
+                                #endregion
+
+                                #region 如果出差时间大于设定的最小天数并且小于设定的最大天数的报销标准
+
+                                else if (totolDay >= travelsolutions.MINIMUMINTERVALDAYS.ToInt32() && totolDay <= travelsolutions.MAXIMUMRANGEDAYS.ToInt32())
+                                {
+                                    if (entareaallowance != null)
+                                    {
+                                        double DbTranceport = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble();
+                                        double DbMeal = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble();
+                                        double tfSubsidies = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
+                                        double mealSubsidies = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
+                                        if (obje.BUSINESSDAYS != null)
+                                        {
+                                            if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            {
+                                                obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                obje.TRANSPORTCOSTS = 0;
+                                            }
+                                            else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+                                            {
+                                                obje.TRANSPORTATIONSUBSIDIES = 0;
                                             }
                                             else
                                             {
                                                 if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbTranceport;
-                                                    double middlemoney = (travelsolutions.MAXIMUMRANGEDAYS.ToDouble() - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
-                                                    //double lastmoney = (tresult - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
-                                                    //除以2是因为驻外标准不分餐费和交通补贴，2者合2为一，否则会多加
-                                                    double lastmoney = (tresult - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
-                                                    txtTFSubsidies.Text = (minmoney + middlemoney + lastmoney).ToString();
-
-                                                    //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
-                                                    if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
-                                                    {
-                                                        ComfirmWindow com = new ComfirmWindow();
-                                                        com.OnSelectionBoxClosed += (obj, result) =>
-                                                        {
-                                                            txtTranSportcosts.IsReadOnly = true;//交通费
-                                                            txtASubsidies.IsReadOnly = true;//住宿标准
-                                                            txtOtherCosts.IsReadOnly = true;//其他费用
-                                                        };
-                                                        if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
-                                                        {
-                                                            if (formType == FormTypes.Audit) return;
-                                                            com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
-                                                        }
-                                                    }
+                                                    double middlemoney = (totolDay - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
+                                                    obje.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney);
                                                 }
                                                 else
                                                 {
-                                                    txtTFSubsidies.Text = "0";
-                                                    txtTFSubsidies.IsReadOnly = false;
+                                                    obje.TRANSPORTATIONSUBSIDIES = 0;
                                                 }
                                             }
                                         }
                                         else//如果天数为null的禁用住宿费控件
                                         {
-                                            txtASubsidies.IsReadOnly = true;
+                                            //txtASubsidies.IsReadOnly = true;
                                         }
-                                    }
-                                    if (txtMealSubsidies != null)//餐费补贴
-                                    {
                                         if (obje.BUSINESSDAYS != null)
                                         {
                                             if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
                                             {
-                                                txtMealSubsidies.Text = "0";
-                                                txtMealSubsidies.IsReadOnly = true;
-                                                txtTranSportcosts.IsReadOnly = true;//交通费
-                                                txtASubsidies.IsReadOnly = true;//住宿标准
-                                                txtOtherCosts.IsReadOnly = true;//其他费用
+                                                obje.MEALSUBSIDIES = 0;
                                             }
                                             else if (obje.GOOUTTOMEET == "1")//如果是开会
                                             {
-                                                txtMealSubsidies.Text = "0";
+                                                obje.MEALSUBSIDIES = 0;
                                             }
                                             else
                                             {
                                                 if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
+                                                    //最小区间段金额
                                                     double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbMeal;
-                                                    //double middlemoney = (travelsolutions.MAXIMUMRANGEDAYS.ToDouble() - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * mealSubsidies;
-                                                    double IntMaxDays = travelsolutions.MAXIMUMRANGEDAYS.ToDouble();
-                                                    double IntMinDAys = travelsolutions.MINIMUMINTERVALDAYS.ToDouble();
-                                                    double middlemoney = (IntMaxDays - IntMinDAys) * mealSubsidies;
-                                                    //double lastmoney = (tresult - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble();
-                                                    //驻外标准：交通费和餐费补贴为一起的，所以除以2
-                                                    double lastmoney = (tresult - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
-                                                    txtMealSubsidies.Text = (minmoney + middlemoney + lastmoney).ToString();
-
-                                                    //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
-                                                    if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
-                                                    {
-                                                        ComfirmWindow com = new ComfirmWindow();
-                                                        com.OnSelectionBoxClosed += (obj, result) =>
-                                                        {
-                                                            txtTranSportcosts.IsReadOnly = true;//交通费
-                                                            txtASubsidies.IsReadOnly = true;//住宿标准
-                                                            txtOtherCosts.IsReadOnly = true;//其他费用
-                                                        };
-                                                        if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
-                                                        {
-                                                            if (formType == FormTypes.Audit) return;
-                                                            com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
-                                                        }
-                                                    }
+                                                    //中间区间段金额
+                                                    double middlemoney = (totolDay - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * mealSubsidies;
+                                                    obje.MEALSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney);
                                                 }
                                                 else
                                                 {
-                                                    txtMealSubsidies.Text = "0";
-                                                    txtMealSubsidies.IsReadOnly = false;
+                                                    obje.MEALSUBSIDIES = 0;
                                                 }
                                             }
                                         }
                                         else//如果天数为null的禁用住宿费控件
                                         {
-                                            txtASubsidies.IsReadOnly = true;
+                                            //txtASubsidies.IsReadOnly = true;
                                         }
                                     }
                                 }
+
+                                #endregion
                             }
+
+
+
                         }
-                        else
+                        if (obje.TRANSPORTATIONSUBSIDIES != null && obje.MEALSUBSIDIES != null)
                         {
-                            if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            {
-                                txtTFSubsidies.Text = "0";
-                                txtMealSubsidies.Text = "0";
-                            }
+                            total += Convert.ToDouble(obje.TRANSPORTATIONSUBSIDIES.Value + obje.MEALSUBSIDIES.Value);
+                            this.txtSubTotal.Text = total.ToString();//总费用
+                            this.txtChargeApplyTotal.Text = total.ToString();
                         }
+
+                        Fees = total;
                     }
-                    #endregion
 
-                    #region 如果出差时间大于设定的最小天数并且小于设定的最大天数的报销标准
-                    if (travelsolutions != null && employeepost != null)
-                    {
-                        TextBox txtTranSportcosts = new TextBox();//初始化交通费控件
-                        TextBox txtOtherCosts = new TextBox();//初始化其他费用控件
-
-                        txtTFSubsidies = GetTFSubsidiesTextBox(txtTFSubsidies, i);//交通补贴控件赋值
-                        txtTranSportcosts = GetTranSportcostsTextBox(txtTranSportcosts, i);//交通费控件赋值
-                        txtASubsidies = GetASubsidiesTextBox(txtASubsidies, i);//住宿费控件赋值
-                        txtOtherCosts = GetOtherCostsTextBox(txtOtherCosts, i);//其他费用控件赋值
-                        txtMealSubsidies = GetMealSubsidiesTextBox(txtMealSubsidies, i);//餐费补贴控件赋值
-
-                        if (tresult >= travelsolutions.MINIMUMINTERVALDAYS.ToInt32() && tresult <= travelsolutions.MAXIMUMRANGEDAYS.ToInt32())
-                        {
-                            if (entareaallowance != null)
-                            {
-                                double DbTranceport = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble();
-                                double DbMeal = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble();
-                                double tfSubsidies = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
-                                double mealSubsidies = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
-                                if (txtTFSubsidies != null)//交通补贴
-                                {
-                                    if (obje.BUSINESSDAYS != null)
-                                    {
-                                        if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                                        {
-                                            txtTFSubsidies.Text = "0";
-                                            txtTFSubsidies.IsReadOnly = true;
-                                            txtTranSportcosts.IsReadOnly = true;//交通费
-                                            txtASubsidies.IsReadOnly = true;//住宿标准
-                                            txtOtherCosts.IsReadOnly = true;//其他费用
-                                        }
-                                        else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
-                                        {
-                                            txtTFSubsidies.Text = "0";
-                                        }
-                                        else
-                                        {
-                                            if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                                            {
-                                                double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbTranceport;
-                                                double middlemoney = (tresult - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
-                                                txtTFSubsidies.Text = (minmoney + middlemoney).ToString();
-
-                                                //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
-                                                if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
-                                                {
-                                                    ComfirmWindow com = new ComfirmWindow();
-                                                    com.OnSelectionBoxClosed += (obj, result) =>
-                                                    {
-                                                        txtTranSportcosts.IsReadOnly = true;//交通费
-                                                        txtASubsidies.IsReadOnly = true;//住宿标准
-                                                        txtOtherCosts.IsReadOnly = true;//其他费用
-                                                    };
-                                                    if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
-                                                    {
-                                                        if (formType == FormTypes.Audit) return;
-                                                        com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
-                                                    }
-                                                }
-                                            }
-                                            else
-                                            {
-                                                txtTFSubsidies.Text = "0";
-                                                txtTFSubsidies.IsReadOnly = false;
-                                            }
-                                        }
-                                    }
-                                    else//如果天数为null的禁用住宿费控件
-                                    {
-                                        txtASubsidies.IsReadOnly = true;
-                                    }
-                                }
-                                if (txtMealSubsidies != null)//餐费补贴
-                                {
-                                    if (obje.BUSINESSDAYS != null)
-                                    {
-                                        if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
-                                        {
-                                            txtMealSubsidies.Text = "0";
-                                            txtMealSubsidies.IsReadOnly = true;
-                                            txtTranSportcosts.IsReadOnly = true;//交通费
-                                            txtASubsidies.IsReadOnly = true;//住宿标准
-                                            txtOtherCosts.IsReadOnly = true;//其他费用
-                                        }
-                                        else if (obje.GOOUTTOMEET == "1")//如果是开会
-                                        {
-                                            txtMealSubsidies.Text = "0";
-                                        }
-                                        else
-                                        {
-                                            if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                                            {
-                                                //最小区间段金额
-                                                double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbMeal;
-                                                //中间区间段金额
-                                                double middlemoney = (tresult - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * mealSubsidies;
-                                                txtMealSubsidies.Text = (minmoney + middlemoney).ToString();
-
-                                                //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
-                                                if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
-                                                {
-                                                    ComfirmWindow com = new ComfirmWindow();
-                                                    com.OnSelectionBoxClosed += (obj, result) =>
-                                                    {
-                                                        txtTranSportcosts.IsReadOnly = true;//交通费
-                                                        txtASubsidies.IsReadOnly = true;//住宿标准
-                                                        txtOtherCosts.IsReadOnly = true;//其他费用
-                                                    };
-                                                    if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
-                                                    {
-                                                        if (formType == FormTypes.Audit) return;
-                                                        com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
-                                                    }
-                                                }
-                                            }
-                                            else
-                                            {
-                                                txtMealSubsidies.Text = "0";
-                                                txtMealSubsidies.IsReadOnly = false;
-                                            }
-                                        }
-                                    }
-                                    else//如果天数为null的禁用住宿费控件
-                                    {
-                                        txtASubsidies.IsReadOnly = true;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                            {
-                                txtTFSubsidies.Text = "0";
-                                txtMealSubsidies.Text = "0";
-                            }
-                        }
-                    }
-                    #endregion
-
-                    total += txtTFSubsidies.Text.ToDouble() + txtMealSubsidies.Text.ToDouble();
-                    this.txtSubTotal.Text = total.ToString();//总费用
-                    this.txtChargeApplyTotal.Text = total.ToString();
-
-                    Fees = total;
+                    CountMoney();
                 }
-
-                CountMoney();
+            }
+            catch (Exception ex)
+            {
+                Utility.SetLogAndShowLog(ex.ToString());
             }
         }
+        ///// <summary>
+        ///// 计算补贴
+        ///// </summary>
+        ///// <param name="FromReadOnlyDataGrid">是否显示只读的查看Grid</param>
+        //private void TravelAllowance(bool FromReadOnlyDataGrid)
+        //{
+        //    TextBox txtTFSubsidies = new TextBox();//初始化交通补贴控件
+        //    TextBox txtMealSubsidies = new TextBox();//初始化餐费补贴控件
+        //    TextBox txtASubsidies = new TextBox();//初始化住宿费控件
+        //    TextBox txtTranSportcosts = new TextBox();//初始化交通费控件
+        //    TextBox txtOtherCosts = new TextBox();//初始化其他费用控件
+
+        //    DataGrid dataGrid = new DataGrid();
+        //    if (FromReadOnlyDataGrid)//查看模式下
+        //    {
+        //        dataGrid = this.DaGrReadOnly;
+        //    }
+        //    else
+        //    {
+        //        dataGrid = this.DaGrEdit;
+        //    }
+
+        //    if (dataGrid.ItemsSource != null)
+        //    {
+        //        T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
+
+        //        ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = dataGrid.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+        //        double total = 0;
+        //        int i = 0;
+        //        foreach (var obje in objs)
+        //        {
+        //            i++;
+        //            double toodays = 0;
+        //            //if (FromReadOnlyDataGrid)
+        //            //{
+        //            //    if (i > 0) txtTFSubsidies = dataGrid.Columns[10].GetCellContent(obje).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+        //            //    if (i > 0) txtMealSubsidies = dataGrid.Columns[11].GetCellContent(obje).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+        //            //}
+        //            //else
+        //            //{
+        //            //    if (i >0) txtTFSubsidies = dataGrid.Columns[10].GetCellContent(obje).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+        //            //    if (i >0) txtMealSubsidies = dataGrid.Columns[11].GetCellContent(obje).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+        //            //}
+
+        //            List<string> list = new List<string>
+        //                        {
+        //                             obje.BUSINESSDAYS
+        //                        };
+
+        //            if (obje.BUSINESSDAYS != null && !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+        //            {
+        //                double totalHours = System.Convert.ToDouble(list[0]);
+        //                toodays = totalHours;
+        //            }
+        //            double totolDay = toodays;//计算本次出差的总天数
+
+        //            string cityValue = citysEndList_Golbal[i - 1].Replace(",", "");//目标城市值
+        //            entareaallowance = this.GetAllowanceByCityValue(cityValue);
+
+        //            #region 根据本次出差的总天数,根据天数获取相应的补贴
+        //            if (travelsolutions != null && employeepost != null)
+        //            {
+
+        //                txtTFSubsidies = GetTFSubsidiesTextBox(txtTFSubsidies, i, FromReadOnlyDataGrid);//交通补贴控件赋值
+        //                txtTranSportcosts = GetTranSportcostsTextBox(txtTranSportcosts, i,FromReadOnlyDataGrid);//交通费控件赋值
+        //                txtASubsidies = GetASubsidiesTextBox(txtASubsidies, i, FromReadOnlyDataGrid);//住宿费控件赋值
+        //                txtOtherCosts = GetOtherCostsTextBox(txtOtherCosts, i, FromReadOnlyDataGrid);//其他费用控件赋值
+        //                txtMealSubsidies = GetMealSubsidiesTextBox(txtMealSubsidies, i, FromReadOnlyDataGrid);//餐费补贴控件赋值
+
+        //                if (totolDay <= travelsolutions.MINIMUMINTERVALDAYS.ToInt32())//本次出差总时间小于等于设定天数的报销标准
+        //                {
+        //                    if (entareaallowance != null)
+        //                    {
+        //                        if (txtTFSubsidies != null)//交通补贴
+        //                        {
+        //                            if (obje.BUSINESSDAYS != null)
+        //                            {
+        //                                if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+        //                                {
+        //                                    txtTFSubsidies.Text = "0";
+        //                                    txtTFSubsidies.IsReadOnly = true;
+        //                                    txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                    txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                    txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                }
+        //                                else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+        //                                {
+        //                                    txtTFSubsidies.Text = "0";
+        //                                }
+        //                                else
+        //                                {
+        //                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                                    {
+        //                                        txtTFSubsidies.Text = (entareaallowance.TRANSPORTATIONSUBSIDIES.ToDouble() * toodays).ToString();
+        //                                        //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
+        //                                        if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
+        //                                        {
+        //                                            ComfirmWindow com = new ComfirmWindow();
+        //                                            com.OnSelectionBoxClosed += (obj, result) =>
+        //                                            {
+        //                                                txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                                txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                                txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                            };
+        //                                            if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+        //                                            {
+        //                                                if (formType == FormTypes.Audit) return;
+        //                                                com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
+        //                                            }
+        //                                        }
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        txtTFSubsidies.Text = "0";
+        //                                        txtTFSubsidies.IsReadOnly = false;
+        //                                    }
+        //                                }
+        //                            }
+        //                            else//如果天数为null的禁用住宿费控件
+        //                            {
+        //                                txtASubsidies.IsReadOnly = true;
+        //                            }
+        //                        }
+        //                        if (txtMealSubsidies != null)//餐费补贴
+        //                        {
+        //                            if (obje.BUSINESSDAYS != null)
+        //                            {
+        //                                if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+        //                                {
+        //                                    txtMealSubsidies.Text = "0";
+        //                                    txtMealSubsidies.IsReadOnly = true;
+        //                                    txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                    txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                    txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                }
+        //                                else if (obje.GOOUTTOMEET == "1")//如果是开会
+        //                                {
+        //                                    txtMealSubsidies.Text = "0";
+        //                                }
+        //                                else
+        //                                {
+        //                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                                    {
+        //                                        txtMealSubsidies.Text = (entareaallowance.MEALSUBSIDIES.ToDouble() * toodays).ToString();
+        //                                        //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
+        //                                        if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
+        //                                        {
+        //                                            ComfirmWindow com = new ComfirmWindow();
+        //                                            com.OnSelectionBoxClosed += (obj, result) =>
+        //                                            {
+        //                                                txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                                txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                                txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                            };
+        //                                            if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+        //                                            {
+        //                                                if (formType == FormTypes.Audit) return;
+        //                                                com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
+        //                                            }
+        //                                        }
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        txtMealSubsidies.Text = "0";
+        //                                        txtMealSubsidies.IsReadOnly = false;
+        //                                    }
+        //                                }
+        //                            }
+        //                            else//如果天数为null的禁用住宿费控件
+        //                            {
+        //                                txtASubsidies.IsReadOnly = true;
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                    {
+        //                        txtTFSubsidies.Text = "0";
+        //                        txtMealSubsidies.Text = "0";
+        //                    }
+        //                }
+        //            }
+        //            #endregion
+
+        //            #region 如果出差天数大于设定的最大天数,按驻外标准获取补贴
+        //            if (travelsolutions != null && employeepost != null)
+        //            {
+        //                TextBox txtTranSportcosts = new TextBox();//初始化交通费控件
+        //                TextBox txtOtherCosts = new TextBox();//初始化其他费用控件
+
+        //                txtTFSubsidies = GetTFSubsidiesTextBox(txtTFSubsidies, i, FromReadOnlyDataGrid);//交通补贴控件赋值
+        //                txtTranSportcosts = GetTranSportcostsTextBox(txtTranSportcosts, i, FromReadOnlyDataGrid);//交通费控件赋值
+        //                txtASubsidies = GetASubsidiesTextBox(txtASubsidies, i, FromReadOnlyDataGrid);//住宿费控件赋值
+        //                txtOtherCosts = GetOtherCostsTextBox(txtOtherCosts, i, FromReadOnlyDataGrid);//其他费用控件赋值
+        //                txtMealSubsidies = GetMealSubsidiesTextBox(txtMealSubsidies, i, FromReadOnlyDataGrid);//餐费补贴控件赋值
+
+        //                if (totolDay > travelsolutions.MAXIMUMRANGEDAYS.ToInt32())
+        //                {
+        //                    if (entareaallowance != null)
+        //                    {
+        //                        double DbTranceport = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble();
+        //                        double DbMeal = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble();
+        //                        double tfSubsidies = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
+        //                        double mealSubsidies = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
+        //                        if (entareaallowance != null)
+        //                        {
+        //                            if (txtTFSubsidies != null)//交通补贴
+        //                            {
+        //                                if (obje.BUSINESSDAYS != null)
+        //                                {
+        //                                    if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+        //                                    {
+        //                                        txtTFSubsidies.Text = "0";
+        //                                        txtTFSubsidies.IsReadOnly = true;
+        //                                        txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                        txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                        txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                    }
+        //                                    else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+        //                                    {
+        //                                        txtTFSubsidies.Text = "0";
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                                        {
+        //                                            double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbTranceport;
+        //                                            double middlemoney = (travelsolutions.MAXIMUMRANGEDAYS.ToDouble() - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
+        //                                            //double lastmoney = (tresult - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
+        //                                            //除以2是因为驻外标准不分餐费和交通补贴，2者合2为一，否则会多加
+        //                                            double lastmoney = (totolDay - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
+        //                                            txtTFSubsidies.Text = (minmoney + middlemoney + lastmoney).ToString();
+
+        //                                            //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
+        //                                            if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
+        //                                            {
+        //                                                ComfirmWindow com = new ComfirmWindow();
+        //                                                com.OnSelectionBoxClosed += (obj, result) =>
+        //                                                {
+        //                                                    txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                                    txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                                    txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                                };
+        //                                                if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+        //                                                {
+        //                                                    if (formType == FormTypes.Audit) return;
+        //                                                    com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
+        //                                                }
+        //                                            }
+        //                                        }
+        //                                        else
+        //                                        {
+        //                                            txtTFSubsidies.Text = "0";
+        //                                            txtTFSubsidies.IsReadOnly = false;
+        //                                        }
+        //                                    }
+        //                                }
+        //                                else//如果天数为null的禁用住宿费控件
+        //                                {
+        //                                    txtASubsidies.IsReadOnly = true;
+        //                                }
+        //                            }
+        //                            if (txtMealSubsidies != null)//餐费补贴
+        //                            {
+        //                                if (obje.BUSINESSDAYS != null)
+        //                                {
+        //                                    if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+        //                                    {
+        //                                        txtMealSubsidies.Text = "0";
+        //                                        txtMealSubsidies.IsReadOnly = true;
+        //                                        txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                        txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                        txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                    }
+        //                                    else if (obje.GOOUTTOMEET == "1")//如果是开会
+        //                                    {
+        //                                        txtMealSubsidies.Text = "0";
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                                        {
+        //                                            double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbMeal;
+        //                                            //double middlemoney = (travelsolutions.MAXIMUMRANGEDAYS.ToDouble() - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * mealSubsidies;
+        //                                            double IntMaxDays = travelsolutions.MAXIMUMRANGEDAYS.ToDouble();
+        //                                            double IntMinDAys = travelsolutions.MINIMUMINTERVALDAYS.ToDouble();
+        //                                            double middlemoney = (IntMaxDays - IntMinDAys) * mealSubsidies;
+        //                                            //double lastmoney = (tresult - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble();
+        //                                            //驻外标准：交通费和餐费补贴为一起的，所以除以2
+        //                                            double lastmoney = (totolDay - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
+        //                                            txtMealSubsidies.Text = (minmoney + middlemoney + lastmoney).ToString();
+
+        //                                            //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
+        //                                            if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
+        //                                            {
+        //                                                ComfirmWindow com = new ComfirmWindow();
+        //                                                com.OnSelectionBoxClosed += (obj, result) =>
+        //                                                {
+        //                                                    txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                                    txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                                    txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                                };
+        //                                                if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+        //                                                {
+        //                                                    if (formType == FormTypes.Audit) return;
+        //                                                    com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
+        //                                                }
+        //                                            }
+        //                                        }
+        //                                        else
+        //                                        {
+        //                                            txtMealSubsidies.Text = "0";
+        //                                            txtMealSubsidies.IsReadOnly = false;
+        //                                        }
+        //                                    }
+        //                                }
+        //                                else//如果天数为null的禁用住宿费控件
+        //                                {
+        //                                    txtASubsidies.IsReadOnly = true;
+        //                                }
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                    {
+        //                        txtTFSubsidies.Text = "0";
+        //                        txtMealSubsidies.Text = "0";
+        //                    }
+        //                }
+        //            }
+        //            #endregion
+
+        //            #region 如果出差时间大于设定的最小天数并且小于设定的最大天数的报销标准
+        //            if (travelsolutions != null && employeepost != null)
+        //            {
+        //                TextBox txtTranSportcosts = new TextBox();//初始化交通费控件
+        //                TextBox txtOtherCosts = new TextBox();//初始化其他费用控件
+
+        //                txtTFSubsidies = GetTFSubsidiesTextBox(txtTFSubsidies, i, FromReadOnlyDataGrid);//交通补贴控件赋值
+        //                txtTranSportcosts = GetTranSportcostsTextBox(txtTranSportcosts, i, FromReadOnlyDataGrid);//交通费控件赋值
+        //                txtASubsidies = GetASubsidiesTextBox(txtASubsidies, i, FromReadOnlyDataGrid);//住宿费控件赋值
+        //                txtOtherCosts = GetOtherCostsTextBox(txtOtherCosts, i, FromReadOnlyDataGrid);//其他费用控件赋值
+        //                txtMealSubsidies = GetMealSubsidiesTextBox(txtMealSubsidies, i, FromReadOnlyDataGrid);//餐费补贴控件赋值
+
+        //                if (totolDay >= travelsolutions.MINIMUMINTERVALDAYS.ToInt32() && totolDay <= travelsolutions.MAXIMUMRANGEDAYS.ToInt32())
+        //                {
+        //                    if (entareaallowance != null)
+        //                    {
+        //                        double DbTranceport = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble();
+        //                        double DbMeal = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble();
+        //                        double tfSubsidies = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
+        //                        double mealSubsidies = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
+        //                        if (txtTFSubsidies != null)//交通补贴
+        //                        {
+        //                            if (obje.BUSINESSDAYS != null)
+        //                            {
+        //                                if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+        //                                {
+        //                                    txtTFSubsidies.Text = "0";
+        //                                    txtTFSubsidies.IsReadOnly = true;
+        //                                    txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                    txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                    txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                }
+        //                                else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+        //                                {
+        //                                    txtTFSubsidies.Text = "0";
+        //                                }
+        //                                else
+        //                                {
+        //                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                                    {
+        //                                        double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbTranceport;
+        //                                        double middlemoney = (totolDay - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
+        //                                        txtTFSubsidies.Text = (minmoney + middlemoney).ToString();
+
+        //                                        //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
+        //                                        if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
+        //                                        {
+        //                                            ComfirmWindow com = new ComfirmWindow();
+        //                                            com.OnSelectionBoxClosed += (obj, result) =>
+        //                                            {
+        //                                                txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                                txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                                txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                            };
+        //                                            if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+        //                                            {
+        //                                                if (formType == FormTypes.Audit) return;
+        //                                                com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
+        //                                            }
+        //                                        }
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        txtTFSubsidies.Text = "0";
+        //                                        txtTFSubsidies.IsReadOnly = false;
+        //                                    }
+        //                                }
+        //                            }
+        //                            else//如果天数为null的禁用住宿费控件
+        //                            {
+        //                                txtASubsidies.IsReadOnly = true;
+        //                            }
+        //                        }
+        //                        if (txtMealSubsidies != null)//餐费补贴
+        //                        {
+        //                            if (obje.BUSINESSDAYS != null)
+        //                            {
+        //                                if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+        //                                {
+        //                                    txtMealSubsidies.Text = "0";
+        //                                    txtMealSubsidies.IsReadOnly = true;
+        //                                    txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                    txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                    txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                }
+        //                                else if (obje.GOOUTTOMEET == "1")//如果是开会
+        //                                {
+        //                                    txtMealSubsidies.Text = "0";
+        //                                }
+        //                                else
+        //                                {
+        //                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                                    {
+        //                                        //最小区间段金额
+        //                                        double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbMeal;
+        //                                        //中间区间段金额
+        //                                        double middlemoney = (totolDay - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * mealSubsidies;
+        //                                        txtMealSubsidies.Text = (minmoney + middlemoney).ToString();
+
+        //                                        //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
+        //                                        if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
+        //                                        {
+        //                                            ComfirmWindow com = new ComfirmWindow();
+        //                                            com.OnSelectionBoxClosed += (obj, result) =>
+        //                                            {
+        //                                                txtTranSportcosts.IsReadOnly = true;//交通费
+        //                                                txtASubsidies.IsReadOnly = true;//住宿标准
+        //                                                txtOtherCosts.IsReadOnly = true;//其他费用
+        //                                            };
+        //                                            if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+        //                                            {
+        //                                                if (formType == FormTypes.Audit) return;
+        //                                                com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
+        //                                            }
+        //                                        }
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        txtMealSubsidies.Text = "0";
+        //                                        txtMealSubsidies.IsReadOnly = false;
+        //                                    }
+        //                                }
+        //                            }
+        //                            else//如果天数为null的禁用住宿费控件
+        //                            {
+        //                                txtASubsidies.IsReadOnly = true;
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+        //                    {
+        //                        txtTFSubsidies.Text = "0";
+        //                        txtMealSubsidies.Text = "0";
+        //                    }
+        //                }
+        //            }
+        //            #endregion
+
+        //            total += txtTFSubsidies.Text.ToDouble() + txtMealSubsidies.Text.ToDouble();
+        //            this.txtSubTotal.Text = total.ToString();//总费用
+        //            this.txtChargeApplyTotal.Text = total.ToString();
+
+        //            Fees = total;
+        //        }
+
+        //        CountMoney();
+        //    }
+        //}
         #endregion
 
 
