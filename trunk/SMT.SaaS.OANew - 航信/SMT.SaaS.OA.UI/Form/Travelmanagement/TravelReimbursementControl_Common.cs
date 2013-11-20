@@ -978,7 +978,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                         double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbTranceport;
                                                         //区间可以报销天数*报销比例50%
                                                         double middlemoney = (travelsolutions.MAXIMUMRANGEDAYS.ToDouble() - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
-                                                        //餐补及交通补贴都按驻外标准计算
+                                                        //除以2是因为驻外标准不分餐费和交通补贴，2者合2为一，否则会多加 （餐补及交通补贴都按驻外标准计算）
                                                         double lastmoney = (totolDay - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
                                                         obje.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney + lastmoney);
                                                     }
