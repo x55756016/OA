@@ -78,16 +78,19 @@
                             VerticalAlignment="Top" Margin="5,1,0,4" /><!--差旅明细-->
 				<smtx:FormToolBar x:Name="FormToolBar1" Background="Transparent" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,1,20,4" VerticalAlignment="Top"></smtx:FormToolBar>
 
-
-                <ScrollViewer x:Name="DaGrEditScrollView"  HorizontalAlignment="Stretch" VerticalAlignment="Top" 
-                                Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,1,20,4" 
-				ScrollViewer.VerticalScrollBarVisibility="Hidden"
-				HorizontalScrollBarVisibility="auto">
+                <StackPanel x:Name="DaGrEditScrollView"  HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                              Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,1,20,4"  Width="auto" >
+                    
+               
+                    <!--<ScrollViewer x:Name="DaGrEditScrollView"  HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                              Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,1,20,4"  Width="auto" 
+				              ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">-->
                     <data:DataGrid x:Name="DaGrEdit" AutoGenerateColumns="False" Grid.Row="4" Grid.Column="1" LoadingRow="DaGrEdit_LoadingRow" 
 				                        SelectionMode="Single" Style="{StaticResource DataGridStyle}" CanUserSortColumns="False"
                                         CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
                                         RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" 
-                                        ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" HorizontalAlignment="Stretch" >
+                                        ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" HorizontalAlignment="Stretch">
                         <data:DataGrid.Columns>
                             <data:DataGridTemplateColumn Header="DEPARTURETIME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
@@ -309,11 +312,14 @@
                             </data:DataGridTemplateColumn>
                         </data:DataGrid.Columns>
                     </data:DataGrid>
-                </ScrollViewer>
+                </StackPanel>
                             
 				<!--查看或审核时不显示控件只读取数据-->
                 <ScrollViewer x:Name="DaGrReadOnlyScrollView"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" Grid.ColumnSpan="3" 
-                                  Grid.Column="1" Margin="5,1,20,4" ScrollViewer.VerticalScrollBarVisibility="Hidden" Width="auto" Visibility="Collapsed">
+                              Grid.Column="1" Margin="5,1,20,4" 
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              Width="auto" Visibility="Collapsed">
                         <data:DataGrid x:Name="DaGrReadOnly" AutoGenerateColumns="False" 
                                  Grid.Row="2" Grid.Column="1"  LoadingRow="DaGrReadOnly_LoadingRow" 
 				                 Style="{StaticResource DataGridStyle}" CanUserSortColumns="False" IsReadOnly="True"
