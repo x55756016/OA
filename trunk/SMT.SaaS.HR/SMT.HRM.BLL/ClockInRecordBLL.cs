@@ -472,6 +472,7 @@ namespace SMT.HRM.BLL
 
                     if (entEmployee != null)
                     {
+                        entClockInRd.CLOCKID = strClientIP;//记录打卡机ip地址
                         entClockInRd.EMPLOYEEID = entEmployee.EMPLOYEEID;
                         entClockInRd.EMPLOYEECODE = entEmployee.EMPLOYEECODE;
                         entClockInRd.EMPLOYEENAME = entEmployee.EMPLOYEECNAME;
@@ -492,13 +493,20 @@ namespace SMT.HRM.BLL
                     }
                     else
                     {
-                        Tracer.Debug(importInfo+" 打卡导入，通过导入的指纹编码查询所属员工不存在，导入的信息："
+                        Tracer.Debug(importInfo+" 打卡导入，通过导入的指纹编码查询所属员工不存在，但是继续导入用以保存数据，导入的信息："
                             + "员工姓名：" + entTemp.EMPLOYEENAME
                             + "员工指纹编码：" + entTemp.FINGERPRINTID
                             + "打卡日期：" + entTemp.PUNCHDATE
                             + "打卡时间：" + entTemp.PUNCHTIME
                             );
-                        continue;
+                        entClockInRd.CLOCKID = strClientIP;//记录打卡机ip地址
+                        entClockInRd.EMPLOYEEID = string.Empty;
+                        entClockInRd.EMPLOYEECODE = string.Empty;
+                        entClockInRd.EMPLOYEENAME = string.Empty;
+                        entClockInRd.FINGERPRINTID = entTemp.FINGERPRINTID;                    
+                        entClockInRd.VERIFYCODE = 0;
+                        entClockInRd.PUNCHDATE = entTemp.PUNCHDATE;
+                        entClockInRd.PUNCHTIME = entTemp.PUNCHTIME;
                     }
                     var qc = from ar in dal.GetObjects<T_HR_EMPLOYEECLOCKINRECORD>()
                              where ar.OWNERCOMPANYID == entClockInRd.OWNERCOMPANYID

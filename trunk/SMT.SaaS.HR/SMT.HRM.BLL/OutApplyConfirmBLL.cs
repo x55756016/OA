@@ -498,7 +498,7 @@ namespace SMT.HRM.BLL
             if (entAttendSolAsign == null)
             {
                 //当前员工没有分配考勤方案，无法提交请假申请
-                return "{NONEXISTASIGNEDATTENSOL}";
+                return "没有找到员工分配的考勤方案！";
             }
 
             //获取考勤方案
@@ -523,7 +523,8 @@ namespace SMT.HRM.BLL
             IQueryable<T_HR_SCHEDULINGTEMPLATEDETAIL> entTemplateDetails = bllTemplateDetail.GetTemplateDetailRdListByAttendanceSolutionId(entAttendSol.ATTENDANCESOLUTIONID);
             T_HR_SCHEDULINGTEMPLATEMASTER entTemplateMaster = entTemplateDetails.FirstOrDefault().T_HR_SCHEDULINGTEMPLATEMASTER;
 
-
+            dtEnd = new DateTime(dtEnd.Year, dtEnd.Month, dtEnd.Day, dtEnd.Hour, dtEnd.Minute, 0);
+            dtStart = new DateTime(dtStart.Year, dtStart.Month, dtStart.Day, dtStart.Hour, dtStart.Minute, 0);
             TimeSpan ts = dtEnd.Subtract(dtStart);
             int iOTDays = ts.Days;
             string strMsg = string.Empty;

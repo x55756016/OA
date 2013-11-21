@@ -269,6 +269,7 @@ namespace SMT.HRM.BLL
                 ent.STARTDATE = entity.STARTDATE;
                 ent.ENDDATE = entity.ENDDATE;
                 ent.REASON = entity.REASON;
+                ent.CHECKSTATE = entity.CHECKSTATE;
                 ent.UPDATEDATE = DateTime.Now;
                 string strMsg = OutApplySetValue(msg, ent);
 
