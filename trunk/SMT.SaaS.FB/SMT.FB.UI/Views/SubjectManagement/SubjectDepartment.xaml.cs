@@ -123,11 +123,11 @@ namespace SMT.FB.UI.Views.SubjectManagement
                 VirtualDepartment virtualDepartment = department.Entity as VirtualDepartment;
                 if (isInit)
                 {
-                    //  tvItemCompany = currTreeItmes.Items.AddObject<VirtualCompany>(virtualDepartment.VirtualCompany, "Name");
                     tvItemCompany = currTreeItmes.Items.AddObject<OrderEntity>(department, "Entity.Name");
                     tvItemCompany.Items.AddObjectList<VirtualPost>(virtualDepartment.PostCollection.ToList(), "Name");
                     dictDepartment.Add(virtualDepartment, department);
                     AttachEventToSubjectDepartment(department);
+                    EntityList.Add(department);
                 }
                 else
                 {
@@ -139,10 +139,9 @@ namespace SMT.FB.UI.Views.SubjectManagement
                     tvItemCompany = dictCompany[virtualDepartment.VirtualCompany];
                     TreeViewItem tvItemDepartment = tvItemCompany.Items.AddObject<OrderEntity>(department, "Entity.Name");
                     tvItemDepartment.Items.AddObjectList<VirtualPost>(virtualDepartment.PostCollection.ToList(), "Name");
-
-                    dictDepartment.Add(virtualDepartment, department);
-                    AttachEventToSubjectDepartment(department);
-                    EntityList.Add(department);
+                    //dictDepartment.Add(virtualDepartment, department);
+                   // AttachEventToSubjectDepartment(department);
+                   // EntityList.Add(department);
                 }
                 //  tvItemCompany = this.TreeView.Items.AddObject<VirtualCompany>(virtualDepartment.VirtualCompany, "Name");
 
@@ -291,6 +290,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
                     company.PropertyValue = com.ID;
                     companyId = com.ID;
                     qe.RelatedExpression = company;
+                    this.ShowProcess();
                     orderEntityService.QueryFBEntities(qe);
                 }
             }
