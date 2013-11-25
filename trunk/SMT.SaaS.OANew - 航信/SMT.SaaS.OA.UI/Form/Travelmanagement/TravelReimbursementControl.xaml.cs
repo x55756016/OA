@@ -55,8 +55,8 @@ namespace SMT.SaaS.OA.UI.UserControls
         public T_OA_TRAVELSOLUTIONS travelsolutions = new T_OA_TRAVELSOLUTIONS();
         public List<T_OA_AREAALLOWANCE> areaallowance = new List<T_OA_AREAALLOWANCE>();
         private SMTLoading loadbar = new SMTLoading();
-        private List<string> citysStartList_Golbal = new List<string>();
-        private List<string> citysEndList_Golbal = new List<string>();
+        //private List<string> citysStartList_Golbal = new List<string>();
+        //private List<string> citysEndList_Golbal = new List<string>();
         public double Fees = 0;
         private string EmployeeName = string.Empty;//出差人
         public string EmployeePostLevel = string.Empty;//出差人的岗位级别
@@ -108,6 +108,13 @@ namespace SMT.SaaS.OA.UI.UserControls
             OaPersonOfficeClient.GetTravleAreaAllowanceByPostValueCompleted += new EventHandler<GetTravleAreaAllowanceByPostValueCompletedEventArgs>(TrC_GetTravleAreaAllowanceByPostValueCompleted);
             fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);//保存费用
             fbCtr.InitDataComplete += new EventHandler<FrameworkUI.FBControls.ChargeApplyControl.InitDataCompletedArgs>(fbCtr_InitDataComplete);
+            fbCtr.ItemSelectChange+=fbCtr_ItemSelectChange;
+        }
+
+        void fbCtr_ItemSelectChange(object sender, FrameworkUI.FBControls.ChargeApplyControl.InitDataCompletedArgs e)
+        {
+            //选择了费用后重新计算报销总额
+            TravelAllowance(false);
         }
 
         #endregion
@@ -328,13 +335,13 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             TravelDetailList_Golbal = obj;
 
-            citysStartList_Golbal.Clear();
-            citysEndList_Golbal.Clear();
-            foreach (T_OA_REIMBURSEMENTDETAIL detail in obj)
-            {
-                citysStartList_Golbal.Add(detail.DEPCITY);
-                citysEndList_Golbal.Add(detail.DESTCITY);
-            }
+            //citysStartList_Golbal.Clear();
+            //citysEndList_Golbal.Clear();
+            //foreach (T_OA_REIMBURSEMENTDETAIL detail in obj)
+            //{
+            //    citysStartList_Golbal.Add(detail.DEPCITY);
+            //    citysEndList_Golbal.Add(detail.DESTCITY);
+            //}
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
                 DaGrReadOnly.ItemsSource = TravelDetailList_Golbal;
@@ -365,18 +372,26 @@ namespace SMT.SaaS.OA.UI.UserControls
             try
             {
                 T_OA_REIMBURSEMENTDETAIL tmp = (T_OA_REIMBURSEMENTDETAIL)e.Row.DataContext;
-
+                //出发时间
                 DateTimePicker dpStartTime = DaGrEdit.Columns[0].GetCellContent(e.Row).FindName("StartTime") as DateTimePicker;
-                DateTimePicker dpEndTime = DaGrEdit.Columns[2].GetCellContent(e.Row).FindName("EndTime") as DateTimePicker;
+                //出发城市
                 SearchCity myCity = DaGrEdit.Columns[1].GetCellContent(e.Row).FindName("txtDEPARTURECITY") as SearchCity;
+                //到达时间
+                DateTimePicker dpEndTime = DaGrEdit.Columns[2].GetCellContent(e.Row).FindName("EndTime") as DateTimePicker;
+                //到达城市
                 SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(e.Row).FindName("txtTARGETCITIES") as SearchCity;
-                TextBox txtTranSportcosts = DaGrEdit.Columns[8].GetCellContent(e.Row).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
-                TextBox txtASubsidies = DaGrEdit.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;//住宿标准
-                TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(e.Row).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
-                TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(e.Row).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                //交通费
+                TextBox txtTranSportcosts = DaGrEdit.Columns[8].GetCellContent(e.Row).FindName("txtTRANSPORTCOSTS") as TextBox;
+                //住宿标准
+                TextBox txtASubsidies = DaGrEdit.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;
+                //交通补贴
+                TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(e.Row).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;
+                //餐费补贴
+                TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(e.Row).FindName("txtMEALSUBSIDIES") as TextBox;
                 TravelDictionaryComboBox ComVechile = DaGrEdit.Columns[6].GetCellContent(e.Row).FindName("ComVechileType") as TravelDictionaryComboBox;
                 TravelDictionaryComboBox ComLevel = DaGrEdit.Columns[7].GetCellContent(e.Row).FindName("ComVechileTypeLeve") as TravelDictionaryComboBox;
-                TextBox txtOtherCosts = DaGrEdit.Columns[12].GetCellContent(e.Row).FindName("txtOtherCosts") as TextBox;//其他费用
+                //其他费用
+                TextBox txtOtherCosts = DaGrEdit.Columns[12].GetCellContent(e.Row).FindName("txtOtherCosts") as TextBox;
                 CheckBox IsCheck = DaGrEdit.Columns[13].GetCellContent(e.Row).FindName("myChkBox") as CheckBox;
                 CheckBox IsCheckMeet = DaGrEdit.Columns[14].GetCellContent(e.Row).FindName("myChkBoxMeet") as CheckBox;
                 CheckBox IsCheckCar = DaGrEdit.Columns[15].GetCellContent(e.Row).FindName("myChkBoxCar") as CheckBox;
@@ -394,8 +409,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (BtnNewButton == true)
                 {
                     myCitys.TxtSelectedCity.Text = string.Empty;
-                    citysStartList_Golbal.Add(tmp.DEPCITY);
-                    citysEndList_Golbal.Add(string.Empty);
+                    //citysStartList_Golbal.Add(tmp.DEPCITY);
+                    //citysEndList_Golbal.Add(string.Empty);
                 }
                 else
                 {
@@ -415,7 +430,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     int i = 0;
                     foreach (var obje in objs)
                     {
-                        i++;
+                       
                         if (obje.REIMBURSEMENTDETAILID == tmp.REIMBURSEMENTDETAILID)//判断记录的ID是否相同
                         {
                             string dictid = "";
@@ -678,6 +693,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 continue;
                             }
                         }
+                        i++;
                     }
                 }
             }
@@ -726,7 +742,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (BtnNewButton == true)
                 {
                     myCitys.Text = string.Empty;
-                    citysStartList_Golbal.Add(tmp.DEPCITY);
+                    //citysStartList_Golbal.Add(tmp.DEPCITY);
                 }
                 else
                 {

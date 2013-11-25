@@ -51,13 +51,70 @@
                     <ColumnDefinition Width="0.3*" />
                 </Grid.ColumnDefinitions>
                 <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
-			   
-			   <TextBlock HorizontalAlignment="Left"
+                <!--报销人Label-->
+                <TextBlock HorizontalAlignment="Left"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=CLAIMSWERE}"
+                            VerticalAlignment="Stretch" Height="20" Margin="5,1,0,4" />
+                <TextBox x:Name="txtPeopleTravel"
+                IsReadOnly="True"
+                Height="25"
+                TextWrapping="NoWrap"
+                Style="{StaticResource TextBoxStyle}"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5,1,20,4">
+                    <validator:ValidatorService.Validator>
+                        <validator:RequiredValidator ManagerName="Group1"
+                                            ErrorMessage="REQUIRED"
+                                            ErrorMessageParameter="EMPLOYEECNAME" />
+                    </validator:ValidatorService.Validator>
+                </TextBox>
+                <!--报销人结束-->
+                  
+                <!--联系电话-->
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TELL}"
+                                RenderTransformOrigin="0.704,2.895" Height="20" Margin="5,1,20,4" HorizontalAlignment="Right"/>
+                <TextBox Grid.Row="0" Grid.Column="3" x:Name="txtTELL" Width="150"
+                                TextWrapping="NoWrap"
+                                Height="25"
+                                Style="{StaticResource TextBoxStyle}"
+                                MaxLength="25"
+                                Margin="5,1,20,4" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                <!--联系电话结束-->
+                  
+                <!--报销单号-->
+                <TextBlock HorizontalAlignment="Left"
+							Grid.Row="1"
+                            Grid.Column="0"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=NOCLAIMS}"
+                            VerticalAlignment="Stretch" Height="20" Margin="5,1,0,4" />
+                <TextBox x:Name="txtNoClaims"
+                            IsReadOnly="True"
+                            Height="25"
+                            TextWrapping="NoWrap"
+                            Style="{StaticResource TextBoxStyle}"
+							Grid.Row="1"
+                            Grid.Column="1"
+							Width="auto"
+                            Margin="5,1,20,4" />
+                <!--报销单号结束-->
+                  
+                <!--报销时间-->
+                <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="2"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=REIMBURSEMENTTIME}"  VerticalAlignment="Stretch" Height="20" Margin="5,1,20,4" />
+                <controls:DatePicker Grid.Row="1" Grid.Column="3" Style="{StaticResource DatePickerStyle}"  HorizontalAlignment="Left" x:Name="ReimbursementTime" IsEnabled="False" Height="25" Width="118" Margin="5,1,20,4" 
+                                Text="{Binding Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                <!--报销时间结束-->
+                  
+                <!--报告内容-->
+                <TextBlock HorizontalAlignment="Left"
                                        Grid.Row="2"
                                        Grid.Column="0"
                                        Text="{Binding Converter={StaticResource ResourceConveter}, Source=REPORT}"
                                        TextWrapping="Wrap"
-                                       Height="22" Margin="5,1,0,4"/><!--报告内容-->
+                                       Height="22" Margin="5,1,0,4"/>
                 <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtReport" Grid.ColumnSpan="3" AcceptsReturn="True" Text="{Binding CONTENT,Mode=TwoWay}" VerticalScrollBarVisibility="Disabled"
 						 TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="715" Style="{StaticResource TextBoxStyle}"
                          ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="5,1,20,4"><!--报告内容-->
@@ -68,16 +125,18 @@
                                 <behaviors:ShowRequire></behaviors:ShowRequire>
                             </interaction:Interaction.Behaviors>
                         </TextBox>
-			   
-				<TextBlock HorizontalAlignment="Left"
+                <!--报告内容结束-->
+                  
+                <!--差旅明细Label-->
+                <TextBlock HorizontalAlignment="Left"
                             Grid.Row="4" 
                             Grid.Column="0"
                             Text="{Binding Converter={StaticResource ResourceConveter}, Source=TRAVELDETAILS}"
                             TextWrapping="Wrap"
                             Height="22"
-                            VerticalAlignment="Top" Margin="5,1,0,4" /><!--差旅明细-->
+                            VerticalAlignment="Top" Margin="5,1,0,4" />
 				<smtx:FormToolBar x:Name="FormToolBar1" Background="Transparent" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,1,20,4" VerticalAlignment="Top"></smtx:FormToolBar>
-
+                <!--可编辑Grid开始-->
                 <StackPanel x:Name="DaGrEditScrollView"  HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                               Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" Margin="5,1,20,4"  Width="auto" >
                     
@@ -92,33 +151,40 @@
                                         RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" 
                                         ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" HorizontalAlignment="Stretch">
                         <data:DataGrid.Columns>
+
+                            <!--出发时间-->
                             <data:DataGridTemplateColumn Header="DEPARTURETIME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                            <smtx:DateTimePicker Grid.Row="2" Grid.Column="1" x:Name="StartTime" Value="{Binding STARTDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" Height="25" Width="auto" OnValueChanged="StartTime_OnValueChanged"></smtx:DateTimePicker>
+                                            <smtx:DateTimePicker Grid.Column="1" Grid.Row="2"  x:Name="StartTime" Value="{Binding STARTDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" Height="25" Width="auto" OnValueChanged="StartTime_OnValueChanged"></smtx:DateTimePicker>
                                         </StackPanel>
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--出发城市-->
                             <data:DataGridTemplateColumn Header="DEPARTURECITY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                            <smt:SearchCity Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" MaxWidth="150" DisplayMemberPath="DEPCITY" SelectClick="txtDEPARTURECITY_SelectClick"  KeyDown="TextBox_KeyDown"  x:Name="txtDEPARTURECITY"></smt:SearchCity>
+                                            <smt:SearchCity Grid.Column="1" Grid.Row="1"  Grid.ColumnSpan="4" MaxWidth="150" DisplayMemberPath="DEPCITY" SelectClick="txtDEPARTURECITY_SelectClick"  KeyDown="TextBox_KeyDown"  x:Name="txtDEPARTURECITY"></smt:SearchCity>
                                         </StackPanel>
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            
+                            <!--到达时间-->
                             <data:DataGridTemplateColumn Header="ARRIVALTIME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                            <smtx:DateTimePicker Grid.Row="3" Grid.Column="1" x:Name="EndTime" Value="{Binding ENDDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" Height="25" Width="auto" OnValueChanged="EndTime_OnValueChanged"></smtx:DateTimePicker>
+                                            <smtx:DateTimePicker Grid.Column="1" Grid.Row="3"  x:Name="EndTime" Value="{Binding ENDDATE,Mode=TwoWay,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIME}" Height="25" Width="auto" OnValueChanged="EndTime_OnValueChanged"></smtx:DateTimePicker>
                                         </StackPanel>
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                           
+                            <!--到达城市-->
                             <data:DataGridTemplateColumn Header="ARRIVALCITY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -128,6 +194,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--出差天数-->
                             <data:DataGridTemplateColumn Header="BUSINESSDAYS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -272,6 +339,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--私事-->
                             <data:DataGridTemplateColumn Header="PRIVATEAFFAIR" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -313,8 +381,8 @@
                         </data:DataGrid.Columns>
                     </data:DataGrid>
                 </StackPanel>
-                            
-				<!--查看或审核时不显示控件只读取数据-->
+                <!--可编辑Grid结束-->
+                <!--查看只读Grid-->
                 <ScrollViewer x:Name="DaGrReadOnlyScrollView"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" Grid.ColumnSpan="3" 
                               Grid.Column="1" Margin="5,1,20,4" 
                               ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -752,93 +820,31 @@
                             </data:DataGrid.Columns>
                         </data:DataGrid>
 		            </ScrollViewer>
-                 
-				<TextBlock HorizontalAlignment="Left"
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=CLAIMSWERE}"
-                            VerticalAlignment="Stretch" Height="20" Margin="5,1,0,4" /><!--报销人-->
-				<TextBox x:Name="txtPeopleTravel"
-                IsReadOnly="True"
-                Height="25"
-                TextWrapping="NoWrap"
-                Style="{StaticResource TextBoxStyle}"
-                Grid.Row="0"
-                Grid.Column="1"
-                Margin="5,1,20,4">
-                <validator:ValidatorService.Validator>
-                    <validator:RequiredValidator ManagerName="Group1"
-                                            ErrorMessage="REQUIRED"
-                                            ErrorMessageParameter="EMPLOYEECNAME" />			
-                </validator:ValidatorService.Validator>
-                </TextBox><!--报销人-->		
-				 
-				 <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TELL}"
-                                RenderTransformOrigin="0.704,2.895" Height="20" Margin="5,1,20,4" HorizontalAlignment="Right"/><!--联系电话-->
-                            <TextBox Grid.Row="0" Grid.Column="3" x:Name="txtTELL" Width="150"
-                                TextWrapping="NoWrap"
-                                Height="25"
-                                Style="{StaticResource TextBoxStyle}"
-                                MaxLength="25"
-                                Margin="5,1,20,4" VerticalAlignment="Top" HorizontalAlignment="Left" /><!--联系电话-->
-				 
-				  <TextBlock HorizontalAlignment="Left"
-							Grid.Row="1"
-                            Grid.Column="0"
-                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=NOCLAIMS}"
-                            VerticalAlignment="Stretch" Height="20" Margin="5,1,0,4" /><!--报销单号-->
-									   
-							<TextBox x:Name="txtNoClaims"
-                            IsReadOnly="True"
-                            Height="25"
-                            TextWrapping="NoWrap"
-                            Style="{StaticResource TextBoxStyle}"
-							Grid.Row="1"
-                            Grid.Column="1"
-							Width="auto"
-                            Margin="5,1,20,4" /><!--报销单号-->
-                         
-					 <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="2"
-                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=REIMBURSEMENTTIME}"  VerticalAlignment="Stretch" Height="20" Margin="5,1,20,4" /><!--报销时间-->
-                            <controls:DatePicker Grid.Row="1" Grid.Column="3" Style="{StaticResource DatePickerStyle}"  HorizontalAlignment="Left" x:Name="ReimbursementTime" IsEnabled="False" Height="25" Width="118" Margin="5,1,20,4" 
-                                Text="{Binding Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/><!--报销时间-->
-
-
- <!--<TextBlock HorizontalAlignment="Left"
-                                Grid.Row="3"
-                                Grid.Column="0"
-                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALTRAVELTIME}"
-                                VerticalAlignment="Top" Height="20" Margin="5,1,0,4"/>--><!--合计天数-->
- <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"><!--合计天数、差旅费合计、超标提示合并成一行显示-->
+                <!--查看只读Grid结束-->
+                  
+                <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
 					<ColumnDefinition Width="auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                           
-                            <!--<TextBox Grid.Column="0" x:Name="txtCOMPUTINGTIME" Text="{Binding COMPUTINGTIME,Mode=TwoWay}" TextWrapping="NoWrap" Height="25" IsReadOnly="True" MaxLength="25" Width="50" Margin="5,1,20,4" KeyDown="TextBox_KeyDown">
-                                <validator:ValidatorService.Validator>
-                                    <validator:RequiredValidator ManagerName="Group1"
-                                                            ErrorMessage="REQUIRED"
-                                                            ErrorMessageParameter="COMPUTINGTIME" />
-                                </validator:ValidatorService.Validator>
-                            </TextBox>--><!--合计天数-->
-                    
-                   <TextBlock Grid.Column="0"
+                </Grid.ColumnDefinitions> 
+                <!--差旅费小计-->
+                <TextBlock Grid.Column="0"
                                 Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALTRAVELCOSTS}"
                                 RenderTransformOrigin="0.704,2.895"
                                 HorizontalAlignment="Left"
-                                VerticalAlignment="Stretch" Height="20" Margin="5,1,20,4"/><!--差旅费合计-->
-                   <TextBox x:Name="txtSubTotal"                                     
+                                VerticalAlignment="Stretch" Height="20" Margin="5,1,20,4"/>
+                <TextBox x:Name="txtSubTotal"                                     
                                 Margin="5,1,20,4"
                                 Grid.Column="1"
                                 IsReadOnly="True"
                                 Style="{StaticResource TextBoxStyle}"
 								HorizontalAlignment="Left"
-                                Height="25" Width="100" /><!--差旅费合计-->
-								
-								<TextBox x:Name="txtTips"
+                                Height="25" Width="100" />
+                <!--差旅费小计结束-->
+                <!--交通工具超标提示文本框-->
+				<TextBox x:Name="txtTips"
                                 Margin="5,1,20,4"
                                 Grid.Column="2"
                                 IsReadOnly="True"
@@ -847,9 +853,9 @@
                                 Visibility="Collapsed"
 								HorizontalAlignment="Left"
                                 Style="{StaticResource TextBoxStyle}"
-                                Height="25" /><!--交通工具超标提示-->
-								
-								<TextBox x:Name="txtAccommodation"
+                                Height="25" />
+                <!--住宿费超标提示文本框-->
+				<TextBox x:Name="txtAccommodation"
                                 Margin="5,1,20,4"
                                 Grid.Column="3"
                                 IsReadOnly="True"
@@ -858,102 +864,110 @@
                                 Visibility="Collapsed"
 								HorizontalAlignment="Right"
                                 Style="{StaticResource TextBoxStyle}"
-                                Height="25" /><!--住宿费超标提示-->
-					  </Grid>
-				   
-				    <TextBlock HorizontalAlignment="Left" Grid.Row="6"  Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REIMBURSEMENTSTANDARDS}"
-                            TextWrapping="Wrap"  Height="22"  VerticalAlignment="Top" Margin="5,1,0,4" /><!--报销标准-->
-				    <TextBox Grid.Row="6" Grid.Column="1" x:Name="textStandards" Grid.ColumnSpan="4" AcceptsReturn="True" VerticalScrollBarVisibility="Disabled"  
+                                Height="25" />
+			    </Grid>
+                  
+                  
+                <!--报销标准-->
+                <TextBlock HorizontalAlignment="Left" Grid.Row="6"  Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REIMBURSEMENTSTANDARDS}"
+                            TextWrapping="Wrap"  Height="22"  VerticalAlignment="Top" Margin="5,1,0,4" />
+				<TextBox Grid.Row="6" Grid.Column="1" x:Name="textStandards" Grid.ColumnSpan="4" AcceptsReturn="True" VerticalScrollBarVisibility="Disabled"  
 						    TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" IsReadOnly="True" />
-
-							<TextBlock HorizontalAlignment="Left"
-                            Grid.Row="7"
-                            Grid.Column="0"
-                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYMENTINFO}"
-                            TextWrapping="Wrap"
-                            Height="22"
-                            VerticalAlignment="Top" Margin="5,1,0,4" /><!--支付信息-->
-							<TextBox Grid.Row="7" Grid.Column="1" x:Name="txtPAYMENTINFO" Grid.ColumnSpan="3" 
-					AcceptsReturn="True" Text="" VerticalScrollBarVisibility="Disabled" 
-					TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" /><!--支付信息-->				
-							                
-                    <TextBlock HorizontalAlignment="Left"
-                            Grid.Row="8"
-                            Grid.Column="0"
-                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}"
-                            TextWrapping="Wrap"
-                            Height="22"
-                            VerticalAlignment="Top" Margin="5,1,0,4" /><!--备注-->
-							
-							<TextBox Grid.Row="8" Grid.Column="1" x:Name="txtRemark" Grid.ColumnSpan="3" 
-					AcceptsReturn="True" Text="{Binding REMARKS,Mode=TwoWay}" VerticalScrollBarVisibility="Disabled" 
-					TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" /><!--备注-->
-							
-					<TextBlock HorizontalAlignment="Left" x:Name="lblFile"
-                                       Grid.Row="9" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FileUpload}"
-                                       Height="22"
-                                       VerticalAlignment="Top" Margin="5,8,0,4" />
-                <!--<ScrollViewer Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" MaxHeight="200" Margin="0,0,20,4" BorderThickness="0"   VerticalAlignment="Top" HorizontalAlignment="Stretch" >
-
-                    <my:FileControl x:Name="uploadFile" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" MaxHeight="200" Margin="0,0,20,4"/>
-                </ScrollViewer>-->
+                <!--报销标准结束-->
+                  
+                <!--支付信息-->
+                <TextBlock HorizontalAlignment="Left"
+                Grid.Row="7"
+                Grid.Column="0"
+                Text="{Binding Converter={StaticResource ResourceConveter}, Source=PAYMENTINFO}"
+                TextWrapping="Wrap"
+                Height="22"
+                VerticalAlignment="Top" Margin="5,1,0,4" />
+				<TextBox Grid.Row="7" Grid.Column="1" x:Name="txtPAYMENTINFO" Grid.ColumnSpan="3" 
+		        AcceptsReturn="True" Text="" VerticalScrollBarVisibility="Disabled" 
+		        TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" />
+                <!--支付信息结束-->
+                  
+                <!--备注-->
+                <TextBlock HorizontalAlignment="Left"
+                Grid.Row="8"
+                Grid.Column="0"
+                Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}"
+                TextWrapping="Wrap"
+                Height="22"
+                VerticalAlignment="Top" Margin="5,1,0,4" />
+				<TextBox Grid.Row="8" Grid.Column="1" x:Name="txtRemark" Grid.ColumnSpan="3" 
+		        AcceptsReturn="True" Text="{Binding REMARKS,Mode=TwoWay}" VerticalScrollBarVisibility="Disabled" 
+		        TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" />
+                <!--备注结束-->
+                  
+                <!--附件-->
+                <TextBlock HorizontalAlignment="Left" x:Name="lblFile"
+                Grid.Row="9" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FileUpload}"
+                Height="22"
+                VerticalAlignment="Top" Margin="5,8,0,4" />
                 <my:FileControl x:Name="uploadFile" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" MaxWidth="618" MaxHeight="200" Margin="0,0,20,4" HorizontalAlignment="Left"/>
+                <!--附件结束-->                  
 
-					
+                <!--费用报销区域-->
+                <TextBlock Grid.Row="10"
+                            Grid.Column="0"
+                            x:Name="lblFees"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=EXPENSEREIMBURSEMENT}"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="Top"
+                            Margin="5,5,0,4"
+                            d:LayoutOverrides="Width" Width="100" />
+                <!--费用报销控件显示开关-->
+				<CheckBox Grid.Row="10" Grid.Column="1" x:Name="fbChkBox" Checked="fbChkBox_Checked" Unchecked="fbChkBox_Unchecked"
+					Height="23" Margin="5,5,0,4" VerticalAlignment="Center" />
+                <!--费用报销控件显示开关结束-->
+                <!--预算控件-->
+                <Grid Grid.Row="11"
+                        Grid.Column="1"
+                        Margin="0,5,20,2"
+                        Grid.ColumnSpan="3"
+                        x:Name="scvFB"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        Visibility="Collapsed">
+                    <fbctr:ChargeApplyControl  x:Name="fbCtr" Margin="5,1,0,4"/>
+                </Grid>
+                <!--预算控件结束-->
 
+                <!--报销费用总计-->
+                <TextBlock Grid.Row="12" Grid.Column="1"
+                            Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALCOSTOFTRAVELREIMBURSEMENT}"
+                            RenderTransformOrigin="0.704,2.895"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch" Height="20"/>
+                <TextBox x:Name="txtChargeApplyTotal"
+							Grid.Row="12"
+                            Grid.Column="1"
+                            IsReadOnly="True"
+                            Style="{StaticResource TextBoxStyle}"
+							HorizontalAlignment="Left"
+							Margin="125,1,20,4"
+                            Height="25" Width="100" />
+                <!--报销费用总计结束-->
+
+                <!--隐藏控件：可用额度-->
                 <TextBlock Grid.Row="12"
                                 Grid.Column="1"
                                 Text="{Binding Converter={StaticResource ResourceConveter}, Source=AVAILABLECREDIT}"
                                 RenderTransformOrigin="0.704,2.895"
                                 HorizontalAlignment="Left"
-                                VerticalAlignment="Stretch" Height="20" Margin="25,0,0,0" Visibility="Collapsed"/><!--可用额度-->
-								
-								<TextBox x:Name="txtAvailableCredit"
+                                VerticalAlignment="Stretch" Height="20" Margin="25,0,0,0" Visibility="Collapsed"/>
+                <TextBox x:Name="txtAvailableCredit"
                                 Margin="125,1,20,4"
 								Grid.Row="12"
                                 Grid.Column="1"
                                 IsReadOnly="True"
                                 Style="{StaticResource TextBoxStyle}"
 								HorizontalAlignment="Left"
-                                Height="25" Width="100" Visibility="Collapsed" /><!--可用额度-->
-								
-                            <TextBlock Grid.Row="12" Grid.Column="1"
-                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=TOTALCOSTOFTRAVELREIMBURSEMENT}"
-                                RenderTransformOrigin="0.704,2.895"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Stretch" Height="20"/><!--报销费用总计-->
-								
-								<TextBox x:Name="txtChargeApplyTotal"
-								Grid.Row="12"
-                                Grid.Column="1"
-                                IsReadOnly="True"
-                                Style="{StaticResource TextBoxStyle}"
-								HorizontalAlignment="Left"
-								Margin="125,1,20,4"
-                                Height="25" Width="100" /><!--报销费用总计-->
-
-                        <TextBlock Grid.Row="10"
-                                Grid.Column="0"
-                                x:Name="lblFees"
-                                Text="{Binding Converter={StaticResource ResourceConveter}, Source=EXPENSEREIMBURSEMENT}"
-                                TextWrapping="Wrap"
-                                VerticalAlignment="Top"
-                                Margin="5,5,0,4"
-                                d:LayoutOverrides="Width" Width="100" /><!--费用报销-->
-					<CheckBox Grid.Row="10" Grid.Column="1" x:Name="fbChkBox" Checked="fbChkBox_Checked" Unchecked="fbChkBox_Unchecked"
-					 Height="23" Margin="5,5,0,4" VerticalAlignment="Center" />
-                    <!--预算控件-->
-                    <Grid Grid.Row="11"
-                            Grid.Column="1"
-                            Margin="0,5,20,2"
-                            Grid.ColumnSpan="3"
-                            x:Name="scvFB"
-                            VerticalAlignment="Stretch"
-                            HorizontalAlignment="Stretch"
-                            Visibility="Collapsed">
-                        <fbctr:ChargeApplyControl  x:Name="fbCtr" Margin="5,1,0,4"/>
-                    </Grid>
-                </Grid>
+                                Height="25" Width="100" Visibility="Collapsed" />
+                <!--隐藏控件：可用额度结束-->
+            </Grid>
         </Grid>
     </Grid>
 </smtLocal:BaseForm>

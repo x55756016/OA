@@ -172,7 +172,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             #endregion
 
             //字段赋值及子表城市赋值
-            SetTraveAndFBChargeValue();
+            SetTraveValueAndFBChargeValue();
 
             #region "判断出差开始城市是否用重复,下一条开始时间是否小于上一条结束时间"           
             for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
@@ -269,76 +269,83 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <summary>
         /// 字段赋值
         /// </summary>
-        private void SetTraveAndFBChargeValue()
+        private void SetTraveValueAndFBChargeValue()
         {
-            //计算出差时间
-            TravelTime();
-
-            //计算补贴
-            TravelAllowance(false);
-
-            //添加子表数据
-            NewDetail_Golbal();
-
-            CountMoney();
-
-            if (!string.IsNullOrEmpty(this.txtSubTotal.Text) && this.txtSubTotal.Text.Trim() != "0")
+            try
             {
-                if (fbCtr.TravelSubject != null)
+                //计算出差时间
+                TravelTime();
+
+                //计算补贴
+                TravelAllowance(false);
+
+                //添加子表数据
+                SetDetailValue_Golbal();
+
+                CountMoney();
+
+                if (!string.IsNullOrEmpty(this.txtSubTotal.Text) && this.txtSubTotal.Text.Trim() != "0")
                 {
-                    fbCtr.TravelSubject.ApplyMoney = Convert.ToDecimal(this.txtSubTotal.Text);//将本次出差总费用给预算
+                    if (fbCtr.TravelSubject != null)
+                    {
+                        fbCtr.TravelSubject.ApplyMoney = Convert.ToDecimal(this.txtSubTotal.Text);//将本次出差总费用给预算
+                    }
+                }
+                else
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差报销费用不可为零，请重新填写单据", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return;
+                }
+                if (string.IsNullOrEmpty(txtPAYMENTINFO.Text))
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "支付信息不能为空，请重新填写", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return;
+                }
+                else
+                {
+                    fbCtr.Order.PAYMENTINFO = txtPAYMENTINFO.Text;//支付信息
+                    StrPayInfo = txtPAYMENTINFO.Text;
+                }
+                TravelReimbursement_Golbal.TEL = this.txtTELL.Text;//联系电话;
+                TravelReimbursement_Golbal.CONTENT = this.txtReport.Text;//报告内容    
+                TravelReimbursement_Golbal.THETOTALCOST = Convert.ToDecimal(txtSubTotal.Text);//本次差旅总费用
+
+                if (fbCtr.Order.TOTALMONEY != null)
+                {   //总费用;
+                    TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS = fbCtr.Order.TOTALMONEY;
+                }
+                TravelReimbursement_Golbal.REIMBURSEMENTTIME = Convert.ToDateTime(ReimbursementTime.Text);
+                TravelReimbursement_Golbal.REMARKS = this.txtRemark.Text;
+                if (string.IsNullOrEmpty(TravelReimbursement_Golbal.POSTLEVEL))
+                {
+                    TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
+                }
+                if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERNAME))
+                {
+                    TravelReimbursement_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
+                    TravelReimbursement_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+                }
+                if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERPOSTNAME))
+                {
+                    TravelReimbursement_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+                    TravelReimbursement_Golbal.OWNERPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
+                }
+                if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERDEPARTMENTNAME))
+                {
+                    TravelReimbursement_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+                    TravelReimbursement_Golbal.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
+                }
+                if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERCOMPANYNAME))
+                {
+                    TravelReimbursement_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                    TravelReimbursement_Golbal.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差报销费用不可为零，请重新填写单据", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtPAYMENTINFO.Text))
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "支付信息不能为空，请重新填写", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
-            }
-            else
-            {
-                fbCtr.Order.PAYMENTINFO = txtPAYMENTINFO.Text;//支付信息
-                StrPayInfo = txtPAYMENTINFO.Text;
-            }
-            TravelReimbursement_Golbal.TEL = this.txtTELL.Text;//联系电话;
-            TravelReimbursement_Golbal.CONTENT = this.txtReport.Text;//报告内容    
-            TravelReimbursement_Golbal.THETOTALCOST = Convert.ToDecimal(txtSubTotal.Text);//本次差旅总费用
-
-            if (fbCtr.Order.TOTALMONEY != null)
-            {   //总费用;
-                TravelReimbursement_Golbal.REIMBURSEMENTOFCOSTS = fbCtr.Order.TOTALMONEY;
-            }
-            TravelReimbursement_Golbal.REIMBURSEMENTTIME = Convert.ToDateTime(ReimbursementTime.Text);
-            TravelReimbursement_Golbal.REMARKS = this.txtRemark.Text;
-            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.POSTLEVEL))
-            {
-                TravelReimbursement_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
-            }
-            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERNAME))
-            {
-                TravelReimbursement_Golbal.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
-                TravelReimbursement_Golbal.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-            }
-            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERPOSTNAME))
-            {
-                TravelReimbursement_Golbal.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-                TravelReimbursement_Golbal.OWNERPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
-            }
-            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERDEPARTMENTNAME))
-            {
-                TravelReimbursement_Golbal.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
-                TravelReimbursement_Golbal.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
-            }
-            if (string.IsNullOrEmpty(TravelReimbursement_Golbal.OWNERCOMPANYNAME))
-            {
-                TravelReimbursement_Golbal.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-                TravelReimbursement_Golbal.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
+                Utility.SetLogAndShowLog(ex.ToString());
             }
 
         }

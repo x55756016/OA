@@ -97,13 +97,13 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                 double totall = 0;
                 int i = 0;
-                if (DaGrEdit.ItemsSource == null)
+                if (TravelDetailList_Golbal == null)
                 {
                     return;
                 }
                 //住宿费，交通费，其他费用
                 bool IsPassEd = false;//住宿费是否超标
-                foreach (object obj in DaGrEdit.ItemsSource)
+                foreach (object obj in TravelDetailList_Golbal)
                 {
                     i++;
                     if (DaGrEdit.Columns[8].GetCellContent(obj) == null)
@@ -131,7 +131,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     double toodays = 0;
                     //获取出差补贴
                     T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-                    string cityValue = citysEndList_Golbal[i - 1].Replace(",", "");//目标城市值
+                    string cityValue = TravelDetailList_Golbal[i - 1].DESTCITY.Replace(",", "");//目标城市值
                     //根据城市查出差标准补贴（已根据岗位级别过滤）
                     entareaallowance = this.GetAllowanceByCityValue(cityValue);
 
@@ -222,6 +222,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                     this.txtAccommodation.Visibility = Visibility.Collapsed;
                 }
                 txtSubTotal.Text = totall.ToString();//差旅费总结
+                if (fbCtr.totalMoney > 0)
+                {
+                    totall = totall +Convert.ToDouble(fbCtr.totalMoney);
+                }
                 txtChargeApplyTotal.Text = totall.ToString(); //费用报销总计包括其他费用，如业务招待费               
             }
             catch (Exception ex)
@@ -283,6 +287,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
                 myDaysTime.Text = TotalDays.ToString() + "天";
             }
+
+            //计算并给实体赋值
+            SetTraveValueAndFBChargeValue();
         }
         #endregion
 
@@ -334,6 +341,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
                 myDaysTime.Text = TotalDays.ToString() + "天";
             }
+
+            //计算并给实体赋值
+            SetTraveValueAndFBChargeValue();
         }
         #endregion
 
@@ -444,7 +454,15 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             SearchCity txt = (SearchCity)sender;
             AreaSortCity SelectCity = new AreaSortCity();
-
+            int SelectIndex = 0;
+            if (DaGrEdit.SelectedItem != null)
+            {
+                SelectIndex = DaGrEdit.SelectedIndex;//选择的行数，选择的行数也就是出发城市的位置,从0开始算起  
+            }
+            else
+            {
+                return;
+            }
             SelectCity.SelectedClicked += (obj, ea) =>
             {
                 txt.TxtSelectedCity.Text = SelectCity.Result.Keys.FirstOrDefault();
@@ -453,38 +471,27 @@ namespace SMT.SaaS.OA.UI.UserControls
                     if (DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem) != null)
                     {
                         //T_OA_BUSINESSTRIPDETAIL list = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
-                        T_OA_REIMBURSEMENTDETAIL list = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
+                        T_OA_REIMBURSEMENTDETAIL Detail = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
                         SearchCity myCitys = DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;//出发城市
                         SearchCity mystartCity = DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;//目标城市
-                        int k = citysStartList_Golbal.IndexOf(list.DEPCITY);
 
-                        if (k > -1)
+                        if (TravelDetailList_Golbal.Count > 1)
                         {
-                            citysStartList_Golbal[k] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();
-                            list.DEPCITY = citysStartList_Golbal[k];
-                        }
-                        else
-                        {
-                            citysStartList_Golbal.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
-                        }
-                        if (citysStartList_Golbal.Count > 1)
-                        {
-                            if (myCitys.TxtSelectedCity.Text.ToString().Trim() == mystartCity.TxtSelectedCity.Text.ToString().Trim())
+                            if (SelectCity.Result.Keys.FirstOrDefault().Trim() == TravelDetailList_Golbal[SelectIndex].DESTCITY.Trim())
                             {
                                 myCitys.TxtSelectedCity.Text = string.Empty;
                                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出发城市和目标城市不能相同"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                                 return;
                             }
                         }
+                        //赋值
+                        TravelDetailList_Golbal[SelectIndex].DEPCITY = SelectCity.Result.Values.FirstOrDefault().Trim();
+
                     }
                 }
-                if (citysStartList_Golbal.Last().Split(',').Count() > 2)
-                {
-                    txt.TxtSelectedCity.Text = string.Empty;
-                    citysStartList_Golbal.RemoveAt(citysStartList_Golbal.Count - 1);
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANONLYCHOOSEONE", "DEPARTURECITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return;
-                }
+                StandardsMethod(SelectIndex);//显示选中的城市的出差标准
+                //计算并给实体赋值
+                SetTraveValueAndFBChargeValue();
             };
             var windows = SMT.SAAS.Controls.Toolkit.Windows.ProgramManager.ShowProgram(Utility.GetResourceStr("CITY"), "", "123", SelectCity, false, false, null);
             if (SelectCity is AreaSortCity)
@@ -503,82 +510,61 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             SearchCity txt = (SearchCity)sender;
             AreaSortCity SelectCity = new AreaSortCity();
-
+            int SelectIndex = 0;
+            if (DaGrEdit.SelectedItem != null)
+            {
+                SelectIndex = DaGrEdit.SelectedIndex;//选择的行数，选择的行数也就是目的城市的位置,从0开始算起  
+            }
+            else
+            {
+                return;
+            }
             SelectCity.SelectedClicked += (obj, ea) =>
             {
                 txt.TxtSelectedCity.Text = SelectCity.Result.Keys.FirstOrDefault();
-                if (DaGrEdit.SelectedItem != null)
-                {
-                    int SelectIndex = DaGrEdit.SelectedIndex;//选择的行数，选择的行数也就是目的城市的位置
+                
                     if (DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem) != null)
                     {
-                        T_OA_REIMBURSEMENTDETAIL list = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
+                        T_OA_REIMBURSEMENTDETAIL detailEntity = TravelDetailList_Golbal[SelectIndex];
 
                         //T_OA_BUSINESSTRIPDETAIL list = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
                         SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;
                         SearchCity mystartCity = DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;
-                        if (citysStartList_Golbal.Count() > 0)
-                        {
-                            mystartCity.Tag = citysStartList_Golbal[SelectIndex];//将旧的传递起来
-                        }
-                        if (string.IsNullOrEmpty(mystartCity.TxtSelectedCity.Text))
+                        //如果出发城市为空
+                        if (string.IsNullOrEmpty(detailEntity.DEPCITY))
                         {
                             txt.TxtSelectedCity.Text = string.Empty;
                             ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("请先选择出发城市"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                             return;
                         }
-                        if (citysEndList_Golbal.Count > 1)
+                        if (TravelDetailList_Golbal.Count > 1)//如果是非当天往返，判断出发城市目标城市是否相同
                         {
-                            if (mystartCity.TxtSelectedCity.Text.ToString().Trim() == myCitys.TxtSelectedCity.Text.ToString().Trim())
+                            if (detailEntity.DEPCITY.Trim() == SelectCity.Result.Keys.FirstOrDefault().ToString())
                             {
                                 myCitys.TxtSelectedCity.Text = string.Empty;
                                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出发城市和目标城市不能相同"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                                 return;
                             }
                         }
-                        if (citysEndList_Golbal.Count >= (SelectIndex + 1))
+                        //如果选择的是中间的记录，赋值并修改下一行记录的出发城市
+                        if (SelectIndex > 0 && SelectIndex < TravelDetailList_Golbal.Count-1)//selectIndex从1开始
                         {
-                            citysEndList_Golbal[SelectIndex] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();
+                            //修改本行到达城市
+                            TravelDetailList_Golbal[SelectIndex].DESTCITY = SelectCity.Result.Values.FirstOrDefault().ToString();
+                            //修改下一行的出发城市
+                            TravelDetailList_Golbal[SelectIndex+1].DEPCITY = SelectCity.Result.Values.FirstOrDefault().ToString();
+                            SearchCity mystarteachCity = DaGrEdit.Columns[1].GetCellContent(TravelDetailList_Golbal[SelectIndex + 1]).FindName("txtDEPARTURECITY") as SearchCity;
+                            mystarteachCity.TxtSelectedCity.Text = GetCityName(TravelDetailList_Golbal[SelectIndex + 1].DEPCITY);
                         }
-                        else
+                        if (TravelDetailList_Golbal.Count == (SelectIndex + 1))//选择的是最后一行的结束城市
                         {
-                            citysEndList_Golbal.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
-                        }
-                        if (citysStartList_Golbal.Count == (SelectIndex + 1))
-                        {
-                            citysStartList_Golbal.Add(SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString());
-                            SetNextDepartureCity(SelectIndex);
-                        }
-                        else
-                        {
-                            citysStartList_Golbal[SelectIndex] = mystartCity.Tag.ToString();
-                            citysStartList_Golbal[SelectIndex + 1] = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();//出发城市中下一条记录
-                            SetNextDepartureCity(SelectIndex);
-                        }
-                        //将选择的城市值赋给对应的集合
-                        if (TravelDetailList_Golbal.Count() > 0)
-                        {
-                            var ents = from ent in TravelDetailList_Golbal
-                                       where ent.REIMBURSEMENTDETAILID == list.REIMBURSEMENTDETAILID
-                                       select ent;
-                            TravelDetailList_Golbal.ForEach(item =>
-                            {
-                                if (item.REIMBURSEMENTDETAILID == list.REIMBURSEMENTDETAILID)
-                                {
-                                    item.DESTCITY = SelectCity.Result[SelectCity.Result.Keys.FirstOrDefault()].ToString();
-                                }
-                            });
-
+                            TravelDetailList_Golbal[SelectIndex].DESTCITY=SelectCity.Result.Values.FirstOrDefault().ToString();
+                           
                         }
                     }
-                }
-                if (citysEndList_Golbal.Last().Split(',').Count() > 2)
-                {
-                    txt.TxtSelectedCity.Text = string.Empty;
-                    citysEndList_Golbal.RemoveAt(citysEndList_Golbal.Count - 1);
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANONLYCHOOSEONE", "ARRIVALCITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return;
-                }
+                StandardsMethod(SelectIndex);//显示选中的城市的出差标准
+                //计算并给实体赋值
+                SetTraveValueAndFBChargeValue();
             };
             var windows = SMT.SAAS.Controls.Toolkit.Windows.ProgramManager.ShowProgram(Utility.GetResourceStr("CITY"), "", "123", SelectCity, false, false, null);
             if (SelectCity is AreaSortCity)
@@ -589,26 +575,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 };
             }
             SelectCity.GetSelectedCities.Visibility = Visibility.Collapsed;//隐藏已选中城市的Border
-        }
-        /// <summary>
-        /// 设置选中的下一个出发城市的值
-        /// </summary>
-        /// <param name="SelectIndex"></param>
-        private void SetNextDepartureCity(int SelectIndex)
-        {
-            int EachCount = 0;
-            foreach (Object obje in DaGrEdit.ItemsSource)//将下一个出发城市的值修改
-            {
-                EachCount++;
-                if (DaGrEdit.Columns[1].GetCellContent(obje) != null)
-                {
-                    SearchCity mystarteachCity = DaGrEdit.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
-                    if ((SelectIndex + 2) == EachCount)
-                    {
-                        mystarteachCity.TxtSelectedCity.Text = GetCityName(citysStartList_Golbal[SelectIndex + 1]);
-                    }
-                }
-            }
         }
         #endregion
         
@@ -839,37 +805,38 @@ namespace SMT.SaaS.OA.UI.UserControls
 
             BtnNewButton = true;
             int i = 0;
-            T_OA_REIMBURSEMENTDETAIL buip = new T_OA_REIMBURSEMENTDETAIL();
-            buip.REIMBURSEMENTDETAILID = Guid.NewGuid().ToString();
+            T_OA_REIMBURSEMENTDETAIL NewDetail = new T_OA_REIMBURSEMENTDETAIL();
+            NewDetail.REIMBURSEMENTDETAILID = Guid.NewGuid().ToString();
 
             if (formType != FormTypes.New)
             {
                 if (TravelDetailList_Golbal.Count() > 0)
                 {
-                    //foreach (T_OA_REIMBURSEMENTDETAIL tailList in TrList)
-                    //{
-                    //    buip.STARTDATE = tailList.ENDDATE;
-                    //    if (cityscode.Count() == 0)
-                    //    {
-                    //        return;
-                    //    }
-                    //    buip.DEPCITY = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityscode[i].Replace(",", ""));
-
-                    //    i++;
-                    //}
+                    if (TravelDetailList_Golbal.LastOrDefault().DESTCITY == TravelDetailList_Golbal.FirstOrDefault().DEPCITY)
+                    {
+                        MessageBox.Show("请修改最后一条记录的到达城市后再新增记录！");
+                        return;
+                    }
                     //将原有记录的最后一条记录的目的城市作为出发城市。
-                    //buip.DEPCITY = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(TrList.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY);
+                    //NewDetail.DEPCITY = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(TrList.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY);
                     if (TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>() != null)
                     {
-                        buip.DEPCITY = TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY;
-                        buip.STARTDATE = TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().ENDDATE;
-
+                        //默认出发城市为上一条记录的到达城市
+                        NewDetail.DEPCITY = TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY;
+                        //默认出发日期为上一条记录的结束时间+1天
+                        NewDetail.STARTDATE = TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().ENDDATE.Value.AddDays(1);
+                        //默认结束城市为出差出发城市
+                        NewDetail.DESTCITY = TravelDetailList_Golbal.FirstOrDefault<T_OA_REIMBURSEMENTDETAIL>().DEPCITY;
+                        //默认结束日期为出发时间+1
+                        NewDetail.ENDDATE = NewDetail.STARTDATE.Value.AddDays(1);
                     }
                 }
-                buip.ENDDATE = DateTime.Now;
-                TravelDetailList_Golbal.Add(buip);
+                NewDetail.TYPEOFTRAVELTOOLS = "3";//默认乘坐交通工具为火车
+                NewDetail.TAKETHETOOLLEVEL = "1";//默认交通工具级别为硬卧
+                //NewDetail.ENDDATE = DateTime.Now;
+                TravelDetailList_Golbal.Add(NewDetail);
                 DaGrEdit.ItemsSource = TravelDetailList_Golbal;
-
+                //禁用所有开始城市选择控件？
                 foreach (Object obje in DaGrEdit.ItemsSource)
                 {
                     if (DaGrEdit.Columns[1].GetCellContent(obje) != null)
@@ -884,6 +851,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                 }
             }
+
+            int lastIndex = TravelDetailList_Golbal.Count() - 1;
+            StandardsMethod(lastIndex);//显示选中的城市的出差标准
+            //计算并给实体赋值
+            SetTraveValueAndFBChargeValue();
         }
 
         #region 检查是否选择了目标城市否则不给添加

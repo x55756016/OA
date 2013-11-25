@@ -48,7 +48,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <summary>
         /// 操作子表数据
         /// </summary>
-        private void NewDetail_Golbal()
+        private void SetDetailValue_Golbal()
         {
             ObservableCollection<T_OA_REIMBURSEMENTDETAIL> ListDetail = new ObservableCollection<T_OA_REIMBURSEMENTDETAIL>();
             string StrStartDt = "";   //开始时间
@@ -58,10 +58,12 @@ namespace SMT.SaaS.OA.UI.UserControls
             int i = 0;
             if (DaGrEdit.ItemsSource != null)
             {
-                foreach (Object obje in DaGrEdit.ItemsSource)
+                //foreach (Object obje in DaGrEdit.ItemsSource) 
+                foreach (Object obje in TravelDetailList_Golbal)
                 {
                     TrDetail = new T_OA_REIMBURSEMENTDETAIL();
                     TrDetail.REIMBURSEMENTDETAILID = (obje as T_OA_REIMBURSEMENTDETAIL).REIMBURSEMENTDETAILID;
+                    
                     TrDetail.T_OA_TRAVELREIMBURSEMENT = TravelReimbursement_Golbal;
 
                     DateTimePicker StartDate = ((DateTimePicker)((StackPanel)DaGrEdit.Columns[0].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;
@@ -110,13 +112,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
                         TrDetail.THENUMBEROFNIGHTS = Newdatys.Text;
                     }
-                    if (citysStartList_Golbal.Count() > 0)
+                    if (TravelDetailList_Golbal.Count() > 0)
                     {
-                        TrDetail.DEPCITY = citysStartList_Golbal[i].Replace(",", "");//出发城市
+                        TrDetail.DEPCITY = TravelDetailList_Golbal[i].DEPCITY.Replace(",", "");//出发城市
                     }
-                    if (citysEndList_Golbal.Count() > 0)
+                    if (TravelDetailList_Golbal.Count() > 0)
                     {
-                        TrDetail.DESTCITY = citysEndList_Golbal[i].Replace(",", "");//目标城市
+                        TrDetail.DESTCITY = TravelDetailList_Golbal[i].DESTCITY.Replace(",", "");//目标城市
                     }
                     if (ToolType != null)//乘坐交通工具类型
                     {
@@ -165,10 +167,24 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
                         TrDetail.COMPANYCAR = (bool)IsCheckCar.IsChecked ? "1" : "0";
                     }
+
                     ListDetail.Add(TrDetail);
+                    
                     i++;
                 }
-                TravelDetailList_Golbal = ListDetail;
+                //如果已经存在此条记录，先删除再添加
+                foreach (var item in ListDetail)
+                {
+                    var q = from ent in TravelDetailList_Golbal
+                            where ent.REIMBURSEMENTDETAILID == item.REIMBURSEMENTDETAILID
+                            select ent;
+                    if (q.Count() > 0)
+                    {
+                        TravelDetailList_Golbal.Remove(q.FirstOrDefault());
+
+                    }
+                    TravelDetailList_Golbal.Add(item);
+                }
             }
         }
     }
