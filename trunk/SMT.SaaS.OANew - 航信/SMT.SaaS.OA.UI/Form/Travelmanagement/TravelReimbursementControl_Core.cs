@@ -96,16 +96,16 @@ namespace SMT.SaaS.OA.UI.UserControls
                 TravelTimeCalculation();
 
                 double totall = 0;
-                int i = 0;
+                //int i = 0;
                 if (TravelDetailList_Golbal == null)
                 {
                     return;
                 }
                 //住宿费，交通费，其他费用
                 bool IsPassEd = false;//住宿费是否超标
-                foreach (object obj in TravelDetailList_Golbal)
+                foreach (var obj in TravelDetailList_Golbal)
                 {
-                    i++;
+                   
                     if (DaGrEdit.Columns[8].GetCellContent(obj) == null)
                     {
                         return;
@@ -128,82 +128,48 @@ namespace SMT.SaaS.OA.UI.UserControls
                     T_OA_REIMBURSEMENTDETAIL obje = obj as T_OA_REIMBURSEMENTDETAIL;
                     ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
                     //出差天数
-                    double toodays = 0;
+                    double totaldays = 0;
                     //获取出差补贴
                     T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-                    string cityValue = TravelDetailList_Golbal[i - 1].DESTCITY.Replace(",", "");//目标城市值
+                    string cityValue = obj.DESTCITY;//目标城市值
                     //根据城市查出差标准补贴（已根据岗位级别过滤）
                     entareaallowance = this.GetAllowanceByCityValue(cityValue);
-
-                    //循环出差报告的天数
-                    int k = 0;
-                    if (formType == FormTypes.New)
+                    if (!string.IsNullOrEmpty(obj.BUSINESSDAYS) && obj.BUSINESSDAYS != "0")
                     {
-                        foreach (T_OA_BUSINESSTRIPDETAIL objDetail in buipList)
+                        //住宿天数
+                        totaldays = System.Convert.ToDouble(obj.BUSINESSDAYS);                         
+                        if (entareaallowance != null)
                         {
-                            k++;
-                            if (k == i)
+                            if (textAccommodation.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * totaldays)//判断住宿费超标
                             {
-                                if (!string.IsNullOrEmpty(objDetail.BUSINESSDAYS))
+                                //文本框标红
+                                textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
+                                textAccommodation.Foreground = new SolidColorBrush(Colors.Red);
+                                this.txtAccommodation.Visibility = Visibility.Visible;
+                                IsPassEd = true;
+                                //this.txtAccommodation.Text = "住宿费超标";
+                            }
+
+                            if (textAccommodation.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * totaldays)
+                            {
+                                if (txtASubsidiesForeBrush != null)
                                 {
-                                    double totalHours = System.Convert.ToDouble(objDetail.BUSINESSDAYS);
-                                    //出差天数
-                                    toodays = totalHours;
-                                    break;
+                                    textAccommodation.Foreground = txtASubsidiesForeBrush;
+                                }
+                                if (txtASubsidiesBorderBrush != null)
+                                {
+                                    textAccommodation.BorderBrush = txtASubsidiesBorderBrush;
+                                }
+                                string StrMessage = "";
+                                StrMessage = this.txtAccommodation.Text;
+                                if (string.IsNullOrEmpty(StrMessage))
+                                {
+                                    this.txtAccommodation.Visibility = Visibility.Collapsed;
                                 }
                             }
+
                         }
-                    }
-                    else
-                    {
-                        foreach (var objDetail in objs)
-                        {
-                            k++;
-                            if (k == i)
-                            {
-                                if (myDaysTime != null && !string.IsNullOrEmpty(myDaysTime.Text) && myDaysTime.Text != "0")
-                                {
-                                    double totalHours = System.Convert.ToDouble(myDaysTime.Text);
-                                    //住宿天数
-                                    toodays = totalHours;
 
-                                    if (entareaallowance != null)
-                                    {
-
-                                        if (textAccommodation.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * toodays)//判断住宿费超标
-                                        {
-                                            //文本框标红
-                                            textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
-                                            textAccommodation.Foreground = new SolidColorBrush(Colors.Red);
-                                            this.txtAccommodation.Visibility = Visibility.Visible;
-                                            IsPassEd = true;
-                                            //this.txtAccommodation.Text = "住宿费超标";
-                                        }
-
-                                        if (textAccommodation.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * toodays)
-                                        {
-                                            if (txtASubsidiesForeBrush != null)
-                                            {
-                                                textAccommodation.Foreground = txtASubsidiesForeBrush;
-                                            }
-                                            if (txtASubsidiesBorderBrush != null)
-                                            {
-                                                textAccommodation.BorderBrush = txtASubsidiesBorderBrush;
-                                            }
-                                            string StrMessage = "";
-                                            StrMessage = this.txtAccommodation.Text;
-                                            if (string.IsNullOrEmpty(StrMessage))
-                                            {
-                                                this.txtAccommodation.Visibility = Visibility.Collapsed;
-                                            }
-                                        }
-
-                                    }
-
-                                }
-                                break;
-                            }
-                        }
                     }
 
                     double ta = textTransportcosts.Text.ToDouble() + textAccommodation.Text.ToDouble() + textOthercosts.Text.ToDouble();
@@ -565,6 +531,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 StandardsMethod(SelectIndex);//显示选中的城市的出差标准
                 //计算并给实体赋值
                 SetTraveValueAndFBChargeValue();
+                DaGrEdit.ItemsSource = TravelDetailList_Golbal;
             };
             var windows = SMT.SAAS.Controls.Toolkit.Windows.ProgramManager.ShowProgram(Utility.GetResourceStr("CITY"), "", "123", SelectCity, false, false, null);
             if (SelectCity is AreaSortCity)
@@ -834,8 +801,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 NewDetail.TYPEOFTRAVELTOOLS = "3";//默认乘坐交通工具为火车
                 NewDetail.TAKETHETOOLLEVEL = "1";//默认交通工具级别为硬卧
                 //NewDetail.ENDDATE = DateTime.Now;
-                TravelDetailList_Golbal.Add(NewDetail);
-                DaGrEdit.ItemsSource = TravelDetailList_Golbal;
+                TravelDetailList_Golbal.Add(NewDetail);                
                 //禁用所有开始城市选择控件？
                 foreach (Object obje in DaGrEdit.ItemsSource)
                 {

@@ -415,9 +415,9 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 dataGrid = this.DaGrEdit;
             }
-            if (dataGrid.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (dataGrid.Columns[8].GetCellContent(TravelDetailList_Golbal[i]) != null)
             {
-                txtTranSportcosts = dataGrid.Columns[8].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
+                txtTranSportcosts = dataGrid.Columns[8].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
             }
             return txtTranSportcosts;
         }
@@ -438,9 +438,9 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 dataGrid = this.DaGrEdit;
             }
-            if (dataGrid.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (dataGrid.Columns[9].GetCellContent(TravelDetailList_Golbal[i]) != null)
             {
-                txtASubsidies = dataGrid.Columns[9].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtACCOMMODATION") as TextBox;//住宿费
+                txtASubsidies = dataGrid.Columns[9].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtACCOMMODATION") as TextBox;//住宿费
             }
             return txtASubsidies;
         }
@@ -463,9 +463,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     dataGrid = this.DaGrEdit;
                 }
-                if (dataGrid.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+                if (dataGrid.Columns[10].GetCellContent(TravelDetailList_Golbal[i]) != null)
                 {
-                    txtTFSubsidies = dataGrid.Columns[10].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                    txtTFSubsidies = dataGrid.Columns[10].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
                 }
             }
             catch (Exception ex)
@@ -493,9 +493,9 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 dataGrid = this.DaGrEdit;
             }
-            if (dataGrid.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (dataGrid.Columns[11].GetCellContent(TravelDetailList_Golbal[i]) != null)
             {
-                txtMealSubsidies = dataGrid.Columns[11].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
+                txtMealSubsidies = dataGrid.Columns[11].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
             }
             return txtMealSubsidies;
         }
@@ -516,9 +516,9 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 dataGrid = this.DaGrEdit;
             }
-            if (dataGrid.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]) != null)
+            if (dataGrid.Columns[12].GetCellContent(TravelDetailList_Golbal[i]) != null)
             {
-                txtOtherCosts = dataGrid.Columns[12].GetCellContent(TravelDetailList_Golbal[i - 1]).FindName("txtOtherCosts") as TextBox;//其他费用
+                txtOtherCosts = dataGrid.Columns[12].GetCellContent(TravelDetailList_Golbal[i]).FindName("txtOtherCosts") as TextBox;//其他费用
             }
             return txtOtherCosts;
         }
@@ -852,26 +852,23 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (dataGrid.ItemsSource != null)
                 {
                     T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = dataGrid.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                    
                     double total = 0;
                     int i = 0;
-                    foreach (var obje in objs)
+                    foreach (var detail in TravelDetailList_Golbal)
                     {
-                        i++;
+                       
                         double toodays = 0;
-                        List<string> list = new List<string>
-                    {
-                            obje.BUSINESSDAYS
-                    };
+                        List<string> list = new List<string>{detail.BUSINESSDAYS};
 
-                        if (obje.BUSINESSDAYS != null && !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+                        if (detail.BUSINESSDAYS != null && !string.IsNullOrEmpty(detail.BUSINESSDAYS))
                         {
                             double totalHours = System.Convert.ToDouble(list[0]);
                             toodays = totalHours;
                         }
                         double totolDay = toodays;//计算本次出差的总天数
 
-                        string cityValue = TravelDetailList_Golbal[i - 1].DESTCITY.Replace(",", "");//目标城市值
+                        string cityValue = detail.DESTCITY.Replace(",", "");//目标城市值
                         entareaallowance = this.GetAllowanceByCityValue(cityValue);
                         if (travelsolutions != null && employeepost != null)
                         {
@@ -879,8 +876,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                             if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
                             {
                                 MessageBox.Show("您的岗位级别小于8，无交通补贴及住宿补贴");
-                                obje.TRANSPORTATIONSUBSIDIES = 0;
-                                obje.MEALSUBSIDIES = 0;
+                                detail.TRANSPORTATIONSUBSIDIES = 0;
+                                detail.MEALSUBSIDIES = 0;
                             }
                             else
                             {
@@ -889,51 +886,51 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 {
                                     if (entareaallowance != null)
                                     {
-                                        if (obje.BUSINESSDAYS != null)
+                                        if (detail.BUSINESSDAYS != null)
                                         {
-                                            if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
                                             {
-                                                obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                detail.TRANSPORTATIONSUBSIDIES = 0;
                                             }
-                                            else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+                                            else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
                                             {
-                                                obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                detail.TRANSPORTATIONSUBSIDIES = 0;
                                             }
                                             else
                                             {
                                                 if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
-                                                    obje.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES.ToDouble() * toodays);
+                                                    detail.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES.ToDouble() * toodays);
                                                 }
                                                 else
                                                 {
-                                                    obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                    detail.TRANSPORTATIONSUBSIDIES = 0;
                                                 }
                                             }
                                         }
                                         else//如果天数为null的禁用住宿费控件
                                         {
-                                            obje.TRANSPORTATIONSUBSIDIES = 0;
+                                            detail.TRANSPORTATIONSUBSIDIES = 0;
                                         }
-                                        if (obje.BUSINESSDAYS != null)
+                                        if (detail.BUSINESSDAYS != null)
                                         {
-                                            if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
                                             {
-                                                obje.MEALSUBSIDIES = 0;
+                                                detail.MEALSUBSIDIES = 0;
                                             }
-                                            else if (obje.GOOUTTOMEET == "1")//如果是开会
+                                            else if (detail.GOOUTTOMEET == "1")//如果是开会
                                             {
-                                                obje.MEALSUBSIDIES = 0;
+                                                detail.MEALSUBSIDIES = 0;
                                             }
                                             else
                                             {
                                                 if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
-                                                    obje.MEALSUBSIDIES = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES.ToDouble() * toodays);
+                                                    detail.MEALSUBSIDIES = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES.ToDouble() * toodays);
                                                 }
                                                 else
                                                 {
-                                                    obje.MEALSUBSIDIES = 0;
+                                                    detail.MEALSUBSIDIES = 0;
                                                 }
                                             }
                                         }
@@ -959,16 +956,16 @@ namespace SMT.SaaS.OA.UI.UserControls
                                         double mealSubsidies = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
                                         if (entareaallowance != null)
                                         {
-                                            if (obje.BUSINESSDAYS != null)
+                                            if (detail.BUSINESSDAYS != null)
                                             {
-                                                if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                                if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
                                                 {
-                                                    obje.TRANSPORTATIONSUBSIDIES = 0;
-                                                    obje.TRANSPORTCOSTS = 0;
+                                                    detail.TRANSPORTATIONSUBSIDIES = 0;
+                                                    detail.TRANSPORTCOSTS = 0;
                                                 }
-                                                else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+                                                else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
                                                 {
-                                                    obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                    detail.TRANSPORTATIONSUBSIDIES = 0;
                                                 }
                                                 else
                                                 {
@@ -980,26 +977,26 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                         double middlemoney = (travelsolutions.MAXIMUMRANGEDAYS.ToDouble() - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
                                                         //除以2是因为驻外标准不分餐费和交通补贴，2者合2为一，否则会多加 （餐补及交通补贴都按驻外标准计算）
                                                         double lastmoney = (totolDay - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
-                                                        obje.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney + lastmoney);
+                                                        detail.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney + lastmoney);
                                                     }
                                                     else
                                                     {
-                                                        obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                        detail.TRANSPORTATIONSUBSIDIES = 0;
                                                     }
                                                 }
                                             }
                                             else//如果天数为null的禁用住宿费控件
                                             {
                                             }
-                                            if (obje.BUSINESSDAYS != null)
+                                            if (detail.BUSINESSDAYS != null)
                                             {
-                                                if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                                if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
                                                 {
-                                                    obje.MEALSUBSIDIES = 0;
+                                                    detail.MEALSUBSIDIES = 0;
                                                 }
-                                                else if (obje.GOOUTTOMEET == "1")//如果是开会
+                                                else if (detail.GOOUTTOMEET == "1")//如果是开会
                                                 {
-                                                    obje.MEALSUBSIDIES = 0;
+                                                    detail.MEALSUBSIDIES = 0;
                                                 }
                                                 else
                                                 {
@@ -1013,11 +1010,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                         //double lastmoney = (tresult - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble();
                                                         //驻外标准：交通费和餐费补贴为一起的，所以除以2
                                                         double lastmoney = (totolDay - travelsolutions.MAXIMUMRANGEDAYS.ToDouble()) * entareaallowance.OVERSEASSUBSIDIES.ToDouble() / 2;
-                                                        obje.MEALSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney + lastmoney);
+                                                        detail.MEALSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney + lastmoney);
                                                     }
                                                     else
                                                     {
-                                                        obje.MEALSUBSIDIES = 0;
+                                                        detail.MEALSUBSIDIES = 0;
                                                     }
                                                 }
                                             }
@@ -1040,16 +1037,16 @@ namespace SMT.SaaS.OA.UI.UserControls
                                         double DbMeal = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble();
                                         double tfSubsidies = Convert.ToDecimal(entareaallowance.TRANSPORTATIONSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
                                         double mealSubsidies = Convert.ToDecimal(entareaallowance.MEALSUBSIDIES).ToDouble() * (Convert.ToDecimal(travelsolutions.INTERVALRATIO).ToDouble() / 100);
-                                        if (obje.BUSINESSDAYS != null)
+                                        if (detail.BUSINESSDAYS != null)
                                         {
-                                            if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
                                             {
-                                                obje.TRANSPORTATIONSUBSIDIES = 0;
-                                                obje.TRANSPORTCOSTS = 0;
+                                                detail.TRANSPORTATIONSUBSIDIES = 0;
+                                                detail.TRANSPORTCOSTS = 0;
                                             }
-                                            else if (obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
+                                            else if (detail.GOOUTTOMEET == "1" || detail.COMPANYCAR == "1")//如果是开会或者是公司派车，交通费没有
                                             {
-                                                obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                detail.TRANSPORTATIONSUBSIDIES = 0;
                                             }
                                             else
                                             {
@@ -1057,11 +1054,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                 {
                                                     double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbTranceport;
                                                     double middlemoney = (totolDay - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * tfSubsidies;
-                                                    obje.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney);
+                                                    detail.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney);
                                                 }
                                                 else
                                                 {
-                                                    obje.TRANSPORTATIONSUBSIDIES = 0;
+                                                    detail.TRANSPORTATIONSUBSIDIES = 0;
                                                 }
                                             }
                                         }
@@ -1069,15 +1066,15 @@ namespace SMT.SaaS.OA.UI.UserControls
                                         {
                                             //txtASubsidies.IsReadOnly = true;
                                         }
-                                        if (obje.BUSINESSDAYS != null)
+                                        if (detail.BUSINESSDAYS != null)
                                         {
-                                            if (obje.PRIVATEAFFAIR == "1")//如果是私事不予报销
+                                            if (detail.PRIVATEAFFAIR == "1")//如果是私事不予报销
                                             {
-                                                obje.MEALSUBSIDIES = 0;
+                                                detail.MEALSUBSIDIES = 0;
                                             }
-                                            else if (obje.GOOUTTOMEET == "1")//如果是开会
+                                            else if (detail.GOOUTTOMEET == "1")//如果是开会
                                             {
-                                                obje.MEALSUBSIDIES = 0;
+                                                detail.MEALSUBSIDIES = 0;
                                             }
                                             else
                                             {
@@ -1087,11 +1084,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                     double minmoney = travelsolutions.MINIMUMINTERVALDAYS.ToDouble() * DbMeal;
                                                     //中间区间段金额
                                                     double middlemoney = (totolDay - travelsolutions.MINIMUMINTERVALDAYS.ToDouble()) * mealSubsidies;
-                                                    obje.MEALSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney);
+                                                    detail.MEALSUBSIDIES = Convert.ToDecimal(minmoney + middlemoney);
                                                 }
                                                 else
                                                 {
-                                                    obje.MEALSUBSIDIES = 0;
+                                                    detail.MEALSUBSIDIES = 0;
                                                 }
                                             }
                                         }
@@ -1108,22 +1105,54 @@ namespace SMT.SaaS.OA.UI.UserControls
 
 
                         }
-                        //交通补贴，餐费补贴
-                        if (obje.TRANSPORTATIONSUBSIDIES != null && obje.MEALSUBSIDIES != null)
+                        
+                        //交通补贴，
+                        if (detail.TRANSPORTATIONSUBSIDIES!=null)
                         {
-                            total += Convert.ToDouble(obje.TRANSPORTATIONSUBSIDIES.Value + obje.MEALSUBSIDIES.Value);                           
+                            try
+                            {
+                                //交通补贴,在grid没有绑定之前获取不到。
+                                TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(detail).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;
+                                if (txtTFSubsidies != null)
+                                {
+                                    txtTFSubsidies.Text = detail.TRANSPORTATIONSUBSIDIES.ToString();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Utility.SetLogAndShowLog(ex.ToString());
+                            }
+                            total += Convert.ToDouble(detail.TRANSPORTATIONSUBSIDIES.Value);                           
                         }
-                        if (obje.TRANSPORTCOSTS != null)//交通费
+                        //餐费补贴
+                        if(detail.MEALSUBSIDIES!=null)
                         {
-                            total += Convert.ToDouble(obje.TRANSPORTCOSTS.Value);          
+                            try
+                            {
+                                //餐费补贴，在grid没有绑定之前获取不到。
+                                TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(detail).FindName("txtMEALSUBSIDIES") as TextBox;
+                                if (txtMealSubsidies != null)
+                                {
+                                    txtMealSubsidies.Text = detail.MEALSUBSIDIES.ToString();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Utility.SetLogAndShowLog(ex.ToString());
+                            }
+                            total += Convert.ToDouble(detail.MEALSUBSIDIES.Value); 
                         }
-                        if (obje.ACCOMMODATION != null)//住宿费
+                        if (detail.TRANSPORTCOSTS != null)//交通费
                         {
-                            total += Convert.ToDouble(obje.ACCOMMODATION);
+                            total += Convert.ToDouble(detail.TRANSPORTCOSTS.Value);          
                         }
-                        if (obje.OTHERCOSTS != null)//其他费用
+                        if (detail.ACCOMMODATION != null)//住宿费
                         {
-                            total += Convert.ToDouble(obje.OTHERCOSTS);
+                            total += Convert.ToDouble(detail.ACCOMMODATION);
+                        }
+                        if (detail.OTHERCOSTS != null)//其他费用
+                        {
+                            total += Convert.ToDouble(detail.OTHERCOSTS);
                         }
                         this.txtSubTotal.Text = total.ToString();//总费用
                         if (fbCtr.totalMoney > 0)
@@ -1132,9 +1161,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                         }
                         this.txtChargeApplyTotal.Text = total.ToString();
                         Fees = total;
+                        i++;
                     }
-
-                    CountMoney();
                 }
             }
             catch (Exception ex)

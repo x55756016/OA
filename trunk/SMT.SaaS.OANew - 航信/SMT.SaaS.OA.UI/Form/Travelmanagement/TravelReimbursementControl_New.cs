@@ -48,7 +48,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <summary>
         /// 操作子表数据
         /// </summary>
-        private void SetDetailValue_Golbal()
+        private void SetTravelDetailValueFromForm()
         {
             ObservableCollection<T_OA_REIMBURSEMENTDETAIL> ListDetail = new ObservableCollection<T_OA_REIMBURSEMENTDETAIL>();
             string StrStartDt = "";   //开始时间
@@ -59,7 +59,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             if (DaGrEdit.ItemsSource != null)
             {
                 //foreach (Object obje in DaGrEdit.ItemsSource) 
-                foreach (Object obje in TravelDetailList_Golbal)
+                foreach (var obje in TravelDetailList_Golbal)
                 {
                     TrDetail = new T_OA_REIMBURSEMENTDETAIL();
                     TrDetail.REIMBURSEMENTDETAILID = (obje as T_OA_REIMBURSEMENTDETAIL).REIMBURSEMENTDETAILID;

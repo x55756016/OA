@@ -344,13 +344,13 @@ namespace SMT.SaaS.OA.UI.UserControls
             //}
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
-                DaGrReadOnly.ItemsSource = TravelDetailList_Golbal;
                 TravelAllowance(true);
+                DaGrReadOnly.ItemsSource = TravelDetailList_Golbal;
             }
             else
             {
-                DaGrEdit.ItemsSource = TravelDetailList_Golbal;
                 TravelAllowance(false);
+                DaGrEdit.ItemsSource = TravelDetailList_Golbal;
             }
         }
 

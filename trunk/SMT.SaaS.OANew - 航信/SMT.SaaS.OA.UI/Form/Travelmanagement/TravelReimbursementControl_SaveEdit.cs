@@ -171,8 +171,6 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             #endregion
 
-            //字段赋值及子表城市赋值
-            SetTraveValueAndFBChargeValue();
 
             #region "判断出差开始城市是否用重复,下一条开始时间是否小于上一条结束时间"           
             for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
@@ -279,9 +277,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 //计算补贴
                 TravelAllowance(false);
 
-                //添加子表数据
-                SetDetailValue_Golbal();
-
                 CountMoney();
 
                 if (!string.IsNullOrEmpty(this.txtSubTotal.Text) && this.txtSubTotal.Text.Trim() != "0")
@@ -358,7 +353,12 @@ namespace SMT.SaaS.OA.UI.UserControls
             {
                 if (Check())
                 {
-                    //textStandards.Text = string.Empty;//清空报销标准说明
+
+                    //字段赋值及子表城市赋值
+                    SetTraveValueAndFBChargeValue();
+
+                    //将页面上所有的数据赋值给报销子表
+                    SetTravelDetailValueFromForm();
 
                     #region "判断回程住宿费"
                     
