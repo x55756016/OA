@@ -940,24 +940,76 @@ namespace SMT.FB.BLL
                 switch (listChildEnts.FirstOrDefault().GetType().ToString())
                 {
                     case "SMT_FB_EFModel.T_FB_COMPANYBUDGETAPPLYDETAIL"://年度预算申请明细
-                        listChildEnts = listChildEnts.OrderBy(item => ((T_FB_COMPANYBUDGETAPPLYDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        #region
+                        listChildEnts.ForEach(it =>
+                        {
+                            var entity = it as T_FB_COMPANYBUDGETAPPLYDETAIL;
+                            if (entity.BUDGETMONEY > 0)
+                            {
+                                listTemp.Add(it);
+                            }
+                        });
+                        listChildEnts = listTemp.OrderBy(item => ((T_FB_COMPANYBUDGETAPPLYDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        #endregion
                         break;
                     case "SMT_FB_EFModel.T_FB_COMPANYBUDGETMODDETAIL"://年度增补明细
-                        listChildEnts = listChildEnts.OrderBy(item => ((T_FB_COMPANYBUDGETMODDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        #region
+                        QueryEntityBLL bll = new QueryEntityBLL();
+                        listChildEnts.ForEach(it =>
+                        {
+                            T_FB_COMPANYBUDGETMODDETAIL ent = it as T_FB_COMPANYBUDGETMODDETAIL;
+                            QueryExpression qeSub = QueryExpression.Equal("T_FB_SUBJECT.SUBJECTID", ent.T_FB_SUBJECT.SUBJECTID); // 总帐表科目ID
+                            qeSub.QueryType = typeof(T_FB_BUDGETACCOUNT).Name;
+                            QueryExpression qeDeptID = QueryExpression.Equal("OWNERDEPARTMENTID", ent.OWNERDEPARTMENTID); // 总帐表科目ID
+                            QueryExpression qeYear = QueryExpression.Equal("BUDGETYEAR", DateTime.Now.Year.ToString()); // 总帐表年份
+                            QueryExpression qeType = QueryExpression.Equal("ACCOUNTOBJECTTYPE", "1"); // 预算类型为公司
+                            qeYear.RelatedExpression = qeType;
+                            qeDeptID.RelatedExpression = qeYear;
+                            qeSub.RelatedExpression = qeDeptID;
+                            var baData = bll.InnerGetEntities<T_FB_BUDGETACCOUNT>(qeSub).FirstOrDefault();
+                            if (baData != null)
+                            {
+                                decimal? money = baData.BUDGETMONEY;
+                                if (money > 0)
+                                {
+                                    ent.AUDITBUDGETMONEY = money;//该字段在年度增补里面没有使用，所以在这里进行后面的xml数据生成使用
+                                }
+                                else if (money == 0)
+                                {
+                                    ent.AUDITBUDGETMONEY = baData.PAIEDMONEY;
+                                }
+                            }
+                            if (ent.BUDGETMONEY > 0)
+                            {
+                                listTemp.Add(it);
+                            }
+                        });
+                        listChildEnts = listTemp.OrderBy(item => ((T_FB_COMPANYBUDGETMODDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        #endregion
                         break;
                     case "SMT.FB.BLL.V_SubjectCompanySum"://年度预算汇总明细
-                        listChildEnts = listChildEnts.OrderBy(item => ((V_SubjectCompanySum)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        #region
+                        listChildEnts.ForEach(it =>
+                        {
+                            var entity = it as V_SubjectCompanySum;
+                            if (entity.T_FB_COMPANYBUDGETAPPLYDETAIL != null && entity.T_FB_COMPANYBUDGETAPPLYDETAIL.Count > 0 && entity.T_FB_COMPANYBUDGETAPPLYDETAIL.FirstOrDefault().BUDGETMONEY > 0)
+                            {
+                                listTemp.Add(it);
+                            }
+                        });
+                        listChildEnts = listTemp.OrderBy(item => ((V_SubjectCompanySum)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        #endregion
                         break;
                     case "SMT.FB.BLL.V_SubjectDeptSum"://部门预算汇总明细
                         listChildEnts = listChildEnts.OrderBy(item => ((V_SubjectDeptSum)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
                         listChildEnts.ForEach(it =>
+                        {
+                            var entity = it as V_SubjectDeptSum;
+                            if (entity.T_FB_DEPTBUDGETAPPLYDETAIL != null && entity.T_FB_DEPTBUDGETAPPLYDETAIL.Count > 0 && entity.T_FB_DEPTBUDGETAPPLYDETAIL.FirstOrDefault().TOTALBUDGETMONEY > 0)
                             {
-                                var entity = it as V_SubjectDeptSum;
-                                if (entity.T_FB_DEPTBUDGETAPPLYDETAIL != null && entity.T_FB_DEPTBUDGETAPPLYDETAIL.Count > 0 && entity.T_FB_DEPTBUDGETAPPLYDETAIL.FirstOrDefault().TOTALBUDGETMONEY>0)
-                                {
-                                    listTemp.Add(it);
-                                }
-                            });
+                                listTemp.Add(it);
+                            }
+                        });
                         listChildEnts = listTemp;
                         break;
                     case "SMT_FB_EFModel.T_FB_DEPTBUDGETAPPLYDETAIL": //部门预算申请明细
@@ -965,7 +1017,7 @@ namespace SMT.FB.BLL
                         listChildEnts.ForEach(it =>
                         {
                             var entity = it as T_FB_DEPTBUDGETAPPLYDETAIL;
-                            if (entity!=null && entity.TOTALBUDGETMONEY > 0)
+                            if (entity != null && entity.TOTALBUDGETMONEY > 0)
                             {
                                 listTemp.Add(it);
                             }
@@ -973,7 +1025,15 @@ namespace SMT.FB.BLL
                         listChildEnts = listTemp;
                         break;
                     case "SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL"://部门预算增补明细
-                        listChildEnts = listChildEnts.OrderBy(item => ((T_FB_DEPTBUDGETADDDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
+                        listChildEnts.ForEach(it =>
+                        {
+                            var entity = it as T_FB_DEPTBUDGETADDDETAIL;
+                            if (entity != null && entity.TOTALBUDGETMONEY > 0)
+                            {
+                                listTemp.Add(it);
+                            }
+                        });
+                        listChildEnts = listTemp.OrderBy(item => ((T_FB_DEPTBUDGETADDDETAIL)(item)).T_FB_SUBJECT.SUBJECTCODE).ToList();
                         break;
                     default: break;
                 }
@@ -983,8 +1043,9 @@ namespace SMT.FB.BLL
             {
                 return listChildEnts;
             }
-            
+
         }
+
 
         /// <summary>
         /// 填充第三级节点

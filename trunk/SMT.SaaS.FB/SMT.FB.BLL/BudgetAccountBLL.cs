@@ -3736,12 +3736,35 @@ namespace SMT.FB.BLL
             qeAdd.IsUnCheckRight = true; //不做权限控制
             qeAdd.Include = new string[] { typeof(T_FB_SUBJECT).Name };
 
-            List<FBEntity> list = BaseGetEntities(qeAdd).ToFBEntityList();
+            QueryExpression qeFs = qe.GetQueryExpression("SUBJECTTYPECODE");//查询条件
+            string filterString = string.Empty;
+            if (qeFs != null)
+            {
+                filterString = qeFs.PropertyValue;
+                qe.RelatedExpression = null;
+            }
 
+            List<FBEntity> list = BaseGetEntities(qeAdd).ToFBEntityList();
+            List<FBEntity> fbList = new List<FBEntity>();
             list.ForEach(item =>
             {
                 T_FB_SUBJECTTYPE sType = item.Entity as T_FB_SUBJECTTYPE;
-                List<T_FB_SUBJECT> listSubject = sType.T_FB_SUBJECT.ToList();
+                List<T_FB_SUBJECT> listSubject = new List<T_FB_SUBJECT>();
+                if (!string.IsNullOrWhiteSpace(filterString))
+                {
+
+                    listSubject = sType.T_FB_SUBJECT.Where(t => t.SUBJECTNAME.Contains(filterString) || t.SUBJECTCODE == filterString).ToList();//科目名称包含，科目编号相等
+                    List<T_FB_SUBJECT> tempList = new List<T_FB_SUBJECT>();
+                    listSubject.ForEach(it =>
+                    {
+                        RelatedSubject(it, listSubject, ref tempList);
+                    });
+                    listSubject.AddRange(tempList);
+                }
+                else
+                {
+                    listSubject = sType.T_FB_SUBJECT.ToList();
+                }
 
                 listSubject.RemoveAll(entity =>
                 {
@@ -3751,9 +3774,31 @@ namespace SMT.FB.BLL
                 item.AddFBEntities<T_FB_SUBJECT>(listSubject.ToFBEntityList());
 
                 item.OrderDetailBy<T_FB_SUBJECT>(itemSubject => itemSubject.SUBJECTCODE);
+                if (listSubject.Count > 0)
+                {
+                    fbList.Add(item);
+                }
             });
-            return list;
 
+            return fbList;
+
+        }
+
+        /// <summary>
+        /// 找出改科目的父级和子级
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <param name="listSubject"></param>
+        /// <param name="tempList"></param>
+        /// <returns></returns>
+        private List<T_FB_SUBJECT> RelatedSubject(T_FB_SUBJECT subject, List<T_FB_SUBJECT> listSubject, ref List<T_FB_SUBJECT> tempList)
+        {
+            if (subject.T_FB_SUBJECT2 != null)
+            {
+                tempList.Add(subject.T_FB_SUBJECT2);
+                RelatedSubject(subject.T_FB_SUBJECT2, listSubject, ref tempList);
+            }
+            return tempList;
         }
 
         /// <summary>
