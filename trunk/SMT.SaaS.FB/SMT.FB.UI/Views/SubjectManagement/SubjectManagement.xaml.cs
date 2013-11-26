@@ -794,6 +794,39 @@ namespace SMT.FB.UI.Views.SubjectManagement
             return tempName;
         }
         #endregion
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                EntityList.Clear();
+                string tbText = this.tbSubjectName.Text.Trim();
+                if (string.IsNullOrWhiteSpace(tbText))
+                {
+                    CommonFunction.ShowMessage("请输入查询条件");
+                    return;
+                }
+                QueryExpression qe = new QueryExpression();
+                qe.QueryType = typeof(T_FB_SUBJECTTYPE).Name;
+
+                QueryExpression qeFilterString = new QueryExpression();
+                qeFilterString.PropertyName = "SUBJECTTYPECODE";//代替
+                qeFilterString.PropertyValue = tbText;//查询条件
+
+                qe.RelatedExpression = qeFilterString;
+                orderEntityService.QueryFBEntities(qe);
+            }
+            catch (Exception ex)
+            {
+                CommonFunction.ShowErrorMessage(ex.Message);
+            }
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            this.tbSubjectName.Text = "";
+            this.InitData();
+        }
     }
 
   

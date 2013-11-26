@@ -108,6 +108,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
             }
             
             EntityList = listCompany;
+            this.CloseProcess();
             //TreeView.SelectedItemChanged += new RoutedPropertyChangedEventHandler<object>(TreeView_SelectedItemChanged);
 
             //TreeViewItem tvi = this.TreeView.Items.FirstOrDefault() as TreeViewItem;
@@ -210,6 +211,7 @@ namespace SMT.FB.UI.Views.SubjectManagement
         }
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            this.ShowProcess();
             TreeViewItem treeViewItem = e.NewValue as TreeViewItem;
             if (treeViewItem != null)
             {

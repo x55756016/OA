@@ -83,13 +83,20 @@
     <Grid x:Name="LayoutRoot" Background="{StaticResource BlueShine2}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
        <StackPanel x:Name="P1" VerticalAlignment="Top" Grid.Row="0" >
             <smtx:FormTitle x:Name="FormTitleName" VerticalAlignment="Top"></smtx:FormTitle>
             <smtx:ToolBar x:Name="tooBarTop" />           
         </StackPanel >
-        <Grid x:Name="Main" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <TextBlock Text="科目名称或完整科目编号"  Style="{StaticResource FrameGridTextBlock1}" Margin="20 5 0 0" Width="Auto"/>
+            <TextBox  Style="{StaticResource TextBoxStyle}" x:Name="tbSubjectName" Width="100" Height="20" Margin="5,0,0,0"></TextBox>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Content="查找" Width="50" Height="20" Margin="5,0,0,0" Click="btnFind_Click"></Button>
+            <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnReset" Content="重置刷新" Width="70" Height="20" Margin="5,0,0,0" Click="btnReset_Click"></Button>
+        </StackPanel>
+        <Grid x:Name="Main" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="200"/>
                 <ColumnDefinition Width="*" />

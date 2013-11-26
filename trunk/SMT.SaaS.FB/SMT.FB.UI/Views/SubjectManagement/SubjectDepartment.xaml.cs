@@ -344,9 +344,9 @@ namespace SMT.FB.UI.Views.SubjectManagement
                     listSave.RemoveAll(itemRemove =>
                     {
                         bool isAdded = itemRemove.FBEntityState == FBEntityState.Added;
-                        bool isNew = (itemRemove.Entity as T_FB_SUBJECTPOST).ACTIVED != 1;
-                        return isAdded && isNew;
-
+                      //  bool isNew = (itemRemove.Entity as T_FB_SUBJECTPOST).ACTIVED != 1;
+                        //return isAdded && isNew;
+                        return isAdded;
                     });
                 }
 
@@ -491,11 +491,14 @@ namespace SMT.FB.UI.Views.SubjectManagement
                 if (listPost.Count > 0)
                 {
                     T_FB_SUBJECTPOST post = listPost[0].Entity as T_FB_SUBJECTPOST;
+                    if (post.ACTIVED != sd.ACTIVED)
+                    {
+                        listPost[0].FBEntityState = FBEntityState.Modified;
+                    }
                     //岗位默认处理
                     if (post != null)
                         post = SubjectPostChanged(sd, post, strFlag);
                     listPost[0].Entity = post;
-
                     listFBEntities.Add(listPost[0]);
                 }
                 else
@@ -553,6 +556,20 @@ namespace SMT.FB.UI.Views.SubjectManagement
             fbEntityPostNew.FBEntityState = FBEntityState.Added;
 
             return fbEntityPostNew;
+        }
+
+        private void CreateNonActionSubjectPost(T_FB_SUBJECTDEPTMENT sd, T_FB_SUBJECTPOST post, VirtualPost virtualPost)
+        {
+            ObservableCollection<FBEntity> listFBEntities = new ObservableCollection<FBEntity>();
+            post.ACTIVED = 0;
+            post.UPDATEDATE = DateTime.Now;
+            FBEntity fbEntityPostNew = post.ToFBEntity();
+            fbEntityPostNew.FBEntityState = FBEntityState.Modified;
+            listFBEntities.Add(fbEntityPostNew);
+            FBEntity postFBEntity = virtualPost.ToFBEntity();
+            postFBEntity.AddFBEntities<T_FB_SUBJECTPOST>(listFBEntities);
+            OrderEntity entityPost = new OrderEntity(postFBEntity);
+            EntityList.Add(entityPost);
         }
 
         /// <summary>
@@ -617,6 +634,13 @@ namespace SMT.FB.UI.Views.SubjectManagement
                         }
                         else // 从集合中去除相应的subjectPost
                         {
+                            if (subjectDepartment.T_FB_SUBJECTPOST!=null)
+                            {
+                                foreach (var postEnt in subjectDepartment.T_FB_SUBJECTPOST)
+                                {
+                                    CreateNonActionSubjectPost(subjectDepartment, postEnt, virtualPost);
+                                }
+                            }
                             ObservableCollection<FBEntity> fbEntities = oe.GetRelationFBEntities(typeof(T_FB_SUBJECTPOST).Name);
                             fbEntities.RemoveAll(entity =>
                             {
@@ -649,6 +673,13 @@ namespace SMT.FB.UI.Views.SubjectManagement
                         }
                         else // 从集合中去除相应的subjectPost
                         {
+                            if (subjectDepartment.T_FB_SUBJECTPOST != null)
+                            {
+                                foreach (var postEnt in subjectDepartment.T_FB_SUBJECTPOST)
+                                {
+                                    CreateNonActionSubjectPost(subjectDepartment, postEnt, virtualPost);
+                                }
+                            }
                             ObservableCollection<FBEntity> fbEntities = curOrderEntity.GetRelationFBEntities(typeof(T_FB_SUBJECTPOST).Name);
                             fbEntities.RemoveAll(entity =>
                             {
@@ -660,6 +691,21 @@ namespace SMT.FB.UI.Views.SubjectManagement
             }
         }
 
+        /// <summary>
+        /// 添加不生效岗位
+        /// </summary>
+        /// <param name="subjectDepartment"></param>
+        /// <param name="virtualPost"></param>
+        private void CreateNonActionPost(T_FB_SUBJECTDEPTMENT subjectDepartment, VirtualPost virtualPost)
+        {
+            ObservableCollection<FBEntity> listFBEntities = new ObservableCollection<FBEntity>();
+            FBEntity fbEntityPostNew = this.CreateSubjectPost(subjectDepartment, virtualPost, "ACTIVED");
+            listFBEntities.Add(fbEntityPostNew);
+            FBEntity postFBEntity = virtualPost.ToFBEntity();
+            postFBEntity.AddFBEntities<T_FB_SUBJECTPOST>(listFBEntities);
+            OrderEntity entityPost = new OrderEntity(postFBEntity);
+            EntityList.Add(entityPost);
+        }
         public override bool CheckPermisstion()
         {
             int perm = PermissionHelper.GetPermissionValue(typeof(T_FB_SUBJECTDEPTMENT).Name, Permissions.Browse);
