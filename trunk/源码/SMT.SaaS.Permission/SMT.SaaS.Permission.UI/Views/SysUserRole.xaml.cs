@@ -327,5 +327,23 @@ namespace SMT.SaaS.Permission.UI.Views
         {
             LoadData();
         }
+
+        /// <summary>
+        /// 授权按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AuthorizationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserRole != null && UserRole.T_SYS_ROLE != null)
+            {
+                SysRoleSetMenu2 UserInfo = new SysRoleSetMenu2(UserRole.T_SYS_ROLE);
+                EntityBrowser browser = new EntityBrowser(UserInfo);
+                browser.MinWidth = 850;
+                browser.MinHeight = 500;
+                browser.ReloadDataEvent += new EntityBrowser.refreshGridView(AddWin_ReloadDataEvent);
+                browser.Show<string>(DialogMode.Default, Common.ParentLayoutRoot, "", (result) => { }, true);
+            }
+        }
     }
 }

@@ -37,12 +37,23 @@
                     CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" 
                     RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
                         <data:DataGrid.Columns>
-                            <data:DataGridTextColumn Header="SYSTEMTYPE" Binding="{Binding T_SYS_ROLE.SYSTEMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}">
-                            </data:DataGridTextColumn>
-                            
-                            <data:DataGridTextColumn Header="ROLENAME" Binding="{Binding T_SYS_ROLE.ROLENAME}">
-                            </data:DataGridTextColumn>
-                    <data:DataGridTextColumn Header="OWNERCOMPANYID" Binding="{Binding OWNERCOMPANYID,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="SYSTEMTYPE" Binding="{Binding T_SYS_ROLE.SYSTEMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="ROLENAME" Binding="{Binding T_SYS_ROLE.ROLENAME}"></data:DataGridTextColumn>
+                            <data:DataGridTextColumn Header="OWNERCOMPANYID" Binding="{Binding OWNERCOMPANYID,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
+                            <data:DataGridTemplateColumn Header="ACCREDIT">
+                                    <data:DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Style="{StaticResource ButtonToolBarStyle}"
+                                                    x:Name="AuthorizationBtn"
+                                                    Width="70"
+                                                    Height="24"
+                                                    Click="AuthorizationBtn_Click"
+                                                    Content="{Binding Converter={StaticResource ResourceConveter}, Source=ACCREDIT}" Margin="1"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </data:DataGridTemplateColumn.CellTemplate>
+                                </data:DataGridTemplateColumn>
                 </data:DataGrid.Columns>
                     </data:DataGrid>
             <smtx:GridPager Name="dataPager" PageSize="20" Click="GridPager_Click" Grid.Row="4"></smtx:GridPager>
