@@ -382,6 +382,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
 
+        #region "获取交通工具的级别"
         /// <summary>
         /// 获取交通工具的级别
         /// </summary>
@@ -394,6 +395,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                        select d;
             ListVechileLevel = objs.ToList();
         }
+        #endregion
 
         #region 获取DataGrid中的各项费用控件
         /// <summary>
@@ -595,7 +597,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion       
 
-        #region 获取出差报销标准并显示
+        #region 根据城市设置出差报销标准并显示
         /// <summary>
         /// 获取出差报销补助
         /// </summary>
@@ -740,7 +742,6 @@ namespace SMT.SaaS.OA.UI.UserControls
             return entareaallowance;
         }
 
-
         /// <summary>
         /// 根据城市值  获取相应的出差补贴
         /// </summary>
@@ -759,124 +760,8 @@ namespace SMT.SaaS.OA.UI.UserControls
             return null;
         }
 
-        /// <summary>
-        /// 根据岗位级别获取出差报销补助
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void TrC_GetTravleAreaAllowanceByPostValueCompleted(object sender, GetTravleAreaAllowanceByPostValueCompletedEventArgs e)
-        {
-            try
-            {
-
-                if (e.Error != null && !string.IsNullOrEmpty(e.Error.Message))
-                {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message);
-
-                }
-                else
-                {
-                    if (e.Result != null)
-                    {
-                        areaallowance = e.Result.ToList();
-                        areacitys = e.citys.ToList();
-                    }
-                    if (e.Result.Count() == 0)
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "您公司的出差方案没有对应的出差补贴", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    }
-                }
-
-                if (TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL.Count() > 0)
-                {
-                    BindDataGrid(TravelReimbursement_Golbal.T_OA_REIMBURSEMENTDETAIL);
-                    RefreshUI(RefreshedTypes.All);
-                    if (TravelReimbursement_Golbal.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
-                    {
-                        RefreshUI(RefreshedTypes.AuditInfo);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-            finally
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-            }
-        }
-
-        #endregion
-
-        #region 获取出差方案
-
-        /// <summary>
-        /// 获取出差方案
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void TrC_GetTravelSolutionByCompanyIDCompleted(object sender, GetTravelSolutionByCompanyIDCompletedEventArgs e)//判断能否乘坐哪种类型的交通工具及级别
-        {
-            try
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                if (e.Error != null && !string.IsNullOrEmpty(e.Error.Message))
-                {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message);
-                }
-                if (e.Result != null)
-                {
-
-                    travelsolutions = e.Result;//出差方案
-                }
-                else
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "您公司没有关联出差方案，请关联一套出差方案以便报销", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                }
-                if (e.PlaneObj != null)
-                {
-                    cantaketheplaneline = e.PlaneObj.ToList();//乘坐飞机线路设置
-                }
-                if (e.StandardObj != null)
-                {
-                    if (e.StandardObj.Count() > 0)
-                    {
-                        takethestandardtransport = e.StandardObj.ToList();//乘坐交通工具设置
-                    }
-                    else
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差方案中没有关联对应的交通工具设置", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    }
-                }
-                else
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差方案中没有关联对应的交通工具设置", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                }
-                RefreshUI(RefreshedTypes.ShowProgressBar);
-                OaPersonOfficeClient.GetTravleAreaAllowanceByPostValueAsync(EmployeePostLevel, travelsolutions.TRAVELSOLUTIONSID, null);
-            }
-            catch (Exception ex)
-            {
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-        }
-
-        #endregion        
-
-        #region 隐藏附件控件
-        //public void FileLoadedCompleted()
-        //{
-        //    //if (!ctrFile._files.HasAccessory)
-        //    //{
-        //    //    SMT.SaaS.FrameworkUI.Common.Utility.HiddenGridRow(this.LayoutRoot, 6);
-        //    //    this.lblFile.Visibility = Visibility.Collapsed;
-        //    //}
-        //}
-        #endregion
-
+        #endregion  
+        
         #region 隐藏和显示FB控件
         private void fbChkBox_Checked(object sender, RoutedEventArgs e)
         {

@@ -1087,114 +1087,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         //}
         #endregion
 
-        #region 计算出差天数 ljx
-        private void CountTravelDays(T_OA_REIMBURSEMENTDETAIL detail, DataGridRowEventArgs e)
-        {
-            try
-            {
-                int i = 0;
-                if (DaGrReadOnly.ItemsSource == null)
-                {
-                    return;
-                }
-                //住宿费，交通费，其他费用
-
-                TextBox myDaysTime = DaGrReadOnly.Columns[5].GetCellContent(e.Row).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
-                TextBox textAccommodation = DaGrReadOnly.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;
-
-                foreach (object obj in DaGrReadOnly.ItemsSource)
-                {
-                    i++;
-
-                    //if (DaGrReadOnly.Columns[9].GetCellContent(obj) == null)
-                    //{
-                    //    break;
-                    //}
-                    if (((T_OA_REIMBURSEMENTDETAIL)obj).REIMBURSEMENTDETAILID == detail.REIMBURSEMENTDETAILID)
-                    {
-
-                        T_OA_REIMBURSEMENTDETAIL obje = obj as T_OA_REIMBURSEMENTDETAIL;
-                        ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrReadOnly.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                        //出差天数
-                        double toodays = 0;
-                        //获取出差补贴
-                        T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-                        string cityValue = TravelDetailList_Golbal[i - 1].DESTCITY.Replace(",", "");//目标城市值
-                        //根据城市查出差标准补贴（已根据岗位级别过滤）
-                        entareaallowance = this.GetAllowanceByCityValue(cityValue);
-
-                        //循环出差报告的天数
-                        int k = 0;
-                        if (formType == FormTypes.New)
-                        {
-                            foreach (T_OA_BUSINESSTRIPDETAIL objDetail in buipList)
-                            {
-                                k++;
-                                if (k == i)
-                                {
-                                    if (!string.IsNullOrEmpty(objDetail.BUSINESSDAYS))
-                                    {
-                                        double totalHours = System.Convert.ToDouble(objDetail.BUSINESSDAYS);
-                                        //出差天数
-                                        toodays = totalHours;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (detail.BUSINESSDAYS != null && detail.BUSINESSDAYS != "")
-                            {
-                                toodays = System.Convert.ToDouble(detail.BUSINESSDAYS);
-                            }
-
-                        }
-                        if (entareaallowance != null)
-                        {
-                            if (toodays > 0)
-                            {
-                                if (textAccommodation.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * Convert.ToDouble(detail.THENUMBEROFNIGHTS))//判断住宿费超标
-                                {
-                                    //文本框标红
-                                    textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
-                                    textAccommodation.Foreground = new SolidColorBrush(Colors.Red);
-                                    this.txtAccommodation.Visibility = Visibility.Visible;
-                                    this.txtAccommodation.Text = "住宿费超标";
-                                }
-                            }
-                            if (textAccommodation.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * Convert.ToDouble(detail.THENUMBEROFNIGHTS))
-                            {
-                                if (txtASubsidiesForeBrush != null)
-                                {
-                                    textAccommodation.Foreground = txtASubsidiesForeBrush;
-                                }
-                                if (txtASubsidiesBorderBrush != null)
-                                {
-                                    textAccommodation.BorderBrush = txtASubsidiesBorderBrush;
-                                }
-                                string StrMessage = "";
-                                StrMessage = this.txtAccommodation.Text;
-                                if (string.IsNullOrEmpty(StrMessage))
-                                {
-                                    this.txtAccommodation.Visibility = Visibility.Collapsed;
-                                }
-                            }
-                        }
-                    }
-
-                }
-
-                DaGrReadOnly.Columns[5].Visibility = Visibility.Collapsed;
-            }
-            catch (Exception ex)
-            {
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-        }
-        #endregion
-
         #region 住宿费，交通费，其他费用
         /// <summary>
         /// 计算 住宿费，交通费，其他费用
@@ -1310,7 +1202,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             }
         }
-
 
         #endregion
     }

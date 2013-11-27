@@ -30,7 +30,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         void BtnSaveSubmit_Click(object sender, RoutedEventArgs e)
         {
             RefreshUI(RefreshedTypes.ShowProgressBar);
-            //isSubmit = true;
             needsubmit = true;
             clickSubmit = true;
             this.refreshType = RefreshedTypes.ShowAudit;
@@ -170,7 +169,6 @@ namespace SMT.SaaS.OA.UI.UserControls
 
             }
             #endregion
-
 
             #region "判断出差开始城市是否用重复,下一条开始时间是否小于上一条结束时间"           
             for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
@@ -428,7 +426,6 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         #endregion
 
-
         #region 费用保存Completed
         void fbCtr_SaveCompleted(object sender, SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs e)
         {
@@ -682,184 +679,5 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
 
-
-        #region 废弃的代码
-
-
-        #region 查询出差报销明细
-        //void TrC_GetTravelReimbursementDetailCompleted(object sender, GetTravelReimbursementDetailCompletedEventArgs e)//查询报销明细
-        //{
-        //    isloaded = true;
-        //    if (clickSubmit == false)
-        //    {
-        //        RefreshUI(RefreshedTypes.HideProgressBar);
-        //    }
-        //    try
-        //    {
-        //        if (e.Result != null)
-        //        {
-        //            BindDataGrid(e.Result);
-        //        }
-        //        else
-        //        {
-        //            BindDataGrid(null);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        isloaded = false;
-        //        Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-        //    }
-        //}
-        #endregion
-
-        #region 删除
-        //private void myDelete_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (DaGrEdit.SelectedItems == null)
-        //    {
-        //        return;
-        //    }
-
-        //    if (DaGrEdit.SelectedItems.Count == 0)
-        //    {
-        //        return;
-        //    }
-        //    if (DaGrEdit.SelectedItems.Count > 0)//判断是否有选中数据,否则提醒用户
-        //    {
-        //        string Result = "";
-        //        ComfirmWindow com = new ComfirmWindow();//提醒用户是否真的删除该数据,以免操作失误。
-        //        com.OnSelectionBoxClosed += (obj, result) =>
-        //        {
-        //            TrList = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-        //            if (TrList.Count() > 1)
-        //            {
-        //                for (int i = 0; i < DaGrEdit.SelectedItems.Count; i++)
-        //                {
-        //                    T_OA_REIMBURSEMENTDETAIL entDel = DaGrEdit.SelectedItems[i] as T_OA_REIMBURSEMENTDETAIL;
-
-        //                    if (TrList.Contains(entDel))
-        //                    {
-        //                        TrList.Remove(entDel);
-        //                    }
-        //                }
-        //                DaGrEdit.ItemsSource = TrList;
-        //            }
-        //        };
-        //        com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("DELETEALTER"), ComfirmWindow.titlename, Result);
-        //    }
-        //    else
-        //    {
-        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("SELECTERROR", "DELETE"), Utility.GetResourceStr("CONFIRMBUTTON"), MessageIcon.Exclamation);
-        //    }
-        //}
-        #endregion
-
-        #region 获取当前用户信息已废除
-
-        //void client_GetAllEmployeePostBriefByEmployeeIDCompleted(object sender, GetAllEmployeePostBriefByEmployeeIDCompletedEventArgs e)
-        //{
-        //    string StrName = "";
-        //    if (e.Result != null)
-        //    {
-        //        employeepost = e.Result;
-        //        if (TravelReimbursement_Golbal != null)
-        //        {
-        //            if (TravelReimbursement_Golbal.OWNERPOSTID != null && TravelReimbursement_Golbal.OWNERCOMPANYID != null && TravelReimbursement_Golbal.OWNERDEPARTMENTID != null)
-        //            {
-        //                if (employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == TravelReimbursement_Golbal.OWNERPOSTID).FirstOrDefault() != null)
-        //                {
-        //                    EmployeePostLevel = employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == TravelReimbursement_Golbal.OWNERPOSTID).FirstOrDefault().POSTLEVEL.ToString();
-        //                }
-        //                else //存在岗位异动的情况下
-        //                {
-        //                    var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
-        //                    EmployeePostLevel = ent != null ? ent.POSTLEVEL.ToString() : "0 ";
-        //                }
-
-        //                //2013/3/27 alter by ken 修改出差加载员工岗位信息方式
-        //                postName = employeepost.EMPLOYEEPOSTS.Where(c => c.POSTID == TravelReimbursement_Golbal.OWNERPOSTID).FirstOrDefault().PostName;
-        //                depName = employeepost.EMPLOYEEPOSTS.Where(c => c.DepartmentID == TravelReimbursement_Golbal.OWNERDEPARTMENTID).FirstOrDefault().DepartmentName;
-        //                companyName = employeepost.EMPLOYEEPOSTS.Where(c => c.CompanyID == TravelReimbursement_Golbal.OWNERCOMPANYID).FirstOrDefault().CompanyName;
-        //                //postName = (Application.Current.Resources["SYS_PostInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_POST>).Where(c => c.POSTID == TravelReimbursement.OWNERPOSTID).FirstOrDefault().T_HR_POSTDICTIONARY.POSTNAME;
-        //                //depName = (Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>).Where(c => c.DEPARTMENTID == TravelReimbursement.OWNERDEPARTMENTID).FirstOrDefault().T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
-        //                //companyName = (Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>).Where(c => c.COMPANYID == TravelReimbursement.OWNERCOMPANYID).FirstOrDefault().CNAME;
-        //                StrName = TravelReimbursement_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + companyName;
-        //                txtPeopleTravel.Text = StrName;
-        //                ToolTipService.SetToolTip(txtPeopleTravel, StrName);
-        //                EmployeeName = TravelReimbursement_Golbal.OWNERNAME;//出差人
-        //            }
-        //            if (InitFB == false)
-        //            {
-        //                InitFBControl();
-        //            }
-        //            OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(TravelReimbursement_Golbal.OWNERCOMPANYID, null, null);
-        //        }
-        //    }
-        //}
-
-        //void client_GetEmployeePostBriefByEmployeeIDCompleted(object sender, GetEmployeePostBriefByEmployeeIDCompletedEventArgs e)
-        //{
-        //    string StrName = "";
-        //    if (e.Result != null)
-        //    {
-        //        employeepost = e.Result;
-        //        if (TravelReimbursement_Golbal != null)
-        //        {
-        //            if (TravelReimbursement_Golbal.OWNERPOSTID != null && TravelReimbursement_Golbal.OWNERCOMPANYID != null && TravelReimbursement_Golbal.OWNERDEPARTMENTID != null)
-        //            {
-        //                if (employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == TravelReimbursement_Golbal.OWNERPOSTID).FirstOrDefault() != null)
-        //                {
-        //                    EmployeePostLevel = employeepost.EMPLOYEEPOSTS.Where(s => s.POSTID == TravelReimbursement_Golbal.OWNERPOSTID).FirstOrDefault().POSTLEVEL.ToString();
-        //                }
-        //                else //存在岗位异动的情况下
-        //                {
-        //                    var ent = employeepost.EMPLOYEEPOSTS.Where(s => s.ISAGENCY == "0").FirstOrDefault();
-        //                    EmployeePostLevel = ent != null ? ent.POSTLEVEL.ToString() : "0 ";
-        //                }
-
-        //                //2013/3/27 alter by ken 修改加载员工岗位信息方式
-        //                postName = employeepost.EMPLOYEEPOSTS.Where(c => c.POSTID == TravelReimbursement_Golbal.OWNERPOSTID).FirstOrDefault().PostName;
-        //                depName = employeepost.EMPLOYEEPOSTS.Where(c => c.DepartmentID == TravelReimbursement_Golbal.OWNERDEPARTMENTID).FirstOrDefault().DepartmentName;
-        //                companyName = employeepost.EMPLOYEEPOSTS.Where(c => c.CompanyID == TravelReimbursement_Golbal.OWNERCOMPANYID).FirstOrDefault().CompanyName;
-        //                //postName = (Application.Current.Resources["SYS_PostInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_POST>).Where(c => c.POSTID == TravelReimbursement.OWNERPOSTID).FirstOrDefault().T_HR_POSTDICTIONARY.POSTNAME;
-        //                //depName = (Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>).Where(c => c.DEPARTMENTID == TravelReimbursement.OWNERDEPARTMENTID).FirstOrDefault().T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME;
-        //                //companyName = (Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>).Where(c => c.COMPANYID == TravelReimbursement.OWNERCOMPANYID).FirstOrDefault().CNAME;
-        //                StrName = TravelReimbursement_Golbal.OWNERNAME + "-" + postName + "-" + depName + "-" + companyName;
-        //                txtPeopleTravel.Text = StrName;
-        //                ToolTipService.SetToolTip(txtPeopleTravel, StrName);
-        //                EmployeeName = TravelReimbursement_Golbal.OWNERNAME;//出差人
-        //            }
-        //            if (InitFB == false)
-        //            {
-        //                InitFBControl();
-        //            }
-        //            OaPersonOfficeClient.GetTravelSolutionByCompanyIDAsync(TravelReimbursement_Golbal.OWNERCOMPANYID, null, null);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        //Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("对不起，该员工已离职，不能进行该操作"));
-        //        HrPersonnelclient.GetAllEmployeePostBriefByEmployeeIDAsync(TravelReimbursement_Golbal.OWNERID);
-        //    }
-        //}
-        #endregion
-
-        #region 上传附件
-        //private void UploadFiles()
-        //{
-        //    //System.Windows.Controls.OpenFileDialog openFileWindow = new OpenFileDialog();
-        //    //openFileWindow.Multiselect = true;
-        //    //if (openFileWindow.ShowDialog() == true)
-        //    //    foreach (FileInfo file in openFileWindow.Files)
-        //    //        ctrFile.InitFiles(file.Name, file.OpenRead());
-        //}
-        ////void ctrFile_Event_AllFilesFinished(object sender, SMT.SaaS.FrameworkUI.FileUpload.FileCountEventArgs e)
-        ////{
-        ////    //RefreshUI(RefreshedTypes.HideProgressBar);
-        ////}
-        #endregion
-        #endregion
     }
 }

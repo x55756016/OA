@@ -26,7 +26,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 {
     public partial class TravelReimbursementControl
     {
-        #region 新建时初始化(已经不存在此逻辑)
+        #region 新建时初始化
         private void NewMaster_Golbal()
         {
             TravelReimbursement_Golbal = new T_OA_TRAVELREIMBURSEMENT();
@@ -187,5 +187,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
             }
         }
+
     }
 }

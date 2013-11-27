@@ -312,11 +312,14 @@
     <Compile Include="Form\EmployeeSurveys\SelectSchemeCW.xaml.cs">
       <DependentUpon>SelectSchemeCW.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_LoadData.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Audit.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Compute.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_NewDetail.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_SaveEdit.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_New.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Common.cs" />
-    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Core.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Event.cs" />
     <Compile Include="Form\Travelmanagement\TravelRequestForm_Common.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_ForMvc.cs" />
     <Compile Include="Service References\AgentChannel\Reference.cs">
