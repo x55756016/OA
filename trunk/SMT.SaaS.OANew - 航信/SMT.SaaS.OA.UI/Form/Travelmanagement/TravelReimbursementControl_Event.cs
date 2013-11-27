@@ -41,6 +41,31 @@ namespace SMT.SaaS.OA.UI.UserControls
         #endregion
 
         #region 私事myChkBox_Checked事件
+
+        private void myChkBox_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                var temp = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
+                CheckBox chbMeet = DaGrEdit.Columns[13].GetCellContent(temp).FindName("myChkBox") as CheckBox;
+                if (chbMeet.IsChecked == true)
+                {
+                    temp.PRIVATEAFFAIR = "1";
+                }
+                else
+                {
+                    temp.PRIVATEAFFAIR = "0";
+                }
+
+                TravelAllowance(false);
+            }
+            catch
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+        }
+
         private void myChkBox_Checked(object sender, RoutedEventArgs e)
         {
             try
@@ -52,6 +77,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     if (btlist != null)
                     {
                         btlist.PRIVATEAFFAIR = "1";
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("您已勾选私事，无各项补贴！"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     }
                 }
             }
@@ -193,6 +219,30 @@ namespace SMT.SaaS.OA.UI.UserControls
         #endregion
 
         #region 外出开会控件事件
+        private void myChkBoxMeet_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                var temp = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
+                CheckBox chbMeet = DaGrEdit.Columns[14].GetCellContent(temp).FindName("myChkBoxMeet") as CheckBox;
+                if (chbMeet.IsChecked == true)
+                {
+                    temp.GOOUTTOMEET = "1";
+                }
+                else
+                {
+                    temp.GOOUTTOMEET = "0";
+                }
+
+                TravelAllowance(false);
+            }
+            catch
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            }
+        }
+
         private void myChkBoxMeet_Checked(object sender, RoutedEventArgs e)
         {
             try
@@ -646,53 +696,8 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
 
-        private void myChkBoxMeet_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                var temp = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
-                CheckBox chbMeet = DaGrEdit.Columns[14].GetCellContent(temp).FindName("myChkBoxMeet") as CheckBox;
-                if (chbMeet.IsChecked == true)
-                {
-                    temp.GOOUTTOMEET = "1";
-                }
-                else
-                {
-                    temp.GOOUTTOMEET = "0";
-                }
 
-                TravelAllowance(false);
-            }
-            catch
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-        }
 
-        private void myChkBox_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                var temp = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
-                CheckBox chbMeet = DaGrEdit.Columns[13].GetCellContent(temp).FindName("myChkBox") as CheckBox;
-                if (chbMeet.IsChecked == true)
-                {
-                    temp.PRIVATEAFFAIR = "1";
-                }
-                else
-                {
-                    temp.PRIVATEAFFAIR = "0";
-                }
-
-                TravelAllowance(false);
-            }
-            catch
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-        }
 
     }
 }
