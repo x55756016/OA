@@ -78,7 +78,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "CHECKSTATE", TravelReimbursement_Golbal.CHECKSTATE, GetCheckState(TravelReimbursement_Golbal.CHECKSTATE)));//审核状态
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "BUSINESSTRIPID", businesstrID, string.Empty));//出差申请ID
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "AVAILABLECREDIT", UsableMoney, string.Empty));//可用额度
-            AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "REIMBURSEMENTSTANDARDS", bxbz, string.Empty));//报销标准
+            AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "REIMBURSEMENTSTANDARDS", textStandards.Text, string.Empty));//报销标准
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "REIMBURSEMENTOFCOSTS", fbCtr.Order.TOTALMONEY.ToString(), string.Empty));//报销总计
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "POSTLEVEL", EmployeePostLevel, string.Empty));//出差人的岗位级别
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "CONTENT", TravelReimbursement_Golbal.CONTENT, TravelReimbursement_Golbal.CONTENT));//报告内容

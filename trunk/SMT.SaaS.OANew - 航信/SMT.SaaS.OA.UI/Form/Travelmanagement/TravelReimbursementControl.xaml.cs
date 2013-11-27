@@ -57,7 +57,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         private SMTLoading loadbar = new SMTLoading();
         //private List<string> citysStartList_Golbal = new List<string>();
         //private List<string> citysEndList_Golbal = new List<string>();
-        public double Fees = 0;
+        //public double Fees = 0;
         private string EmployeeName = string.Empty;//出差人
         public string EmployeePostLevel = string.Empty;//出差人的岗位级别
         public string depName = string.Empty;//出差人的所属部门
@@ -67,7 +67,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         private List<T_OA_AREACITY> areacitys;
         public string UserState = "Audit";
         private string state = string.Empty;
-        private string bxbz = string.Empty;//报销标准
         private string UsableMoney = string.Empty;//用来存储可用额度
         public bool needsubmit = false;//提交审核
         //private bool isSubmit = false;//是提交的话不弹出保存成功提示
@@ -500,9 +499,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                 txtASubsidies.IsReadOnly = true;//住宿标准
                                                 txtOtherCosts.IsReadOnly = true;//其他费用
                                             };
-                                            if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+                                            if (obje.TRANSPORTATIONSUBSIDIES == null || obje.TRANSPORTATIONSUBSIDIES==0)
                                             {
                                                 if (formType == FormTypes.Audit) return;
+
                                                 com.SelectionBox("操作确认", "当前单据没有获取到交通补贴，是否继续操作？", ComfirmWindow.titlename, "");
                                             }
                                         }
@@ -524,7 +524,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                 txtASubsidies.IsReadOnly = true;//住宿标准
                                                 txtOtherCosts.IsReadOnly = true;//其他费用
                                             };
-                                            if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+                                            if (obje.MEALSUBSIDIES==null
+                                                || obje.MEALSUBSIDIES==0)
                                             {
                                                 if (formType == FormTypes.Audit) return;
                                                 com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
@@ -756,7 +757,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     int i = 0;
                     foreach (var obje in objs)
                     {
-                        i++;
+                     
                         if (obje.REIMBURSEMENTDETAILID == tmp.REIMBURSEMENTDETAILID)//判断记录的ID是否相同
                         {
                             DaGrReadOnly.SelectedItem = e.Row;
@@ -953,11 +954,12 @@ namespace SMT.SaaS.OA.UI.UserControls
                             }
                             #endregion
                         }
+                        i++;
                     }
 
                 #endregion
                     //CountMoneyA();
-                    CountTravelDays(tmp,e);
+                    //CountTravelDays(tmp,e);
                 }
             }
             catch (Exception ex)

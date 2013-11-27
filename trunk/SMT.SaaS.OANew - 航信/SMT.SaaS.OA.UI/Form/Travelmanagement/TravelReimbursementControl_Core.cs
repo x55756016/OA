@@ -84,131 +84,10 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
 
-
-        #region 住宿费，交通费，其他费用
-        /// <summary>
-        /// 计算 住宿费，交通费，其他费用
-        /// </summary>
-        private void CountMoney()
-        {
-            try
-            {
-                TravelTimeCalculation();
-
-                double totall = 0;
-                //int i = 0;
-                if (TravelDetailList_Golbal == null)
-                {
-                    return;
-                }
-                //住宿费，交通费，其他费用
-                bool IsPassEd = false;//住宿费是否超标
-                foreach (var obj in TravelDetailList_Golbal)
-                {
-                   
-                    if (DaGrEdit.Columns[8].GetCellContent(obj) == null)
-                    {
-                        return;
-                    }
-                    if (DaGrEdit.Columns[9].GetCellContent(obj) == null)
-                    {
-                        return;
-                    }
-                    if (DaGrEdit.Columns[12].GetCellContent(obj) == null)
-                    {
-                        return;
-                    }
-                    TextBox myDaysTime = DaGrEdit.Columns[5].GetCellContent(obj).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
-                    TextBox textTransportcosts = DaGrEdit.Columns[8].GetCellContent(obj).FindName("txtTRANSPORTCOSTS") as TextBox;
-                    TextBox textAccommodation = DaGrEdit.Columns[9].GetCellContent(obj).FindName("txtACCOMMODATION") as TextBox;
-                    TextBox textOthercosts = DaGrEdit.Columns[12].GetCellContent(obj).FindName("txtOtherCosts") as TextBox;
-                    TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(obj).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
-                    TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(obj).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
-
-                    T_OA_REIMBURSEMENTDETAIL obje = obj as T_OA_REIMBURSEMENTDETAIL;
-                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                    //出差天数
-                    double totaldays = 0;
-                    //获取出差补贴
-                    T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
-                    string cityValue = obj.DESTCITY;//目标城市值
-                    //根据城市查出差标准补贴（已根据岗位级别过滤）
-                    entareaallowance = this.GetAllowanceByCityValue(cityValue);
-                    if (!string.IsNullOrEmpty(obj.BUSINESSDAYS) && obj.BUSINESSDAYS != "0")
-                    {
-                        //住宿天数
-                        totaldays = System.Convert.ToDouble(obj.BUSINESSDAYS);                         
-                        if (entareaallowance != null)
-                        {
-                            if (textAccommodation.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * totaldays)//判断住宿费超标
-                            {
-                                //文本框标红
-                                textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
-                                textAccommodation.Foreground = new SolidColorBrush(Colors.Red);
-                                this.txtAccommodation.Visibility = Visibility.Visible;
-                                IsPassEd = true;
-                                //this.txtAccommodation.Text = "住宿费超标";
-                            }
-
-                            if (textAccommodation.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * totaldays)
-                            {
-                                if (txtASubsidiesForeBrush != null)
-                                {
-                                    textAccommodation.Foreground = txtASubsidiesForeBrush;
-                                }
-                                if (txtASubsidiesBorderBrush != null)
-                                {
-                                    textAccommodation.BorderBrush = txtASubsidiesBorderBrush;
-                                }
-                                string StrMessage = "";
-                                StrMessage = this.txtAccommodation.Text;
-                                if (string.IsNullOrEmpty(StrMessage))
-                                {
-                                    this.txtAccommodation.Visibility = Visibility.Collapsed;
-                                }
-                            }
-
-                        }
-
-                    }
-
-                    double ta = textTransportcosts.Text.ToDouble() + textAccommodation.Text.ToDouble() + textOthercosts.Text.ToDouble();
-                    totall = totall + ta;
-
-                    Fees = txtTFSubsidies.Text.ToDouble() + txtMealSubsidies.Text.ToDouble();
-                    totall += Fees;
-                }
-                if (IsPassEd)
-                {
-                    this.txtAccommodation.Text = "住宿费超标";
-                }
-                else
-                {
-                    this.txtAccommodation.Text = string.Empty;
-                    this.txtAccommodation.Visibility = Visibility.Collapsed;
-                }
-                txtSubTotal.Text = totall.ToString();//差旅费总结
-                if (fbCtr.totalMoney > 0)
-                {
-                    totall = totall +Convert.ToDouble(fbCtr.totalMoney);
-                }
-                txtChargeApplyTotal.Text = totall.ToString(); //费用报销总计包括其他费用，如业务招待费               
-            }
-            catch (Exception ex)
-            {
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-        }
-
-
-        #endregion
-
-
         #region 开始时间控件事件
         private void StartTime_OnValueChanged(object sender, EventArgs e)
         {
-            object obj = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
+            object obj = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
 
             if (obj == null)
             {
@@ -262,7 +141,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 结束时间控件事件
         private void EndTime_OnValueChanged(object sender, EventArgs e)
         {
-            object obj = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
+            object obj = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
 
             if (obj == null)
             {
@@ -436,7 +315,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     if (DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem) != null)
                     {
-                        //T_OA_BUSINESSTRIPDETAIL list = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
                         T_OA_REIMBURSEMENTDETAIL Detail = DaGrEdit.SelectedItem as T_OA_REIMBURSEMENTDETAIL;
                         SearchCity myCitys = DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;//出发城市
                         SearchCity mystartCity = DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;//目标城市
@@ -492,8 +370,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                     if (DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem) != null)
                     {
                         T_OA_REIMBURSEMENTDETAIL detailEntity = TravelDetailList_Golbal[SelectIndex];
-
-                        //T_OA_BUSINESSTRIPDETAIL list = DaGrEdit.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
                         SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(DaGrEdit.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;
                         SearchCity mystartCity = DaGrEdit.Columns[1].GetCellContent(DaGrEdit.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;
                         //如果出发城市为空
@@ -762,123 +638,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
 
-        #region 新建出差明细按钮事件
-        void btnNew_Click(object sender, RoutedEventArgs e)
-        {
-            if (!CheckIsFinishedCitys())
-            {
-                return;
-            }
-
-            BtnNewButton = true;
-            int i = 0;
-            T_OA_REIMBURSEMENTDETAIL NewDetail = new T_OA_REIMBURSEMENTDETAIL();
-            NewDetail.REIMBURSEMENTDETAILID = Guid.NewGuid().ToString();
-
-            if (formType != FormTypes.New)
-            {
-                if (TravelDetailList_Golbal.Count() > 0)
-                {
-                    if (TravelDetailList_Golbal.LastOrDefault().DESTCITY == TravelDetailList_Golbal.FirstOrDefault().DEPCITY)
-                    {
-                        MessageBox.Show("请修改最后一条记录的到达城市后再新增记录！");
-                        return;
-                    }
-                    //将原有记录的最后一条记录的目的城市作为出发城市。
-                    //NewDetail.DEPCITY = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(TrList.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY);
-                    if (TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>() != null)
-                    {
-                        //默认出发城市为上一条记录的到达城市
-                        NewDetail.DEPCITY = TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().DESTCITY;
-                        //默认出发日期为上一条记录的结束时间+1天
-                        NewDetail.STARTDATE = TravelDetailList_Golbal.LastOrDefault<T_OA_REIMBURSEMENTDETAIL>().ENDDATE.Value.AddDays(1);
-                        //默认结束城市为出差出发城市
-                        NewDetail.DESTCITY = TravelDetailList_Golbal.FirstOrDefault<T_OA_REIMBURSEMENTDETAIL>().DEPCITY;
-                        //默认结束日期为出发时间+1
-                        NewDetail.ENDDATE = NewDetail.STARTDATE.Value.AddDays(1);
-                    }
-                }
-                NewDetail.TYPEOFTRAVELTOOLS = "3";//默认乘坐交通工具为火车
-                NewDetail.TAKETHETOOLLEVEL = "1";//默认交通工具级别为硬卧
-                //NewDetail.ENDDATE = DateTime.Now;
-                TravelDetailList_Golbal.Add(NewDetail);                
-                //禁用所有开始城市选择控件？
-                foreach (Object obje in DaGrEdit.ItemsSource)
-                {
-                    if (DaGrEdit.Columns[1].GetCellContent(obje) != null)
-                    {
-                        SearchCity myCity = DaGrEdit.Columns[1].GetCellContent(obje).FindName("txtDEPARTURECITY") as SearchCity;
-
-                        if (myCity != null)
-                        {
-                            myCity.IsEnabled = false;
-                            ((DataGridCell)((StackPanel)myCity.Parent).Parent).IsEnabled = false;
-                        }
-                    }
-                }
-            }
-
-            int lastIndex = TravelDetailList_Golbal.Count() - 1;
-            StandardsMethod(lastIndex);//显示选中的城市的出差标准
-            //计算并给实体赋值
-            SetTraveValueAndFBChargeValue();
-        }
-
-        #region 检查是否选择了目标城市否则不给添加
-        private bool CheckIsFinishedCitys()
-        {
-            bool IsResult = true;
-            string StrStartDt = "";
-            string EndDt = "";
-            string StrStartTime = "";
-            string StrEndTime = "";
-            foreach (object obje in DaGrEdit.ItemsSource)
-            {
-                TrDetail = new T_OA_REIMBURSEMENTDETAIL();
-                SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(obje).FindName("txtTARGETCITIES") as SearchCity;
-
-                TrDetail.T_OA_TRAVELREIMBURSEMENT = TravelReimbursement_Golbal;
-                DateTimePicker StartDate = DaGrEdit.Columns[0].GetCellContent(obje).FindName("StartTime") as DateTimePicker;
-                DateTimePicker EndDate = DaGrEdit.Columns[2].GetCellContent(obje).FindName("EndTime") as DateTimePicker;
-
-                TravelDictionaryComboBox ToolType = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
-                TravelDictionaryComboBox ToolLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
-
-                StrStartDt = StartDate.Value.Value.ToString("d");//开始日期
-                EndDt = EndDate.Value.Value.ToString("d");//结束日期
-                StrStartTime = StartDate.Value.Value.ToString("HH:mm");//开始时间
-                StrEndTime = EndDate.Value.Value.ToString("HH:mm");//结束时间
-
-                if (string.IsNullOrEmpty(StrStartDt) || string.IsNullOrEmpty(StrStartTime))//开始日期不能为空
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "开始时间的年月日或时分不能为空", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    IsResult = false;
-                }
-
-                if (string.IsNullOrEmpty(EndDt) || string.IsNullOrEmpty(StrEndTime))//结束日期不能为空
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "结束时间的年月日或时分不能为空", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    IsResult = false;
-                }
-                DateTime DtStart = System.Convert.ToDateTime(StrStartDt + " " + StrStartTime);
-                DateTime DtEnd = System.Convert.ToDateTime(EndDt + " " + StrEndTime);
-                if (DtStart >= DtEnd)
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "开始时间不能大于等于结束时间", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    IsResult = false;
-                }
-
-
-                if (ToolType.SelectedIndex <= 0)//交通工具类型
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "TYPEOFTRAVELTOOLS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    IsResult = false;
-                }
-            }
-            return IsResult;
-        }
-        #endregion
-        #endregion
 
         private void myChkBoxMeet_Click(object sender, RoutedEventArgs e)
         {
