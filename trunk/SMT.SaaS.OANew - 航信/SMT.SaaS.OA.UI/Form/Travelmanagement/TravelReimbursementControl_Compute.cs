@@ -257,7 +257,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         #region 计算出差补贴补贴
         /// <summary>
-        /// 计算补贴
+        /// 计算补贴,在出差表格还没有loadingrow之前获取控件会报错。
         /// </summary>
         /// <param name="FromReadOnlyDataGrid">是否显示只读的查看Grid</param>
         private void TravelAllowance(bool FromReadOnlyDataGrid)
@@ -274,7 +274,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     dataGrid = this.DaGrEdit;
                 }
 
-                if (dataGrid.ItemsSource != null)
+                if (TravelDetailList_Golbal != null)
                 {
                     T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
 
@@ -594,7 +594,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             catch (Exception ex)
             {
-                Utility.SetLogAndShowLog(ex.ToString());
+                Utility.SetLog(ex.ToString());
             }
         }
         ///// <summary>

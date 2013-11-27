@@ -263,7 +263,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 保存函数
 
         /// <summary>
-        /// 字段赋值
+        /// //计算出差时间，计算补贴，住宿费，交通费，其他费用
         /// </summary>
         private void SetTraveValueAndFBChargeValue()
         {
@@ -350,14 +350,15 @@ namespace SMT.SaaS.OA.UI.UserControls
             SaveBtn = true;
             try
             {
+                //将页面上所有的数据赋值给报销子表，先赋值，才能Check（）测查子表记录是否正确
+                SetTravelDetailValueFromForm();
+
                 if (Check())
                 {
 
                     //字段赋值及子表城市赋值
                     SetTraveValueAndFBChargeValue();
 
-                    //将页面上所有的数据赋值给报销子表
-                    SetTravelDetailValueFromForm();
 
                     #region "判断回程住宿费"
                     

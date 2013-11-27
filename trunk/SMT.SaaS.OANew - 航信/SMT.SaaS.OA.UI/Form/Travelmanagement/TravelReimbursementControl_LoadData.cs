@@ -419,6 +419,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                                             };
                                             if (formType == FormTypes.Audit || formType == FormTypes.Browse
                                                   || obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1") return;
+                                            if (obje.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
+                                            {
+                                                return;//最后一条无补贴
+                                            }
                                             if (obje.TRANSPORTATIONSUBSIDIES == null || obje.TRANSPORTATIONSUBSIDIES == 0)
                                             {
                                                 com.SelectionBox("操作确认", "当前单据没有获取到交通补贴，是否继续操作？", ComfirmWindow.titlename, "");
@@ -444,6 +448,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                                             };
                                             if (formType == FormTypes.Audit || formType == FormTypes.Browse
                                               || obje.GOOUTTOMEET == "1") return;
+                                            if (obje.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
+                                            {
+                                                return;//最后一条无补贴
+                                            }
                                             if (obje.MEALSUBSIDIES == null
                                                 || obje.MEALSUBSIDIES == 0)
                                             {
@@ -743,7 +751,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                 txtASubsidies.IsReadOnly = true;//住宿标准
                                                 txtOtherCosts.IsReadOnly = true;//其他费用
                                             };
-                                            if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+                                            if (formType == FormTypes.Audit || formType == FormTypes.Browse
+                                                 || obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1") return;
+                                            if (obje.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
+                                            {
+                                                return;//最后一条无补贴
+                                            }
+                                            if (obje.TRANSPORTATIONSUBSIDIES == null || obje.TRANSPORTATIONSUBSIDIES==0)
                                             {
                                                 if (formType == FormTypes.Audit) return;
                                                 com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
@@ -766,7 +780,14 @@ namespace SMT.SaaS.OA.UI.UserControls
                                                 txtASubsidies.IsReadOnly = true;//住宿标准
                                                 txtOtherCosts.IsReadOnly = true;//其他费用
                                             };
-                                            if (obje.BUSINESSDAYS != null || !string.IsNullOrEmpty(obje.BUSINESSDAYS))
+                                            if (formType == FormTypes.Audit || formType == FormTypes.Browse
+                                               || obje.GOOUTTOMEET == "1") return;
+                                            if (obje.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
+                                            {
+                                                return;//最后一条无补贴
+                                            }
+                                            if (obje.MEALSUBSIDIES == null
+                                                || obje.MEALSUBSIDIES == 0)
                                             {
                                                 if (formType == FormTypes.Audit) return;
                                                 com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");

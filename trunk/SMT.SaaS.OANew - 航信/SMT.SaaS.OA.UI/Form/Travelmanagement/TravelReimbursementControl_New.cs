@@ -50,7 +50,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// </summary>
         private void SetTravelDetailValueFromForm()
         {
-            ObservableCollection<T_OA_REIMBURSEMENTDETAIL> ListDetail = new ObservableCollection<T_OA_REIMBURSEMENTDETAIL>();
             string StrStartDt = "";   //开始时间
             string StrStartTime = ""; //开始时：分
             string EndDt = "";    //结束时间
@@ -61,7 +60,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 //foreach (Object obje in DaGrEdit.ItemsSource) 
                 foreach (var obje in TravelDetailList_Golbal)
                 {
-                    TrDetail = new T_OA_REIMBURSEMENTDETAIL();
+                    TrDetail = obje;
                     TrDetail.REIMBURSEMENTDETAILID = (obje as T_OA_REIMBURSEMENTDETAIL).REIMBURSEMENTDETAILID;
                     
                     TrDetail.T_OA_TRAVELREIMBURSEMENT = TravelReimbursement_Golbal;
@@ -168,22 +167,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                         TrDetail.COMPANYCAR = (bool)IsCheckCar.IsChecked ? "1" : "0";
                     }
 
-                    ListDetail.Add(TrDetail);
+                    //ListDetail.Add(TrDetail);
                     
                     i++;
-                }
-                //如果已经存在此条记录，先删除再添加
-                foreach (var item in ListDetail)
-                {
-                    var q = from ent in TravelDetailList_Golbal
-                            where ent.REIMBURSEMENTDETAILID == item.REIMBURSEMENTDETAILID
-                            select ent;
-                    if (q.Count() > 0)
-                    {
-                        TravelDetailList_Golbal.Remove(q.FirstOrDefault());
-
-                    }
-                    TravelDetailList_Golbal.Add(item);
                 }
             }
         }
