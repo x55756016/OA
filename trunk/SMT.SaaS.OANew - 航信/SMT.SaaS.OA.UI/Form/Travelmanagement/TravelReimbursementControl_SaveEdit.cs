@@ -275,6 +275,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 //计算补贴
                 TravelAllowance(false);
 
+                //住宿费，交通费，其他费用
                 CountMoney();
 
                 if (!string.IsNullOrEmpty(this.txtSubTotal.Text) && this.txtSubTotal.Text.Trim() != "0")

@@ -24,7 +24,7 @@ using SMT.SaaS.MobileXml;
 
 namespace SMT.SaaS.OA.UI.UserControls
 {
-    public class TravelReimbursementControl
+    public partial class TravelReimbursementControl
     {
         #region 查询出差报销主表，本页面打开的主入口1
         void TrC_GetTravelReimbursementByIdCompleted(object sender, GetTravelReimbursementByIdCompletedEventArgs e)

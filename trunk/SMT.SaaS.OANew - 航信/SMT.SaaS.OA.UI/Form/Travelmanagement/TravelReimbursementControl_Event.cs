@@ -695,9 +695,5 @@ namespace SMT.SaaS.OA.UI.UserControls
             TravelAllowance(false);
         }
         #endregion
-
-
-
-
     }
 }
