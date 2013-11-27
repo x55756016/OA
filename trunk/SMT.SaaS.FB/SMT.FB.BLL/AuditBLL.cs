@@ -528,6 +528,14 @@ namespace SMT.FB.BLL
                     tempEntity.ForEach(item =>
                     {
                         SMT_FB_EFModel.T_FB_DEPTBUDGETADDDETAIL depDetail = item.Entity as T_FB_DEPTBUDGETADDDETAIL;
+                        QueryEntityBLL bll = new QueryEntityBLL();
+                        QueryExpression qeDetail = QueryExpression.Equal("DEPTBUDGETADDDETAILID", depDetail.DEPTBUDGETADDDETAILID);
+                        qeDetail.QueryType = "T_FB_DEPTBUDGETADDDETAIL";
+                        qeDetail.Include = new string[] { typeof(T_FB_SUBJECT).Name };
+                        var dept = bll.InnerGetEntities<T_FB_DEPTBUDGETADDDETAIL>(qeDetail).FirstOrDefault();//部门分配明细
+                        depDetail.T_FB_SUBJECT = new T_FB_SUBJECT();
+                        depDetail.T_FB_SUBJECT.SUBJECTCODE = dept.T_FB_SUBJECT.SUBJECTCODE;
+                        depDetail.T_FB_SUBJECT.SUBJECTNAME = dept.T_FB_SUBJECT.SUBJECTNAME;
                         ((SMT_FB_EFModel.T_FB_DEPTBUDGETADDMASTER)(ent)).T_FB_DEPTBUDGETADDDETAIL.Add(depDetail);
                     });
                 }
