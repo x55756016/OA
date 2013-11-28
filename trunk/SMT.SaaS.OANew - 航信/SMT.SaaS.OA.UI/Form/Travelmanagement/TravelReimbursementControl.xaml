@@ -205,6 +205,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--住宿天数-->
                             <data:DataGridTemplateColumn Header="THENUMBEROFNIGHTS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Visibility="Collapsed">
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -524,7 +525,7 @@
                                                         </DataTemplate>
                                                     </data:DataGridTemplateColumn.CellTemplate>
                                                 </data:DataGridTemplateColumn>
-                                <data:DataGridTemplateColumn Header="THENUMBEROFNIGHTS"><!--住宿天数城市第6列-->
+                            <data:DataGridTemplateColumn Header="THENUMBEROFNIGHTS" Visibility="Collapsed"><!--住宿天数第6列-->
                                     	            <data:DataGridTemplateColumn.HeaderStyle>
                                                     <Style TargetType="sdk:DataGridColumnHeader">
                                                     <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>

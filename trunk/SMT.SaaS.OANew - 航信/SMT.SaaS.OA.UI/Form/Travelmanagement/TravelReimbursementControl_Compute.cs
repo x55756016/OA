@@ -545,7 +545,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             }
                             catch (Exception ex)
                             {
-                                Utility.SetLogAndShowLog(ex.ToString());
+                                Utility.SetLog(ex.ToString());
                             }
                             total += Convert.ToDouble(detail.TRANSPORTATIONSUBSIDIES.Value);
                         }
@@ -563,7 +563,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             }
                             catch (Exception ex)
                             {
-                                Utility.SetLogAndShowLog(ex.ToString());
+                                Utility.SetLog(ex.ToString());
                             }
                             total += Convert.ToDouble(detail.MEALSUBSIDIES.Value);
                         }

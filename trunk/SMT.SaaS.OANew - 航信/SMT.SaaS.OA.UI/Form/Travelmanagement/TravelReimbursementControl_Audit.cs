@@ -218,7 +218,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     StrType = "冲借款";
                 }
-                if (fbCtr.Order.REMARK != null)
+                if (!string.IsNullOrEmpty(StrType))
                 {
                     AutoList.Add(basedata("T_FB_EXTENSIONORDERDETAIL", "EXTENSIONTYPE", StrType, StrType, fbCtr.Order.EXTENSIONALORDERID));//科目报销备注
                     AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "EXTENSIONTYPE", StrType, StrType));//科目报销备注,同时加入主表
