@@ -1101,6 +1101,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
                 //住宿费，交通费，其他费用
                 bool IsPassEd = false;//住宿费是否超标
+                string str = string.Empty;
                 foreach (var obj in TravelDetailList_Golbal)
                 {
 
@@ -1118,6 +1119,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     //住宿天数
                     TextBox myDaysTime = DaGrEdit.Columns[5].GetCellContent(obj).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
+
+
                     //交通费
                     TextBox textTransportcosts = DaGrEdit.Columns[8].GetCellContent(obj).FindName("txtTRANSPORTCOSTS") as TextBox;
                     //住宿费
@@ -1129,8 +1132,45 @@ namespace SMT.SaaS.OA.UI.UserControls
                     //住宿补贴
                     TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(obj).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
 
-                    T_OA_REIMBURSEMENTDETAIL obje = obj as T_OA_REIMBURSEMENTDETAIL;
-                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+
+                    if (textTransportcosts != null)
+                    {
+                        if (!string.IsNullOrEmpty(textTransportcosts.Text))
+                        {
+                            totall = totall + textTransportcosts.Text.ToDouble();//交通费
+                        }
+                    }
+                    if (textAccommodation != null)
+                    {
+                        if (!string.IsNullOrEmpty(textAccommodation.Text))
+                        {
+                            totall = totall + textAccommodation.Text.ToDouble();//住宿费
+                        }
+                    }
+                    if (textOthercosts != null)
+                    {
+                        if (!string.IsNullOrEmpty(textOthercosts.Text))
+                        {
+                            totall = totall + textOthercosts.Text.ToDouble(); //其他费用        
+                        }
+                    }
+                    if (txtTFSubsidies != null)
+                    {
+                        if (!string.IsNullOrEmpty(txtTFSubsidies.Text))
+                        {
+                            totall = totall + txtTFSubsidies.Text.ToDouble();//交通补贴
+                        }
+                    }
+                    if (textAccommodation != null)
+                    {
+                        if (!string.IsNullOrEmpty(textAccommodation.Text))
+                        {
+                            totall = totall + txtMealSubsidies.Text.ToDouble();//住宿补贴
+                        }
+                    }
+
+                    //T_OA_REIMBURSEMENTDETAIL obje = obj as T_OA_REIMBURSEMENTDETAIL;
+                    //ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
                     //出差天数
                     double totaldays = 0;
                     //获取出差补贴
@@ -1175,13 +1215,26 @@ namespace SMT.SaaS.OA.UI.UserControls
                         }
 
                     }
+                   
 
-                    totall = totall
-                        + textTransportcosts.Text.ToDouble() //交通费
-                        + textAccommodation.Text.ToDouble()  //住宿费
-                        + textOthercosts.Text.ToDouble()     //其他费用       
-                        + txtTFSubsidies.Text.ToDouble()     //交通补贴
-                        + txtMealSubsidies.Text.ToDouble();  //住宿补贴                   
+                    
+                    //if (obj.ACCOMMODATION != null) totall = totall + Convert.ToDouble(obj.ACCOMMODATION.Value); //住宿补贴   
+                    //if (obj.TRANSPORTCOSTS != null) totall = totall + Convert.ToDouble(obj.TRANSPORTCOSTS.Value);//交通费
+                    //if (obj.TRANSPORTATIONSUBSIDIES != null) totall = totall + Convert.ToDouble(obj.TRANSPORTATIONSUBSIDIES.Value);//交通补贴
+                    //if (obj.OTHERCOSTS != null) totall = totall + Convert.ToDouble(obj.OTHERCOSTS.Value);//其他费用      
+
+                     //str =str+System.Environment.NewLine+ "交通费:" + obj.TRANSPORTCOSTS.Value
+                     //   + " 住宿费:" + Accommodation
+                     //   + " 其他费用" + obj.OTHERCOSTS.Value
+                     //   + " 交通补贴" + obj.TRANSPORTATIONSUBSIDIES.Value
+                     //   + " 住宿补贴" + obj.ACCOMMODATION.Value;
+
+                    //totall = totall
+                    //    +Convert.ToDouble(obj.TRANSPORTCOSTS.Value)// textTransportcosts.Text.ToDouble() //交通费
+                    //    + Accommodation //住宿费
+                    //    + Convert.ToDouble(obj.OTHERCOSTS.Value)//textOthercosts.Text.ToDouble()     //其他费用       
+                    //    +  Convert.ToDouble(obj.TRANSPORTATIONSUBSIDIES.Value)//txtTFSubsidies.Text.ToDouble()     //交通补贴
+                    //    + Convert.ToDouble(obj.ACCOMMODATION.Value);//txtMealSubsidies.Text.ToDouble();  //住宿补贴                   
                 }
                 if (IsPassEd)
                 {

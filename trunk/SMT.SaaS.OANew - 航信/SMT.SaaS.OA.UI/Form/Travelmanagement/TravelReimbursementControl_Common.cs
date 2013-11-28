@@ -681,8 +681,24 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
                         textStandards.Text = textStandards.Text + "出差城市：" + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)
                                 + "  您的岗位级别≥'I'级，无各项差旅补贴。";
-                        textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
-                            + "\n";
+                        if (entareaallowance == null)
+                        {
+                            textStandards.Text = textStandards.Text + "住宿标准：未获取到。"
+                                 + "\n";
+                        }
+                        else
+                        {
+                            if (entareaallowance.ACCOMMODATION == null)
+                            {
+                                textStandards.Text = textStandards.Text + "住宿标准：未获取到。"
+                                   + "\n";
+                            }
+                            else
+                            {
+                                textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
+                                    + "\n";
+                            }
+                        }
                         //detail.TRANSPORTATIONSUBSIDIES = 0;
                         //detail.MEALSUBSIDIES = 0;
                         return null;
