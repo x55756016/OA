@@ -898,8 +898,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
 
                 #endregion
-                    //CountMoneyA();
-                    //CountTravelDays(tmp,e);
                 }
             }
             catch (Exception ex)

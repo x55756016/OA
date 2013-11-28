@@ -691,6 +691,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region 费用控件选择事件
         void fbCtr_ItemSelectChange(object sender, FrameworkUI.FBControls.ChargeApplyControl.InitDataCompletedArgs e)
         {
+            SetTravelDetailValueFromForm();
             //选择了费用后重新计算报销总额
             TravelAllowance(false);
         }

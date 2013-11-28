@@ -607,18 +607,25 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
             textStandards.Text = string.Empty;
-            if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
-            {
-                textStandards.Text = textStandards.Text + "报销人的岗位级别小于等于I级，无交通补贴及住宿补贴";
-                //detail.TRANSPORTATIONSUBSIDIES = 0;
-                //detail.MEALSUBSIDIES = 0;
-                return null;
-            }
+           
+
+
+
             if (TravelDetailList_Golbal.Count() == 1)   //只有一条记录的情况
             {
-                string city = TravelDetailList_Golbal[0].DESTCITY.Replace(",", "");//目标城市值
-                entareaallowance = this.GetAllowanceByCityValue(city);
-                if (textStandards.Text.Contains(SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)))
+                string cityend = TravelDetailList_Golbal[0].DESTCITY.Replace(",", "");//目标城市值
+                entareaallowance = this.GetAllowanceByCityValue(cityend);
+                if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                {
+                    textStandards.Text = textStandards.Text + "出差城市：" + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityend)
+                            + "  您的岗位级别≥'I'级，无各项差旅补贴。";
+                    textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
+                        + "\n";
+                    //detail.TRANSPORTATIONSUBSIDIES = 0;
+                    //detail.MEALSUBSIDIES = 0;
+                    return null;
+                }
+                if (textStandards.Text.Contains(SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityend)))
                 {
                     //已经包含，直接跳过
                     return entareaallowance;
@@ -626,20 +633,20 @@ namespace SMT.SaaS.OA.UI.UserControls
                 
                 if (TravelDetailList_Golbal[0].PRIVATEAFFAIR == "1")//如果是私事
                 {
-                    textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)
+                    textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityend)
                         + "的出差报销标准是：交通补贴：" + "无" + "，餐费补贴："
                         + "无" + "，住宿标准：无。"
                         + "\n";
                 }
                 else if (TravelDetailList_Golbal[0].GOOUTTOMEET == "1")//如果是内部会议及培训
                 {
-                    textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)
+                    textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityend)
                         + "的出差为《内部会议、培训》，无各项差旅补贴。"
                         + "\n";
                 }
                 else if (TravelDetailList_Golbal[0].COMPANYCAR == "1")//如果是公司派车
                 {
-                    textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)
+                    textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityend)
                         + "的出差报销标准是：交通补贴：" + "无" + "餐费补贴：" + entareaallowance.MEALSUBSIDIES.ToString()
                         + "元，住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
                         + "\n";
@@ -648,7 +655,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 else if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的无各项补贴
                 {
                     //textStandards.Text = "您的岗位级别≥'I'级，无各项差旅补贴。";
-                    textStandards.Text = textStandards.Text + "出差城市：" + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)
+                    textStandards.Text = textStandards.Text + "出差城市：" + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityend)
                         + "  您的岗位级别≥'I'级，无各项差旅补贴。";
                     textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
                         + "\n";
@@ -656,7 +663,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
                 else
                 {
-                    textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)
+                    textStandards.Text = textStandards.Text + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityend)
                         + "的出差报销标准是：交通补贴：" + entareaallowance.TRANSPORTATIONSUBSIDIES
                         + "元，餐费补贴：" + entareaallowance.MEALSUBSIDIES.ToString()
                         + "元，住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
@@ -670,6 +677,16 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     string city = TravelDetailList_Golbal[j].DESTCITY.Replace(",", "");//目标城市值
                     entareaallowance = this.GetAllowanceByCityValue(city);
+                    if (EmployeePostLevel.ToInt32() <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                    {
+                        textStandards.Text = textStandards.Text + "出差城市：" + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)
+                                + "  您的岗位级别≥'I'级，无各项差旅补贴。";
+                        textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
+                            + "\n";
+                        //detail.TRANSPORTATIONSUBSIDIES = 0;
+                        //detail.MEALSUBSIDIES = 0;
+                        return null;
+                    }
                     if (textStandards.Text.Contains(SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)))
                     {
                         //已经包含，直接跳过

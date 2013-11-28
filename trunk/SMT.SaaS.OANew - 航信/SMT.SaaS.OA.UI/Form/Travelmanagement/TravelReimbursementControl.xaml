@@ -217,6 +217,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--交通工具-->
                             <data:DataGridTemplateColumn Header="TYPEOFTRAVELTOOLS" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -232,17 +233,11 @@
                                                             HorizontalAlignment="Stretch"
                                                             VerticalAlignment="Stretch"
                                                             Margin="2"></appCtr:TravelDictionaryComboBox>
-                                            <!--<TextBox Grid.Row="5" Grid.Column="1" x:Name="txtTYPEOFTRAVELTOOLS" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="25" Width="100" KeyDown="TextBox_KeyDown">
-                                                <validator:ValidatorService.Validator>
-                                                    <validator:RequiredValidator ManagerName="Group1"
-                                                        ErrorMessage="REQUIRED"
-                                                        ErrorMessageParameter="TYPEOFTRAVELTOOLS" />
-                                                </validator:ValidatorService.Validator>
-                                            </TextBox>-->
                                         </StackPanel>
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--交通工具级别-->
                             <data:DataGridTemplateColumn Header="GRADE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -270,6 +265,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--交通费-->
                             <data:DataGridTemplateColumn Header="TRAVELEXPENSES" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -284,6 +280,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--住宿费-->
                             <data:DataGridTemplateColumn Header="ACCOMMODATION" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -298,6 +295,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--市内交通补贴-->
                             <data:DataGridTemplateColumn Header="LOCALTRANSPORTATIONSUBSIDIES" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" ><!--交通补贴-->
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -312,6 +310,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--餐费补贴-->
                             <data:DataGridTemplateColumn Header="MEALSUBSIDIES" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" ><!--餐费补贴-->
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -326,6 +325,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--其他费用-->
                             <data:DataGridTemplateColumn Header="OTHERCOST" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -351,6 +351,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--内部会议/培训-->
                             <data:DataGridTemplateColumn Header="GOOUTTOMEET" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -361,6 +362,7 @@
                                     </DataTemplate>
                                 </data:DataGridTemplateColumn.CellTemplate>
                             </data:DataGridTemplateColumn>
+                            <!--公司派车-->
                             <data:DataGridTemplateColumn Header="COMPANYCAR" Width="60" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
                                 <data:DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -601,7 +603,7 @@
                                         </DataTemplate>
                                     </data:DataGridTemplateColumn.CellTemplate>
                                 </data:DataGridTemplateColumn>
-                                <data:DataGridTemplateColumn Header="TRAVELEXPENSES"><!--交通费城市第9列-->
+                                <data:DataGridTemplateColumn Header="TRAVELEXPENSES"><!--交通费第9列-->
 								            <data:DataGridTemplateColumn.HeaderStyle>
                                                     <Style TargetType="sdk:DataGridColumnHeader">
                                                     <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>

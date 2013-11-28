@@ -235,6 +235,18 @@ namespace SMT.SaaS.OA.UI.UserControls
                     return false;
                 }
             }
+            if (string.IsNullOrEmpty(this.txtSubTotal.Text) && this.txtSubTotal.Text.Trim() != "0")
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差报销费用不可为零，请重新填写单据", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtPAYMENTINFO.Text))
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "支付信息不能为空，请重新填写", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return false;
+            }
             //add by luojie
             //当没有报销金额时弹出提醒
             decimal totalFee = Convert.ToDecimal(txtChargeApplyTotal.Text);
@@ -291,13 +303,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差报销费用不可为零，请重新填写单据", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return;
                 }
-                if (string.IsNullOrEmpty(txtPAYMENTINFO.Text))
-                {
-                    RefreshUI(RefreshedTypes.HideProgressBar);
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "支付信息不能为空，请重新填写", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return;
-                }
-                else
+
+                if (!string.IsNullOrEmpty(txtPAYMENTINFO.Text))
                 {
                     fbCtr.Order.PAYMENTINFO = txtPAYMENTINFO.Text;//支付信息
                     StrPayInfo = txtPAYMENTINFO.Text;

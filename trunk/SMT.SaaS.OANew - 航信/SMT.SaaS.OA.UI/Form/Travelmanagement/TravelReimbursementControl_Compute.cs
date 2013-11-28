@@ -282,7 +282,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                     int i = 0;
                     foreach (var detail in TravelDetailList_Golbal)
                     {
-
                         double toodays = 0;
                         List<string> list = new List<string> { detail.BUSINESSDAYS };
 
@@ -526,9 +525,6 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                                 #endregion
                             }
-
-
-
                         }
 
                         //交通补贴，
@@ -579,11 +575,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                         {
                             total += Convert.ToDouble(detail.OTHERCOSTS);
                         }
-                        this.txtSubTotal.Text = total.ToString();//总费用
                       
                         //Fees = total;
                         i++;
                     }
+                    this.txtSubTotal.Text = total.ToString();//总费用
                     //总费用加上费用报销费用
                     if (fbCtr.totalMoney > 0)
                     {
@@ -1120,11 +1116,17 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
                         return;
                     }
+                    //住宿天数
                     TextBox myDaysTime = DaGrEdit.Columns[5].GetCellContent(obj).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
+                    //交通费
                     TextBox textTransportcosts = DaGrEdit.Columns[8].GetCellContent(obj).FindName("txtTRANSPORTCOSTS") as TextBox;
+                    //住宿费
                     TextBox textAccommodation = DaGrEdit.Columns[9].GetCellContent(obj).FindName("txtACCOMMODATION") as TextBox;
+                    //其他费用                   
                     TextBox textOthercosts = DaGrEdit.Columns[12].GetCellContent(obj).FindName("txtOtherCosts") as TextBox;
+                    //交通补贴
                     TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(obj).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                    //住宿补贴
                     TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(obj).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
 
                     T_OA_REIMBURSEMENTDETAIL obje = obj as T_OA_REIMBURSEMENTDETAIL;
@@ -1174,11 +1176,12 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                     }
 
-                    double ta = textTransportcosts.Text.ToDouble() + textAccommodation.Text.ToDouble() + textOthercosts.Text.ToDouble();
-                    totall = totall + ta;
-
-                    totall += txtTFSubsidies.Text.ToDouble() + txtMealSubsidies.Text.ToDouble();
-                    //totall += Fees;
+                    totall = totall
+                        + textTransportcosts.Text.ToDouble() //交通费
+                        + textAccommodation.Text.ToDouble()  //住宿费
+                        + textOthercosts.Text.ToDouble()     //其他费用       
+                        + txtTFSubsidies.Text.ToDouble()     //交通补贴
+                        + txtMealSubsidies.Text.ToDouble();  //住宿补贴                   
                 }
                 if (IsPassEd)
                 {
@@ -1189,12 +1192,13 @@ namespace SMT.SaaS.OA.UI.UserControls
                     this.txtAccommodation.Text = string.Empty;
                     this.txtAccommodation.Visibility = Visibility.Collapsed;
                 }
-                txtSubTotal.Text = totall.ToString();//差旅费总结
+                txtSubTotal.Text = totall.ToString();//差旅费小计
+               
                 if (fbCtr.totalMoney > 0)
                 {
                     totall = totall + Convert.ToDouble(fbCtr.totalMoney);
                 }
-                txtChargeApplyTotal.Text = totall.ToString(); //费用报销总计包括其他费用，如业务招待费               
+                txtChargeApplyTotal.Text = totall.ToString(); //出差报销费用合计，包括费用报销控件中的费用               
             }
             catch (Exception ex)
             {
