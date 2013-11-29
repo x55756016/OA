@@ -64,23 +64,34 @@ namespace SMT.SaaS.OA.UI.UserControls
                     TrDetail.REIMBURSEMENTDETAILID = (obje as T_OA_REIMBURSEMENTDETAIL).REIMBURSEMENTDETAILID;
                     
                     TrDetail.T_OA_TRAVELREIMBURSEMENT = TravelReimbursement_Golbal;
-
+                    //出发时间
                     DateTimePicker StartDate = ((DateTimePicker)((StackPanel)DaGrEdit.Columns[0].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;
+                    //到达时间
                     DateTimePicker EndDate = ((DateTimePicker)((StackPanel)DaGrEdit.Columns[2].GetCellContent(obje)).Children.FirstOrDefault()) as DateTimePicker;
+                    //出差天数
                     TextBox datys = ((TextBox)((StackPanel)DaGrEdit.Columns[4].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    //住宿天数
                     TextBox Newdatys = ((TextBox)((StackPanel)DaGrEdit.Columns[5].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    //交通工具类型
                     TravelDictionaryComboBox ToolType = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                    //交通工具级别
                     TravelDictionaryComboBox ToolLevel = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                    
+                    //交通费第8列
                     TextBox txtToolubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[8].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    //住宿费
+                    //住宿费第9列
                     TextBox txtASubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[9].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    //交通补贴
+                    //交通补贴第10列
                     TextBox txtTFSubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[10].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
-                    //餐费补贴
+                    //餐费补贴第11列
                     TextBox txtMealSubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[11].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    //其他费用第12列
                     TextBox txtOthercosts = ((TextBox)((StackPanel)DaGrEdit.Columns[12].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    //是否私事
                     CheckBox IsCheck = ((CheckBox)((StackPanel)DaGrEdit.Columns[13].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
+                    //是否会议
                     CheckBox IsCheckMeet = ((CheckBox)((StackPanel)DaGrEdit.Columns[14].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
+                    //是否公司派车
                     CheckBox IsCheckCar = ((CheckBox)((StackPanel)DaGrEdit.Columns[15].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
 
                     StrStartDt = StartDate.Value.Value.ToString("d");//开始日期
@@ -107,7 +118,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
                         TrDetail.BUSINESSDAYS = datys.Text;
                     }
-                    if (Newdatys != null)//出差天数
+                    if (Newdatys != null)//住宿天数
                     {
                         TrDetail.THENUMBEROFNIGHTS = Newdatys.Text;
                     }
@@ -129,7 +140,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                         T_SYS_DICTIONARY ComLevelObj = ToolLevel.SelectedItem as T_SYS_DICTIONARY;
                         TrDetail.TAKETHETOOLLEVEL = ComLevelObj.DICTIONARYVALUE.ToString();
                     }
-                    if (txtToolubsidies != null)//乘坐交通工具费用
+                    if (txtToolubsidies != null)//交通费
                     {
                         if (!string.IsNullOrEmpty(txtToolubsidies.Text))
                             TrDetail.TRANSPORTCOSTS = Convert.ToDecimal(txtToolubsidies.Text);

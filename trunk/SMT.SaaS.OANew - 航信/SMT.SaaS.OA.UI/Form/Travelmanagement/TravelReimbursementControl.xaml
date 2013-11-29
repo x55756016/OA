@@ -500,7 +500,7 @@
                                         </DataTemplate>
                                     </data:DataGridTemplateColumn.CellTemplate>
                                 </data:DataGridTemplateColumn>
-                                <data:DataGridTemplateColumn Header="BUSINESSDAYS"><!--出差天数城市第5列-->
+                                <data:DataGridTemplateColumn Header="BUSINESSDAYS"><!--出差天数第5列-->
                                     	            <data:DataGridTemplateColumn.HeaderStyle>
                                                     <Style TargetType="sdk:DataGridColumnHeader">
                                                     <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
@@ -520,7 +520,7 @@
                                                     <data:DataGridTemplateColumn.CellTemplate>
                                                         <DataTemplate>
                                                             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                                                <TextBox  Grid.Row="3" Grid.Column="1" x:Name="txtTOTALDAYS" Text="{Binding BUSINESSDAYS,Mode=TwoWay}"
+                                                                <TextBox  Grid.Row="3" Grid.Column="1" x:Name="tbtxtTOTALDAYS" Text="{Binding BUSINESSDAYS,Mode=TwoWay}"
                                                                           TextWrapping="NoWrap" IsReadOnly="True" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">                      
                                                                 </TextBox>
                                                             </StackPanel>
@@ -547,7 +547,7 @@
 									                <data:DataGridTemplateColumn.CellTemplate>
                                                         <DataTemplate>
                                                             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                                                <TextBox  Grid.Row="3" Grid.Column="1" x:Name="txtTHENUMBEROFNIGHTS" Text="{Binding THENUMBEROFNIGHTS,Mode=TwoWay}"
+                                                                <TextBox  Grid.Row="3" Grid.Column="1" x:Name="tbtxtTHENUMBEROFNIGHTS" Text="{Binding THENUMBEROFNIGHTS,Mode=TwoWay}"
                                                                           TextWrapping="NoWrap" IsReadOnly="True" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">                      
                                                                 </TextBox>
                                                             </StackPanel>
@@ -622,7 +622,7 @@
 											            <data:DataGridTemplateColumn.CellTemplate>
                                                             <DataTemplate>
                                                                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                                                    <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtTRANSPORTCOSTS" Text="{Binding TRANSPORTCOSTS, Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown" LostFocus="txtTRANSPORTCOSTS_LostFocus">
+                                                                    <TextBox Grid.Row="6" Grid.Column="1" x:Name="tbtxtTRANSPORTCOSTS" Text="{Binding TRANSPORTCOSTS, Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown" LostFocus="txtTRANSPORTCOSTS_LostFocus">
                                                                        <validator:ValidatorService.Validator>
                                                                             <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="TRAVELEXPENSES"
 				                                                                  Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
@@ -651,7 +651,7 @@
                                                         <data:DataGridTemplateColumn.CellTemplate>
                                                             <DataTemplate>
                                                                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                                                    <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtACCOMMODATION" TextWrapping="NoWrap" Text="" Height="25" LostFocus="txtACCOMMODATION_LostFocus" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
+                                                                    <TextBox Grid.Row="6" Grid.Column="1" x:Name="tbtxtACCOMMODATION" TextWrapping="NoWrap" Text="" Height="25" LostFocus="txtACCOMMODATION_LostFocus" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
                                                                         <validator:ValidatorService.Validator>
                                                                             <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="ACCOMMODATION"
 				                                                                  Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
@@ -680,7 +680,7 @@
                                                      <data:DataGridTemplateColumn.CellTemplate>
                                                             <DataTemplate>
                                                                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                                                    <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtTRANSPORTATIONSUBSIDIES" Text="" TextWrapping="NoWrap" IsReadOnly="True" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
+                                                                    <TextBox Grid.Row="6" Grid.Column="3" x:Name="tbtxtTRANSPORTATIONSUBSIDIES" Text="" TextWrapping="NoWrap" IsReadOnly="True" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
                                                                         <validator:ValidatorService.Validator>
                                                                             <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="LOCALTRANSPORTATIONSUBSIDIES"
 				                                                                  Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
@@ -709,7 +709,7 @@
                                                     <data:DataGridTemplateColumn.CellTemplate>
                                                                     <DataTemplate>
                                                                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                                                           <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtMEALSUBSIDIES" Text="" TextWrapping="NoWrap" IsReadOnly="True" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
+                                                                           <TextBox Grid.Row="6" Grid.Column="3" x:Name="tbtxtMEALSUBSIDIES" Text="" TextWrapping="NoWrap" IsReadOnly="True" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown">
                                                                                 <validator:ValidatorService.Validator>
                                                                                     <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="MEALSUBSIDIES"
 				                                                                          Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
@@ -738,7 +738,7 @@
                                                   <data:DataGridTemplateColumn.CellTemplate>
                                                             <DataTemplate>
                                                                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                                                                    <TextBox Grid.Row="6" Grid.Column="3" x:Name="txtOtherCosts" Text="{Binding OTHERCOSTS, Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown" LostFocus="txtOtherCosts_LostFocus">
+                                                                    <TextBox Grid.Row="6" Grid.Column="3" x:Name="tbtxtOtherCosts" Text="{Binding OTHERCOSTS, Mode=TwoWay}" TextWrapping="NoWrap" Height="25" Style="{StaticResource TextBoxStyle}" MaxLength="35" Width="35" KeyDown="TextBox_KeyDown" LostFocus="txtOtherCosts_LostFocus">
                                                                         <validator:ValidatorService.Validator>
                                                                             <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="OTHERCOST"
 				                                                                  Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
@@ -767,7 +767,7 @@
                                                 <data:DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                            <CheckBox x:Name="myChkBox" Checked="myChkBox_Checked" Unchecked="myChkBox_Unchecked" IsEnabled="False" Tag="{Binding PRIVATEAFFAIR}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
+                                                            <CheckBox x:Name="tbmyChkBox" Checked="myChkBox_Checked" Unchecked="myChkBox_Unchecked" IsEnabled="False" Tag="{Binding PRIVATEAFFAIR}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </data:DataGridTemplateColumn.CellTemplate>
@@ -791,7 +791,7 @@
                                                         <data:DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                            <CheckBox x:Name="myChkBoxMeet" Checked="myChkBoxMeet_Checked" Unchecked="myChkBoxMeet_Unchecked" IsEnabled="False" Tag="{Binding GOOUTTOMEET}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
+                                                            <CheckBox x:Name="tbmyChkBoxMeet" Checked="myChkBoxMeet_Checked" Unchecked="myChkBoxMeet_Unchecked" IsEnabled="False" Tag="{Binding GOOUTTOMEET}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </data:DataGridTemplateColumn.CellTemplate>
@@ -815,7 +815,7 @@
                                                         <data:DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                            <CheckBox x:Name="myChkBoxCar" Checked="myChkBoxCar_Checked" Unchecked="myChkBoxCar_Unchecked" IsEnabled="False" Tag="{Binding GOOUTTOMEET}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
+                                                            <CheckBox x:Name="tbmyChkBoxCar" Checked="myChkBoxCar_Checked" Unchecked="myChkBoxCar_Unchecked" IsEnabled="False" Tag="{Binding GOOUTTOMEET}" Height="23" Margin="0,6,0,0" VerticalAlignment="Center" />
                                                         </StackPanel>
                                                     </DataTemplate>
                                                 </data:DataGridTemplateColumn.CellTemplate>

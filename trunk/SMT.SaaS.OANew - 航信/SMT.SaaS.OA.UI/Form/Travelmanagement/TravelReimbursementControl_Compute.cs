@@ -1100,30 +1100,41 @@ namespace SMT.SaaS.OA.UI.UserControls
                     TextBox myDaysTime = DaGrEdit.Columns[5].GetCellContent(obj).FindName("txtTHENUMBEROFNIGHTS") as TextBox;
 
 
-                    //交通费
-                    TextBox textTransportcosts = DaGrEdit.Columns[8].GetCellContent(obj).FindName("txtTRANSPORTCOSTS") as TextBox;
-                    //住宿费
-                    TextBox textAccommodation = DaGrEdit.Columns[9].GetCellContent(obj).FindName("txtACCOMMODATION") as TextBox;                   
-                    //交通补贴
-                    TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(obj).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;
-                    //餐费补贴
-                    TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(obj).FindName("txtMEALSUBSIDIES") as TextBox;
-                    //其他费用                   
-                    TextBox textOthercosts = DaGrEdit.Columns[12].GetCellContent(obj).FindName("txtOtherCosts") as TextBox;
+                    ////交通费txtTRANSPORTCOSTS
+                    //TextBox txtToolubsidies = DaGrEdit.Columns[8].GetCellContent(obj).FindName("txtTRANSPORTCOSTS") as TextBox;
+                    ////住宿费txtACCOMMODATION
+                    //TextBox txtASubsidies = DaGrEdit.Columns[9].GetCellContent(obj).FindName("txtACCOMMODATION") as TextBox;                   
+                    ////交通补贴
+                    //TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(obj).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;
+                    ////餐费补贴
+                    //TextBox txtMealSubsidies = DaGrEdit.Columns[11].GetCellContent(obj).FindName("txtMEALSUBSIDIES") as TextBox;
+                    ////其他费用                   
+                    //TextBox txtOthercosts = DaGrEdit.Columns[12].GetCellContent(obj).FindName("txtOtherCosts") as TextBox;
 
+                    //交通费第8列
+                    TextBox txtToolubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[8].GetCellContent(obj)).Children.FirstOrDefault()) as TextBox;
+                    //住宿费第9列
+                    TextBox txtASubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[9].GetCellContent(obj)).Children.FirstOrDefault()) as TextBox;
+                    //交通补贴第10列
+                    TextBox txtTFSubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[10].GetCellContent(obj)).Children.FirstOrDefault()) as TextBox;
+                    //餐费补贴第11列
+                    TextBox txtMealSubsidies = ((TextBox)((StackPanel)DaGrEdit.Columns[11].GetCellContent(obj)).Children.FirstOrDefault()) as TextBox;
+                    //其他费用第12列
+                    TextBox txtOthercosts = ((TextBox)((StackPanel)DaGrEdit.Columns[12].GetCellContent(obj)).Children.FirstOrDefault()) as TextBox;
+                   
 
-                    if (textTransportcosts != null)
+                    if (txtToolubsidies != null)
                     {
-                        if (!string.IsNullOrEmpty(textTransportcosts.Text))
+                        if (!string.IsNullOrEmpty(txtToolubsidies.Text))
                         {
-                            totall = totall + textTransportcosts.Text.ToDouble();//交通费
+                            totall = totall + txtToolubsidies.Text.ToDouble();//交通费
                         }
                     }
-                    if (textAccommodation != null)
+                    if (txtASubsidies != null)
                     {
-                        if (!string.IsNullOrEmpty(textAccommodation.Text))
+                        if (!string.IsNullOrEmpty(txtASubsidies.Text))
                         {
-                            totall = totall + textAccommodation.Text.ToDouble();//住宿费
+                            totall = totall + txtASubsidies.Text.ToDouble();//住宿费
                         }
                     }
                    
@@ -1141,11 +1152,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                             totall = totall + txtMealSubsidies.Text.ToDouble();// 餐费补贴
                         }
                     }
-                    if (textOthercosts != null)
+                    if (txtOthercosts != null)
                     {
-                        if (!string.IsNullOrEmpty(textOthercosts.Text))
+                        if (!string.IsNullOrEmpty(txtOthercosts.Text))
                         {
-                            totall = totall + textOthercosts.Text.ToDouble(); //其他费用        
+                            totall = totall + txtOthercosts.Text.ToDouble(); //其他费用        
                         }
                     }
                     //出差天数
@@ -1161,25 +1172,25 @@ namespace SMT.SaaS.OA.UI.UserControls
                         totaldays = System.Convert.ToDouble(obj.BUSINESSDAYS);
                         if (entareaallowance != null)
                         {
-                            if (textAccommodation.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * totaldays)//判断住宿费超标
+                            if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * totaldays)//判断住宿费超标
                             {
                                 //文本框标红
-                                textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
-                                textAccommodation.Foreground = new SolidColorBrush(Colors.Red);
+                                txtASubsidies.BorderBrush = new SolidColorBrush(Colors.Red);
+                                txtASubsidies.Foreground = new SolidColorBrush(Colors.Red);
                                 this.txtAccommodation.Visibility = Visibility.Visible;
                                 IsPassEd = true;
                                 //this.txtAccommodation.Text = "住宿费超标";
                             }
 
-                            if (textAccommodation.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * totaldays)
+                            if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * totaldays)
                             {
                                 if (txtASubsidiesForeBrush != null)
                                 {
-                                    textAccommodation.Foreground = txtASubsidiesForeBrush;
+                                    txtASubsidies.Foreground = txtASubsidiesForeBrush;
                                 }
                                 if (txtASubsidiesBorderBrush != null)
                                 {
-                                    textAccommodation.BorderBrush = txtASubsidiesBorderBrush;
+                                    txtASubsidies.BorderBrush = txtASubsidiesBorderBrush;
                                 }
                                 string StrMessage = "";
                                 StrMessage = this.txtAccommodation.Text;

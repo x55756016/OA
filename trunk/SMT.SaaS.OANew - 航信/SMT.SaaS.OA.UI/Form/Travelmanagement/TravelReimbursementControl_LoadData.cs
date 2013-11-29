@@ -302,7 +302,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 SearchCity myCitys = DaGrEdit.Columns[3].GetCellContent(e.Row).FindName("txtTARGETCITIES") as SearchCity;
                 //交通费
                 TextBox txtTranSportcosts = DaGrEdit.Columns[8].GetCellContent(e.Row).FindName("txtTRANSPORTCOSTS") as TextBox;
-                //住宿标准
+                //住宿费
                 TextBox txtASubsidies = DaGrEdit.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;
                 //交通补贴
                 TextBox txtTFSubsidies = DaGrEdit.Columns[10].GetCellContent(e.Row).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;
@@ -397,9 +397,20 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 {
                                     IsCheckCar.IsChecked = true;
                                 }
-                                if (txtASubsidies != null)//住宿标准
+                                //交通费
+                                if (txtTranSportcosts != null)
+                                {
+                                    txtTranSportcosts.Text = obje.TRANSPORTCOSTS.ToString();
+                                }
+
+                                if (txtASubsidies != null)//住宿费
                                 {
                                     txtASubsidies.Text = obje.ACCOMMODATION.ToString();
+                                }
+                                //其他费用
+                                if (txtOtherCosts != null)
+                                {
+                                    txtOtherCosts.Text = obje.OTHERCOSTS.ToString();
                                 }
                                 if (txtTFSubsidies != null)//交通补贴
                                 {
@@ -643,26 +654,61 @@ namespace SMT.SaaS.OA.UI.UserControls
             try
             {
                 #region 设置值
-                T_OA_REIMBURSEMENTDETAIL tmp = (T_OA_REIMBURSEMENTDETAIL)e.Row.DataContext;
+                T_OA_REIMBURSEMENTDETAIL obje = (T_OA_REIMBURSEMENTDETAIL)e.Row.DataContext;
 
-                TextBlock dpStartTimelook = DaGrReadOnly.Columns[0].GetCellContent(e.Row).FindName("tbStartTime") as TextBlock;
-                TextBlock dpEndTime = DaGrReadOnly.Columns[2].GetCellContent(e.Row).FindName("tbEndTime") as TextBlock;
+                TextBlock StartDate = DaGrReadOnly.Columns[0].GetCellContent(e.Row).FindName("tbStartTime") as TextBlock;
+                TextBlock EndDate = DaGrReadOnly.Columns[2].GetCellContent(e.Row).FindName("tbEndTime") as TextBlock;
+                //出发城市
                 TextBlock myCity = DaGrReadOnly.Columns[1].GetCellContent(e.Row).FindName("tbDEPARTURECITY") as TextBlock;
+                //到达城市
                 TextBlock myCitys = DaGrReadOnly.Columns[3].GetCellContent(e.Row).FindName("tbTARGETCITIES") as TextBlock;
-                TextBox txtTranSportcosts = DaGrReadOnly.Columns[8].GetCellContent(e.Row).FindName("txtTRANSPORTCOSTS") as TextBox;//交通费
-                TextBox txtASubsidies = DaGrReadOnly.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;//住宿标准
-                TextBox txtTFSubsidies = DaGrReadOnly.Columns[10].GetCellContent(e.Row).FindName("txtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
-                TextBox txtMealSubsidies = DaGrReadOnly.Columns[11].GetCellContent(e.Row).FindName("txtMEALSUBSIDIES") as TextBox;//餐费补贴
-                TextBlock ComVechile = DaGrReadOnly.Columns[6].GetCellContent(e.Row).FindName("tbComVechileType") as TextBlock;
-                TextBlock ComLevel = DaGrReadOnly.Columns[7].GetCellContent(e.Row).FindName("tbComVechileTypeLeve") as TextBlock;
-                TextBox txtOtherCosts = DaGrReadOnly.Columns[12].GetCellContent(e.Row).FindName("txtOtherCosts") as TextBox;//其他费用
-                CheckBox IsCheck = DaGrReadOnly.Columns[13].GetCellContent(e.Row).FindName("myChkBox") as CheckBox;
-                CheckBox IsCheckMeet = DaGrReadOnly.Columns[14].GetCellContent(e.Row).FindName("myChkBoxMeet") as CheckBox;
-                CheckBox IsCheckCar = DaGrReadOnly.Columns[15].GetCellContent(e.Row).FindName("myChkBoxCar") as CheckBox;
+                TextBox txtToolubsidies = DaGrReadOnly.Columns[8].GetCellContent(e.Row).FindName("tbtxtTRANSPORTCOSTS") as TextBox;//交通费
+                //住宿费
+                TextBox txtASubsidies = DaGrReadOnly.Columns[9].GetCellContent(e.Row).FindName("tbtxtACCOMMODATION") as TextBox;//住宿标准
+                TextBox txtTFSubsidies = DaGrReadOnly.Columns[10].GetCellContent(e.Row).FindName("tbtxtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                TextBox txtMealSubsidies = DaGrReadOnly.Columns[11].GetCellContent(e.Row).FindName("tbtxtMEALSUBSIDIES") as TextBox;//餐费补贴
+                TextBlock ToolType = DaGrReadOnly.Columns[6].GetCellContent(e.Row).FindName("tbComVechileType") as TextBlock;
+                TextBlock ToolLevel = DaGrReadOnly.Columns[7].GetCellContent(e.Row).FindName("tbComVechileTypeLeve") as TextBlock;
+                TextBox txtOthercosts = DaGrReadOnly.Columns[12].GetCellContent(e.Row).FindName("tbtxtOtherCosts") as TextBox;//其他费用
+                CheckBox IsCheck = DaGrReadOnly.Columns[13].GetCellContent(e.Row).FindName("tbmyChkBox") as CheckBox;
+                CheckBox IsCheckMeet = DaGrReadOnly.Columns[14].GetCellContent(e.Row).FindName("tbmyChkBoxMeet") as CheckBox;
+                CheckBox IsCheckCar = DaGrReadOnly.Columns[15].GetCellContent(e.Row).FindName("tbmyChkBoxCar") as CheckBox;
+                //住宿费
+                //TextBox txtASubsidies = DaGrEdit.Columns[9].GetCellContent(e.Row).FindName("txtACCOMMODATION") as TextBox;
+                
+                ////出发时间
+                //TextBlock StartDate = ((TextBlock)((StackPanel)DaGrReadOnly.Columns[0].GetCellContent(obje)).Children.FirstOrDefault()) as TextBlock;
+                ////到达时间
+                //TextBlock EndDate = ((TextBlock)((StackPanel)DaGrReadOnly.Columns[2].GetCellContent(obje)).Children.FirstOrDefault()) as TextBlock;
+                //出差天数
+                //TextBox datys = ((TextBox)((StackPanel)DaGrReadOnly.Columns[4].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                //住宿天数（隐藏了）
+                //TextBox Newdatys = ((TextBox)((StackPanel)DaGrReadOnly.Columns[5].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                //交通工具类型
+                //TextBlock ToolType = ((TextBlock)((StackPanel)DaGrReadOnly.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TextBlock;
+                ////交通工具级别
+                //TextBlock ToolLevel = ((TextBlock)((StackPanel)DaGrReadOnly.Columns[7].GetCellContent(obje)).Children.FirstOrDefault()) as TextBlock;
+                ////交通费第8列
+                //TextBox txtToolubsidies = ((TextBox)((StackPanel)DaGrReadOnly.Columns[8].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                ////住宿费第9列
+                //TextBox txtASubsidies = ((TextBox)((StackPanel)DaGrReadOnly.Columns[9].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                ////交通补贴第10列
+                //TextBox txtTFSubsidies = ((TextBox)((StackPanel)DaGrReadOnly.Columns[10].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                ////餐费补贴第11列
+                //TextBox txtMealSubsidies = ((TextBox)((StackPanel)DaGrReadOnly.Columns[11].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                ////其他费用第12列
+                //TextBox txtOthercosts = ((TextBox)((StackPanel)DaGrReadOnly.Columns[12].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                ////是否私事
+                //CheckBox IsCheck = ((CheckBox)((StackPanel)DaGrReadOnly.Columns[13].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
+                ////是否会议
+                //CheckBox IsCheckMeet = ((CheckBox)((StackPanel)DaGrReadOnly.Columns[14].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
+                ////是否公司派车
+                //CheckBox IsCheckCar = ((CheckBox)((StackPanel)DaGrReadOnly.Columns[15].GetCellContent(obje)).Children.FirstOrDefault()) as CheckBox;
+
 
                 //对默认控件的颜色进行赋值
-                tempcomTypeForeBrush = ComVechile.Foreground;
-                tempcomLevelForeBrush = ComLevel.Foreground;
+                tempcomTypeForeBrush = ToolType.Foreground;
+                tempcomLevelForeBrush = ToolLevel.Foreground;
                 txtASubsidiesForeBrush = txtASubsidies.Foreground;
                 txtASubsidiesBorderBrush = txtASubsidies.BorderBrush;
                 //DaGrReadOnly.Columns[5].Visibility = Visibility.Collapsed;
@@ -682,10 +728,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     ObservableCollection<T_OA_REIMBURSEMENTDETAIL> objs = DaGrReadOnly.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
                     int i = 0;
-                    foreach (var obje in objs)
+                    foreach (var obj in objs)
                     {
 
-                        if (obje.REIMBURSEMENTDETAILID == tmp.REIMBURSEMENTDETAILID)//判断记录的ID是否相同
+                        if (obj.REIMBURSEMENTDETAILID == obj.REIMBURSEMENTDETAILID)//判断记录的ID是否相同
                         {
                             DaGrReadOnly.SelectedItem = e.Row;
                             T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
@@ -700,64 +746,64 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 #region 获取目标城市、各项补贴数据
                                 if (myCity != null)//出发城市
                                 {
-                                    if (obje.DEPCITY != null)
+                                    if (obj.DEPCITY != null)
                                     {
-                                        myCity.Text = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(obje.DEPCITY);
+                                        myCity.Text = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(obj.DEPCITY);
                                     }
                                 }
                                 if (myCitys != null)//目标城市
                                 {
-                                    if (obje.DESTCITY != null)
+                                    if (obj.DESTCITY != null)
                                     {
-                                        myCitys.Text = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(obje.DESTCITY);
+                                        myCitys.Text = SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(obj.DESTCITY);
                                     }
                                 }
-                                if (obje.TYPEOFTRAVELTOOLS != null)//交通工具类型
+                                if (obj.TYPEOFTRAVELTOOLS != null)//交通工具类型
                                 {
-                                    ComVechile.Text = GetTypeName(obje.TYPEOFTRAVELTOOLS);
+                                    ToolType.Text = GetTypeName(obj.TYPEOFTRAVELTOOLS);
                                 }
-                                if (obje.TAKETHETOOLLEVEL != null)//交通工具级别
+                                if (obj.TAKETHETOOLLEVEL != null)//交通工具级别
                                 {
-                                    ComLevel.Text = GetLevelName(obje.TAKETHETOOLLEVEL, GetTypeId(obje.TYPEOFTRAVELTOOLS));
+                                    ToolLevel.Text = GetLevelName(obj.TAKETHETOOLLEVEL, GetTypeId(obj.TYPEOFTRAVELTOOLS));
                                 }
-                                if (obje.PRIVATEAFFAIR == "1")//私事
+                                if (obj.PRIVATEAFFAIR == "1")//私事
                                 {
                                     IsCheck.IsChecked = true;
                                 }
-                                if (obje.GOOUTTOMEET == "1")//外出开会
+                                if (obj.GOOUTTOMEET == "1")//外出开会
                                 {
                                     IsCheckMeet.IsChecked = true;
                                 }
-                                if (obje.COMPANYCAR == "1")//公司派车
+                                if (obj.COMPANYCAR == "1")//公司派车
                                 {
                                     IsCheckCar.IsChecked = true;
                                 }
                                 if (txtASubsidies != null)//住宿标准
                                 {
-                                    txtASubsidies.Text = obje.ACCOMMODATION.ToString();
+                                    txtASubsidies.Text = obj.ACCOMMODATION.ToString();
                                 }
                                 if (txtTFSubsidies != null)//交通补贴
                                 {
-                                    txtTFSubsidies.Text = obje.TRANSPORTATIONSUBSIDIES.ToString();
+                                    txtTFSubsidies.Text = obj.TRANSPORTATIONSUBSIDIES.ToString();
                                     if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
                                         if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
                                         {
                                             ComfirmWindow com = new ComfirmWindow();
-                                            com.OnSelectionBoxClosed += (obj, result) =>
+                                            com.OnSelectionBoxClosed += (comobj, result) =>
                                             {
-                                                txtTranSportcosts.IsReadOnly = true;//交通费
+                                                txtToolubsidies.IsReadOnly = true;//交通费
                                                 txtASubsidies.IsReadOnly = true;//住宿标准
-                                                txtOtherCosts.IsReadOnly = true;//其他费用
+                                                txtOthercosts.IsReadOnly = true;//其他费用
                                             };
                                             if (formType == FormTypes.Audit || formType == FormTypes.Browse
-                                                 || obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1") return;
-                                            if (obje.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
+                                                 || obj.GOOUTTOMEET == "1" || obj.COMPANYCAR == "1") return;
+                                            if (obj.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
                                             {
                                                 return;//最后一条无补贴
                                             }
-                                            if (obje.TRANSPORTATIONSUBSIDIES == null || obje.TRANSPORTATIONSUBSIDIES==0)
+                                            if (obj.TRANSPORTATIONSUBSIDIES == null || obj.TRANSPORTATIONSUBSIDIES==0)
                                             {
                                                 if (formType == FormTypes.Audit) return;
                                                 com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
@@ -767,27 +813,27 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 }
                                 if (txtMealSubsidies != null)//餐费补贴
                                 {
-                                    txtMealSubsidies.Text = obje.MEALSUBSIDIES.ToString();
+                                    txtMealSubsidies.Text = obj.MEALSUBSIDIES.ToString();
                                     if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
                                         if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
                                         {
                                             ComfirmWindow com = new ComfirmWindow();
-                                            com.OnSelectionBoxClosed += (obj, result) =>
+                                            com.OnSelectionBoxClosed += (comobj, result) =>
                                             {
-                                                txtTranSportcosts.IsReadOnly = true;//交通费
+                                                txtToolubsidies.IsReadOnly = true;//交通费
                                                 txtASubsidies.IsReadOnly = true;//住宿标准
-                                                txtOtherCosts.IsReadOnly = true;//其他费用
+                                                txtOthercosts.IsReadOnly = true;//其他费用
                                             };
                                             if (formType == FormTypes.Audit || formType == FormTypes.Browse
-                                               || obje.GOOUTTOMEET == "1") return;
-                                            if (obje.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
+                                               || obj.GOOUTTOMEET == "1") return;
+                                            if (obj.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
                                             {
                                                 return;//最后一条无补贴
                                             }
-                                            if (obje.MEALSUBSIDIES == null
-                                                || obje.MEALSUBSIDIES == 0)
+                                            if (obj.MEALSUBSIDIES == null
+                                                || obj.MEALSUBSIDIES == 0)
                                             {
                                                 if (formType == FormTypes.Audit) return;
                                                 com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
@@ -803,8 +849,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                                     txtASubsidies.IsReadOnly = true;
                                     txtTFSubsidies.IsReadOnly = true;
                                     txtMealSubsidies.IsReadOnly = true;
-                                    txtOtherCosts.IsReadOnly = true;
-                                    txtTranSportcosts.IsReadOnly = true;
+                                    txtOthercosts.IsReadOnly = true;
+                                    txtToolubsidies.IsReadOnly = true;
                                 }
                                 if (formType != FormTypes.New || formType != FormTypes.Edit)
                                 {
@@ -813,20 +859,20 @@ namespace SMT.SaaS.OA.UI.UserControls
                                         txtASubsidies.IsReadOnly = true;
                                         txtTFSubsidies.IsReadOnly = true;
                                         txtMealSubsidies.IsReadOnly = true;
-                                        txtOtherCosts.IsReadOnly = true;
-                                        txtTranSportcosts.IsReadOnly = true;
+                                        txtOthercosts.IsReadOnly = true;
+                                        txtToolubsidies.IsReadOnly = true;
                                     }
                                 }
                                 if (entareaallowance != null)
                                 {
-                                    if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * obje.THENUMBEROFNIGHTS.ToDouble())//判断住宿费超标
+                                    if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * obj.THENUMBEROFNIGHTS.ToDouble())//判断住宿费超标
                                     {
                                         txtASubsidies.BorderBrush = new SolidColorBrush(Colors.Red);
                                         txtASubsidies.Foreground = new SolidColorBrush(Colors.Red);
                                         txtAccommodation.Visibility = Visibility.Visible;
                                         this.txtAccommodation.Text = "住宿费超标";
                                     }
-                                    if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * obje.THENUMBEROFNIGHTS.ToDouble())
+                                    if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * obj.THENUMBEROFNIGHTS.ToDouble())
                                     {
                                         if (txtASubsidiesForeBrush != null && txtASubsidies.Foreground == null)
                                         {
@@ -841,7 +887,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 #endregion
 
                                 #region 获取交通工具类型、级别
-                                if (ComVechile != null)
+                                if (ToolType != null)
                                 {
                                     var thd = takethestandardtransport.FirstOrDefault();
                                     thd = this.GetVehicleTypeValue("");
@@ -850,37 +896,37 @@ namespace SMT.SaaS.OA.UI.UserControls
                                     {
                                         if (takethestandardtransport.Count() > 0)
                                         {
-                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() > obje.TYPEOFTRAVELTOOLS.ToInt32())
+                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() > obj.TYPEOFTRAVELTOOLS.ToInt32())
                                             {
-                                                ComVechile.Foreground = new SolidColorBrush(Colors.Red);
-                                                ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                                ToolType.Foreground = new SolidColorBrush(Colors.Red);
+                                                ToolLevel.Foreground = new SolidColorBrush(Colors.Red);
                                                 this.txtTips.Visibility = Visibility.Visible;
                                                 this.txtTips.Text = "交通工具超标";
                                             }
-                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() <= obje.TYPEOFTRAVELTOOLS.ToInt32())
+                                            if (thd.TYPEOFTRAVELTOOLS.ToInt32() <= obj.TYPEOFTRAVELTOOLS.ToInt32())
                                             {
                                                 if (tempcomTypeForeBrush != null)
                                                 {
-                                                    ComVechile.Foreground = tempcomTypeForeBrush;
+                                                    ToolType.Foreground = tempcomTypeForeBrush;
                                                 }
                                             }
                                         }
                                     }
                                 }
-                                if (ComLevel != null)//交通工具级别
+                                if (ToolLevel != null)//交通工具级别
                                 {
                                     //获取交通工具类型
-                                    int ii = CheckTraveToolStand(obje.TYPEOFTRAVELTOOLS.ToString(), obje.TAKETHETOOLLEVEL.ToString(), EmployeePostLevel);
+                                    int ii = CheckTraveToolStand(obj.TYPEOFTRAVELTOOLS.ToString(), obj.TAKETHETOOLLEVEL.ToString(), EmployeePostLevel);
                                     switch (ii)
                                     {
                                         case 0://类型超标
-                                            ComVechile.Foreground = new SolidColorBrush(Colors.Red);
-                                            ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                            ToolType.Foreground = new SolidColorBrush(Colors.Red);
+                                            ToolLevel.Foreground = new SolidColorBrush(Colors.Red);
                                             this.txtTips.Visibility = Visibility.Visible;
                                             this.txtTips.Text = "交通工具超标";
                                             break;
                                         case 1://级别超标
-                                            ComLevel.Foreground = new SolidColorBrush(Colors.Red);
+                                            ToolLevel.Foreground = new SolidColorBrush(Colors.Red);
                                             this.txtTips.Visibility = Visibility.Visible;
                                             this.txtTips.Text = "交通工具超标";
                                             break;
