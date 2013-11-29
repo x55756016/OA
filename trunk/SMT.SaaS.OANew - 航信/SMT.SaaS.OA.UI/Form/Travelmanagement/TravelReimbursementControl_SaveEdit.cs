@@ -297,12 +297,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                         fbCtr.TravelSubject.ApplyMoney = Convert.ToDecimal(this.txtSubTotal.Text);//将本次出差总费用给预算
                     }
                 }
-                else
-                {
-                    RefreshUI(RefreshedTypes.HideProgressBar);
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差报销费用不可为零，请重新填写单据", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return;
-                }
+                
 
                 if (!string.IsNullOrEmpty(txtPAYMENTINFO.Text))
                 {

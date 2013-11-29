@@ -607,10 +607,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
             textStandards.Text = string.Empty;
-           
-
-
-
             if (TravelDetailList_Golbal.Count() == 1)   //只有一条记录的情况
             {
                 string cityend = TravelDetailList_Golbal[0].DESTCITY.Replace(",", "");//目标城市值
@@ -619,8 +615,24 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     textStandards.Text = textStandards.Text + "出差城市：" + SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(cityend)
                             + "  您的岗位级别≥'I'级，无各项差旅补贴。";
-                    textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
-                        + "\n";
+                    if (entareaallowance == null)
+                    {
+                        textStandards.Text = textStandards.Text + "住宿标准：未获取到。"
+                             + "\n";
+                    }
+                    else
+                    {
+                        if (entareaallowance.ACCOMMODATION == null)
+                        {
+                            textStandards.Text = textStandards.Text + "住宿标准：未获取到。"
+                               + "\n";
+                        }
+                        else
+                        {
+                            textStandards.Text = textStandards.Text + "住宿标准：" + entareaallowance.ACCOMMODATION + "元。"
+                                + "\n";
+                        }
+                    }
                     //detail.TRANSPORTATIONSUBSIDIES = 0;
                     //detail.MEALSUBSIDIES = 0;
                     return null;
@@ -701,7 +713,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                         }
                         //detail.TRANSPORTATIONSUBSIDIES = 0;
                         //detail.MEALSUBSIDIES = 0;
-                        return null;
+                        //return null;
                     }
                     if (textStandards.Text.Contains(SMT.SaaS.FrameworkUI.Common.Utility.GetCityName(city)))
                     {
