@@ -662,14 +662,17 @@ namespace SMT.SaaS.OA.UI.UserControls
                 TextBlock myCity = DaGrReadOnly.Columns[1].GetCellContent(e.Row).FindName("tbDEPARTURECITY") as TextBlock;
                 //到达城市
                 TextBlock myCitys = DaGrReadOnly.Columns[3].GetCellContent(e.Row).FindName("tbTARGETCITIES") as TextBlock;
-                TextBox txtToolubsidies = DaGrReadOnly.Columns[8].GetCellContent(e.Row).FindName("tbtxtTRANSPORTCOSTS") as TextBox;//交通费
+                //交通费
+                TextBox txtToolubsidies = DaGrReadOnly.Columns[8].GetCellContent(e.Row).FindName("tbtxtTRANSPORTCOSTS") as TextBox;
                 //住宿费
-                TextBox txtASubsidies = DaGrReadOnly.Columns[9].GetCellContent(e.Row).FindName("tbtxtACCOMMODATION") as TextBox;//住宿标准
-                TextBox txtTFSubsidies = DaGrReadOnly.Columns[10].GetCellContent(e.Row).FindName("tbtxtTRANSPORTATIONSUBSIDIES") as TextBox;//交通补贴
+                TextBox txtASubsidies = DaGrReadOnly.Columns[9].GetCellContent(e.Row).FindName("tbtxtACCOMMODATION") as TextBox;
+                //交通补贴
+                TextBox txtTFSubsidies = DaGrReadOnly.Columns[10].GetCellContent(e.Row).FindName("tbtxtTRANSPORTATIONSUBSIDIES") as TextBox;
                 TextBox txtMealSubsidies = DaGrReadOnly.Columns[11].GetCellContent(e.Row).FindName("tbtxtMEALSUBSIDIES") as TextBox;//餐费补贴
                 TextBlock ToolType = DaGrReadOnly.Columns[6].GetCellContent(e.Row).FindName("tbComVechileType") as TextBlock;
                 TextBlock ToolLevel = DaGrReadOnly.Columns[7].GetCellContent(e.Row).FindName("tbComVechileTypeLeve") as TextBlock;
-                TextBox txtOthercosts = DaGrReadOnly.Columns[12].GetCellContent(e.Row).FindName("tbtxtOtherCosts") as TextBox;//其他费用
+                //其他费用
+                TextBox txtOthercosts = DaGrReadOnly.Columns[12].GetCellContent(e.Row).FindName("tbtxtOtherCosts") as TextBox;
                 CheckBox IsCheck = DaGrReadOnly.Columns[13].GetCellContent(e.Row).FindName("tbmyChkBox") as CheckBox;
                 CheckBox IsCheckMeet = DaGrReadOnly.Columns[14].GetCellContent(e.Row).FindName("tbmyChkBoxMeet") as CheckBox;
                 CheckBox IsCheckCar = DaGrReadOnly.Columns[15].GetCellContent(e.Row).FindName("tbmyChkBoxCar") as CheckBox;
@@ -731,7 +734,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     foreach (var obj in objs)
                     {
 
-                        if (obj.REIMBURSEMENTDETAILID == obj.REIMBURSEMENTDETAILID)//判断记录的ID是否相同
+                        if (obje.REIMBURSEMENTDETAILID == obj.REIMBURSEMENTDETAILID)//判断记录的ID是否相同
                         {
                             DaGrReadOnly.SelectedItem = e.Row;
                             T_SYS_DICTIONARY type = new T_SYS_DICTIONARY();
@@ -778,9 +781,20 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 {
                                     IsCheckCar.IsChecked = true;
                                 }
-                                if (txtASubsidies != null)//住宿标准
+                                //交通费
+                                if (txtToolubsidies != null)
                                 {
-                                    txtASubsidies.Text = obj.ACCOMMODATION.ToString();
+                                    txtToolubsidies.Text = obje.TRANSPORTCOSTS.ToString();
+                                }
+
+                                if (txtASubsidies != null)//住宿费
+                                {
+                                    txtASubsidies.Text = obje.ACCOMMODATION.ToString();
+                                }
+                                //其他费用
+                                if (txtOthercosts != null)
+                                {
+                                    txtOthercosts.Text = obje.OTHERCOSTS.ToString();
                                 }
                                 if (txtTFSubsidies != null)//交通补贴
                                 {

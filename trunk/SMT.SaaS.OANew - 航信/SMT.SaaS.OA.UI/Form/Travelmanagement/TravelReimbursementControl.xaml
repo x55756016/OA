@@ -632,7 +632,7 @@
                                                             </DataTemplate>
                                                         </data:DataGridTemplateColumn.CellTemplate>
                                                     </data:DataGridTemplateColumn>
-                                <data:DataGridTemplateColumn Header="ACCOMMODATION"><!--住宿费城市第10列-->
+                                <data:DataGridTemplateColumn Header="ACCOMMODATION"><!--住宿费第10列-->
                                         	            <data:DataGridTemplateColumn.HeaderStyle>
                                                     <Style TargetType="sdk:DataGridColumnHeader">
                                                     <Setter Property="Template" Value="{StaticResource DataGridColoumnHeaderStyleTemplate}"></Setter>
