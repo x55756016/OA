@@ -208,8 +208,11 @@ namespace SMT.SaaS.FrameworkUI.FBControls
             {
                 if (FBGridItem.ReferenceTypes != null)
                 {
-                    var findResult = FBGridItem.ReferenceTypes.FirstOrDefault(item => item.DICTIONARYVALUE == System.Convert.ToDecimal(value));
-                    return findResult.DICTIONARYNAME;
+                    if (FBGridItem.ReferenceTypes.Count > 0)
+                    {
+                        var findResult = FBGridItem.ReferenceTypes.FirstOrDefault(item => item.DICTIONARYVALUE == System.Convert.ToDecimal(value));
+                        return findResult.DICTIONARYNAME;
+                    }
                 }
                 return value;
             }

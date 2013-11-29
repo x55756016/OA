@@ -37,6 +37,8 @@ namespace SMT.HRM.UI.Form.Salary
             DateTime dt = System.DateTime.Now.AddMonths(-1);
             years.Value = dt.Year;
             months.Value = dt.Month;
+            endyears.Value = dt.Year;
+            endmonths.Value = dt.Month;
             salaryClient.GetSalarySummaryCompleted += new EventHandler<GetSalarySummaryCompletedEventArgs>(salaryClient_GetSalarySummaryCompleted);
             salaryClient.ExportSalarySummaryCompleted += new EventHandler<ExportSalarySummaryCompletedEventArgs>(salaryClient_ExportSalarySummaryCompleted);
             PARENT.Children.Add(loadbar);
@@ -120,32 +122,64 @@ namespace SMT.HRM.UI.Form.Salary
 
         void LoadData()
         {
-            loadbar.Start();
             int pageCount = 0;
             string filter = "";
             System.Collections.ObjectModel.ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();
 
-            string month = months.Value.ToString();
-            string year = years.Value.ToString();
+            int year = Convert.ToInt32(this.years.Value);
+            int month = Convert.ToInt32(this.months.Value);
+            string employeeName = this.txtName.Text;
+            int endYear = Convert.ToInt32(this.endyears.Value);
+            int endMonth = Convert.ToInt32(this.endmonths.Value);
 
-            if (!string.IsNullOrEmpty(year))
+            DateTime startDate = DateTime.Parse(year + "-" + month);
+            DateTime endDate = DateTime.Parse(endYear + "-" + endMonth);
+            if (startDate > endDate)
             {
-                filter = " salaryyear==@" + paras.Count.ToString();
-                paras.Add(year);
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("结束时间要大于开始时间"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return;
             }
+            for (int j = year; j <= endYear; j++)
+            {
+                int tempMonth = endMonth;//如果跨年查询，则最大为12月
+                if (j != endYear)
+                {
+                    tempMonth = 12;
+                }
+                for (int i = month; i <= tempMonth; i++)
+                {
+                    if (!string.IsNullOrEmpty(filter))
+                    {
+                        filter += " or ";//&&操作优先级大于||，不用括号
+                    }
+                    else
+                    {
+                        filter += " ( ";//括号包含薪资年月
+                    }
+                    filter += " salaryyear==@" + paras.Count.ToString();
+                    paras.Add(j.ToString());
 
-            if (!string.IsNullOrEmpty(month))
+                    if (!string.IsNullOrEmpty(filter))
+                        filter += " and ";
+                    filter += " salarymonth==@" + paras.Count.ToString();
+                    paras.Add(i.ToString());
+
+                }
+            }
+            filter += " ) ";//括号包含薪资年月
+            if (!string.IsNullOrEmpty(employeeName))//员工姓名
             {
                 if (!string.IsNullOrEmpty(filter))
                     filter += " and ";
-                filter += " salarymonth==@" + paras.Count.ToString();
-                paras.Add(month);
+                filter += " EmployeeName==@" + paras.Count.ToString();
+                paras.Add(employeeName);
             }
+
+            loadbar.Start();
             salaryClient.GetSalarySummaryAsync(dataPager.PageIndex, dataPager.PageSize, "EMPLOYEENAME",
-        filter, paras, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, year, month, false);
-
-
+        filter, paras, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, this.years.Value.ToString(), this.months.Value.ToString(), false);
         }
+
         private void lkSelectObj_FindClick(object sender, EventArgs e)
         {
 
@@ -200,6 +234,16 @@ namespace SMT.HRM.UI.Form.Salary
             }
             salaryClient.ExportSalarySummaryAsync(dataPager.PageIndex, dataPager.PageSize, "EMPLOYEENAME",
         filter, paras, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, year, month, false);
+        }
+
+        /// <summary>
+        ///  导出查询出页面的数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExportForm_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToCSV.ExportDataGridSaveAs(DtGrid);
         }
     }
 }

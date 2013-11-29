@@ -178,6 +178,22 @@ namespace System.Windows.Controls
                     double height = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualHeight;
                     double width = SMT.SAAS.Main.CurrentContext.AppContext.AppHost.SilverlightHostRoot.ActualWidth;
                     //MessageBox.Show("1高：" + (height - 50) + " 宽：" + (width - 50));
+
+                    //string msg = "弹出窗内部Form指定高度：" + this.Height + "类型" + this.Height.GetType().Name + " 宽度：" + this.Width + "类型：" + this.Height.GetType().Name
+                    //    + "弹出窗内部Form指定最小高度：" + this.MinHeight + "类型" + this.MinHeight.GetType().Name + " 最小宽度：" + this.MinWidth + "类型" + this.MinWidth.GetType().Name 
+                    //    + " 当前silverlight显示区高度：" + height + " 宽度：" + width;
+                    //SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
+                    //SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+
+                    if (this.MinHeight > height)
+                    {
+                        this.MinHeight = height - 50;
+                    }
+                    if (this.MinWidth > width)
+                    {
+                        this.MinWidth = width - 50;
+                    }
+
                     if (this.Height > height)
                     {
                         this.MinHeight = height-50;

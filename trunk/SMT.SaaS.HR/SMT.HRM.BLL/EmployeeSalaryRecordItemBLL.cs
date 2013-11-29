@@ -470,8 +470,7 @@ namespace SMT.HRM.BLL
             List<object> queryParas = new List<object>();
             queryParas.AddRange(paras);
             SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_HR_EMPLOYEESALARYRECORD");
-            decimal banlanceYear = Convert.ToDecimal(year);
-            decimal banlanceMonth = Convert.ToDecimal(month);
+
             var ents = from c in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
                      //  join f in dal.GetObjects<T_HR_ATTENDMONTHLYBALANCE>() on c.EMPLOYEEID equals f.EMPLOYEEID
                        join e in dal.GetObjects<T_HR_EMPLOYEE>() on c.EMPLOYEEID equals e.EMPLOYEEID
@@ -481,7 +480,7 @@ namespace SMT.HRM.BLL
                       // where f.BALANCEYEAR == banlanceYear && f.BALANCEMONTH == banlanceMonth && c.ATTENDANCEUNUSUALTIMES == f.OWNERCOMPANYID
                       // where c.SALARYYEAR == year && c.SALARYMONTH == month && c.ATTENDANCEUNUSUALTIMES == f.OWNERCOMPANYID
                        //where f.BALANCEYEAR == banlanceYear && f.BALANCEMONTH == banlanceMonth //去掉比较公司条件，这里还是要根据考勤的年月，薪资年月查找数据会很多
-                       where c.SALARYYEAR == year && c.SALARYMONTH == month
+                       //where c.SALARYYEAR == year && c.SALARYMONTH == month
                        select new SalryRecordView
                        {
                            orgName = d.CNAME,
@@ -515,9 +514,13 @@ namespace SMT.HRM.BLL
             {
                 ents = Utility.Pager<SalryRecordView>(ents, pageIndex, pageSize, ref pageCount);
             }
+            //var addsums = from f in dal.GetObjects<T_HR_EMPLOYEEADDSUM>()
+            //              where f.CHECKSTATE == "2" && f.DEALMONTH == month && f.DEALYEAR == year
+            //              select f;
             var addsums = from f in dal.GetObjects<T_HR_EMPLOYEEADDSUM>()
-                          where f.CHECKSTATE == "2" && f.DEALMONTH == month && f.DEALYEAR == year
+                          where f.CHECKSTATE == "2" 
                           select f;
+            //addsums = addsums.Where(tempFilter, tempParas.ToArray());//过滤加扣款信息，条件有查询的起止年月或姓名
             List<V_SalarySummary> V_SalarySum = new List<V_SalarySummary>();
             foreach (var ent in ents)
             {
@@ -528,7 +531,7 @@ namespace SMT.HRM.BLL
                 tmp.BankName = ent.BankName;
                 tmp.EmployeeName = ent.EmployeeName;
                 tmp.IDNumber = ent.IDNumber;
-                tmp.SalaryDate = year + "年" + month + "月";
+                tmp.SalaryDate = ent.salaryYear + "年" + ent.salaryMonth + "月";
                 tmp.ActuallyPay = ent.ActuallyPay;
                 var salaryTtem = ent.SalaryItems.FirstOrDefault();
                 if (salaryTtem != null)
@@ -551,8 +554,12 @@ namespace SMT.HRM.BLL
                 var salaryItems = ent.SalaryItems.OrderBy(t => t.ORDERNUMBER);//根据排序号排序
                 foreach (var item in salaryItems)
                 {
-                    int order =Convert.ToInt32(item.ORDERNUMBER.Value);
-                    switch (order)//对于排序为对于薪资项
+                    int order = 1;
+                    if (item.ORDERNUMBER != null)
+                    {
+                        order = Convert.ToInt32(item.ORDERNUMBER.Value);
+                    }
+                    switch (order)//排序为对应薪资项
                     {
                         case 1: tmp.SubTotal = item == null ? string.Empty : item.SUM; break;//应发小计
                         case 2: break;
@@ -792,7 +799,7 @@ namespace SMT.HRM.BLL
                //                       select si).FirstOrDefault();
                // tmp.PerformancerewardRecord = PerformancerewardRecord == null ? string.Empty : PerformancerewardRecord.SUM;
                 #endregion
-                var deducts = addsums.Where(s => s.EMPLOYEEID == ent.EmployeeID);//扣款备注
+                var deducts = addsums.Where(s => s.EMPLOYEEID == ent.EmployeeID && s.DEALMONTH == ent.salaryMonth && s.DEALYEAR == ent.salaryYear);//扣款备注
                 if (deducts.Count() > 0)
                 {
                     foreach (var re in deducts)

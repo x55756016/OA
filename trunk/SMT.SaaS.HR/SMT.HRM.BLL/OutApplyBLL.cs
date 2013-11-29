@@ -1145,10 +1145,11 @@ namespace SMT.HRM.BLL
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, Info.EMPLOYEENAME));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, Info.OWNERDEPARTMENTID));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERPOSTID", Info.OWNERPOSTID, Info.OWNERPOSTID));
-
+            
             string StrSource = GetBusinessObject("T_HR_OUTAPPLYRECORD");
+            Tracer.Debug("获取的元数据模板为：" + StrSource);
             string outApplyXML = mx.TableToXml(Info, null, StrSource, AutoList);
-
+            Tracer.Debug("组合后的元数据为：" + outApplyXML);
             return outApplyXML;
         }
         #endregion

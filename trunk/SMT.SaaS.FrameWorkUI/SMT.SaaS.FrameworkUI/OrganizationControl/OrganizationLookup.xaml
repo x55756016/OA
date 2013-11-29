@@ -6,17 +6,16 @@
                       xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
                       xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
                       xmlns:orgControl="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationControl"
-                      TitleContent="{Binding Converter={StaticResource ResourceConveter},Source=ORGANIZATION}"
-                      MinWidth="600" MinHeight="450" >
+                      TitleContent="{Binding Converter={StaticResource ResourceConveter},Source=ORGANIZATION}" >
  <Grid x:Name="PARENT">
-    <!--<ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">-->
-    <Grid x:Name="LayoutRoot" Margin="2">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <Grid x:Name="LayoutRoot" Margin="2" MinWidth="600" MinHeight="100" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -55,6 +54,6 @@
         </StackPanel>
         <TextBlock x:Name="tbSelectFlag" HorizontalAlignment="Center" Foreground="Red" Grid.Row="2"/>
     </Grid>
-    <!--</ScrollViewer>-->
+    </ScrollViewer>
 </Grid>
 </swc:Window>

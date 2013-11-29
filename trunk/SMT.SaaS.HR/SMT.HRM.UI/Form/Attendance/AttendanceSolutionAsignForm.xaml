@@ -50,7 +50,7 @@
 
                 <TextBlock x:Name="tbAssignedObjectIDTitle" Grid.Row="1"  Grid.Column="7"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECT}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center"  Margin="5,0,0,0"/>
                 <smtx:LookUp Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="4" FindClick="lkAssignObject_FindClick"  x:Name="lkAssignObject" Height="24" />
-                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="tbAssignedObjectID" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" Height="Auto" Width="Auto"  Margin="5,0,0,0" Text="{Binding ASSIGNEDOBJECTID, Mode=TwoWay}" />
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="tbAssignedObjectID" TextWrapping="Wrap" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5" Height="30" Width="100"  Margin="5,0,0,0" Text="{Binding ASSIGNEDOBJECTID, Mode=TwoWay}" />
 
                 <!--Row 2:StartDate & EndDate-->
                 <TextBlock x:Name="tbStartDateTitle" Grid.Row="2" Grid.Column="0"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=AVAILABLEDATE}" Style="{StaticResource FrameGridTextBlock1}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>

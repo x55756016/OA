@@ -598,6 +598,8 @@ namespace SMT.SaaS.FrameworkUI.FBControls
         }
         public event EventHandler<SaveCompletedArgs> SaveCompleted;
 
+        public event EventHandler<InitDataCompletedArgs> ItemSelectChange;
+
         public event EventHandler<InitDataCompletedArgs> InitDataComplete;
         public class SaveCompletedArgs : EventArgs
         {
@@ -1190,6 +1192,16 @@ namespace SMT.SaaS.FrameworkUI.FBControls
                 }
             }
             this.OnEntityPropertyChanged(this.CurrentOrderEntity);
+
+            if (ItemSelectChange != null)
+            {
+                List<string> messages = new List<string>();
+                if (this.TravelSubject != null && this.TravelSubject.SpecialListDetail.Count == 0)
+                {
+                    messages.Add("科目变动");
+                }
+                ItemSelectChange(this, new InitDataCompletedArgs(messages));
+            }
         }
 
         private void RegisterFBEntity(FBEntity fbEntity)
@@ -1225,6 +1237,15 @@ namespace SMT.SaaS.FrameworkUI.FBControls
                 {
                     CountTotalMoney();
                 }
+            }
+            if (ItemSelectChange != null)
+            {
+                List<string> messages = new List<string>();
+                if (this.TravelSubject != null && this.TravelSubject.SpecialListDetail.Count == 0)
+                {
+                    messages.Add("科目变动");
+                }
+                ItemSelectChange(this, new InitDataCompletedArgs(messages));
             }
         }
 
@@ -1272,9 +1293,11 @@ namespace SMT.SaaS.FrameworkUI.FBControls
             SetLittleCount();
         }
 
+        public decimal totalMoney=0;
+
         private decimal LittleCount()
         {
-            decimal totalMoney = this.ListDetail.Sum(item =>
+            totalMoney = this.ListDetail.Sum(item =>
             {
                 return (item.Entity as T_FB_EXTENSIONORDERDETAIL).APPLIEDMONEY;
             });

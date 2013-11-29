@@ -31,17 +31,36 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=机构名}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
                 <smt:LookUp  Grid.Row="0" Grid.Column="1"   Width="auto" FindClick="lkSelectObj_FindClick"  x:Name="lkSelectObj"  VerticalAlignment="Center"  />-->
                 <TextBlock Width="auto"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=日期}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="0"  VerticalAlignment="Center" ></TextBlock>
-                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Minimum="1900"  Maximum="3000" x:Name="years"  Grid.Column="1" Grid.Row="0" Width="80"></inputToolkit:NumericUpDown>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Minimum="1900"  Maximum="3000" x:Name="years"  Grid.Column="1" Grid.Row="0" Width="60"></inputToolkit:NumericUpDown>
                 <TextBlock Width="auto"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="2"  VerticalAlignment="Center" ></TextBlock>
-                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Minimum="1"  Maximum="12" x:Name="months" Grid.Column="3" Grid.Row="0"  Width="70" ></inputToolkit:NumericUpDown>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Minimum="1"  Maximum="12" x:Name="months" Grid.Column="3" Grid.Row="0"  Width="60" ></inputToolkit:NumericUpDown>
                 <TextBlock Width="auto" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" ></TextBlock>
-                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="5" Margin="20,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="btnFind_Click"  Width="50"/>
-                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnExport" Grid.Row="0" Grid.Column="6" Margin="20,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=导出}" Click="btnExport_Click"  Width="50"/>
+
+                <TextBlock Width="auto"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=至}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="5"  VerticalAlignment="Center" ></TextBlock>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Minimum="1900"  Maximum="3000" x:Name="endyears"  Grid.Column="6" Grid.Row="0" Width="60"></inputToolkit:NumericUpDown>
+                <TextBlock Width="auto"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="7"  VerticalAlignment="Center" ></TextBlock>
+                <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Minimum="1"  Maximum="12" x:Name="endmonths" Grid.Column="8" Grid.Row="0"  Width="60" ></inputToolkit:NumericUpDown>
+                <TextBlock Width="auto" Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="9" VerticalAlignment="Center" ></TextBlock>
+                <TextBlock Width="auto"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource FrameGridTextBlock1}" Grid.Row="0" Grid.Column="10"  VerticalAlignment="Center" ></TextBlock>
+                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtName" Grid.Row="0" Grid.Column="11" Width="100"  Margin="5,0,0,0"/>
+                
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="12" Margin="5,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="btnFind_Click"  Width="50"/>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnExport" Grid.Row="0" Grid.Column="13" Margin="5,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=导出}" Click="btnExport_Click"  Width="50"/>
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnExportForm" Grid.Row="0" Grid.Column="14" Margin="5,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=导出页面查询结果}" Click="btnExportForm_Click"  Width="Auto"/>
             </Grid>
             <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False" LoadingRow="DtGrid_LoadingRow" 
                    Grid.Row="3"

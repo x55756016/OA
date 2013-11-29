@@ -2352,10 +2352,17 @@ namespace SMT.HRM.BLL
                                          select dd.DEPARTMENTNAME).FirstOrDefault();
 
                 //公司名
-                var entCompanyName = (from c in dal.GetObjects<T_HR_COMPANY>()
-                                      where c.COMPANYID == companyID
-                                      select c.CNAME).FirstOrDefault();
+                string strCompanyName = string.Empty;
 
+
+
+                var entcom = (from c in dal.GetObjects<T_HR_COMPANY>()
+                              where c.COMPANYID == companyID
+                              select c).FirstOrDefault();
+                if (entcom != null)
+                {
+                    strCompanyName = entcom.BRIEFNAME == null ? entcom.CNAME : entcom.BRIEFNAME;
+                }
                 //岗位级别
                 var enPostLevel = (from ep in dal.GetObjects<T_HR_EMPLOYEEPOST>()
                                    join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
@@ -2364,7 +2371,7 @@ namespace SMT.HRM.BLL
                 employeeView.EMPLOYEECNAME = entEmployee.EMPLOYEECNAME;
                 employeeView.POSTNAME = entPostName;
                 employeeView.DEPARTMENTNAME = entDepartmentName;
-                employeeView.COMPANYNAME = entCompanyName;
+                employeeView.COMPANYNAME = strCompanyName;
                 employeeView.SEX = entEmployee.SEX;
                 employeeView.POSTLEVEL = enPostLevel;
                 employeeView.EMPLOYEEID = entEmployee.EMPLOYEEID;

@@ -78,6 +78,8 @@ namespace SMT.HRM.UI.Views.Attendance
             toolbar1.btnAudit.Click += new RoutedEventHandler(btnAudit_Click);
             toolbar1.btnImport.Click += new RoutedEventHandler(btnImport_Click);
 
+            toolbar1.btnReSubmit.Visibility = Visibility;
+            toolbar1.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
             //toolbar1.btnOtherAction("/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1022.png", Utility.GetResourceStr("导出报表")).Click += new RoutedEventHandler(btnExportReports_Click);
 
             ImageButton ChangeMeetingBtn = new ImageButton();
@@ -101,6 +103,92 @@ namespace SMT.HRM.UI.Views.Attendance
             clientAtt.ExportAttendMonthlyBalanceRdListReportsCompleted += new EventHandler<ExportAttendMonthlyBalanceRdListReportsCompletedEventArgs>(clientAtt_ExportAttendMonthlyBalanceRdListReportsCompleted);
             treeOrganization.SelectedClick += new EventHandler(treeOrganization_SelectedClick);
             //this.Loaded += new RoutedEventHandler(AttendMonthlyBalance_Loaded);
+        }
+
+        /// <summary>
+        /// 重新提交
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnReSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                 string sType = string.Empty, sValue = string.Empty;
+
+            string IsTag = treeOrganization.sType;
+            switch (IsTag)
+            {
+                case "Company":
+                    sType = (Convert.ToInt32(AssignedObjectType.Company) + 1).ToString();
+                    sValue = treeOrganization.sValue;
+                    break;
+                case "Department":
+                    sType = (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString();
+                    sValue = treeOrganization.sValue;
+                    break;
+                case "Post":
+                    sType = (Convert.ToInt32(AssignedObjectType.Post) + 1).ToString();
+                    sValue = treeOrganization.sValue;
+                    break;
+            }
+
+            if (string.IsNullOrEmpty(sValue))
+            {
+                ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), Utility.GetResourceStr("SELECTERROR", "APPOVALBUTTON"), Utility.GetResourceStr("CONFIRMBUTTON"));
+                return;
+            }
+
+            if (dgAMBList.ItemsSource == null)
+            {
+                ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), "请选择有效的数据进行审核", Utility.GetResourceStr("CONFIRMBUTTON"));
+                return;
+            }
+
+            IEnumerable<T_HR_ATTENDMONTHLYBALANCE> entAMBList = dgAMBList.ItemsSource as IEnumerable<T_HR_ATTENDMONTHLYBALANCE>;
+            if (entAMBList.Count() == 0)
+            {
+                ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), "请选择有效的数据进行审核", Utility.GetResourceStr("CONFIRMBUTTON"));
+                return;
+            }
+
+            if (string.IsNullOrEmpty(sType) || string.IsNullOrEmpty(sValue))
+            {
+                ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), "请选择有效的数据进行审核", Utility.GetResourceStr("CONFIRMBUTTON"));
+                return;
+            }
+
+            decimal dBalanceYear = 0, dBalanceMonth = 0;
+            string strCheckState = string.Empty;
+
+            if (!string.IsNullOrEmpty(txtBalanceYear.Text.Trim()))
+            {
+                decimal.TryParse(txtBalanceYear.Text, out dBalanceYear);
+            }
+
+            decimal.TryParse(nudBalanceMonth.Value.ToString(), out dBalanceMonth);
+
+            if (toolbar1.cbxCheckState.SelectedItem != null)
+            {
+                T_SYS_DICTIONARY entDic = toolbar1.cbxCheckState.SelectedItem as T_SYS_DICTIONARY;
+                if (entDic.DICTIONARYVALUE != null)
+                {
+                    strCheckState = entDic.DICTIONARYVALUE.Value.ToString();
+                }
+            }
+
+            AttendMonthlyBalanceAudit formAttBalance = new AttendMonthlyBalanceAudit(FormTypes.Resubmit, sType, sValue, dBalanceYear, dBalanceMonth, strCheckState);
+            EntityBrowser entBrowser = new EntityBrowser(formAttBalance);
+
+            entBrowser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
+            entBrowser.FormType = FormTypes.Resubmit;
+            entBrowser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         void clientAtt_ExportAttendMonthlyBalanceRdListReportsCompleted(object sender, ExportAttendMonthlyBalanceRdListReportsCompletedEventArgs e)
@@ -146,7 +234,7 @@ namespace SMT.HRM.UI.Views.Attendance
             toolbar1.retNew.Visibility = Visibility.Collapsed;
             toolbar1.btnEdit.Visibility = Visibility.Collapsed;
             toolbar1.retEdit.Visibility = Visibility.Collapsed;
-            toolbar1.btnReSubmit.Visibility = Visibility.Collapsed;
+          //  toolbar1.btnReSubmit.Visibility = Visibility.Collapsed;
             toolbar1.BtnView.Visibility = Visibility.Collapsed;
             toolbar1.retRead.Visibility = Visibility.Collapsed;
         }
