@@ -182,7 +182,10 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             _toolbarItems = Utility.CreateFormEditButton("T_HR_ATTENDMONTHLYBATCHBALANCE", AttendMonthlyBatchBalance.OWNERID,
                     AttendMonthlyBatchBalance.OWNERPOSTID, AttendMonthlyBatchBalance.OWNERDEPARTMENTID, AttendMonthlyBatchBalance.OWNERCOMPANYID);
-
+            if (FormType == FormTypes.Resubmit)
+            {
+                AttendMonthlyBatchBalance.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
+            }
             RefreshUI(RefreshedTypes.All);
         }
         #endregion
