@@ -111,21 +111,29 @@ namespace SMT.FB.UI.Views.SubjectManagement
 
         void orderEntityService_QueryFBEntitiesCompleted(object sender, QueryFBEntitiesCompletedEventArgs e)
         {
-            this.TreeView.Items.Clear();
+            //this.TreeView.Items.Clear();
 
             List<OrderEntity> listCompany = e.Result.ToEntityAdapterList<OrderEntity>().ToList();
-            
-            List<TreeViewItem> items = TreeView.Items.AddObjectList(listCompany, "Entity.Name");
-            EntityList = listCompany;
-
-            TreeViewItem tvi = this.TreeView.Items.FirstOrDefault() as TreeViewItem;
-            if (tvi != null)
+            //List<TreeViewItem> items = TreeView.Items.AddObjectList(listCompany, "Entity.Name");
+            if (listCompany != null && listCompany.Count == 1)
             {
-                tvi.IsSelected = true;
-
-                RoutedPropertyChangedEventArgs<object> ea = new RoutedPropertyChangedEventArgs<object>(null, tvi);
-                TreeView_SelectedItemChanged(tvi, ea);
+                this.CurrentOrderEntity = listCompany.FirstOrDefault();
             }
+            else
+            {
+                this.TreeView.Items.Clear();
+                List<TreeViewItem> items = TreeView.Items.AddObjectList(listCompany, "Entity.Name");
+            }
+            EntityList = listCompany;
+            this.CloseProcess();
+            //TreeViewItem tvi = this.TreeView.Items.FirstOrDefault() as TreeViewItem;
+            //if (tvi != null)
+            //{
+            //    tvi.IsSelected = true;
+
+            //    RoutedPropertyChangedEventArgs<object> ea = new RoutedPropertyChangedEventArgs<object>(null, tvi);
+            //    TreeView_SelectedItemChanged(tvi, ea);
+            //}
         }
 
        
@@ -235,9 +243,11 @@ namespace SMT.FB.UI.Views.SubjectManagement
 
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            this.ShowProcess();
             TreeViewItem treeViewItem = e.NewValue as TreeViewItem;
             if (treeViewItem != null)
             {
+                QuerySubjectCompanyData(treeViewItem);
                 this.currentTreeViewItem = treeViewItem;
                 OrderEntity entity = currentTreeViewItem.DataContext as OrderEntity;
                 this.CurrentOrderEntity = entity;// new OrderEntity(typeof(VirtualCompany));               
@@ -245,6 +255,33 @@ namespace SMT.FB.UI.Views.SubjectManagement
             //PermissionHelper.GetPermissionValue(orderEntityService.ModelCode, Permissions.Edit);
             //tooBarTop.ShowItem("Save", 
 
+        }
+
+        /// <summary>
+        /// 点击公司右边显示科目
+        /// </summary>
+        /// <param name="item"></param>
+        void QuerySubjectCompanyData(TreeViewItem item)
+        {
+            try
+            {
+                var com = (item.DataContext as EntityAdapter).Entity as VirtualEntityObject;
+                if (com != null)
+                {
+                    QueryExpression qe = new QueryExpression();
+                    qe.QueryType = "T_FB_SUBJECTCOMPANYSET";
+                    QueryExpression company = new QueryExpression();
+                    company.PropertyName = "COMPANYID";
+                    company.PropertyValue = com.ID;
+                    qe.RelatedExpression = company;
+                    orderEntityService.QueryFBEntities(qe);
+                }
+            }
+            catch (Exception ex)
+            {
+                CommonFunction.ShowErrorMessage(ex.Message);
+                CloseProcess();
+            }
         }
 
         #region 保存
