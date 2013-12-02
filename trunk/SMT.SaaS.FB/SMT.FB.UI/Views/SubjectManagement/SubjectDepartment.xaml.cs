@@ -341,13 +341,13 @@ namespace SMT.FB.UI.Views.SubjectManagement
                     listSave = fbEntitySave.GetRelationFBEntities(typeof(T_FB_SUBJECTPOST).Name);
 
                     // 删除 不是active的岗位项目记录
-                    listSave.RemoveAll(itemRemove =>
-                    {
-                        bool isAdded = itemRemove.FBEntityState == FBEntityState.Added;
-                      //  bool isNew = (itemRemove.Entity as T_FB_SUBJECTPOST).ACTIVED != 1;
-                        //return isAdded && isNew;
-                        return isAdded;
-                    });
+                    //listSave.RemoveAll(itemRemove =>
+                    //{
+                    //    bool isAdded = itemRemove.FBEntityState == FBEntityState.Added;
+                    //  //  bool isNew = (itemRemove.Entity as T_FB_SUBJECTPOST).ACTIVED != 1;
+                    //    //return isAdded && isNew;
+                    //    return isAdded;
+                    //});
                 }
 
                 listSave.ToList().ForEach(fbEntity =>
