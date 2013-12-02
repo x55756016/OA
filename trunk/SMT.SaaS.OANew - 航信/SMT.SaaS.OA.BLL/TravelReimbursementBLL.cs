@@ -397,11 +397,10 @@ namespace SMT.SaaS.OA.BLL
                 if (string.IsNullOrEmpty(strMsg))//预算没有错误才执行改变表单状态的操作
                 {
                     if (fbResult == null)
-                    {
-                        dal.RollbackTransaction();
+                    {                       
                         Tracer.Debug("事务中 出差报销引擎开始更新预算关联单据失败:"
                             + "no FB.Result was returned");
-                        throw new Exception("no FB.Result was returned");
+                        throw new Exception("出差报销引擎开始更新预算关联单据失败");
                     }
                     else
                     {
@@ -431,7 +430,7 @@ namespace SMT.SaaS.OA.BLL
                             catch (Exception ex)
                             {
                                 Tracer.Debug("事务回滚 调用HR中考勤的接口出现错误:" + ex.ToString());
-                                dal.RollbackTransaction();
+                                throw new Exception("事务回滚 调用HR中考勤的接口出现错误:" + ex.ToString());
                             }
                             #endregion
                         }
@@ -439,19 +438,15 @@ namespace SMT.SaaS.OA.BLL
                     else
                     {
                         Tracer.Debug("事务回滚 引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id："
+                            + BorrowID + " 审核状态：" + StrCheckState);                       
+                        throw new Exception("引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id："
                             + BorrowID + " 审核状态：" + StrCheckState);
-                        dal.RollbackTransaction();
-                        throw new Exception(strMsg);
                     }
-
-
-
                 }
                 else
                 {
-                    Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID
-                        + System.DateTime.Now.ToString() + " " + " 出差报销引擎开始更新预算关联单据返回结果为空");
-                    dal.RollbackTransaction();
+                    Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID+ " 出差报销引擎开始更新预算关联单据返回结果为空");
+                   
                     throw new Exception(strMsg);
                 }
                 Tracer.Debug("事务确认成功：引擎更新出差报销，同步预算单，考勤记录成功！");
@@ -467,7 +462,8 @@ namespace SMT.SaaS.OA.BLL
             }
             catch (Exception ex)
             {
-                Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID + System.DateTime.Now.ToString() + " " + ex.ToString());
+                Tracer.Debug(ex.ToString());
+                //科目：业务差旅费,费用类型：公共部门费用，可用额度:-34863.50,您报销的额度超出此科目预算可用额度，请联系公司财务增加额度。
                 dal.RollbackTransaction();
                 throw ex;
             }
