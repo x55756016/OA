@@ -493,7 +493,7 @@ namespace SMT.HRM.UI.Form.Salary
             {
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "SYSTEMTYPE", v.SYSTEMTYPE, systype[v.SYSTEMTYPE.ToString()], v.ADDSUMID));
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "CHECKSTATE", "1", checkState, v.ADDSUMID));
-                AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "DEALDATE", "DEALDATE", v.DEALYEAR + " - " + v.DEALMONTH, v.DEALYEAR + " - " + v.DEALMONTH));//新加字典加扣款年月
+                AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "DEALDATE",  v.DEALYEAR + " - " + v.DEALMONTH, v.DEALYEAR + " - " + v.DEALMONTH, v.ADDSUMID));//新加字典加扣款年月
             }
             string a = mx.TableToXml(Info, listDetail, StrSource, AutoList);
 
