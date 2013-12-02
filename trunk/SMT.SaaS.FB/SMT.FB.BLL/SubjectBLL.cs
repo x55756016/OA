@@ -360,11 +360,15 @@ namespace SMT.FB.BLL
 
             listSubject.ForEach(subject =>
                 {
-                    
-                   T_FB_SUBJECTCOMPANY curSC = listSubjectCompany.FirstOrDefault(sc =>
+
+                    T_FB_SUBJECTCOMPANY curSC = listSubjectCompany.FirstOrDefault(sc =>
+                    {
+                        if (sc.T_FB_SUBJECT != null)
                         {
                             return sc.T_FB_SUBJECT.SUBJECTID == subject.SUBJECTID;
-                        });
+                        }
+                        return false;
+                    });
                    if (curSC == null)
                    {
                        curSC = new T_FB_SUBJECTCOMPANY();

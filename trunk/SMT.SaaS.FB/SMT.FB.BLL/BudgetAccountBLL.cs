@@ -2347,7 +2347,8 @@ namespace SMT.FB.BLL
                 WriteLog("开始预算结算,总记录：" + localaccountUpdates.Count);
                 foreach (var accountUpdate in localaccountUpdates)
                 {
-                  
+                    //1 :不那跨年使用 ; 2 : 不能跨月使用 ; 3: 无限制 ; 4: 殊年结
+                    //LimitYear = 1, LimitMonth, Unlimit, Special
                     ControlType cType = (ControlType)(accountUpdate.ControlType.Value);
                     T_FB_BUDGETACCOUNT account = accountUpdate.BudgetAccount;
                     WriteLog("开始预算结算：科目id:" + accountUpdate.SubjectID + "预算控制类型（1 : 不那跨年使用; 2 不能跨月使用:  ; 3: 无限制 ; 4: 殊年结）：" + accountUpdate.ControlType.Value);
@@ -3913,12 +3914,34 @@ namespace SMT.FB.BLL
             List<VirtualCompany> listCompany = oBll.GetVirtualCompany(queryExpression);
             List<T_FB_SUBJECT> listSubject = GetSubject(null);
             List<FBEntity> listResult = new List<FBEntity>();
-            listCompany.ForEach(company =>
+
+            QueryExpression qeCompanyID = queryExpression.GetQueryExpression("COMPANYID");//公司ID
+            QueryExpression qeFilterString = queryExpression.GetQueryExpression("filterString");//查询条件
+            string filterString = string.Empty;
+            if (qeFilterString != null)
             {
+                filterString = qeFilterString.PropertyValue;
+            }
+            if (qeCompanyID != null)
+            {
+                VirtualCompany company = listCompany.Where(t => t.ID == qeCompanyID.PropertyValue).FirstOrDefault();
                 List<FBEntity> listsc = GetSubjectCompany(company, listSubject);
                 RelationManyEntity rme = new RelationManyEntity();
                 rme.EntityType = "T_FB_SUBJECTCOMPANY";
                 rme.FBEntities = listsc;
+                FBEntity fbEntity = company.ToFBEntity();
+                fbEntity.CollectionEntity.Add(rme);
+                fbEntity.OrderDetailBy<T_FB_SUBJECTCOMPANY>(item => item.T_FB_SUBJECT.SUBJECTCODE);
+                listResult.Add(fbEntity);
+                return listResult;
+            }
+
+            listCompany.ForEach(company =>
+            {
+                //List<FBEntity> listsc = GetSubjectCompany(company, listSubject);
+                RelationManyEntity rme = new RelationManyEntity();
+                rme.EntityType = "T_FB_SUBJECTCOMPANY";
+                //rme.FBEntities = listsc;
                 FBEntity fbEntity = company.ToFBEntity();
                 fbEntity.CollectionEntity.Add(rme);
                 fbEntity.OrderDetailBy<T_FB_SUBJECTCOMPANY>(item => item.T_FB_SUBJECT.SUBJECTCODE);
