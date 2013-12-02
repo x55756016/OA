@@ -488,10 +488,12 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUMBATCH", "OWNERCOMPANYID", Info.OWNERCOMPANYID, ownerCompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUMBATCH", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, ownerDepartmentName));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUMBATCH", "OWNERPOSTID", Info.OWNERPOSTID, ownerPostName));
+            AutoList.Add(basedata("T_HR_EMPLOYEEADDSUMBATCH", "BALANCESHORTDATE", Info.BALANCEYEAR + " - " + Info.BALANCEMONTH, Info.BALANCEYEAR + " - " + Info.BALANCEMONTH));//新加字段发薪年月
             foreach (var v in listDetail)
             {
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "SYSTEMTYPE", v.SYSTEMTYPE, systype[v.SYSTEMTYPE.ToString()], v.ADDSUMID));
                 AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "CHECKSTATE", "1", checkState, v.ADDSUMID));
+                AutoList.Add(basedataForChild("T_HR_EMPLOYEEADDSUM", "DEALDATE", "DEALDATE", v.DEALYEAR + " - " + v.DEALMONTH, v.DEALYEAR + " - " + v.DEALMONTH));//新加字典加扣款年月
             }
             string a = mx.TableToXml(Info, listDetail, StrSource, AutoList);
 
