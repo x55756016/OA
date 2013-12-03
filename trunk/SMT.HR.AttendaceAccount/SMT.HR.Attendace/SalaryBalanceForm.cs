@@ -242,9 +242,15 @@ namespace SmtPortalSetUp
                             s.balancepostid,s.balancepostname,
                             ec.cname 员工档案所属公司,ec.companyid,
                             s.othersubjoin 生效年份,
-                            s.otheradddeduct 生效月份,
-                            s.checkstate,
-                            s.salaryarchiveid 
+                            s.otheradddeduct 生效月份
+                            ,s.postlevel 岗位级别
+                            ,s.salarylevel 薪资级别
+                            ,s.checkstate
+                            ,s.createuserid
+                            ,s.updateuserid
+                            ,s.createdate
+                            ,s.updatedate
+                            ,s.salaryarchiveid 
                             from smthrm.t_hr_employee e
                             inner join smthrm.t_hr_salaryarchive s on e.employeeid=s.employeeid
                             left join smthrm.t_hr_company c on s.paycompany=c.companyid

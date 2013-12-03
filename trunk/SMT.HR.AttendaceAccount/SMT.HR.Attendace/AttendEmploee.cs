@@ -10,6 +10,7 @@ using System.IO;
 using System.Threading;
 using AttendaceAccount;
 using AttendaceAccount.AttendWS;
+using AttendaceAccount.HRCommonSV;
 
 namespace SmtPortalSetUp
 {
@@ -91,7 +92,8 @@ namespace SmtPortalSetUp
                             from(
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
                             ,case when s.workdaytype='1' then '固定方式' else '按当月实际工作日'end 工作方式,s.workdays 固定方式下总天数
- ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
+                            ,case when s.attendancetype = '1' then '打卡考勤' when s.attendancetype = '2' then '免打卡' when s.attendancetype = '3' then '登录系统考勤' else '打卡及登陆系统考勤' end 考勤方式,
+                            s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'个人' Asingtype
                             ,s.attendancesolutionid
@@ -108,7 +110,7 @@ namespace SmtPortalSetUp
                             --查询员工主岗位上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
                             ,case when s.workdaytype='1' then '固定方式' else '按当月实际工作日' end 工作方式,s.workdays 固定方式下总天数
- ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
+ ,case when s.attendancetype = '1' then '打卡考勤' when s.attendancetype = '2' then '免打卡' when s.attendancetype = '3' then '登录系统考勤' else '打卡及登陆系统考勤' end 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'岗位' Asingtype
                             ,s.attendancesolutionid
@@ -141,7 +143,7 @@ namespace SmtPortalSetUp
                             --查询员工主岗位部门上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
                             ,case when s.workdaytype='1' then '固定方式' else '按当月实际工作日' end 工作方式,s.workdays 固定方式下总天数
- ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
+ ,case when s.attendancetype = '1' then '打卡考勤' when s.attendancetype = '2' then '免打卡' when s.attendancetype = '3' then '登录系统考勤' else '打卡及登陆系统考勤' end 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'部门' Asingtype
                             ,s.attendancesolutionid
@@ -173,7 +175,7 @@ namespace SmtPortalSetUp
                             --查询员工主岗位公司上分配的考勤方案
                             select s.attendancesolutionname,s.ownercompanyid 分配考勤方案的公司
                             ,case when s.workdaytype='1' then '固定方式' else '按当月实际工作日' end 工作方式,s.workdays 固定方式下总天数
- ,s.AttendanceType 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
+ ,case when s.attendancetype = '1' then '打卡考勤' when s.attendancetype = '2' then '免打卡' when s.attendancetype = '3' then '登录系统考勤' else '打卡及登陆系统考勤' end 考勤方式,s.worktimeperday 每天工作时长,s.IsExpired 调休是否过期,s.AdjustExpiredValue 调休过期时长,s.CardType 打卡方式
                             ,a.startdate,a.enddate,a.checkstate,a.createdate,a.updatedate
                             ,a.ASSIGNEDOBJECTTYPE,'公司' Asingtype
                             ,s.attendancesolutionid
@@ -940,9 +942,15 @@ namespace SmtPortalSetUp
         #region 执行sql
         private void btnExcute_Click(object sender, EventArgs e)
         {
+            HrCommonServiceClient sqlclient = new HrCommonServiceClient();
+           
             string sql = txtSql.Text;
             OracleHelp.Connect();
-            int i = OracleHelp.Excute(sql);
+
+            string msg = string.Empty;
+            object obj= sqlclient.CustomerQuery(sql, ref msg);
+
+            int i = (int)obj;
             txtMessagebox.Text = "处理完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
             OracleHelp.close();
         }
