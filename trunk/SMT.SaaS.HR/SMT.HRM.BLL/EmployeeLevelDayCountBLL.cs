@@ -1714,6 +1714,7 @@ namespace SMT.HRM.BLL
                 if (emp.FirstOrDefault() != null)
                 {
                     dSOCIALSERVICE = emp.FirstOrDefault().SOCIALSERVICEYEAR;
+                    Tracer.Debug("生成员工带薪年假：获取的员工档案中员工社保缴交起始时间：" + dSOCIALSERVICE.ToString());
                 }
                 //如果员工档案未获取到员工社保缴交日期，从社保档案获取
                 if (string.IsNullOrEmpty(dSOCIALSERVICE))
@@ -1731,13 +1732,13 @@ namespace SMT.HRM.BLL
                     {
                         if (string.IsNullOrEmpty(p.SOCIALSERVICEYEAR))
                         {
-                            Tracer.Debug("生成员工带薪年假：获取的员工社保缴交起始时间为空");
+                            Tracer.Debug("生成员工带薪年假：获取的员工社保档案员工社保缴交起始时间为空");
                             dSOCIALSERVICE = null;
                         }
                         else
                         {
                             dSOCIALSERVICE = p.SOCIALSERVICEYEAR.ToString();
-                            Tracer.Debug("生成员工带薪年假：获取的员工社保缴交起始时间：" + dSOCIALSERVICE);
+                            Tracer.Debug("生成员工带薪年假：获取的员工社保档案员工社保缴交起始时间：" + dSOCIALSERVICE);
                         }
                     }
                     else
@@ -1766,9 +1767,9 @@ namespace SMT.HRM.BLL
                     //新的工作时间的计算：工作时间=当年1月1日-工作开始时间
                     needTimeSpan = thisYearFirstDay.Subtract(DateTime.Parse(dSOCIALSERVICE));
                     Tracer.Debug("生成员工带薪年假," + "计算时间区间：" +
-                        dtEntryDate.ToString("yyyy-MM-dd")
+                        thisYearFirstDay.ToString("yyyy-MM-dd")
                         + "--"
-                        + dtEntryDate.ToString("yyyy-MM-dd")
+                        + dSOCIALSERVICE
                         + "按社保缴交起始时间计算:计算天数" + needTimeSpan.Days);
                 }
                 //得到工作时间
