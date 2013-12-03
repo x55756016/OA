@@ -143,28 +143,108 @@ namespace SMT.SaaS.OA.UI.UserControls
                     if (txtToolubsidies != null)//交通费
                     {
                         if (!string.IsNullOrEmpty(txtToolubsidies.Text))
-                            TrDetail.TRANSPORTCOSTS = Convert.ToDecimal(txtToolubsidies.Text);
+                        { 
+                            TrDetail.TRANSPORTCOSTS = Convert.ToDecimal(txtToolubsidies.Text); }
+                        else
+                        {
+                            TrDetail.TRANSPORTCOSTS = 0;
+                        }
                     }
                     if (txtASubsidies != null)//住宿标准费用
                     {
                         if (!string.IsNullOrEmpty(txtASubsidies.Text))
+                        {
                             TrDetail.ACCOMMODATION = Convert.ToDecimal(txtASubsidies.Text);
+                        }
+                        else
+                        {
+                            TrDetail.ACCOMMODATION = 0;
+                        }
                     }
                     if (txtTFSubsidies != null)//交通费用补贴
                     {
                         if (!string.IsNullOrEmpty(txtTFSubsidies.Text))
+                        {
                             TrDetail.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(txtTFSubsidies.Text);
+                        }
+                        else
+                        {
+                            TrDetail.TRANSPORTATIONSUBSIDIES = 0;
+                        }
                     }
                     if (txtMealSubsidies != null)//餐费补贴
                     {
                         if (!string.IsNullOrEmpty(txtMealSubsidies.Text))
+                        {
                             TrDetail.MEALSUBSIDIES = Convert.ToDecimal(txtMealSubsidies.Text);
+                        }
+                        else
+                        {
+                            TrDetail.MEALSUBSIDIES = 0;
+                        }
                     }
                     if (txtOthercosts != null)//其他费用
                     {
                         if (!string.IsNullOrEmpty(txtOthercosts.Text))
+                        {
                             TrDetail.OTHERCOSTS = Convert.ToDecimal(txtOthercosts.Text);
+                        }
+                        else
+                        {
+                            TrDetail.OTHERCOSTS = 0;
+                        }
                     }
+                    #region 上面的金额赋值存在丢失现象，再次赋值
+                    ////交通费第8列
+                    //TextBox txtToolubsidies_agin = ((TextBox)((StackPanel)DaGrEdit.Columns[8].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    ////住宿费第9列
+                    //TextBox txtASubsidies_agin = ((TextBox)((StackPanel)DaGrEdit.Columns[9].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    ////交通补贴第10列
+                    //TextBox txtTFSubsidies_agin = ((TextBox)((StackPanel)DaGrEdit.Columns[10].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    ////餐费补贴第11列
+                    //TextBox txtMealSubsidies_agin = ((TextBox)((StackPanel)DaGrEdit.Columns[11].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+                    ////其他费用第12列
+                    //TextBox txtOthercosts_agin = ((TextBox)((StackPanel)DaGrEdit.Columns[12].GetCellContent(obje)).Children.FirstOrDefault()) as TextBox;
+
+
+                    //if (txtToolubsidies_agin != null)
+                    //{
+                    //    if (!string.IsNullOrEmpty(txtToolubsidies_agin.Text))
+                    //    {
+                    //        TrDetail.TRANSPORTCOSTS = Convert.ToDecimal(txtToolubsidies_agin.Text);//交通费
+                    //    }
+                    //}
+                    //if (txtASubsidies_agin != null)
+                    //{
+                    //    if (!string.IsNullOrEmpty(txtASubsidies_agin.Text))
+                    //    {
+                    //         TrDetail.ACCOMMODATION = Convert.ToDecimal(txtASubsidies_agin.Text);//住宿费
+                    //    }
+                    //}
+
+                    //if (txtTFSubsidies_agin != null)
+                    //{
+                    //    if (!string.IsNullOrEmpty(txtTFSubsidies_agin.Text))
+                    //    {
+                    //        TrDetail.TRANSPORTATIONSUBSIDIES = Convert.ToDecimal(txtTFSubsidies_agin.Text);//交通补贴
+                    //    }
+                    //}
+                    //if (txtMealSubsidies != null)
+                    //{
+                    //    if (!string.IsNullOrEmpty(txtMealSubsidies.Text))
+                    //    {
+                    //        TrDetail.MEALSUBSIDIES = Convert.ToDecimal(txtMealSubsidies.Text);// 餐费补贴
+                    //    }
+                    //}
+                    //if (txtOthercosts_agin != null)
+                    //{
+                    //    if (!string.IsNullOrEmpty(txtOthercosts_agin.Text))
+                    //    {
+                    //        TrDetail.OTHERCOSTS = Convert.ToDecimal(txtOthercosts_agin.Text); //其他费用        
+                    //    }
+                    //}
+                    #endregion
+
                     if (IsCheck != null)//是否是私事
                     {
                         TrDetail.PRIVATEAFFAIR = (bool)IsCheck.IsChecked ? "1" : "0";

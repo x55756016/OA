@@ -167,19 +167,19 @@
       <!--<endpoint address="http://localhost:3938/SmtOACommonOffice.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonOffice"
         contract="SmtOACommonOfficeService.SmtOACommonOffice" name="CustomBinding_SmtOACommonOffice" />-->
-            <endpoint address="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc"
+      <endpoint address="http://portal.smt-online.net/New/Services/OA/SmtOACommonOffice.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonOffice"
         contract="SmtOACommonOfficeService.SmtOACommonOffice" name="CustomBinding_SmtOACommonOffice" />
       
       <endpoint address="http://localhost:3938/AgentServices.svc" binding="customBinding"
         bindingConfiguration="CustomBinding_AgentServices1" contract="AgentChannel.AgentServices"
         name="CustomBinding_AgentServices" />
-      <!--<endpoint address="http://localhost:3938/SmtOAPersonOffice.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
-        contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />-->
-     <endpoint address="http://portal.smt-online.net/New/Services/OA/SmtOAPersonOffice.svc"
+      <endpoint address="http://localhost:3938/SmtOAPersonOffice.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
         contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />
+     <!--<endpoint address="http://portal.smt-online.net/New/Services/OA/SmtOAPersonOffice.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
+        contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />-->
     </client>
   </system.serviceModel>
 </configuration>
