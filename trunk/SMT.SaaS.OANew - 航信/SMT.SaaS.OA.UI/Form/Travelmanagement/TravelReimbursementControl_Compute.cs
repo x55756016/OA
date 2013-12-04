@@ -1234,7 +1234,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     this.txtAccommodation.Visibility = Visibility.Collapsed;
                 }
                 txtSubTotal.Text = totall.ToString();//差旅费小计
-               
+                fbCtr.TravelSubject.ApplyMoney =Convert.ToDecimal(totall);
                 if (fbCtr.totalMoney > 0)
                 {
                     totall = totall + Convert.ToDouble(fbCtr.totalMoney);

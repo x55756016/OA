@@ -177,6 +177,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "必须保留一条出差时间及地点!", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return;
             }
+            StandardsMethod(0);//显示选中的城市的出差标准
+            //计算并给实体赋值
+            SetTraveValueAndFBChargeValue();
         }
         #endregion
     }

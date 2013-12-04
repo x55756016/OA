@@ -290,15 +290,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 //住宿费，交通费，其他费用
                 CountMoney();
 
-                if (!string.IsNullOrEmpty(this.txtSubTotal.Text) && this.txtSubTotal.Text.Trim() != "0")
-                {
-                    if (fbCtr.TravelSubject != null)
-                    {
-                        fbCtr.TravelSubject.ApplyMoney = Convert.ToDecimal(this.txtSubTotal.Text);//将本次出差总费用给预算
-                    }
-                }
-                
-
                 if (!string.IsNullOrEmpty(txtPAYMENTINFO.Text))
                 {
                     fbCtr.Order.PAYMENTINFO = txtPAYMENTINFO.Text;//支付信息
@@ -357,11 +348,16 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                 if (Check())
                 {
-
                     //字段赋值及子表城市赋值
                     SetTraveValueAndFBChargeValue();
 
-
+                    if (string.IsNullOrEmpty(this.txtSubTotal.Text) || this.txtSubTotal.Text.Trim() == "0")
+                    {
+                        //回程无住宿费
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出差报销费用总额为0，请重新填写！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        RefreshUI(RefreshedTypes.HideProgressBar);
+                        return;
+                    }
                     #region "判断回程住宿费"
                     
                     for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
