@@ -1389,6 +1389,8 @@ namespace SMT.HRM.BLL
 
                 var qw = from n in dal.GetObjects<T_HR_EMPLOYEEENTRY>().Include("T_HR_EMPLOYEE")
                          where n.T_HR_EMPLOYEE.EMPLOYEEID == entEmployee.EMPLOYEEID
+                         && n.EDITSTATE=="1"
+                         && n.CHECKSTATE=="2"
                          select n;
 
                 T_HR_EMPLOYEEENTRY entEntry = qw.FirstOrDefault();

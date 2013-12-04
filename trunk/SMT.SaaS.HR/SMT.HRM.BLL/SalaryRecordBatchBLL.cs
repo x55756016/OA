@@ -16,6 +16,9 @@ using System.Reflection.Emit;
 using System.Reflection;
 namespace SMT.HRM.BLL
 {
+    /// <summary>
+    /// 员工月薪批量审核界面构造类
+    /// </summary>
     public class SalaryRecordBatchBLL : BaseBll<T_HR_SALARYRECORDBATCH>, IOperate
     {
         private EmployeeSalaryRecordBLL dals = new EmployeeSalaryRecordBLL();
@@ -746,7 +749,7 @@ namespace SMT.HRM.BLL
                     byte[] array = new byte[1];
                     array[0] = (byte)(65 + Convert.ToInt32(entItem.POSTLEVEL));
                     string PostCode = Encoding.ASCII.GetString(array).ToString();
-                    PostCode += "-" + entItem.POSTLEVEL.ToString();
+                    PostCode += "-" + entItem.SALARYLEVEL.ToString();
 
                     sb.Append("<EMPLOYEESALARYRECORDID>" + entItem.EMPLOYEESALARYRECORDID + "</EMPLOYEESALARYRECORDID>");
                     sb.Append("<EMPLOYEEID>" + entItem.EMPLOYEEID + "</EMPLOYEEID>");
