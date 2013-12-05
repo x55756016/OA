@@ -116,7 +116,7 @@ namespace SMT.HRM.BLL
                         ent = dal.GetObjects().Include("T_HR_VACATIONSET").Where(s => s.T_HR_VACATIONSET.ASSIGNEDOBJECTID == strCompanyID);
                     }
                 }
-            }
+            }            
             return ent;
         }
 

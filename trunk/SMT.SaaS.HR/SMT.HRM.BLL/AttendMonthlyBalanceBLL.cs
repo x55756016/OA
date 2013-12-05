@@ -2836,39 +2836,20 @@ namespace SMT.HRM.BLL
                 {
                     return;
                 }
-
-                //decimal? dCheckEveDays = 0;
-
-                //DateTime dtCheckStart = new DateTime(), dtCheckEnd = new DateTime();
-
+                List<string> startDayList = new List<string>();
                 foreach (T_HR_EMPLOYEEEVECTIONRECORD item in entEvecRds)
                 {
-                    dEvectionTime += item.TOTALDAYS;
+                    string starDay=item.STARTDATE.Value.ToString("yyyy-MM-dd");
+                    if (startDayList.Contains(starDay))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        dEvectionTime += item.TOTALDAYS;
+                        startDayList.Add(starDay);
+                    }
                 }
-                //    if (item.STARTDATE == dtCheckStart || item.ENDDATE == dtCheckEnd)
-                //    {
-                //        continue;
-                //    }
-
-                //    dtCheckStart = item.STARTDATE.Value;
-                //    dtCheckEnd = item.ENDDATE.Value;
-
-                //    decimal? dDays = entAttRds.Where(t => t.ATTENDANCEDATE >= dtCheckStart && t.ATTENDANCEDATE <= dtCheckEnd).Count();
-
-                //    if (dDays > item.TOTALDAYS)
-                //    {
-                //        dDays = item.TOTALDAYS;
-                //    }
-
-                //    dCheckEveDays += dDays;
-                //}
-
-                //dEvectionTime = dCurEvecDays;
-                //if (dCurEvecDays > dCheckEveDays)
-                //{
-                //    dEvectionTime = dCheckEveDays;
-                //}
-
             }
             catch (Exception ex)
             {

@@ -528,7 +528,7 @@ namespace SMT.HRM.BLL.Common
         /// </summary>
         MixOutApplyAbnormal,
         /// <summary>
-        /// 外出确认
+        /// 外出确认11
         /// </summary>
         OutApplyConfirm
     }
