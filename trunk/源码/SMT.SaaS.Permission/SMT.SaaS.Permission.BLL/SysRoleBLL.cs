@@ -256,7 +256,7 @@ namespace SMT.SaaS.Permission.BLL
                 if (ents.Count() > 0)
                 {
                     var ent = ents.FirstOrDefault();
-
+                    string roleName = ent.ROLENAME;
                     //ent.T_SYS_ROLE2 = sourceEntity.T_SYS_ROLE2;
                     ent.SYSTEMTYPE = sourceEntity.SYSTEMTYPE;
                     ent.ROLENAME = sourceEntity.ROLENAME;
@@ -291,7 +291,7 @@ namespace SMT.SaaS.Permission.BLL
                         }
                         try
                         {
-                            bool flag = outInterfaceClient.UpdateFlowRole(ent.ROLEID, sourceEntity.ROLENAME, ent.ROLENAME, sourceEntity.UPDATEUSERNAME);
+                            bool flag = outInterfaceClient.UpdateFlowRole(ent.ROLEID, sourceEntity.ROLENAME, roleName, sourceEntity.UPDATEUSERNAME);
                             if (!flag)
                             {
                                 Tracer.Debug(DateTime.Now.ToString() + "调用UpdateFlowRole方法返回false，角色ID:" + ent.ROLEID);
