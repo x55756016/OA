@@ -289,6 +289,18 @@ namespace SMT.SaaS.Permission.BLL
                         {
                             dal.CommitTransaction();
                         }
+                        try
+                        {
+                            bool flag = outInterfaceClient.UpdateFlowRole(ent.ROLEID, sourceEntity.ROLENAME, ent.ROLENAME, sourceEntity.UPDATEUSERNAME);
+                            if (!flag)
+                            {
+                                Tracer.Debug(DateTime.Now.ToString() + "调用UpdateFlowRole方法返回false，角色ID:" + ent.ROLEID);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Tracer.Debug(DateTime.Now.ToString() + "调用UpdateFlowRole方法出错：" + ex.ToString() + "角色ID：" + ent.ROLEID);
+                        }
                     }
                 }
                 return null;

@@ -20,6 +20,8 @@ namespace SMT.SaaS.Permission.BLL
         //protected PermissionWS.PermissionServiceClient permissionclient = new PermissionWS.PermissionServiceClient();
         public static PersonnelWS.PersonnelServiceClient personnelclient;
         public static SMT.SaaS.BLLCommonServices.OrganizationWS.OrganizationServiceClient Orgclinet;
+        protected static SMT.SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient outInterfaceClient;
+        
         public BaseBll()
         {
             if (dal == null)
@@ -33,7 +35,12 @@ namespace SMT.SaaS.Permission.BLL
             if (Orgclinet == null)
             {
                 Orgclinet = new BLLCommonServices.OrganizationWS.OrganizationServiceClient();
-            }        
+            } 
+            if (outInterfaceClient == null)
+            {
+                outInterfaceClient = new BLLCommonServices.WFPlatformWS.OutInterfaceClient();
+
+            }       
         }
 
 

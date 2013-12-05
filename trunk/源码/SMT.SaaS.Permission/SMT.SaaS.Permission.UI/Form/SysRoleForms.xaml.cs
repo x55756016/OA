@@ -528,6 +528,7 @@ namespace SMT.SaaS.Permission.UI.Form
                 sysRole.OWNERDEPARTMENTID = StrDepartmentID;
                 sysRole.T_SYS_ROLEENTITYMENU = null;
                 sysRole.T_SYS_USERROLE = null;
+                sysRole.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
                 string Result = "";
                 ServiceClient.SysRoleInfoUpdateAsync(this.sysRole, Result);
             }

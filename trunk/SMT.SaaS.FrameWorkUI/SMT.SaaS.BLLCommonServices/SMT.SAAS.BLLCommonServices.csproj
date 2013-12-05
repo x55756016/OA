@@ -228,6 +228,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\WFPlatformWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\WPServicesWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1357,6 +1362,82 @@
     <None Include="Service References\VMServiceWS\VMServices46.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\WFPlatformWS\PlatformServices.wsdl" />
+    <None Include="Service References\WFPlatformWS\PlatformServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WFPlatformWS\PlatformServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WFPlatformWS\PlatformServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WFPlatformWS\PlatformServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WFPlatformWS\PlatformServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WFPlatformWS\PlatformServices5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WFPlatformWS\PlatformServices6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.AppFunc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.AppModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.AppSystem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.FLOW_MODELDEFINE_FLOWCANCLE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.FLOW_MODELDEFINE_FREEFLOW.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.FLOW_MODELDEFINE_T.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.TableColumn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.T_FLOW_CUSTOMFLOWDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.T_WF_DEFAULTMESSAGE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.T_WF_DOTASKRULE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.T_WF_DOTASKRULEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.T_WF_MESSAGEBODYDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.T_WF_TIMINGTRIGGERACTIVITY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.T_WF_TIMINGTRIGGERCONFIG.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.V_DotaskRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.V_FlowDefine.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.V_FLOWDEFINITION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.WFBOAttribute.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WPServicesWS\SMT.SaaS.BLLCommonServices.WPServicesWS.QueryResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -1422,6 +1503,7 @@
     <WCFMetadataStorage Include="Service References\TMServicesWS\" />
     <WCFMetadataStorage Include="Service References\TokenServiceWS\" />
     <WCFMetadataStorage Include="Service References\VMServiceWS\" />
+    <WCFMetadataStorage Include="Service References\WFPlatformWS\" />
     <WCFMetadataStorage Include="Service References\WPServicesWS\" />
   </ItemGroup>
   <ItemGroup>
@@ -1740,6 +1822,13 @@
     <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices1.disco" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\WFPlatformWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WFPlatformWS\configuration.svcinfo" />
+    <None Include="Service References\WFPlatformWS\configuration91.svcinfo" />
+    <None Include="Service References\WFPlatformWS\PlatformServices.disco" />
     <None Include="Service References\PersonalRecordWS\PersonnelService.disco" />
     <None Include="Service References\PublicInterfaceWS\PublicService1.disco" />
     <None Include="Service References\PublicInterfaceWS\Reference.svcmap">
