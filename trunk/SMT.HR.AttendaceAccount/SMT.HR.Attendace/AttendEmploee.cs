@@ -255,7 +255,20 @@ namespace SmtPortalSetUp
             string sql = @"select c.cname,
                                     b.employeename,
                                     b.attendancedate,
-                                    b.attendancestate,
+                                    case  
+                                    when b.attendancestate is null then '初始化null' 
+                                    when b.attendancestate='1' then '正常1' 
+                                    when b.attendancestate='2' then '考勤异常2' 
+                                    when b.attendancestate='3' then '旷工3' 
+                                    when b.attendancestate='4' then '出差4' 
+                                    when b.attendancestate='5' then '休息5' 
+                                    when b.attendancestate='6' then '请假6' 
+                                    when b.attendancestate='7' then '请假混合考勤异常7' 
+                                    when b.attendancestate='8' then '出差混合考勤异常8' 
+                                    when b.attendancestate='9' then '外出申请9' 
+                                    when b.attendancestate='10' then '外出申请混合考勤异常10' 
+                                    when b.attendancestate='11' then '外出确认11' 
+                                    end 考勤状态,
                                     s.attendancesolutionname,
                                     t.shiftname,
                                     t.needfirstcard,
