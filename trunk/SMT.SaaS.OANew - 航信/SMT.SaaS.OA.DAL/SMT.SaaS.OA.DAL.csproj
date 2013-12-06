@@ -213,7 +213,7 @@
     <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_SENDDOCTYPE.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\源码\SMT.Foundation.NewCore\SMT.Foundation.Core.csproj">
+    <ProjectReference Include="..\..\源码\SMT.Foundation.NewCore\SMT.Foundation.Core.csproj">
       <Project>{9d2f51e2-9710-4c91-a66b-823eb72437fd}</Project>
       <Name>SMT.Foundation.Core</Name>
     </ProjectReference>
