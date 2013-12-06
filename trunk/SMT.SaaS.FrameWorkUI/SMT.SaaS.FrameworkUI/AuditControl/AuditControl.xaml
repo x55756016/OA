@@ -130,31 +130,107 @@
                 
             </Grid>
         </DataTemplate>
+
+        <DataTemplate x:Key="DataTemplate_FH">
+            <Grid HorizontalAlignment="Stretch" Margin="4">
+                <Grid.Resources>
+                    <local:DateTimeFormatConverter x:Key="DateTimeFormatConverters" />
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="Black"
+                        BorderThickness="0.5 0.5 0 0.5"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Background="{StaticResource SmtColor2}">
+                    <TextBlock Text="转发人"
+                               Margin="17,0,6,0"
+                               d:LayoutOverrides="Width"
+                               VerticalAlignment="Center" />
+                </Border>
+                <Border BorderBrush="Black"
+                        BorderThickness="0.5 0.5 0 0.5"
+                        Grid.Column="1"
+                        Grid.Row="0">
+                    <TextBlock Text="{Binding FROMOWNERNAME}"
+                               VerticalAlignment="Center"
+                               Margin="17,0,6,0" />
+                </Border>
+                <Border BorderBrush="Black"
+                        BorderThickness="0.5 0.5 0 0.5"
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        Background="{StaticResource SmtColor2}">
+                    <TextBlock Text="转发时间"
+                               Margin="17,0,6,0"
+                               d:LayoutOverrides="Width"
+                               VerticalAlignment="Center" />
+                </Border>
+                <Border BorderBrush="Black"
+                        BorderThickness="0.5 0.5 0.5 0.5"
+                        Grid.Column="3"
+                        Grid.Row="0">
+                    <TextBlock Text="{Binding UPDATEDATE, ConverterParameter=yyyy年MM月dd日HH:mm, Converter={StaticResource DateTimeFormatConverters}}"
+                               VerticalAlignment="Center"
+                               Margin="17,0,6,0" />
+                </Border>
+                <Border BorderBrush="Black"
+                        BorderThickness="0.5 0.5 0 0.5"
+                        Grid.Column="4"
+                        Grid.Row="1"
+                        Background="{StaticResource SmtColor2}">
+                    <TextBlock Text="接收人"
+                               Margin="17,0,6,0"
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap" />
+                </Border>
+                <Border BorderBrush="Black"
+                        BorderThickness="0.5 0.5 0.5 0.5"
+                        Grid.Column="5"
+                        Grid.Row="0">
+                    <TextBlock Text="{Binding TOOWNERNAME}"
+                               VerticalAlignment="Center"
+                               Margin="17,0,6,0" />
+                </Border>
+            </Grid>
+        </DataTemplate>
+        
+
         <DataTemplate x:Key="AuditInfoListTemplate">
-             <StackPanel Visibility="Visible"
+            <StackPanel Visibility="Visible"
                         Orientation="Vertical"
                         HorizontalAlignment="Stretch">
-                    <Grid HorizontalAlignment="Stretch"
+                <Grid HorizontalAlignment="Stretch"
                       Margin="4">
-                        <Grid.Resources>
-                            <local:ImageConverter x:Key="ImageConverters" />
-                            <local:StateConverter x:Key="StateConverters" />
-                            <local:DateTimeFormatConverter x:Key="DateTimeFormatConverters" />
-                        </Grid.Resources>
-                        <Grid.Background>
-                            <StaticResource ResourceKey="SmtColor1" />
-                        </Grid.Background>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="24" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="60" />
-                            <ColumnDefinition Width="80" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="80" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="80" />
-                            <ColumnDefinition Width="*" />
+                    <Grid.Resources>
+                        <local:ImageConverter x:Key="ImageConverters" />
+                        <local:StateConverter x:Key="StateConverters" />
+                        <local:DateTimeFormatConverter x:Key="DateTimeFormatConverters" />
+                    </Grid.Resources>
+                    <Grid.Background>
+                        <StaticResource ResourceKey="SmtColor1" />
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Border BorderBrush="Black"
                             BorderThickness="0.5 0.5 0 0.5"
@@ -174,43 +250,43 @@
                             Grid.Column="1"
                             Grid.Row="0"
                             Background="{StaticResource SmtColor2}">
-                            <TextBlock Text="提单人"
+                        <TextBlock Text="提单人"
                                    Margin="17,0,6,0"
                                    d:LayoutOverrides="Width"
                                    VerticalAlignment="Center" />
-                        </Border>
-                        <Border BorderBrush="Black"
+                    </Border>
+                    <Border BorderBrush="Black"
                             BorderThickness="0.5 0.5 0 0.5"
                             Grid.Column="3"
                             Grid.Row="0"
                             Background="{StaticResource SmtColor2}">
-                            <TextBlock Text="时间"
+                        <TextBlock Text="时间"
                                    Margin="17,0,6,0"
                                    VerticalAlignment="Center" />
 
-                        </Border>
+                    </Border>
 
-                        <Border BorderBrush="Black"
+                    <Border BorderBrush="Black"
                             BorderThickness="0.5 0.5 0 0.5"
                             Grid.Column="2"
                             Grid.Row="0">
-                            <TextBlock x:Name="txtCreatorName"
+                        <TextBlock x:Name="txtCreatorName"
                                    Text="{Binding CREATEUSERNAME}"
                                    VerticalAlignment="Center"
                                    Margin="17,0,6,0" />
-                        </Border>
+                    </Border>
                     <Border BorderBrush="Black"
-                            BorderThickness="0.5 0.5 0.5 0.5"
+                                
                             Grid.Column="4"
                             Grid.Row="0" Grid.ColumnSpan="3">
-                            <TextBlock x:Name="txtCreateDate"
+                        <TextBlock x:Name="txtCreateDate"
                                    Text="{Binding CREATEDATE, ConverterParameter=yyyy年MM月dd日HH:mm, Converter={StaticResource DateTimeFormatConverters}}"
                                    VerticalAlignment="Center"
                                    Margin="17,0,6,0" HorizontalAlignment="Left"/>
-                        </Border>
-                    </Grid>
+                    </Border>
+                </Grid>
                 <Border BorderBrush="Gray" BorderThickness="1" Margin="3"
-                          VerticalAlignment="Top" Background="#EDF4FC" >
+                          VerticalAlignment="Top" Background="#EDF4FC" MinHeight="30" >
                     <ItemsControl x:Name="AuditListBox" Margin="0"
                           Background="{StaticResource SmtColor2}"
                           ItemsSource="{Binding FLOW_FLOWRECORDDETAIL_T}"
@@ -220,6 +296,8 @@
                 </Border>
             </StackPanel>
         </DataTemplate>
+
+
         <Style x:Key="ListBoxStyle1"
                TargetType="ListBox">
             <Setter Property="Padding"
@@ -876,6 +954,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition  Height="Auto" />
                     <RowDefinition  Height="Auto" />
                     <RowDefinition  Height="Auto" />
@@ -921,7 +1000,10 @@
                     
                 </ItemsControl>
 
-            <!--咨询结束-->
+               
+
+                
+                <!--咨询结束-->
             <!--填写审核意见-->
             <Grid x:Name="AuditFormPnl"
               Visibility="Visible"
@@ -1095,6 +1177,24 @@
                     Style="{StaticResource CommonButtonStyle}" />
             </Grid>
 
+            <!--转发-->
+                <Grid x:Name="ForwardHistoryListPnl" Visibility="Collapsed" Grid.Row="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition MinHeight="10"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="Gray" BorderThickness="1" Margin="3" Grid.Row="0"
+                          VerticalAlignment="Top" Background="#EDF4FC" >
+                        <ItemsControl x:Name="ForwardHistoryListIC" 
+                 ItemsSource="{Binding T_WF_FORWARDHISTORY}"
+                 ItemTemplate="{StaticResource DataTemplate_FH}"
+                 HorizontalContentAlignment="Stretch"
+                 VerticalAlignment="Top"></ItemsControl>
+
+                    </Border>
+                    <Border Visibility="Visible"></Border>
+                </Grid>
+               
             </Grid>
 
 

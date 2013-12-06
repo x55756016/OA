@@ -658,13 +658,24 @@ namespace SMT.SaaS.FrameworkUI
                             return;
                         }
 
-                        if (strOwnerID != AuditCtrl.AuditEntity.CreateUserID)
+                        // 转发 start
+                        bool canForward = false;
+                        if (AuditCtrl != null && AuditCtrl.AuditPersonList != null)
+                        {
+                            canForward = AuditCtrl.AuditPersonList.Contains(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
+                        }
+                        else
+                        {
+                            canForward = strOwnerID == AuditCtrl.AuditEntity.CreateUserID;
+                        }
+                        if (!canForward)
                         {
                             strExceptionMsg = "禁止转发他人的单据";
 
                             ComfirmWindow.ConfirmationBox("转发异常：" + Utility.GetResourceStr("ERROR"), strExceptionMsg, Utility.GetResourceStr("CONFIRMBUTTON"));
                             return;
                         }
+                        //  转发 end
 
                         //选择转发的对象
                         SMT.SaaS.FrameworkUI.OrganizationControl.OrganizationLookup lookup = new SMT.SaaS.FrameworkUI.OrganizationControl.OrganizationLookup(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, "6", AuditCtrl.AuditEntity.ModelCode);
@@ -679,7 +690,7 @@ namespace SMT.SaaS.FrameworkUI
 
                             if (lookup.SelectedObj != null)
                             {
-
+                                ShowProgressBars();
                                 string strDBName = GetValueFromXMLObjectSource("Name", strXmlObjectSource);
                                 string strFormName = AuditCtrl.AuditEntity.ModelCode;
                                 string strModelId = AuditCtrl.AuditEntity.FormID;
@@ -706,6 +717,22 @@ namespace SMT.SaaS.FrameworkUI
                                         entPersonalRecord.ISFORWARD = "1";
                                         entPersonalRecord.ISVIEW = "0";
 
+                                        //　转发 start 
+                                        entPersonalRecord.FromOwnerID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                                        entPersonalRecord.FromOwnerName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
+
+                                        var userInfo = item;
+
+                                        SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj post = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)userInfo.ParentObject;
+                                        SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj dept = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)post.ParentObject;
+                                        SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY corp = (dept.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT).T_HR_COMPANY;
+                                        string postName = post.ObjectName;//岗位
+                                        string deptName = dept.ObjectName;//部门
+                                        string corpName = corp.CNAME;//公司
+                                        string StrEmployee = userInfo.ObjectName + "-" + post.ObjectName + "-" + dept.ObjectName + "-" + corp.CNAME;
+                                        entPersonalRecord.ToOwnerName = StrEmployee;
+                                        // 转发 end 
+
                                         entPersonalRecordList.Add(entPersonalRecord);
                                     }
                                 }
@@ -719,7 +746,9 @@ namespace SMT.SaaS.FrameworkUI
                                 {
                                     if (pe.Error == null)
                                     {
+                                        HideProgressBars();
                                         ComfirmWindow.ConfirmationBox("转发成功：", "单据转发成功！", Utility.GetResourceStr("CONFIRMBUTTON"));
+                                        BindAudit(); 
                                     }
                                     else
                                     {
@@ -905,7 +934,10 @@ namespace SMT.SaaS.FrameworkUI
             GenerateLeftMenu();
             GenerateToolBar();
             GenerateEntityTitle();
-
+            if (FormType == FormTypes.Resubmit)
+            {
+                AuditCtrl.RetSubmit = true;
+            }
             if (FormType == FormTypes.New || FormType == FormTypes.Edit)
             {
                 if (this.ParentWindow.IsNotNull())

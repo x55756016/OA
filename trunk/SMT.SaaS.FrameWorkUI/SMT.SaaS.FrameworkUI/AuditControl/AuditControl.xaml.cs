@@ -114,6 +114,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         private bool IsCanCancel = false;
         #region 属   性
         private IAuditService auditService = null;
+        
         private AuditAction currentAction;
         /// <summary>
         /// 当前审核流程记录详情
@@ -309,6 +310,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         /// </summary>
         public List<FLOW_FLOWRECORDDETAIL_T> AuditEntityList { get; set; }
         public List<FLOW_FLOWRECORDDETAIL_T> AllAuditEntityList { get; set; }
+        
         public IAuditService AuditService
         {
             get
@@ -319,6 +321,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
                     auditService.SubimtFlowCompleted += new EventHandler<SubimtFlowCompletedEventArgs>(auditService_SubimtFlowCompleted);
                     auditService.GetFlowInfoCompleted += new EventHandler<GetFlowInfoCompletedEventArgs>(auditService_GetFlowInfoCompleted);
+                    
                 }
                 return auditService;
             }
@@ -332,6 +335,9 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 }
             }
         }
+
+        
+
         // 1s 冉龙军
         // 定义服务Pclient及其提交打分事件
         public SMT.Saas.Tools.PerformanceWS.PerformanceServiceClient Pclient
@@ -1320,8 +1326,9 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             InitParameter();
            // GetIsFreeFlowAndIsCancel();
             AuditService.GetFlowInfoAsync(this.AuditEntity.FormID, "", "", "", this.AuditEntity.ModelCode,
-                                            "", "");
-
+                                           "", "");
+            // 获取转发列表
+            EngineService.GetForwardHistoryAsync(this.AuditEntity.ModelCode, this.AuditEntity.FormID);
         }
         void auditService_GetFlowInfoCompleted(object sender, GetFlowInfoCompletedEventArgs e)
         {
@@ -1422,7 +1429,6 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                             list.RemoveAt(list.Count - 1);
                             list.Add(temp);
                         }
-
                         var bol = RetSubmit;
                         if (bol)
                         {
@@ -1434,6 +1440,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                         {
                             GotoState(AuditFormViewState.End);
                         }
+                        
                         IsAuditUser = false;
                     }
                     //Modify by 安凯航 2011年5月21日
@@ -1513,6 +1520,9 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                     //end Modify.
 
                     #endregion
+
+                    // 转发
+                    this.AuditPersonList = AllAuditEntityList.Select(item => item.EDITUSERID).ToList();
                 }
                 else
                 {
@@ -2355,7 +2365,40 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
 
 
+        #region 转发列表
 
+        public List<string> AuditPersonList { get; set; }
+        public List<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> AllForwardHistoryList { get; set; }
+
+        private SMT.Saas.Tools.EngineWS.EngineWcfGlobalFunctionClient engineService = null;
+        private SMT.Saas.Tools.EngineWS.EngineWcfGlobalFunctionClient EngineService
+        {
+            get
+            {
+                if (engineService == null)
+                {
+                    engineService = new Saas.Tools.EngineWS.EngineWcfGlobalFunctionClient();
+                    engineService.GetForwardHistoryCompleted += new EventHandler<Saas.Tools.EngineWS.GetForwardHistoryCompletedEventArgs>(engineService_GetForwardHistoryCompleted);
+                }
+                return engineService;
+            }
+        }
+
+        void engineService_GetForwardHistoryCompleted(object sender, Saas.Tools.EngineWS.GetForwardHistoryCompletedEventArgs e)
+        {
+            if (e.Result != null)
+            {
+                this.AllForwardHistoryList = e.Result.ToList();
+                if (this.AllForwardHistoryList.Count > 0)
+                {
+                    this.ForwardHistoryListIC.ItemsSource = AllForwardHistoryList;
+                    this.ForwardHistoryListPnl.Visibility = System.Windows.Visibility.Visible;
+                }
+            }
+
+           
+        }
+        #endregion
 
 
     }
