@@ -35,7 +35,12 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
     TemplatePart(Name = "txtCreatorName", Type = typeof(TextBlock)),
     TemplatePart(Name = "txtCreateDate", Type = typeof(TextBlock))]
     public partial class AuditControl : UserControl
-    {      
+    {
+        /// <summary>
+        /// 是否重新提单
+        /// </summary>
+        public bool RetSubmit { get; set; }
+
         /// <summary>
         /// 审核操作
         /// </summary>
@@ -905,6 +910,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             //end /提交人(只帮别人提单的时候起作用,区分单据所属人)
             AuditSubmitData.ApprovalResult = (ApprovalResult)((int)action);// SMTWFTest.WcfFlowService.ApprovalResult.Pass;
             AuditService.SubimtFlowAsync(AuditSubmitData);
+            RetSubmit = false;
             // beyond 记录日志
             //submitStartTime = DateTime.Now;
         }
@@ -1417,7 +1423,17 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                             list.Add(temp);
                         }
 
-                        GotoState(AuditFormViewState.End);
+                        var bol = RetSubmit;
+                        if (bol)
+                        {
+                            //IsShowAuditTypePnl = true;
+                            //return;
+                            GotoState(AuditFormViewState.AuditStart);
+                        }
+                        else
+                        {
+                            GotoState(AuditFormViewState.End);
+                        }
                         IsAuditUser = false;
                     }
                     //Modify by 安凯航 2011年5月21日
